@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "audit-trail",
+  "type": "registry:ui",
+  "title": "AuditTrail",
+  "description": "Trust, consent, evidence, and audit: AuditTrail.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/audit-trail.tsx",
+      "type": "registry:component",
+      "content": "import { AuditTrail } from \"@mcpcn/react\"\nexport { AuditTrail }\n"
+    }
+  ],
+  "meta": {
+    "category": "trust",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/audit-trail"
+  }
+}

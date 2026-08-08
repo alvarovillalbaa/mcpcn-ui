@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "option-selector",
+  "type": "registry:ui",
+  "title": "OptionSelector",
+  "description": "Explainable option comparison and selection: OptionSelector.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/option-selector.tsx",
+      "type": "registry:component",
+      "content": "import { OptionSelector } from \"@mcpcn/react\"\nexport { OptionSelector }\n"
+    }
+  ],
+  "meta": {
+    "category": "decision",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/option-selector"
+  }
+}

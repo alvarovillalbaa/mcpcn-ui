@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "file-upload-and-extract",
+  "type": "registry:block",
+  "title": "File Upload And Extract",
+  "description": "Review a file and its extracted structured content.",
+  "dependencies": [
+    "@mcpcn/react",
+    "@mcpcn/runtime",
+    "@mcpcn/schemas"
+  ],
+  "registryDependencies": [
+    "file-review",
+    "document-preview",
+    "extracted-fields-review"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/blocks/file-upload-and-extract.tsx",
+      "type": "registry:component",
+      "content": "export const block = {\n  \"name\": \"file-upload-and-extract\",\n  \"description\": \"Review a file and its extracted structured content.\",\n  \"components\": [\n    \"file-review\",\n    \"document-preview\",\n    \"extracted-fields-review\"\n  ]\n} as const\n"
+    }
+  ],
+  "meta": {
+    "components": [
+      "file-review",
+      "document-preview",
+      "extracted-fields-review"
+    ],
+    "docs": "https://mcpcn.dev/blocks/file-upload-and-extract"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "validation-summary",
+  "type": "registry:ui",
+  "title": "ValidationSummary",
+  "description": "Structured output and evidence review: ValidationSummary.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/validation-summary.tsx",
+      "type": "registry:component",
+      "content": "import { ValidationSummary } from \"@mcpcn/react\"\nexport { ValidationSummary }\n"
+    }
+  ],
+  "meta": {
+    "category": "data-review",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/validation-summary"
+  }
+}

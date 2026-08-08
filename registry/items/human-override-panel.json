@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "human-override-panel",
+  "type": "registry:ui",
+  "title": "HumanOverridePanel",
+  "description": "Human review and approval for agent actions: HumanOverridePanel.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/human-override-panel.tsx",
+      "type": "registry:component",
+      "content": "export { HumanOverridePanel } from \"@mcpcn/react\"\n"
+    }
+  ],
+  "meta": {
+    "category": "approval",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [
+        "configuredTool"
+      ],
+      "destructive": true
+    },
+    "docs": "https://mcpcn.dev/components/human-override-panel"
+  }
+}

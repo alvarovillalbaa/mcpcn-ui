@@ -1,0 +1,29 @@
+{
+  "name": "mcpcn-ui",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.24.0",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "test": "turbo test",
+    "typecheck": "turbo typecheck",
+    "lint": "turbo lint",
+    "generate": "tsx tooling/generate.ts",
+    "check": "pnpm generate && pnpm typecheck && pnpm test && pnpm build",
+    "registry:build": "pnpm --filter @mcpcn/registry build",
+    "registry:validate": "pnpm --filter @mcpcn/registry test"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.31.1",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tsx": "^4.20.0",
+    "turbo": "^2.10.9",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
+  }
+}

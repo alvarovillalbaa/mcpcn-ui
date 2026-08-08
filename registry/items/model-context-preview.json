@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "model-context-preview",
+  "type": "registry:ui",
+  "title": "ModelContextPreview",
+  "description": "Trust, consent, evidence, and audit: ModelContextPreview.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/model-context-preview.tsx",
+      "type": "registry:component",
+      "content": "export { ModelContextPreview } from \"@mcpcn/react\"\n"
+    }
+  ],
+  "meta": {
+    "category": "trust",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/model-context-preview"
+  }
+}

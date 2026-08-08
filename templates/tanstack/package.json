@@ -1,0 +1,20 @@
+{
+  "name": "@mcpcn/template-tanstack",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@mcpcn/react": "workspace:*",
+    "@mcpcn/runtime": "workspace:*",
+    "react": "catalog:"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0"
+  }
+}

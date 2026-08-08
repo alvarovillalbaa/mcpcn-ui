@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "auth-required-card",
+  "type": "registry:ui",
+  "title": "AuthRequiredCard",
+  "description": "Resilient host and application state: AuthRequiredCard.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/auth-required-card.tsx",
+      "type": "registry:component",
+      "content": "export { AuthRequiredCard } from \"@mcpcn/react\"\n"
+    }
+  ],
+  "meta": {
+    "category": "host-state",
+    "security": {
+      "modelVisible": [],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/auth-required-card"
+  }
+}

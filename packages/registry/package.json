@@ -1,0 +1,11 @@
+{
+  "name": "@mcpcn/registry",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" }, "./catalog": { "types": "./dist/catalog.d.ts", "import": "./dist/catalog.js" } },
+  "files": ["dist"],
+  "bin": { "mcpcn-registry": "dist/bin.js" },
+  "scripts": { "build": "tsc -p tsconfig.json && node dist/bin.js build", "typecheck": "tsc -p tsconfig.json --noEmit", "test": "vitest run", "lint": "tsc -p tsconfig.json --noEmit" },
+  "dependencies": { "@mcpcn/core": "workspace:*" }
+}

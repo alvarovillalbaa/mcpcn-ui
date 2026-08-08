@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field-confidence-list",
+  "type": "registry:ui",
+  "title": "FieldConfidenceList",
+  "description": "Structured output and evidence review: FieldConfidenceList.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/field-confidence-list.tsx",
+      "type": "registry:component",
+      "content": "import { FieldConfidenceList } from \"@mcpcn/react\"\nexport { FieldConfidenceList }\n"
+    }
+  ],
+  "meta": {
+    "category": "data-review",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/field-confidence-list"
+  }
+}

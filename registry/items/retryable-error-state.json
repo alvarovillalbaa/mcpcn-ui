@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "retryable-error-state",
+  "type": "registry:ui",
+  "title": "RetryableErrorState",
+  "description": "Transparent tool execution and recovery: RetryableErrorState.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/retryable-error-state.tsx",
+      "type": "registry:component",
+      "content": "export { RetryableErrorState } from \"@mcpcn/react\"\n"
+    }
+  ],
+  "meta": {
+    "category": "tool-execution",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [
+        "configuredTool"
+      ],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/retryable-error-state"
+  }
+}

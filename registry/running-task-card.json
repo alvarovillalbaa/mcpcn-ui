@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "running-task-card",
+  "type": "registry:ui",
+  "title": "RunningTaskCard",
+  "description": "Transparent tool execution and recovery: RunningTaskCard.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/running-task-card.tsx",
+      "type": "registry:component",
+      "content": "import { RunningTaskCard } from \"@mcpcn/react\"\nexport { RunningTaskCard }\n"
+    }
+  ],
+  "meta": {
+    "category": "tool-execution",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [
+        "configuredTool"
+      ],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/running-task-card"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "schema-form",
+  "type": "registry:ui",
+  "title": "SchemaForm",
+  "description": "Schema-driven human input: SchemaForm.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/schema-form.tsx",
+      "type": "registry:component",
+      "content": "import { SchemaForm } from \"@mcpcn/react\"\nexport { SchemaForm }\n"
+    }
+  ],
+  "meta": {
+    "category": "forms",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/schema-form"
+  }
+}

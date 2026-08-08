@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "agent-generated-report-review",
+  "type": "registry:block",
+  "title": "agent-generated-report-review",
+  "description": "Review sources, conclusions, and publication intent.",
+  "dependencies": [
+    "@mcpcn/react",
+    "@mcpcn/runtime",
+    "@mcpcn/schemas",
+    "@mcpcn/server"
+  ],
+  "registryDependencies": [
+    "reasoning-summary",
+    "source-list",
+    "confirmation-panel"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/blocks/agent-generated-report-review.tsx",
+      "type": "registry:component",
+      "content": "export const block = {\n  \"name\": \"agent-generated-report-review\",\n  \"description\": \"Review sources, conclusions, and publication intent.\",\n  \"components\": [\n    \"reasoning-summary\",\n    \"source-list\",\n    \"confirmation-panel\"\n  ]\n} as const\n"
+    }
+  ],
+  "meta": {
+    "components": [
+      "reasoning-summary",
+      "source-list",
+      "confirmation-panel"
+    ],
+    "docs": "https://mcpcn.dev/blocks/agent-generated-report-review"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "offline-state",
+  "type": "registry:ui",
+  "title": "OfflineState",
+  "description": "Resilient host and application state: OfflineState.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/offline-state.tsx",
+      "type": "registry:component",
+      "content": "import { OfflineState } from \"@mcpcn/react\"\nexport { OfflineState }\n"
+    }
+  ],
+  "meta": {
+    "category": "host-state",
+    "security": {
+      "modelVisible": [],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/offline-state"
+  }
+}

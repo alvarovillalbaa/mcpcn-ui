@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "data-access-notice",
+  "type": "registry:ui",
+  "title": "DataAccessNotice",
+  "description": "Trust, consent, evidence, and audit: DataAccessNotice.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/data-access-notice.tsx",
+      "type": "registry:component",
+      "content": "export { DataAccessNotice } from \"@mcpcn/react\"\n"
+    }
+  ],
+  "meta": {
+    "category": "trust",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/data-access-notice"
+  }
+}

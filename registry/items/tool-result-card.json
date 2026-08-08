@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tool-result-card",
+  "type": "registry:ui",
+  "title": "ToolResultCard",
+  "description": "Transparent tool execution and recovery: ToolResultCard.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/tool-result-card.tsx",
+      "type": "registry:component",
+      "content": "export { ToolResultCard } from \"@mcpcn/react\"\n"
+    }
+  ],
+  "meta": {
+    "category": "tool-execution",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [
+        "configuredTool"
+      ],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/tool-result-card"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "entity-review-table",
+  "type": "registry:ui",
+  "title": "EntityReviewTable",
+  "description": "Structured output and evidence review: EntityReviewTable.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/entity-review-table.tsx",
+      "type": "registry:component",
+      "content": "export { EntityReviewTable } from \"@mcpcn/react\"\n"
+    }
+  ],
+  "meta": {
+    "category": "data-review",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/entity-review-table"
+  }
+}

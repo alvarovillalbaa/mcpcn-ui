@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "permission-denied-state",
+  "type": "registry:ui",
+  "title": "PermissionDeniedState",
+  "description": "Resilient host and application state: PermissionDeniedState.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/permission-denied-state.tsx",
+      "type": "registry:component",
+      "content": "export { PermissionDeniedState } from \"@mcpcn/react\"\n"
+    }
+  ],
+  "meta": {
+    "category": "host-state",
+    "security": {
+      "modelVisible": [],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/permission-denied-state"
+  }
+}

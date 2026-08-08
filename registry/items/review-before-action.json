@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "review-before-action",
+  "type": "registry:block",
+  "title": "review-before-action",
+  "description": "Review a planned external-state change before executing it.",
+  "dependencies": [
+    "@mcpcn/react",
+    "@mcpcn/runtime",
+    "@mcpcn/schemas",
+    "@mcpcn/server"
+  ],
+  "registryDependencies": [
+    "approval-card",
+    "diff-viewer",
+    "audit-trail"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/blocks/review-before-action.tsx",
+      "type": "registry:component",
+      "content": "export const block = {\n  \"name\": \"review-before-action\",\n  \"description\": \"Review a planned external-state change before executing it.\",\n  \"components\": [\n    \"approval-card\",\n    \"diff-viewer\",\n    \"audit-trail\"\n  ]\n} as const\n"
+    }
+  ],
+  "meta": {
+    "components": [
+      "approval-card",
+      "diff-viewer",
+      "audit-trail"
+    ],
+    "docs": "https://mcpcn.dev/blocks/review-before-action"
+  }
+}

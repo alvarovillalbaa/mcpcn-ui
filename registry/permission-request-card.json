@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "permission-request-card",
+  "type": "registry:ui",
+  "title": "PermissionRequestCard",
+  "description": "Human review and approval for agent actions: PermissionRequestCard.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/permission-request-card.tsx",
+      "type": "registry:component",
+      "content": "import { PermissionRequestCard } from \"@mcpcn/react\"\nexport { PermissionRequestCard }\n"
+    }
+  ],
+  "meta": {
+    "category": "approval",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [
+        "configuredTool"
+      ],
+      "destructive": true
+    },
+    "docs": "https://mcpcn.dev/components/permission-request-card"
+  }
+}

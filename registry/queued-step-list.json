@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "queued-step-list",
+  "type": "registry:ui",
+  "title": "QueuedStepList",
+  "description": "Transparent tool execution and recovery: QueuedStepList.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/queued-step-list.tsx",
+      "type": "registry:component",
+      "content": "import { QueuedStepList } from \"@mcpcn/react\"\nexport { QueuedStepList }\n"
+    }
+  ],
+  "meta": {
+    "category": "tool-execution",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [
+        "configuredTool"
+      ],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/queued-step-list"
+  }
+}

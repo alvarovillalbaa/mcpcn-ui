@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "score-breakdown",
+  "type": "registry:ui",
+  "title": "ScoreBreakdown",
+  "description": "Explainable option comparison and selection: ScoreBreakdown.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/score-breakdown.tsx",
+      "type": "registry:component",
+      "content": "import { ScoreBreakdown } from \"@mcpcn/react\"\nexport { ScoreBreakdown }\n"
+    }
+  ],
+  "meta": {
+    "category": "decision",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/score-breakdown"
+  }
+}

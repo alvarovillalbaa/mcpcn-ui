@@ -1,0 +1,21 @@
+{
+  "name": "@mcpcn/react",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "sideEffects": ["*.css"],
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+    "./styles.css": "./dist/styles.css",
+    "./*": { "types": "./dist/index.d.ts", "import": "./dist/index.js" }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && cp src/styles.css dist/styles.css",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "lint": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": { "@mcpcn/core": "workspace:*", "@mcpcn/runtime": "workspace:*", "@mcpcn/schemas": "workspace:*", "react": "catalog:", "zod": "catalog:" },
+  "peerDependencies": { "react-dom": ">=18" }
+}

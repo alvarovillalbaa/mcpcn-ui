@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty-state",
+  "type": "registry:ui",
+  "title": "EmptyState",
+  "description": "Accessible MCP App primitive: EmptyState.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/mcpcn/empty-state.tsx",
+      "type": "registry:component",
+      "content": "export { EmptyState } from \"@mcpcn/react\"\n"
+    }
+  ],
+  "meta": {
+    "category": "primitive",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/empty-state"
+  }
+}

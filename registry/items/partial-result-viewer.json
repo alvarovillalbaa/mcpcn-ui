@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "partial-result-viewer",
+  "type": "registry:ui",
+  "title": "PartialResultViewer",
+  "description": "Transparent tool execution and recovery: PartialResultViewer.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/partial-result-viewer.tsx",
+      "type": "registry:component",
+      "content": "export { PartialResultViewer } from \"@mcpcn/react\"\n"
+    }
+  ],
+  "meta": {
+    "category": "tool-execution",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [
+        "configuredTool"
+      ],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/partial-result-viewer"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "loading-bridge-state",
+  "type": "registry:ui",
+  "title": "LoadingBridgeState",
+  "description": "Resilient host and application state: LoadingBridgeState.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/loading-bridge-state.tsx",
+      "type": "registry:component",
+      "content": "import { LoadingBridgeState } from \"@mcpcn/react\"\nexport { LoadingBridgeState }\n"
+    }
+  ],
+  "meta": {
+    "category": "host-state",
+    "security": {
+      "modelVisible": [],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/loading-bridge-state"
+  }
+}

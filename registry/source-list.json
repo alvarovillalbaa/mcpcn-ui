@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "source-list",
+  "type": "registry:ui",
+  "title": "SourceList",
+  "description": "Trust, consent, evidence, and audit: SourceList.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/source-list.tsx",
+      "type": "registry:component",
+      "content": "import { SourceList } from \"@mcpcn/react\"\nexport { SourceList }\n"
+    }
+  ],
+  "meta": {
+    "category": "trust",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/source-list"
+  }
+}

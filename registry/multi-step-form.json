@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "multi-step-form",
+  "type": "registry:ui",
+  "title": "MultiStepForm",
+  "description": "Schema-driven human input: MultiStepForm.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/multi-step-form.tsx",
+      "type": "registry:component",
+      "content": "import { MultiStepForm } from \"@mcpcn/react\"\nexport { MultiStepForm }\n"
+    }
+  ],
+  "meta": {
+    "category": "forms",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/multi-step-form"
+  }
+}

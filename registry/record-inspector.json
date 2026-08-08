@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "record-inspector",
+  "type": "registry:ui",
+  "title": "RecordInspector",
+  "description": "Structured output and evidence review: RecordInspector.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/record-inspector.tsx",
+      "type": "registry:component",
+      "content": "import { RecordInspector } from \"@mcpcn/react\"\nexport { RecordInspector }\n"
+    }
+  ],
+  "meta": {
+    "category": "data-review",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/record-inspector"
+  }
+}

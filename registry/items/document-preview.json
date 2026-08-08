@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "document-preview",
+  "type": "registry:ui",
+  "title": "DocumentPreview",
+  "description": "Structured output and evidence review: DocumentPreview.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/document-preview.tsx",
+      "type": "registry:component",
+      "content": "export { DocumentPreview } from \"@mcpcn/react\"\n"
+    }
+  ],
+  "meta": {
+    "category": "data-review",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/document-preview"
+  }
+}

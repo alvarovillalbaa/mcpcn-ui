@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-change-review",
+  "type": "registry:block",
+  "title": "admin-change-review",
+  "description": "Review settings diffs, affected users, rollback, and approval.",
+  "dependencies": [
+    "@mcpcn/react",
+    "@mcpcn/runtime",
+    "@mcpcn/schemas",
+    "@mcpcn/server"
+  ],
+  "registryDependencies": [
+    "diff-viewer",
+    "data-access-notice",
+    "approval-card",
+    "audit-trail"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/blocks/admin-change-review.tsx",
+      "type": "registry:component",
+      "content": "export const block = {\n  \"name\": \"admin-change-review\",\n  \"description\": \"Review settings diffs, affected users, rollback, and approval.\",\n  \"components\": [\n    \"diff-viewer\",\n    \"data-access-notice\",\n    \"approval-card\",\n    \"audit-trail\"\n  ]\n} as const\n"
+    }
+  ],
+  "meta": {
+    "components": [
+      "diff-viewer",
+      "data-access-notice",
+      "approval-card",
+      "audit-trail"
+    ],
+    "docs": "https://mcpcn.dev/blocks/admin-change-review"
+  }
+}

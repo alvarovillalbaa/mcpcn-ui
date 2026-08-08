@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "approval-checklist",
+  "type": "registry:ui",
+  "title": "ApprovalChecklist",
+  "description": "Human review and approval for agent actions: ApprovalChecklist.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/approval-checklist.tsx",
+      "type": "registry:component",
+      "content": "export { ApprovalChecklist } from \"@mcpcn/react\"\n"
+    }
+  ],
+  "meta": {
+    "category": "approval",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [
+        "configuredTool"
+      ],
+      "destructive": true
+    },
+    "docs": "https://mcpcn.dev/components/approval-checklist"
+  }
+}

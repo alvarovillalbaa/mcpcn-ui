@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "collect-missing-data",
+  "type": "registry:block",
+  "title": "Collect Missing Data",
+  "description": "Ask only for fields an agent still needs.",
+  "dependencies": [
+    "@mcpcn/react",
+    "@mcpcn/runtime",
+    "@mcpcn/schemas"
+  ],
+  "registryDependencies": [
+    "schema-form",
+    "missing-data-request"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/blocks/collect-missing-data.tsx",
+      "type": "registry:component",
+      "content": "export const block = {\n  \"name\": \"collect-missing-data\",\n  \"description\": \"Ask only for fields an agent still needs.\",\n  \"components\": [\n    \"schema-form\",\n    \"missing-data-request\"\n  ]\n} as const\n"
+    }
+  ],
+  "meta": {
+    "components": [
+      "schema-form",
+      "missing-data-request"
+    ],
+    "docs": "https://mcpcn.dev/blocks/collect-missing-data"
+  }
+}

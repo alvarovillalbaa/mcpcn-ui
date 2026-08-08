@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "decision-memo",
+  "type": "registry:ui",
+  "title": "DecisionMemo",
+  "description": "Explainable option comparison and selection: DecisionMemo.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/decision-memo.tsx",
+      "type": "registry:component",
+      "content": "export { DecisionMemo } from \"@mcpcn/react\"\n"
+    }
+  ],
+  "meta": {
+    "category": "decision",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/decision-memo"
+  }
+}

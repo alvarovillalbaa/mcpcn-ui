@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "privacy-boundary-card",
+  "type": "registry:ui",
+  "title": "PrivacyBoundaryCard",
+  "description": "Trust, consent, evidence, and audit: PrivacyBoundaryCard.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/privacy-boundary-card.tsx",
+      "type": "registry:component",
+      "content": "export { PrivacyBoundaryCard } from \"@mcpcn/react\"\n"
+    }
+  ],
+  "meta": {
+    "category": "trust",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/privacy-boundary-card"
+  }
+}

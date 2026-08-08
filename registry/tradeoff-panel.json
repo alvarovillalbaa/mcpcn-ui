@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tradeoff-panel",
+  "type": "registry:ui",
+  "title": "TradeoffPanel",
+  "description": "Explainable option comparison and selection: TradeoffPanel.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/tradeoff-panel.tsx",
+      "type": "registry:component",
+      "content": "import { TradeoffPanel } from \"@mcpcn/react\"\nexport { TradeoffPanel }\n"
+    }
+  ],
+  "meta": {
+    "category": "decision",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/tradeoff-panel"
+  }
+}

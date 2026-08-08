@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "human-corrects-ai-output",
+  "type": "registry:block",
+  "title": "Human Corrects Ai Output",
+  "description": "Edit and validate structured agent output.",
+  "dependencies": [
+    "@mcpcn/react",
+    "@mcpcn/runtime",
+    "@mcpcn/schemas"
+  ],
+  "registryDependencies": [
+    "inline-edit-form",
+    "validation-summary"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/blocks/human-corrects-ai-output.tsx",
+      "type": "registry:component",
+      "content": "export const block = {\n  \"name\": \"human-corrects-ai-output\",\n  \"description\": \"Edit and validate structured agent output.\",\n  \"components\": [\n    \"inline-edit-form\",\n    \"validation-summary\"\n  ]\n} as const\n"
+    }
+  ],
+  "meta": {
+    "components": [
+      "inline-edit-form",
+      "validation-summary"
+    ],
+    "docs": "https://mcpcn.dev/blocks/human-corrects-ai-output"
+  }
+}

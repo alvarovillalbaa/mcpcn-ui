@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "comparison-matrix",
+  "type": "registry:ui",
+  "title": "ComparisonMatrix",
+  "description": "Explainable option comparison and selection: ComparisonMatrix.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/comparison-matrix.tsx",
+      "type": "registry:component",
+      "content": "export { ComparisonMatrix } from \"@mcpcn/react\"\n"
+    }
+  ],
+  "meta": {
+    "category": "decision",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/comparison-matrix"
+  }
+}

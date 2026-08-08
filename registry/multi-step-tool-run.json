@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "multi-step-tool-run",
+  "type": "registry:block",
+  "title": "Multi Step Tool Run",
+  "description": "Track a recoverable multi-step tool workflow.",
+  "dependencies": [
+    "@mcpcn/react",
+    "@mcpcn/runtime",
+    "@mcpcn/schemas"
+  ],
+  "registryDependencies": [
+    "tool-progress-timeline",
+    "retryable-error-state"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/blocks/multi-step-tool-run.tsx",
+      "type": "registry:component",
+      "content": "export const block = {\n  \"name\": \"multi-step-tool-run\",\n  \"description\": \"Track a recoverable multi-step tool workflow.\",\n  \"components\": [\n    \"tool-progress-timeline\",\n    \"retryable-error-state\"\n  ]\n} as const\n"
+    }
+  ],
+  "meta": {
+    "components": [
+      "tool-progress-timeline",
+      "retryable-error-state"
+    ],
+    "docs": "https://mcpcn.dev/blocks/multi-step-tool-run"
+  }
+}

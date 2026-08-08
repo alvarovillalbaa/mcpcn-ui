@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "before-submit-confirmation",
+  "type": "registry:ui",
+  "title": "BeforeSubmitConfirmation",
+  "description": "Human review and approval for agent actions: BeforeSubmitConfirmation.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/before-submit-confirmation.tsx",
+      "type": "registry:component",
+      "content": "export { BeforeSubmitConfirmation } from \"@mcpcn/react\"\n"
+    }
+  ],
+  "meta": {
+    "category": "approval",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [
+        "configuredTool"
+      ],
+      "destructive": true
+    },
+    "docs": "https://mcpcn.dev/components/before-submit-confirmation"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "inline-edit-form",
+  "type": "registry:ui",
+  "title": "InlineEditForm",
+  "description": "Schema-driven human input: InlineEditForm.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/inline-edit-form.tsx",
+      "type": "registry:component",
+      "content": "export { InlineEditForm } from \"@mcpcn/react\"\n"
+    }
+  ],
+  "meta": {
+    "category": "forms",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/inline-edit-form"
+  }
+}

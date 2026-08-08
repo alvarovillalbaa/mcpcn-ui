@@ -1,0 +1,2 @@
+import {describe,expect,it} from "vitest";import{createPayload,isMCPCNPayload}from"./index.js";
+describe("MCPCN envelope",()=>{it("creates a versioned namespaced payload",()=>{const value=createPayload("approval-card",{title:"Review"});expect(value.kind).toBe("mcpcn/approval-card");expect(isMCPCNPayload(value)).toBe(true)});it("rejects arbitrary objects",()=>expect(isMCPCNPayload({kind:"other",version:1,data:{}})).toBe(false))});

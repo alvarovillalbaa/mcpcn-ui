@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "destructive-action-guard",
+  "type": "registry:ui",
+  "title": "DestructiveActionGuard",
+  "description": "Human review and approval for agent actions: DestructiveActionGuard.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/destructive-action-guard.tsx",
+      "type": "registry:component",
+      "content": "import { DestructiveActionGuard } from \"@mcpcn/react\"\nexport { DestructiveActionGuard }\n"
+    }
+  ],
+  "meta": {
+    "category": "approval",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [
+        "configuredTool"
+      ],
+      "destructive": true
+    },
+    "docs": "https://mcpcn.dev/components/destructive-action-guard"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "no-data-state",
+  "type": "registry:ui",
+  "title": "NoDataState",
+  "description": "Resilient host and application state: NoDataState.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/no-data-state.tsx",
+      "type": "registry:component",
+      "content": "export { NoDataState } from \"@mcpcn/react\"\n"
+    }
+  ],
+  "meta": {
+    "category": "host-state",
+    "security": {
+      "modelVisible": [],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/no-data-state"
+  }
+}

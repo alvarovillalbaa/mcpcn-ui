@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "consent-panel",
+  "type": "registry:ui",
+  "title": "ConsentPanel",
+  "description": "Trust, consent, evidence, and audit: ConsentPanel.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/consent-panel.tsx",
+      "type": "registry:component",
+      "content": "import { ConsentPanel } from \"@mcpcn/react\"\nexport { ConsentPanel }\n"
+    }
+  ],
+  "meta": {
+    "category": "trust",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/consent-panel"
+  }
+}

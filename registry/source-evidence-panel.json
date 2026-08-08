@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "source-evidence-panel",
+  "type": "registry:ui",
+  "title": "SourceEvidencePanel",
+  "description": "Structured output and evidence review: SourceEvidencePanel.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/source-evidence-panel.tsx",
+      "type": "registry:component",
+      "content": "import { SourceEvidencePanel } from \"@mcpcn/react\"\nexport { SourceEvidencePanel }\n"
+    }
+  ],
+  "meta": {
+    "category": "data-review",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/source-evidence-panel"
+  }
+}

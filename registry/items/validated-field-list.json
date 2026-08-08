@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "validated-field-list",
+  "type": "registry:ui",
+  "title": "ValidatedFieldList",
+  "description": "Schema-driven human input: ValidatedFieldList.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/validated-field-list.tsx",
+      "type": "registry:component",
+      "content": "export { ValidatedFieldList } from \"@mcpcn/react\"\n"
+    }
+  ],
+  "meta": {
+    "category": "forms",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/validated-field-list"
+  }
+}

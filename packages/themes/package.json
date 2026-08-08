@@ -1,0 +1,10 @@
+{
+  "name": "@mcpcn/themes",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "sideEffects": ["*.css"],
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" }, "./default.css": "./dist/default.css" },
+  "files": ["dist"],
+  "scripts": { "build": "tsc -p tsconfig.json && cp src/default.css dist/default.css", "typecheck": "tsc -p tsconfig.json --noEmit", "test": "vitest run --passWithNoTests", "lint": "tsc -p tsconfig.json --noEmit" }
+}

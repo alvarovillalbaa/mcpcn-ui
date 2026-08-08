@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "compare-options-approve",
+  "type": "registry:block",
+  "title": "Compare Options Approve",
+  "description": "Compare options with evidence and approve the final choice.",
+  "dependencies": [
+    "@mcpcn/react",
+    "@mcpcn/runtime",
+    "@mcpcn/schemas"
+  ],
+  "registryDependencies": [
+    "comparison-matrix",
+    "score-breakdown",
+    "approval-card"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/blocks/compare-options-approve.tsx",
+      "type": "registry:component",
+      "content": "export const block = {\n  \"name\": \"compare-options-approve\",\n  \"description\": \"Compare options with evidence and approve the final choice.\",\n  \"components\": [\n    \"comparison-matrix\",\n    \"score-breakdown\",\n    \"approval-card\"\n  ]\n} as const\n"
+    }
+  ],
+  "meta": {
+    "components": [
+      "comparison-matrix",
+      "score-breakdown",
+      "approval-card"
+    ],
+    "docs": "https://mcpcn.dev/blocks/compare-options-approve"
+  }
+}

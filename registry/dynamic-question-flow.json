@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dynamic-question-flow",
+  "type": "registry:ui",
+  "title": "DynamicQuestionFlow",
+  "description": "Schema-driven human input: DynamicQuestionFlow.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/dynamic-question-flow.tsx",
+      "type": "registry:component",
+      "content": "import { DynamicQuestionFlow } from \"@mcpcn/react\"\nexport { DynamicQuestionFlow }\n"
+    }
+  ],
+  "meta": {
+    "category": "forms",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/dynamic-question-flow"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "missing-data-request",
+  "type": "registry:ui",
+  "title": "MissingDataRequest",
+  "description": "Schema-driven human input: MissingDataRequest.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/missing-data-request.tsx",
+      "type": "registry:component",
+      "content": "import { MissingDataRequest } from \"@mcpcn/react\"\nexport { MissingDataRequest }\n"
+    }
+  ],
+  "meta": {
+    "category": "forms",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/missing-data-request"
+  }
+}

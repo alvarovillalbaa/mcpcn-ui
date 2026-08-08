@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "extract-review-save",
+  "type": "registry:block",
+  "title": "Extract Review Save",
+  "description": "Review extracted fields, evidence, and corrections before saving.",
+  "dependencies": [
+    "@mcpcn/react",
+    "@mcpcn/runtime",
+    "@mcpcn/schemas"
+  ],
+  "registryDependencies": [
+    "extracted-fields-review",
+    "source-evidence-panel",
+    "approval-card"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/blocks/extract-review-save.tsx",
+      "type": "registry:component",
+      "content": "export const block = {\n  \"name\": \"extract-review-save\",\n  \"description\": \"Review extracted fields, evidence, and corrections before saving.\",\n  \"components\": [\n    \"extracted-fields-review\",\n    \"source-evidence-panel\",\n    \"approval-card\"\n  ]\n} as const\n"
+    }
+  ],
+  "meta": {
+    "components": [
+      "extracted-fields-review",
+      "source-evidence-panel",
+      "approval-card"
+    ],
+    "docs": "https://mcpcn.dev/blocks/extract-review-save"
+  }
+}

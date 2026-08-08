@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "conflict-resolver",
+  "type": "registry:ui",
+  "title": "ConflictResolver",
+  "description": "Structured output and evidence review: ConflictResolver.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/conflict-resolver.tsx",
+      "type": "registry:component",
+      "content": "import { ConflictResolver } from \"@mcpcn/react\"\nexport { ConflictResolver }\n"
+    }
+  ],
+  "meta": {
+    "category": "data-review",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/conflict-resolver"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "expired-session-state",
+  "type": "registry:ui",
+  "title": "ExpiredSessionState",
+  "description": "Resilient host and application state: ExpiredSessionState.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/expired-session-state.tsx",
+      "type": "registry:component",
+      "content": "import { ExpiredSessionState } from \"@mcpcn/react\"\nexport { ExpiredSessionState }\n"
+    }
+  ],
+  "meta": {
+    "category": "host-state",
+    "security": {
+      "modelVisible": [],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/expired-session-state"
+  }
+}

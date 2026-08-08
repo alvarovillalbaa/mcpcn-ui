@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tool-progress-timeline",
+  "type": "registry:ui",
+  "title": "ToolProgressTimeline",
+  "description": "Transparent tool execution and recovery: ToolProgressTimeline.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/tool-progress-timeline.tsx",
+      "type": "registry:component",
+      "content": "export { ToolProgressTimeline } from \"@mcpcn/react\"\n"
+    }
+  ],
+  "meta": {
+    "category": "tool-execution",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [
+        "configuredTool"
+      ],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/tool-progress-timeline"
+  }
+}

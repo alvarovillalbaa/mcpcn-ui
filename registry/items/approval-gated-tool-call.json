@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "approval-gated-tool-call",
+  "type": "registry:block",
+  "title": "approval-gated-tool-call",
+  "description": "Require explicit consent before an app-only tool call.",
+  "dependencies": [
+    "@mcpcn/react",
+    "@mcpcn/runtime",
+    "@mcpcn/schemas",
+    "@mcpcn/server"
+  ],
+  "registryDependencies": [
+    "destructive-action-guard",
+    "tool-call-card"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/blocks/approval-gated-tool-call.tsx",
+      "type": "registry:component",
+      "content": "export const block = {\n  \"name\": \"approval-gated-tool-call\",\n  \"description\": \"Require explicit consent before an app-only tool call.\",\n  \"components\": [\n    \"destructive-action-guard\",\n    \"tool-call-card\"\n  ]\n} as const\n"
+    }
+  ],
+  "meta": {
+    "components": [
+      "destructive-action-guard",
+      "tool-call-card"
+    ],
+    "docs": "https://mcpcn.dev/blocks/approval-gated-tool-call"
+  }
+}

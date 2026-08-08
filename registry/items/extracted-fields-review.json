@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "extracted-fields-review",
+  "type": "registry:ui",
+  "title": "ExtractedFieldsReview",
+  "description": "Structured output and evidence review: ExtractedFieldsReview.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/extracted-fields-review.tsx",
+      "type": "registry:component",
+      "content": "export { ExtractedFieldsReview } from \"@mcpcn/react\"\n"
+    }
+  ],
+  "meta": {
+    "category": "data-review",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/extracted-fields-review"
+  }
+}

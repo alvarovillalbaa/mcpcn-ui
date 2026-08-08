@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table-bulk-action-review",
+  "type": "registry:block",
+  "title": "table-bulk-action-review",
+  "description": "Show affected rows and impact before a bulk action.",
+  "dependencies": [
+    "@mcpcn/react",
+    "@mcpcn/runtime",
+    "@mcpcn/schemas",
+    "@mcpcn/server"
+  ],
+  "registryDependencies": [
+    "entity-review-table",
+    "risk-review-panel",
+    "approval-card"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/blocks/table-bulk-action-review.tsx",
+      "type": "registry:component",
+      "content": "export const block = {\n  \"name\": \"table-bulk-action-review\",\n  \"description\": \"Show affected rows and impact before a bulk action.\",\n  \"components\": [\n    \"entity-review-table\",\n    \"risk-review-panel\",\n    \"approval-card\"\n  ]\n} as const\n"
+    }
+  ],
+  "meta": {
+    "components": [
+      "entity-review-table",
+      "risk-review-panel",
+      "approval-card"
+    ],
+    "docs": "https://mcpcn.dev/blocks/table-bulk-action-review"
+  }
+}

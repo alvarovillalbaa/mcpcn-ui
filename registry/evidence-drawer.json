@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "evidence-drawer",
+  "type": "registry:ui",
+  "title": "EvidenceDrawer",
+  "description": "Trust, consent, evidence, and audit: EvidenceDrawer.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/evidence-drawer.tsx",
+      "type": "registry:component",
+      "content": "import { EvidenceDrawer } from \"@mcpcn/react\"\nexport { EvidenceDrawer }\n"
+    }
+  ],
+  "meta": {
+    "category": "trust",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/evidence-drawer"
+  }
+}

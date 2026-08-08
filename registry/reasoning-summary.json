@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "reasoning-summary",
+  "type": "registry:ui",
+  "title": "ReasoningSummary",
+  "description": "Trust, consent, evidence, and audit: ReasoningSummary.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/reasoning-summary.tsx",
+      "type": "registry:component",
+      "content": "import { ReasoningSummary } from \"@mcpcn/react\"\nexport { ReasoningSummary }\n"
+    }
+  ],
+  "meta": {
+    "category": "trust",
+    "security": {
+      "modelVisible": [
+        "decision",
+        "userInput"
+      ],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/reasoning-summary"
+  }
+}

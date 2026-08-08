@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "unsupported-host-notice",
+  "type": "registry:ui",
+  "title": "UnsupportedHostNotice",
+  "description": "Resilient host and application state: UnsupportedHostNotice.",
+  "dependencies": [
+    "@mcpcn/core",
+    "@mcpcn/schemas",
+    "react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "components/mcpcn/unsupported-host-notice.tsx",
+      "type": "registry:component",
+      "content": "import { UnsupportedHostNotice } from \"@mcpcn/react\"\nexport { UnsupportedHostNotice }\n"
+    }
+  ],
+  "meta": {
+    "category": "host-state",
+    "security": {
+      "modelVisible": [],
+      "privateOnly": [
+        "internalId",
+        "rawPII"
+      ],
+      "callsTools": [],
+      "destructive": false
+    },
+    "docs": "https://mcpcn.dev/components/unsupported-host-notice"
+  }
+}
