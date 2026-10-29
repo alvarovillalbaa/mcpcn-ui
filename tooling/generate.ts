@@ -1,29 +1,26 @@
-import { mkdir, writeFile } from "node:fs/promises";
-import { resolve } from "node:path";
-import { blockCatalog, catalog, exampleCatalog } from "../packages/registry/src/catalog.ts";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { dirname, resolve } from "node:path";
+import { blockCatalog, catalog } from "../packages/registry/src/catalog.ts";
+import { configSchema, defaultConfig, renderProvider } from "../packages/registry/src/installation.ts";
+import { buildSourceRegistry } from "../packages/registry/src/source-registry.ts";
 
 const root=resolve(import.meta.dirname,"..");
-async function write(path:string,content:string){const target=resolve(root,path);await mkdir(resolve(target,".."),{recursive:true});await writeFile(target,content)}
+const {registry,items}=await buildSourceRegistry({catalog,blockCatalog,readSource:path=>readFile(resolve(root,path),"utf8"),providerSource:renderProvider(defaultConfig)});
 const json=(value:unknown)=>JSON.stringify(value,null,2)+"\n";
-
-for(const item of catalog){
-  await write(`registry/items/${item.slug}.json`,json({$schema:"https://ui.shadcn.com/schema/registry-item.json",name:item.slug,type:"registry:ui",title:item.name,description:item.description,dependencies:item.dependencies,registryDependencies:item.registryDependencies,files:[{path:`components/mcpcn/${item.slug}.tsx`,type:"registry:component",content:`export { ${item.name} } from "@mcpcn/react"\n`}],meta:{category:item.category,security:item.security,docs:`https://mcpcn.dev/components/${item.slug}`}}));
+async function writeText(path:string,value:string) {
+  const target=resolve(root,path);
+  await mkdir(dirname(target),{recursive:true});
+  await writeFile(target,value);
 }
-for(const block of blockCatalog){
-  await write(`registry/items/${block.name}.json`,json({$schema:"https://ui.shadcn.com/schema/registry-item.json",name:block.name,type:"registry:block",title:block.name,description:block.description,dependencies:["@mcpcn/react","@mcpcn/runtime","@mcpcn/schemas","@mcpcn/server"],registryDependencies:block.components,files:[{path:`components/mcpcn/blocks/${block.name}.tsx`,type:"registry:component",content:`export const block = ${JSON.stringify(block,null,2)} as const\n`}],meta:{components:block.components,docs:`https://mcpcn.dev/blocks/${block.name}`}}));
+const write=(path:string,value:unknown)=>writeText(path,json(value));
+await write("registry/registry.json",registry);
+await write("registry/config.schema.json",configSchema);
+for(const item of items) {
+  await write(`registry/${item.name}.json`,item);
+  await write(`registry/items/${item.name}.json`,item);
 }
-await write("registry/registry.json",json({$schema:"https://ui.shadcn.com/schema/registry.json",name:"mcpcn",homepage:"https://mcpcn.dev",items:[...catalog.map(({name,slug,description,dependencies,registryDependencies,category})=>({name:slug,type:"registry:ui",title:name,description,dependencies,registryDependencies,meta:{category}})),...blockCatalog.map(block=>({name:block.name,type:"registry:block",title:block.name,description:block.description,registryDependencies:block.components}))]}));
-
-const exampleData:Record<string,{title:string;component:string;fixture:string}>={
-  "hr-candidate-review":{title:"HR candidate review",component:"ApprovalCard",fixture:`{ title: "Recommend Maya Chen?", description: "Evidence-backed shortlist recommendation.", riskLevel: "medium", actionLabel: "Approve recommendation", changes: [{ label: "Candidate status", before: "Screening", after: "Recommended", confidence: .82 }] }`},
-  "document-extraction":{title:"Document extraction review",component:"EntityReviewTable",fixture:`{ title: "Review extracted invoice", columns: [{key:"field",label:"Field"},{key:"value",label:"Value"}], rows: [{id:"1",values:{field:"Invoice total",value:"€4,820"},confidence:.96}], actionLabel:"Save corrections" }`},
-  "ecommerce-checkout-review":{title:"Ecommerce checkout review",component:"ApprovalCard",fixture:`{ title: "Place this order?", description: "The card will be charged immediately.", riskLevel: "high", actionLabel: "Pay €249", changes: [{label:"Order",after:"3 items · €249"},{label:"Shipping",after:"Calle Mayor 12"}], requiresExplicitConsent:true }`},
-  "admin-settings-change":{title:"Admin settings change",component:"ApprovalCard",fixture:`{ title: "Disable SSO enforcement?", description: "This affects 842 workspace members.", riskLevel: "critical", actionLabel: "Disable SSO", changes: [{label:"SSO enforcement",before:"Required",after:"Optional",affectedCount:842}], requiresExplicitConsent:true, rollback:"Re-enable in workspace security settings." }`},
-  "research-workflow":{title:"Research workflow",component:"ToolProgressTimeline",fixture:`{ title: "Research the market", steps: [{id:"1",label:"Gather primary sources",status:"succeeded"},{id:"2",label:"Verify claims",status:"running"},{id:"3",label:"Draft memo",status:"queued"}] }`}
-};
-for(const name of exampleCatalog){const ex=exampleData[name];await write(`examples/${name}/package.json`,json({name:`@mcpcn/example-${name}`,version:"0.1.0",private:true,type:"module",scripts:{build:"tsc --noEmit",typecheck:"tsc --noEmit",test:"vitest run --passWithNoTests",lint:"tsc --noEmit"},dependencies:{"@mcpcn/react":"workspace:*",react:"catalog:"},devDependencies:{"@types/react":"^19.0.0"}}));await write(`examples/${name}/tsconfig.json`,json({extends:"../../tsconfig.json",compilerOptions:{noEmit:true},include:["src"]}));await write(`examples/${name}/src/app.tsx`,`import { ${ex.component} } from "@mcpcn/react";\ntype Fixture = Omit<Parameters<typeof ${ex.component}>[0], "onAction" | "className" | "busy">;\nexport const fixture: Fixture = ${ex.fixture};\nexport function App(){ return <${ex.component} {...fixture} onAction={(action) => console.info("${name}", action)} /> }\n`);await write(`examples/${name}/README.md`,`# ${ex.title}\n\nEnd-to-end MCPCN reference workflow with structured fixture, React review surface, typed user action, and server integration point.\n`)}
-
-const templates:Record<string,string>={next:"Next.js App Router",vite:"Vite React",remix:"React Router Framework Mode (Remix successor)",tanstack:"TanStack Start"};
-for(const [name,title] of Object.entries(templates)){await write(`templates/${name}/package.json`,json({name:`@mcpcn/template-${name}`,version:"0.1.0",private:true,type:"module",scripts:{build:"tsc --noEmit",typecheck:"tsc --noEmit",test:"vitest run --passWithNoTests",lint:"tsc --noEmit"},dependencies:{"@mcpcn/react":"workspace:*","@mcpcn/runtime":"workspace:*",react:"catalog:"},devDependencies:{"@types/react":"^19.0.0"}}));await write(`templates/${name}/tsconfig.json`,json({extends:"../../tsconfig.json",compilerOptions:{noEmit:true},include:["src"]}));await write(`templates/${name}/src/integration.tsx`,`import { AgentAppProvider } from "@mcpcn/runtime";\nimport { ApprovalCard } from "@mcpcn/react";\nexport function MCPCNIntegration(){return <AgentAppProvider><ApprovalCard title="Review action" riskLevel="medium" actionLabel="Approve" changes={[]} /></AgentAppProvider>}\n`);await write(`templates/${name}/README.md`,`# ${title} compatibility fixture\n\nReference integration for mounting MCPCN inside an existing ${title} application. It is a compatibility fixture, not a project scaffolder.\n`)}
-
-console.log(`Generated ${catalog.length} components, ${blockCatalog.length} blocks, ${exampleCatalog.length} examples, and ${Object.keys(templates).length} compatibility fixtures.`);
+const license=await readFile(resolve(root,"LICENSE"),"utf8");
+for(const name of ["core","schemas","runtime","react","themes","registry","cli"]) {
+  await writeText(`packages/${name}/LICENSE`,license);
+}
+console.log(`Generated ${items.length} source registry items; examples and templates were preserved.`);

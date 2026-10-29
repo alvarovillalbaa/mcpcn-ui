@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MCPCN TypeScript installation configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "const": "https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/main/registry/config.schema.json"
+    },
+    "mode": {
+      "enum": [
+        "copy",
+        "package"
+      ]
+    },
+    "style": {
+      "enum": [
+        "default",
+        "graphite",
+        "violet"
+      ]
+    },
+    "host": {
+      "enum": [
+        "auto",
+        "standard-mcp",
+        "openai"
+      ]
+    },
+    "typescript": {
+      "const": true
+    },
+    "componentsDir": {
+      "type": "string",
+      "maxLength": 240,
+      "pattern": "^(?:[A-Za-z0-9_-]+\\/)*[A-Za-z0-9_-]+$",
+      "not": {
+        "pattern": "(?:^|/)(?:[nN][oO][dD][eE]_[mM][oO][dD][uU][lL][eE][sS]|[vV][eE][nN][dD][oO][rR]|[dD][iI][sS][tT]|[bB][uU][iI][lL][dD])(?:/|$)"
+      }
+    },
+    "registry": {
+      "type": "string",
+      "maxLength": 2048,
+      "format": "uri",
+      "pattern": "^(?:https?://[^\\s/@?#]+(?:/[^\\s?#]*)?|file://(?:localhost)?/[^\\s?#]+)$"
+    },
+    "packageManager": {
+      "enum": [
+        "npm",
+        "pnpm",
+        "bun"
+      ]
+    }
+  },
+  "required": [
+    "$schema",
+    "mode",
+    "style",
+    "host",
+    "typescript",
+    "componentsDir",
+    "registry",
+    "packageManager"
+  ]
+}

@@ -1,1 +1,3 @@
-import {blockCatalog,catalog} from "@mcpcn/registry/catalog";export function GET(){return Response.json({$schema:"https://ui.shadcn.com/schema/registry.json",name:"mcpcn",homepage:"https://mcpcn.dev",items:[...catalog.map(i=>({name:i.slug,type:"registry:ui",title:i.name,description:i.description,dependencies:i.dependencies,registryDependencies:i.registryDependencies})),...blockCatalog.map(i=>({name:i.name,type:"registry:block",title:i.name,description:i.description,registryDependencies:i.components}))]})}
+import registry from "../../../../../registry/registry.json";
+
+export function GET() { return Response.json(registry); }

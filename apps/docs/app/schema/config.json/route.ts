@@ -1,1 +1,5 @@
-export function GET(){return Response.json({$schema:"https://json-schema.org/draft/2020-12/schema",title:"MCPCN config",type:"object",properties:{style:{enum:["default","graphite","violet"]},mode:{enum:["package","copy"]},componentsDir:{type:"string"},registry:{type:"string",format:"uri"},host:{enum:["auto","standard-mcp","openai"]},typescript:{type:"boolean"}},required:["style","mode","componentsDir","registry","host","typescript"],additionalProperties:false})}
+import { configSchema } from "@mcpcn/registry/installation";
+
+export function GET() {
+  return Response.json(configSchema);
+}
