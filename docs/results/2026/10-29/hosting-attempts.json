@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "project": {
+    "id": "prj_cnLeaJNJjMZac7HpqsKw2jhIAQsW",
+    "name": "mcpcn-ui",
+    "team_id": "team_JpdIsOJgYNpX0ywVZ54Zdb7m",
+    "repo_id_filter_matches_after_creation": 0
+  },
+  "attempts": [
+    {
+      "deployment_id": "dpl_Ge5XwyRmjtYRWRQXhPM1HLR84eDq",
+      "source_commit": "3bdb5f05c5f86904c4f48e0f5ce06b1245fd7a09",
+      "state": "ERROR",
+      "target": "production",
+      "url": "https://mcpcn-dj9m2brw6-my-team-4f230354.vercel.app",
+      "events": [
+        {
+          "created": 1793304480543,
+          "date": 1793304480543,
+          "type": "stdout",
+          "text": " Failed:    @mcpcn/registry#build",
+          "info": {
+            "type": "build",
+            "name": "bld_aejca2rpa",
+            "entrypoint": "."
+          }
+        },
+        {
+          "created": 1793304480543,
+          "date": 1793304480543,
+          "type": "stdout",
+          "text": "  Tasks:    1 successful, 4 total",
+          "info": {
+            "type": "build",
+            "name": "bld_aejca2rpa",
+            "entrypoint": "."
+          }
+        },
+        {
+          "created": 1793304480275,
+          "date": 1793304480275,
+          "type": "stdout",
+          "text": "@mcpcn/registry:build: src/source-registry.ts(73,142): error TS7006: Parameter 'name' implicitly has an 'any' type.",
+          "level": "error",
+          "info": {
+            "type": "build",
+            "name": "bld_aejca2rpa",
+            "entrypoint": "."
+          }
+        },
+        {
+          "created": 1793304474139,
+          "date": 1793304474139,
+          "type": "stdout",
+          "text": "│   Ignored build scripts: esbuild.                                            │",
+          "info": {
+            "type": "build",
+            "name": "bld_aejca2rpa",
+            "entrypoint": "."
+          }
+        },
+        {
+          "created": 1793304463054,
+          "date": 1793304463054,
+          "type": "stdout",
+          "text": "Running \"install\" command: `pnpm install --frozen-lockfile`...",
+          "info": {
+            "type": "build",
+            "name": "bld_aejca2rpa",
+            "entrypoint": "."
+          }
+        },
+        {
+          "created": 1793304461960,
+          "date": 1793304461960,
+          "type": "stdout",
+          "text": "Cloning github.com/alvarovillalbaa/mcpcn-ui (Branch: 3bdb5f05c5f86904c4f48e0f5ce06b1245fd7a09, Commit: 3bdb5f0)",
+          "info": {
+            "type": "build",
+            "name": "bld_aejca2rpa",
+            "entrypoint": "."
+          }
+        },
+        {
+          "created": 1793304461841,
+          "date": 1793304461841,
+          "type": "stdout",
+          "text": "Build machine configuration: 2 cores, 8 GB",
+          "info": {
+            "type": "build",
+            "name": "bld_aejca2rpa",
+            "entrypoint": "."
+          }
+        }
+      ],
+      "target_request": "omitted, intending preview",
+      "cancellation": "Attempted, but observation aborted; subsequent authoritative readback was ERROR, not confirmed CANCELED.",
+      "repair": "Annotate registry block component callback parameter as string; erased type only."
+    }
+  ],
+  "limits": [
+    "Project is not live. No test suite, browser, npm publication or promotion was run. Default deployment SSO protection was preserved.",
+    "Provider build is part of authorized initial hosting, separate from pending temporary CI and unit/SSR/consumer scope."
+  ]
+}

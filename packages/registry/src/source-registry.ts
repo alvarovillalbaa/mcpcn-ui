@@ -70,7 +70,7 @@ export async function buildSourceRegistry({catalog,blockCatalog,readSource,provi
   }
   const componentNames=new Set(catalog.map(item=>item.slug));
   for(const block of blockCatalog) {
-    if(!slug(block.name) || !block.description?.trim() || names.has(block.name) || !Array.isArray(block.components) || block.components.some(name=>!componentNames.has(name))) fail();
+    if(!slug(block.name) || !block.description?.trim() || names.has(block.name) || !Array.isArray(block.components) || block.components.some((name:string)=>!componentNames.has(name))) fail();
     names.add(block.name);
   }
   const sourcePaths=[...SOURCES.map(([path])=>path),"packages/react/src/styles.css","packages/themes/src/default.css","LICENSE",...(blockCatalog.length?["packages/react/src/blocks.tsx"]:[])];
