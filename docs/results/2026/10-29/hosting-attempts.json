@@ -96,6 +96,104 @@
       "target_request": "omitted, intending preview",
       "cancellation": "Attempted, but observation aborted; subsequent authoritative readback was ERROR, not confirmed CANCELED.",
       "repair": "Annotate registry block component callback parameter as string; erased type only."
+    },
+    {
+      "deployment_id": "dpl_GFDvmL6gWgxgWxknZMyjL4L1xwHZ",
+      "source_commit": "9dcb1ee0ff408b1844628bb938fac71ac916322b",
+      "state": "READY",
+      "target": "staging",
+      "target_request": "staging, explicit",
+      "url": "https://mcpcn-93eh89erc-my-team-4f230354.vercel.app",
+      "created_at_ms": 1793307202235,
+      "building_at_ms": 1793307203395,
+      "ready_at_ms": 1793307245242,
+      "build_command": "pnpm exec turbo run build --filter=@mcpcn/docs...",
+      "build_summary": {
+        "successful_tasks": 6,
+        "total_tasks": 6,
+        "next_static_pages": 81,
+        "typescript": "passed as part of hosted docs build",
+        "tests": "not_run",
+        "cli_and_themes_packages": "not_built_by_docs_dependency_filter"
+      },
+      "events": [
+        {
+          "created": 1793307245397,
+          "type": "stdout",
+          "text": "Deployment completed"
+        },
+        {
+          "created": 1793307240080,
+          "type": "stderr",
+          "text": "Build Completed in /vercel/output [36s]"
+        },
+        {
+          "created": 1793307239205,
+          "type": "stdout",
+          "text": "  Tasks:    6 successful, 6 total"
+        },
+        {
+          "created": 1793307238641,
+          "type": "stdout",
+          "text": "@mcpcn/docs:build: ✓ Generating static pages using 1 worker (81/81) in 1014ms"
+        },
+        {
+          "created": 1793307237153,
+          "type": "stdout",
+          "text": "@mcpcn/docs:build:   Finished TypeScript in 3.6s ..."
+        },
+        {
+          "created": 1793307233588,
+          "type": "stdout",
+          "text": "@mcpcn/docs:build: ✓ Compiled successfully in 4.5s"
+        },
+        {
+          "created": 1793307217422,
+          "type": "stdout",
+          "text": " WARN  Failed to create bin at /vercel/path0/apps/docs/node_modules/.bin/mcpcn-registry. ENOENT: no such file or directory, open '/vercel/path0/apps/docs/node_modules/@mcpcn/registry/dist/bin.js'"
+        },
+        {
+          "created": 1793307217415,
+          "type": "stdout",
+          "text": " WARN  Failed to create bin at /vercel/path0/packages/cli/node_modules/.bin/mcpcn-registry. ENOENT: no such file or directory, open '/vercel/path0/packages/cli/node_modules/@mcpcn/registry/dist/bin.js'"
+        },
+        {
+          "created": 1793307217404,
+          "type": "stdout",
+          "text": "│   Ignored build scripts: esbuild.                                            │"
+        },
+        {
+          "created": 1793307217311,
+          "type": "stdout",
+          "text": " WARN  Failed to create bin at /vercel/path0/packages/cli/node_modules/.bin/mcpcn-registry. ENOENT: no such file or directory, open '/vercel/path0/packages/registry/dist/bin.js'"
+        },
+        {
+          "created": 1793307217311,
+          "type": "stdout",
+          "text": " WARN  Failed to create bin at /vercel/path0/apps/docs/node_modules/.bin/mcpcn-registry. ENOENT: no such file or directory, open '/vercel/path0/packages/registry/dist/bin.js'"
+        }
+      ],
+      "unauthenticated_access": {
+        "method": "unauthenticated HEAD",
+        "http_status": 302,
+        "redirect_origin": "https://vercel.com",
+        "redirect_path": "/sso-api",
+        "query_omitted": true,
+        "authenticated_rendering": "not_checked"
+      },
+      "source_readback": {
+        "matched_leaf_count": 315,
+        "all_path_mode_type_blob_sha_matched": true,
+        "tree_truncated": false,
+        "github_actions_runs": 0
+      },
+      "project_live": false,
+      "promotion": "not_requested",
+      "node_version": {
+        "deployment_override_requested": "24.x",
+        "project_setting_readback": "26.x",
+        "actual_executable": "not_observed"
+      }
     }
   ],
   "limits": [

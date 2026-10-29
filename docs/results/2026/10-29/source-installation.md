@@ -41,7 +41,8 @@ The inactive manual/read-only/twenty-minute workflow and its shell bodies parse;
 four actions are pinned to current official tag commit identities. The initial
 shell-check wrapper used a method unavailable in the installed Ruby; the
 compatible wrapper passed without changing product source or running checks.
-This does not establish TypeScript types, browser behavior or a working build.
+These static checks alone do not establish TypeScript types, browser behavior
+or a working build; the later hosted result is recorded separately below.
 
 Storage Guard returned 24.4 GiB free versus 34.0 GiB required, exit two. No local
 dependency environment, package/app build or consumer installation was created.
@@ -62,18 +63,37 @@ The create-deployment call omitted its target intending preview, but the tool
 returned `production`. Cancellation was attempted without a completed response;
 subsequent authoritative readback was terminal `ERROR`, and the project was not
 live. This is a failed hosting attempt, not a successful preview or cancellation.
-The next attempt must explicitly request staging. No protection setting was
+The repaired attempt below explicitly requested staging. No protection setting was
 changed. A repository-ID project filter returned zero linked projects after
 creation; the project-name filter returned this new project. These bounded
 provider observations and selected build events are in
 [hosting attempts](hosting-attempts.json).
+
+The repaired source was published at
+`9dcb1ee0ff408b1844628bb938fac71ac916322b`: all 315 local/remote file
+identities matched, the tree was untruncated and zero Actions runs were returned.
+Explicit staging deployment `dpl_GFDvmL6gWgxgWxknZMyjL4L1xwHZ` is `READY` at
+<https://mcpcn-93eh89erc-my-team-4f230354.vercel.app>. Its existing frozen-lock
+install and six docs/dependency build tasks succeeded; Next compiled, finished
+TypeScript and generated 81 static pages. The install emitted missing registry
+bin warnings before its build; those warnings remain in the receipt. This
+filter does not build the CLI or themes package. It does not execute unit/SSR,
+consumer, browser or host-protocol checks.
+
+An unauthenticated HEAD returned HTTP 302 to Vercel's `/sso-api`; the redirect
+query was omitted from evidence. Existing SSO protection remains enabled.
+No authenticated page rendering or interaction was inspected, and the provider
+project still reports `live: false`. No production promotion was requested.
+The deployment requested Node `24.x`, while project settings still report
+`26.x`; the actual build executable version was not independently observed.
+The pending CI proposal separately pins Node 24.21.0.
 
 The provider installed the frozen existing workspace lockfile and attempted its
 docs dependency build; it did not run the pending suites. No local environment,
 package release, paid plan, browser or consumer acceptance was created. The full
 project/portfolio remains unfinished at these acceptance and release gates.
 
-Source publication will use the documented per-commit skip directive because
+Source publication used the documented per-commit skip directive because
 the existing main-push CI and publishing workflow are outside the new approval
 scope. They remain unchanged and must not be described as passing. The proposed
 manual runner is only a text example outside the active workflow directory.
