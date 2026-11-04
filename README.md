@@ -100,14 +100,19 @@ local package archives and both installed consumers. Each consumer installed
 all 79 entries and compiled with its own TypeScript 5.9.3. Package mode used the
 actual installed CLI launcher and verified all 24 declared JS/type/CSS/bin
 targets plus the two packaged style assets. Two separate lifecycle controls
-also passed; source guards and owned cleanup passed throughout. This final
-status edition changes six of the 316 checked inputs; the other 310 remain
-unchanged. Reproduce the immutable source above for this result.
+also passed; source guards and owned cleanup passed throughout. The consumer
+status edition at `6d9cc119eb060279793733d3fb6491eea0569218` changed six of
+the 316 checked inputs; its other 310 were unchanged. Reproduce the immutable
+source above for that result. Later hosting work uses a separate source pin.
 
-Final publication will remove only the consumer workflow and retain its branch
-as a retired bookmark. The two old 52-check bookmarks stay at `50034ca`.
+The consumer workflow is removed and its branch is a retired bookmark at
+`6d9cc119`; the two old 52-check bookmarks stay at `50034ca`.
 Browser/real-host acceptance, public npm release and hosted docs delivery remain
 separate work; this local CI build establishes no new hosting or page proof.
+
+The [hosting candidate](docs/proposals/hosting-release.md) repairs the security
+policy link and prepares a pinned build in the existing Vercel project. Its
+deployment and public delivery require their own observed evidence.
 
 ## Security
 

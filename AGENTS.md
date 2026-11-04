@@ -54,11 +54,18 @@ Last updated: 2026-11-04
   `eca3d6a031019cc142cfd3ab01f38c9365ce02c6`: docs build, seven local archives,
   both 79-item consumers and two separate lifecycle controls, with source and
   owned cleanup gates passing. Preserve failures and historical source pins.
-  Final publication will retire only this new workflow and advance its branch
-  to the final source; leave the old two bookmarks at `50034ca` unchanged.
+  Its temporary workflow is removed and its owned branch points to final source
+  `6d9cc119eb060279793733d3fb6491eea0569218`; leave the old two bookmarks at
+  `50034ca` unchanged.
 - Browser/real-host acceptance,
   package publication, account/Auth/provider changes and paid services are
   outside this consumer packet. Preserve all historical receipts/seals.
+- The portfolio goal also authorizes the separate
+  [hosting release](docs/proposals/hosting-release.md): fix the missing security
+  link and unsupported readiness copy, build an exact reviewed Git SHA in the
+  existing Vercel project, inspect it and promote through the existing verified
+  production domain. Preserve SSO/domain policy and all check receipts. Record
+  build-setting overrides and actual hosting evidence separately from CI.
 - Canonical registry generation is an implementation step, separate from test
   execution. This packet performed no local installation/build. The CI packet
   installed the unchanged frozen lock with lifecycle scripts disabled and
