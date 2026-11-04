@@ -112,6 +112,13 @@ registry entries must match. Use no cookies, authorization, temporary share link
 or provider bypass, no dependency install, model, account, database or browser.
 Bound each request to 15 seconds and 6 MiB, total work to 60 seconds and final
 stdout to two seconds; retain only statuses, sizes and hashes in a 16 KiB report.
+The [terminal delivery receipt](../results/2026/11-04/public-delivery.md) records
+all five checks passing at application source
+`435af4b7c523bd8013d25e852c1be81dfe9893b3`, production deployment
+`dpl_9k4YUnqReUAkm5wR5bahPSkpWK7q`, in run `41914588811`. Its actual build
+used Node 24.22.2 and generated 81 pages; five of six Turbo tasks reused cache.
+The final evidence edition removes the active HTTP workflow and retires its
+single owned branch, preserving the inactive example and prior results.
 Only `create` of `qa/mcpcn-public-http-20261104` in the exact public repository
 may trigger the temporary read-only workflow. Main publications use `[skip ci]`.
 Retain failure evidence, remove the workflow after terminal completion and keep

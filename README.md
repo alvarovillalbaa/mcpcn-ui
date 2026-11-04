@@ -110,9 +110,16 @@ The consumer workflow is removed and its branch is a retired bookmark at
 Browser/real-host acceptance, public npm release and hosted docs delivery remain
 separate work; this local CI build establishes no new hosting or page proof.
 
-The [hosting candidate](docs/proposals/hosting-release.md) repairs the security
-policy link and prepares a pinned build in the existing Vercel project. Its
-deployment and public delivery require their own observed evidence.
+The [public documentation site](https://mcpcn-ui.vercel.app) is deployed at
+`435af4b7c523bd8013d25e852c1be81dfe9893b3`. Its
+[delivery receipt](docs/results/2026/11-04/public-delivery.md) records five
+anonymous HTTP 200 checks: homepage, docs, config schema, button payload and
+the complete 79-entry registry. Both HTML pages contain the corrected security
+link and release-status copy; all three JSON responses match the pinned source.
+The production docs build passed on Node 24.22.2, with six Turbo tasks and 81
+static pages; five dependency tasks reused cache. The temporary HTTP workflow
+is removed and its branch is retired. Native browser interaction, live MCP hosts
+and public npm publication remain separate acceptance work.
 
 ## Security
 

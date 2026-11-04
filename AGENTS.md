@@ -66,6 +66,16 @@ Last updated: 2026-11-04
   existing Vercel project, inspect it and promote through the existing verified
   production domain. Preserve SSO/domain policy and all check receipts. Record
   build-setting overrides and actual hosting evidence separately from CI.
+- The [public delivery receipt](docs/results/2026/11-04/public-delivery.md)
+  records production source `435af4b7c523bd8013d25e852c1be81dfe9893b3`, READY
+  canonical-domain assignment and five anonymous HTTP 200 checks. Three JSON
+  endpoints match that source, including all 79 registry entries; the two HTML
+  responses contain corrected security/release markers. The actual docs build
+  ran Node 24.22.2, six Turbo tasks/81 pages with five dependency cache hits.
+  This evidence edition retires the temporary HTTP workflow and only its own
+  `qa/mcpcn-public-http-20261104` bookmark; keep all older receipts/bookmarks.
+  Public npm ownership/release, browser interaction and live-host acceptance
+  remain pending. HTTP success does not establish those boundaries.
 - Canonical registry generation is an implementation step, separate from test
   execution. This packet performed no local installation/build. The CI packet
   installed the unchanged frozen lock with lifecycle scripts disabled and

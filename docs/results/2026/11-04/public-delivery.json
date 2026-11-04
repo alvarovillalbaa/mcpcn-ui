@@ -1,0 +1,340 @@
+{
+  "schemaVersion": 1,
+  "kind": "mcpcn-public-delivery",
+  "observedAtUtc": "2026-11-04 21:18:18 UTC",
+  "applicationSource": {
+    "commit": "435af4b7c523bd8013d25e852c1be81dfe9893b3",
+    "tree": "f89ce30ddd10e17a1c7e13e896c704a59c66697c",
+    "repository": "alvarovillalbaa/mcpcn-ui"
+  },
+  "request": {
+    "teamId": "team_JpdIsOJgYNpX0ywVZ54Zdb7m",
+    "requestBody": {
+      "name": "mcpcn-ui",
+      "project": "prj_cnLeaJNJjMZac7HpqsKw2jhIAQsW",
+      "gitSource": {
+        "type": "github",
+        "repoId": 1367144718,
+        "ref": "435af4b7c523bd8013d25e852c1be81dfe9893b3"
+      },
+      "target": "production",
+      "withLatestCommit": false,
+      "projectSettings": {
+        "framework": "nextjs",
+        "rootDirectory": "apps/docs",
+        "sourceFilesOutsideRootDirectory": true,
+        "installCommand": "cd ../.. && pnpm install --frozen-lockfile --ignore-scripts",
+        "buildCommand": "cd ../.. && node --version && pnpm --version && node -e \"if (!process.version.startsWith('v24.')) throw new Error('MCPCN docs require Node 24');\" && pnpm exec turbo run build --filter=@mcpcn/docs...",
+        "outputDirectory": null,
+        "nodeVersion": "24.x",
+        "skipGitConnectDuringLink": true
+      }
+    }
+  },
+  "deployment": {
+    "id": "dpl_9k4YUnqReUAkm5wR5bahPSkpWK7q",
+    "url": "mcpcn-174ww0sug-my-team-4f230354.vercel.app",
+    "project": {
+      "id": "prj_cnLeaJNJjMZac7HpqsKw2jhIAQsW",
+      "name": "mcpcn-ui",
+      "framework": "nextjs"
+    },
+    "readyState": "READY",
+    "target": "production",
+    "source": "435af4b7c523bd8013d25e852c1be81dfe9893b3",
+    "alias": [
+      "mcpcn-ui.vercel.app",
+      "mcpcn-ui-my-team-4f230354.vercel.app",
+      "mcpcn-ui-git-435af4b7c523bd8013d25e852c-81c3ba-my-team-4f230354.vercel.app"
+    ],
+    "aliasError": null
+  },
+  "observedBuild": {
+    "node": "v24.22.2",
+    "pnpm": "10.24.0",
+    "next": "16.3.0",
+    "successfulTurboTasks": 6,
+    "cachedTurboTasks": 5,
+    "staticPages": 81,
+    "majorGuardPassed": true,
+    "selectedEvents": [
+      {
+        "created": 1793826953300,
+        "type": "stdout",
+        "text": "Running \"vercel build\""
+      },
+      {
+        "created": 1793826953663,
+        "type": "stdout",
+        "text": "Running \"install\" command: `cd ../.. && pnpm install --frozen-lockfile --ignore-scripts`..."
+      },
+      {
+        "created": 1793826956641,
+        "type": "stdout",
+        "text": " WARN  Failed to create bin at [provider-workspace]/packages/cli/node_modules/.bin/mcpcn-registry. ENOENT: no such file or directory, open '[provider-workspace]/packages/registry/dist/bin.js'"
+      },
+      {
+        "created": 1793826956642,
+        "type": "stdout",
+        "text": " WARN  Failed to create bin at [provider-workspace]/apps/docs/node_modules/.bin/mcpcn-registry. ENOENT: no such file or directory, open '[provider-workspace]/packages/registry/dist/bin.js'"
+      },
+      {
+        "created": 1793826956716,
+        "type": "stdout",
+        "text": "Done in 1s using pnpm v10.24.0"
+      },
+      {
+        "created": 1793826956745,
+        "type": "stdout",
+        "text": "Detected Next.js version: 16.3.0"
+      },
+      {
+        "created": 1793826956746,
+        "type": "stdout",
+        "text": "Running \"cd ../.. && node --version && pnpm --version && node -e \"if (!process.version.startsWith('v24.')) throw new Error('MCPCN docs require Node 24');\" && pnpm exec turbo run build --filter=@mcpcn/docs...\""
+      },
+      {
+        "created": 1793826956754,
+        "type": "stdout",
+        "text": "v24.22.2"
+      },
+      {
+        "created": 1793826957534,
+        "type": "stdout",
+        "text": "10.24.0"
+      },
+      {
+        "created": 1793826962476,
+        "type": "stdout",
+        "text": "@mcpcn/docs:build: ✓ Compiled successfully in 532ms"
+      },
+      {
+        "created": 1793826968178,
+        "type": "stdout",
+        "text": "@mcpcn/docs:build: ✓ Generating static pages using 1 worker (81/81) in 1425ms"
+      },
+      {
+        "created": 1793826968769,
+        "type": "stdout",
+        "text": "  Tasks:    6 successful, 6 total"
+      },
+      {
+        "created": 1793826968769,
+        "type": "stdout",
+        "text": " Cached:    5 cached, 6 total"
+      },
+      {
+        "created": 1793826969652,
+        "type": "stderr",
+        "text": "Build Completed in /vercel/output [16s]"
+      }
+    ],
+    "returnedEventCount": 100,
+    "providerTruncation": {
+      "arrays": 1,
+      "omittedArrayItems": 11,
+      "objects": 0,
+      "omittedObjectKeys": 0,
+      "strings": 0,
+      "omittedStringChars": 0,
+      "depth": 0,
+      "budget": 0
+    },
+    "completeBuildLogClaim": false,
+    "qualification": "Docs built under Node 24.22.2; five dependency tasks reused Turbo cache. This is not a clean rebuild of every package or exact CI 24.21.0 reproduction."
+  },
+  "project": {
+    "id": "prj_cnLeaJNJjMZac7HpqsKw2jhIAQsW",
+    "accountId": "team_JpdIsOJgYNpX0ywVZ54Zdb7m",
+    "name": "mcpcn-ui",
+    "nodeVersion": "24.x",
+    "live": false,
+    "ssoProtection": {
+      "enabled": true,
+      "deploymentType": "all_except_custom_domains"
+    },
+    "passwordProtection": {
+      "enabled": false,
+      "deploymentType": null
+    },
+    "trustedIps": {
+      "enabled": false,
+      "deploymentType": null,
+      "addresses": [],
+      "protectionMode": null
+    },
+    "qualification": "The API projects live:false despite READY production aliases. Anonymous HTTP 200 responses below are direct delivery evidence; no live flag or protection policy was changed."
+  },
+  "http": {
+    "run": {
+      "id": 41914588811,
+      "url": "https://github.com/alvarovillalbaa/mcpcn-ui/actions/runs/41914588811",
+      "event": "create",
+      "status": "completed",
+      "conclusion": "success",
+      "headSha": "11235ad7c25316364c5c21094da4b36065eabf1c",
+      "headBranch": "qa/mcpcn-public-http-20261104",
+      "createdAt": "2026-11-04T21:16:49Z",
+      "updatedAt": "2026-11-04T21:17:04Z"
+    },
+    "job": {
+      "id": 126870778451,
+      "name": "public-http",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-11-04T21:16:53Z",
+      "completedAt": "2026-11-04T21:17:03Z"
+    },
+    "workflowPath": ".github/workflows/temporary-public-http.yml",
+    "comparisonCheckout": "435af4b7c523bd8013d25e852c1be81dfe9893b3",
+    "controller": {
+      "schemaVersion": "mcpcn.public-http.v1",
+      "sourceSha": "435af4b7c523bd8013d25e852c1be81dfe9893b3",
+      "sourceVerified": true,
+      "status": "passed",
+      "readiness": "public-http-verified",
+      "origin": "https://mcpcn-ui.vercel.app",
+      "authSent": false,
+      "shareLink": false,
+      "startedAtUtc": "2026-11-04T21:17:00.290Z",
+      "runtime": {
+        "node": "v24.21.0",
+        "platform": "linux"
+      },
+      "limits": {
+        "requestSeconds": 15,
+        "globalSeconds": 60,
+        "finalStdoutSeconds": 2,
+        "responseBytes": 6291456,
+        "reportBytes": 16384
+      },
+      "requestsSettled": true,
+      "checks": [
+        {
+          "name": "/",
+          "status": "passed",
+          "authSent": false,
+          "shareLink": false,
+          "httpStatus": 200,
+          "contentType": "text/html; charset=utf-8",
+          "effectiveOrigin": "https://mcpcn-ui.vercel.app",
+          "bodyBytes": 20133,
+          "bodySha256": "eb00a3c8871ba5c336e4bad4a869ce5aabe9822bf3e6d7497a95dbfb97b19730",
+          "bodyComplete": true,
+          "descriptionMatches": true,
+          "securityLink": true,
+          "publicPackageReleasePending": true,
+          "streamReleased": true
+        },
+        {
+          "name": "/docs",
+          "status": "passed",
+          "authSent": false,
+          "shareLink": false,
+          "httpStatus": 200,
+          "contentType": "text/html; charset=utf-8",
+          "effectiveOrigin": "https://mcpcn-ui.vercel.app",
+          "bodyBytes": 23938,
+          "bodySha256": "695c308ef4c607b1d7e52f1e2bd419e49ea60d8fd3c1bcb90bc3438e8182c1a4",
+          "bodyComplete": true,
+          "descriptionMatches": true,
+          "securityLink": true,
+          "packageReleasePending": true,
+          "streamReleased": true
+        },
+        {
+          "name": "/schema/config.json",
+          "status": "passed",
+          "authSent": false,
+          "shareLink": false,
+          "httpStatus": 200,
+          "contentType": "application/json",
+          "effectiveOrigin": "https://mcpcn-ui.vercel.app",
+          "bodyBytes": 991,
+          "bodySha256": "0fd326873c472331d6919282e79920cbd80c46a278c640a4d4242d21bd61bef4",
+          "bodyComplete": true,
+          "sourceFile": "registry/config.schema.json",
+          "sourceBytes": 1407,
+          "sourceFileSha256": "4f0cb01ca67a1ff673f0c7462821b75e00a3096a4f66825ef063276caf8b7ef8",
+          "sourceSemanticSha256": "4266616b67ae09e9e8d4a996f6cbcd020a4228d0a7f442484931957fbb329059",
+          "responseSemanticSha256": "4266616b67ae09e9e8d4a996f6cbcd020a4228d0a7f442484931957fbb329059",
+          "semanticMatch": true,
+          "streamReleased": true
+        },
+        {
+          "name": "/r/button.json",
+          "status": "passed",
+          "authSent": false,
+          "shareLink": false,
+          "httpStatus": 200,
+          "contentType": "application/json",
+          "effectiveOrigin": "https://mcpcn-ui.vercel.app",
+          "bodyBytes": 45906,
+          "bodySha256": "e084e56a68907ce48594484c93a85d8436fc0b52a94e37cf3dc788f10612dacd",
+          "bodyComplete": true,
+          "sourceFile": "registry/items/button.json",
+          "sourceBytes": 46469,
+          "sourceFileSha256": "4e306ebb19faf61d1a0107acd39c15650ec4176c950d6f988b8bb684723ed7c3",
+          "sourceSemanticSha256": "45395eda24ad2a92e42b8874a635bc26885728ad1d3affd9c3b9316f86dee6f5",
+          "responseSemanticSha256": "45395eda24ad2a92e42b8874a635bc26885728ad1d3affd9c3b9316f86dee6f5",
+          "semanticMatch": true,
+          "streamReleased": true
+        },
+        {
+          "name": "/r/registry.json",
+          "status": "passed",
+          "authSent": false,
+          "shareLink": false,
+          "httpStatus": 200,
+          "contentType": "application/json",
+          "effectiveOrigin": "https://mcpcn-ui.vercel.app",
+          "bodyBytes": 3878081,
+          "bodySha256": "76e52c310662cf25902fb4ca5a84741ea20d66e13071da0a14a4bb2535d1481d",
+          "bodyComplete": true,
+          "sourceFile": "registry/registry.json",
+          "sourceBytes": 3949774,
+          "sourceFileSha256": "8514bf211829f229f6e439f911119985393d6270ea875736b290b7f668a4d6e3",
+          "sourceSemanticSha256": "020961f7c1a71a7e43d1463f7eae1a79ec353ff9017435bdd79f3e5d6e4a874e",
+          "responseSemanticSha256": "020961f7c1a71a7e43d1463f7eae1a79ec353ff9017435bdd79f3e5d6e4a874e",
+          "semanticMatch": true,
+          "items": 79,
+          "streamReleased": true
+        }
+      ],
+      "proofLimits": [
+        "Anonymous HTTP/artifact checks only; no browser JavaScript, interaction, accessibility, npm release or live MCP acceptance.",
+        "Source SHA identifies the checked-out comparison baseline; provider deployment-to-source mapping is verified separately."
+      ],
+      "completedAtUtc": "2026-11-04T21:17:01.694Z"
+    },
+    "platformWarnings": [
+      "(node:2364) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.",
+      "(node:2426) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.",
+      "##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+    ],
+    "log": {
+      "bytes": 30864,
+      "sha256": "56112a1f43a576bbcbcd2de918c8e820f708eed8637de1eb0a98af19b9c66e2f",
+      "retained": "Only the single parsed result is retained; full provider log remains in the linked GitHub job."
+    },
+    "workflow": {
+      "bytes": 10486,
+      "sha256": "4e319ca7f11451eb7711fffe2eabf56ca5b30a232bca17041836469d6a57b6c7"
+    }
+  },
+  "precedingEvidence": [
+    "hosting-attempt-1.json",
+    "hosting-attempt-2.json",
+    "hosting-build-profile.json",
+    "hosting-staging-review.json",
+    "hosting-promotion-rejection.json",
+    "hosting-http-transport.json",
+    "npm-readiness.json"
+  ],
+  "proofLimits": [
+    "Five complete anonymous HTTP responses only; no native browser JavaScript, focus, touch, accessibility or MCP-host proof.",
+    "Semantic equality covers three specified JSON endpoints at the application source; body hashes cover the two HTML responses.",
+    "Public npm ownership/authentication and package release remain pending. No npm account, provider account or paid plan was created.",
+    "Temporary workflow retirement and final repository synchronization are recorded in the companion Markdown after publication."
+  ]
+}
