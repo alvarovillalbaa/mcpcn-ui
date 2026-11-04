@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "kind": "mcpcn-hosting-build-profile",
+  "observedAtUtc": "2026-11-04 15:32:43 UTC",
+  "projectUpdateRequest": {
+    "idOrName": "prj_cnLeaJNJjMZac7HpqsKw2jhIAQsW",
+    "teamId": "team_JpdIsOJgYNpX0ywVZ54Zdb7m",
+    "requestBody": {
+      "nodeVersion": "24.x"
+    }
+  },
+  "before": {
+    "id": "prj_cnLeaJNJjMZac7HpqsKw2jhIAQsW",
+    "name": "mcpcn-ui",
+    "accountId": "team_JpdIsOJgYNpX0ywVZ54Zdb7m",
+    "nodeVersion": "26.x",
+    "ssoProtection": {
+      "deploymentType": "all_except_custom_domains"
+    },
+    "live": false
+  },
+  "after": {
+    "id": "prj_cnLeaJNJjMZac7HpqsKw2jhIAQsW",
+    "name": "mcpcn-ui",
+    "accountId": "team_JpdIsOJgYNpX0ywVZ54Zdb7m",
+    "nodeVersion": "24.x",
+    "ssoProtection": {
+      "deploymentType": "all_except_custom_domains"
+    },
+    "live": false
+  },
+  "sourceChange": "Private apps/docs/package.json now declares engines.node 24.x, matching the private workspace range and project setting. Public library manifests and dependency versions are unchanged.",
+  "inferenceCorrection": "The workspace-root-only diagnosis was insufficient for a nested Next app. Both earlier READY Node 26 deployments remain unpromoted.",
+  "remainingRequirement": "Observe Node 24 in a fresh immutable deployment's actual build log before promotion. Major 24 is not exact CI 24.21.0 reproduction."
+}

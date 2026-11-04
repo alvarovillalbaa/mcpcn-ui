@@ -31,12 +31,14 @@ candidate; earlier CI does not establish a build of the later footer edition.
 - Reviewed project settings: framework `nextjs`, root `apps/docs`, source outside
   that root enabled, Next default output directory, Node `24.x` and no build
   machine upgrade. The Node range is not exact CI-runtime reproduction.
-  The private root manifest pins `engines.node` to `24.x`; public package
-  manifests and dependency versions are unchanged.
+  Both private workspace-root and docs-app manifests pin `engines.node` to
+  `24.x`. Explicitly update the existing project's Node setting to `24.x` and
+  verify readback; public library manifests and dependency versions are unchanged.
 - Install from the workspace using `cd ../.. && pnpm install --frozen-lockfile
   --ignore-scripts`. Build using `cd ../.. && node --version && pnpm --version
-  && pnpm exec turbo run build --filter=@mcpcn/docs...`. Version output belongs
-  in the provider log. The existing Turbo graph builds docs and its dependencies.
+  && pnpm exec turbo run build --filter=@mcpcn/docs...`, with an explicit Node-24
+  major-version assertion before Turbo. Version output belongs in the provider
+  log. The existing Turbo graph builds docs and its dependencies.
 
 These are deliberate hosting build-setting overrides. Vercel documents that
 project settings can persist to following deployments; record before/after
@@ -47,10 +49,14 @@ Use the existing connected deployment API; do not retrieve or export secrets.
 The [first candidate observation](../results/2026/11-04/hosting-attempt-1.json)
 retains READY staging deployment `dpl_28vjvUrdV9p6YyCSfFJ5USHX8yYz` at source
 `3da7a2b3ba94b9d75545d426edb167f8f3a13c5a`. It compiled 81 pages successfully
-but actually used Node 26.13.0, so it was not promoted. The original private
-root `>=20` range allowed Vercel's new Node 26 and overrode the requested 24.x
-setting. Pinning that private build range to 24.x resolves the concrete profile
-mismatch; capture the new deployment's actual minor/patch rather than assume
+but actually used Node 26.13.0, so it was not promoted. The first diagnosis
+focused on the private workspace's broad root range; that inference was
+incomplete. The [second observation](../results/2026/11-04/hosting-attempt-2.json)
+also reached READY on Node 26 despite the root pin and remained unpromoted.
+Vercel's Next builder uses the nearest app manifest; the private docs app had
+no engine range and the project still selected Node 26. The next candidate pins
+the actual private app and project as described above. Capture its actual
+minor/patch rather than assume
 CI's exact 24.21.0. [Vercel announcement](https://vercel.com/changelog/node-js-26-lts-is-now-generally-available-on-vercel),
 [package engine precedence](https://vercel.com/docs/functions/runtimes/node-js/node-js-versions#version-overrides-in-packagejson).
 
