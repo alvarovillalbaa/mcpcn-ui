@@ -76,8 +76,12 @@ now records the owner's standing authorization for the first **52 checks**:
 12 registry, 16 installer, 12 workflow-block and 12 configurator cases. One
 public Ubuntu job uses Node 24.21.0/pnpm 10.24.0, the unchanged frozen lock with
 scripts disabled, seven required package builds and byte-identical registry
-generation. Execution remains unrun; preparation, source publication and the
-old protected staging build are separate observations.
+generation. The [first run](docs/results/2026/11-04/source-installation-52-attempt-1.md)
+built all seven packages and regenerated all 79 entries unchanged, then reported
+50 passing/two failing callback cases and a nonempty fixture directory. Its
+failure is preserved. A separate invocation will check the test-only label
+lookup and owned compiler-cache routing repair against the same 52 case names.
+The old protected staging build remains a separate observation.
 
 The job uses only the exact owned branch's `create` event and an immutable source
 pin. Main preparation/final commits use `[skip ci]`; the existing broad CI and

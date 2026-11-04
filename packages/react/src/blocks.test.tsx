@@ -38,7 +38,11 @@ function fire(element: ReturnType<typeof record>, name: string, value: unknown) 
   if (typeof handler !== "function") throw new Error("Expected authored callback was not exposed");
   handler(value);
 }
-function button(label: string) { return record("button", props => props.children === label); }
+function childText(value: unknown): string {
+  if (typeof value === "string" || typeof value === "number") return String(value);
+  return Array.isArray(value) ? value.map(childText).join("") : "";
+}
+function button(label: string) { return record("button", props => childText(props.children) === label); }
 const changes = [{ label: "Status", before: "Draft", after: "Reviewed" }];
 const review = () => ({ reviewId: "authored-revision-1", title: "Review authored changes", changes, onApprove: vi.fn(), onCancel: vi.fn() });
 const fields = [{ name: "name", label: "Name", required: true, original: "Before", source: "Authored source" }];
@@ -90,7 +94,7 @@ describe("controlled workflow blocks", () => {
     const html = render(<MultiStepToolRun title="Authored run" onRetry={onRetry} steps={[{ id: "failed", label: "Failed step", status: "failed", error: "Authored failure" }, { id: "done", label: "Completed step", status: "succeeded" }]} />);
     expect(html).toContain("Authored failure"); expect(html).toContain("succeeded"); expect(onRetry).not.toHaveBeenCalled();
     fire(button("Retry Failed step"), "onClick", {}); expect(onRetry).toHaveBeenCalledWith("failed");
-    expect(capture.elements.filter(element => element.type === "button" && element.props.children === "Retry Completed step")).toHaveLength(0);
+    expect(capture.elements.filter(element => element.type === "button" && childText(element.props.children) === "Retry Completed step")).toHaveLength(0);
     expect(render(<MultiStepToolRun title="Empty run" steps={[]} />)).toContain("No workflow steps available");
   });
 

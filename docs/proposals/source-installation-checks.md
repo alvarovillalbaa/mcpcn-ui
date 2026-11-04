@@ -2,7 +2,7 @@
 
 Last updated: 2026-11-04
 
-4 November 2026. **Owner-authorized; execution unrun.**
+4 November 2026. **Owner-authorized; first failure retained; repair unrun.**
 The owner's repeated “I approve everything / Keep going / Do all the work”
 instructions cover this smallest 52-case packet, its seven required package
 builds and one temporary public CI job. No additional permission cycle is needed
@@ -11,10 +11,24 @@ host/tool/provider call or the existing broad release workflow.
 
 The [29 October receipt](../results/2026/10-29/source-installation.md) and its
 311-input inventory remain historical. Baseline source
-`7ef96f39588777a649dd55ab1101c32b9057dfa1` still matches those inputs; the new
-controller and CI preparation receive a separate complete source seal before
-root publishes and supplies the immutable execution pin. No latest-branch
-substitution or passing-check claim follows from preparing this text.
+`7ef96f39588777a649dd55ab1101c32b9057dfa1` matched those inputs. First preparation
+`639181752c453540ee35758f85d9a22e73907de5` used its separate 313-input seal;
+[run 41844232780](https://github.com/alvarovillalbaa/mcpcn-ui/actions/runs/41844232780)
+built all seven packages and reproduced 79 registry entries unchanged, then
+reported 50 passed/two failed. All 52 identities and all four full source guards
+matched; a `node-compile-cache` fixture entry also failed the empty-directory
+gate. The [first receipt](../results/2026/11-04/source-installation-52-attempt-1.md)
+retains that failed result and its raw evidence.
+
+The repair changes the test helper to match primitive-array button text,
+including the existing negative retry lookup, and routes Node's compile cache
+to a separate owned tool-cache directory. Product behavior, the lockfile, all
+52 literal names and the source/process/fixture-empty gates stay unchanged.
+The observed cache name is consistent with
+[Node 24.21's documented default](https://github.com/nodejs/node/blob/v24.21.0/doc/api/module.md#module-compile-cache);
+its creator was not independently instrumented. This source receives a new seal
+and immutable preparation pin before the second invocation. No latest-branch
+substitution or passing-check claim follows from preparing it.
 
 ## Exact first scope
 
@@ -41,11 +55,11 @@ pnpm exec vitest run --maxWorkers=1 \
 | Installer | 16 | Real command/configuration, complete ownership, dependencies, local/mock transport, preflight, conflicts, retries, injected write/manifest failures and owned cleanup |
 | Workflow blocks | 12 | Eleven real SSR/control/callback paths plus intent/ownership guards; captured JSX callbacks do not establish native browser events |
 | Configurator | 12 | Real SSR states, all selections, host/style/mode/manager propagation, empty/invalid states, provider/import/schema parity |
-| **Total** | **52** | **Authored fixtures; currently unrun** |
+| **Total** | **52** | **First invocation: 50 passed/two failed; repaired invocation pending** |
 
 The [historical inventory](../results/2026/10-29/source-inventory.json) records
 the unchanged literal case names. The new complete seal will be
-`docs/results/2026/11-04/source-installation-52-source.json`, including the full
+`docs/results/2026/11-04/source-installation-52-repair-source.json`, including the full
 suite-plus-literal titles. Require exactly those 52 unique title/status pairs,
 all passed, with no missing, extra, failed, skipped or retried cases. Report/file
 order is not an acceptance condition. Exit zero alone is insufficient.
@@ -57,7 +71,9 @@ evidence at 64 KiB. Commands use bounded deadlines and TERM followed by KILL
 after three seconds, with a further three-second drain bound. Require observed
 exit/close, reaping and original owned-group absence, full source/index/working
 guards before/after, preserved historical results and identity-checked cleanup.
-Use only fresh owned HOME/config/cache/temp/fixture directories and no inherited
+Keep `NODE_COMPILE_CACHE` in the owned tool cache, outside the fixture directory;
+the fixture directory must still finish empty. Use only fresh owned
+HOME/config/cache/temp/fixture directories and no inherited
 account/provider credentials. No local installation, build or test is proposed.
 
 ## Isolated trigger and source publication
@@ -68,7 +84,9 @@ Use only the new inactive example at
 is preserved as historical source and is not this execution route.
 
 Root publishes preparation on main with `[skip ci]`, then creates exactly the
-owned branch `qa/mcpcn-source-52-20261104`. Only the exact repository
+owned repair branch `qa/mcpcn-source-52-20261104-attempt-2`. The first branch
+`qa/mcpcn-source-52-20261104` is fast-forwarded to the repair preparation as a
+retired bookmark. Only the exact repository
 `alvarovillalbaa/mcpcn-ui`, branch type and branch/ref may admit that `create`
 event. The read-only temporary workflow checks out the immutable preparation
 SHA; it never checks out a floating branch as test source. Main-push broad CI

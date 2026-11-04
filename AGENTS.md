@@ -27,12 +27,15 @@ Last updated: 2026-11-04
   52 source-installation domain/CLI/SSR checks, seven required package builds
   and byte-identical canonical registry generation in one bounded public CI
   job. The [current proposal](docs/proposals/source-installation-checks.md)
-  owns this scope. It is prepared and unrun until the frozen source is checked.
+  owns this scope. The first invocation built all seven packages and retained
+  50 passing/two failing cases; its failed fixture-empty check is also retained.
+  The next invocation repairs only callback-label lookup and tool-cache routing.
 - Existing main-push broad CI and release jobs remain unchanged and unexecuted
   by this packet. Preparation and final main publication use `[skip ci]`.
   Only the exact-repository, exact-owned-branch `create` event may start the
   temporary focused workflow, which checks out an immutable preparation SHA.
-  The owned branch is `qa/mcpcn-source-52-20261104`, never main.
+  The repair branch is `qa/mcpcn-source-52-20261104-attempt-2`, never main.
+  Retain the first attempt's branch as a retired bookmark at the repair source.
 - After the terminal result, root retires only the temporary focused workflow
   on main with `[skip ci]` and guardedly fast-forwards the owned branch to that
   final source. Keep it as a retired bookmark; do not claim branch deletion or

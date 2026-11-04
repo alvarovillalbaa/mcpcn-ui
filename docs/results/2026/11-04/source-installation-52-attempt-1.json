@@ -1,0 +1,2050 @@
+{
+  "schemaVersion": 1,
+  "kind": "mcpcn-source-installation-52-attempt",
+  "attempt": 1,
+  "preparationCommit": "639181752c453540ee35758f85d9a22e73907de5",
+  "preparationTree": "5abec25b73099eb028558b2264837336fdd2cbb1",
+  "activationCommit": "ca752c6aa757ead525eb6661aacd61a73582289f",
+  "activationTree": "10eb13b9bcff77c0f60ce88ce3a2c7c6f7221655",
+  "runId": 41844232780,
+  "jobId": 126623434222,
+  "runUrl": "https://github.com/alvarovillalbaa/mcpcn-ui/actions/runs/41844232780",
+  "trigger": {
+    "event": "create",
+    "branch": "qa/mcpcn-source-52-20261104"
+  },
+  "jobStartedAtUtc": "2026-11-04T14:06:18Z",
+  "jobCompletedAtUtc": "2026-11-04T14:06:50Z",
+  "controller": {
+    "schemaVersion": "mcpcn.source-installation-52.v1",
+    "sourceCommit": "639181752c453540ee35758f85d9a22e73907de5",
+    "status": "failed",
+    "startedAtUtc": "2026-11-04T14:06:27.015Z",
+    "runtime": {
+      "node": "v24.21.0",
+      "platform": "linux",
+      "architecture": "x64",
+      "executableSha256": "7fde7b8afa198da66257f42ee2001d874c7355631e6d1579a5fb5ef1f246df4c",
+      "pnpmExecutableSha256": "bca348c8cbf963c330a6a1b574494295f5943effd8e1e0de2f4d3905d5d5d4e7",
+      "pnpm": "10.24.0"
+    },
+    "scope": {
+      "expectedCases": 52,
+      "files": [
+        "packages/registry/src/source-registry.test.ts",
+        "packages/cli/src/installer.test.ts",
+        "packages/react/src/blocks.test.tsx",
+        "apps/docs/components/configurator.test.tsx"
+      ],
+      "packages": [
+        "@mcpcn/core",
+        "@mcpcn/schemas",
+        "@mcpcn/runtime",
+        "@mcpcn/react",
+        "@mcpcn/themes",
+        "@mcpcn/registry",
+        "mcpcn"
+      ],
+      "generator": "tooling/generate.ts",
+      "docsBuild": false,
+      "packagePacking": false,
+      "consumers": false
+    },
+    "commands": [
+      {
+        "label": "before_head",
+        "arguments": [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 41,
+            "capturedBytes": 41,
+            "observedSha256": "510e1fff29b1da97b512f320bf4cca36898ef88e609c67c6d36b2d9320b61858",
+            "capturedSha256": "510e1fff29b1da97b512f320bf4cca36898ef88e609c67c6d36b2d9320b61858",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "before_seal",
+        "arguments": [
+          "git",
+          "show",
+          "HEAD:docs/results/2026/11-04/source-installation-52-source.json"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 87121,
+            "capturedBytes": 87121,
+            "observedSha256": "198c0e3c1d6333034d710d831412baf9abe0fca298f951ad6ad1dfaf8d17e8ce",
+            "capturedSha256": "198c0e3c1d6333034d710d831412baf9abe0fca298f951ad6ad1dfaf8d17e8ce",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "before_index",
+        "arguments": [
+          "git",
+          "ls-files",
+          "--stage",
+          "-z"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 26408,
+            "capturedBytes": 26408,
+            "observedSha256": "18819757e4dc87999a35b4a561d768c0e95b62e1e66cd50937ee77c909216b9b",
+            "capturedSha256": "18819757e4dc87999a35b4a561d768c0e95b62e1e66cd50937ee77c909216b9b",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "before_tree",
+        "arguments": [
+          "git",
+          "ls-tree",
+          "-r",
+          "-z",
+          "HEAD"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 27362,
+            "capturedBytes": 27362,
+            "observedSha256": "516e52d165ac8ebbb1cb179d7d98026b9bbb5071c2cf5725c9b01127bfdce7ea",
+            "capturedSha256": "516e52d165ac8ebbb1cb179d7d98026b9bbb5071c2cf5725c9b01127bfdce7ea",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "before_status",
+        "arguments": [
+          "git",
+          "status",
+          "--porcelain=v1",
+          "-z",
+          "--untracked-files=all"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "before_working",
+        "arguments": [
+          "git",
+          "-c",
+          "core.filemode=true",
+          "diff",
+          "--no-ext-diff",
+          "--no-textconv",
+          "--quiet",
+          "--exit-code",
+          "HEAD",
+          "--"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "pnpm_version",
+        "arguments": [
+          "[pnpm]",
+          "--version"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 8,
+            "capturedBytes": 8,
+            "observedSha256": "d57d8c9c1f2bf0cd42f130efec6786ebacc3a3e25d8695ad1ca56216de38faa4",
+            "capturedSha256": "d57d8c9c1f2bf0cd42f130efec6786ebacc3a3e25d8695ad1ca56216de38faa4",
+            "complete": true,
+            "head": "10.24.0\n",
+            "tail": "10.24.0\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 28,
+              "data": "H4sIAAAAAAAAAzM00DMy0TPgAgCJfWgQCAAAAA=="
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "install",
+        "arguments": [
+          "[pnpm]",
+          "install",
+          "--frozen-lockfile",
+          "--ignore-scripts",
+          "--store-dir",
+          "[owned-scratch]/store",
+          "--reporter=append-only"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 1137,
+            "capturedBytes": 1137,
+            "observedSha256": "41bbabed7cb950de9d96d3921866307bdde45c91b568fd84eed765103611d9a8",
+            "capturedSha256": "41bbabed7cb950de9d96d3921866307bdde45c91b568fd84eed765103611d9a8",
+            "complete": true,
+            "head": "Scope: all 21 workspace projects\nLockfile is up to date, resolution step is skipped\nProgress: resolved 1, reused 0, downloaded 0, added 0\nPackages: +303\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\nProgress: resolved 303, reused 0, downloaded 39, added 18\nProgress: resolved 303, reused 0, downloaded 84, added 38\nProgress: resolved 303, reused 0, downloaded 296, added 273\nProgress: resolved 303, reused 0, downloaded 303, added 303, done\n WARN  Failed to create bin at [repository]/apps/docs/node_modules/.bin/mcpcn-registry. ENOENT: no such file or directory, open '[repository]/packages/registry/dist/bin.js'\n WARN  Failed to create bin at [repository]/packages/cli/node_modules/.bin/mcpcn-registry. ENOENT: no such file or directory, open '[repository]/packages/registry/dist/bin.js'\n\ndevDependencies:\n+ @changesets/cli 2.31.1\n+ @types/node 24.13.3\n+ @types/react 19.2.18\n+ @types/react-dom 19.2.4\n+ tsx 4.23.11\n+ turbo 2.10.9\n+ typescript 5.9.3\n+ vitest 4.1.10\n\nDone in 4.4s using pnpm v10.24.0\n",
+            "tail": "Scope: all 21 workspace projects\nLockfile is up to date, resolution step is skipped\nProgress: resolved 1, reused 0, downloaded 0, added 0\nPackages: +303\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\nProgress: resolved 303, reused 0, downloaded 39, added 18\nProgress: resolved 303, reused 0, downloaded 84, added 38\nProgress: resolved 303, reused 0, downloaded 296, added 273\nProgress: resolved 303, reused 0, downloaded 303, added 303, done\n WARN  Failed to create bin at [repository]/apps/docs/node_modules/.bin/mcpcn-registry. ENOENT: no such file or directory, open '[repository]/packages/registry/dist/bin.js'\n WARN  Failed to create bin at [repository]/packages/cli/node_modules/.bin/mcpcn-registry. ENOENT: no such file or directory, open '[repository]/packages/registry/dist/bin.js'\n\ndevDependencies:\n+ @changesets/cli 2.31.1\n+ @types/node 24.13.3\n+ @types/react 19.2.18\n+ @types/react-dom 19.2.4\n+ tsx 4.23.11\n+ turbo 2.10.9\n+ typescript 5.9.3\n+ vitest 4.1.10\n\nDone in 4.4s using pnpm v10.24.0\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 450,
+              "data": "H4sIAAAAAAAAA81STW/bMAy961fw1kNS2bK8LfZpA9qdhqzYBuw4KBLnqLFFQZTT5dZr/2Z/yeB8rMCwAg3Qw3Qi+fj4HkF9tRSxBdP3UCm4o7ThaCxCTHSLNrP4RHbz0/cInmGMkAmcyTiHhEz9mD0F4IxxgnnjY0QnbhJ1CZnbQ9MWHaiJMDI6KOfg6C70ZNwhM24fiBtjN6ZDbmGmSy1mr/z+5UqX+hlfujkZU4vzmIv6xNRnMqvm7YlavdNn+p2Qo+wUOgooHu8fvn/4sny8f4CPxvfopuvZhCYjrHwAk6FY04BFGkPAVEzXLwYbbbgc/VNgYuTCkeUikMMfA7mxRy7kyodjU8LOc047CdfLz9fLby0EAh7tGvY/hxI4n9BmSrs5UMQAFy8RjscfUZzmF85zLlY+yFu+eK31/qjY3v9nGwqH2yuMGBwG65FbMYP3dm1Ch4x57xgqqZVUE5B3EQ83gqqWSkv9VE1obAbVyEqqxV/lS0fDAarFDDL/glpWWqppaB7TiqCSqpTNlE4sm3zM8EY2e4Gtz8gZaqmkKoW4ooDgA9SyZhjZhw5iiANsVSmrWpbiNwrtv+lxBAAA"
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "build_core",
+        "arguments": [
+          "[pnpm]",
+          "--filter",
+          "@mcpcn/core",
+          "build"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 101,
+            "capturedBytes": 101,
+            "observedSha256": "ef78f625418a51e25bf428a916e768a799079a11f727c581a4dc123d4f85b6cc",
+            "capturedSha256": "ef78f625418a51e25bf428a916e768a799079a11f727c581a4dc123d4f85b6cc",
+            "complete": true,
+            "head": "\n> @mcpcn/core@0.1.0 build [repository]/packages/core\n> tsc -p tsconfig.json\n\n",
+            "tail": "\n> @mcpcn/core@0.1.0 build [repository]/packages/core\n> tsc -p tsconfig.json\n\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 102,
+              "data": "H4sIAAAAAAAAA0WLwRGAIAzA/p2iC0B1Ac9VsCKi0nIg5/qefHwljwQmnBNnFmItfh7saAdcWrxWpF2Tp9JEfKFHy0k9NC3+kh2fLvjab5jwrowmf1DZYrBHVQF4AZXINM9lAAAA"
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "build_schemas",
+        "arguments": [
+          "[pnpm]",
+          "--filter",
+          "@mcpcn/schemas",
+          "build"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 107,
+            "capturedBytes": 107,
+            "observedSha256": "d0ae80aad10191cf4bcb796537ad2c2cd393e54f2ac9cd0989f4dc2f20363032",
+            "capturedSha256": "d0ae80aad10191cf4bcb796537ad2c2cd393e54f2ac9cd0989f4dc2f20363032",
+            "complete": true,
+            "head": "\n> @mcpcn/schemas@0.1.0 build [repository]/packages/schemas\n> tsc -p tsconfig.json\n\n",
+            "tail": "\n> @mcpcn/schemas@0.1.0 build [repository]/packages/schemas\n> tsc -p tsconfig.json\n\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 105,
+              "data": "H4sIAAAAAAAAA0WMwQ2AIAwA/0zRBaC4gGEVrKiIFEIlrm80Mb7uHpdTI7hMlRiFtpC9OGsGY2Hq8ZgBt5IDts4cGl6lJXxb3eMv1VPya5BvoEY4hUDXB4WXuJpdCit1A58cwX9rAAAA"
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "build_runtime",
+        "arguments": [
+          "[pnpm]",
+          "--filter",
+          "@mcpcn/runtime",
+          "build"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 107,
+            "capturedBytes": 107,
+            "observedSha256": "0609f66c08cc85bb7d842c88bf3fbe0505aeaeb32d61e44f01dbb3906157376c",
+            "capturedSha256": "0609f66c08cc85bb7d842c88bf3fbe0505aeaeb32d61e44f01dbb3906157376c",
+            "complete": true,
+            "head": "\n> @mcpcn/runtime@0.1.0 build [repository]/packages/runtime\n> tsc -p tsconfig.json\n\n",
+            "tail": "\n> @mcpcn/runtime@0.1.0 build [repository]/packages/runtime\n> tsc -p tsconfig.json\n\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 105,
+              "data": "H4sIAAAAAAAAA+OyU3DITS5IztMvKs0rycxNdTDQM9QzUEgqzcxJUdDPyM9NBcnkpRbpl+cXZeuD1eqWZiIYBYnJ2YnpqcUwA7jsFEqKkxV0C0BUfl5aZrpeVnF+HhcXAF9IPkFrAAAA"
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "build_react",
+        "arguments": [
+          "[pnpm]",
+          "--filter",
+          "@mcpcn/react",
+          "build"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 140,
+            "capturedBytes": 140,
+            "observedSha256": "fde0f1d293fa7dd7adcfea7cb5a6a1d56bfa1ab6807091857491d4ea309f3657",
+            "capturedSha256": "fde0f1d293fa7dd7adcfea7cb5a6a1d56bfa1ab6807091857491d4ea309f3657",
+            "complete": true,
+            "head": "\n> @mcpcn/react@0.1.0 build [repository]/packages/react\n> tsc -p tsconfig.json && cp src/styles.css dist/styles.css\n\n",
+            "tail": "\n> @mcpcn/react@0.1.0 build [repository]/packages/react\n> tsc -p tsconfig.json && cp src/styles.css dist/styles.css\n\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 125,
+              "data": "H4sIAAAAAAAAA02LSw6DMAwF9zmFV+yI6QUQVwnG0PBxIjsR4vao7aKs3ow0z/UwHJRJUDlQGTr/8h2MNe4T4DsdjFpFWPFMuuG3bGv8Qw60hYXtd3c9FCNo82eSzHHxqyWBpgHKYEpo5drZPJnBFK083LkbTiWG74wAAAA="
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "build_themes",
+        "arguments": [
+          "[pnpm]",
+          "--filter",
+          "@mcpcn/themes",
+          "build"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 144,
+            "capturedBytes": 144,
+            "observedSha256": "5808d63e638649d6bccc3eccb9f9392ac945392be72a75d85d8da7aa221492b6",
+            "capturedSha256": "5808d63e638649d6bccc3eccb9f9392ac945392be72a75d85d8da7aa221492b6",
+            "complete": true,
+            "head": "\n> @mcpcn/themes@0.1.0 build [repository]/packages/themes\n> tsc -p tsconfig.json && cp src/default.css dist/default.css\n\n",
+            "tail": "\n> @mcpcn/themes@0.1.0 build [repository]/packages/themes\n> tsc -p tsconfig.json && cp src/default.css dist/default.css\n\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 126,
+              "data": "H4sIAAAAAAAAA02LQQ6EIAxF95yiK3dS5wLGq2CpikohFOL1jZNJxtV/eXnfjDBFyiRYN46s02A/doC5hdMDbikylibCBa9UDvymfQt/yI4Ot7L+/maEqgR9fibJEla7axLoOqAMWgg9L66d1ZIq+KD1LYy5AWv9lueQAAAA"
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "build_registry",
+        "arguments": [
+          "[pnpm]",
+          "--filter",
+          "@mcpcn/registry",
+          "build"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 166,
+            "capturedBytes": 166,
+            "observedSha256": "849f45c5b536cb8e7087039deddfb97399960312dd685242036ab27177372585",
+            "capturedSha256": "849f45c5b536cb8e7087039deddfb97399960312dd685242036ab27177372585",
+            "complete": true,
+            "head": "\n> @mcpcn/registry@0.1.0 build [repository]/packages/registry\n> tsc -p tsconfig.json && node dist/bin.js build\n\nBuilt 79 source registry items\n",
+            "tail": "\n> @mcpcn/registry@0.1.0 build [repository]/packages/registry\n> tsc -p tsconfig.json && node dist/bin.js build\n\nBuilt 79 source registry items\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 143,
+              "data": "H4sIAAAAAAAAA0WNMQ7CMAxF95zCU7cmZUIsVcVN2sQEt40dxYkqbo8AAdN/w9P7ZoQp+ezZFYyktTymwZ7sAEujPYC7S0JXGjMWd0jZ3FvuG/0hz36bI+qvYEao6qHPrxG+UbSrCkPXAUtACKTVLcR21c+NMddGe4XzBVRa8QjfFFDFpOYJb+KeraYAAAA="
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "build_mcpcn",
+        "arguments": [
+          "[pnpm]",
+          "--filter",
+          "mcpcn",
+          "build"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 94,
+            "capturedBytes": 94,
+            "observedSha256": "3955457873895ef8807e1b321d69a85a97af334873f092bc5fde4cc99e087577",
+            "capturedSha256": "3955457873895ef8807e1b321d69a85a97af334873f092bc5fde4cc99e087577",
+            "complete": true,
+            "head": "\n> mcpcn@0.1.0 build [repository]/packages/cli\n> tsc -p tsconfig.json\n\n",
+            "tail": "\n> mcpcn@0.1.0 build [repository]/packages/cli\n> tsc -p tsconfig.json\n\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 99,
+              "data": "H4sIAAAAAAAAA0XKwQ2AIAxA0Xun6AJQXIC4ClZUBAoBiesbvXj67/DBYubKMhs9aYPLCGlFOkr21IaIb3SXFul71Ag/quPodt+JUwCLV2dU9U2RLez67EUAHvhwkG5eAAAA"
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "after_build_head",
+        "arguments": [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 41,
+            "capturedBytes": 41,
+            "observedSha256": "510e1fff29b1da97b512f320bf4cca36898ef88e609c67c6d36b2d9320b61858",
+            "capturedSha256": "510e1fff29b1da97b512f320bf4cca36898ef88e609c67c6d36b2d9320b61858",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_build_seal",
+        "arguments": [
+          "git",
+          "show",
+          "HEAD:docs/results/2026/11-04/source-installation-52-source.json"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 87121,
+            "capturedBytes": 87121,
+            "observedSha256": "198c0e3c1d6333034d710d831412baf9abe0fca298f951ad6ad1dfaf8d17e8ce",
+            "capturedSha256": "198c0e3c1d6333034d710d831412baf9abe0fca298f951ad6ad1dfaf8d17e8ce",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_build_index",
+        "arguments": [
+          "git",
+          "ls-files",
+          "--stage",
+          "-z"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 26408,
+            "capturedBytes": 26408,
+            "observedSha256": "18819757e4dc87999a35b4a561d768c0e95b62e1e66cd50937ee77c909216b9b",
+            "capturedSha256": "18819757e4dc87999a35b4a561d768c0e95b62e1e66cd50937ee77c909216b9b",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_build_tree",
+        "arguments": [
+          "git",
+          "ls-tree",
+          "-r",
+          "-z",
+          "HEAD"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 27362,
+            "capturedBytes": 27362,
+            "observedSha256": "516e52d165ac8ebbb1cb179d7d98026b9bbb5071c2cf5725c9b01127bfdce7ea",
+            "capturedSha256": "516e52d165ac8ebbb1cb179d7d98026b9bbb5071c2cf5725c9b01127bfdce7ea",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_build_status",
+        "arguments": [
+          "git",
+          "status",
+          "--porcelain=v1",
+          "-z",
+          "--untracked-files=all"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_build_working",
+        "arguments": [
+          "git",
+          "-c",
+          "core.filemode=true",
+          "diff",
+          "--no-ext-diff",
+          "--no-textconv",
+          "--quiet",
+          "--exit-code",
+          "HEAD",
+          "--"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "canonical_generator",
+        "arguments": [
+          "[pnpm]",
+          "exec",
+          "tsx",
+          "tooling/generate.ts"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 75,
+            "capturedBytes": 75,
+            "observedSha256": "8ee42669befa1d99211e33f7c730d198992f566c5131524fc3efa193cae19aa9",
+            "capturedSha256": "8ee42669befa1d99211e33f7c730d198992f566c5131524fc3efa193cae19aa9",
+            "complete": true,
+            "head": "Generated 79 source registry items; examples and templates were preserved.\n",
+            "tail": "Generated 79 source registry items; examples and templates were preserved.\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 87,
+              "data": "H4sIAAAAAAAAAwXB2wmAMBBFwX+ruBX4K2IB1hHMQYQkht311b0zKw1LQdY0y8/LNmTsh4d9OoLqi3hT7QVXallB7SUFrgdD3XDsJo/DD1G6ljNLAAAA"
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "after_generator_head",
+        "arguments": [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 41,
+            "capturedBytes": 41,
+            "observedSha256": "510e1fff29b1da97b512f320bf4cca36898ef88e609c67c6d36b2d9320b61858",
+            "capturedSha256": "510e1fff29b1da97b512f320bf4cca36898ef88e609c67c6d36b2d9320b61858",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_generator_seal",
+        "arguments": [
+          "git",
+          "show",
+          "HEAD:docs/results/2026/11-04/source-installation-52-source.json"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 87121,
+            "capturedBytes": 87121,
+            "observedSha256": "198c0e3c1d6333034d710d831412baf9abe0fca298f951ad6ad1dfaf8d17e8ce",
+            "capturedSha256": "198c0e3c1d6333034d710d831412baf9abe0fca298f951ad6ad1dfaf8d17e8ce",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_generator_index",
+        "arguments": [
+          "git",
+          "ls-files",
+          "--stage",
+          "-z"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 26408,
+            "capturedBytes": 26408,
+            "observedSha256": "18819757e4dc87999a35b4a561d768c0e95b62e1e66cd50937ee77c909216b9b",
+            "capturedSha256": "18819757e4dc87999a35b4a561d768c0e95b62e1e66cd50937ee77c909216b9b",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_generator_tree",
+        "arguments": [
+          "git",
+          "ls-tree",
+          "-r",
+          "-z",
+          "HEAD"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 27362,
+            "capturedBytes": 27362,
+            "observedSha256": "516e52d165ac8ebbb1cb179d7d98026b9bbb5071c2cf5725c9b01127bfdce7ea",
+            "capturedSha256": "516e52d165ac8ebbb1cb179d7d98026b9bbb5071c2cf5725c9b01127bfdce7ea",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_generator_status",
+        "arguments": [
+          "git",
+          "status",
+          "--porcelain=v1",
+          "-z",
+          "--untracked-files=all"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_generator_working",
+        "arguments": [
+          "git",
+          "-c",
+          "core.filemode=true",
+          "diff",
+          "--no-ext-diff",
+          "--no-textconv",
+          "--quiet",
+          "--exit-code",
+          "HEAD",
+          "--"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "tests",
+        "arguments": [
+          "[pnpm]",
+          "exec",
+          "vitest",
+          "run",
+          "--maxWorkers=1",
+          "--no-file-parallelism",
+          "--retry=0",
+          "--reporter=verbose",
+          "--reporter=json",
+          "--outputFile=[owned-scratch]/unit.json",
+          "packages/registry/src/source-registry.test.ts",
+          "packages/cli/src/installer.test.ts",
+          "packages/react/src/blocks.test.tsx",
+          "apps/docs/components/configurator.test.tsx"
+        ],
+        "exitCode": 1,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 9234,
+            "capturedBytes": 9234,
+            "observedSha256": "e9e0aa48251ad7e3e5f912e839d4fb160f0a86f82f96870e1fcb140d80c2cc7d",
+            "capturedSha256": "e9e0aa48251ad7e3e5f912e839d4fb160f0a86f82f96870e1fcb140d80c2cc7d",
+            "complete": true,
+            "head": "\n RUN  v4.1.10 [repository]\n\n ✓ packages/cli/src/installer.test.ts > source installation CLI > persists every requested supported init option instead of silently using defaults 22ms\n ✓ packages/cli/src/installer.test.ts > source installation CLI > rejects unsupported options and reserved paths and never overwrites an existing configuration 10ms\n ✓ packages/cli/src/installer.test.ts > source installation CLI > installs a complete selected block closure into the configured directory with provider and per-file ownership 78ms\n ✓ packages/cli/src/installer.test.ts > source installation CLI > retains previous item ownership and source bytes across repeated and additive installs 72ms\n ✓ packages/cli/src/installer.test.ts > source installation CLI > refuses an additive install when any previously owned unselected source was edited 37ms\n ✓ packages/cli/src/installer.test.ts > source installation CLI > validates every later response before making any source or lockfile write 9ms\n ✓ packages/cli/src/installer.test.ts > source installation CLI > reports unavailable registry responses finitely without fallback sources or private failure text 10ms\n ✓ packages/cli/src/installer.te",
+            "tail": "ce > prepares npm copy commands with every selected installation option 1ms\n ✓ apps/docs/components/configurator.test.tsx > installation configurator source > prepares bun package imports and dependencies without invoking another manager 0ms\n ✓ apps/docs/components/configurator.test.tsx > installation configurator source > selects each existing adapter factory in a client effect without connecting the preview 1ms\n ✓ apps/docs/components/configurator.test.tsx > installation configurator source > keeps all three theme choices consistent between preview attributes and generated provider 21ms\n ✓ apps/docs/components/configurator.test.tsx > installation configurator source > preserves explicit block and component choices while deduplicating their dependency closure 2ms\n ✓ apps/docs/components/configurator.test.tsx > installation configurator source > uses configured local import paths for copied blocks components and provider 1ms\n ✓ apps/docs/components/configurator.test.tsx > installation configurator source > rejects unsupported configuration unknown selections and duplicate aliases before preparing commands 2ms\n ✓ apps/docs/components/configurator.test.tsx > installation configurator source > roundtrips the exact generated schema fields including schema URL manager and TypeScript restriction 1ms\n\n Test Files  1 failed | 3 passed (4)\n      Tests  2 failed | 50 passed (52)\n   Start at  14:06:46\n   Duration  2.11s (transform 292ms, setup 0ms, import 542ms, tests 1.00s, environment 0ms)\n\nJSON report written to [owned-scratch]/unit.json\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 2539,
+              "data": "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"
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 1589,
+            "capturedBytes": 1589,
+            "observedSha256": "ef69c7785b90008274a22eb5d95f43ea1705071ac78e59fd0dd7ee830cba674e",
+            "capturedSha256": "ef69c7785b90008274a22eb5d95f43ea1705071ac78e59fd0dd7ee830cba674e",
+            "complete": true,
+            "head": "\n⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯\n\n FAIL  packages/react/src/blocks.test.tsx > controlled workflow blocks > MultiStepToolRun renders actual states and emits retries only for a known failed step\nError: Expected authored element was not rendered\n ❯ record packages/react/src/blocks.test.tsx:33:21\n     31| function record(type: unknown, predicate: (props: Record<string, unkno…\n     32|   const found = capture.elements.find(element => element.type === type…\n     33|   if (!found) throw new Error(\"Expected authored element was not rende…\n       |                     ^\n     34|   return found;\n     35| }\n ❯ button packages/react/src/blocks.test.tsx:41:41\n ❯ packages/react/src/blocks.test.tsx:92:10\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯\n\n FAIL  packages/react/src/blocks.test.tsx > controlled workflow blocks > busy and invalid controlled contexts cannot dispatch actions even through captured callbacks\nError: Expected authored element was not rendered\n ❯ record packages/react/src/blocks.test.tsx:33:21\n     31| function record(type: unknown, predicate: (props: Record<string, unkno…\n     32|   const found = ca",
+            "tail": "\n⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯\n\n FAIL  packages/react/src/blocks.test.tsx > controlled workflow blocks > MultiStepToolRun renders actual states and emits retries only for a known failed step\nError: Expected authored element was not rendered\n ❯ record packages/react/src/blocks.test.tsx:33:21\n     31| function record(type: unknown, predicate: (props: Record<string, unkno…\n     32|   const found = capture.elements.find(element => element.type === type…\n     33|   if (!found) throw new Error(\"Expected authored element was not rende…\n       |                     ^\n     34|   return found;\n     35| }\n ❯ button packages/react/src/blocks.test.tsx:41:41\n ❯ packages/react/src/blocks.test.tsx:92:10\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯\n\n FAIL  packages/react/src/blocks.test.tsx > controlled workflow blocks > busy and invalid controlled contexts cannot dispatch actions even through captured callbacks\nError: Expected authored element was not rendered\n ❯ record packages/react/src/blocks.test.tsx:33:21\n     31| function record(type: unknown, predicate: (props: Record<string, unkno…\n     32|   const found = capture.elements.find(element => element.type === type…\n     33|   if (!found) throw new Error(\"Expected authored element was not rende…\n       |                     ^\n     34|   return found;\n     35| }\n ❯ button packages/react/src/blocks.test.tsx:41:41\n ❯ packages/react/src/blocks.test.tsx:174:10\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯\n\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 471,
+              "data": "H4sIAAAAAAAAA+1TTYtTMRTdv19xdFVhaH2vFfFpCy5mQNDNODtRSJP72tBM8si9mddCBX+B/8Ct2/lP/SXyPqqCXRSZnV7uIpCTc3NOTrLD1/s/G1fKOjK4IRZGgZOgLMPV6zdvgVrpjVoRTyIpLROOerJ0QW94LMQyFt5iAR28xOBa1ibETeVCgx6FBd4lJ/a9UH0TgrtOHpG8ochQWpJyYFFCDOUN6NYKI5JES4zg3Q5ViFDY+NB4VP3FWajOLmMMscTltiYtZKCSrEMkA3J0S17QKIYPMkwjk+Hw7R6RdIjmDFXldFoWeYa2pvkeVfJabPADw0h2NZVIvrvZBepIxmolVGJUx1BziesO+IolWr+66KGHL98HymIPtL6xoArJG8yhVS0p0nhQwOPKejM66pkvjtLG7WzM53O0i1+U05bSVhg96hifQNYxNPDUoHNr9PhMt35SAnucqk/DxFm7HUlS9L2Kl8PGsz0+94Yvk0jw5xg+y8tZ3h86A/2iKPOnWXYyvH/RH/JJ8fFhc79MvOtSbf2dctb8jm6XtBWGVr613Viuleh1+yds8Ay6I9+9X1qtj8Ew0Mq5pdIb/h//fzz++fPZw+a/OOb/B2npTwQ1BgAA"
+            }
+          }
+        ]
+      },
+      {
+        "label": "after_head",
+        "arguments": [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 41,
+            "capturedBytes": 41,
+            "observedSha256": "510e1fff29b1da97b512f320bf4cca36898ef88e609c67c6d36b2d9320b61858",
+            "capturedSha256": "510e1fff29b1da97b512f320bf4cca36898ef88e609c67c6d36b2d9320b61858",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_seal",
+        "arguments": [
+          "git",
+          "show",
+          "HEAD:docs/results/2026/11-04/source-installation-52-source.json"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 87121,
+            "capturedBytes": 87121,
+            "observedSha256": "198c0e3c1d6333034d710d831412baf9abe0fca298f951ad6ad1dfaf8d17e8ce",
+            "capturedSha256": "198c0e3c1d6333034d710d831412baf9abe0fca298f951ad6ad1dfaf8d17e8ce",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_index",
+        "arguments": [
+          "git",
+          "ls-files",
+          "--stage",
+          "-z"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 26408,
+            "capturedBytes": 26408,
+            "observedSha256": "18819757e4dc87999a35b4a561d768c0e95b62e1e66cd50937ee77c909216b9b",
+            "capturedSha256": "18819757e4dc87999a35b4a561d768c0e95b62e1e66cd50937ee77c909216b9b",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_tree",
+        "arguments": [
+          "git",
+          "ls-tree",
+          "-r",
+          "-z",
+          "HEAD"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 27362,
+            "capturedBytes": 27362,
+            "observedSha256": "516e52d165ac8ebbb1cb179d7d98026b9bbb5071c2cf5725c9b01127bfdce7ea",
+            "capturedSha256": "516e52d165ac8ebbb1cb179d7d98026b9bbb5071c2cf5725c9b01127bfdce7ea",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_status",
+        "arguments": [
+          "git",
+          "status",
+          "--porcelain=v1",
+          "-z",
+          "--untracked-files=all"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_working",
+        "arguments": [
+          "git",
+          "-c",
+          "core.filemode=true",
+          "diff",
+          "--no-ext-diff",
+          "--no-textconv",
+          "--quiet",
+          "--exit-code",
+          "HEAD",
+          "--"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      }
+    ],
+    "sourceGuards": [
+      {
+        "label": "before",
+        "passed": true,
+        "changedPaths": [],
+        "indexedLeaves": 318,
+        "statusEntries": [],
+        "fullIndexMatchesHead": true,
+        "fullWorkingTreeClean": true,
+        "historicalResultsUnchanged": true,
+        "files": 313,
+        "sourceBytes": 12255213,
+        "sealSha256": "198c0e3c1d6333034d710d831412baf9abe0fca298f951ad6ad1dfaf8d17e8ce"
+      },
+      {
+        "label": "after_build",
+        "passed": true,
+        "changedPaths": [],
+        "indexedLeaves": 318,
+        "statusEntries": [],
+        "fullIndexMatchesHead": true,
+        "fullWorkingTreeClean": true,
+        "historicalResultsUnchanged": true,
+        "files": 313,
+        "sourceBytes": 12255213,
+        "sealSha256": "198c0e3c1d6333034d710d831412baf9abe0fca298f951ad6ad1dfaf8d17e8ce"
+      },
+      {
+        "label": "after_generator",
+        "passed": true,
+        "changedPaths": [],
+        "indexedLeaves": 318,
+        "statusEntries": [],
+        "fullIndexMatchesHead": true,
+        "fullWorkingTreeClean": true,
+        "historicalResultsUnchanged": true,
+        "files": 313,
+        "sourceBytes": 12255213,
+        "sealSha256": "198c0e3c1d6333034d710d831412baf9abe0fca298f951ad6ad1dfaf8d17e8ce"
+      },
+      {
+        "label": "after",
+        "passed": true,
+        "changedPaths": [],
+        "indexedLeaves": 318,
+        "statusEntries": [],
+        "fullIndexMatchesHead": true,
+        "fullWorkingTreeClean": true,
+        "historicalResultsUnchanged": true,
+        "files": 313,
+        "sourceBytes": 12255213,
+        "sealSha256": "198c0e3c1d6333034d710d831412baf9abe0fca298f951ad6ad1dfaf8d17e8ce"
+      }
+    ],
+    "errors": [
+      "vitest_acceptance_failed",
+      "fixture_cleanup_incomplete"
+    ],
+    "limits": {
+      "workSeconds": 900,
+      "cleanupSeconds": 60,
+      "jobMinutes": 20,
+      "streamBytes": 131072,
+      "rawVitestBytes": 262144,
+      "rawVitestGzipBytes": 65536,
+      "commandLogGzipBytes": 65536,
+      "termToKillSeconds": 3,
+      "postKillDrainSeconds": 3,
+      "reportBytes": 262144
+    },
+    "proofLimits": [
+      "The 52 authored registry/CLI/SSR/captured-callback cases do not establish native browser events or live MCP/host behavior.",
+      "No documentation app build, tarball packing, installed consumers, npm release, hosted deployment, account or model/provider call is included.",
+      "Child exit/close and original process-group absence are checked; descendant PIDs or separate sessions are not independently inventoried.",
+      "Only controller-owned scratch/config/store/temp is removed. Installed ignored workspace outputs and action-managed tools belong to the ephemeral runner; runner disposal is not independently observed.",
+      "Executable file hashes do not inventory dynamic libraries. Userspace deadlines cannot interrupt a blocked kernel filesystem operation."
+    ],
+    "sealSha256": "198c0e3c1d6333034d710d831412baf9abe0fca298f951ad6ad1dfaf8d17e8ce",
+    "sourceInputs": {
+      "path": "docs/results/2026/11-04/source-installation-52-source.json",
+      "sha256": "198c0e3c1d6333034d710d831412baf9abe0fca298f951ad6ad1dfaf8d17e8ce",
+      "files": 313,
+      "bytes": 12255213,
+      "trackedFileCount": 318
+    },
+    "generator": {
+      "command": "pnpm exec tsx tooling/generate.ts",
+      "byteIdentical": true,
+      "checkedBy": "after_generator"
+    },
+    "vitest": {
+      "raw": {
+        "available": true,
+        "encoding": "gzip-base64",
+        "bytes": 22678,
+        "sha256": "b1b39218c174bc9eb135671c1f0ca5dc50e8788117584aad3ded7a94d9128336",
+        "compressedBytes": 3828,
+        "data": "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"
+      },
+      "totals": {
+        "numTotalTests": 52,
+        "numPassedTests": 50,
+        "numFailedTests": 2,
+        "numPendingTests": 0,
+        "numTodoTests": 0,
+        "success": false
+      },
+      "cases": [
+        {
+          "file": "apps/docs/components/configurator.test.tsx",
+          "title": "renders all component and workflow choices with five explicit initial selections",
+          "fullName": "installation configurator source renders all component and workflow choices with five explicit initial selections",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "apps/docs/components/configurator.test.tsx",
+          "title": "renders nondefault manager mode host and theme from the same prepared plan",
+          "fullName": "installation configurator source renders nondefault manager mode host and theme from the same prepared plan",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "apps/docs/components/configurator.test.tsx",
+          "title": "renders an empty selection as a prompt without a dangling add command or provider",
+          "fullName": "installation configurator source renders an empty selection as a prompt without a dangling add command or provider",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "apps/docs/components/configurator.test.tsx",
+          "title": "retains invalid editable configuration while withholding commands and exposing finite guidance",
+          "fullName": "installation configurator source retains invalid editable configuration while withholding commands and exposing finite guidance",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "apps/docs/components/configurator.test.tsx",
+          "title": "prepares npm copy commands with every selected installation option",
+          "fullName": "installation configurator source prepares npm copy commands with every selected installation option",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "apps/docs/components/configurator.test.tsx",
+          "title": "prepares bun package imports and dependencies without invoking another manager",
+          "fullName": "installation configurator source prepares bun package imports and dependencies without invoking another manager",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "apps/docs/components/configurator.test.tsx",
+          "title": "selects each existing adapter factory in a client effect without connecting the preview",
+          "fullName": "installation configurator source selects each existing adapter factory in a client effect without connecting the preview",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "apps/docs/components/configurator.test.tsx",
+          "title": "keeps all three theme choices consistent between preview attributes and generated provider",
+          "fullName": "installation configurator source keeps all three theme choices consistent between preview attributes and generated provider",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "apps/docs/components/configurator.test.tsx",
+          "title": "preserves explicit block and component choices while deduplicating their dependency closure",
+          "fullName": "installation configurator source preserves explicit block and component choices while deduplicating their dependency closure",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "apps/docs/components/configurator.test.tsx",
+          "title": "uses configured local import paths for copied blocks components and provider",
+          "fullName": "installation configurator source uses configured local import paths for copied blocks components and provider",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "apps/docs/components/configurator.test.tsx",
+          "title": "rejects unsupported configuration unknown selections and duplicate aliases before preparing commands",
+          "fullName": "installation configurator source rejects unsupported configuration unknown selections and duplicate aliases before preparing commands",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "apps/docs/components/configurator.test.tsx",
+          "title": "roundtrips the exact generated schema fields including schema URL manager and TypeScript restriction",
+          "fullName": "installation configurator source roundtrips the exact generated schema fields including schema URL manager and TypeScript restriction",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/cli/src/installer.test.ts",
+          "title": "persists every requested supported init option instead of silently using defaults",
+          "fullName": "source installation CLI persists every requested supported init option instead of silently using defaults",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/cli/src/installer.test.ts",
+          "title": "rejects unsupported options and reserved paths and never overwrites an existing configuration",
+          "fullName": "source installation CLI rejects unsupported options and reserved paths and never overwrites an existing configuration",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/cli/src/installer.test.ts",
+          "title": "installs a complete selected block closure into the configured directory with provider and per-file ownership",
+          "fullName": "source installation CLI installs a complete selected block closure into the configured directory with provider and per-file ownership",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/cli/src/installer.test.ts",
+          "title": "retains previous item ownership and source bytes across repeated and additive installs",
+          "fullName": "source installation CLI retains previous item ownership and source bytes across repeated and additive installs",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/cli/src/installer.test.ts",
+          "title": "refuses an additive install when any previously owned unselected source was edited",
+          "fullName": "source installation CLI refuses an additive install when any previously owned unselected source was edited",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/cli/src/installer.test.ts",
+          "title": "validates every later response before making any source or lockfile write",
+          "fullName": "source installation CLI validates every later response before making any source or lockfile write",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/cli/src/installer.test.ts",
+          "title": "reports unavailable registry responses finitely without fallback sources or private failure text",
+          "fullName": "source installation CLI reports unavailable registry responses finitely without fallback sources or private failure text",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/cli/src/installer.test.ts",
+          "title": "refuses symlink parents and existing symlink leaves while preserving owned outside fixtures",
+          "fullName": "source installation CLI refuses symlink parents and existing symlink leaves while preserving owned outside fixtures",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/cli/src/installer.test.ts",
+          "title": "rejects traversal and noncanonical registry paths before writing even valid earlier files",
+          "fullName": "source installation CLI rejects traversal and noncanonical registry paths before writing even valid earlier files",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/cli/src/installer.test.ts",
+          "title": "rejects conflicting shared source bytes across selected payloads instead of taking the last response",
+          "fullName": "source installation CLI rejects conflicting shared source bytes across selected payloads instead of taking the last response",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/cli/src/installer.test.ts",
+          "title": "preserves legacy and incomplete ownership files and excludes a concurrent install until its owner releases the lock",
+          "fullName": "source installation CLI preserves legacy and incomplete ownership files and excludes a concurrent install until its owner releases the lock",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/cli/src/installer.test.ts",
+          "title": "keeps package installation explicit and generates the selected provider without fetching or inventing installed packages",
+          "fullName": "source installation CLI keeps package installation explicit and generates the selected provider without fetching or inventing installed packages",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/cli/src/installer.test.ts",
+          "title": "rolls back acknowledged partial writes and fsync failures without removing preexisting user files",
+          "fullName": "source installation CLI rolls back acknowledged partial writes and fsync failures without removing preexisting user files",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/cli/src/installer.test.ts",
+          "title": "retains a same-inode owner edit during failed installation and reports incomplete cleanup",
+          "fullName": "source installation CLI retains a same-inode owner edit during failed installation and reports incomplete cleanup",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/cli/src/installer.test.ts",
+          "title": "retains a published manifest and every referenced source when its post-link readback fails",
+          "fullName": "source installation CLI retains a published manifest and every referenced source when its post-link readback fails",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/cli/src/installer.test.ts",
+          "title": "preserves the old manifest and sources when additive publication fails before rename",
+          "fullName": "source installation CLI preserves the old manifest and sources when additive publication fails before rename",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/react/src/blocks.test.tsx",
+          "title": "ReviewBeforeAction renders the actual diff, resets review identity and emits only requested intents",
+          "fullName": "controlled workflow blocks ReviewBeforeAction renders the actual diff, resets review identity and emits only requested intents",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/react/src/blocks.test.tsx",
+          "title": "CollectMissingData edits a controlled value and refuses incomplete required fields",
+          "fullName": "controlled workflow blocks CollectMissingData edits a controlled value and refuses incomplete required fields",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/react/src/blocks.test.tsx",
+          "title": "ExtractReviewSave preserves source and before-after values and submits declared fields only",
+          "fullName": "controlled workflow blocks ExtractReviewSave preserves source and before-after values and submits declared fields only",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/react/src/blocks.test.tsx",
+          "title": "CompareOptionsApprove exposes evidence and approves only the available current radio selection",
+          "fullName": "controlled workflow blocks CompareOptionsApprove exposes evidence and approves only the available current radio selection",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/react/src/blocks.test.tsx",
+          "title": "MultiStepToolRun renders actual states and emits retries only for a known failed step",
+          "fullName": "controlled workflow blocks MultiStepToolRun renders actual states and emits retries only for a known failed step",
+          "status": "failed",
+          "retryCount": 0,
+          "failureMessages": [
+            "Error: Expected authored element was not rendered\n    at record ([repository]/packages/react/src/blocks.test.tsx:33:21)\n    at button ([repository]/packages/react/src/blocks.test.tsx:41:41)\n    at [repository]/packages/react/src/blocks.test.tsx:92:10\n    at file://[repository]/node_modules/.pnpm/@vitest+runner@4.1.10/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file://[repository]/node_modules/.pnpm/@vitest+runner@4.1.10/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file://[repository]/node_modules/.pnpm/@vitest+runner@4.1.10/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file://[repository]/node_modules/.pnpm/@vitest+runner@4.1.10/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)\n    at file://[repository]/node_modules/.pnpm/@vitest+runner@4.1.10/node_modules/@vitest/runner/dist/chunk-artifact.js:2305:20\n    at new Promise (<anonymous>)"
+          ]
+        },
+        {
+          "file": "packages/react/src/blocks.test.tsx",
+          "title": "ApprovalGatedToolCall forces consent and binds tool changes to a fresh review",
+          "fullName": "controlled workflow blocks ApprovalGatedToolCall forces consent and binds tool changes to a fresh review",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/react/src/blocks.test.tsx",
+          "title": "HumanCorrectsAiOutput supports native controlled textarea and required boolean correction",
+          "fullName": "controlled workflow blocks HumanCorrectsAiOutput supports native controlled textarea and required boolean correction",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/react/src/blocks.test.tsx",
+          "title": "AgentGeneratedReportReview preserves sources and body, edits conclusion and keeps unsafe URLs inert",
+          "fullName": "controlled workflow blocks AgentGeneratedReportReview preserves sources and body, edits conclusion and keeps unsafe URLs inert",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/react/src/blocks.test.tsx",
+          "title": "FileUploadAndExtract reports only the chosen local File, enforces its limit and binds extraction review",
+          "fullName": "controlled workflow blocks FileUploadAndExtract reports only the chosen local File, enforces its limit and binds extraction review",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/react/src/blocks.test.tsx",
+          "title": "TableBulkActionReview displays current counts and diffs, rejects stale IDs and copies approved selection",
+          "fullName": "controlled workflow blocks TableBulkActionReview displays current counts and diffs, rejects stale IDs and copies approved selection",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/react/src/blocks.test.tsx",
+          "title": "AdminChangeReview keeps zero affected records, rollback guidance and an explicit consent gate",
+          "fullName": "controlled workflow blocks AdminChangeReview keeps zero affected records, rollback guidance and an explicit consent gate",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/react/src/blocks.test.tsx",
+          "title": "busy and invalid controlled contexts cannot dispatch actions even through captured callbacks",
+          "fullName": "controlled workflow blocks busy and invalid controlled contexts cannot dispatch actions even through captured callbacks",
+          "status": "failed",
+          "retryCount": 0,
+          "failureMessages": [
+            "Error: Expected authored element was not rendered\n    at record ([repository]/packages/react/src/blocks.test.tsx:33:21)\n    at button ([repository]/packages/react/src/blocks.test.tsx:41:41)\n    at [repository]/packages/react/src/blocks.test.tsx:174:10\n    at file://[repository]/node_modules/.pnpm/@vitest+runner@4.1.10/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file://[repository]/node_modules/.pnpm/@vitest+runner@4.1.10/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file://[repository]/node_modules/.pnpm/@vitest+runner@4.1.10/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file://[repository]/node_modules/.pnpm/@vitest+runner@4.1.10/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)\n    at file://[repository]/node_modules/.pnpm/@vitest+runner@4.1.10/node_modules/@vitest/runner/dist/chunk-artifact.js:2305:20\n    at new Promise (<anonymous>)"
+          ]
+        },
+        {
+          "file": "packages/registry/src/source-registry.test.ts",
+          "title": "copies actual component, schema and core implementations instead of package reexports",
+          "fullName": "canonical source registry copies actual component, schema and core implementations instead of package reexports",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/registry/src/source-registry.test.ts",
+          "title": "retains real core and runtime source with only their local import adaptation",
+          "fullName": "canonical source registry retains real core and runtime source with only their local import adaptation",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/registry/src/source-registry.test.ts",
+          "title": "ships actual base and theme CSS together as a registry style",
+          "fullName": "canonical source registry ships actual base and theme CSS together as a registry style",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/registry/src/source-registry.test.ts",
+          "title": "preserves the supplied provider exactly and resolves its local runtime and style imports",
+          "fullName": "canonical source registry preserves the supplied provider exactly and resolves its local runtime and style imports",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/registry/src/source-registry.test.ts",
+          "title": "exports every real workflow block through its copied local implementation",
+          "fullName": "canonical source registry exports every real workflow block through its copied local implementation",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/registry/src/source-registry.test.ts",
+          "title": "identifies existing generic aliases honestly while retaining all selected component exports",
+          "fullName": "canonical source registry identifies existing generic aliases honestly while retaining all selected component exports",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/registry/src/source-registry.test.ts",
+          "title": "declares the actual runtime peers without an unpublished MCPCN or server dependency",
+          "fullName": "canonical source registry declares the actual runtime peers without an unpublished MCPCN or server dependency",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/registry/src/source-registry.test.ts",
+          "title": "exposes identical complete item payloads in its index with canonical portable paths",
+          "fullName": "canonical source registry exposes identical complete item payloads in its index with canonical portable paths",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/registry/src/source-registry.test.ts",
+          "title": "is deterministic, detaches catalog metadata and freezes its complete output",
+          "fullName": "canonical source registry is deterministic, detaches catalog metadata and freezes its complete output",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/registry/src/source-registry.test.ts",
+          "title": "preserves explicit catalog and block ordering regardless of source-read completion",
+          "fullName": "canonical source registry preserves explicit catalog and block ordering regardless of source-read completion",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/registry/src/source-registry.test.ts",
+          "title": "rejects invalid names, duplicate entries and unknown block components before reading source",
+          "fullName": "canonical source registry rejects invalid names, duplicate entries and unknown block components before reading source",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        },
+        {
+          "file": "packages/registry/src/source-registry.test.ts",
+          "title": "fails closed for absent implementations or unresolved imports instead of emitting a stub",
+          "fullName": "canonical source registry fails closed for absent implementations or unresolved imports instead of emitting a stub",
+          "status": "passed",
+          "retryCount": 0,
+          "failureMessages": []
+        }
+      ],
+      "exactNameStatusSet": false,
+      "orderingRequired": false
+    },
+    "fixtures": {
+      "remainingEntries": [
+        "node-compile-cache"
+      ],
+      "remainingCount": 1,
+      "passed": false
+    },
+    "scratchCleanup": "passed",
+    "completedAtUtc": "2026-11-04T14:06:49.016Z",
+    "interrupted": false
+  },
+  "platformWarnings": [
+    "##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020, pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+  ]
+}

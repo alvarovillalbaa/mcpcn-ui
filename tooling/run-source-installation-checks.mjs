@@ -4,10 +4,10 @@ import { createHash, randomUUID } from "node:crypto";
 import { spawn } from "node:child_process";
 import { gzipSync } from "node:zlib";
 
-const SEAL = "docs/results/2026/11-04/source-installation-52-source.json";
+const SEAL = "docs/results/2026/11-04/source-installation-52-repair-source.json";
 const OLD_SEAL = "docs/results/2026/10-29/source-inventory.json";
 const ACTIVE = ".github/workflows/source-installation-52-checks.yml";
-const BRANCH = "qa/mcpcn-source-52-20261104";
+const BRANCH = "qa/mcpcn-source-52-20261104-attempt-2";
 const FILES = ["packages/registry/src/source-registry.test.ts", "packages/cli/src/installer.test.ts", "packages/react/src/blocks.test.tsx", "apps/docs/components/configurator.test.tsx"];
 const SUITES = ["canonical source registry", "source installation CLI", "controlled workflow blocks", "installation configurator source"];
 const PACKAGES = ["@mcpcn/core", "@mcpcn/schemas", "@mcpcn/runtime", "@mcpcn/react", "@mcpcn/themes", "@mcpcn/registry", "mcpcn"];
@@ -34,6 +34,7 @@ const env = {
   npm_config_userconfig: path.join(root, "npm-user"), npm_config_globalconfig: path.join(root, "npm-global"),
   npm_config_cache: path.join(root, "cache"), npm_config_store_dir: path.join(root, "store"), npm_config_registry: "https://registry.npmjs.org/",
   npm_config_ignore_scripts: "true", npm_config_audit: "false", npm_config_fund: "false", npm_config_update_notifier: "false",
+  NODE_COMPILE_CACHE: path.join(root, "cache", "node-compile-cache"),
   NEXT_TELEMETRY_DISABLED: "1", TURBO_TELEMETRY_DISABLED: "1",
 };
 const report = { schemaVersion: "mcpcn.source-installation-52.v1", sourceCommit, status: "failed", startedAtUtc: new Date().toISOString(),
