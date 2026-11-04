@@ -108,10 +108,16 @@ assets. Two lifecycle controls, complete source guards and owned teardown also
 passed. The [consumer scope](../proposals/consumer-checks.md) records the exact
 profile and limits; these checks do not establish native events or live hosts.
 
-Fresh npm publication/installation, a hosted docs release, real-host protocol
-acceptance, native browser interaction/accessibility, broader runtime/React/
-framework matrices and the full library quality bar remain separate unfinished
-work. The [check proposal](../proposals/source-installation-checks.md) and the
+The separate [hosted delivery receipt](../results/2026/11-04/public-delivery.md)
+records production source `435af4b7c523bd8013d25e852c1be81dfe9893b3` and five
+anonymous HTTP 200 checks. The complete schema, button and 79-entry registry
+responses match that source; the two HTML pages carry the corrected release
+and security markers. This does not establish native browser interaction.
+
+Fresh npm publication/installation, real-host protocol acceptance, native
+browser interaction/accessibility, broader runtime/React/framework matrices
+and the full library quality bar remain separate unfinished work.
+The [check proposal](../proposals/source-installation-checks.md) and the
 consumer scope retain their separate immutable sources; no prior test packet
 was rerun to update these status documents. No account creation, paid plan or
 live business action was included in either packet.
