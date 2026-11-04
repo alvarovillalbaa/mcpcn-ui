@@ -1,0 +1,55 @@
+name: MCPCN focused 52 source installation checks
+"on":
+  create:
+permissions:
+  contents: read
+jobs:
+  source-installation-52:
+    if: >-
+      github.event_name == 'create' && github.event.ref_type == 'branch' &&
+      github.repository == 'alvarovillalbaa/mcpcn-ui' &&
+      github.event.repository.private == false &&
+      github.event.ref == 'qa/mcpcn-source-52-20261104' &&
+      github.ref == 'refs/heads/qa/mcpcn-source-52-20261104'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      CI: "true"
+      SOURCE_COMMIT: REPLACE_WITH_IMMUTABLE_PREPARATION_COMMIT
+      MCPCN_PUBLIC_REPOSITORY: ${{ !github.event.repository.private }}
+      MCPCN_CREATED_REF_TYPE: ${{ github.event.ref_type }}
+    steps:
+      - name: Require the frozen source pin
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$SOURCE_COMMIT" =~ ^[a-f0-9]{40}$ ]]
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ env.SOURCE_COMMIT }}
+          persist-credentials: false
+      - name: Verify the immutable checkout
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$SOURCE_COMMIT"
+          test ! -e .github/workflows/source-installation-52-checks.yml
+          test -z "$(git status --porcelain=v1 --untracked-files=all)"
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24.21.0
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
+        with:
+          version: 10.24.0
+          run_install: false
+      - name: Run the guarded seven-build and 52-case packet
+        timeout-minutes: 17
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tooling/run-source-installation-checks.mjs --source-commit "$SOURCE_COMMIT"
+# Inactive example. Copy only to .github/workflows/source-installation-52-checks.yml,
+# replace SOURCE_COMMIT with the preparation commit, publish on main [skip ci],
+# then create only qa/mcpcn-source-52-20261104 from that activation commit.
+# Checkout uses GitHub's ephemeral read-only job token without persisting it.
+# No npm/publishing token, cache, artifact upload, docs build or consumer job.

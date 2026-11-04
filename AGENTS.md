@@ -1,5 +1,7 @@
 # MCPCN source ownership
 
+Last updated: 2026-11-04
+
 - Product intent: the Notion `mcpcn-ui` React MCP Apps library brief. Preserve
   both package imports and editable source installation, a configurable docs
   site, runtime/server packages and the broader unfinished quality scope.
@@ -20,14 +22,29 @@
 - Preserve user files: preflight all registry payloads and destinations before
   writes, refuse conflicting/symlink paths, and record every installed file.
   Cleanup only files whose task ownership and current identity remain known.
-- Source publication is authorized by the portfolio goal. Existing main-push
-  CI and release jobs must stay unexecuted without their scoped approval; use
-  the documented per-commit skip directive and report that limit honestly.
-- New domain/CLI/SSR/browser checks require explicit scoped approval. No such
-  new check scope has been approved for this repair. Prepare authored cases
-  without running them. Targeted syntax/import/JSON/whitespace checks are fine.
+- Current authority, 4 November 2026: the owner's repeated “I approve
+  everything / Keep going / Do all the work” instructions authorize the first
+  52 source-installation domain/CLI/SSR checks, seven required package builds
+  and byte-identical canonical registry generation in one bounded public CI
+  job. The [current proposal](docs/proposals/source-installation-checks.md)
+  owns this scope. It is prepared and unrun until the frozen source is checked.
+- Existing main-push broad CI and release jobs remain unchanged and unexecuted
+  by this packet. Preparation and final main publication use `[skip ci]`.
+  Only the exact-repository, exact-owned-branch `create` event may start the
+  temporary focused workflow, which checks out an immutable preparation SHA.
+  The owned branch is `qa/mcpcn-source-52-20261104`, never main.
+- After the terminal result, root retires only the temporary focused workflow
+  on main with `[skip ci]` and guardedly fast-forwards the owned branch to that
+  final source. Keep it as a retired bookmark; do not claim branch deletion or
+  that the repository has no workflows. Broad CI/release definitions remain.
+- The docs-app build, seven local package archives and two installed-consumer
+  scenarios remain a subsequent unrun scope. Browser/real-host acceptance,
+  package publication, account/Auth/provider changes and paid services are
+  excluded from the first 52 checks. Preserve all historical receipts/seals.
 - Canonical registry generation is an implementation step, separate from test
-  execution. Do not install an environment to run it. Large installs/builds
-  remain subject to Storage Guard and the supplied 30 GiB reserve.
+  execution. No local installation/build is part of this preparation. The CI
+  packet installs the unchanged frozen lock with lifecycle scripts disabled;
+  tracked generated registry bytes must remain unchanged. Local large work
+  remains subject to Storage Guard and the supplied 30 GiB reserve.
 - Record source, generated artifact, publication, package/hosted acceptance and
   pending checks separately under docs/. No new paid plan or provider account.

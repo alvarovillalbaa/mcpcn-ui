@@ -1,5 +1,7 @@
 # MCPCN
 
+Last updated: 2026-11-04
+
 **MCP Component Network** is a React UI library for human-controlled agent workflows inside MCP Apps.
 
 The source includes components, controlled workflow blocks, MCP Apps runtime
@@ -8,12 +10,14 @@ The catalog has 12 primitives, five specialized components and 51 named aliases
 of the generic informational component. Eleven workflow blocks now contain
 actual editing, selection, file-review, progress and approval compositions.
 
-**Package release pending.** Registry lookups for `mcpcn` and `@mcpcn/react`
-returned npm E404 on 29 October 2026. The commands below describe the intended
-release; npm availability, installed-consumer checks and live-host acceptance
-are not established. No hosted documentation deployment was identified in the
-connected Vercel scopes. Source and proof limits are recorded in the
-[delivery receipt](docs/results/2026/10-29/source-installation.md).
+**Public package availability remains unverified.** Registry lookups for
+`mcpcn` and `@mcpcn/react` returned npm E404 on 29 October 2026; the commands
+below describe the intended release, not a newly verified registry result.
+The [historical delivery receipt](docs/results/2026/10-29/source-installation.md)
+records a protected staging docs build at `9dcb1ee0` that reached READY. Its
+unauthenticated request redirected to SSO; page rendering, installed consumers
+and live-host acceptance were not established. That old hosting result is
+separate from the upcoming focused checks and provides no new hosted proof.
 
 ```bash
 pnpm add @mcpcn/react @mcpcn/runtime @mcpcn/schemas
@@ -50,8 +54,8 @@ than reexports from an MCPCN package. The provider selects the existing official
 MCP Apps adapter or OpenAI compatibility adapter without changing their protocol.
 
 For source development, use the existing lockfile and an environment with enough
-storage. This session's Storage Guard failed, so these installation/build commands
-have not been run locally:
+storage. The historical receipt records a failed local Storage Guard preflight;
+this preparation performs no local installation or build:
 
 ```sh
 pnpm install --frozen-lockfile
@@ -68,9 +72,20 @@ JavaScript output is explicitly rejected; it is not silently replaced with TSX.
 The CLI reports dependency commands and never runs a package manager for you.
 
 The [focused check proposal](docs/proposals/source-installation-checks.md)
-contains the exact new scope. The existing broad `pnpm check` and main-push CI/
-release workflows remain separate; source publication is not passing CI or an
-npm release.
+now records the owner's standing authorization for the first **52 checks**:
+12 registry, 16 installer, 12 workflow-block and 12 configurator cases. One
+public Ubuntu job uses Node 24.21.0/pnpm 10.24.0, the unchanged frozen lock with
+scripts disabled, seven required package builds and byte-identical registry
+generation. Execution remains unrun; preparation, source publication and the
+old protected staging build are separate observations.
+
+The job uses only the exact owned branch's `create` event and an immutable source
+pin. Main preparation/final commits use `[skip ci]`; the existing broad CI and
+release jobs stay unchanged and unexecuted by this packet. Afterward the
+temporary focused workflow is retired and its branch retained as a bookmark.
+The docs build, seven local archives and two installed-consumer scenarios remain
+subsequent and unrun. Browser/real-host acceptance, public package release,
+accounts and provider/model calls are outside the first 52-case packet.
 
 ## Security
 

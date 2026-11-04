@@ -1,16 +1,29 @@
-# Proposed source-installation checks
+# Focused source-installation checks — first 52
 
-29 October 2026. **Prepared, unapproved and unrun.** The supplied AGENTS.md
-§§7/14 and local repository instructions require approval for new domain/CLI/
-SSR checks and temporary CI. Source publication is authorized separately by
-the portfolio goal; it does not authorize activating the release workflow.
+Last updated: 2026-11-04
 
-## Exact scope
+4 November 2026. **Owner-authorized; execution unrun.**
+The owner's repeated “I approve everything / Keep going / Do all the work”
+instructions cover this smallest 52-case packet, its seven required package
+builds and one temporary public CI job. No additional permission cycle is needed
+for that scope. They do not authorize a real account lookup, package publication,
+host/tool/provider call or the existing broad release workflow.
+
+The [29 October receipt](../results/2026/10-29/source-installation.md) and its
+311-input inventory remain historical. Baseline source
+`7ef96f39588777a649dd55ab1101c32b9057dfa1` still matches those inputs; the new
+controller and CI preparation receive a separate complete source seal before
+root publishes and supplies the immutable execution pin. No latest-branch
+substitution or passing-check claim follows from preparing this text.
+
+## Exact first scope
 
 One temporary public Ubuntu runner, Node 24.21.0, pnpm 10.24.0, twenty-minute
-job cap. Install the existing frozen lockfile without dependency changes; build
-only core, schemas, runtime, React, themes, registry and CLI packages. Generate
-the committed registry from its owner and require it to remain byte-identical.
+job cap. Install the existing frozen lockfile with lifecycle scripts disabled
+and no dependency changes. Build only core, schemas, runtime, React, themes,
+registry and CLI packages, in that order. Generate the committed registry from
+its owner and require every tracked byte to remain identical; do not exempt or
+refresh generated files to make a guard pass.
 
 Run exactly these four files, with one worker and no broad test script:
 
@@ -28,16 +41,51 @@ pnpm exec vitest run --maxWorkers=1 \
 | Installer | 16 | Real command/configuration, complete ownership, dependencies, local/mock transport, preflight, conflicts, retries, injected write/manifest failures and owned cleanup |
 | Workflow blocks | 12 | Eleven real SSR/control/callback paths plus intent/ownership guards; captured JSX callbacks do not establish native browser events |
 | Configurator | 12 | Real SSR states, all selections, host/style/mode/manager propagation, empty/invalid states, provider/import/schema parity |
-| **Total** | **52** | **All newly authored and currently unrun** |
+| **Total** | **52** | **Authored fixtures; currently unrun** |
 
-Literal names and exact input hashes are frozen in the
-[source inventory](../results/2026/10-29/source-inventory.json). The runner must
-match the actual JSON report's complete passing title set and count to that
-inventory; its process exit alone is insufficient.
+The [historical inventory](../results/2026/10-29/source-inventory.json) records
+the unchanged literal case names. The new complete seal will be
+`docs/results/2026/11-04/source-installation-52-source.json`, including the full
+suite-plus-literal titles. Require exactly those 52 unique title/status pairs,
+all passed, with no missing, extra, failed, skipped or retried cases. Report/file
+order is not an acceptance condition. Exit zero alone is insufficient.
 
-Then build the docs app, pack those seven packages into local tarballs without
-publishing, and run only the two authored consumer scenarios in
-`tooling/verify-consumers.ts`:
+The controller reserves 900 seconds of work and 60 seconds of cleanup inside
+the twenty-minute job. Each captured stream is capped at 128 KiB; the JSON
+report at 256 KiB, raw Vitest JSON at 256 KiB and lossless compressed Vitest
+evidence at 64 KiB. Commands use bounded deadlines and TERM followed by KILL
+after three seconds, with a further three-second drain bound. Require observed
+exit/close, reaping and original owned-group absence, full source/index/working
+guards before/after, preserved historical results and identity-checked cleanup.
+Use only fresh owned HOME/config/cache/temp/fixture directories and no inherited
+account/provider credentials. No local installation, build or test is proposed.
+
+## Isolated trigger and source publication
+
+Use only the new inactive example at
+`docs/examples/source-installation-52-checks.workflow.yml`. The old
+[combined workflow example](../examples/source-installation-checks.workflow.yml)
+is preserved as historical source and is not this execution route.
+
+Root publishes preparation on main with `[skip ci]`, then creates exactly the
+owned branch `qa/mcpcn-source-52-20261104`. Only the exact repository
+`alvarovillalbaa/mcpcn-ui`, branch type and branch/ref may admit that `create`
+event. The read-only temporary workflow checks out the immutable preparation
+SHA; it never checks out a floating branch as test source. Main-push broad CI
+and release definitions remain unchanged and unexecuted by this route.
+
+After a terminal result is retained, root retires only the temporary focused
+workflow on main with `[skip ci]` and guardedly fast-forwards the owned branch
+to that same final source commit. The branch remains a retired bookmark; no
+branch deletion or repository-wide absence of workflows is claimed. Do not
+activate the existing release job or use an npm publishing identity.
+
+## Subsequent docs and installed-consumer scope — unrun
+
+The original follow-on scope remains prepared but is excluded from the first
+52-case invocation: build the docs app, pack those seven packages into local
+tarballs without publishing, then run the two authored consumer scenarios in
+`tooling/verify-consumers.ts`. Neither scenario has run:
 
 1. Existing-app source copy: exact locked third-party dependencies, actual
    compiled source CLI, all 79 selected entries, real editable source and strict
@@ -56,17 +104,18 @@ third-party declaration internals or every platform/runtime combination.
 
 ## Recording and boundaries
 
-The [inactive workflow example](../examples/source-installation-checks.workflow.yml)
-is reviewable source outside `.github/workflows`; it cannot run by publication.
-If approved, activate only that manual, read-only workflow for this source,
-retain logs, exact source/runtime hashes, all discovered names/counts, exits,
-tarball identities and both consumer outcomes, then remove the temporary
-workflow. Missing/extra cases cannot count as success. Retain failed attempts;
-bounded repairs and same-scope reruns must record updated source hashes.
+Retain bounded raw output, actual source/runtime/tool identities, all discovered
+titles/statuses/counts, exits, source/index/mode/blob guards and owned cleanup.
+Preserve the first failed attempt before a repair or rerun; source changes need
+a new immutable pin and evidence. Tarball identities and consumer outcomes
+belong to the subsequent scope, not this first 52-case result.
 
 No broad test suite, browser, real host, server, database, Auth/role/configuration
 change, dependency update, production data, account, model call, npm publication,
 Vercel/Supabase provisioning, promotion, payment or paid plan is included.
 Neither an npm token nor a publishing identity is used. This does not activate
-the existing CI/release workflows. Further cases or release/host acceptance need
-their own concrete scope.
+the existing CI/release workflows. The protected staging READY result recorded
+on 29 October is not new hosted, browser or live MCP acceptance. Public package
+availability, real host protocol behavior and the full product remain unproved;
+subsequent work needs a concrete source/target scope, not another routine
+approval question for this already authorized first packet.
