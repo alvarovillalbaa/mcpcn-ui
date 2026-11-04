@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "kind": "mcpcn-hosting-http-transport",
+  "observedAtUtc": "2026-11-04T21:04:31.382Z",
+  "localCurl": {
+    "kind": "mcpcn-anonymous-http-checks",
+    "observedAtUtc": "2026-11-04T21:04:31.382Z",
+    "status": "failed",
+    "targetAuthenticationSent": false,
+    "temporaryShareLinkUsed": false,
+    "bodyLimitBytes": 6291456,
+    "perRequestSeconds": 15,
+    "allCurlCallbacksSettled": true,
+    "ownedTemporaryStorageRemoved": true,
+    "results": [
+      {
+        "name": "home",
+        "url": "https://mcpcn-ui.vercel.app/",
+        "status": "failed",
+        "httpStatus": null,
+        "transportCode": 6,
+        "effectiveUrl": "https://mcpcn-ui.vercel.app/",
+        "contentType": null,
+        "error": "transport_failed"
+      },
+      {
+        "name": "docs",
+        "url": "https://mcpcn-ui.vercel.app/docs",
+        "status": "failed",
+        "httpStatus": null,
+        "transportCode": 6,
+        "effectiveUrl": "https://mcpcn-ui.vercel.app/docs",
+        "contentType": null,
+        "error": "transport_failed"
+      },
+      {
+        "name": "schema",
+        "url": "https://mcpcn-ui.vercel.app/schema/config.json",
+        "status": "failed",
+        "httpStatus": null,
+        "transportCode": 6,
+        "effectiveUrl": "https://mcpcn-ui.vercel.app/schema/config.json",
+        "contentType": null,
+        "error": "transport_failed"
+      },
+      {
+        "name": "button",
+        "url": "https://mcpcn-ui.vercel.app/r/button.json",
+        "status": "failed",
+        "httpStatus": null,
+        "transportCode": 6,
+        "effectiveUrl": "https://mcpcn-ui.vercel.app/r/button.json",
+        "contentType": null,
+        "error": "transport_failed"
+      },
+      {
+        "name": "registry",
+        "url": "https://mcpcn-ui.vercel.app/r/registry.json",
+        "status": "failed",
+        "httpStatus": null,
+        "transportCode": 6,
+        "effectiveUrl": "https://mcpcn-ui.vercel.app/r/registry.json",
+        "contentType": null,
+        "error": "transport_failed"
+      }
+    ]
+  },
+  "webObservation": {
+    "atUtc": "2026-11-04 21:07:20 UTC",
+    "paths": [
+      "/",
+      "/docs",
+      "/schema/config.json",
+      "/r/button.json"
+    ],
+    "result": "The web tool marked all URLs inaccessible and returned no HTTP status."
+  },
+  "meaning": "Neither local DNS failure nor unsupported web access establishes an application HTTP failure or anonymous delivery success.",
+  "nextAction": "Run the five exact read-only anonymous HTTP checks from a bounded public GitHub runner. No browser or authorization bypass is involved."
+}

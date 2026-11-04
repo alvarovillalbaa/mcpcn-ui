@@ -16,6 +16,12 @@ unverified “production-ready” metadata description. It changes two strings i
 consumer tooling remain unchanged. The hosted build must compile this exact
 candidate; earlier CI does not establish a build of the later footer edition.
 
+The next copy edition also removes the unsupported readiness claim from the
+homepage hero, labels the 68 component/alias entries as catalog entries and
+places the pending public-package release notice beside the homepage install
+commands, with a working source-repository link. This uses the existing layout
+and status markup; it changes no package implementation or interaction handler.
+
 ## Target and reviewed build configuration
 
 - Existing Vercel project `mcpcn-ui`, ID `prj_cnLeaJNJjMZac7HpqsKw2jhIAQsW`.
@@ -86,6 +92,31 @@ the Node-24 assertion and unchanged SSO/domain policy. It produces a new hosted
 artifact in the production environment, which needs its own READY/build/source
 and public-response checks. This docs/evidence edition changes no application
 implementation or dependency versions.
+
+Production deployment `dpl_AyKLEkEj3fXiiH1MXQrePXKfFT8U` reached READY at source
+`528e6d8c0d4896c2127d9d804cc0789ee1806ce2` with the canonical domain assigned.
+The [initial HTTP observation](../results/2026/11-04/hosting-http-transport.json)
+could not verify anonymous delivery: local curl returned DNS code 6 without an
+HTTP status, and the web tool could not access the URLs. These are transport
+limitations, not observed application failures. The homepage copy edition needs
+its own pinned production build before the following checks.
+
+The inactive `docs/examples/hosting-http-checks.workflow.yml` owns five direct
+anonymous HTTPS GET checks from one public Ubuntu runner, Node 24.21.0, capped
+at three minutes: `/`, `/docs`, `/schema/config.json`, `/r/button.json` and
+`/r/registry.json`. Check out the exact final deployed application SHA. Require
+HTTP 200 at the canonical origin, expected HTML/security-link/description and
+release-status markers, and semantic JSON equality against that SHA's registry
+and schema files (object-key order is immaterial; arrays retain order). All 79
+registry entries must match. Use no cookies, authorization, temporary share link
+or provider bypass, no dependency install, model, account, database or browser.
+Bound each request to 15 seconds and 6 MiB, total work to 60 seconds and final
+stdout to two seconds; retain only statuses, sizes and hashes in a 16 KiB report.
+Only `create` of `qa/mcpcn-public-http-20261104` in the exact public repository
+may trigger the temporary read-only workflow. Main publications use `[skip ci]`.
+Retain failure evidence, remove the workflow after terminal completion and keep
+its owned branch as a retired bookmark. Source/HTTP checks do not establish
+client JavaScript, CSS rendering, accessibility or live MCP-host behavior.
 
 Publish a bounded receipt under `docs/results/2026/11-04/`, preserving the old
 hosting failures and protected staging observation. Source publication uses
