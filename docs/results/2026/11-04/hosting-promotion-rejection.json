@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "kind": "mcpcn-hosting-promotion-rejection",
+  "observedAtUtc": "2026-11-04 20:56:48 UTC",
+  "request": {
+    "deploymentId": "dpl_6LGHUBq95G6oY8tg5Po2QVyeSvWB",
+    "projectId": "prj_cnLeaJNJjMZac7HpqsKw2jhIAQsW",
+    "teamId": "team_JpdIsOJgYNpX0ywVZ54Zdb7m"
+  },
+  "providerError": {
+    "message": "Vercel API request failed (422: unprocessable_entity). Resource cannot be processed.",
+    "recovery": "Check the API message, arguments, target team and resource state. Correct the request before retrying.",
+    "remediation": {
+      "actor": "agent",
+      "action": "correct_request"
+    },
+    "status": 422,
+    "code": "unprocessable_entity",
+    "operation": "POST /v10/projects/{projectId}/promote/{deploymentId}",
+    "requestId": "iad1:fra1:iad1:sfo1::hmqwh-1793825540603-3e5bdfc7cee7"
+  },
+  "requestRepeated": false,
+  "afterProject": {
+    "id": "prj_cnLeaJNJjMZac7HpqsKw2jhIAQsW",
+    "nodeVersion": "24.x",
+    "live": false,
+    "ssoProtection": {
+      "deploymentType": "all_except_custom_domains"
+    }
+  },
+  "afterDeployment": {
+    "id": "dpl_6LGHUBq95G6oY8tg5Po2QVyeSvWB",
+    "readyState": "READY",
+    "target": "staging",
+    "source": "91cf922e40ba6fd184d60c0c1c6b5c94ee09e5e4",
+    "alias": [
+      "mcpcn-ui-my-team-4f230354.vercel.app",
+      "mcpcn-ui-git-91cf922e40ba6fd184d60c0c1c-5011cd-my-team-4f230354.vercel.app"
+    ],
+    "aliasError": null
+  },
+  "outcome": "The project remains not live; the staging deployment remains READY with staging aliases only. No successful production promotion is established.",
+  "cause": "The API returned a generic 422 resource-validation error without a more specific eligibility reason; do not treat an inferred reason as proven.",
+  "nextAction": "Use the supported explicit production build target for the reviewed application code; preserve protection policy and inspect the new build and public canonical domain. No force or unchanged promotion retry.",
+  "noApprovalReviewClaim": "This was a Vercel API validation rejection, not an automatic user-approval rejection."
+}

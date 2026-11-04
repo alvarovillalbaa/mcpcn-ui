@@ -75,6 +75,18 @@ build from this operation. Verify alias completion, exact deployment mapping
 and unauthenticated canonical-domain responses before claiming public delivery.
 HTTP/artifact checks do not substitute for native browser interaction.
 
+The [reviewed Node-24 staging build](../results/2026/11-04/hosting-staging-review.json)
+passed on Node 24.22.2 at source `91cf922e40ba6fd184d60c0c1c6b5c94ee09e5e4`.
+The [promotion request](../results/2026/11-04/hosting-promotion-rejection.json)
+then returned generic HTTP 422; authoritative readback still showed `live:
+false` and staging aliases. Its precise eligibility reason is not exposed.
+Do not force or repeat that unchanged request. The next supported route is an
+explicit `production` build of the same reviewed application code, retaining
+the Node-24 assertion and unchanged SSO/domain policy. It produces a new hosted
+artifact in the production environment, which needs its own READY/build/source
+and public-response checks. This docs/evidence edition changes no application
+implementation or dependency versions.
+
 Publish a bounded receipt under `docs/results/2026/11-04/`, preserving the old
 hosting failures and protected staging observation. Source publication uses
 `[skip ci]` so the existing broad CI and npm release job remain unexecuted.
