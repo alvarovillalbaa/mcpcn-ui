@@ -101,12 +101,18 @@ same final source commit. Both remain retired bookmarks; no branch deletion
 or repository-wide absence of workflows is claimed. Do not
 activate the existing release job or use an npm publishing identity.
 
-This later status edition changes only `AGENTS.md`, `README.md` and this proposal
-within the 313-input checked scope; the other 310 inputs remain byte-identical.
-Reproduce the immutable preparation above, not the later documentation edition.
-All historical seals and the first failed result remain unchanged.
+The closed 52-check status edition at
+`50034ca41471a5eadca076c02cb556047d2d7a27` changed only `AGENTS.md`, `README.md`
+and this proposal within the 313-input checked scope; its other 310 inputs were
+byte-identical. Subsequent consumer work has a separate seal. Reproduce the
+immutable preparation above for that 52-case result. All historical seals and
+the first failed result remain unchanged.
 
 ## Subsequent docs and installed-consumer scope — unrun
+
+Current continuation: [docs, archives and installed consumers](consumer-checks.md)
+owns the repaired harness, fresh source seal and exact execution route. The
+historical scope below records the original two prepared scenarios.
 
 The original follow-on scope remains prepared but is excluded from the first
 52-case invocation: build the docs app, pack those seven packages into local

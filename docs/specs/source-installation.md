@@ -50,7 +50,8 @@ declares React 19.2, Zod 4.4, ext-apps 1.7.5 and its MCP SDK 1.30.0 peer; the
 dependency command assumes an existing TypeScript React app. No new repository
 dependency or automatic consumer installation is introduced. Package mode emits
 explicit package entry wrappers and provider setup, requiring the corresponding
-published package release. That release currently does not exist on npm.
+published package release. The 29 October 2026 registry lookups returned E404;
+current public package availability has not been established by the later checks.
 
 The generated provider creates a stable adapter in a client effect. `auto`
 uses existing detection, `standard-mcp` uses `OfficialMCPAdapter`, and `openai`
@@ -92,10 +93,13 @@ before retrying; never delete user files to make a retry succeed.
 
 ## Acceptance still required
 
-The authored focused scope covers registry source closure, real workflow SSR/
-callbacks, configuration/UI output and disposable installer behavior. Two
-prepared CI consumers will additionally compile all copied entries and all
-package-mode entries using built local tarballs. These checks remain unrun.
+The [52 focused checks](../results/2026/11-04/source-installation-52-checks.md)
+passed at immutable source `574c87eb57db8cec82eec8319efa875b7299433c`, covering
+registry source closure, real workflow SSR/captured callbacks, configuration/UI
+output and disposable installer behavior. This establishes neither native events
+nor live host behavior. Two prepared CI consumers will additionally compile all
+copied entries and all package-mode entries using built local tarballs. Those
+consumer scenarios remain unrun under the [consumer scope](../proposals/consumer-checks.md).
 
 Fresh npm publication/installation, a hosted docs release, real-host protocol
 acceptance, native browser interaction/accessibility, broader runtime/React/

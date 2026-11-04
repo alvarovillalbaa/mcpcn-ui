@@ -39,14 +39,22 @@ Last updated: 2026-11-04
   temporary focused workflow, which checks out an immutable preparation SHA.
   The two owned branches are `qa/mcpcn-source-52-20261104` and
   `qa/mcpcn-source-52-20261104-attempt-2`, never main.
-- Final-publication plan: root removes only the temporary focused workflow on
-  main with `[skip ci]` and guardedly fast-forwards both owned branches to that
-  final source. Retain them as retired bookmarks; do not claim branch deletion
-  or that the repository has no workflows. Broad CI/release definitions remain.
-- The docs-app build, seven local package archives and two installed-consumer
-  scenarios remain a subsequent unrun scope. Browser/real-host acceptance,
+- The first packet's temporary workflow was removed at
+  `50034ca41471a5eadca076c02cb556047d2d7a27`; both owned check branches point
+  there as retired bookmarks. Broad CI/release definitions remain unchanged.
+- Current consumer packet: standing owner authorization covers repairing the
+  prepared harness's process lifecycle, focused owned lifecycle regressions,
+  the docs-app build, seven local package archives and both installed-consumer
+  scenarios, in one public Ubuntu/Node 24.21/pnpm 10.24 job capped at 20 minutes.
+  Use the [consumer scope](docs/proposals/consumer-checks.md), a complete new
+  source seal and immutable checkout. Only the exact owned branch's `create`
+  event (`qa/mcpcn-consumers-20261104`) may run the temporary workflow; all main
+  publication commits retain `[skip ci]`. Keep the old two bookmarks unchanged.
+  Preserve failures; retire the new workflow and advance its owned branch to
+  the final source after the terminal result. This packet is currently unrun.
+- Browser/real-host acceptance,
   package publication, account/Auth/provider changes and paid services are
-  excluded from the first 52 checks. Preserve all historical receipts/seals.
+  outside this consumer packet. Preserve all historical receipts/seals.
 - Canonical registry generation is an implementation step, separate from test
   execution. This packet performed no local installation/build. The CI packet
   installed the unchanged frozen lock with lifecycle scripts disabled and

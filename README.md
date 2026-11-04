@@ -83,18 +83,22 @@ failure is preserved. The [second run](docs/results/2026/11-04/source-installati
 checked the test-only label lookup and owned compiler-cache routing repair at
 `574c87eb57db8cec82eec8319efa875b7299433c`: all 52 identities/statuses, seven
 package builds, generation, full source guards and owned cleanup passed.
-The old protected staging build remains a separate observation. This later
-status edition changes three of the 313 checked inputs; the other 310,
-including product, tests, controller, lock and workflow example, are unchanged.
+The old protected staging build remains a separate observation. The status
+edition at `50034ca41471a5eadca076c02cb556047d2d7a27` changed three of the
+313 checked inputs; its other 310 were unchanged. Subsequent consumer work uses
+a separate source seal and does not replace that reproduction target.
 
 The job uses only the exact owned branch's `create` event and an immutable source
 pin. Main preparation/final commits use `[skip ci]`; the existing broad CI and
-release jobs stay unchanged and unexecuted by this packet. Final publication
-will remove the temporary focused workflow and advance both owned branches to
-the final source as retired bookmarks.
-The docs build, seven local archives and two installed-consumer scenarios remain
-subsequent and unrun. Browser/real-host acceptance, public package release,
-accounts and provider/model calls are outside the first 52-case packet.
+release jobs stayed unchanged and unexecuted by that packet. Its temporary
+workflow is removed and both owned branches are retained as retired bookmarks.
+
+The [consumer packet](docs/proposals/consumer-checks.md) now prepares the docs
+build, seven local archives and both installed-consumer scenarios. It repairs
+the prepared harness's process cleanup before execution and retains the strict
+source and cleanup checks. These scenarios remain unrun. Browser/real-host
+acceptance, public package release, accounts and provider/model calls remain
+separate work.
 
 ## Security
 
