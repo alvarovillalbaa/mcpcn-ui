@@ -2,11 +2,14 @@
 
 Last updated: 2026-11-04
 
-Owner-authorized; prepared and unrun. The owner's standing “I approve everything”
+**Passed at immutable source `eca3d6a031019cc142cfd3ab01f38c9365ce02c6`.**
+The [actual result](../results/2026/11-04/consumer-checks.md) records the docs
+build, seven archives, two installed consumers and two separate lifecycle controls.
+The owner's standing “I approve everything”
 and “Keep going / Do all the work” instructions cover this concrete continuation
 of the [source-installation scope](source-installation-checks.md). The existing
 [52-case pass](../results/2026/11-04/source-installation-52-checks.md) remains at
-its own immutable source and will not be rerun for unrelated consumer changes.
+its own immutable source and was not rerun for these consumer changes.
 
 ## Scope
 
@@ -49,11 +52,11 @@ the external network use; no host/MCP/tool/model/provider connection is invoked.
 Source review found that the old harness could settle on leader closure, cancel
 TERM-to-KILL escalation and drop ownership before verifying original process-group
 absence. Its signal handlers could also disappear before cleanup/reporting.
-Repair those paths before launch. Add only two focused, disposable owned process
-regressions: leader closure with a surviving TERM-resistant process group, and
+Those paths were repaired before launch. Two focused, disposable owned process
+regressions passed: leader closure with a surviving TERM-resistant process group, and
 repeated interruption during cleanup/reporting. These are separate from the two
-consumer scenarios. This is a source finding; no consumer
-runtime failure has been observed yet. Keep repeated signals covered through
+consumer scenarios. The repair addressed source findings, not an observed
+consumer runtime failure. Keep repeated signals covered through
 cleanup/reporting and record exit, stream close, group absence and finite bounds.
 
 The two lifecycle case identities are:
@@ -62,8 +65,9 @@ The two lifecycle case identities are:
   ownership after the leader closes, escalate for the authored survivor and
   verify direct-child exit/close plus original-group absence before removal.
 - `repeated signals remain handled during cleanup and report`: keep repeated
-  interruption handled through drain/reporting, retain cancellation as a failure
-  condition and require verified owned process and fixture cleanup.
+  interruption handled through drain/reporting and require verified owned
+  process and fixture cleanup. Cancellation fails normal consumer runs; this
+  lifecycle control explicitly permits its three authored signals.
 
 The outer work/cleanup budgets are 900/60 seconds, reserving the last two cleanup
 seconds for bounded final stdout and retaining signal handlers through its
@@ -96,7 +100,19 @@ absence of its separately grouped children.
 
 ## Publication and isolation
 
-The complete source seal is `docs/results/2026/11-04/consumer-checks-source.json`.
+The checked [complete source seal](../results/2026/11-04/consumer-checks-source.json)
+contains 316 inputs / 12,326,975 bytes and all 327 preparation-tree identities.
+Six full source guards, all 56 outer command outcomes, both nested process
+cleanup acknowledgments and empty fixture/owned scratch cleanup passed.
+The normal consumer helper was not interrupted; its separate lifecycle controls
+deliberately delivered three signals and still verified teardown.
+
+This later edition changes only six checked status documents: `AGENTS.md`,
+`README.md`, the source-installation proposal/specification, `tooling/README.md`
+and this proposal. The other 310 checked inputs, including the helper,
+controller, workflow example, product, tests and lock, remain unchanged.
+Reproduce the immutable preparation above; preserve all earlier seals/results.
+
 The inactive workflow is `docs/examples/consumer-checks.workflow.yml`; root pins
 its immutable preparation SHA in the temporary active copy. Only exact public
 repository `alvarovillalbaa/mcpcn-ui` and the fresh branch-create event for
@@ -106,10 +122,11 @@ environments receive no account or publishing credentials.
 
 Main preparation, activation and final publication use `[skip ci]` so the
 existing main-push CI/npm release workflows stay unchanged and unexecuted by
-this packet. Preserve the two prior 52-check branch bookmarks. After retaining
-the terminal outcome, remove only the new temporary workflow, publish the final
-receipt and fast-forward its owned branch to that final source as a retired
-bookmark. No branch deletion is claimed. Preserve failed attempts before repair.
+this packet. Final publication will remove only the new temporary workflow,
+publish the final receipt and fast-forward only `qa/mcpcn-consumers-20261104`
+to that final source as a retired bookmark. The two prior 52-check bookmarks
+remain at `50034ca41471a5eadca076c02cb556047d2d7a27`. No branch deletion is
+claimed. Preserve failed attempts before repair.
 
 This does not establish public npm availability, native browser interaction,
 accessibility, live MCP hosts, production hosting or full-library readiness.

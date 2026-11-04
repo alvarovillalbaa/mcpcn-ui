@@ -49,8 +49,9 @@ Source output uses the existing React/Zod/MCP SDK dependencies. The registry
 declares React 19.2, Zod 4.4, ext-apps 1.7.5 and its MCP SDK 1.30.0 peer; the
 dependency command assumes an existing TypeScript React app. No new repository
 dependency or automatic consumer installation is introduced. Package mode emits
-explicit package entry wrappers and provider setup, requiring the corresponding
-published package release. The 29 October 2026 registry lookups returned E404;
+explicit package entry wrappers and provider setup, requiring matching installed
+packages. The local-archive checks establish that artifact profile; public
+registry commands still depend on a published release. The 29 October 2026 registry lookups returned E404;
 current public package availability has not been established by the later checks.
 
 The generated provider creates a stable adapter in a client effect. `auto`
@@ -91,22 +92,29 @@ atomic sandbox against arbitrary concurrent ancestor replacement. The multi-file
 operation is not one atomic transaction. Inspect retained evidence after failure
 before retrying; never delete user files to make a retry succeed.
 
-## Acceptance still required
+## Recorded acceptance and remaining scope
 
 The [52 focused checks](../results/2026/11-04/source-installation-52-checks.md)
 passed at immutable source `574c87eb57db8cec82eec8319efa875b7299433c`, covering
 registry source closure, real workflow SSR/captured callbacks, configuration/UI
 output and disposable installer behavior. This establishes neither native events
-nor live host behavior. Two prepared CI consumers will additionally compile all
-copied entries and all package-mode entries using built local tarballs. Those
-consumer scenarios remain unrun under the [consumer scope](../proposals/consumer-checks.md).
+nor live host behavior. The separate
+[consumer result](../results/2026/11-04/consumer-checks.md) passed at immutable
+source `eca3d6a031019cc142cfd3ab01f38c9365ce02c6`: docs build, seven local
+archives and both installed consumers, each adding all 79 entries and using
+its own TypeScript 5.9.3 compiler. Package mode invoked the installed `.bin`
+launcher and checked all 24 declared JS/type/CSS/bin targets plus both style
+assets. Two lifecycle controls, complete source guards and owned teardown also
+passed. The [consumer scope](../proposals/consumer-checks.md) records the exact
+profile and limits; these checks do not establish native events or live hosts.
 
 Fresh npm publication/installation, a hosted docs release, real-host protocol
 acceptance, native browser interaction/accessibility, broader runtime/React/
 framework matrices and the full library quality bar remain separate unfinished
-work. The [check proposal](../proposals/source-installation-checks.md) requests
-only its concrete runner scope. No account, paid plan or live business action
-is required for that scope.
+work. The [check proposal](../proposals/source-installation-checks.md) and the
+consumer scope retain their separate immutable sources; no prior test packet
+was rerun to update these status documents. No account creation, paid plan or
+live business action was included in either packet.
 
 Primary format references: [shadcn registry item schema](https://ui.shadcn.com/docs/registry/registry-item-json)
 for file/dependency payload structure, and [GitHub skip directives](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/skip-workflow-runs)

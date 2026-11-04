@@ -50,8 +50,12 @@ Last updated: 2026-11-04
   source seal and immutable checkout. Only the exact owned branch's `create`
   event (`qa/mcpcn-consumers-20261104`) may run the temporary workflow; all main
   publication commits retain `[skip ci]`. Keep the old two bookmarks unchanged.
-  Preserve failures; retire the new workflow and advance its owned branch to
-  the final source after the terminal result. This packet is currently unrun.
+  The [actual result](docs/results/2026/11-04/consumer-checks.md) passed at
+  `eca3d6a031019cc142cfd3ab01f38c9365ce02c6`: docs build, seven local archives,
+  both 79-item consumers and two separate lifecycle controls, with source and
+  owned cleanup gates passing. Preserve failures and historical source pins.
+  Final publication will retire only this new workflow and advance its branch
+  to the final source; leave the old two bookmarks at `50034ca` unchanged.
 - Browser/real-host acceptance,
   package publication, account/Auth/provider changes and paid services are
   outside this consumer packet. Preserve all historical receipts/seals.

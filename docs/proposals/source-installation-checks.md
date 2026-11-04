@@ -95,10 +95,10 @@ event. The read-only temporary workflow checks out the immutable preparation
 SHA; it never checks out a floating branch as test source. Main-push broad CI
 and release definitions remain unchanged and unexecuted by this route.
 
-Final-publication plan: root removes only the temporary focused workflow on
-main with `[skip ci]` and guardedly fast-forwards both owned branches to that
-same final source commit. Both remain retired bookmarks; no branch deletion
-or repository-wide absence of workflows is claimed. Do not
+The first packet's temporary workflow was removed at
+`50034ca41471a5eadca076c02cb556047d2d7a27`, with both owned branches retained
+there as retired bookmarks. They remain unchanged through the consumer packet.
+No branch deletion or repository-wide absence of workflows is claimed. Do not
 activate the existing release job or use an npm publishing identity.
 
 The closed 52-check status edition at
@@ -108,25 +108,25 @@ byte-identical. Subsequent consumer work has a separate seal. Reproduce the
 immutable preparation above for that 52-case result. All historical seals and
 the first failed result remain unchanged.
 
-## Subsequent docs and installed-consumer scope — unrun
+## Separate docs and installed-consumer packet — passed
 
 Current continuation: [docs, archives and installed consumers](consumer-checks.md)
-owns the repaired harness, fresh source seal and exact execution route. The
-historical scope below records the original two prepared scenarios.
+owns the repaired harness, fresh source seal and exact execution route. Its
+[actual result](../results/2026/11-04/consumer-checks.md) passed at immutable
+source `eca3d6a031019cc142cfd3ab01f38c9365ce02c6`: docs production build, seven
+local archives and both 79-item consumers, plus two separate lifecycle controls.
+This does not rerun or replace the historical 52-case result above.
 
-The original follow-on scope remains prepared but is excluded from the first
-52-case invocation: build the docs app, pack those seven packages into local
-tarballs without publishing, then run the two authored consumer scenarios in
-`tooling/verify-consumers.ts`. Neither scenario has run:
+The follow-on scope was excluded from the first 52-case invocation and ran only
+under the separate consumer preparation: docs build, seven local tarballs
+without publishing, then the two scenarios in `tooling/verify-consumers.ts`:
 
-Before that next job, repair the consumer harness's subprocess lifecycle. A
-read-only source review found that leader close clears escalation and removes
-the active child before original-group absence is verified (lines 83–90,
-104–129), while signal handlers are one-shot and removed before awaited drain
-(lines 293–312). This is a source finding, not an observed consumer runtime
-failure. Keep the strict source/process/cleanup gates; do not execute the old
-combined example. The owner's standing authorization covers the next concrete
-bounded packet after that repair, without another routine permission question.
+Before execution, source review found lifecycle gaps in the old helper:
+leader close cleared escalation/ownership before original-group absence, and
+signal handlers disappeared before awaited drain. Those source findings were
+repaired; both focused lifecycle regressions passed in the consumer packet.
+They were not an observed consumer runtime failure. The strict guards remained;
+the old combined workflow example was not executed.
 
 1. Existing-app source copy: exact locked third-party dependencies, actual
    compiled source CLI, all 79 selected entries, real editable source and strict

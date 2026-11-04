@@ -93,12 +93,21 @@ pin. Main preparation/final commits use `[skip ci]`; the existing broad CI and
 release jobs stayed unchanged and unexecuted by that packet. Its temporary
 workflow is removed and both owned branches are retained as retired bookmarks.
 
-The [consumer packet](docs/proposals/consumer-checks.md) now prepares the docs
-build, seven local archives and both installed-consumer scenarios. It repairs
-the prepared harness's process cleanup before execution and retains the strict
-source and cleanup checks. These scenarios remain unrun. Browser/real-host
-acceptance, public package release, accounts and provider/model calls remain
-separate work.
+The [consumer packet](docs/proposals/consumer-checks.md)
+[passed](docs/results/2026/11-04/consumer-checks.md) at
+`eca3d6a031019cc142cfd3ab01f38c9365ce02c6`: the docs production build, seven
+local package archives and both installed consumers. Each consumer installed
+all 79 entries and compiled with its own TypeScript 5.9.3. Package mode used the
+actual installed CLI launcher and verified all 24 declared JS/type/CSS/bin
+targets plus the two packaged style assets. Two separate lifecycle controls
+also passed; source guards and owned cleanup passed throughout. This final
+status edition changes six of the 316 checked inputs; the other 310 remain
+unchanged. Reproduce the immutable source above for this result.
+
+Final publication will remove only the consumer workflow and retain its branch
+as a retired bookmark. The two old 52-check bookmarks stay at `50034ca`.
+Browser/real-host acceptance, public npm release and hosted docs delivery remain
+separate work; this local CI build establishes no new hosting or page proof.
 
 ## Security
 

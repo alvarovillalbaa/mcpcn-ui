@@ -1,0 +1,4102 @@
+{
+  "schemaVersion": 1,
+  "kind": "mcpcn-docs-and-consumer-checks",
+  "preparationCommit": "eca3d6a031019cc142cfd3ab01f38c9365ce02c6",
+  "preparationTree": "77f5d3c3400b824c4e9a46c4ea4c0b419b999b78",
+  "activationCommit": "4896cad039562785508d420cf0205664962d587e",
+  "activationTree": "c5cef00051c8bf642fb71cdbf55fcb963f4909de",
+  "runId": 41852504728,
+  "jobId": 126652243639,
+  "runUrl": "https://github.com/alvarovillalbaa/mcpcn-ui/actions/runs/41852504728",
+  "trigger": {
+    "event": "create",
+    "branch": "qa/mcpcn-consumers-20261104"
+  },
+  "jobStartedAtUtc": "2026-11-04T14:55:59Z",
+  "jobCompletedAtUtc": "2026-11-04T14:56:59Z",
+  "sourceSeal": "consumer-checks-source.json",
+  "controller": {
+    "schemaVersion": "mcpcn.installed-consumers.v1",
+    "sourceCommit": "eca3d6a031019cc142cfd3ab01f38c9365ce02c6",
+    "status": "passed",
+    "startedAtUtc": "2026-11-04T14:56:09.061Z",
+    "runtime": {
+      "node": "v24.21.0",
+      "platform": "linux",
+      "architecture": "x64",
+      "executableSha256": "7fde7b8afa198da66257f42ee2001d874c7355631e6d1579a5fb5ef1f246df4c",
+      "pnpmExecutableSha256": "bca348c8cbf963c330a6a1b574494295f5943effd8e1e0de2f4d3905d5d5d4e7",
+      "pnpm": "10.24.0"
+    },
+    "scope": {
+      "consumerScenarios": [
+        "copy",
+        "package"
+      ],
+      "lifecycleCases": [
+        "leader close keeps a surviving owned group through TERM and KILL",
+        "repeated signals remain handled during cleanup and report"
+      ],
+      "selectedItemsPerConsumer": 79,
+      "packages": [
+        "@mcpcn/core",
+        "@mcpcn/schemas",
+        "@mcpcn/runtime",
+        "@mcpcn/react",
+        "@mcpcn/themes",
+        "@mcpcn/registry",
+        "mcpcn"
+      ],
+      "generator": "tooling/generate.ts",
+      "docsBuild": true,
+      "packagePacking": true
+    },
+    "commands": [
+      {
+        "label": "before_head",
+        "arguments": [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 41,
+            "capturedBytes": 41,
+            "limitBytes": 131072,
+            "observedSha256": "d718a46dae54349a7fd622c74c61a0fed2c4cc7a65ff213ed770fc5dd27109aa",
+            "capturedSha256": "d718a46dae54349a7fd622c74c61a0fed2c4cc7a65ff213ed770fc5dd27109aa",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "before_seal",
+        "arguments": [
+          "git",
+          "show",
+          "HEAD:docs/results/2026/11-04/consumer-checks-source.json"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 79739,
+            "capturedBytes": 79739,
+            "limitBytes": 131072,
+            "observedSha256": "9de887a21a64c3533096eb782601daba15e9cff8acdc0e6c57d189279f75e13d",
+            "capturedSha256": "9de887a21a64c3533096eb782601daba15e9cff8acdc0e6c57d189279f75e13d",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "before_index",
+        "arguments": [
+          "git",
+          "ls-files",
+          "--stage",
+          "-z"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 27323,
+            "capturedBytes": 27323,
+            "limitBytes": 131072,
+            "observedSha256": "dc808105848fabf1b803bf3a21ecd120797577c66cc4496d2a98ff084509269e",
+            "capturedSha256": "dc808105848fabf1b803bf3a21ecd120797577c66cc4496d2a98ff084509269e",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "before_tree",
+        "arguments": [
+          "git",
+          "ls-tree",
+          "-r",
+          "-z",
+          "HEAD"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 28304,
+            "capturedBytes": 28304,
+            "limitBytes": 131072,
+            "observedSha256": "5876f106debb5ee99a540fe53feeab5fd86325b27a02cead3b454a88982016ef",
+            "capturedSha256": "5876f106debb5ee99a540fe53feeab5fd86325b27a02cead3b454a88982016ef",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "before_status",
+        "arguments": [
+          "git",
+          "status",
+          "--porcelain=v1",
+          "-z",
+          "--untracked-files=all"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "before_working",
+        "arguments": [
+          "git",
+          "-c",
+          "core.filemode=true",
+          "diff",
+          "--no-ext-diff",
+          "--no-textconv",
+          "--quiet",
+          "--exit-code",
+          "HEAD",
+          "--"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "pnpm_version",
+        "arguments": [
+          "[pnpm]",
+          "--version"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 8,
+            "capturedBytes": 8,
+            "limitBytes": 131072,
+            "observedSha256": "d57d8c9c1f2bf0cd42f130efec6786ebacc3a3e25d8695ad1ca56216de38faa4",
+            "capturedSha256": "d57d8c9c1f2bf0cd42f130efec6786ebacc3a3e25d8695ad1ca56216de38faa4",
+            "complete": true,
+            "head": "10.24.0\n",
+            "tail": "10.24.0\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 28,
+              "data": "H4sIAAAAAAAAAzM00DMy0TPgAgCJfWgQCAAAAA=="
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "install",
+        "arguments": [
+          "[pnpm]",
+          "install",
+          "--frozen-lockfile",
+          "--ignore-scripts",
+          "--store-dir",
+          "[owned-scratch]/store",
+          "--reporter=append-only"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 1135,
+            "capturedBytes": 1135,
+            "limitBytes": 131072,
+            "observedSha256": "38f590ffa59261ff4283f0e62ad4cafd90d61fccbc65baf8c1d7e403533ff32a",
+            "capturedSha256": "38f590ffa59261ff4283f0e62ad4cafd90d61fccbc65baf8c1d7e403533ff32a",
+            "complete": true,
+            "head": "Scope: all 21 workspace projects\nLockfile is up to date, resolution step is skipped\nProgress: resolved 1, reused 0, downloaded 0, added 0\nPackages: +303\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\nProgress: resolved 303, reused 0, downloaded 47, added 27\nProgress: resolved 303, reused 0, downloaded 98, added 74\nProgress: resolved 303, reused 0, downloaded 301, added 301\nProgress: resolved 303, reused 0, downloaded 303, added 303, done\n WARN  Failed to create bin at [repository]/apps/docs/node_modules/.bin/mcpcn-registry. ENOENT: no such file or directory, open '[repository]/packages/registry/dist/bin.js'\n WARN  Failed to create bin at [repository]/packages/cli/node_modules/.bin/mcpcn-registry. ENOENT: no such file or directory, open '[repository]/packages/registry/dist/bin.js'\n\ndevDependencies:\n+ @changesets/cli 2.31.1\n+ @types/node 24.13.3\n+ @types/react 19.2.18\n+ @types/react-dom 19.2.4\n+ tsx 4.23.11\n+ turbo 2.10.9\n+ typescript 5.9.3\n+ vitest 4.1.10\n\nDone in 4s using pnpm v10.24.0\n",
+            "tail": "Scope: all 21 workspace projects\nLockfile is up to date, resolution step is skipped\nProgress: resolved 1, reused 0, downloaded 0, added 0\nPackages: +303\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\nProgress: resolved 303, reused 0, downloaded 47, added 27\nProgress: resolved 303, reused 0, downloaded 98, added 74\nProgress: resolved 303, reused 0, downloaded 301, added 301\nProgress: resolved 303, reused 0, downloaded 303, added 303, done\n WARN  Failed to create bin at [repository]/apps/docs/node_modules/.bin/mcpcn-registry. ENOENT: no such file or directory, open '[repository]/packages/registry/dist/bin.js'\n WARN  Failed to create bin at [repository]/packages/cli/node_modules/.bin/mcpcn-registry. ENOENT: no such file or directory, open '[repository]/packages/registry/dist/bin.js'\n\ndevDependencies:\n+ @changesets/cli 2.31.1\n+ @types/node 24.13.3\n+ @types/react 19.2.18\n+ @types/react-dom 19.2.4\n+ tsx 4.23.11\n+ turbo 2.10.9\n+ typescript 5.9.3\n+ vitest 4.1.10\n\nDone in 4s using pnpm v10.24.0\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 447,
+              "data": "H4sIAAAAAAAAA82SvW4bMQzHdz0Ftwx2pNPpCsc3tUDSqXCDtkDHQpbYs+KzKIg6p96y5jXzJMXZcQ0UDRADGaqJXz/yT1BfHSVswfY91BruKa85WYeQMt2hKyw+kVv/DD1CYBgSFAJvC04hI1M/lEARuGAa07wOKaEXt5m6jMztoWiLHvQIDIweqil4uo89WX/wrN8b4ta6te2QW5iYyojJG79/qTKVeUFXMzsKq2fnkfOrIzlrziNNpY+oqfS5rDmxZkxFFE8Pj98/fFk8PTzCRxt69OP1XEZbEJYhgi2gVrRBlYcYMavx+mrjkouXQzgZNiVWnhyrSB5/bMgPPbKSyxCfizJ2gUveSbhZfL5ZfGshEvDgVrD/OZTBh4yuUN5NgRJGuHjN4PT8I9Sxv/KBi1qGKO/44q3W+zPF9eE/21B43F5jwugxuoDcigm8dysbO2Qse8VQS6OlHhNll/BwI6gbqY00p2hG6wrouaylvvorfOlpc0g1YgKFf0EjayP12LQMeUlQS13J+eiOlMshFXgn5/sB21CQCzRSS10JcU0RIURoGAYOsYMU0wa2upJ1IyvxG5lydhdvBAAA"
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "lifecycle",
+        "arguments": [
+          "[pnpm]",
+          "exec",
+          "tsx",
+          "tooling/verify-consumers.ts",
+          "--lifecycle-checks"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 3347,
+            "capturedBytes": 3347,
+            "limitBytes": 524288,
+            "observedSha256": "931d9cd7c3224b07aa6b6804c541245da409b52e0bd17aca6507ec52a841a32a",
+            "capturedSha256": "931d9cd7c3224b07aa6b6804c541245da409b52e0bd17aca6507ec52a841a32a",
+            "complete": true,
+            "evidenceRef": "lifecycle.raw"
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 81,
+            "capturedBytes": 81,
+            "limitBytes": 131072,
+            "observedSha256": "b56d967ba4c894ff03d446de00f45c08b909c6bac4259e966c69f036a7c848e9",
+            "capturedSha256": "b56d967ba4c894ff03d446de00f45c08b909c6bac4259e966c69f036a7c848e9",
+            "complete": true,
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 79,
+              "data": "H4sIAAAAAAAAA3POzysuzU0tUiguSS2wUsjJTEtNrkzOSbXKSU1MSS3STc7JL07lcsalKjknNTGvtEA3M68ktaiotKCECwCf9DDXUQAAAA=="
+            }
+          }
+        ]
+      },
+      {
+        "label": "build_core",
+        "arguments": [
+          "[pnpm]",
+          "--filter",
+          "@mcpcn/core",
+          "build"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 101,
+            "capturedBytes": 101,
+            "limitBytes": 131072,
+            "observedSha256": "ef78f625418a51e25bf428a916e768a799079a11f727c581a4dc123d4f85b6cc",
+            "capturedSha256": "ef78f625418a51e25bf428a916e768a799079a11f727c581a4dc123d4f85b6cc",
+            "complete": true,
+            "head": "\n> @mcpcn/core@0.1.0 build [repository]/packages/core\n> tsc -p tsconfig.json\n\n",
+            "tail": "\n> @mcpcn/core@0.1.0 build [repository]/packages/core\n> tsc -p tsconfig.json\n\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 102,
+              "data": "H4sIAAAAAAAAA0WLwRGAIAzA/p2iC0B1Ac9VsCKi0nIg5/qefHwljwQmnBNnFmItfh7saAdcWrxWpF2Tp9JEfKFHy0k9NC3+kh2fLvjab5jwrowmf1DZYrBHVQF4AZXINM9lAAAA"
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "build_schemas",
+        "arguments": [
+          "[pnpm]",
+          "--filter",
+          "@mcpcn/schemas",
+          "build"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 107,
+            "capturedBytes": 107,
+            "limitBytes": 131072,
+            "observedSha256": "d0ae80aad10191cf4bcb796537ad2c2cd393e54f2ac9cd0989f4dc2f20363032",
+            "capturedSha256": "d0ae80aad10191cf4bcb796537ad2c2cd393e54f2ac9cd0989f4dc2f20363032",
+            "complete": true,
+            "head": "\n> @mcpcn/schemas@0.1.0 build [repository]/packages/schemas\n> tsc -p tsconfig.json\n\n",
+            "tail": "\n> @mcpcn/schemas@0.1.0 build [repository]/packages/schemas\n> tsc -p tsconfig.json\n\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 105,
+              "data": "H4sIAAAAAAAAA0WMwQ2AIAwA/0zRBaC4gGEVrKiIFEIlrm80Mb7uHpdTI7hMlRiFtpC9OGsGY2Hq8ZgBt5IDts4cGl6lJXxb3eMv1VPya5BvoEY4hUDXB4WXuJpdCit1A58cwX9rAAAA"
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "build_runtime",
+        "arguments": [
+          "[pnpm]",
+          "--filter",
+          "@mcpcn/runtime",
+          "build"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 107,
+            "capturedBytes": 107,
+            "limitBytes": 131072,
+            "observedSha256": "0609f66c08cc85bb7d842c88bf3fbe0505aeaeb32d61e44f01dbb3906157376c",
+            "capturedSha256": "0609f66c08cc85bb7d842c88bf3fbe0505aeaeb32d61e44f01dbb3906157376c",
+            "complete": true,
+            "head": "\n> @mcpcn/runtime@0.1.0 build [repository]/packages/runtime\n> tsc -p tsconfig.json\n\n",
+            "tail": "\n> @mcpcn/runtime@0.1.0 build [repository]/packages/runtime\n> tsc -p tsconfig.json\n\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 105,
+              "data": "H4sIAAAAAAAAA+OyU3DITS5IztMvKs0rycxNdTDQM9QzUEgqzcxJUdDPyM9NBcnkpRbpl+cXZeuD1eqWZiIYBYnJ2YnpqcUwA7jsFEqKkxV0C0BUfl5aZrpeVnF+HhcXAF9IPkFrAAAA"
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "build_react",
+        "arguments": [
+          "[pnpm]",
+          "--filter",
+          "@mcpcn/react",
+          "build"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 140,
+            "capturedBytes": 140,
+            "limitBytes": 131072,
+            "observedSha256": "fde0f1d293fa7dd7adcfea7cb5a6a1d56bfa1ab6807091857491d4ea309f3657",
+            "capturedSha256": "fde0f1d293fa7dd7adcfea7cb5a6a1d56bfa1ab6807091857491d4ea309f3657",
+            "complete": true,
+            "head": "\n> @mcpcn/react@0.1.0 build [repository]/packages/react\n> tsc -p tsconfig.json && cp src/styles.css dist/styles.css\n\n",
+            "tail": "\n> @mcpcn/react@0.1.0 build [repository]/packages/react\n> tsc -p tsconfig.json && cp src/styles.css dist/styles.css\n\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 125,
+              "data": "H4sIAAAAAAAAA02LSw6DMAwF9zmFV+yI6QUQVwnG0PBxIjsR4vao7aKs3ow0z/UwHJRJUDlQGTr/8h2MNe4T4DsdjFpFWPFMuuG3bGv8Qw60hYXtd3c9FCNo82eSzHHxqyWBpgHKYEpo5drZPJnBFK083LkbTiWG74wAAAA="
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "build_themes",
+        "arguments": [
+          "[pnpm]",
+          "--filter",
+          "@mcpcn/themes",
+          "build"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 144,
+            "capturedBytes": 144,
+            "limitBytes": 131072,
+            "observedSha256": "5808d63e638649d6bccc3eccb9f9392ac945392be72a75d85d8da7aa221492b6",
+            "capturedSha256": "5808d63e638649d6bccc3eccb9f9392ac945392be72a75d85d8da7aa221492b6",
+            "complete": true,
+            "head": "\n> @mcpcn/themes@0.1.0 build [repository]/packages/themes\n> tsc -p tsconfig.json && cp src/default.css dist/default.css\n\n",
+            "tail": "\n> @mcpcn/themes@0.1.0 build [repository]/packages/themes\n> tsc -p tsconfig.json && cp src/default.css dist/default.css\n\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 126,
+              "data": "H4sIAAAAAAAAA02LQQ6EIAxF95yiK3dS5wLGq2CpikohFOL1jZNJxtV/eXnfjDBFyiRYN46s02A/doC5hdMDbikylibCBa9UDvymfQt/yI4Ot7L+/maEqgR9fibJEla7axLoOqAMWgg9L66d1ZIq+KD1LYy5AWv9lueQAAAA"
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "build_registry",
+        "arguments": [
+          "[pnpm]",
+          "--filter",
+          "@mcpcn/registry",
+          "build"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 166,
+            "capturedBytes": 166,
+            "limitBytes": 131072,
+            "observedSha256": "849f45c5b536cb8e7087039deddfb97399960312dd685242036ab27177372585",
+            "capturedSha256": "849f45c5b536cb8e7087039deddfb97399960312dd685242036ab27177372585",
+            "complete": true,
+            "head": "\n> @mcpcn/registry@0.1.0 build [repository]/packages/registry\n> tsc -p tsconfig.json && node dist/bin.js build\n\nBuilt 79 source registry items\n",
+            "tail": "\n> @mcpcn/registry@0.1.0 build [repository]/packages/registry\n> tsc -p tsconfig.json && node dist/bin.js build\n\nBuilt 79 source registry items\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 143,
+              "data": "H4sIAAAAAAAAA0WNMQ7CMAxF95zCU7cmZUIsVcVN2sQEt40dxYkqbo8AAdN/w9P7ZoQp+ezZFYyktTymwZ7sAEujPYC7S0JXGjMWd0jZ3FvuG/0hz36bI+qvYEao6qHPrxG+UbSrCkPXAUtACKTVLcR21c+NMddGe4XzBVRa8QjfFFDFpOYJb+KeraYAAAA="
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "build_mcpcn",
+        "arguments": [
+          "[pnpm]",
+          "--filter",
+          "mcpcn",
+          "build"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 94,
+            "capturedBytes": 94,
+            "limitBytes": 131072,
+            "observedSha256": "3955457873895ef8807e1b321d69a85a97af334873f092bc5fde4cc99e087577",
+            "capturedSha256": "3955457873895ef8807e1b321d69a85a97af334873f092bc5fde4cc99e087577",
+            "complete": true,
+            "head": "\n> mcpcn@0.1.0 build [repository]/packages/cli\n> tsc -p tsconfig.json\n\n",
+            "tail": "\n> mcpcn@0.1.0 build [repository]/packages/cli\n> tsc -p tsconfig.json\n\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 99,
+              "data": "H4sIAAAAAAAAA0XKwQ2AIAxA0Xun6AJQXIC4ClZUBAoBiesbvXj67/DBYubKMhs9aYPLCGlFOkr21IaIb3SXFul71Ag/quPodt+JUwCLV2dU9U2RLez67EUAHvhwkG5eAAAA"
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "after_packages_head",
+        "arguments": [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 41,
+            "capturedBytes": 41,
+            "limitBytes": 131072,
+            "observedSha256": "d718a46dae54349a7fd622c74c61a0fed2c4cc7a65ff213ed770fc5dd27109aa",
+            "capturedSha256": "d718a46dae54349a7fd622c74c61a0fed2c4cc7a65ff213ed770fc5dd27109aa",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_packages_seal",
+        "arguments": [
+          "git",
+          "show",
+          "HEAD:docs/results/2026/11-04/consumer-checks-source.json"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 79739,
+            "capturedBytes": 79739,
+            "limitBytes": 131072,
+            "observedSha256": "9de887a21a64c3533096eb782601daba15e9cff8acdc0e6c57d189279f75e13d",
+            "capturedSha256": "9de887a21a64c3533096eb782601daba15e9cff8acdc0e6c57d189279f75e13d",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_packages_index",
+        "arguments": [
+          "git",
+          "ls-files",
+          "--stage",
+          "-z"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 27323,
+            "capturedBytes": 27323,
+            "limitBytes": 131072,
+            "observedSha256": "dc808105848fabf1b803bf3a21ecd120797577c66cc4496d2a98ff084509269e",
+            "capturedSha256": "dc808105848fabf1b803bf3a21ecd120797577c66cc4496d2a98ff084509269e",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_packages_tree",
+        "arguments": [
+          "git",
+          "ls-tree",
+          "-r",
+          "-z",
+          "HEAD"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 28304,
+            "capturedBytes": 28304,
+            "limitBytes": 131072,
+            "observedSha256": "5876f106debb5ee99a540fe53feeab5fd86325b27a02cead3b454a88982016ef",
+            "capturedSha256": "5876f106debb5ee99a540fe53feeab5fd86325b27a02cead3b454a88982016ef",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_packages_status",
+        "arguments": [
+          "git",
+          "status",
+          "--porcelain=v1",
+          "-z",
+          "--untracked-files=all"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_packages_working",
+        "arguments": [
+          "git",
+          "-c",
+          "core.filemode=true",
+          "diff",
+          "--no-ext-diff",
+          "--no-textconv",
+          "--quiet",
+          "--exit-code",
+          "HEAD",
+          "--"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "canonical_generator",
+        "arguments": [
+          "[pnpm]",
+          "exec",
+          "tsx",
+          "tooling/generate.ts"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 75,
+            "capturedBytes": 75,
+            "limitBytes": 131072,
+            "observedSha256": "8ee42669befa1d99211e33f7c730d198992f566c5131524fc3efa193cae19aa9",
+            "capturedSha256": "8ee42669befa1d99211e33f7c730d198992f566c5131524fc3efa193cae19aa9",
+            "complete": true,
+            "head": "Generated 79 source registry items; examples and templates were preserved.\n",
+            "tail": "Generated 79 source registry items; examples and templates were preserved.\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 87,
+              "data": "H4sIAAAAAAAAAwXB2wmAMBBFwX+ruBX4K2IB1hHMQYQkht311b0zKw1LQdY0y8/LNmTsh4d9OoLqi3hT7QVXallB7SUFrgdD3XDsJo/DD1G6ljNLAAAA"
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "after_generator_head",
+        "arguments": [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 41,
+            "capturedBytes": 41,
+            "limitBytes": 131072,
+            "observedSha256": "d718a46dae54349a7fd622c74c61a0fed2c4cc7a65ff213ed770fc5dd27109aa",
+            "capturedSha256": "d718a46dae54349a7fd622c74c61a0fed2c4cc7a65ff213ed770fc5dd27109aa",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_generator_seal",
+        "arguments": [
+          "git",
+          "show",
+          "HEAD:docs/results/2026/11-04/consumer-checks-source.json"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 79739,
+            "capturedBytes": 79739,
+            "limitBytes": 131072,
+            "observedSha256": "9de887a21a64c3533096eb782601daba15e9cff8acdc0e6c57d189279f75e13d",
+            "capturedSha256": "9de887a21a64c3533096eb782601daba15e9cff8acdc0e6c57d189279f75e13d",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_generator_index",
+        "arguments": [
+          "git",
+          "ls-files",
+          "--stage",
+          "-z"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 27323,
+            "capturedBytes": 27323,
+            "limitBytes": 131072,
+            "observedSha256": "dc808105848fabf1b803bf3a21ecd120797577c66cc4496d2a98ff084509269e",
+            "capturedSha256": "dc808105848fabf1b803bf3a21ecd120797577c66cc4496d2a98ff084509269e",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_generator_tree",
+        "arguments": [
+          "git",
+          "ls-tree",
+          "-r",
+          "-z",
+          "HEAD"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 28304,
+            "capturedBytes": 28304,
+            "limitBytes": 131072,
+            "observedSha256": "5876f106debb5ee99a540fe53feeab5fd86325b27a02cead3b454a88982016ef",
+            "capturedSha256": "5876f106debb5ee99a540fe53feeab5fd86325b27a02cead3b454a88982016ef",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_generator_status",
+        "arguments": [
+          "git",
+          "status",
+          "--porcelain=v1",
+          "-z",
+          "--untracked-files=all"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_generator_working",
+        "arguments": [
+          "git",
+          "-c",
+          "core.filemode=true",
+          "diff",
+          "--no-ext-diff",
+          "--no-textconv",
+          "--quiet",
+          "--exit-code",
+          "HEAD",
+          "--"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "docs_build",
+        "arguments": [
+          "[pnpm]",
+          "--filter",
+          "@mcpcn/docs",
+          "build"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 1394,
+            "capturedBytes": 1394,
+            "limitBytes": 131072,
+            "observedSha256": "42b1f044e2276ab8b35f59a033eb95b50cf0a16b0266db72daba46421a15f11e",
+            "capturedSha256": "42b1f044e2276ab8b35f59a033eb95b50cf0a16b0266db72daba46421a15f11e",
+            "complete": true,
+            "head": "\n> @mcpcn/docs@0.1.0 build [repository]/apps/docs\n> next build\n\n▲ Next.js 16.3.0 (Turbopack)\n✓ Running next.config.ts took 25ms\n⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache\n- Experiments (use with caution):\n  · optimizePackageImports\n\n  Creating an optimized production build ...\n✓ Compiled successfully in 4.9s\n  Running TypeScript ...\n  Finished TypeScript in 2.8s ...\n  Collecting page data using 3 workers ...\n  Generating static pages using 3 workers (0/81) ...\n  Generating static pages using 3 workers (20/81) \r\n  Generating static pages using 3 workers (40/81) \r\n  Generating static pages using 3 workers (60/81) \r\n✓ Generating static pages using 3 workers (81/81) in 899ms\n  Finalizing page optimization ...\n\nRoute (app)\n┌ ○ /\n├ ○ /_not-found\n├ ○ /blocks\n├ ○ /components\n├   /components/[slug]\n│ ├ ● /components/button\n│ ├ ● /components/card\n│ ├ ● /components/badge\n│ └ ● [+65 more paths]\n├ ○ /create\n├ ○ /docs\n├ ○ /examples\n├ ƒ /llms-full.txt\n├ ƒ /llms.txt\n├ ○ /playground\n├ ƒ /r/[name]\n├ ƒ /r/registry.json\n└ ƒ /schema/co",
+            "tail": "\n> @mcpcn/docs@0.1.0 build [repository]/apps/docs\n> next build\n\n▲ Next.js 16.3.0 (Turbopack)\n✓ Running next.config.ts took 25ms\n⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache\n- Experiments (use with caution):\n  · optimizePackageImports\n\n  Creating an optimized production build ...\n✓ Compiled successfully in 4.9s\n  Running TypeScript ...\n  Finished TypeScript in 2.8s ...\n  Collecting page data using 3 workers ...\n  Generating static pages using 3 workers (0/81) ...\n  Generating static pages using 3 workers (20/81) \r\n  Generating static pages using 3 workers (40/81) \r\n  Generating static pages using 3 workers (60/81) \r\n✓ Generating static pages using 3 workers (81/81) in 899ms\n  Finalizing page optimization ...\n\nRoute (app)\n┌ ○ /\n├ ○ /_not-found\n├ ○ /blocks\n├ ○ /components\n├   /components/[slug]\n│ ├ ● /components/button\n│ ├ ● /components/card\n│ ├ ● /components/badge\n│ └ ● [+65 more paths]\n├ ○ /create\n├ ○ /docs\n├ ○ /examples\n├ ƒ /llms-full.txt\n├ ƒ /llms.txt\n├ ○ /playground\n├ ƒ /r/[name]\n├ ƒ /r/registry.json\n└ ƒ /schema/config.json\n\n\n○  (Static)   prerendered as static content\n●  (SSG)      prerendered as static HTML (uses generateStaticParams)\nƒ  (Dynamic)  server-rendered on demand\n\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 683,
+              "data": "H4sIAAAAAAAAA51UzWpTQRTeD/gOZ3mDZG7SP9IuSqFqFVRK010pMpl7cjPNnR/mzNikS7cKQg0K0oXP4Ma9iz5InkTu3DRJkYJ1d893vu/8z2X7cKClkyYvrKSDDu/yDgyiqgrIR1Zj7qMx6PNL68d5IrajWn0I5ygp2T4YnIRGytj86094i5PALwi6O3yTdyA7jX5gnZDjFpvffIGTaIwyZZJxac1QlTwQBGvHsLGtic2//4C3dlGMFHKEMLTRFByOKxSE0IiixzVOHXFoPQwFBfTgMbmIwwmKArT1uAejEBzt5Xmd+YK49WVqIddIJEqk3Nh2ysfa8Hzi0CuNJhBkkRAuVRiBFDEoa1p7DOD3L7AuKK2u8FjIsSjxlXbWB2IM4NCjCHVNwixZBThviyjrCIvKOedpJodWO1VhARSlRKJhrKopKANbfJcYLGd2OnXYl165kKQAL5RRNMJi3aMMbPAeLRiHtqpQplqcKBEKEQREqu1NqLeL/o56hAZ9UzYFEZRMCvqLnXXyXrf1WNFGo3ryGM3Wf2h27jT1YP9Z1esmlTLQ293V1IxWVOpqObjFGkVaX907O7ExIGTCuRabzz7B/NtHyNl8dtN8vTM2tNPlrrBBZeWYVra02llTX1nCYB3Jz6iK5Tmbzz5AI/h8zz2IIVjzoFsKXzysFUWJC+8sec+e7myndwJOhBGdr9VY3zKu7PTslxZOhHYVNsjtNeRVpaldHzAPk3APXQJJ6CoxLf1yPDXJ52dGaDxfAzyWioKf8gtKvc4STnKEWuSLv0dyMVZHhayf1twCAOfRoynQYwGC7vYvrQloAqt7hqzfP6qpD7Jfnr55nd4/QdmcEjYJjoUXmlrs9hogezY1QqekhP49+vYykjVQoBamYOwPrxPBSXIFAAA="
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "after_docs_head",
+        "arguments": [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 41,
+            "capturedBytes": 41,
+            "limitBytes": 131072,
+            "observedSha256": "d718a46dae54349a7fd622c74c61a0fed2c4cc7a65ff213ed770fc5dd27109aa",
+            "capturedSha256": "d718a46dae54349a7fd622c74c61a0fed2c4cc7a65ff213ed770fc5dd27109aa",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_docs_seal",
+        "arguments": [
+          "git",
+          "show",
+          "HEAD:docs/results/2026/11-04/consumer-checks-source.json"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 79739,
+            "capturedBytes": 79739,
+            "limitBytes": 131072,
+            "observedSha256": "9de887a21a64c3533096eb782601daba15e9cff8acdc0e6c57d189279f75e13d",
+            "capturedSha256": "9de887a21a64c3533096eb782601daba15e9cff8acdc0e6c57d189279f75e13d",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_docs_index",
+        "arguments": [
+          "git",
+          "ls-files",
+          "--stage",
+          "-z"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 27323,
+            "capturedBytes": 27323,
+            "limitBytes": 131072,
+            "observedSha256": "dc808105848fabf1b803bf3a21ecd120797577c66cc4496d2a98ff084509269e",
+            "capturedSha256": "dc808105848fabf1b803bf3a21ecd120797577c66cc4496d2a98ff084509269e",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_docs_tree",
+        "arguments": [
+          "git",
+          "ls-tree",
+          "-r",
+          "-z",
+          "HEAD"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 28304,
+            "capturedBytes": 28304,
+            "limitBytes": 131072,
+            "observedSha256": "5876f106debb5ee99a540fe53feeab5fd86325b27a02cead3b454a88982016ef",
+            "capturedSha256": "5876f106debb5ee99a540fe53feeab5fd86325b27a02cead3b454a88982016ef",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_docs_status",
+        "arguments": [
+          "git",
+          "status",
+          "--porcelain=v1",
+          "-z",
+          "--untracked-files=all"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_docs_working",
+        "arguments": [
+          "git",
+          "-c",
+          "core.filemode=true",
+          "diff",
+          "--no-ext-diff",
+          "--no-textconv",
+          "--quiet",
+          "--exit-code",
+          "HEAD",
+          "--"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "pack_core",
+        "arguments": [
+          "[pnpm]",
+          "--dir",
+          "packages/core",
+          "pack",
+          "--pack-destination",
+          "[owned-scratch]/archives"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 223,
+            "capturedBytes": 223,
+            "limitBytes": 131072,
+            "observedSha256": "70991857ba5f10356286b16a5f96f4c2238c4b9463802187432600cb7fe86eac",
+            "capturedSha256": "70991857ba5f10356286b16a5f96f4c2238c4b9463802187432600cb7fe86eac",
+            "complete": true,
+            "head": "📦  @mcpcn/core@0.1.0\nTarball Contents\ndist/index.d.ts\ndist/index.d.ts.map\ndist/index.js\ndist/index.js.map\nLICENSE\npackage.json\nTarball Details\n[owned-scratch]/archives/mcpcn-core-0.1.0.tgz\n",
+            "tail": "📦  @mcpcn/core@0.1.0\nTarball Contents\ndist/index.d.ts\ndist/index.d.ts.map\ndist/index.js\ndist/index.js.map\nLICENSE\npackage.json\nTarball Details\n[owned-scratch]/archives/mcpcn-core-0.1.0.tgz\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 176,
+              "data": "H4sIAAAAAAAAA2WPOw7CMBBEe58iF4g33CBSSIEU0ZCGChlnla/X1q4DiGtwADrOxxGQUkQgyjevmJn38/FKktzZYAmsZ8wzvdGZqg2fzTQlhaeIFEU1vUToqcGbbvQ/a2fCdzbILy2+2hXl/lCqYOxoWtSDeFqbthhNP4mCzjsEnomQ4ep5hFNEF2CZmFpPMjtkSavyOLQ1GLZdf0FZPWO6XNCxvasP4+t+0d8AAAA="
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "pack_schemas",
+        "arguments": [
+          "[pnpm]",
+          "--dir",
+          "packages/schemas",
+          "pack",
+          "--pack-destination",
+          "[owned-scratch]/archives"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 229,
+            "capturedBytes": 229,
+            "limitBytes": 131072,
+            "observedSha256": "e23c2ca2017eb8f40d77d7648ee110487155fd8c73b322aa227b1cbd2c1e51f9",
+            "capturedSha256": "e23c2ca2017eb8f40d77d7648ee110487155fd8c73b322aa227b1cbd2c1e51f9",
+            "complete": true,
+            "head": "📦  @mcpcn/schemas@0.1.0\nTarball Contents\ndist/index.d.ts\ndist/index.d.ts.map\ndist/index.js\ndist/index.js.map\nLICENSE\npackage.json\nTarball Details\n[owned-scratch]/archives/mcpcn-schemas-0.1.0.tgz\n",
+            "tail": "📦  @mcpcn/schemas@0.1.0\nTarball Contents\ndist/index.d.ts\ndist/index.d.ts.map\ndist/index.js\ndist/index.js.map\nLICENSE\npackage.json\nTarball Details\n[owned-scratch]/archives/mcpcn-schemas-0.1.0.tgz\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 180,
+              "data": "H4sIAAAAAAAAA2WPOw7CMBBEe58iF4g33CBSSIEU0ZCGCi3OKh/iteV1AHENDkDH+TgCUhQhEOWbKWbe63F/JklujTcMYjqyKHmmVzpTNYYjjmNSOI7EUVTTS4SeG7rqRv+ztui/s0F+ae6rTVFud6XyaE7Ykh7E8WdpTRH7URR0zhKEiZkCXFw4wSGS9TC/TI1jmSwFSatyP7Q1YDBdfyZZ+sUinS10bG/qDVvPtQvlAAAA"
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "pack_runtime",
+        "arguments": [
+          "[pnpm]",
+          "--dir",
+          "packages/runtime",
+          "pack",
+          "--pack-destination",
+          "[owned-scratch]/archives"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 229,
+            "capturedBytes": 229,
+            "limitBytes": 131072,
+            "observedSha256": "d5dfac27ed8cd69936bbaad551e458947549ed1042b9a214588bb8f3fbb7d234",
+            "capturedSha256": "d5dfac27ed8cd69936bbaad551e458947549ed1042b9a214588bb8f3fbb7d234",
+            "complete": true,
+            "head": "📦  @mcpcn/runtime@0.1.0\nTarball Contents\ndist/index.d.ts\ndist/index.d.ts.map\ndist/index.js\ndist/index.js.map\nLICENSE\npackage.json\nTarball Details\n[owned-scratch]/archives/mcpcn-runtime-0.1.0.tgz\n",
+            "tail": "📦  @mcpcn/runtime@0.1.0\nTarball Contents\ndist/index.d.ts\ndist/index.d.ts.map\ndist/index.js\ndist/index.js.map\nLICENSE\npackage.json\nTarball Details\n[owned-scratch]/archives/mcpcn-runtime-0.1.0.tgz\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 179,
+              "data": "H4sIAAAAAAAAA2WPQQ6CMBBF9z0FF6DFG5AgCxPiRjauTC0TKNBp0xnUeA0P4M7zeQQjIUbj8v+3+O8/77dHkuTOBIMqTsjWQZ7JlcxEreNRj2NSeGRAJtFYYmWxgYts5H+WTofvrqffNPNqU5TbXSmCNoNuQfbk8bO0BtZ2JKE67+BtgxDV2cdBHRhcULNlajzS5CBSWpX7vq2VjqazJ6CFLy/S+YXk9ipew/GaNOUAAAA="
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "pack_react",
+        "arguments": [
+          "[pnpm]",
+          "--dir",
+          "packages/react",
+          "pack",
+          "--pack-destination",
+          "[owned-scratch]/archives"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 313,
+            "capturedBytes": 313,
+            "limitBytes": 131072,
+            "observedSha256": "d491aafdc82bb11cc132bf0dc12f0b2bd683d54055de8216da6af5e097dd2a89",
+            "capturedSha256": "d491aafdc82bb11cc132bf0dc12f0b2bd683d54055de8216da6af5e097dd2a89",
+            "complete": true,
+            "head": "📦  @mcpcn/react@0.1.0\nTarball Contents\ndist/blocks.d.ts\ndist/blocks.d.ts.map\ndist/blocks.js\ndist/blocks.js.map\ndist/index.d.ts\ndist/index.d.ts.map\ndist/index.js\ndist/index.js.map\ndist/styles.css\nLICENSE\npackage.json\nTarball Details\n[owned-scratch]/archives/mcpcn-react-0.1.0.tgz\n",
+            "tail": "📦  @mcpcn/react@0.1.0\nTarball Contents\ndist/blocks.d.ts\ndist/blocks.d.ts.map\ndist/blocks.js\ndist/blocks.js.map\ndist/index.d.ts\ndist/index.d.ts.map\ndist/index.js\ndist/index.js.map\ndist/styles.css\nLICENSE\npackage.json\nTarball Details\n[owned-scratch]/archives/mcpcn-react-0.1.0.tgz\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 200,
+              "data": "H4sIAAAAAAAAA22QSw6CMBiE9z0FF6DFG5AgCxPjRjauTCl/oKWv9C++ruEB3Hk+j2BCjAhx+c1MJpl5Pe7PJMmN8MKyAFzEPKMrmpGKh5prnRTORrARSSMxslo70SNt6B+BGu5nosIFTglpG7j81Ey8zCic0+RjvGpAKhDJdlOUu31JPBc9b4EqdPa7YA2RS42Edc4AC4O1ENjZhZ4dIxjPxu2pcBYHAwHTbXlQbcV4EJ08AX788Zt0/IbG9kbeaWrC3zkBAAA="
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "pack_themes",
+        "arguments": [
+          "[pnpm]",
+          "--dir",
+          "packages/themes",
+          "pack",
+          "--pack-destination",
+          "[owned-scratch]/archives"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 244,
+            "capturedBytes": 244,
+            "limitBytes": 131072,
+            "observedSha256": "5a917ab47b652734f162a3b8b39dabd040964c7169472bfcc625063f7ce718b3",
+            "capturedSha256": "5a917ab47b652734f162a3b8b39dabd040964c7169472bfcc625063f7ce718b3",
+            "complete": true,
+            "head": "📦  @mcpcn/themes@0.1.0\nTarball Contents\ndist/default.css\ndist/index.d.ts\ndist/index.d.ts.map\ndist/index.js\ndist/index.js.map\nLICENSE\npackage.json\nTarball Details\n[owned-scratch]/archives/mcpcn-themes-0.1.0.tgz\n",
+            "tail": "📦  @mcpcn/themes@0.1.0\nTarball Contents\ndist/default.css\ndist/index.d.ts\ndist/index.d.ts.map\ndist/index.js\ndist/index.js.map\nLICENSE\npackage.json\nTarball Details\n[owned-scratch]/archives/mcpcn-themes-0.1.0.tgz\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 188,
+              "data": "H4sIAAAAAAAAA2WPvQ3CMBSEe0+RBWKHDSKFFEgRDWmokLEfiYP/5PcCiDUYgI75GAEpRAhEed9X3N3zfntkWelUVF5QDw6wLPiCF6yVaS+tzargCTwh0wZJaDjI0RJXOAPjNVy45vSXuZPxmw34mybfrKp6valZlOooO+ADBv+pXgJJY5GJPjgQafQekjiHdBQ7AhfFtDpXwePoIGHe1Nuha4VMqjcnwNm/X+XTK07dlb0Ax4aPHfQAAAA="
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "pack_registry",
+        "arguments": [
+          "[pnpm]",
+          "--dir",
+          "packages/registry",
+          "pack",
+          "--pack-destination",
+          "[owned-scratch]/archives"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 571,
+            "capturedBytes": 571,
+            "limitBytes": 131072,
+            "observedSha256": "4caa906492e1d0d587dfbcb5eaa170954feeb47505f0ff76df7fd9ae65914027",
+            "capturedSha256": "4caa906492e1d0d587dfbcb5eaa170954feeb47505f0ff76df7fd9ae65914027",
+            "complete": true,
+            "head": "📦  @mcpcn/registry@0.1.0\nTarball Contents\ndist/bin.d.ts\ndist/bin.d.ts.map\ndist/bin.js\ndist/bin.js.map\ndist/catalog.d.ts\ndist/catalog.d.ts.map\ndist/catalog.js\ndist/catalog.js.map\ndist/index.d.ts\ndist/index.d.ts.map\ndist/index.js\ndist/index.js.map\ndist/installation.d.ts\ndist/installation.d.ts.map\ndist/installation.js\ndist/installation.js.map\ndist/source-registry.d.ts\ndist/source-registry.d.ts.map\ndist/source-registry.js\ndist/source-registry.js.map\nLICENSE\npackage.json\nTarball Details\n[owned-scratch]/archives/mcpcn-registry-0.1.0.tgz\n",
+            "tail": "📦  @mcpcn/registry@0.1.0\nTarball Contents\ndist/bin.d.ts\ndist/bin.d.ts.map\ndist/bin.js\ndist/bin.js.map\ndist/catalog.d.ts\ndist/catalog.d.ts.map\ndist/catalog.js\ndist/catalog.js.map\ndist/index.d.ts\ndist/index.d.ts.map\ndist/index.js\ndist/index.js.map\ndist/installation.d.ts\ndist/installation.d.ts.map\ndist/installation.js\ndist/installation.js.map\ndist/source-registry.d.ts\ndist/source-registry.d.ts.map\ndist/source-registry.js\ndist/source-registry.js.map\nLICENSE\npackage.json\nTarball Details\n[owned-scratch]/archives/mcpcn-registry-0.1.0.tgz\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 245,
+              "data": "H4sIAAAAAAAAA3VSS07DMBDd+xS5QOxyg0olC6SKDd10habOyLXrjCPPhBauwQHYcT6OgFS1xA3Nzm/eT5rxz9fnd1UtO9tbMhmdZ8nvy4V+0Au1gbyDGKtVIkESVq1nMTtPutVTpDvox0ng8j1yFgRicoW/nPzXBZ7iUeOpxVORNOKpJvAtKnkWiBHEJ7qJmoxnHOGevsznNGSL9XWvRcU9Zt4XZlyXrvXTqnl+aVQP9gAOdeBEf9d7RAEfWZl96tDkgQizOaZ8MK+CXW/Op69tIh46zFyvm21wGwPZ7v0b8oW/Vtbnr6HFfahfVhxeKDsCAAA="
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "pack_cli",
+        "arguments": [
+          "[pnpm]",
+          "--dir",
+          "packages/cli",
+          "pack",
+          "--pack-destination",
+          "[owned-scratch]/archives"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 296,
+            "capturedBytes": 296,
+            "limitBytes": 131072,
+            "observedSha256": "560803840c4e717cad0da9f894d95dd5428df0595b70d9f8acac8c8f666bcc8d",
+            "capturedSha256": "560803840c4e717cad0da9f894d95dd5428df0595b70d9f8acac8c8f666bcc8d",
+            "complete": true,
+            "head": "📦  mcpcn@0.1.0\nTarball Contents\ndist/index.d.ts\ndist/index.d.ts.map\ndist/index.js\ndist/index.js.map\ndist/installer.d.ts\ndist/installer.d.ts.map\ndist/installer.js\ndist/installer.js.map\nLICENSE\npackage.json\nTarball Details\n[owned-scratch]/archives/mcpcn-0.1.0.tgz\n",
+            "tail": "📦  mcpcn@0.1.0\nTarball Contents\ndist/index.d.ts\ndist/index.d.ts.map\ndist/index.js\ndist/index.js.map\ndist/installer.d.ts\ndist/installer.d.ts.map\ndist/installer.js\ndist/installer.js.map\nLICENSE\npackage.json\nTarball Details\n[owned-scratch]/archives/mcpcn-0.1.0.tgz\n",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 186,
+              "data": "H4sIAAAAAAAAA21QSw6CMBTc9xRcgBZvYIIsTIgb2bgytbwApX1t+ooar+EB3Hk+j2BCiIHgcj6ZzMzn9XwniVVe4TbjG56xSoaLNCbJHUbASKzuKIoOa7jzmq8xt9LPOU1LNNcpSmMgLHLm3D+vXjmnzHKfF4djwbxUvWyAa3L4a7+DKDtDTLTOgggDIgRxc6EX5wjWi3FxqhzSYCFQWhYn3VRCBtV2V6BJHx/hsXmwLxS1cCEoAQAA"
+            }
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true,
+            "head": "",
+            "tail": "",
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 20,
+              "data": "H4sIAAAAAAAAAwMAAAAAAAAAAAA="
+            }
+          }
+        ]
+      },
+      {
+        "label": "after_pack_head",
+        "arguments": [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 41,
+            "capturedBytes": 41,
+            "limitBytes": 131072,
+            "observedSha256": "d718a46dae54349a7fd622c74c61a0fed2c4cc7a65ff213ed770fc5dd27109aa",
+            "capturedSha256": "d718a46dae54349a7fd622c74c61a0fed2c4cc7a65ff213ed770fc5dd27109aa",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_pack_seal",
+        "arguments": [
+          "git",
+          "show",
+          "HEAD:docs/results/2026/11-04/consumer-checks-source.json"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 79739,
+            "capturedBytes": 79739,
+            "limitBytes": 131072,
+            "observedSha256": "9de887a21a64c3533096eb782601daba15e9cff8acdc0e6c57d189279f75e13d",
+            "capturedSha256": "9de887a21a64c3533096eb782601daba15e9cff8acdc0e6c57d189279f75e13d",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_pack_index",
+        "arguments": [
+          "git",
+          "ls-files",
+          "--stage",
+          "-z"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 27323,
+            "capturedBytes": 27323,
+            "limitBytes": 131072,
+            "observedSha256": "dc808105848fabf1b803bf3a21ecd120797577c66cc4496d2a98ff084509269e",
+            "capturedSha256": "dc808105848fabf1b803bf3a21ecd120797577c66cc4496d2a98ff084509269e",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_pack_tree",
+        "arguments": [
+          "git",
+          "ls-tree",
+          "-r",
+          "-z",
+          "HEAD"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 28304,
+            "capturedBytes": 28304,
+            "limitBytes": 131072,
+            "observedSha256": "5876f106debb5ee99a540fe53feeab5fd86325b27a02cead3b454a88982016ef",
+            "capturedSha256": "5876f106debb5ee99a540fe53feeab5fd86325b27a02cead3b454a88982016ef",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_pack_status",
+        "arguments": [
+          "git",
+          "status",
+          "--porcelain=v1",
+          "-z",
+          "--untracked-files=all"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_pack_working",
+        "arguments": [
+          "git",
+          "-c",
+          "core.filemode=true",
+          "diff",
+          "--no-ext-diff",
+          "--no-textconv",
+          "--quiet",
+          "--exit-code",
+          "HEAD",
+          "--"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "consumers",
+        "arguments": [
+          "[pnpm]",
+          "exec",
+          "tsx",
+          "tooling/verify-consumers.ts",
+          "[owned-scratch]/archives"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 45786,
+            "capturedBytes": 45786,
+            "limitBytes": 524288,
+            "observedSha256": "4116a13abe1f37e61f1fde591cafb0591e87ab8bee3d4393cb83861e28c24819",
+            "capturedSha256": "4116a13abe1f37e61f1fde591cafb0591e87ab8bee3d4393cb83861e28c24819",
+            "complete": true,
+            "evidenceRef": "consumers.raw"
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 681,
+            "capturedBytes": 681,
+            "limitBytes": 131072,
+            "observedSha256": "1ed3b6310f31b0f4db42a1199dc7517005600f2ec7fc66a40c27e0b3c0565de9",
+            "capturedSha256": "1ed3b6310f31b0f4db42a1199dc7517005600f2ec7fc66a40c27e0b3c0565de9",
+            "complete": true,
+            "raw": {
+              "encoding": "gzip-base64",
+              "compressedBytes": 126,
+              "data": "H4sIAAAAAAAAA+3NMQqEMBSE4d5TeIHUoq0nGV6GNfiMwTwXvP1WIqxJa2X9zfCPa8z7wq3NxjS02GQKX7qFBg9DM5ZdgzBm1vi9P32XNR1DiNmgWrFgRYD3Dqqu64tsR6JMlPlfE2TGh7XoxffuafX0ubjqP7TiqempAgAA"
+            }
+          }
+        ]
+      },
+      {
+        "label": "after_head",
+        "arguments": [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 41,
+            "capturedBytes": 41,
+            "limitBytes": 131072,
+            "observedSha256": "d718a46dae54349a7fd622c74c61a0fed2c4cc7a65ff213ed770fc5dd27109aa",
+            "capturedSha256": "d718a46dae54349a7fd622c74c61a0fed2c4cc7a65ff213ed770fc5dd27109aa",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_seal",
+        "arguments": [
+          "git",
+          "show",
+          "HEAD:docs/results/2026/11-04/consumer-checks-source.json"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 79739,
+            "capturedBytes": 79739,
+            "limitBytes": 131072,
+            "observedSha256": "9de887a21a64c3533096eb782601daba15e9cff8acdc0e6c57d189279f75e13d",
+            "capturedSha256": "9de887a21a64c3533096eb782601daba15e9cff8acdc0e6c57d189279f75e13d",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_index",
+        "arguments": [
+          "git",
+          "ls-files",
+          "--stage",
+          "-z"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 27323,
+            "capturedBytes": 27323,
+            "limitBytes": 131072,
+            "observedSha256": "dc808105848fabf1b803bf3a21ecd120797577c66cc4496d2a98ff084509269e",
+            "capturedSha256": "dc808105848fabf1b803bf3a21ecd120797577c66cc4496d2a98ff084509269e",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_tree",
+        "arguments": [
+          "git",
+          "ls-tree",
+          "-r",
+          "-z",
+          "HEAD"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 28304,
+            "capturedBytes": 28304,
+            "limitBytes": 131072,
+            "observedSha256": "5876f106debb5ee99a540fe53feeab5fd86325b27a02cead3b454a88982016ef",
+            "capturedSha256": "5876f106debb5ee99a540fe53feeab5fd86325b27a02cead3b454a88982016ef",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_status",
+        "arguments": [
+          "git",
+          "status",
+          "--porcelain=v1",
+          "-z",
+          "--untracked-files=all"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      },
+      {
+        "label": "after_working",
+        "arguments": [
+          "git",
+          "-c",
+          "core.filemode=true",
+          "diff",
+          "--no-ext-diff",
+          "--no-textconv",
+          "--quiet",
+          "--exit-code",
+          "HEAD",
+          "--"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "stop": null,
+        "spawned": true,
+        "exitObserved": true,
+        "closeObserved": true,
+        "originalProcessGroupAbsent": true,
+        "termSent": false,
+        "killSent": false,
+        "streams": [
+          {
+            "stream": "stdout",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          },
+          {
+            "stream": "stderr",
+            "observedBytes": 0,
+            "capturedBytes": 0,
+            "limitBytes": 131072,
+            "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "capturedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "complete": true
+          }
+        ]
+      }
+    ],
+    "sourceGuards": [
+      {
+        "label": "before",
+        "passed": true,
+        "changedPaths": [],
+        "indexedLeaves": 327,
+        "statusEntries": [],
+        "fullIndexMatchesHead": true,
+        "fullWorkingTreeClean": true,
+        "historicalResultsUnchanged": true,
+        "files": 316,
+        "sourceBytes": 12326975,
+        "sealSha256": "9de887a21a64c3533096eb782601daba15e9cff8acdc0e6c57d189279f75e13d"
+      },
+      {
+        "label": "after_packages",
+        "passed": true,
+        "changedPaths": [],
+        "indexedLeaves": 327,
+        "statusEntries": [],
+        "fullIndexMatchesHead": true,
+        "fullWorkingTreeClean": true,
+        "historicalResultsUnchanged": true,
+        "files": 316,
+        "sourceBytes": 12326975,
+        "sealSha256": "9de887a21a64c3533096eb782601daba15e9cff8acdc0e6c57d189279f75e13d"
+      },
+      {
+        "label": "after_generator",
+        "passed": true,
+        "changedPaths": [],
+        "indexedLeaves": 327,
+        "statusEntries": [],
+        "fullIndexMatchesHead": true,
+        "fullWorkingTreeClean": true,
+        "historicalResultsUnchanged": true,
+        "files": 316,
+        "sourceBytes": 12326975,
+        "sealSha256": "9de887a21a64c3533096eb782601daba15e9cff8acdc0e6c57d189279f75e13d"
+      },
+      {
+        "label": "after_docs",
+        "passed": true,
+        "changedPaths": [],
+        "indexedLeaves": 327,
+        "statusEntries": [],
+        "fullIndexMatchesHead": true,
+        "fullWorkingTreeClean": true,
+        "historicalResultsUnchanged": true,
+        "files": 316,
+        "sourceBytes": 12326975,
+        "sealSha256": "9de887a21a64c3533096eb782601daba15e9cff8acdc0e6c57d189279f75e13d"
+      },
+      {
+        "label": "after_pack",
+        "passed": true,
+        "changedPaths": [],
+        "indexedLeaves": 327,
+        "statusEntries": [],
+        "fullIndexMatchesHead": true,
+        "fullWorkingTreeClean": true,
+        "historicalResultsUnchanged": true,
+        "files": 316,
+        "sourceBytes": 12326975,
+        "sealSha256": "9de887a21a64c3533096eb782601daba15e9cff8acdc0e6c57d189279f75e13d"
+      },
+      {
+        "label": "after",
+        "passed": true,
+        "changedPaths": [],
+        "indexedLeaves": 327,
+        "statusEntries": [],
+        "fullIndexMatchesHead": true,
+        "fullWorkingTreeClean": true,
+        "historicalResultsUnchanged": true,
+        "files": 316,
+        "sourceBytes": 12326975,
+        "sealSha256": "9de887a21a64c3533096eb782601daba15e9cff8acdc0e6c57d189279f75e13d"
+      }
+    ],
+    "errors": [],
+    "limits": {
+      "workSeconds": 900,
+      "cleanupSeconds": 60,
+      "cleanupCommandsSeconds": 58,
+      "finalReportSeconds": 2,
+      "jobMinutes": 20,
+      "streamBytes": 131072,
+      "helperStdoutBytes": 524288,
+      "consumerRawBytes": 524288,
+      "consumerGzipBytes": 196608,
+      "lifecycleRawBytes": 131072,
+      "lifecycleGzipBytes": 32768,
+      "commandLogGzipBytes": 65536,
+      "lifecycleHelperOuterSeconds": 40,
+      "consumerHelperWorkSeconds": 720,
+      "consumerHelperFinalReserveSeconds": 30,
+      "consumerHelperOuterSeconds": 750,
+      "consumerHelperRequiredRemainingSeconds": 756,
+      "termToKillSeconds": 3,
+      "postKillDrainSeconds": 3,
+      "reportBytes": 524288
+    },
+    "helpers": [
+      {
+        "phase": "lifecycle",
+        "started": true,
+        "cleanupVerified": true
+      },
+      {
+        "phase": "consumers",
+        "started": true,
+        "cleanupVerified": true
+      }
+    ],
+    "proofLimits": [
+      "Two lifecycle controls and two installed consumers are separate scopes; no prior 52-case rerun is included.",
+      "Docs compilation, installed export targets and TypeScript consumers do not establish native browser/CSS runtime or live MCP/host behavior.",
+      "No npm publication, hosted deployment, account, model/provider or production-data access is included. Direct consumer pins are exact; fresh transitive npm locks are recorded, not equated to the workspace graph.",
+      "Typechecks retain skipLibCheck:true and do not prove every third-party declaration or runtime combination.",
+      "Child exit/close and original process-group absence are checked; descendant PIDs or separate sessions are not independently inventoried.",
+      "Only controller-owned scratch/config/store/temp is removed. Installed ignored workspace outputs and action-managed tools belong to the ephemeral runner; runner disposal is not independently observed.",
+      "Executable file hashes do not inventory dynamic libraries. Userspace deadlines cannot interrupt a blocked kernel filesystem operation."
+    ],
+    "sealSha256": "9de887a21a64c3533096eb782601daba15e9cff8acdc0e6c57d189279f75e13d",
+    "sourceInputs": {
+      "path": "docs/results/2026/11-04/consumer-checks-source.json",
+      "sha256": "9de887a21a64c3533096eb782601daba15e9cff8acdc0e6c57d189279f75e13d",
+      "files": 316,
+      "bytes": 12326975,
+      "trackedFileCount": 327
+    },
+    "lifecycle": {
+      "raw": {
+        "encoding": "gzip-base64",
+        "bytes": 3347,
+        "sha256": "931d9cd7c3224b07aa6b6804c541245da409b52e0bd17aca6507ec52a841a32a",
+        "compressedBytes": 948,
+        "data": "H4sIAAAAAAAAA+WWTXPbNhCG7/0VnD1TKT9lkjM5OE7qOFbsjGW3h04OILCUMAIBFgClxB799wxISqLtps1klB4anQjsaoF9F/sAD2DoEmvyO2rDlYQi9GHFJYMCatpQOaFKmrZGPRG8QvqZCpzQJdKVAR+MJbY1UEBDjEEGPuAnbqEIfJCKIRSwjpIXUfgiAB8aQWyldA0FCC7bT+ADJQYNFH8+gCS1cxdIGGqPCmXQWyE2xiOeafWar7lceGojkXkLrdrGs0ut2sXSu31z894jknmXF7PZ3+6JqromkvULCVKi6LYwZFP0a066NccZGL6QREAhWyF8sLxGdt1aKCoiDLq9S4pCINvPqNY2rZ3xmh+8KqUpsjlaK7BGeTAYy1RrX322ToAo7iZQ62Ei2Dlclwb1Gtl8SaJ0CgWUjIQYpxnGSZiGVVBWVUWmeX4SYMni7ISUWRblEYbTkkbhSRil1TSMpxTzKsumJIbdSs8iY1wGNEmiPKtoSMMkJ1VZJTTL82lV5lESnRBMQkymSV7mcUJJkqd5HpYnWRqVWZq6yA1xFYLC6hZ7KXfL7OY6mZ9OKs0XXBLxQSuKxpy7Ap+WptOr97Co6/lovOJCjMfdmTitLOpZV86zrpqDsa/kG62VfqL/8WU9qpxWI6kNFA/Ddt1XeTgylDS21cjGp+iICakfcPaoqhuBdl8aTTYuKZRUMS4XUMDinjeTkhicJoO/RtfIQ5JJ7AMjlkABbxNzcbr7ZWZ9H9ir4C58N7tLr+/v7Lv7s/XN7K65ur2Uq9PFa/3ruf3rt41zfvkStttdxUaiBs80DUaSHqGizyQ9QszHkm63248+4JozlBRdbuLQEOwPbpfXrkW7Fhs316lkl1yIr3Xms5bcbv09tTU2SCwyr28042msCZfekkgmkHms1Y7eVCCRbdPBWmOjtP0eXA9RJlxa1Lpt7J7ZPah32Ib5xflwJfwTu4c0vxvdwTeT+yhA+GnIvdP639F9NF3/K3T/Hyjzs8BzINrrjmBnPXqgiPzHhpueZu7tPNDr7Blhvg7Sjz40ffvsF3iANWpe8cP/e6S6TezxGPhAhLgeBzaPIrvmI5qpjewgXat1B9g9OQ/RSWuXSiOb91lBEe8yPFOti7cf91geQ9Y9wN3zfklc38LAZ3D3w9jt4ur2G7ze3n0YeQ23hFNIODZ3/bRRejVHqjoNYnfq+ljvuRDc7AxJEAT7asytemKOUmfu4w+nNY2SKMu221++AAkvN0kTDQAA"
+      },
+      "summary": {
+        "schemaVersion": 1,
+        "kind": "mcpcn-consumer-lifecycle-checks",
+        "status": "passed",
+        "exit": 0,
+        "node": "v24.21.0",
+        "platform": "linux",
+        "cases": [
+          {
+            "name": "leader close keeps a surviving owned group through TERM and KILL",
+            "status": "passed",
+            "commands": [
+              {
+                "label": "lifecycle:leader-close",
+                "exit": 0,
+                "signal": null,
+                "timedOut": false,
+                "cancelled": false,
+                "outputLimit": false,
+                "forcedSettlement": false,
+                "stdoutBytes": 23,
+                "stderrBytes": 0,
+                "stdoutObservedSha256": "bda1e358e34151f0bfffa69970ebd387ab88292e16bc217125f6136ce9f886a3",
+                "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "spawned": true,
+                "exitObserved": true,
+                "closeObserved": true,
+                "originalProcessGroupAbsent": true,
+                "termSent": true,
+                "killSent": true,
+                "groupAfterLeaderClose": true,
+                "signalError": false,
+                "stdoutSha256": "bda1e358e34151f0bfffa69970ebd387ab88292e16bc217125f6136ce9f886a3",
+                "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "streams": {
+                  "stdout": {
+                    "bytes": 23,
+                    "capturedBytes": 23,
+                    "sha256": "bda1e358e34151f0bfffa69970ebd387ab88292e16bc217125f6136ce9f886a3",
+                    "observedSha256": "bda1e358e34151f0bfffa69970ebd387ab88292e16bc217125f6136ce9f886a3",
+                    "complete": true,
+                    "raw": {
+                      "encoding": "gzip-base64",
+                      "compressedBytes": 43
+                    }
+                  },
+                  "stderr": {
+                    "bytes": 0,
+                    "capturedBytes": 0,
+                    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "complete": true
+                  }
+                }
+              }
+            ],
+            "evidence": {
+              "leaderClosedWithOwnedGroup": true,
+              "termAndKillObserved": true,
+              "originalGroupAbsent": true
+            }
+          },
+          {
+            "name": "repeated signals remain handled during cleanup and report",
+            "status": "passed",
+            "commands": [
+              {
+                "label": "lifecycle:cleanup-interrupt",
+                "exit": null,
+                "signal": "SIGKILL",
+                "timedOut": false,
+                "cancelled": true,
+                "outputLimit": false,
+                "forcedSettlement": false,
+                "stdoutBytes": 0,
+                "stderrBytes": 0,
+                "stdoutObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "spawned": true,
+                "exitObserved": true,
+                "closeObserved": true,
+                "originalProcessGroupAbsent": true,
+                "termSent": true,
+                "killSent": true,
+                "groupAfterLeaderClose": false,
+                "signalError": false,
+                "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "streams": {
+                  "stdout": {
+                    "bytes": 0,
+                    "capturedBytes": 0,
+                    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "complete": true
+                  },
+                  "stderr": {
+                    "bytes": 0,
+                    "capturedBytes": 0,
+                    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "complete": true
+                  }
+                }
+              }
+            ],
+            "evidence": {
+              "signalsDuringCleanup": 2,
+              "signalsDuringReport": 1,
+              "commandCancelled": true,
+              "originalGroupAbsent": true
+            }
+          }
+        ],
+        "processCleanup": {
+          "verified": true,
+          "remainingCommands": 0,
+          "allOriginalGroupsAbsent": true
+        },
+        "teardown": "removed",
+        "interrupted": true,
+        "authoredSignals": 3,
+        "signalCount": 3,
+        "signals": [
+          {
+            "signal": "SIGTERM",
+            "phase": "cleanup"
+          },
+          {
+            "signal": "SIGINT",
+            "phase": "cleanup"
+          },
+          {
+            "signal": "SIGHUP",
+            "phase": "report"
+          }
+        ],
+        "limits": {
+          "workSeconds": 30,
+          "cleanupMilliseconds": 4000,
+          "commandStopMilliseconds": 2500,
+          "reportBytes": 524288
+        }
+      },
+      "projectionNote": "Embedded gzip data is retained only in the lossless raw helper JSON.",
+      "exactCaseSet": true
+    },
+    "generator": {
+      "command": "pnpm exec tsx tooling/generate.ts",
+      "byteIdentical": true,
+      "checkedBy": "after_generator"
+    },
+    "archives": [
+      {
+        "file": "mcpcn-0.1.0.tgz",
+        "bytes": 15461,
+        "sha256": "b581dbd3dd517fb3e3a1551c4c7140eeea20faec5395fffcb4bcb303445ccd8f"
+      },
+      {
+        "file": "mcpcn-core-0.1.0.tgz",
+        "bytes": 2487,
+        "sha256": "734b822d1a4b74da184a07155f1273e809ce67af701b22cd672c238acb98e54d"
+      },
+      {
+        "file": "mcpcn-react-0.1.0.tgz",
+        "bytes": 20829,
+        "sha256": "15b5af73e4cb2e746f12817f8fe9b9d6535e5b57ce1f8db2496ff0985ba7f691"
+      },
+      {
+        "file": "mcpcn-registry-0.1.0.tgz",
+        "bytes": 15801,
+        "sha256": "d561f46e7892a69c7983077d850347e37cced4256f3c4ac0280fcbe11d825e20"
+      },
+      {
+        "file": "mcpcn-runtime-0.1.0.tgz",
+        "bytes": 7269,
+        "sha256": "879944314206dcdc20c5425a3962e8de5b6efd6a20a7c2f78e4d1840e3252f89"
+      },
+      {
+        "file": "mcpcn-schemas-0.1.0.tgz",
+        "bytes": 6510,
+        "sha256": "6384c606f0116a593cc868c39903065838a52fab38d428eab938e815aaddf290"
+      },
+      {
+        "file": "mcpcn-themes-0.1.0.tgz",
+        "bytes": 1486,
+        "sha256": "55b4fdcbfd5d9af07904e27e973b08fdad870aa3b74f252554f9ff031565a1c4"
+      }
+    ],
+    "consumers": {
+      "raw": {
+        "encoding": "gzip-base64",
+        "bytes": 45786,
+        "sha256": "4116a13abe1f37e61f1fde591cafb0591e87ab8bee3d4393cb83861e28c24819",
+        "compressedBytes": 9901,
+        "data": "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"
+      },
+      "summary": {
+        "schemaVersion": 1,
+        "kind": "mcpcn-consumer-checks",
+        "status": "passed",
+        "exit": 0,
+        "node": "v24.21.0",
+        "typescript": "5.9.3",
+        "platform": "linux",
+        "preparation": [
+          {
+            "label": "archive-metadata",
+            "exit": 0,
+            "signal": null,
+            "timedOut": false,
+            "cancelled": false,
+            "outputLimit": false,
+            "forcedSettlement": false,
+            "stdoutBytes": 464,
+            "stderrBytes": 0,
+            "stdoutObservedSha256": "2ed71dbe5f01b6547bd6943ec1c24e62a9811dce974d5edebd9f8593e25eed33",
+            "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "spawned": true,
+            "exitObserved": true,
+            "closeObserved": true,
+            "originalProcessGroupAbsent": true,
+            "termSent": false,
+            "killSent": false,
+            "groupAfterLeaderClose": false,
+            "signalError": false,
+            "stdoutSha256": "2ed71dbe5f01b6547bd6943ec1c24e62a9811dce974d5edebd9f8593e25eed33",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "streams": {
+              "stdout": {
+                "bytes": 464,
+                "capturedBytes": 464,
+                "sha256": "2ed71dbe5f01b6547bd6943ec1c24e62a9811dce974d5edebd9f8593e25eed33",
+                "observedSha256": "2ed71dbe5f01b6547bd6943ec1c24e62a9811dce974d5edebd9f8593e25eed33",
+                "complete": true,
+                "raw": {
+                  "encoding": "gzip-base64",
+                  "compressedBytes": 262
+                }
+              },
+              "stderr": {
+                "bytes": 0,
+                "capturedBytes": 0,
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "complete": true
+              }
+            }
+          },
+          {
+            "label": "archive-license",
+            "exit": 0,
+            "signal": null,
+            "timedOut": false,
+            "cancelled": false,
+            "outputLimit": false,
+            "forcedSettlement": false,
+            "stdoutBytes": 1075,
+            "stderrBytes": 0,
+            "stdoutObservedSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+            "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "spawned": true,
+            "exitObserved": true,
+            "closeObserved": true,
+            "originalProcessGroupAbsent": true,
+            "termSent": false,
+            "killSent": false,
+            "groupAfterLeaderClose": false,
+            "signalError": false,
+            "stdoutSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "streams": {
+              "stdout": {
+                "bytes": 1075,
+                "capturedBytes": 1075,
+                "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+                "observedSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+                "complete": true,
+                "raw": {
+                  "encoding": "gzip-base64",
+                  "compressedBytes": 657
+                }
+              },
+              "stderr": {
+                "bytes": 0,
+                "capturedBytes": 0,
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "complete": true
+              }
+            }
+          },
+          {
+            "label": "archive-metadata",
+            "exit": 0,
+            "signal": null,
+            "timedOut": false,
+            "cancelled": false,
+            "outputLimit": false,
+            "forcedSettlement": false,
+            "stdoutBytes": 444,
+            "stderrBytes": 0,
+            "stdoutObservedSha256": "344756633f7287566bc3cdf806f966a5dc969f03b5c6b005ace54d84291510b8",
+            "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "spawned": true,
+            "exitObserved": true,
+            "closeObserved": true,
+            "originalProcessGroupAbsent": true,
+            "termSent": false,
+            "killSent": false,
+            "groupAfterLeaderClose": false,
+            "signalError": false,
+            "stdoutSha256": "344756633f7287566bc3cdf806f966a5dc969f03b5c6b005ace54d84291510b8",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "streams": {
+              "stdout": {
+                "bytes": 444,
+                "capturedBytes": 444,
+                "sha256": "344756633f7287566bc3cdf806f966a5dc969f03b5c6b005ace54d84291510b8",
+                "observedSha256": "344756633f7287566bc3cdf806f966a5dc969f03b5c6b005ace54d84291510b8",
+                "complete": true,
+                "raw": {
+                  "encoding": "gzip-base64",
+                  "compressedBytes": 248
+                }
+              },
+              "stderr": {
+                "bytes": 0,
+                "capturedBytes": 0,
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "complete": true
+              }
+            }
+          },
+          {
+            "label": "archive-license",
+            "exit": 0,
+            "signal": null,
+            "timedOut": false,
+            "cancelled": false,
+            "outputLimit": false,
+            "forcedSettlement": false,
+            "stdoutBytes": 1075,
+            "stderrBytes": 0,
+            "stdoutObservedSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+            "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "spawned": true,
+            "exitObserved": true,
+            "closeObserved": true,
+            "originalProcessGroupAbsent": true,
+            "termSent": false,
+            "killSent": false,
+            "groupAfterLeaderClose": false,
+            "signalError": false,
+            "stdoutSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "streams": {
+              "stdout": {
+                "bytes": 1075,
+                "capturedBytes": 1075,
+                "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+                "observedSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+                "complete": true,
+                "raw": {
+                  "encoding": "gzip-base64",
+                  "compressedBytes": 657
+                }
+              },
+              "stderr": {
+                "bytes": 0,
+                "capturedBytes": 0,
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "complete": true
+              }
+            }
+          },
+          {
+            "label": "archive-metadata",
+            "exit": 0,
+            "signal": null,
+            "timedOut": false,
+            "cancelled": false,
+            "outputLimit": false,
+            "forcedSettlement": false,
+            "stdoutBytes": 934,
+            "stderrBytes": 0,
+            "stdoutObservedSha256": "da8a8f583f997b95b70ea53478fc034090e2f5512e62be2bb35d26e4ee3b9ef3",
+            "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "spawned": true,
+            "exitObserved": true,
+            "closeObserved": true,
+            "originalProcessGroupAbsent": true,
+            "termSent": false,
+            "killSent": false,
+            "groupAfterLeaderClose": false,
+            "signalError": false,
+            "stdoutSha256": "da8a8f583f997b95b70ea53478fc034090e2f5512e62be2bb35d26e4ee3b9ef3",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "streams": {
+              "stdout": {
+                "bytes": 934,
+                "capturedBytes": 934,
+                "sha256": "da8a8f583f997b95b70ea53478fc034090e2f5512e62be2bb35d26e4ee3b9ef3",
+                "observedSha256": "da8a8f583f997b95b70ea53478fc034090e2f5512e62be2bb35d26e4ee3b9ef3",
+                "complete": true,
+                "raw": {
+                  "encoding": "gzip-base64",
+                  "compressedBytes": 371
+                }
+              },
+              "stderr": {
+                "bytes": 0,
+                "capturedBytes": 0,
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "complete": true
+              }
+            }
+          },
+          {
+            "label": "archive-license",
+            "exit": 0,
+            "signal": null,
+            "timedOut": false,
+            "cancelled": false,
+            "outputLimit": false,
+            "forcedSettlement": false,
+            "stdoutBytes": 1075,
+            "stderrBytes": 0,
+            "stdoutObservedSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+            "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "spawned": true,
+            "exitObserved": true,
+            "closeObserved": true,
+            "originalProcessGroupAbsent": true,
+            "termSent": false,
+            "killSent": false,
+            "groupAfterLeaderClose": false,
+            "signalError": false,
+            "stdoutSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "streams": {
+              "stdout": {
+                "bytes": 1075,
+                "capturedBytes": 1075,
+                "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+                "observedSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+                "complete": true,
+                "raw": {
+                  "encoding": "gzip-base64",
+                  "compressedBytes": 657
+                }
+              },
+              "stderr": {
+                "bytes": 0,
+                "capturedBytes": 0,
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "complete": true
+              }
+            }
+          },
+          {
+            "label": "archive-metadata",
+            "exit": 0,
+            "signal": null,
+            "timedOut": false,
+            "cancelled": false,
+            "outputLimit": false,
+            "forcedSettlement": false,
+            "stdoutBytes": 875,
+            "stderrBytes": 0,
+            "stdoutObservedSha256": "c39e4028c93beb7089caaeacd6ed8749956124ad0879e62b535cbc66967510e1",
+            "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "spawned": true,
+            "exitObserved": true,
+            "closeObserved": true,
+            "originalProcessGroupAbsent": true,
+            "termSent": false,
+            "killSent": false,
+            "groupAfterLeaderClose": false,
+            "signalError": false,
+            "stdoutSha256": "c39e4028c93beb7089caaeacd6ed8749956124ad0879e62b535cbc66967510e1",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "streams": {
+              "stdout": {
+                "bytes": 875,
+                "capturedBytes": 875,
+                "sha256": "c39e4028c93beb7089caaeacd6ed8749956124ad0879e62b535cbc66967510e1",
+                "observedSha256": "c39e4028c93beb7089caaeacd6ed8749956124ad0879e62b535cbc66967510e1",
+                "complete": true,
+                "raw": {
+                  "encoding": "gzip-base64",
+                  "compressedBytes": 325
+                }
+              },
+              "stderr": {
+                "bytes": 0,
+                "capturedBytes": 0,
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "complete": true
+              }
+            }
+          },
+          {
+            "label": "archive-license",
+            "exit": 0,
+            "signal": null,
+            "timedOut": false,
+            "cancelled": false,
+            "outputLimit": false,
+            "forcedSettlement": false,
+            "stdoutBytes": 1075,
+            "stderrBytes": 0,
+            "stdoutObservedSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+            "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "spawned": true,
+            "exitObserved": true,
+            "closeObserved": true,
+            "originalProcessGroupAbsent": true,
+            "termSent": false,
+            "killSent": false,
+            "groupAfterLeaderClose": false,
+            "signalError": false,
+            "stdoutSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "streams": {
+              "stdout": {
+                "bytes": 1075,
+                "capturedBytes": 1075,
+                "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+                "observedSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+                "complete": true,
+                "raw": {
+                  "encoding": "gzip-base64",
+                  "compressedBytes": 657
+                }
+              },
+              "stderr": {
+                "bytes": 0,
+                "capturedBytes": 0,
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "complete": true
+              }
+            }
+          },
+          {
+            "label": "archive-metadata",
+            "exit": 0,
+            "signal": null,
+            "timedOut": false,
+            "cancelled": false,
+            "outputLimit": false,
+            "forcedSettlement": false,
+            "stdoutBytes": 553,
+            "stderrBytes": 0,
+            "stdoutObservedSha256": "7e3e811a495be6415d426d32560a3b90b08e8a17b4ecd69daa5bc1236e4d77f6",
+            "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "spawned": true,
+            "exitObserved": true,
+            "closeObserved": true,
+            "originalProcessGroupAbsent": true,
+            "termSent": false,
+            "killSent": false,
+            "groupAfterLeaderClose": false,
+            "signalError": false,
+            "stdoutSha256": "7e3e811a495be6415d426d32560a3b90b08e8a17b4ecd69daa5bc1236e4d77f6",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "streams": {
+              "stdout": {
+                "bytes": 553,
+                "capturedBytes": 553,
+                "sha256": "7e3e811a495be6415d426d32560a3b90b08e8a17b4ecd69daa5bc1236e4d77f6",
+                "observedSha256": "7e3e811a495be6415d426d32560a3b90b08e8a17b4ecd69daa5bc1236e4d77f6",
+                "complete": true,
+                "raw": {
+                  "encoding": "gzip-base64",
+                  "compressedBytes": 296
+                }
+              },
+              "stderr": {
+                "bytes": 0,
+                "capturedBytes": 0,
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "complete": true
+              }
+            }
+          },
+          {
+            "label": "archive-license",
+            "exit": 0,
+            "signal": null,
+            "timedOut": false,
+            "cancelled": false,
+            "outputLimit": false,
+            "forcedSettlement": false,
+            "stdoutBytes": 1075,
+            "stderrBytes": 0,
+            "stdoutObservedSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+            "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "spawned": true,
+            "exitObserved": true,
+            "closeObserved": true,
+            "originalProcessGroupAbsent": true,
+            "termSent": false,
+            "killSent": false,
+            "groupAfterLeaderClose": false,
+            "signalError": false,
+            "stdoutSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "streams": {
+              "stdout": {
+                "bytes": 1075,
+                "capturedBytes": 1075,
+                "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+                "observedSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+                "complete": true,
+                "raw": {
+                  "encoding": "gzip-base64",
+                  "compressedBytes": 657
+                }
+              },
+              "stderr": {
+                "bytes": 0,
+                "capturedBytes": 0,
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "complete": true
+              }
+            }
+          },
+          {
+            "label": "archive-metadata",
+            "exit": 0,
+            "signal": null,
+            "timedOut": false,
+            "cancelled": false,
+            "outputLimit": false,
+            "forcedSettlement": false,
+            "stdoutBytes": 592,
+            "stderrBytes": 0,
+            "stdoutObservedSha256": "bc36b9c48169d5bf5a1df29dc77465bc434a706de9707b3779d279b5d394de65",
+            "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "spawned": true,
+            "exitObserved": true,
+            "closeObserved": true,
+            "originalProcessGroupAbsent": true,
+            "termSent": false,
+            "killSent": false,
+            "groupAfterLeaderClose": false,
+            "signalError": false,
+            "stdoutSha256": "bc36b9c48169d5bf5a1df29dc77465bc434a706de9707b3779d279b5d394de65",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "streams": {
+              "stdout": {
+                "bytes": 592,
+                "capturedBytes": 592,
+                "sha256": "bc36b9c48169d5bf5a1df29dc77465bc434a706de9707b3779d279b5d394de65",
+                "observedSha256": "bc36b9c48169d5bf5a1df29dc77465bc434a706de9707b3779d279b5d394de65",
+                "complete": true,
+                "raw": {
+                  "encoding": "gzip-base64",
+                  "compressedBytes": 274
+                }
+              },
+              "stderr": {
+                "bytes": 0,
+                "capturedBytes": 0,
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "complete": true
+              }
+            }
+          },
+          {
+            "label": "archive-license",
+            "exit": 0,
+            "signal": null,
+            "timedOut": false,
+            "cancelled": false,
+            "outputLimit": false,
+            "forcedSettlement": false,
+            "stdoutBytes": 1075,
+            "stderrBytes": 0,
+            "stdoutObservedSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+            "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "spawned": true,
+            "exitObserved": true,
+            "closeObserved": true,
+            "originalProcessGroupAbsent": true,
+            "termSent": false,
+            "killSent": false,
+            "groupAfterLeaderClose": false,
+            "signalError": false,
+            "stdoutSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "streams": {
+              "stdout": {
+                "bytes": 1075,
+                "capturedBytes": 1075,
+                "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+                "observedSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+                "complete": true,
+                "raw": {
+                  "encoding": "gzip-base64",
+                  "compressedBytes": 657
+                }
+              },
+              "stderr": {
+                "bytes": 0,
+                "capturedBytes": 0,
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "complete": true
+              }
+            }
+          },
+          {
+            "label": "archive-metadata",
+            "exit": 0,
+            "signal": null,
+            "timedOut": false,
+            "cancelled": false,
+            "outputLimit": false,
+            "forcedSettlement": false,
+            "stdoutBytes": 540,
+            "stderrBytes": 0,
+            "stdoutObservedSha256": "01d3f1acb6498d35847824fba6cdcec7ab702f9448c5f5bb66f32232bac63659",
+            "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "spawned": true,
+            "exitObserved": true,
+            "closeObserved": true,
+            "originalProcessGroupAbsent": true,
+            "termSent": false,
+            "killSent": false,
+            "groupAfterLeaderClose": false,
+            "signalError": false,
+            "stdoutSha256": "01d3f1acb6498d35847824fba6cdcec7ab702f9448c5f5bb66f32232bac63659",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "streams": {
+              "stdout": {
+                "bytes": 540,
+                "capturedBytes": 540,
+                "sha256": "01d3f1acb6498d35847824fba6cdcec7ab702f9448c5f5bb66f32232bac63659",
+                "observedSha256": "01d3f1acb6498d35847824fba6cdcec7ab702f9448c5f5bb66f32232bac63659",
+                "complete": true,
+                "raw": {
+                  "encoding": "gzip-base64",
+                  "compressedBytes": 278
+                }
+              },
+              "stderr": {
+                "bytes": 0,
+                "capturedBytes": 0,
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "complete": true
+              }
+            }
+          },
+          {
+            "label": "archive-license",
+            "exit": 0,
+            "signal": null,
+            "timedOut": false,
+            "cancelled": false,
+            "outputLimit": false,
+            "forcedSettlement": false,
+            "stdoutBytes": 1075,
+            "stderrBytes": 0,
+            "stdoutObservedSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+            "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "spawned": true,
+            "exitObserved": true,
+            "closeObserved": true,
+            "originalProcessGroupAbsent": true,
+            "termSent": false,
+            "killSent": false,
+            "groupAfterLeaderClose": false,
+            "signalError": false,
+            "stdoutSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "streams": {
+              "stdout": {
+                "bytes": 1075,
+                "capturedBytes": 1075,
+                "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+                "observedSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+                "complete": true,
+                "raw": {
+                  "encoding": "gzip-base64",
+                  "compressedBytes": 657
+                }
+              },
+              "stderr": {
+                "bytes": 0,
+                "capturedBytes": 0,
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "complete": true
+              }
+            }
+          }
+        ],
+        "archives": [
+          {
+            "name": "mcpcn",
+            "version": "0.1.0",
+            "sha256": "b581dbd3dd517fb3e3a1551c4c7140eeea20faec5395fffcb4bcb303445ccd8f"
+          },
+          {
+            "name": "@mcpcn/core",
+            "version": "0.1.0",
+            "sha256": "734b822d1a4b74da184a07155f1273e809ce67af701b22cd672c238acb98e54d"
+          },
+          {
+            "name": "@mcpcn/react",
+            "version": "0.1.0",
+            "sha256": "15b5af73e4cb2e746f12817f8fe9b9d6535e5b57ce1f8db2496ff0985ba7f691"
+          },
+          {
+            "name": "@mcpcn/registry",
+            "version": "0.1.0",
+            "sha256": "d561f46e7892a69c7983077d850347e37cced4256f3c4ac0280fcbe11d825e20"
+          },
+          {
+            "name": "@mcpcn/runtime",
+            "version": "0.1.0",
+            "sha256": "879944314206dcdc20c5425a3962e8de5b6efd6a20a7c2f78e4d1840e3252f89"
+          },
+          {
+            "name": "@mcpcn/schemas",
+            "version": "0.1.0",
+            "sha256": "6384c606f0116a593cc868c39903065838a52fab38d428eab938e815aaddf290"
+          },
+          {
+            "name": "@mcpcn/themes",
+            "version": "0.1.0",
+            "sha256": "55b4fdcbfd5d9af07904e27e973b08fdad870aa3b74f252554f9ff031565a1c4"
+          }
+        ],
+        "licenseSha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4",
+        "processCleanup": {
+          "verified": true,
+          "remainingCommands": 0,
+          "allOriginalGroupsAbsent": true
+        },
+        "interrupted": false,
+        "signalCount": 0,
+        "signals": [],
+        "limits": {
+          "workSeconds": 720,
+          "finalCleanupReserveSeconds": 30,
+          "commandStopMilliseconds": 2500,
+          "processDrainMilliseconds": 4000,
+          "streamBytes": 262144,
+          "compressedStreamBytes": 32768,
+          "compressedTotalBytes": 131072,
+          "reportBytes": 524288
+        },
+        "cases": [
+          {
+            "name": "copy",
+            "status": "passed",
+            "commands": [
+              {
+                "label": "copy:install",
+                "exit": 0,
+                "signal": null,
+                "timedOut": false,
+                "cancelled": false,
+                "outputLimit": false,
+                "forcedSettlement": false,
+                "stdoutBytes": 26,
+                "stderrBytes": 0,
+                "stdoutObservedSha256": "e5f3804dddece157f0a8e16c275fb98fb4a4059eb99877cba17c4d6a61da60f2",
+                "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "spawned": true,
+                "exitObserved": true,
+                "closeObserved": true,
+                "originalProcessGroupAbsent": true,
+                "termSent": false,
+                "killSent": false,
+                "groupAfterLeaderClose": false,
+                "signalError": false,
+                "stdoutSha256": "e5f3804dddece157f0a8e16c275fb98fb4a4059eb99877cba17c4d6a61da60f2",
+                "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "streams": {
+                  "stdout": {
+                    "bytes": 26,
+                    "capturedBytes": 26,
+                    "sha256": "e5f3804dddece157f0a8e16c275fb98fb4a4059eb99877cba17c4d6a61da60f2",
+                    "observedSha256": "e5f3804dddece157f0a8e16c275fb98fb4a4059eb99877cba17c4d6a61da60f2",
+                    "complete": true,
+                    "raw": {
+                      "encoding": "gzip-base64",
+                      "compressedBytes": 46
+                    }
+                  },
+                  "stderr": {
+                    "bytes": 0,
+                    "capturedBytes": 0,
+                    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "complete": true
+                  }
+                }
+              },
+              {
+                "label": "copy:init",
+                "exit": 0,
+                "signal": null,
+                "timedOut": false,
+                "cancelled": false,
+                "outputLimit": false,
+                "forcedSettlement": false,
+                "stdoutBytes": 53,
+                "stderrBytes": 0,
+                "stdoutObservedSha256": "96af2325c4ba21c7ed182a0238171f3de0b05d511d08f640f91f1a919c79feed",
+                "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "spawned": true,
+                "exitObserved": true,
+                "closeObserved": true,
+                "originalProcessGroupAbsent": true,
+                "termSent": false,
+                "killSent": false,
+                "groupAfterLeaderClose": false,
+                "signalError": false,
+                "stdoutSha256": "96af2325c4ba21c7ed182a0238171f3de0b05d511d08f640f91f1a919c79feed",
+                "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "streams": {
+                  "stdout": {
+                    "bytes": 53,
+                    "capturedBytes": 53,
+                    "sha256": "96af2325c4ba21c7ed182a0238171f3de0b05d511d08f640f91f1a919c79feed",
+                    "observedSha256": "96af2325c4ba21c7ed182a0238171f3de0b05d511d08f640f91f1a919c79feed",
+                    "complete": true,
+                    "raw": {
+                      "encoding": "gzip-base64",
+                      "compressedBytes": 73
+                    }
+                  },
+                  "stderr": {
+                    "bytes": 0,
+                    "capturedBytes": 0,
+                    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "complete": true
+                  }
+                }
+              },
+              {
+                "label": "copy:add-all-79",
+                "exit": 0,
+                "signal": null,
+                "timedOut": false,
+                "cancelled": false,
+                "outputLimit": false,
+                "forcedSettlement": false,
+                "stdoutBytes": 5414,
+                "stderrBytes": 0,
+                "stdoutObservedSha256": "0ff71adbc6e5080ed5013dbe55c03a354ba740306cfb3c93d47c8103b3d6070e",
+                "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "spawned": true,
+                "exitObserved": true,
+                "closeObserved": true,
+                "originalProcessGroupAbsent": true,
+                "termSent": false,
+                "killSent": false,
+                "groupAfterLeaderClose": false,
+                "signalError": false,
+                "stdoutSha256": "0ff71adbc6e5080ed5013dbe55c03a354ba740306cfb3c93d47c8103b3d6070e",
+                "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "streams": {
+                  "stdout": {
+                    "bytes": 5414,
+                    "capturedBytes": 5414,
+                    "sha256": "0ff71adbc6e5080ed5013dbe55c03a354ba740306cfb3c93d47c8103b3d6070e",
+                    "observedSha256": "0ff71adbc6e5080ed5013dbe55c03a354ba740306cfb3c93d47c8103b3d6070e",
+                    "complete": true,
+                    "raw": {
+                      "encoding": "gzip-base64",
+                      "compressedBytes": 1504
+                    }
+                  },
+                  "stderr": {
+                    "bytes": 0,
+                    "capturedBytes": 0,
+                    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "complete": true
+                  }
+                }
+              },
+              {
+                "label": "copy:typecheck",
+                "exit": 0,
+                "signal": null,
+                "timedOut": false,
+                "cancelled": false,
+                "outputLimit": false,
+                "forcedSettlement": false,
+                "stdoutBytes": 0,
+                "stderrBytes": 0,
+                "stdoutObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "spawned": true,
+                "exitObserved": true,
+                "closeObserved": true,
+                "originalProcessGroupAbsent": true,
+                "termSent": false,
+                "killSent": false,
+                "groupAfterLeaderClose": false,
+                "signalError": false,
+                "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "streams": {
+                  "stdout": {
+                    "bytes": 0,
+                    "capturedBytes": 0,
+                    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "complete": true
+                  },
+                  "stderr": {
+                    "bytes": 0,
+                    "capturedBytes": 0,
+                    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "complete": true
+                  }
+                }
+              }
+            ],
+            "writtenFiles": 87,
+            "lockSha256": "5b1c2acc8cabe9db17467b8e14b507d4cec768b0ddbde4c45c3e1806fce57cc2",
+            "sourceTreeSha256": "4d3df572f073d832eeab9c270049d08c1344757be04355206c6ff68d6b734c04",
+            "npmLockSha256": "c765ee463f02f0683ba88162acb8fd731e88e673651d4d2181838ef3198c1754",
+            "versions": {
+              "typescript": "5.9.3",
+              "react": "19.2.8",
+              "react-dom": "19.2.8",
+              "zod": "4.4.3",
+              "@modelcontextprotocol/ext-apps": "1.7.5",
+              "@modelcontextprotocol/sdk": "1.30.0",
+              "@types/react": "19.2.18",
+              "@types/react-dom": "19.2.4"
+            },
+            "teardown": "removed",
+            "selectedItems": 79,
+            "compiler": {
+              "version": "5.9.3",
+              "entry": "node_modules/typescript/lib/tsc.js",
+              "sha256": "2cffde0b8c6760dfb0b5b0382bbb7e00ba6a8b2d981b9205b256a700a481d983"
+            },
+            "launcher": {
+              "kind": "workspace-node",
+              "entrySha256": "64ed9968b43afedd2091eeb0e4917d3624f2f23981ef589f7d6da09ebbae5ec7",
+              "ownedEntry": false,
+              "realpathMatchesEntry": true
+            },
+            "exportTargets": null,
+            "stylesVerified": []
+          },
+          {
+            "name": "package",
+            "status": "passed",
+            "commands": [
+              {
+                "label": "package:install",
+                "exit": 0,
+                "signal": null,
+                "timedOut": false,
+                "cancelled": false,
+                "outputLimit": false,
+                "forcedSettlement": false,
+                "stdoutBytes": 26,
+                "stderrBytes": 0,
+                "stdoutObservedSha256": "78c0f18d70168edc0eadb72e4bd7b770c583ca3b9a031cfdb7116d9242969171",
+                "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "spawned": true,
+                "exitObserved": true,
+                "closeObserved": true,
+                "originalProcessGroupAbsent": true,
+                "termSent": false,
+                "killSent": false,
+                "groupAfterLeaderClose": false,
+                "signalError": false,
+                "stdoutSha256": "78c0f18d70168edc0eadb72e4bd7b770c583ca3b9a031cfdb7116d9242969171",
+                "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "streams": {
+                  "stdout": {
+                    "bytes": 26,
+                    "capturedBytes": 26,
+                    "sha256": "78c0f18d70168edc0eadb72e4bd7b770c583ca3b9a031cfdb7116d9242969171",
+                    "observedSha256": "78c0f18d70168edc0eadb72e4bd7b770c583ca3b9a031cfdb7116d9242969171",
+                    "complete": true,
+                    "raw": {
+                      "encoding": "gzip-base64",
+                      "compressedBytes": 46
+                    }
+                  },
+                  "stderr": {
+                    "bytes": 0,
+                    "capturedBytes": 0,
+                    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "complete": true
+                  }
+                }
+              },
+              {
+                "label": "package:init",
+                "exit": 0,
+                "signal": null,
+                "timedOut": false,
+                "cancelled": false,
+                "outputLimit": false,
+                "forcedSettlement": false,
+                "stdoutBytes": 53,
+                "stderrBytes": 0,
+                "stdoutObservedSha256": "96af2325c4ba21c7ed182a0238171f3de0b05d511d08f640f91f1a919c79feed",
+                "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "spawned": true,
+                "exitObserved": true,
+                "closeObserved": true,
+                "originalProcessGroupAbsent": true,
+                "termSent": false,
+                "killSent": false,
+                "groupAfterLeaderClose": false,
+                "signalError": false,
+                "stdoutSha256": "96af2325c4ba21c7ed182a0238171f3de0b05d511d08f640f91f1a919c79feed",
+                "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "streams": {
+                  "stdout": {
+                    "bytes": 53,
+                    "capturedBytes": 53,
+                    "sha256": "96af2325c4ba21c7ed182a0238171f3de0b05d511d08f640f91f1a919c79feed",
+                    "observedSha256": "96af2325c4ba21c7ed182a0238171f3de0b05d511d08f640f91f1a919c79feed",
+                    "complete": true,
+                    "raw": {
+                      "encoding": "gzip-base64",
+                      "compressedBytes": 73
+                    }
+                  },
+                  "stderr": {
+                    "bytes": 0,
+                    "capturedBytes": 0,
+                    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "complete": true
+                  }
+                }
+              },
+              {
+                "label": "package:add-all-79",
+                "exit": 0,
+                "signal": null,
+                "timedOut": false,
+                "cancelled": false,
+                "outputLimit": false,
+                "forcedSettlement": false,
+                "stdoutBytes": 4097,
+                "stderrBytes": 0,
+                "stdoutObservedSha256": "99b31b6cdbe2fe5e9b3f92e43a6e51aeb4cd30aeec66ae19c934f257ccc9bb5b",
+                "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "spawned": true,
+                "exitObserved": true,
+                "closeObserved": true,
+                "originalProcessGroupAbsent": true,
+                "termSent": false,
+                "killSent": false,
+                "groupAfterLeaderClose": false,
+                "signalError": false,
+                "stdoutSha256": "99b31b6cdbe2fe5e9b3f92e43a6e51aeb4cd30aeec66ae19c934f257ccc9bb5b",
+                "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "streams": {
+                  "stdout": {
+                    "bytes": 4097,
+                    "capturedBytes": 4097,
+                    "sha256": "99b31b6cdbe2fe5e9b3f92e43a6e51aeb4cd30aeec66ae19c934f257ccc9bb5b",
+                    "observedSha256": "99b31b6cdbe2fe5e9b3f92e43a6e51aeb4cd30aeec66ae19c934f257ccc9bb5b",
+                    "complete": true,
+                    "raw": {
+                      "encoding": "gzip-base64",
+                      "compressedBytes": 928
+                    }
+                  },
+                  "stderr": {
+                    "bytes": 0,
+                    "capturedBytes": 0,
+                    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "complete": true
+                  }
+                }
+              },
+              {
+                "label": "package:typecheck",
+                "exit": 0,
+                "signal": null,
+                "timedOut": false,
+                "cancelled": false,
+                "outputLimit": false,
+                "forcedSettlement": false,
+                "stdoutBytes": 0,
+                "stderrBytes": 0,
+                "stdoutObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stderrObservedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "spawned": true,
+                "exitObserved": true,
+                "closeObserved": true,
+                "originalProcessGroupAbsent": true,
+                "termSent": false,
+                "killSent": false,
+                "groupAfterLeaderClose": false,
+                "signalError": false,
+                "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "streams": {
+                  "stdout": {
+                    "bytes": 0,
+                    "capturedBytes": 0,
+                    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "complete": true
+                  },
+                  "stderr": {
+                    "bytes": 0,
+                    "capturedBytes": 0,
+                    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "observedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "complete": true
+                  }
+                }
+              }
+            ],
+            "writtenFiles": 80,
+            "lockSha256": "e0500c2ed83487f3693a0d4c86df890a97721f3b7965ff55bb2ae04b73c302e8",
+            "sourceTreeSha256": "20931fc8ff3cb6ee6c547ae4fd58ee6c42fbe3985df8dfa81ece3f30185dd566",
+            "npmLockSha256": "2864157766569511aa545d6d9bb50ccdd6d2002d0fafef326fa425ccd3f3957e",
+            "versions": {
+              "typescript": "5.9.3",
+              "react": "19.2.8",
+              "react-dom": "19.2.8",
+              "zod": "4.4.3",
+              "@modelcontextprotocol/ext-apps": "1.7.5",
+              "@modelcontextprotocol/sdk": "1.30.0",
+              "@types/react": "19.2.18",
+              "@types/react-dom": "19.2.4"
+            },
+            "teardown": "removed",
+            "selectedItems": 79,
+            "compiler": {
+              "version": "5.9.3",
+              "entry": "node_modules/typescript/lib/tsc.js",
+              "sha256": "2cffde0b8c6760dfb0b5b0382bbb7e00ba6a8b2d981b9205b256a700a481d983"
+            },
+            "launcher": {
+              "kind": "installed-bin",
+              "entrySha256": "64ed9968b43afedd2091eeb0e4917d3624f2f23981ef589f7d6da09ebbae5ec7",
+              "ownedEntry": true,
+              "realpathMatchesEntry": true
+            },
+            "exportTargets": [
+              {
+                "package": "mcpcn",
+                "path": "dist/index.js",
+                "kind": "bin",
+                "bytes": 150,
+                "sha256": "64ed9968b43afedd2091eeb0e4917d3624f2f23981ef589f7d6da09ebbae5ec7"
+              },
+              {
+                "package": "@mcpcn/core",
+                "path": "dist/index.d.ts",
+                "kind": "types",
+                "bytes": 1292,
+                "sha256": "8db6be977f4a82786389ae57dbf6e1fb6520911137e1aa562475518fd7771e38"
+              },
+              {
+                "package": "@mcpcn/core",
+                "path": "dist/index.js",
+                "kind": "javascript",
+                "bytes": 597,
+                "sha256": "1191d928f385283ef7856195286e825748643081be07254a2b8f0318014ebb55"
+              },
+              {
+                "package": "@mcpcn/react",
+                "path": "dist/index.d.ts",
+                "kind": "types",
+                "bytes": 5903,
+                "sha256": "db6440bbb589390af2002557175bbc858677a0020eb49de4f1a24612039b5a04"
+              },
+              {
+                "package": "@mcpcn/react",
+                "path": "dist/index.js",
+                "kind": "javascript",
+                "bytes": 16492,
+                "sha256": "da91b6bcbc7b5a5a8deec2321738fd034b2cdf80e789356fd848376f789142a7"
+              },
+              {
+                "package": "@mcpcn/react",
+                "path": "dist/styles.css",
+                "kind": "css",
+                "bytes": 4478,
+                "sha256": "65a0bc7ce2f2ce2d2246e25119d293cf310fc90ef404da580d1e88debd6e62b3"
+              },
+              {
+                "package": "@mcpcn/react",
+                "path": "dist/blocks.d.ts",
+                "kind": "types",
+                "bytes": 5109,
+                "sha256": "827c985c9b279542ab03a3353c3571a0448b043eb1ae474fc1227f9194bdb738"
+              },
+              {
+                "package": "@mcpcn/react",
+                "path": "dist/blocks.js",
+                "kind": "javascript",
+                "bytes": 20541,
+                "sha256": "cb05e16cd780b5681877e491988e458f718e6143d645bd00319fa45a74d70925"
+              },
+              {
+                "package": "@mcpcn/registry",
+                "path": "dist/index.d.ts",
+                "kind": "types",
+                "bytes": 489,
+                "sha256": "ca6496c8239b14254e78d4c3d86ee6398f1d80340fe26f430c7bcd5f32a8159a"
+              },
+              {
+                "package": "@mcpcn/registry",
+                "path": "dist/index.js",
+                "kind": "javascript",
+                "bytes": 63,
+                "sha256": "13e6ee383330bcecae1c2aa71ea987c5b980bbe4cfb5b3a5de6aa80084a088c1"
+              },
+              {
+                "package": "@mcpcn/registry",
+                "path": "dist/catalog.d.ts",
+                "kind": "types",
+                "bytes": 943,
+                "sha256": "e204ca6ada2ad269c6e1cae8b759e27d1580d63900ffca228326e321acb9eb00"
+              },
+              {
+                "package": "@mcpcn/registry",
+                "path": "dist/catalog.js",
+                "kind": "javascript",
+                "bytes": 4770,
+                "sha256": "ce13ae2a5f131c06362a479157720a2dbb49235ebe784aa15b5697699172447d"
+              },
+              {
+                "package": "@mcpcn/registry",
+                "path": "dist/source-registry.d.ts",
+                "kind": "types",
+                "bytes": 790,
+                "sha256": "3d3a94a59f4cae2db9649d7b0c0ac146d496ded3ab352e9f641e45591cfcb4f6"
+              },
+              {
+                "package": "@mcpcn/registry",
+                "path": "dist/source-registry.js",
+                "kind": "javascript",
+                "bytes": 7285,
+                "sha256": "e6e56e7165571e4d79ff7aeae7a9bbb0a011c6c97913fe5c6efebf9a08795777"
+              },
+              {
+                "package": "@mcpcn/registry",
+                "path": "dist/installation.d.ts",
+                "kind": "types",
+                "bytes": 2765,
+                "sha256": "fe2a788c5d0dabddf9c5b024f7fa67df219bf78da4c966d73ec38038f4b76a65"
+              },
+              {
+                "package": "@mcpcn/registry",
+                "path": "dist/installation.js",
+                "kind": "javascript",
+                "bytes": 9280,
+                "sha256": "2d3d23994fa6a35cea01a6d3f32e687d813d8b025407111ec1aac148fdd8ad93"
+              },
+              {
+                "package": "@mcpcn/registry",
+                "path": "dist/bin.js",
+                "kind": "bin",
+                "bytes": 1486,
+                "sha256": "48618af1ac39be3ce80357792bb00c46502ee976d459be95647156e4af9f0748"
+              },
+              {
+                "package": "@mcpcn/runtime",
+                "path": "dist/index.d.ts",
+                "kind": "types",
+                "bytes": 4500,
+                "sha256": "3930963ddf835035d63726ea78e297df494d88c943afaec73442aa0aa3b53e45"
+              },
+              {
+                "package": "@mcpcn/runtime",
+                "path": "dist/index.js",
+                "kind": "javascript",
+                "bytes": 10012,
+                "sha256": "3c82c9bddd454c92777e654ac15c04d760342403027e8d2471d3cc6ddc93a069"
+              },
+              {
+                "package": "@mcpcn/schemas",
+                "path": "dist/index.d.ts",
+                "kind": "types",
+                "bytes": 32466,
+                "sha256": "41f6069d9bf54cdcd2064e0357cdea495fe6428c398e4cbd1b304e4ef1363a65"
+              },
+              {
+                "package": "@mcpcn/schemas",
+                "path": "dist/index.js",
+                "kind": "javascript",
+                "bytes": 6661,
+                "sha256": "b6eb307c16caf6c06154d09d7f02c32b7010796f0364d2992dd929c5da4c61f7"
+              },
+              {
+                "package": "@mcpcn/themes",
+                "path": "dist/index.d.ts",
+                "kind": "types",
+                "bytes": 156,
+                "sha256": "bbc00902b11e82bc1757ec7ff5a50b673ef7743d2c5c1d1c0446aa8b412a8df6"
+              },
+              {
+                "package": "@mcpcn/themes",
+                "path": "dist/index.js",
+                "kind": "javascript",
+                "bytes": 90,
+                "sha256": "728f1b10975bd06021f05a497d64470321119d4d8059ee874898f20746338e39"
+              },
+              {
+                "package": "@mcpcn/themes",
+                "path": "dist/default.css",
+                "kind": "css",
+                "bytes": 217,
+                "sha256": "cf8ed37abf2337b55a731c1b078827e83b710ce0fbf1af50d3c265e9d28810e9"
+              }
+            ],
+            "stylesVerified": [
+              "@mcpcn/react/dist/styles.css",
+              "@mcpcn/themes/dist/default.css"
+            ]
+          }
+        ]
+      },
+      "projectionNote": "Embedded gzip data is retained only in the lossless raw helper JSON.",
+      "exactScenarioSet": true
+    },
+    "fixtures": {
+      "remainingEntries": [],
+      "remainingCount": 0,
+      "passed": true
+    },
+    "scratchCleanup": "passed",
+    "completedAtUtc": "2026-11-04T14:56:56.760Z",
+    "interrupted": false
+  },
+  "platformWarnings": [
+    "##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020, pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+  ]
+}
