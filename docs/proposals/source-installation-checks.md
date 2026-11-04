@@ -2,7 +2,7 @@
 
 Last updated: 2026-11-04
 
-4 November 2026. **Owner-authorized; first failure retained; repair unrun.**
+4 November 2026. **52/52 passed at the repaired immutable source; first failure retained.**
 The owner's repeated “I approve everything / Keep going / Do all the work”
 instructions cover this smallest 52-case packet, its seven required package
 builds and one temporary public CI job. No additional permission cycle is needed
@@ -26,9 +26,12 @@ to a separate owned tool-cache directory. Product behavior, the lockfile, all
 52 literal names and the source/process/fixture-empty gates stay unchanged.
 The observed cache name is consistent with
 [Node 24.21's documented default](https://github.com/nodejs/node/blob/v24.21.0/doc/api/module.md#module-compile-cache);
-its creator was not independently instrumented. This source receives a new seal
-and immutable preparation pin before the second invocation. No latest-branch
-substitution or passing-check claim follows from preparing it.
+its creator was not independently instrumented. The
+[second invocation](../results/2026/11-04/source-installation-52-checks.md),
+run `41845730654` / job `126628603128`, checked immutable preparation
+`574c87eb57db8cec82eec8319efa875b7299433c` and passed all 52 cases, seven builds,
+byte-identical registry generation, four full source guards and owned cleanup.
+This result does not substitute the later branch head for the checked source.
 
 ## Exact first scope
 
@@ -55,12 +58,13 @@ pnpm exec vitest run --maxWorkers=1 \
 | Installer | 16 | Real command/configuration, complete ownership, dependencies, local/mock transport, preflight, conflicts, retries, injected write/manifest failures and owned cleanup |
 | Workflow blocks | 12 | Eleven real SSR/control/callback paths plus intent/ownership guards; captured JSX callbacks do not establish native browser events |
 | Configurator | 12 | Real SSR states, all selections, host/style/mode/manager propagation, empty/invalid states, provider/import/schema parity |
-| **Total** | **52** | **First invocation: 50 passed/two failed; repaired invocation pending** |
+| **Total** | **52** | **Repaired invocation: 52 passed; first failed attempt preserved** |
 
 The [historical inventory](../results/2026/10-29/source-inventory.json) records
-the unchanged literal case names. The new complete seal will be
-`docs/results/2026/11-04/source-installation-52-repair-source.json`, including the full
-suite-plus-literal titles. Require exactly those 52 unique title/status pairs,
+the unchanged literal case names. The checked
+[complete repair seal](../results/2026/11-04/source-installation-52-repair-source.json)
+contains 313 inputs / 12,257,469 bytes and the full suite-plus-literal titles.
+Require exactly those 52 unique title/status pairs,
 all passed, with no missing, extra, failed, skipped or retried cases. Report/file
 order is not an acceptance condition. Exit zero alone is insufficient.
 
@@ -83,20 +87,24 @@ Use only the new inactive example at
 [combined workflow example](../examples/source-installation-checks.workflow.yml)
 is preserved as historical source and is not this execution route.
 
-Root publishes preparation on main with `[skip ci]`, then creates exactly the
-owned repair branch `qa/mcpcn-source-52-20261104-attempt-2`. The first branch
-`qa/mcpcn-source-52-20261104` is fast-forwarded to the repair preparation as a
-retired bookmark. Only the exact repository
+Preparation was published on main with `[skip ci]`, followed by creation of the
+owned repair branch `qa/mcpcn-source-52-20261104-attempt-2`. The first branch,
+`qa/mcpcn-source-52-20261104`, was retained as a retired bookmark. Only the exact repository
 `alvarovillalbaa/mcpcn-ui`, branch type and branch/ref may admit that `create`
 event. The read-only temporary workflow checks out the immutable preparation
 SHA; it never checks out a floating branch as test source. Main-push broad CI
 and release definitions remain unchanged and unexecuted by this route.
 
-After a terminal result is retained, root retires only the temporary focused
-workflow on main with `[skip ci]` and guardedly fast-forwards the owned branch
-to that same final source commit. The branch remains a retired bookmark; no
-branch deletion or repository-wide absence of workflows is claimed. Do not
+Final-publication plan: root removes only the temporary focused workflow on
+main with `[skip ci]` and guardedly fast-forwards both owned branches to that
+same final source commit. Both remain retired bookmarks; no branch deletion
+or repository-wide absence of workflows is claimed. Do not
 activate the existing release job or use an npm publishing identity.
+
+This later status edition changes only `AGENTS.md`, `README.md` and this proposal
+within the 313-input checked scope; the other 310 inputs remain byte-identical.
+Reproduce the immutable preparation above, not the later documentation edition.
+All historical seals and the first failed result remain unchanged.
 
 ## Subsequent docs and installed-consumer scope — unrun
 
@@ -104,6 +112,15 @@ The original follow-on scope remains prepared but is excluded from the first
 52-case invocation: build the docs app, pack those seven packages into local
 tarballs without publishing, then run the two authored consumer scenarios in
 `tooling/verify-consumers.ts`. Neither scenario has run:
+
+Before that next job, repair the consumer harness's subprocess lifecycle. A
+read-only source review found that leader close clears escalation and removes
+the active child before original-group absence is verified (lines 83–90,
+104–129), while signal handlers are one-shot and removed before awaited drain
+(lines 293–312). This is a source finding, not an observed consumer runtime
+failure. Keep the strict source/process/cleanup gates; do not execute the old
+combined example. The owner's standing authorization covers the next concrete
+bounded packet after that repair, without another routine permission question.
 
 1. Existing-app source copy: exact locked third-party dependencies, actual
    compiled source CLI, all 79 selected entries, real editable source and strict

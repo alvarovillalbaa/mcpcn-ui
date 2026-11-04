@@ -17,7 +17,7 @@ The [historical delivery receipt](docs/results/2026/10-29/source-installation.md
 records a protected staging docs build at `9dcb1ee0` that reached READY. Its
 unauthenticated request redirected to SSO; page rendering, installed consumers
 and live-host acceptance were not established. That old hosting result is
-separate from the upcoming focused checks and provides no new hosted proof.
+separate from the completed focused checks and provides no new hosted proof.
 
 ```bash
 pnpm add @mcpcn/react @mcpcn/runtime @mcpcn/schemas
@@ -55,7 +55,7 @@ MCP Apps adapter or OpenAI compatibility adapter without changing their protocol
 
 For source development, use the existing lockfile and an environment with enough
 storage. The historical receipt records a failed local Storage Guard preflight;
-this preparation performs no local installation or build:
+the completed CI packet performed no local installation or build:
 
 ```sh
 pnpm install --frozen-lockfile
@@ -72,21 +72,26 @@ JavaScript output is explicitly rejected; it is not silently replaced with TSX.
 The CLI reports dependency commands and never runs a package manager for you.
 
 The [focused check proposal](docs/proposals/source-installation-checks.md)
-now records the owner's standing authorization for the first **52 checks**:
+records **52/52 checks passed** on 4 November 2026:
 12 registry, 16 installer, 12 workflow-block and 12 configurator cases. One
-public Ubuntu job uses Node 24.21.0/pnpm 10.24.0, the unchanged frozen lock with
+public Ubuntu job used Node 24.21.0/pnpm 10.24.0, the unchanged frozen lock with
 scripts disabled, seven required package builds and byte-identical registry
 generation. The [first run](docs/results/2026/11-04/source-installation-52-attempt-1.md)
 built all seven packages and regenerated all 79 entries unchanged, then reported
 50 passing/two failing callback cases and a nonempty fixture directory. Its
-failure is preserved. A separate invocation will check the test-only label
-lookup and owned compiler-cache routing repair against the same 52 case names.
-The old protected staging build remains a separate observation.
+failure is preserved. The [second run](docs/results/2026/11-04/source-installation-52-checks.md)
+checked the test-only label lookup and owned compiler-cache routing repair at
+`574c87eb57db8cec82eec8319efa875b7299433c`: all 52 identities/statuses, seven
+package builds, generation, full source guards and owned cleanup passed.
+The old protected staging build remains a separate observation. This later
+status edition changes three of the 313 checked inputs; the other 310,
+including product, tests, controller, lock and workflow example, are unchanged.
 
 The job uses only the exact owned branch's `create` event and an immutable source
 pin. Main preparation/final commits use `[skip ci]`; the existing broad CI and
-release jobs stay unchanged and unexecuted by this packet. Afterward the
-temporary focused workflow is retired and its branch retained as a bookmark.
+release jobs stay unchanged and unexecuted by this packet. Final publication
+will remove the temporary focused workflow and advance both owned branches to
+the final source as retired bookmarks.
 The docs build, seven local archives and two installed-consumer scenarios remain
 subsequent and unrun. Browser/real-host acceptance, public package release,
 accounts and provider/model calls are outside the first 52-case packet.

@@ -27,27 +27,30 @@ Last updated: 2026-11-04
   52 source-installation domain/CLI/SSR checks, seven required package builds
   and byte-identical canonical registry generation in one bounded public CI
   job. The [current proposal](docs/proposals/source-installation-checks.md)
-  owns this scope. The first invocation built all seven packages and retained
-  50 passing/two failing cases; its failed fixture-empty check is also retained.
-  The next invocation repairs only callback-label lookup and tool-cache routing.
+  owns this scope. The [second invocation](docs/results/2026/11-04/source-installation-52-checks.md)
+  passed all 52 cases at immutable source
+  `574c87eb57db8cec82eec8319efa875b7299433c`, with seven package builds,
+  byte-identical generation and all source/process/cleanup gates passing.
+  Preserve the first invocation's 50 passing/two failing cases and failed
+  fixture-empty check; the repair changed only test-label lookup/cache routing.
 - Existing main-push broad CI and release jobs remain unchanged and unexecuted
   by this packet. Preparation and final main publication use `[skip ci]`.
   Only the exact-repository, exact-owned-branch `create` event may start the
   temporary focused workflow, which checks out an immutable preparation SHA.
-  The repair branch is `qa/mcpcn-source-52-20261104-attempt-2`, never main.
-  Retain the first attempt's branch as a retired bookmark at the repair source.
-- After the terminal result, root retires only the temporary focused workflow
-  on main with `[skip ci]` and guardedly fast-forwards the owned branch to that
-  final source. Keep it as a retired bookmark; do not claim branch deletion or
-  that the repository has no workflows. Broad CI/release definitions remain.
+  The two owned branches are `qa/mcpcn-source-52-20261104` and
+  `qa/mcpcn-source-52-20261104-attempt-2`, never main.
+- Final-publication plan: root removes only the temporary focused workflow on
+  main with `[skip ci]` and guardedly fast-forwards both owned branches to that
+  final source. Retain them as retired bookmarks; do not claim branch deletion
+  or that the repository has no workflows. Broad CI/release definitions remain.
 - The docs-app build, seven local package archives and two installed-consumer
   scenarios remain a subsequent unrun scope. Browser/real-host acceptance,
   package publication, account/Auth/provider changes and paid services are
   excluded from the first 52 checks. Preserve all historical receipts/seals.
 - Canonical registry generation is an implementation step, separate from test
-  execution. No local installation/build is part of this preparation. The CI
-  packet installs the unchanged frozen lock with lifecycle scripts disabled;
-  tracked generated registry bytes must remain unchanged. Local large work
+  execution. This packet performed no local installation/build. The CI packet
+  installed the unchanged frozen lock with lifecycle scripts disabled and
+  verified tracked generated registry bytes unchanged. Local large work
   remains subject to Storage Guard and the supplied 30 GiB reserve.
 - Record source, generated artifact, publication, package/hosted acceptance and
   pending checks separately under docs/. No new paid plan or provider account.
