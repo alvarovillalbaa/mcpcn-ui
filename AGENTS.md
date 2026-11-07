@@ -91,8 +91,9 @@ replacing the eleven v1 generic aliases with real typed components, schemas,
 controlled previews and copyable modules. Preserve the remaining forty alias
 identities and their honest status. Consent/form replacement fixes belong to
 this scope; external MCP protocols, provider accounts and authorization do not.
-The single new workspace edge is registry → schemas, so canonical registry and
-docs expose the same schemas. No external application dependency changes.
+The two new workspace edges are registry → schemas for canonical metadata and
+docs → schemas for the previews' public data types. No external application
+dependency changes.
 
 Use the [v1 packet](docs/proposals/v1-components-checks.md): new focused tests,
 the seventeen relevant installer regressions, twenty-six authored desktop/

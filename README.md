@@ -14,9 +14,10 @@ The eleven additional core components now have dedicated typed schemas,
 controlled domain interactions and actual documentation previews. ApprovalCard
 and SchemaForm also isolate replaced review/form payloads, preserve current
 field ownership and handle asynchronous consumer feedback. The new
-[v1 component packet](docs/proposals/v1-components-checks.md) is prepared and
-unrun: its source/schema/SSR, native browser and installed-consumer evidence
-must remain separate from the historical packets below. The broader catalogue,
+[v1 component packet](docs/proposals/v1-components-checks.md) remains unaccepted:
+107 unit/installer cases passed in its second invocation, which then failed
+the documentation typecheck. Browser and installed-consumer cases remain unrun.
+Keep this evidence separate from the historical packets below. The broader catalogue,
 real-host playground, public npm release and quality matrix remain unfinished.
 
 **Public package availability remains unverified.** Registry lookups for

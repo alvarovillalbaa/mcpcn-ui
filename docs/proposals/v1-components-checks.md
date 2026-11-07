@@ -1,11 +1,18 @@
 # Sixteen core components: source and acceptance
 
-7 November 2026. Status: implementation prepared; runtime checks unrun.
+7 November 2026 UTC. Status: implementation prepared; full packet unaccepted.
 
 The [first invocation](../results/2026/11-07/v1-components-attempt-1.md) failed
 before installation when the new export guard rejected the existing public
-root `.npmrc`. Its originals remain immutable. The next candidate narrowly
-accepts only that exact public configuration; application checks remain unrun.
+root `.npmrc`. Its originals remain immutable. The second candidate narrowly
+accepted only that exact public configuration; the first ran no application checks.
+
+The [second invocation](../results/2026/11-07/v1-components-attempt-2.md) passed
+107 unit/installer cases and deterministic generation, then failed the docs
+typecheck because its new previews lacked a direct schemas workspace dependency.
+Its installed-consumer and browser stages remain unrun. The next candidate adds
+only that missing workspace edge and exact lockfile link, without changing an
+external version or relaxing the typecheck.
 
 The [owning brief](https://app.notion.com/p/3b6a1ee8bd0680539d4ecb4b8a8ab4c7)
 requires a full React MCP Apps library, configurable installation and website.
@@ -29,9 +36,10 @@ required controls and submits only current fields. Shared action handling
 dispatches synchronous controlled edits without transient disabling/focus loss;
 actual promises block duplicates, surface failure and fence unmounted feedback.
 
-Registry → schemas is one new workspace dependency edge, with no external
-dependency change. Its JSON schema getter feeds the documentation and canonical
-registry. Fourteen real source modules form the copied implementation closure.
+Registry → schemas supplies canonical metadata; docs → schemas supplies the
+previews' public data types. These two new workspace dependency edges change
+no external version. The JSON schema getter feeds the documentation and
+canonical registry. Fourteen real source modules form the copied implementation closure.
 The CLI uses that authoritative inventory, keeps existing ownership/path/size/
 transaction guards and reports `source_profile_upgrade_required` for exact prior
 four-module copy manifests. It performs no automatic migration or overwrite.
