@@ -2,6 +2,11 @@
 
 7 November 2026. Status: implementation prepared; runtime checks unrun.
 
+The [first invocation](../results/2026/11-07/v1-components-attempt-1.md) failed
+before installation when the new export guard rejected the existing public
+root `.npmrc`. Its originals remain immutable. The next candidate narrowly
+accepts only that exact public configuration; application checks remain unrun.
+
 The [owning brief](https://app.notion.com/p/3b6a1ee8bd0680539d4ecb4b8a8ab4c7)
 requires a full React MCP Apps library, configurable installation and website.
 Its supporting research names sixteen core v1 components. Five already had

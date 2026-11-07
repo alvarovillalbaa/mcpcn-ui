@@ -287,9 +287,11 @@ function exportSource() {
   let total = 0;
   for (const entry of baseline) {
     if (entry.path === ACTIVE) continue;
-    need(!/(?:^|\/)(?:\.git|node_modules|\.npmrc|\.env(?!\.example$)[^/]*|id_rsa|id_ed25519|[^/]*\.(?:pem|key))(?:\/|$)/.test(entry.path), 'source_secret_or_dependency_path');
+    const b = read(path.join(repo, entry.path));
+    const publicWorkspaceConfig = entry.path === '.npmrc' && b.equals(Buffer.from('auto-install-peers=true\nstrict-peer-dependencies=false\nlink-workspace-packages=true\n'));
+    need(publicWorkspaceConfig || !/(?:^|\/)(?:\.git|node_modules|\.npmrc|\.env(?!\.example$)[^/]*|id_rsa|id_ed25519|[^/]*\.(?:pem|key))(?:\/|$)/.test(entry.path), 'source_secret_or_dependency_path');
     const target = path.join(source, entry.path); fs.mkdirSync(path.dirname(target), { recursive: true, mode: 0o700 });
-    const b = read(path.join(repo, entry.path)); total += b.length; need(total <= 67108864, 'export_total_bound');
+    total += b.length; need(total <= 67108864, 'export_total_bound');
     fs.writeFileSync(target, b, { flag: 'wx', mode: entry.mode === '100755' ? 0o700 : 0o600 });
   }
   report.export = { files: baseline.filter(entry => entry.path !== ACTIVE).length, bytes: total, excludedExactPath: ACTIVE, originalModesRecorded: true, copiedPermissions: 'owner-only' };
