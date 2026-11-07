@@ -12,8 +12,21 @@ const names:Record<CatalogCategory,string[]>={
   trust:["AuditTrail","ReasoningSummary","SourceList","EvidenceDrawer","DataAccessNotice","PrivacyBoundaryCard","ConsentPanel","ModelContextPreview"],
   "host-state":["AuthRequiredCard","BillingGate","UnsupportedHostNotice","NoDataState","LoadingBridgeState","OfflineState","PermissionDeniedState","ExpiredSessionState"]
 };
-const specialized=new Set(["ApprovalCard","ToolProgressTimeline","SchemaForm","EntityReviewTable","AuditTrail"]);
-export const catalog:CatalogItem[]=Object.entries(names).flatMap(([category,items])=>items.map(name=>({name,slug:slug(name),category:category as CatalogCategory,description:`${descriptions[category as CatalogCategory]}: ${name}.`,specialized:specialized.has(name),dependencies:["@mcpcn/core","@mcpcn/schemas","react"],registryDependencies:category==="primitive"?[]:["button","card","badge"],security:{modelVisible:category==="host-state"?[]:["decision","userInput"],privateOnly:["internalId","rawPII"],callsTools:category==="approval"||category==="tool-execution"?["configuredTool"]:[],destructive:category==="approval"}})));
+const specialized=new Set(["ApprovalCard","ConfirmationPanel","RiskReviewPanel","ToolProgressTimeline","ToolCallCard","RetryableErrorState","SchemaForm","DynamicQuestionFlow","EntityReviewTable","ExtractedFieldsReview","DiffViewer","ComparisonMatrix","ScoreBreakdown","AuditTrail","SourceEvidencePanel","AuthRequiredCard"]);
+const componentDescriptions:Record<string,string> = {
+  ConfirmationPanel: "Review current change terms and explicitly confirm or cancel.",
+  RiskReviewPanel: "Acknowledge identified risks and confirm the current mitigation terms.",
+  ToolCallCard: "Inspect exact tool arguments, outputs and execution status.",
+  RetryableErrorState: "Request a retry of retained tool arguments when the consumer permits it.",
+  DynamicQuestionFlow: "Complete conditional questions and submit only currently visible answers.",
+  ExtractedFieldsReview: "Correct extracted fields against originals and evidence before submission.",
+  DiffViewer: "Inspect before/after values and select an individual change for review.",
+  ComparisonMatrix: "Compare criteria, select an available option and explicitly confirm it.",
+  ScoreBreakdown: "Inspect finite weighted totals and individual criterion evidence.",
+  SourceEvidencePanel: "Review supporting claims and excerpts, then select an evidence source.",
+  AuthRequiredCard: "Request scoped access through a consumer-owned intent callback."
+};
+export const catalog:CatalogItem[]=Object.entries(names).flatMap(([category,items])=>items.map(name=>({name,slug:slug(name),category:category as CatalogCategory,description:componentDescriptions[name]??`${descriptions[category as CatalogCategory]}: ${name}.`,specialized:specialized.has(name),dependencies:["@mcpcn/core","@mcpcn/schemas","react"],registryDependencies:category==="primitive"?[]:["button","card","badge"],security:{modelVisible:category==="host-state"?[]:["decision","userInput"],privateOnly:["internalId","rawPII"],callsTools:category==="approval"||category==="tool-execution"?["configuredTool"]:[],destructive:category==="approval"}})));
 
 export const blockCatalog = [
   ["review-before-action","Review a planned external-state change before executing it.",["approval-card","diff-viewer","audit-trail"]],

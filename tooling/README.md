@@ -14,3 +14,10 @@ recorded clean source/index/working bytes and verified nested process/fixture
 cleanup. No local build/install was performed; inactive source alone remains
 insufficient evidence for future revisions. npm release, browser and live-host
 acceptance remain separate.
+
+The separate [sixteen-component v1 packet](../docs/proposals/v1-components-checks.md)
+owns the new domain components, fourteen-module copied-source profile and
+focused installer regressions. Its controller, browser cases and fresh-consumer
+helper are prepared source until an immutable CI run supplies actual results.
+Keep its generated-output vector and source seed distinct from the historical
+consumer receipt above.

@@ -1,4 +1,5 @@
 export * from "./catalog.js";
+export { componentDataSchema } from "./component-schemas.js";
 export type RegistryFile = { path:string; type:"registry:component"|"registry:lib"|"registry:style"; content:string };
 export type RegistryItem = {
   $schema:string;

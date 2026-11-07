@@ -75,8 +75,8 @@ describe("canonical source registry",()=>{
   it("identifies existing generic aliases honestly while retaining all selected component exports",async()=>{
     const {items}=await build();
     const components=items.filter(item=>item.type==="registry:ui");
-    expect(components.filter(item=>item.meta.implementation==="generic-alias")).toHaveLength(51);
-    expect(components.filter(item=>item.meta.implementation==="specialized")).toHaveLength(5);
+    expect(components.filter(item=>item.meta.implementation==="generic-alias")).toHaveLength(40);
+    expect(components.filter(item=>item.meta.implementation==="specialized")).toHaveLength(16);
     expect(components.filter(item=>item.meta.implementation==="primitive")).toHaveLength(12);
     const alias=components.find(item=>item.name==="approval-checklist")!;
     expect(file(alias,"approval-checklist.tsx").content).toContain("export { ApprovalChecklist }");

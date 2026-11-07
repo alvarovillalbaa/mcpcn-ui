@@ -1,6 +1,7 @@
 import { posix } from "node:path";
 import type { CatalogItem } from "./catalog.js";
 import type { RegistryFile, RegistryItem } from "./index.js";
+import { componentDataSchema } from "./component-schemas.js";
 
 export type BlockCatalogItem = { name:string; description:string; components:readonly string[] };
 export type SourceRegistry = { $schema:string; name:string; homepage:string; items:RegistryItem[] };
@@ -19,7 +20,18 @@ const SOURCES = [
   ["packages/schemas/src/index.ts", "_mcpcn/schemas.ts", "registry:lib"],
   ["packages/react/src/index.tsx", "_mcpcn/components.tsx", "registry:component"],
   ["packages/runtime/src/index.tsx", "_mcpcn/runtime.tsx", "registry:lib"],
+  ["packages/schemas/src/schema-common.ts", "_mcpcn/schema-common.ts", "registry:lib"],
+  ["packages/schemas/src/review-schemas.ts", "_mcpcn/review-schemas.ts", "registry:lib"],
+  ["packages/schemas/src/decision-schemas.ts", "_mcpcn/decision-schemas.ts", "registry:lib"],
+  ["packages/schemas/src/execution-schemas.ts", "_mcpcn/execution-schemas.ts", "registry:lib"],
+  ["packages/react/src/primitives.tsx", "_mcpcn/primitives.tsx", "registry:component"],
+  ["packages/react/src/component-helpers.tsx", "_mcpcn/component-helpers.tsx", "registry:component"],
+  ["packages/react/src/review-components.tsx", "_mcpcn/review-components.tsx", "registry:component"],
+  ["packages/react/src/decision-components.tsx", "_mcpcn/decision-components.tsx", "registry:component"],
+  ["packages/react/src/execution-components.tsx", "_mcpcn/execution-components.tsx", "registry:component"],
+  ["packages/react/src/component-types.ts", "_mcpcn/component-types.ts", "registry:lib"],
 ] as const;
+export const sourceModulePaths: readonly string[] = Object.freeze(SOURCES.map(([, target]) => target));
 const INTERNAL_IMPORTS:Record<string,string> = {"@mcpcn/core":"./core","@mcpcn/schemas":"./schemas","@mcpcn/react":"./components","@mcpcn/runtime":"./runtime"};
 const EXTERNAL_IMPORTS = new Set(["react", "react/jsx-runtime", "zod", "@modelcontextprotocol/ext-apps", "@modelcontextprotocol/sdk"]);
 
@@ -87,12 +99,15 @@ export async function buildSourceRegistry({catalog,blockCatalog,readSource,provi
   const blockFile:RegistryFile|undefined=blockCatalog.length?{path:PREFIX+"_mcpcn/blocks.tsx",type:"registry:component",content:rewrite(source.get("packages/react/src/blocks.tsx")!,true)}:undefined;
   const makeFiles=(entry:RegistryFile,includeBlock:boolean)=>[entry,...common.map(file=>({...file})),...(includeBlock?[{...blockFile!}]:[])];
   const provenance={license:"MIT",repository:REPOSITORY,sourceProfile:"typescript-local-source-v1",sourceFiles:sourcePaths.slice()};
-  const items:RegistryItem[]=catalog.map(item=>({
+  const items:RegistryItem[]=catalog.map(item=>{
+    const dataSchema=item.category==="primitive"?undefined:componentDataSchema(item.slug);
+    if(item.category!=="primitive" && dataSchema===undefined) fail();
+    return {
     $schema:"https://ui.shadcn.com/schema/registry-item.json",name:item.slug,type:"registry:ui",title:item.name,description:item.description,
     dependencies:DEPENDENCIES.slice(),registryDependencies:[],
     files:makeFiles({path:`${PREFIX}${item.slug}.tsx`,type:"registry:component",content:`"use client";\nexport { ${item.name} } from "./_mcpcn/components";\n`},false),
-    meta:{category:item.category,implementation:item.category==="primitive"?"primitive":item.specialized?"specialized":"generic-alias",security:{modelVisible:[...item.security.modelVisible],privateOnly:[...item.security.privateOnly],callsTools:[...item.security.callsTools],destructive:item.security.destructive},provenance:{...provenance,sourceFiles:sourcePaths.filter(path=>path!=="packages/react/src/blocks.tsx")},docs:`${REPOSITORY}#readme`},
-  }));
+    meta:{category:item.category,implementation:item.category==="primitive"?"primitive":item.specialized?"specialized":"generic-alias",...(dataSchema===undefined?{}:{dataSchema}),security:{modelVisible:[...item.security.modelVisible],privateOnly:[...item.security.privateOnly],callsTools:[...item.security.callsTools],destructive:item.security.destructive},provenance:{...provenance,sourceFiles:sourcePaths.filter(path=>path!=="packages/react/src/blocks.tsx")},docs:`${REPOSITORY}#readme`},
+  };});
   for(const block of blockCatalog) items.push({
     $schema:"https://ui.shadcn.com/schema/registry-item.json",name:block.name,type:"registry:block",title:pascal(block.name),description:block.description,
     dependencies:DEPENDENCIES.slice(),registryDependencies:[],

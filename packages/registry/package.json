@@ -7,5 +7,5 @@
   "files": ["dist"],
   "bin": { "mcpcn-registry": "dist/bin.js" },
   "scripts": { "build": "tsc -p tsconfig.json && node dist/bin.js build", "typecheck": "tsc -p tsconfig.json --noEmit", "test": "vitest run", "lint": "tsc -p tsconfig.json --noEmit" },
-  "dependencies": { "@mcpcn/core": "workspace:*" }
+  "dependencies": { "@mcpcn/core": "workspace:*", "@mcpcn/schemas": "workspace:*" }
 }

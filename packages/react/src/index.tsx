@@ -1,51 +1,97 @@
 "use client";
 
-import { useMemo, useState, type ButtonHTMLAttributes, type HTMLAttributes, type ReactNode } from "react";
-import type * as React from "react";
-import { cn, type MCPCNSecurityManifest } from "@mcpcn/core";
-import { ApprovalCardSchema, AuditTrailSchema, EntityReviewTableSchema, GenericComponentSchema, SchemaFormSchema, ToolProgressTimelineSchema, type ApprovalCardData, type AuditTrailData, type EntityReviewTableData, type SchemaFormData, type ToolProgressTimelineData } from "@mcpcn/schemas";
+import { useState, type FormEvent } from "react";
+import type { MCPCNSecurityManifest } from "@mcpcn/core";
+import { ApprovalCardSchema, AuditTrailSchema, EntityReviewTableSchema, GenericComponentSchema, SchemaFormSchema, ToolProgressTimelineSchema, type ApprovalCardData, type AuditTrailData, type EntityReviewTableData, type ParsedApprovalCardData, type SchemaFormData, type ToolProgressTimelineData } from "@mcpcn/schemas";
+import { Button, Card, Badge, Input, Textarea, Select, InvalidPayload } from "./primitives.js";
+import { Feedback, revisionKey, useComponentAction } from "./component-helpers.js";
+import type { ComponentProps } from "./component-types.js";
 
-export type ComponentAction = { type: string; data?: unknown };
-export type ComponentProps<T> = T & { className?: string; onAction?: (action: ComponentAction) => void; busy?: boolean };
-
-export function Button({ className, children, ...props }: ButtonHTMLAttributes<HTMLButtonElement>) { return <button className={cn("mcpcn mcpcn-button", className)} {...props}>{children}</button>; }
-export function Card({ className, children, ...props }: HTMLAttributes<HTMLDivElement>) { return <section className={cn("mcpcn mcpcn-card", className)} {...props}>{children}</section>; }
-export function Badge({ children, risk }: { children: ReactNode; risk?: string }) { return <span className="mcpcn mcpcn-badge" data-risk={risk}>{children}</span>; }
-export function Input(props: React.InputHTMLAttributes<HTMLInputElement>) { return <input className={cn("mcpcn mcpcn-input", props.className)} {...props} />; }
-export function Textarea(props: React.TextareaHTMLAttributes<HTMLTextAreaElement>) { return <textarea className={cn("mcpcn mcpcn-input", props.className)} {...props} />; }
-export function Select(props: React.SelectHTMLAttributes<HTMLSelectElement>) { return <select className={cn("mcpcn mcpcn-input", props.className)} {...props} />; }
-export function Alert({ title, children }: { title: string; children?: ReactNode }) { return <div className="mcpcn mcpcn-error" role="alert"><strong>{title}</strong>{children && <div>{children}</div>}</div>; }
-export function Skeleton({ className }: { className?: string }) { return <span className={cn("mcpcn", className)} aria-label="Loading" style={{ display:"block",height:16,borderRadius:8,background:"var(--mcpcn-line)" }} />; }
-export function EmptyState({ title="Nothing here yet", description }: { title?: string; description?: string }) { return <Card><div className="mcpcn-body" style={{ textAlign:"center" }}><h3 className="mcpcn-title">{title}</h3>{description && <p className="mcpcn-description">{description}</p>}</div></Card>; }
-export function Tabs({ items, value, onValueChange }: { items: Array<{ value:string; label:string; content:ReactNode }>; value?:string; onValueChange?:(value:string)=>void }) { const [local,setLocal]=useState(value??items[0]?.value); const active=value??local; return <div className="mcpcn"><div className="mcpcn-row" role="tablist">{items.map(i=><Button key={i.value} role="tab" aria-selected={active===i.value} data-variant={active===i.value?undefined:"secondary"} onClick={()=>{setLocal(i.value);onValueChange?.(i.value)}}>{i.label}</Button>)}</div><div role="tabpanel" style={{marginTop:12}}>{items.find(i=>i.value===active)?.content}</div></div> }
-export function Dialog({ open, title, children, onClose }: { open:boolean; title:string; children:ReactNode; onClose:()=>void }) { if(!open)return null; return <div className="mcpcn" role="dialog" aria-modal="true" aria-label={title} style={{position:"fixed",inset:0,zIndex:50,display:"grid",placeItems:"center",background:"rgba(0,0,0,.45)",padding:20}}><Card style={{maxWidth:560,width:"100%"}}><div className="mcpcn-header mcpcn-row mcpcn-between"><h2 className="mcpcn-title">{title}</h2><Button data-variant="secondary" onClick={onClose} aria-label="Close">×</Button></div><div className="mcpcn-body">{children}</div></Card></div> }
-export function Tooltip({ label, children }: { label:string; children:ReactNode }) { return <span className="mcpcn" title={label} aria-label={label}>{children}</span>; }
+export type { ComponentAction, ComponentProps } from "./component-types.js";
+export { Button, Card, Badge, Input, Textarea, Select, Alert, Skeleton, EmptyState, Tabs, Dialog, Tooltip, InvalidPayload } from "./primitives.js";
+export { ConfirmationPanel, RiskReviewPanel, DiffViewer, SourceEvidencePanel } from "./review-components.js";
+export { DynamicQuestionFlow, ExtractedFieldsReview, ComparisonMatrix, ScoreBreakdown } from "./decision-components.js";
+export { ToolCallCard, RetryableErrorState, AuthRequiredCard } from "./execution-components.js";
 
 export const ApprovalCardSecurity: MCPCNSecurityManifest = { modelVisible:["decision","reason"], privateOnly:["internalRecordId"], callsTools:["approvalTool"], destructive:true };
 export function ApprovalCard(props: ComponentProps<ApprovalCardData>) {
-  const parsed=ApprovalCardSchema.safeParse(props); const [consent,setConsent]=useState(false);
-  if(!parsed.success)return <InvalidPayload title="Approval card could not be rendered" issues={parsed.error.issues.map(i=>`${i.path.join(".")}: ${i.message}`)} />;
-  const data=parsed.data; const blocked=data.requiresExplicitConsent&&!consent;
-  return <Card className={props.className}><div className="mcpcn-header"><div className="mcpcn-row mcpcn-between"><h3 className="mcpcn-title">{data.title}</h3><Badge risk={data.riskLevel}>{data.riskLevel} risk</Badge></div>{data.description&&<p className="mcpcn-description">{data.description}</p>}</div><div className="mcpcn-body">{data.changes.length?<div>{data.changes.map((change,index)=><div className="mcpcn-change" key={`${change.label}-${index}`}><strong>{change.label}</strong><span><span className="mcpcn-before">{String(change.before??"—")}</span> → <span className="mcpcn-after">{String(change.after??"—")}</span></span><span className="mcpcn-hint">{change.affectedCount?`${change.affectedCount} affected`:change.confidence?`${Math.round(change.confidence*100)}% confidence`:""}</span></div>)}</div>:<p className="mcpcn-description">No field-level changes were provided.</p>}{data.rollback&&<p className="mcpcn-hint">Rollback: {data.rollback}</p>}{data.requiresExplicitConsent&&<label className="mcpcn-row" style={{marginTop:14}}><input type="checkbox" checked={consent} onChange={e=>setConsent(e.target.checked)} />{data.consentLabel??"I understand the impact of this action."}</label>}</div><div className="mcpcn-footer mcpcn-row" style={{justifyContent:"flex-end"}}><Button data-variant="secondary" disabled={props.busy} onClick={()=>props.onAction?.({type:"cancel"})}>{data.cancelLabel}</Button><Button data-variant={data.riskLevel==="critical"?"danger":undefined} disabled={props.busy||blocked} onClick={()=>props.onAction?.({type:"approve",data:{tool:data.approvalTool}})}>{props.busy?"Working…":data.actionLabel}</Button></div></Card>;
+  const parsed = ApprovalCardSchema.safeParse(props);
+  if (!parsed.success) return <InvalidPayload title="Approval card could not be rendered" issues={parsed.error.issues.map(issue => issue.path.join(".") + ": " + issue.message)} />;
+  return <ApprovalCardView key={revisionKey(parsed.data)} data={parsed.data} props={props} />;
+}
+function ApprovalCardView({ data, props }: { data: ParsedApprovalCardData; props: ComponentProps<ApprovalCardData> }) {
+  const [consent, setConsent] = useState(false);
+  const { send, busy, error } = useComponentAction(props.onAction, props.busy);
+  const blocked = data.requiresExplicitConsent && !consent;
+  return <Card className={props.className} aria-busy={busy}>
+    <div className="mcpcn-header"><div className="mcpcn-row mcpcn-between"><h3 className="mcpcn-title">{data.title}</h3><Badge risk={data.riskLevel}>{data.riskLevel} risk</Badge></div>{data.description && <p className="mcpcn-description">{data.description}</p>}</div>
+    <div className="mcpcn-body">
+      {data.changes.length ? <div>{data.changes.map((change, index) => <div className="mcpcn-change" key={change.label + "-" + index}><strong>{change.label}</strong><span><span className="mcpcn-before">{String(change.before ?? "—")}</span> → <span className="mcpcn-after">{String(change.after ?? "—")}</span></span><span className="mcpcn-hint">{change.affectedCount !== undefined ? change.affectedCount + " affected" : change.confidence !== undefined ? Math.round(change.confidence * 100) + "% confidence" : ""}</span></div>)}</div> : <p className="mcpcn-description">No field-level changes were provided.</p>}
+      {data.rollback && <p className="mcpcn-hint">Rollback: {data.rollback}</p>}
+      {data.requiresExplicitConsent && <label className="mcpcn-row" style={{ marginTop: 14 }}><input type="checkbox" checked={consent} disabled={busy} onChange={event => setConsent(event.currentTarget.checked)} />{data.consentLabel ?? "I understand the impact of this action."}</label>}
+      <Feedback busy={busy} error={props.error ?? error} />
+    </div>
+    <div className="mcpcn-footer mcpcn-row" style={{ justifyContent: "flex-end" }}>
+      <Button type="button" data-variant="secondary" disabled={busy || !props.onAction} onClick={() => send({ type: "cancel" })}>{data.cancelLabel}</Button>
+      <Button type="button" data-variant={data.riskLevel === "critical" ? "danger" : undefined} disabled={busy || blocked || !props.onAction} onClick={() => { if (!blocked) send({ type: "approve", data: { tool: data.approvalTool } }); }}>{busy ? "Working…" : data.actionLabel}</Button>
+    </div>
+  </Card>;
 }
 
 export function ToolProgressTimeline(props: ComponentProps<ToolProgressTimelineData>) { const parsed=ToolProgressTimelineSchema.safeParse(props); if(!parsed.success)return <InvalidPayload title="Progress data is invalid" issues={parsed.error.issues.map(i=>i.message)} />; const data=parsed.data; return <Card className={props.className}><div className="mcpcn-header"><h3 className="mcpcn-title">{data.title}</h3>{data.description&&<p className="mcpcn-description">{data.description}</p>}</div><div className="mcpcn-body mcpcn-stack">{data.steps.map(step=><div className="mcpcn-progress" key={step.id}><span className="mcpcn-progress-line"><i className="mcpcn-dot" data-status={step.status}/></span><div style={{paddingBottom:12}}><div className="mcpcn-row mcpcn-between"><strong>{step.label}</strong><Badge>{step.status}</Badge></div>{step.description&&<div className="mcpcn-description">{step.description}</div>}{step.error&&<div style={{color:"var(--mcpcn-danger)"}}>{step.error}</div>}{step.status==="failed"&&data.retryTool&&<Button style={{marginTop:8}} data-variant="secondary" onClick={()=>props.onAction?.({type:"retry",data:{stepId:step.id,tool:data.retryTool}})}>Retry step</Button>}</div></div>)}</div></Card> }
 
-export function SchemaForm(props: ComponentProps<SchemaFormData>) { const parsed=SchemaFormSchema.safeParse(props); const initial=useMemo(()=>Object.fromEntries((parsed.success?parsed.data.fields:[]).map(f=>[f.name,f.value??(f.type==="boolean"?false:"")])),[props.fields]); const [values,setValues]=useState<Record<string,unknown>>(initial); if(!parsed.success)return <InvalidPayload title="Form schema is invalid" issues={parsed.error.issues.map(i=>i.message)} />; const data=parsed.data; return <Card className={props.className}><form onSubmit={e=>{e.preventDefault();props.onAction?.({type:"submit",data:{values,tool:data.submitTool}})}}><div className="mcpcn-header"><h3 className="mcpcn-title">{data.title}</h3>{data.description&&<p className="mcpcn-description">{data.description}</p>}</div><div className="mcpcn-body mcpcn-stack">{data.fields.map(field=><label className="mcpcn-label" key={field.name}>{field.label}{field.type==="textarea"?<Textarea required={field.required} value={String(values[field.name]??"")} onChange={e=>setValues(v=>({...v,[field.name]:e.target.value}))}/>:field.type==="select"?<Select required={field.required} value={String(values[field.name]??"")} onChange={e=>setValues(v=>({...v,[field.name]:e.target.value}))}><option value="">Select…</option>{field.options?.map(o=><option value={o.value} key={o.value}>{o.label}</option>)}</Select>:field.type==="boolean"?<input type="checkbox" checked={Boolean(values[field.name])} onChange={e=>setValues(v=>({...v,[field.name]:e.target.checked}))}/>:<Input type={field.type} required={field.required} value={String(values[field.name]??"")} onChange={e=>setValues(v=>({...v,[field.name]:field.type==="number"?e.target.valueAsNumber:e.target.value}))}/>} {field.description&&<span className="mcpcn-hint">{field.description}</span>}</label>)}</div><div className="mcpcn-footer" style={{textAlign:"right"}}><Button type="submit" disabled={props.busy}>{data.submitLabel}</Button></div></form></Card> }
+export function SchemaForm(props: ComponentProps<SchemaFormData>) {
+  const parsed = SchemaFormSchema.safeParse(props);
+  if (!parsed.success) return <InvalidPayload title="Form schema is invalid" issues={parsed.error.issues.map(issue => issue.message)} />;
+  return <SchemaFormView key={revisionKey(parsed.data)} data={parsed.data} props={props} />;
+}
+function SchemaFormView({ data, props }: { data: ReturnType<typeof SchemaFormSchema.parse>; props: ComponentProps<SchemaFormData> }) {
+  const [values, setValues] = useState<Record<string, unknown>>(() => Object.fromEntries(data.fields.map(field => [field.name, field.value ?? (field.type === "boolean" ? false : "")])));
+  const { send, busy, error } = useComponentAction(props.onAction, props.busy);
+  const complete = data.fields.length > 0 && data.fields.every(field => {
+    const value = values[field.name];
+    if (field.type === "boolean") return typeof value === "boolean" && (!field.required || value);
+    if (field.type === "number") return value === "" ? !field.required : typeof value === "number" && Number.isFinite(value);
+    if (typeof value !== "string" || (field.required && !value.trim())) return false;
+    return field.type !== "select" || value === "" || (field.options ?? []).some(option => option.value === value);
+  });
+  const change = (name: string, value: unknown) => { if (!busy) setValues(current => ({ ...current, [name]: value })); };
+  const submit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (busy || !complete || !props.onAction || !event.currentTarget.checkValidity()) return;
+    const allowed = Object.fromEntries(data.fields.map(field => [field.name, values[field.name]]));
+    send({ type: "submit", data: { values: allowed, tool: data.submitTool } });
+  };
+  return <Card className={props.className} aria-busy={busy}><form aria-label={data.title} onSubmit={submit}>
+    <div className="mcpcn-header"><h3 className="mcpcn-title">{data.title}</h3>{data.description && <p className="mcpcn-description">{data.description}</p>}</div>
+    <fieldset disabled={busy} className="mcpcn-body mcpcn-stack" style={{ border: 0, margin: 0, minWidth: 0 }}>
+      <legend className="mcpcn-sr-only">Fields to complete</legend>
+      {!data.fields.length && <p role="status">No fields to complete.</p>}
+      {data.fields.map(field => <label className="mcpcn-label" key={field.name}>{field.label}
+        {field.type === "textarea" ? <Textarea required={field.required} value={String(values[field.name] ?? "")} onChange={event => change(field.name, event.currentTarget.value)} />
+          : field.type === "select" ? <Select required={field.required} value={String(values[field.name] ?? "")} onChange={event => change(field.name, event.currentTarget.value)}><option value="">Select…</option>{field.options?.map(option => <option value={option.value} key={option.value}>{option.label}</option>)}</Select>
+            : field.type === "boolean" ? <input type="checkbox" required={field.required} checked={values[field.name] === true} onChange={event => change(field.name, event.currentTarget.checked)} />
+              : <Input type={field.type} step={field.type === "number" ? "any" : undefined} required={field.required} value={String(values[field.name] ?? "")} onChange={event => change(field.name, field.type === "number" ? event.currentTarget.value === "" ? "" : event.currentTarget.valueAsNumber : event.currentTarget.value)} />}
+        {field.description && <span className="mcpcn-hint">{field.description}</span>}
+      </label>)}
+      <Feedback busy={busy} error={props.error ?? error} />
+    </fieldset>
+    <div className="mcpcn-footer" style={{ textAlign: "right" }}><Button type="submit" disabled={busy || !complete || !props.onAction}>{busy ? "Working…" : data.submitLabel}</Button></div>
+  </form></Card>;
+}
 
 export function EntityReviewTable(props: ComponentProps<EntityReviewTableData>) { const parsed=EntityReviewTableSchema.safeParse(props); if(!parsed.success)return <InvalidPayload title="Review table data is invalid" issues={parsed.error.issues.map(i=>i.message)} />; const data=parsed.data; return <Card className={props.className}><div className="mcpcn-header"><h3 className="mcpcn-title">{data.title}</h3>{data.description&&<p className="mcpcn-description">{data.description}</p>}</div><div className="mcpcn-table-wrap"><table className="mcpcn-table"><thead><tr>{data.columns.map(c=><th key={c.key}>{c.label}</th>)}<th>Confidence</th></tr></thead><tbody>{data.rows.map(row=><tr key={row.id}>{data.columns.map(c=><td key={c.key}>{String(row.values[c.key]??"—")}</td>)}<td>{row.confidence===undefined?"—":`${Math.round(row.confidence*100)}%`}</td></tr>)}</tbody></table></div>{data.actionLabel&&<div className="mcpcn-footer" style={{textAlign:"right"}}><Button onClick={()=>props.onAction?.({type:"confirm",data:{tool:data.actionTool,ids:data.rows.map(r=>r.id)}})}>{data.actionLabel}</Button></div>}</Card> }
 
 export function AuditTrail(props: ComponentProps<AuditTrailData>) { const parsed=AuditTrailSchema.safeParse(props); if(!parsed.success)return <InvalidPayload title="Audit trail is invalid" issues={parsed.error.issues.map(i=>i.message)} />; return <Card className={props.className}><div className="mcpcn-header"><h3 className="mcpcn-title">{parsed.data.title}</h3></div><ol className="mcpcn-body mcpcn-stack" style={{listStyle:"none",margin:0}}>{parsed.data.entries.map(e=><li key={e.id} className="mcpcn-row" style={{alignItems:"flex-start"}}><Badge>{e.status}</Badge><div><strong>{e.label}</strong>{e.description&&<div className="mcpcn-description">{e.description}</div>}<div className="mcpcn-hint">{e.actor&&`${e.actor} · `}<time dateTime={e.timestamp}>{e.timestamp}</time></div></div></li>)}</ol></Card> }
 
-export function InvalidPayload({ title, issues, value }: { title?:string; issues?:string[]; value?:unknown }) { return <div className="mcpcn mcpcn-error" role="alert"><strong>{title??"This tool result could not be rendered"}</strong><p className="mcpcn-description">Check the component schema and structuredContent payload.</p>{issues?.length?<ul>{issues.map((i,n)=><li key={n}>{i}</li>)}</ul>:null}{value!==undefined&&<details><summary>Developer details</summary><pre className="mcpcn-code">{JSON.stringify(value,null,2)}</pre></details>}</div> }
 
 export type GenericAgentComponentProps = ComponentProps<{ title:string; description?:string; status?:string; items?:Array<Record<string,unknown>>; actions?:Array<{label:string;value:string;destructive?:boolean}>; [key:string]:unknown }>;
 export function GenericAgentComponent(props: GenericAgentComponentProps) { const parsed=GenericComponentSchema.safeParse(props); if(!parsed.success)return <InvalidPayload issues={parsed.error.issues.map(i=>i.message)} />; const data=parsed.data; return <Card className={props.className}><div className="mcpcn-header"><div className="mcpcn-row mcpcn-between"><h3 className="mcpcn-title">{data.title}</h3>{data.status&&<Badge>{data.status}</Badge>}</div>{data.description&&<p className="mcpcn-description">{data.description}</p>}</div>{data.items&&<div className="mcpcn-body mcpcn-stack">{data.items.map((item,index)=><div key={index} className="mcpcn-change">{Object.entries(item).slice(0,3).map(([key,value])=><span key={key}><span className="mcpcn-hint">{key}</span><br/>{String(value)}</span>)}</div>)}</div>}{data.actions?.length?<div className="mcpcn-footer mcpcn-row" style={{justifyContent:"flex-end"}}>{data.actions.map(a=><Button key={a.value} data-variant={a.destructive?"danger":undefined} onClick={()=>props.onAction?.({type:a.value})}>{a.label}</Button>)}</div>:null}</Card> }
 
-export const ApprovalChecklist=GenericAgentComponent, ConfirmationPanel=GenericAgentComponent, RiskReviewPanel=GenericAgentComponent, BeforeSubmitConfirmation=GenericAgentComponent, DestructiveActionGuard=GenericAgentComponent, HumanOverridePanel=GenericAgentComponent, PermissionRequestCard=GenericAgentComponent;
-export const ToolCallCard=GenericAgentComponent, ToolResultCard=GenericAgentComponent, RunningTaskCard=GenericAgentComponent, RetryableErrorState=GenericAgentComponent, PartialResultViewer=GenericAgentComponent, QueuedStepList=GenericAgentComponent, ToolTraceViewer=GenericAgentComponent;
-export const DiffViewer=GenericAgentComponent, RecordInspector=GenericAgentComponent, FieldConfidenceList=GenericAgentComponent, ExtractedFieldsReview=GenericAgentComponent, ConflictResolver=GenericAgentComponent, ValidationSummary=GenericAgentComponent, SourceEvidencePanel=GenericAgentComponent, DocumentPreview=GenericAgentComponent, FileReview=GenericAgentComponent;
-export const DynamicQuestionFlow=GenericAgentComponent, MissingDataRequest=GenericAgentComponent, MultiStepForm=GenericAgentComponent, InlineEditForm=GenericAgentComponent, FormProgressCard=GenericAgentComponent, ValidatedFieldList=GenericAgentComponent;
-export const ComparisonMatrix=GenericAgentComponent, OptionSelector=GenericAgentComponent, RecommendationCard=GenericAgentComponent, TradeoffPanel=GenericAgentComponent, ScoreBreakdown=GenericAgentComponent, RankingList=GenericAgentComponent, DecisionMemo=GenericAgentComponent;
+export const ApprovalChecklist=GenericAgentComponent, BeforeSubmitConfirmation=GenericAgentComponent, DestructiveActionGuard=GenericAgentComponent, HumanOverridePanel=GenericAgentComponent, PermissionRequestCard=GenericAgentComponent;
+export const ToolResultCard=GenericAgentComponent, RunningTaskCard=GenericAgentComponent, PartialResultViewer=GenericAgentComponent, QueuedStepList=GenericAgentComponent, ToolTraceViewer=GenericAgentComponent;
+export const RecordInspector=GenericAgentComponent, FieldConfidenceList=GenericAgentComponent, ConflictResolver=GenericAgentComponent, ValidationSummary=GenericAgentComponent, DocumentPreview=GenericAgentComponent, FileReview=GenericAgentComponent;
+export const MissingDataRequest=GenericAgentComponent, MultiStepForm=GenericAgentComponent, InlineEditForm=GenericAgentComponent, FormProgressCard=GenericAgentComponent, ValidatedFieldList=GenericAgentComponent;
+export const OptionSelector=GenericAgentComponent, RecommendationCard=GenericAgentComponent, TradeoffPanel=GenericAgentComponent, RankingList=GenericAgentComponent, DecisionMemo=GenericAgentComponent;
 export const ReasoningSummary=GenericAgentComponent, SourceList=GenericAgentComponent, EvidenceDrawer=GenericAgentComponent, DataAccessNotice=GenericAgentComponent, PrivacyBoundaryCard=GenericAgentComponent, ConsentPanel=GenericAgentComponent, ModelContextPreview=GenericAgentComponent;
-export const AuthRequiredCard=GenericAgentComponent, BillingGate=GenericAgentComponent, UnsupportedHostNotice=GenericAgentComponent, NoDataState=GenericAgentComponent, LoadingBridgeState=GenericAgentComponent, OfflineState=GenericAgentComponent, PermissionDeniedState=GenericAgentComponent, ExpiredSessionState=GenericAgentComponent;
+export const BillingGate=GenericAgentComponent, UnsupportedHostNotice=GenericAgentComponent, NoDataState=GenericAgentComponent, LoadingBridgeState=GenericAgentComponent, OfflineState=GenericAgentComponent, PermissionDeniedState=GenericAgentComponent, ExpiredSessionState=GenericAgentComponent;

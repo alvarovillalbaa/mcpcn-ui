@@ -1,14 +1,23 @@
 # MCPCN
 
-Last updated: 2026-11-04
+Last updated: 2026-11-07
 
 **MCP Component Network** is a React UI library for human-controlled agent workflows inside MCP Apps.
 
 The source includes components, controlled workflow blocks, MCP Apps runtime
 adapters, server helpers, a source registry, a CLI and a documentation app.
-The catalog has 12 primitives, five specialized components and 51 named aliases
+The current source has 12 primitives, sixteen specialized components and 40 named aliases
 of the generic informational component. Eleven workflow blocks now contain
 actual editing, selection, file-review, progress and approval compositions.
+
+The eleven additional core components now have dedicated typed schemas,
+controlled domain interactions and actual documentation previews. ApprovalCard
+and SchemaForm also isolate replaced review/form payloads, preserve current
+field ownership and handle asynchronous consumer feedback. The new
+[v1 component packet](docs/proposals/v1-components-checks.md) is prepared and
+unrun: its source/schema/SSR, native browser and installed-consumer evidence
+must remain separate from the historical packets below. The broader catalogue,
+real-host playground, public npm release and quality matrix remain unfinished.
 
 **Public package availability remains unverified.** Registry lookups for
 `mcpcn` and `@mcpcn/react` returned npm E404 on 29 October 2026; the commands
@@ -60,6 +69,7 @@ the completed CI packet performed no local installation or build:
 ```sh
 pnpm install --frozen-lockfile
 pnpm --filter @mcpcn/core build
+pnpm --filter @mcpcn/schemas build
 pnpm --filter @mcpcn/registry build
 pnpm --filter mcpcn build
 ```

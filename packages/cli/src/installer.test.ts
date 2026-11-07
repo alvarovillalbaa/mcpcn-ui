@@ -1,10 +1,11 @@
 import { lstat, mkdtemp, mkdir, readFile, readdir, realpath, rm, symlink, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 import { describe, expect, it, vi } from "vitest";
 import { blockCatalog, catalog } from "@mcpcn/registry/catalog";
 import { defaultConfig, renderProvider } from "@mcpcn/registry/installation";
+import { sourceModulePaths } from "@mcpcn/registry/source-registry";
 import { runCLI } from "./installer.js";
 
 const faults=vi.hoisted(()=>({
@@ -83,16 +84,40 @@ const PREFIX="components/mcpcn/";
 const REGISTRY="https://registry.example/items";
 const AUTHORED_LICENSE="MIT License\n\nCopyright (c) 2026 Authored fixture authors\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n";
 type PayloadFile={path:string;type:string;content:string};
+const EXPECTED_SOURCE_MODULE_PATHS = [
+  "_mcpcn/core.ts", "_mcpcn/schemas.ts", "_mcpcn/components.tsx", "_mcpcn/runtime.tsx",
+  "_mcpcn/schema-common.ts", "_mcpcn/review-schemas.ts", "_mcpcn/decision-schemas.ts", "_mcpcn/execution-schemas.ts",
+  "_mcpcn/primitives.tsx", "_mcpcn/component-helpers.tsx", "_mcpcn/review-components.tsx",
+  "_mcpcn/decision-components.tsx", "_mcpcn/execution-components.tsx", "_mcpcn/component-types.ts",
+] as const;
+const PRIOR_SOURCE_MODULE_PATHS = ["_mcpcn/core.ts", "_mcpcn/schemas.ts", "_mcpcn/components.tsx", "_mcpcn/runtime.tsx"] as const;
+const AUTHORED_MODULES: Record<string, {type:string;content:string}> = {
+  "_mcpcn/core.ts": {type:"registry:lib",content:"export const authoredCore = true;\n"},
+  "_mcpcn/schemas.ts": {type:"registry:lib",content:'import { authoredCore } from "./core";\nexport const authoredSchema = authoredCore;\n'},
+  "_mcpcn/components.tsx": {type:"registry:component",content:'"use client";\nexport function Button(){return null;}\nexport function Card(){return null;}\nexport function Badge(){return null;}\nexport function InlineEditForm(){return null;}\nexport function ValidationSummary(){return null;}\n'},
+  "_mcpcn/runtime.tsx": {type:"registry:lib",content:'"use client";\nexport const authoredRuntime = true;\n'},
+  "_mcpcn/schema-common.ts": {type:"registry:lib",content:"export const authoredSchemaCommon = true;\n"},
+  "_mcpcn/review-schemas.ts": {type:"registry:lib",content:"export const authoredReviewSchemas = true;\n"},
+  "_mcpcn/decision-schemas.ts": {type:"registry:lib",content:"export const authoredDecisionSchemas = true;\n"},
+  "_mcpcn/execution-schemas.ts": {type:"registry:lib",content:"export const authoredExecutionSchemas = true;\n"},
+  "_mcpcn/primitives.tsx": {type:"registry:component",content:"export const authoredPrimitives = true;\n"},
+  "_mcpcn/component-helpers.tsx": {type:"registry:component",content:"export const authoredComponentHelpers = true;\n"},
+  "_mcpcn/review-components.tsx": {type:"registry:component",content:"export const authoredReviewComponents = true;\n"},
+  "_mcpcn/decision-components.tsx": {type:"registry:component",content:"export const authoredDecisionComponents = true;\n"},
+  "_mcpcn/execution-components.tsx": {type:"registry:component",content:"export const authoredExecutionComponents = true;\n"},
+  "_mcpcn/component-types.ts": {type:"registry:lib",content:"export type AuthoredComponentAction = {type:string};\n"},
+};
 function payload(name:string) {
   const component=catalog.find(item=>item.slug===name), block=blockCatalog.find(item=>item.name===name);
   if(!component && !block) throw new Error("Authored fixture requested an unknown item");
   const exportName=component?.name??name.split("-").map(part=>part[0]!.toUpperCase()+part.slice(1)).join("");
   const common:PayloadFile[]=[
     {path:PREFIX+"LICENSE",type:"registry:lib",content:AUTHORED_LICENSE},
-    {path:PREFIX+"_mcpcn/core.ts",type:"registry:lib",content:"export const authoredCore = true;\n"},
-    {path:PREFIX+"_mcpcn/schemas.ts",type:"registry:lib",content:'import { authoredCore } from "./core";\nexport const authoredSchema = authoredCore;\n'},
-    {path:PREFIX+"_mcpcn/components.tsx",type:"registry:component",content:'"use client";\nexport function Button(){return null;}\nexport function Card(){return null;}\nexport function Badge(){return null;}\nexport function InlineEditForm(){return null;}\nexport function ValidationSummary(){return null;}\n'},
-    {path:PREFIX+"_mcpcn/runtime.tsx",type:"registry:lib",content:'"use client";\nexport const authoredRuntime = true;\n'},
+    ...sourceModulePaths.map(target => {
+      const fixture = AUTHORED_MODULES[target];
+      if (!fixture) throw new Error("Authored fixture is missing a current source module");
+      return {path:PREFIX+target,...fixture};
+    }),
     {path:PREFIX+"styles.css",type:"registry:style",content:".mcpcn { color: inherit; }\n"},
     {path:PREFIX+"provider.tsx",type:"registry:component",content:renderProvider(defaultConfig)},
   ];
@@ -158,6 +183,8 @@ describe.sequential("source installation CLI",()=>{
   }));
 
   it("installs a complete selected block closure into the configured directory with provider and per-file ownership",async()=>withProject(async({cwd,invoke})=>{
+    expect(sourceModulePaths).toEqual(EXPECTED_SOURCE_MODULE_PATHS);
+    expect(sourceModulePaths).toHaveLength(14);
     expect((await invoke([...initArgs,"--components-dir=src/widgets","--style=graphite","--host=standard-mcp"])).code).toBe(0);
     const requested:string[]=[];
     const transport:typeof globalThis.fetch=async(input,options)=>{requested.push(String(input));return fakeRegistry()(input,options);};
@@ -174,6 +201,12 @@ describe.sequential("source installation CLI",()=>{
     for(const path of ["src/widgets/blocks/human-corrects-ai-output.tsx","src/widgets/_mcpcn/blocks.tsx","src/widgets/_mcpcn/core.ts","src/widgets/_mcpcn/schemas.ts","src/widgets/_mcpcn/components.tsx","src/widgets/_mcpcn/runtime.tsx","src/widgets/provider.tsx","src/widgets/styles.css","src/widgets/LICENSE"]) {
       expect(lock.files[path].hash).toMatch(/^[a-f0-9]{64}$/);
       expect(lock.items["human-corrects-ai-output"].files).toContain(path);
+    }
+    for(const module of EXPECTED_SOURCE_MODULE_PATHS) {
+      const path="src/widgets/"+module;
+      expect(lock.files[path].hash).toMatch(/^[a-f0-9]{64}$/);
+      expect(lock.items["human-corrects-ai-output"].files).toContain(path);
+      expect(await readFile(join(cwd,path),"utf8")).toBe(AUTHORED_MODULES[module]!.content);
     }
     expect(await readFile(join(cwd,"src/widgets/LICENSE"),"utf8")).toBe(AUTHORED_LICENSE);
     expect(await exists(join(cwd,"components/mcpcn/provider.tsx"))).toBe(false);
@@ -307,6 +340,62 @@ describe.sequential("source installation CLI",()=>{
       expect((await first).code).toBe(0);
       expect(await exists(join(cwd,"components/mcpcn/badge.tsx"))).toBe(false);
       expect((await invoke(["add","badge"])).code).toBe(0);
+    });
+  });
+
+  it("requires the full current source profile and preserves exact prior-profile locks for explicit review",async()=>{
+    const priorSuffixes=new Set<string>([...PRIOR_SOURCE_MODULE_PATHS,"styles.css","LICENSE","provider.tsx","_mcpcn/blocks.tsx"]);
+    await withProject(async({cwd,invoke})=>{
+      await invoke(initArgs);
+      const before=(await readdir(cwd)).sort();
+      const result=await invoke(["add","button"],fakeRegistry((_name,value)=>({...value,files:value.files.filter(file=>{
+        const suffix=file.path.slice(PREFIX.length);
+        return suffix==="button.tsx" || priorSuffixes.has(suffix);
+      })})));
+      expect(result.code).toBe(1);
+      expect(result.errors).toEqual(["mcpcn: registry_invalid"]);
+      expect((await readdir(cwd)).sort()).toEqual(before);
+      expect(await exists(join(cwd,"components/mcpcn/button.tsx"))).toBe(false);
+      expect(await exists(join(cwd,"mcpcn.lock.json"))).toBe(false);
+      await expectNoTransactionDebris(cwd);
+    });
+    for(const slug of ["button","human-corrects-ai-output"]) await withProject(async({cwd,invoke})=>{
+      await invoke(initArgs);
+      const config=JSON.parse(await readFile(join(cwd,"mcpcn.json"),"utf8"));
+      const entry=(slug==="button"?"":"blocks/")+slug+".tsx";
+      const legacyFiles=payload(slug).files.filter(file=>{
+        const suffix=file.path.slice(PREFIX.length);
+        return suffix===entry || priorSuffixes.has(suffix);
+      });
+      const files:Record<string,{hash:string;source:string}>={}, originals=new Map<string,Buffer>();
+      for(const file of legacyFiles) {
+        const bytes=Buffer.from(file.path===PREFIX+"provider.tsx"?renderProvider(config):file.content);
+        await mkdir(dirname(join(cwd,file.path)),{recursive:true});
+        await writeFile(join(cwd,file.path),bytes,{flag:"wx"});
+        originals.set(file.path,bytes);
+        files[file.path]={hash:createHash("sha256").update(bytes).digest("hex"),source:REGISTRY+"/"+slug+".json"};
+      }
+      const lock={version:2,configHash:createHash("sha256").update(json(config)).digest("hex"),files,items:{[slug]:{files:Object.keys(files)}}};
+      const previous=json(lock); await writeFile(join(cwd,"mcpcn.lock.json"),previous,{flag:"wx"});
+      let fetched=0;
+      const forbidden:typeof globalThis.fetch=async()=>{fetched++;throw new Error("Prior profile must not fetch or migrate");};
+      const refused=await invoke(["add","badge"],forbidden);
+      expect(refused.code).toBe(1);
+      expect(refused.errors).toEqual(["mcpcn: source_profile_upgrade_required"]);
+      expect(fetched).toBe(0);
+      expect(await readFile(join(cwd,"mcpcn.lock.json"),"utf8")).toBe(previous);
+      for(const [path,bytes] of originals) expect(await readFile(join(cwd,path))).toEqual(bytes);
+      for(const path of EXPECTED_SOURCE_MODULE_PATHS.filter(path=>!PRIOR_SOURCE_MODULE_PATHS.some(prior=>prior===path))) expect(await exists(join(cwd,PREFIX+path))).toBe(false);
+      expect(await exists(join(cwd,"components/mcpcn/badge.tsx"))).toBe(false);
+      await expectNoTransactionDebris(cwd);
+
+      // A damaged old-looking closure is not an exact recognized profile.
+      lock.items[slug]!.files=lock.items[slug]!.files.filter(path=>path!==PREFIX+"provider.tsx");
+      const damaged=json(lock); await writeFile(join(cwd,"mcpcn.lock.json"),damaged);
+      const invalid=await invoke(["add","badge"],forbidden);
+      expect(invalid.errors).toEqual(["mcpcn: lock_invalid"]);
+      expect(await readFile(join(cwd,"mcpcn.lock.json"),"utf8")).toBe(damaged);
+      expect(fetched).toBe(0); await expectNoTransactionDebris(cwd);
     });
   });
 

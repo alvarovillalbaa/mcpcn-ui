@@ -5,6 +5,7 @@ import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { blockCatalog, catalog, findCatalogItem } from "@mcpcn/registry/catalog";
 import { blockExportName, buildInstallationPlan, defaultConfig, renderProvider, resolveInstallConfig, type InstallConfig } from "@mcpcn/registry/installation";
+import { sourceModulePaths } from "@mcpcn/registry/source-registry";
 
 export type CLIContext = {
   cwd?: string;
@@ -28,7 +29,8 @@ const REQUEST_TIMEOUT_MS = 10_000;
 const INSTALL_LOCK = ".mcpcn-install.lock";
 const MANIFEST = "mcpcn.lock.json";
 const CONFIG = "mcpcn.json";
-const shared = new Set(["_mcpcn/core.ts", "_mcpcn/schemas.ts", "_mcpcn/components.tsx", "_mcpcn/runtime.tsx", "_mcpcn/blocks.tsx", "provider.tsx", "styles.css", "LICENSE"]);
+const priorSourceModulePaths = ["_mcpcn/core.ts", "_mcpcn/schemas.ts", "_mcpcn/components.tsx", "_mcpcn/runtime.tsx"] as const;
+const shared = new Set([...sourceModulePaths, "_mcpcn/blocks.tsx", "provider.tsx", "styles.css", "LICENSE"]);
 class CLIError extends Error {
   constructor(readonly code: string) { super(code); }
 }
@@ -112,10 +114,10 @@ function allowedRelative(config: InstallConfig, path: string): boolean {
   return shared.has(suffix) || catalog.some(item => suffix === item.slug + ".tsx") ||
     blockCatalog.some(item => suffix === "blocks/" + item.name + ".tsx");
 }
-function itemPaths(config: InstallConfig, slug: string): string[] {
+function itemPaths(config: InstallConfig, slug: string, modules: readonly string[] = sourceModulePaths): string[] {
   const block = blockCatalog.some(item => item.name === slug);
   return [(block ? "blocks/" : "") + slug + ".tsx", "provider.tsx",
-    ...(config.mode === "copy" ? ["styles.css", "LICENSE", "_mcpcn/core.ts", "_mcpcn/schemas.ts", "_mcpcn/components.tsx", "_mcpcn/runtime.tsx", ...(block ? ["_mcpcn/blocks.tsx"] : [])] : [])]
+    ...(config.mode === "copy" ? ["styles.css", "LICENSE", ...modules, ...(block ? ["_mcpcn/blocks.tsx"] : [])] : [])]
     .map(path => config.componentsDir + "/" + path);
 }
 function readLock(value: unknown, config: InstallConfig): InstallLock {
@@ -133,6 +135,7 @@ function readLock(value: unknown, config: InstallConfig): InstallLock {
     files[path] = { hash: entry.hash, source: entry.source };
   }
   const referenced = new Set<string>();
+  let currentProfile = true, priorProfile = config.mode === "copy";
   for (const [slug, entry] of Object.entries(value.items)) {
     if ((!catalog.some(item => item.slug === slug) && !blockCatalog.some(item => item.name === slug)) ||
         !record(entry) || !exact(entry, ["files"]) || !Array.isArray(entry.files) ||
@@ -140,11 +143,19 @@ function readLock(value: unknown, config: InstallConfig): InstallLock {
         entry.files.some(path => typeof path !== "string" || !Object.hasOwn(files, path))) fail("lock_invalid");
     const listed = entry.files as string[];
     const expected = itemPaths(config, slug);
-    if (listed.length !== expected.length || expected.some(path => !listed.includes(path))) fail("lock_invalid");
+    const prior = itemPaths(config, slug, priorSourceModulePaths);
+    const matchesCurrent = listed.length === expected.length && expected.every(path => listed.includes(path));
+    const matchesPrior = config.mode === "copy" && listed.length === prior.length && prior.every(path => listed.includes(path));
+    if (!matchesCurrent && !matchesPrior) fail("lock_invalid");
+    currentProfile &&= matchesCurrent; priorProfile &&= matchesPrior;
     items[slug] = { files: [...listed] };
     for (const path of items[slug]!.files) referenced.add(path);
   }
   if (Object.keys(files).some(path => !referenced.has(path))) fail("lock_invalid");
+  if (!currentProfile) {
+    if (priorProfile && Object.keys(items).length > 0) fail("source_profile_upgrade_required");
+    fail("lock_invalid");
+  }
   return { version: 2, configHash: value.configHash, files, items };
 }
 async function request(url: string, fetcher: typeof globalThis.fetch): Promise<unknown> {
