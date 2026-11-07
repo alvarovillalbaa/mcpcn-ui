@@ -23,6 +23,12 @@ without waiving unknown reads. Its immutable public registry GET also opts
 into static delivery to accommodate the actual roughly 9 MB index; the real
 docs build and separate post-release HTTP comparison must verify that path.
 
+The [fourth invocation](../results/2026/11-07/v1-components-attempt-4.md)
+improved to 24/26 browser passes; its two remaining form lookups and ownership
+closure remain failed. The next candidate labels the native textarea and
+preserves independent nonce attribution before trying the same positive
+parent/group fallback. All assertions and fatal unresolved-ownership gates stay.
+
 The [owning brief](https://app.notion.com/p/3b6a1ee8bd0680539d4ecb4b8a8ab4c7)
 requires a full React MCP Apps library, configurable installation and website.
 Its supporting research names sixteen core v1 components. Five already had

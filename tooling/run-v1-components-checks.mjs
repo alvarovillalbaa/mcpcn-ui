@@ -176,10 +176,16 @@ function scan() {
       let ownershipMethod = direct ? 'direct_command_identity' : observed.has(key) ? 'previously_observed_owned_identity' : 'nonce_environment';
       let ownershipProof = null;
       if (!direct && !observed.has(key)) {
-        ownershipProof = verifiedOwnedParentAndGroup(info);
-        if (ownershipProof) ownershipMethod = 'verified_owned_parent_and_group';
-        else {
-          phase = 'environment'; const raw = readProc(`/proc/${pid}/environ`, 1048576);
+        phase = 'environment'; let raw;
+        try { raw = readProc(`/proc/${pid}/environ`, 1048576); }
+        catch (error) {
+          if (typeof error?.code !== 'string') throw error;
+          ownershipProof = verifiedOwnedParentAndGroup(info);
+          if (!ownershipProof) throw error;
+          ownershipProof.environmentReadError = processErrorCode(error);
+          ownershipMethod = 'verified_owned_parent_and_group';
+        }
+        if (!ownershipProof) {
           const fields = raw.toString().split('\0');
           if (!fields.includes(`MCPCN_V1_RUN_ROOT=${root}`) || !fields.includes(`MCPCN_V1_NONCE=${nonce}`)) continue;
         }

@@ -16,8 +16,8 @@ and SchemaForm also isolate replaced review/form payloads, preserve current
 field ownership and handle asynchronous consumer feedback. The new
 [v1 component packet](docs/proposals/v1-components-checks.md) remains unaccepted:
 107 unit/installer cases, the docs build and both installed-consumer profiles
-passed in its third invocation. Five of 26 browser cases and process ownership
-closure failed; their narrow repairs need a new invocation.
+passed again in its fourth invocation. Two of 26 browser cases and process
+ownership closure failed; their narrow repairs need a new invocation.
 Keep this evidence separate from the historical packets below. The broader catalogue,
 real-host playground, public npm release and quality matrix remain unfinished.
 
