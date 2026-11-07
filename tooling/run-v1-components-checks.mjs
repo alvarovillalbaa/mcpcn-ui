@@ -58,7 +58,7 @@ const report = { schemaVersion: 'mcpcn.v1-components-checks.v1', sourceCommit, w
     'Only 160 registry JSON paths and seven package LICENSE files may change in the owned export. Canonical checkout identities and all other exported source bytes/modes stay unchanged.',
     'The docs use their actual Next production build/server. Service SIGTERM is separately attributed; finite commands still require zero exit, original EOF and absent groups.',
     'No publication, credentials, provider/model, account, real MCP host or physical-device proof is included.',
-    'Process evidence uses exact direct-launch identities plus nonce-marked indirect processes, with finite unknown reads remaining fatal; this is not a host-wide sandbox.'] };
+    'Process evidence uses exact direct-launch identities, nonce-marked indirect processes and fresh child/parent/group bindings to prior direct/nonce ownership; finite unknown reads remain fatal. This is not a host-wide sandbox.'] };
 const commands = new Set(), evidence = [], observed = new Map();
 let baseline, cleanupEnd, interrupted = false, evidenceBytes = 0, generatedEvidence = null, serverHandle = null, serverPromise = null;
 function owner() {
@@ -138,6 +138,30 @@ function processErrorCode(error) {
   if (typeof error?.code === 'string' && /^[A-Z0-9_]{1,32}$/.test(error.code)) return error.code;
   return /^[a-z0-9_]{1,32}$/.test(error?.message ?? '') ? error.message.toUpperCase() : 'UNKNOWN';
 }
+function verifiedOwnedParentAndGroup(info) {
+  try {
+    const parentBefore = proc(info.ppid), groupBefore = proc(info.pgid), childBefore = proc(info.pid);
+    const known = current => {
+      if (!current) return null;
+      const direct = report.commands.find(command => same(command.identity, current));
+      if (direct) return { method: 'direct_command_identity', label: direct.label, identity: direct.identity };
+      const prior = observed.get(`${current.pid}:${current.starttime}`);
+      return same(prior, current) && ['nonce_environment', 'direct_command_identity'].includes(prior.ownershipMethod)
+        ? { method: prior.ownershipMethod, label: prior.directCommandLabel, identity: prior } : null;
+    };
+    const parent = known(parentBefore), group = known(groupBefore), cutoff = BigInt(taskStartTicks);
+    if (!parent || !group || !same(info, childBefore) || info.ppid !== childBefore.ppid
+      || info.ppid === info.pid || parentBefore.uid !== info.uid || groupBefore.uid !== info.uid
+      || parentBefore.pgid !== info.pgid || groupBefore.pgid !== info.pgid || groupBefore.pid !== info.pgid
+      || BigInt(info.starttime) < cutoff || BigInt(parentBefore.starttime) < cutoff || BigInt(groupBefore.starttime) < cutoff
+      || BigInt(parentBefore.starttime) > BigInt(info.starttime) || BigInt(groupBefore.starttime) > BigInt(info.starttime)) return null;
+    const childAfter = proc(info.pid), parentAfter = proc(info.ppid), groupAfter = proc(info.pgid);
+    if (!same(childBefore, childAfter) || childAfter.ppid !== info.ppid || !same(parentBefore, parentAfter) || !same(groupBefore, groupAfter)) return null;
+    return { taskStartTicks, childBefore, childAfter,
+      parent: { provenance: parent, before: parentBefore, after: parentAfter },
+      groupLeader: { provenance: group, before: groupBefore, after: groupAfter } };
+  } catch { return null; }
+}
 function scan() {
   const names = fs.readdirSync('/proc').filter(x => /^\d+$/.test(x)); need(names.length <= 16384, 'proc_scan_bound'); const rows = []; let inspected = 0;
   for (const name of names) {
@@ -149,17 +173,23 @@ function scan() {
       const direct = report.commands.find(command => same(command.identity, info));
       if (!direct && excludedProcess(info)) continue;
       const key = `${pid}:${info.starttime}`;
-      const ownershipMethod = direct ? 'direct_command_identity' : observed.has(key) ? 'previously_observed_owned_identity' : 'nonce_environment';
+      let ownershipMethod = direct ? 'direct_command_identity' : observed.has(key) ? 'previously_observed_owned_identity' : 'nonce_environment';
+      let ownershipProof = null;
       if (!direct && !observed.has(key)) {
-        phase = 'environment'; const raw = readProc(`/proc/${pid}/environ`, 1048576);
-        const fields = raw.toString().split('\0');
-        if (!fields.includes(`MCPCN_V1_RUN_ROOT=${root}`) || !fields.includes(`MCPCN_V1_NONCE=${nonce}`)) continue;
+        ownershipProof = verifiedOwnedParentAndGroup(info);
+        if (ownershipProof) ownershipMethod = 'verified_owned_parent_and_group';
+        else {
+          phase = 'environment'; const raw = readProc(`/proc/${pid}/environ`, 1048576);
+          const fields = raw.toString().split('\0');
+          if (!fields.includes(`MCPCN_V1_RUN_ROOT=${root}`) || !fields.includes(`MCPCN_V1_NONCE=${nonce}`)) continue;
+        }
       }
       phase = 'identity_after'; const after = proc(pid);
       if (!after) { const error = new Error('process_identity_changed'); throw error; }
       if (info.starttime !== after.starttime) continue;
       need(same(info, after), 'process_identity_changed');
-      const owned = { ...info, ownershipMethod, directCommandLabel: direct?.label ?? null };
+      if (ownershipProof) need(info.ppid === after.ppid, 'process_parent_changed');
+      const owned = { ...info, ownershipMethod, directCommandLabel: direct?.label ?? null, ...(ownershipProof ? { ownershipProof } : {}) };
       if (!observed.has(key)) { observed.set(key, owned); report.cleanup.processes.push(owned); }
       rows.push(owned);
     } catch (e) {

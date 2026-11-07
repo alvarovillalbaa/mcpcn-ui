@@ -1,0 +1,119 @@
+
+Running 26 tests using 1 worker
+FFFF·····F················
+
+  1) [chromium] › tooling/v1-browser.spec.mjs:521:26 › B01 desktop approval-card consent revisions and asynchronous intent 
+
+    Error: expect(locator).toBeDisabled() failed
+
+    Locator: locator('.preview-shell').getByRole('button', { name: 'Approve & publish', exact: true })
+    Expected: disabled
+    Timeout: 3000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeDisabled" locator('.preview-shell').getByRole('button', { name: 'Approve & publish', exact: true }) with timeout 3000ms
+      - waiting for locator('.preview-shell').getByRole('button', { name: 'Approve & publish', exact: true })
+
+
+      165 |   await keyboardCheck(page, consent()); await expect(button).toBeEnabled();
+      166 |   await activate(demo.getByRole("checkbox", { name: "Approval is busy", exact: true }));
+    > 167 |   await expect(button).toBeDisabled(); await expect(consent()).toBeDisabled();
+          |                        ^
+      168 |   await demo.getByRole("checkbox", { name: "Approval is busy", exact: true }).uncheck();
+      169 |   await expect(consent()).toBeChecked();
+      170 |   const reject = demo.getByRole("checkbox", { name: "Reject next approval", exact: true });
+        at approval (/home/runner/work/_temp/mcpcn-v1-Cqssky/source/tooling/v1-browser.spec.mjs:167:24)
+        at runCase (/home/runner/work/_temp/mcpcn-v1-Cqssky/source/tooling/v1-browser.spec.mjs:482:5)
+
+    Error Context: ../output/browser-runner-artifacts/v1-browser-B01-desktop-app-fdd5c-ons-and-asynchronous-intent-chromium/error-context.md
+
+  2) [chromium] › tooling/v1-browser.spec.mjs:521:26 › B02 narrow approval-card consent revisions and asynchronous intent 
+
+    Error: expect(locator).toBeDisabled() failed
+
+    Locator: locator('.preview-shell').getByRole('button', { name: 'Approve & publish', exact: true })
+    Expected: disabled
+    Timeout: 3000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeDisabled" locator('.preview-shell').getByRole('button', { name: 'Approve & publish', exact: true }) with timeout 3000ms
+      - waiting for locator('.preview-shell').getByRole('button', { name: 'Approve & publish', exact: true })
+
+
+      165 |   await keyboardCheck(page, consent()); await expect(button).toBeEnabled();
+      166 |   await activate(demo.getByRole("checkbox", { name: "Approval is busy", exact: true }));
+    > 167 |   await expect(button).toBeDisabled(); await expect(consent()).toBeDisabled();
+          |                        ^
+      168 |   await demo.getByRole("checkbox", { name: "Approval is busy", exact: true }).uncheck();
+      169 |   await expect(consent()).toBeChecked();
+      170 |   const reject = demo.getByRole("checkbox", { name: "Reject next approval", exact: true });
+        at approval (/home/runner/work/_temp/mcpcn-v1-Cqssky/source/tooling/v1-browser.spec.mjs:167:24)
+        at runCase (/home/runner/work/_temp/mcpcn-v1-Cqssky/source/tooling/v1-browser.spec.mjs:482:5)
+
+    Error Context: ../output/browser-runner-artifacts/v1-browser-B02-narrow-appr-ae96e-ons-and-asynchronous-intent-chromium/error-context.md
+
+  3) [chromium] › tooling/v1-browser.spec.mjs:521:26 › B03 desktop schema-form replacement required fields and typed intent 
+
+    TimeoutError: locator.selectOption: Timeout 3000ms exceeded.
+    Call log:
+      - waiting for locator('.preview-shell').getByLabel('Cabin', { exact: true })
+
+
+      193 |   await expect(demo.getByLabel("Travelers", { exact: true })).toHaveValue("2");
+      194 |   await expect(submit()).toBeDisabled();
+    > 195 |   await demo.getByLabel("Cabin", { exact: true }).selectOption("business");
+          |                                                   ^
+      196 |   await typeWithFocus(demo.getByLabel("Constraints", { exact: true }), "Old travel draft");
+      197 |   await expect(submit()).toBeEnabled();
+      198 |   await activate(demo.getByRole("button", { name: "Replace form fields", exact: true }));
+        at schemaForm (/home/runner/work/_temp/mcpcn-v1-Cqssky/source/tooling/v1-browser.spec.mjs:195:51)
+        at runCase (/home/runner/work/_temp/mcpcn-v1-Cqssky/source/tooling/v1-browser.spec.mjs:482:5)
+
+    Error Context: ../output/browser-runner-artifacts/v1-browser-B03-desktop-sch-b9b39-red-fields-and-typed-intent-chromium/error-context.md
+
+  4) [chromium] › tooling/v1-browser.spec.mjs:521:26 › B04 narrow schema-form replacement required fields and typed intent 
+
+    TimeoutError: locator.selectOption: Timeout 3000ms exceeded.
+    Call log:
+      - waiting for locator('.preview-shell').getByLabel('Cabin', { exact: true })
+
+
+      193 |   await expect(demo.getByLabel("Travelers", { exact: true })).toHaveValue("2");
+      194 |   await expect(submit()).toBeDisabled();
+    > 195 |   await demo.getByLabel("Cabin", { exact: true }).selectOption("business");
+          |                                                   ^
+      196 |   await typeWithFocus(demo.getByLabel("Constraints", { exact: true }), "Old travel draft");
+      197 |   await expect(submit()).toBeEnabled();
+      198 |   await activate(demo.getByRole("button", { name: "Replace form fields", exact: true }));
+        at schemaForm (/home/runner/work/_temp/mcpcn-v1-Cqssky/source/tooling/v1-browser.spec.mjs:195:51)
+        at runCase (/home/runner/work/_temp/mcpcn-v1-Cqssky/source/tooling/v1-browser.spec.mjs:482:5)
+
+    Error Context: ../output/browser-runner-artifacts/v1-browser-B04-narrow-sche-fe8f8-red-fields-and-typed-intent-chromium/error-context.md
+
+  5) [chromium] › tooling/v1-browser.spec.mjs:521:26 › B10 narrow diff-viewer semantic cells and current selection 
+
+    AssertionError: Expected values to be strictly equal:
+
+    522 !== 390
+
+
+      472 |     report.theme = { mode, ...await cardColors() };
+      473 |     report.observedViewport = await page.evaluate(() => ({ innerWidth, innerHeight, documentWidth: document.documentElement.scrollWidth, maxTouchPoints: navigator.maxTouchPoints }));
+    > 474 |     assert.equal(report.observedViewport.innerWidth, viewport.width); assert.equal(report.observedViewport.innerHeight, viewport.height);
+          |            ^
+      475 |     assert.ok(report.observedViewport.documentWidth <= viewport.width + 1);
+      476 |     assert.ok(profile === "narrow" ? report.observedViewport.maxTouchPoints > 0 : report.observedViewport.maxTouchPoints === 0);
+      477 |     record("initial_theme_and_viewport", { theme: report.theme, viewport: report.observedViewport });
+        at runCase (/home/runner/work/_temp/mcpcn-v1-Cqssky/source/tooling/v1-browser.spec.mjs:474:12)
+
+    Error Context: ../output/browser-runner-artifacts/v1-browser-B10-narrow-diff-66ac2-cells-and-current-selection-chromium/error-context.md
+
+  5 failed
+    [chromium] › tooling/v1-browser.spec.mjs:521:26 › B01 desktop approval-card consent revisions and asynchronous intent 
+    [chromium] › tooling/v1-browser.spec.mjs:521:26 › B02 narrow approval-card consent revisions and asynchronous intent 
+    [chromium] › tooling/v1-browser.spec.mjs:521:26 › B03 desktop schema-form replacement required fields and typed intent 
+    [chromium] › tooling/v1-browser.spec.mjs:521:26 › B04 narrow schema-form replacement required fields and typed intent 
+    [chromium] › tooling/v1-browser.spec.mjs:521:26 › B10 narrow diff-viewer semantic cells and current selection 
+  21 passed (31.8s)

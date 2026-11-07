@@ -14,6 +14,15 @@ Its installed-consumer and browser stages remain unrun. The next candidate adds
 only that missing workspace edge and exact lockfile link, without changing an
 external version or relaxing the typecheck.
 
+The [third invocation](../results/2026/11-07/v1-components-attempt-3.md) passed
+107 cases, the docs build and both installed consumers. It retained five
+browser failures and two unresolved process reads; cleanup stays false.
+The next candidate repairs the actual busy-label assertion, native select
+label and narrow grid sizing. It adds fresh parent/group ownership proofs
+without waiving unknown reads. Its immutable public registry GET also opts
+into static delivery to accommodate the actual roughly 9 MB index; the real
+docs build and separate post-release HTTP comparison must verify that path.
+
 The [owning brief](https://app.notion.com/p/3b6a1ee8bd0680539d4ecb4b8a8ab4c7)
 requires a full React MCP Apps library, configurable installation and website.
 Its supporting research names sixteen core v1 components. Five already had
@@ -98,7 +107,10 @@ be accepted as a full packet.
 6. Recheck original source, generated artifacts and archive identities. Require
    complete child streams, normal finite command exits, expected owned service
    shutdown, reaped leaders, absent owned groups/processes, no stable unknown
-   ownership and verified scratch removal. Preserve failed originals and finite
+   ownership and verified scratch removal. Indirect ownership may use recorded
+   fresh child/parent/group-leader identity proofs only when both anchors were
+   already independently direct- or nonce-owned; missing proof remains fatal
+   through the existing environment-read path. Preserve failed originals and finite
    error identities. Retire the temporary workflow after terminal acceptance.
 
 ## Evidence bounds and remaining work

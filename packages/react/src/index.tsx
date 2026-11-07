@@ -69,7 +69,7 @@ function SchemaFormView({ data, props }: { data: ReturnType<typeof SchemaFormSch
       {!data.fields.length && <p role="status">No fields to complete.</p>}
       {data.fields.map(field => <label className="mcpcn-label" key={field.name}>{field.label}
         {field.type === "textarea" ? <Textarea required={field.required} value={String(values[field.name] ?? "")} onChange={event => change(field.name, event.currentTarget.value)} />
-          : field.type === "select" ? <Select required={field.required} value={String(values[field.name] ?? "")} onChange={event => change(field.name, event.currentTarget.value)}><option value="">Select…</option>{field.options?.map(option => <option value={option.value} key={option.value}>{option.label}</option>)}</Select>
+          : field.type === "select" ? <Select aria-label={field.label} required={field.required} value={String(values[field.name] ?? "")} onChange={event => change(field.name, event.currentTarget.value)}><option value="">Select…</option>{field.options?.map(option => <option value={option.value} key={option.value}>{option.label}</option>)}</Select>
             : field.type === "boolean" ? <input type="checkbox" required={field.required} checked={values[field.name] === true} onChange={event => change(field.name, event.currentTarget.checked)} />
               : <Input type={field.type} step={field.type === "number" ? "any" : undefined} required={field.required} value={String(values[field.name] ?? "")} onChange={event => change(field.name, field.type === "number" ? event.currentTarget.value === "" ? "" : event.currentTarget.valueAsNumber : event.currentTarget.value)} />}
         {field.description && <span className="mcpcn-hint">{field.description}</span>}

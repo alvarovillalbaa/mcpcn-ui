@@ -164,9 +164,10 @@ async function approval({ page, demo, record, activate }) {
   await expect(button).toBeDisabled(); await expect(consent()).not.toBeChecked();
   await keyboardCheck(page, consent()); await expect(button).toBeEnabled();
   await activate(demo.getByRole("checkbox", { name: "Approval is busy", exact: true }));
-  await expect(button).toBeDisabled(); await expect(consent()).toBeDisabled();
+  await expect(demo.getByRole("button", { name: "Working…", exact: true })).toBeDisabled();
+  await expect(button).toHaveCount(0); await expect(consent()).toBeDisabled();
   await demo.getByRole("checkbox", { name: "Approval is busy", exact: true }).uncheck();
-  await expect(consent()).toBeChecked();
+  await expect(consent()).toBeChecked(); await expect(button).toBeEnabled();
   const reject = demo.getByRole("checkbox", { name: "Reject next approval", exact: true });
   await reject.check(); await button.dblclick();
   await expect(demo.getByLabel("Approval intent count", { exact: true })).toHaveText("1");
