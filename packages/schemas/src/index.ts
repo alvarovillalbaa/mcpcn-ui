@@ -8,6 +8,7 @@ import { ApprovalChecklistSchema, BeforeSubmitConfirmationSchema, DestructiveAct
 import { ToolResultCardSchema, RunningTaskCardSchema, PartialResultViewerSchema, QueuedStepListSchema, ToolTraceViewerSchema } from "./tool-workflow-schemas.js";
 import { MissingDataRequestSchema, MultiStepFormSchema, InlineEditFormSchema, FormProgressCardSchema, ValidatedFieldListSchema } from "./form-workflow-schemas.js";
 import { DocumentPreviewSchema, FileReviewSchema } from "./file-review-schemas.js";
+import { SourceListSchema, EvidenceDrawerSchema } from "./source-evidence-schemas.js";
 export { RiskLevelSchema, ChangeSchema, SchemaFieldSchema } from "./schema-common.js";
 export * from "./review-schemas.js";
 export * from "./decision-schemas.js";
@@ -16,6 +17,7 @@ export * from "./approval-schemas.js";
 export * from "./tool-workflow-schemas.js";
 export * from "./form-workflow-schemas.js";
 export * from "./file-review-schemas.js";
+export * from "./source-evidence-schemas.js";
 
 export const ApprovalCardSchema = z.object({
   title: z.string().refine(value => Boolean(value.trim()), "A review needs a visible title."),
@@ -99,8 +101,7 @@ export const RecordInspectorSchema=GenericComponentSchema, FieldConfidenceListSc
   OptionSelectorSchema=GenericComponentSchema, RecommendationCardSchema=GenericComponentSchema,
   TradeoffPanelSchema=GenericComponentSchema,
   RankingListSchema=GenericComponentSchema, DecisionMemoSchema=GenericComponentSchema,
-  ReasoningSummarySchema=GenericComponentSchema, SourceListSchema=GenericComponentSchema,
-  EvidenceDrawerSchema=GenericComponentSchema, DataAccessNoticeSchema=GenericComponentSchema,
+  ReasoningSummarySchema=GenericComponentSchema, DataAccessNoticeSchema=GenericComponentSchema,
   PrivacyBoundaryCardSchema=GenericComponentSchema, ConsentPanelSchema=GenericComponentSchema,
   ModelContextPreviewSchema=GenericComponentSchema,
   BillingGateSchema=GenericComponentSchema, UnsupportedHostNoticeSchema=GenericComponentSchema,
@@ -159,5 +160,7 @@ export const schemaBySlug = {
   "form-progress-card": FormProgressCardSchema,
   "validated-field-list": ValidatedFieldListSchema,
   "document-preview": DocumentPreviewSchema,
-  "file-review": FileReviewSchema
+  "file-review": FileReviewSchema,
+  "source-list": SourceListSchema,
+  "evidence-drawer": EvidenceDrawerSchema
 } as const;
