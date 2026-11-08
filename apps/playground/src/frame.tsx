@@ -2,16 +2,19 @@ import { StrictMode, useCallback, useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { AgentAppProvider, OfficialMCPAdapter, useAgentApp } from "@mcpcn/runtime";
 import { InvalidPayload, type ComponentAction } from "@mcpcn/react";
-import { PlaygroundComponent } from "./component-preview.js";
+import { PlaygroundComponent, evidencePreviewKey } from "./component-preview.js";
 import { validateFixture } from "./fixtures.js";
 import "@mcpcn/react/styles.css";
 import "./frame.css";
 
 function ConnectedApp({ unavailable }: { unavailable(): void }) {
   const app = useAgentApp();
-  // Each received result owns its request feedback, including identical data
-  // received in a later invocation. Late setters belong to the unmounted view.
-  const invocation = useMemo(() => crypto.randomUUID(), [app.structuredContent]);
+  // Evidence owns same-root presentation across results. Other surfaces retain
+  // invocation-owned feedback; late setters belong to their unmounted view.
+  const invocation = useMemo(() => {
+    const parsed = validateFixture(app.structuredContent);
+    return parsed.success ? evidencePreviewKey(parsed.data) ?? crypto.randomUUID() : crypto.randomUUID();
+  }, [app.structuredContent]);
   return <InvocationView key={invocation} unavailable={unavailable} />;
 }
 function InvocationView({ unavailable }: { unavailable(): void }) {
@@ -45,7 +48,7 @@ function InvocationView({ unavailable }: { unavailable(): void }) {
     {!ready ? <p>Waiting for the SDK initialization handshake.</p>
       : !app.toolResult ? <p>Use “Invoke tool result” in the host to load a component.</p>
         : app.toolResult.isError ? <p role="alert">The host supplied a tool error result.</p>
-          : parsed.success ? <PlaygroundComponent key={JSON.stringify(app.structuredContent)} payload={parsed.data} onAction={onAction} />
+          : parsed.success ? <PlaygroundComponent key={evidencePreviewKey(parsed.data) ?? JSON.stringify(app.structuredContent)} payload={parsed.data} onAction={onAction} />
             : <InvalidPayload title="Component payload is invalid" issues={parsed.issues} />}
     {error && <p role="alert">{error}</p>}{notice && <p role="status">{notice}</p>}
     <section aria-label="App requests" className="frame-requests">

@@ -16,6 +16,7 @@ export { ApprovalChecklist, BeforeSubmitConfirmation, DestructiveActionGuard, Hu
 export { ToolResultCard, RunningTaskCard, PartialResultViewer, QueuedStepList, ToolTraceViewer } from "./tool-workflow-components.js";
 export { MissingDataRequest, MultiStepForm, InlineEditForm, FormProgressCard, ValidatedFieldList } from "./form-workflow-components.js";
 export { DocumentPreview, FileReview } from "./file-review-components.js";
+export { SourceList, EvidenceDrawer } from "./source-evidence-components.js";
 
 export const ApprovalCardSecurity: MCPCNSecurityManifest = { modelVisible:["decision","reason"], privateOnly:["internalRecordId"], callsTools:["approvalTool"], destructive:true };
 export function ApprovalCard(props: ComponentProps<ApprovalCardData>) {
@@ -94,5 +95,5 @@ export function GenericAgentComponent(props: GenericAgentComponentProps) { const
 
 export const RecordInspector=GenericAgentComponent, FieldConfidenceList=GenericAgentComponent, ConflictResolver=GenericAgentComponent, ValidationSummary=GenericAgentComponent;
 export const OptionSelector=GenericAgentComponent, RecommendationCard=GenericAgentComponent, TradeoffPanel=GenericAgentComponent, RankingList=GenericAgentComponent, DecisionMemo=GenericAgentComponent;
-export const ReasoningSummary=GenericAgentComponent, SourceList=GenericAgentComponent, EvidenceDrawer=GenericAgentComponent, DataAccessNotice=GenericAgentComponent, PrivacyBoundaryCard=GenericAgentComponent, ConsentPanel=GenericAgentComponent, ModelContextPreview=GenericAgentComponent;
+export const ReasoningSummary=GenericAgentComponent, DataAccessNotice=GenericAgentComponent, PrivacyBoundaryCard=GenericAgentComponent, ConsentPanel=GenericAgentComponent, ModelContextPreview=GenericAgentComponent;
 export const BillingGate=GenericAgentComponent, UnsupportedHostNotice=GenericAgentComponent, NoDataState=GenericAgentComponent, LoadingBridgeState=GenericAgentComponent, OfflineState=GenericAgentComponent, PermissionDeniedState=GenericAgentComponent, ExpiredSessionState=GenericAgentComponent;

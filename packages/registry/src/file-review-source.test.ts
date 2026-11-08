@@ -16,12 +16,12 @@ const namespaces: Record<string, string> = { "@mcpcn/core": "./core", "@mcpcn/sc
 const adapt = (value: string) => value.replace(/(["'])(@mcpcn\/(?:core|schemas|react|runtime))\1/g, (_match, quote: string, name: string) => `${quote}${namespaces[name]}${quote}`);
 
 describe("file review canonical registry integration", () => {
-  it("preserves all 79 identities with 33 specialized components and 23 honest aliases", async () => {
+  it("preserves all 79 identities with 35 specialized components and 21 honest aliases", async () => {
     const { registry, items } = await build();
     expect(items.map(item => item.name)).toEqual([...catalog.map(item => item.slug), ...blockCatalog.map(item => item.name)]);
     expect(new Set(items.map(item => item.name)).size).toBe(79); expect(registry.items).toBe(items);
-    expect(items.filter(item => item.meta.implementation === "specialized")).toHaveLength(33);
-    expect(items.filter(item => item.meta.implementation === "generic-alias")).toHaveLength(23);
+    expect(items.filter(item => item.meta.implementation === "specialized")).toHaveLength(35);
+    expect(items.filter(item => item.meta.implementation === "generic-alias")).toHaveLength(21);
   });
   it("publishes actual strict schemas instead of generic informational contracts", () => {
     for (const [slug] of cohort) {
@@ -37,8 +37,8 @@ describe("file review canonical registry integration", () => {
     }
   });
   it("appends the two actual owners after the unchanged twenty-module closure", async () => {
-    const { items } = await build(); expect(sourceModulePaths).toHaveLength(22);
-    expect(sourceModulePaths.slice(-4)).toEqual(["_mcpcn/form-workflow-schemas.ts", "_mcpcn/form-workflow-components.tsx", "_mcpcn/file-review-schemas.ts", "_mcpcn/file-review-components.tsx"]);
+    const { items } = await build(); expect(sourceModulePaths).toHaveLength(24);
+    expect(sourceModulePaths.slice(18, 22)).toEqual(["_mcpcn/form-workflow-schemas.ts", "_mcpcn/form-workflow-components.tsx", "_mcpcn/file-review-schemas.ts", "_mcpcn/file-review-components.tsx"]);
     for (const item of items) for (const [path, target] of modules) {
       expect(item.files.find(file => file.path === `components/mcpcn/_mcpcn/${target}`)?.content).toBe(adapt(await readSource(path)));
       expect((item.meta.provenance as { sourceFiles: string[] }).sourceFiles).toContain(path);
@@ -54,10 +54,10 @@ describe("file review canonical registry integration", () => {
     }
     expect(implementation).not.toContain("GenericAgentComponent");
   });
-  it("resolves twenty-two modules with 26 component 27 block and 105 union files", async () => {
+  it("resolves 24 modules with 28 component 29 block and 107 union files", async () => {
     const { items } = await build(), union = new Set<string>();
     for (const item of items) {
-      expect(item.files).toHaveLength(item.type === "registry:block" ? 27 : 26);
+      expect(item.files).toHaveLength(item.type === "registry:block" ? 29 : 28);
       const paths = new Set(item.files.map(file => file.path));
       for (const source of item.files) {
         union.add(source.path); expect(source.content).not.toContain("@mcpcn/");
@@ -68,7 +68,7 @@ describe("file review canonical registry integration", () => {
         }
       }
     }
-    expect(union.size).toBe(105);
+    expect(union.size).toBe(107);
   });
   it("declares private file representations and reviewed values without autonomous tools", () => {
     for (const [slug] of cohort) {

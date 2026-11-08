@@ -533,3 +533,32 @@ and hosting profile are closed. Publicnpm, externalhosts/realtools, hosted
 interaction, physicaldevices/fullaccessibility,23aliases and portfolio remain
 unfinished. Select an actual unfinished priority requirement next; do not replay
 these closed checks or reopen unchanged account/capacity/Browser gates.
+
+## Source selection and evidence drawer — 8 November2026
+
+Standing owner authorization covers the new [evidence contract](docs/specs/evidence-review-components.md)
+and [focused proposal](docs/proposals/evidence-review-checks.md), directly after
+clean8a9cd4bb70502894a5e31851e03c5651c4d7b75b/tree45fbc814,3307files. Replace
+only SourceList/EvidenceDrawer aliases;35specialized/21generic,24owner modules,
+28/29payloads and80/107consumerfiles. Preserve all79identities and oldcontracts.
+No external dependencies/lock/runtime/server/core/host/CSP/globalDialog edits.
+
+Freeze new literal unit counts and E01–E12 before dispatch. New checks only:
+five unit/SSR files,twelve browser cases,two fresh strict consumers; separately
+declare unchanged12ownership prerequisites. Carry accepted static registry
+stager/81pages and21,833-byte normalized supervisor (one-line attributionfix).
+One full source vector plus count/digest per guard must preserve every actual
+full read/hash/identity comparison and rawGitstream; no guard is removed.
+Publish concrete source onqa/mcpcn-evidence-review-20261108, then one main-only
+temporary free publicUbuntu/Node24.22.2 job capped20minutes. Broad workflows
+stay unchanged; prep/publication use[skip ci]. Preserve failures before repairs.
+
+The drawer is a real native modal with owned immediate dismissal, not a close
+request stranded by a consumer callback. `open` remains optional and unchanged
+true cannot undo explicit dismissal. Caller-supplied text/JSON stays complete
+and private; events carry identities only. Browser proof must establish native
+focus/containment/Escape/backdrop/restore/stacking and stale-callback fences.
+No external fetching/citation verification, persistence, tools or model calls.
+StorageGuard13.9GiB/34required forbids local heavy runtime; use source/static/
+data preparation and focused remote application checks. Existing packets are
+closed; do not relabel/replay them for this new pair. No new account/paid plan.
