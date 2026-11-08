@@ -426,3 +426,58 @@ all2561othertracked and163then-untracked originals preserved. Canonical original
 needed for metadata-only publication; preserve exact checked application bytes
 plus only returned generated outputs. Public READY/alias/nativeHTTP/archive
 publication and task-control retirement remain separate pending steps.
+
+## Static registry hosting repair — 2026-11-08
+
+The seven exact passing archives are published as release438508097,
+tag `v0.1.0-file-review.1`, at package source6b008cded. Preserve that target.
+The [first hosting attempt](docs/results/2026/11-08/file-review-hosting-attempt-1.md)
+failed at that source with FALLBACK_BODY_TOO_LARGE after compilation and82pages;
+the canonical alias still serves the previous form deployment. Do not bypass
+the limit or replay the closed85/12/2 component packet.
+
+Standing owner authority covers the separate [hosting contract](docs/specs/static-registry-hosting.md)
+and [focused proposal](docs/proposals/static-registry-hosting-checks.md).
+Base6b008cded/tree4e44c119 stays immutable. Exactly seven application paths may
+change: one ignore entry, the docs build string, a docs-scoped Turbo task,
+deletion of the explicit aggregate ISR route, and the new stager/test/controller.
+Preserve the complete canonical index,167generated outputs, dynamic item route,
+all component/package/lock bytes and the original two broad workflows.
+
+Use qa/mcpcn-static-registry-20261108 for an immutable direct-child candidate.
+One main-only temporary manual public Ubuntu job, read-only token,20minute cap,
+checks eight new staging cases, the unchanged12 ownership prerequisites, actual
+docs build and cache restoration, absence of aggregate prerendering and six
+complete production loopback GETs. No browser/component/consumer replay,
+generated adoption or Mac installation/build/server/test execution. Storage
+Guard fails at13.7GiB/34GiB; source/static/data handling remains separate.
+Publish source and workflow with [skip ci], preserve any failed originals,
+and retire only these owned controls. New hosting source/CI/provider/HTTP proof
+must remain distinct from the package release and old component source.
+
+The [first hosting CI](docs/results/2026/11-08/static-registry-hosting-attempt-1.md)
+passed8ST/12PO but failed before compilation because Turbo could not discover
+the already pinned pnpm executable on sanitized PATH. Preserve42originals and
+its successful cleanup; no cache/HTTP pass is inferred. A direct6b sibling on
+qa/mcpcn-static-registry-20261108-attempt-2 may verify the owned pnpm bin link and
+prepend only that tools directory, retaining all checks/flags/limits and the
+same main-only temporary workflow. Keep the first failed source as a parent.
+
+The [second hosting CI](docs/results/2026/11-08/static-registry-hosting-attempt-2.md)
+built81pages and verified complete static bytes, but docs hash changed before
+the second command, which missed cache and safely refused the empty artifact.
+Preserve54originals and successful cleanup. A third direct6b sibling may only
+retain the second actual Turbo summary before enforcing command/cache success,
+so its exact input drift can be diagnosed. All pass gates/config/arguments stay
+fixed; no guessed ignore repair or acceptance of a miss. The owned branch is
+qa/mcpcn-static-registry-20261108-attempt-3; preserve both earlier sources.
+
+The [third diagnostic CI](docs/results/2026/11-08/static-registry-hosting-attempt-3.md)
+retained both full summaries and proved exactly8generated playground files
+entered second inputs; all original/global/config/env/dependency hashes match.
+Preserve55originals and failed status. A fourth direct6b sibling may add only
+`!public/playground-simulator/**` and `!public/r/**` after `$TURBO_DEFAULT$` in
+the docs task inputs, keep both as outputs and mirror that exact expectation
+in the controller/provenance helpers. All checks/limits and same-hash HIT/body
+restoration gates stay fixed. Owned branchqa/mcpcn-static-registry-20261108-attempt-4;
+all three failed source identities must remain publication ancestors.

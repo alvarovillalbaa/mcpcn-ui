@@ -1,0 +1,68 @@
+
+   • Packages in scope: @mcpcn/docs
+   • Running build in 1 packages
+   • Remote caching disabled
+
+@mcpcn/core:build: cache hit, replaying logs 9f7890bc6ef9cd10
+@mcpcn/core:build: 
+@mcpcn/core:build: > @mcpcn/core@0.1.0 build /home/runner/work/_temp/mcpcn-hosting-cWU3g7/source/packages/core
+@mcpcn/core:build: > tsc -p tsconfig.json
+@mcpcn/core:build: 
+@mcpcn/runtime:build: cache hit, replaying logs 53076c2ff831284f
+@mcpcn/runtime:build: 
+@mcpcn/runtime:build: > @mcpcn/runtime@0.1.0 build /home/runner/work/_temp/mcpcn-hosting-cWU3g7/source/packages/runtime
+@mcpcn/runtime:build: > tsc -p tsconfig.json
+@mcpcn/runtime:build: 
+@mcpcn/schemas:build: cache hit, replaying logs b894671e94fafa01
+@mcpcn/schemas:build: 
+@mcpcn/schemas:build: > @mcpcn/schemas@0.1.0 build /home/runner/work/_temp/mcpcn-hosting-cWU3g7/source/packages/schemas
+@mcpcn/schemas:build: > tsc -p tsconfig.json
+@mcpcn/schemas:build: 
+@mcpcn/registry:build: cache hit, replaying logs e2c002809b976c15
+@mcpcn/registry:build: 
+@mcpcn/registry:build: > @mcpcn/registry@0.1.0 build /home/runner/work/_temp/mcpcn-hosting-cWU3g7/source/packages/registry
+@mcpcn/registry:build: > tsc -p tsconfig.json && node dist/bin.js build
+@mcpcn/registry:build: 
+@mcpcn/registry:build: Built 79 source registry items
+@mcpcn/react:build: cache hit, replaying logs 910e08d83ce8073e
+@mcpcn/react:build: 
+@mcpcn/react:build: > @mcpcn/react@0.1.0 build /home/runner/work/_temp/mcpcn-hosting-cWU3g7/source/packages/react
+@mcpcn/react:build: > tsc -p tsconfig.json && cp src/styles.css dist/styles.css
+@mcpcn/react:build: 
+@mcpcn/playground:build: cache hit, replaying logs 5d59fd13c2893066
+@mcpcn/playground:build: 
+@mcpcn/playground:build: > @mcpcn/playground@0.1.0 build /home/runner/work/_temp/mcpcn-hosting-cWU3g7/source/apps/playground
+@mcpcn/playground:build: > vite build && node ../../tooling/stage-playground.mjs --manifest
+@mcpcn/playground:build: 
+@mcpcn/playground:build: vite v8.2.1 building client environment for production...
+@mcpcn/playground:build: [2K@mcpcn/playground:build: transforming...✓ 193 modules transformed.
+@mcpcn/playground:build: rendering chunks...
+@mcpcn/playground:build: computing gzip size...
+@mcpcn/playground:build: dist/frame.html                        0.51 kB │ gzip:   0.33 kB
+@mcpcn/playground:build: dist/index.html                        0.68 kB │ gzip:   0.45 kB
+@mcpcn/playground:build: dist/assets/index-ylmVxKY0.css         3.32 kB │ gzip:   1.16 kB
+@mcpcn/playground:build: dist/assets/frame-BCAh7JKd.css         7.31 kB │ gzip:   2.10 kB
+@mcpcn/playground:build: dist/assets/index-CWhdqbja.js         44.16 kB │ gzip:  12.81 kB
+@mcpcn/playground:build: dist/assets/frame-mseXV9PA.js        166.50 kB │ gzip:  37.06 kB
+@mcpcn/playground:build: dist/assets/jsx-runtime-5TLZpg5L.js  574.59 kB │ gzip: 153.31 kB
+@mcpcn/playground:build: 
+@mcpcn/playground:build: ✓ built in 159ms
+@mcpcn/playground:build: [plugin builtin:vite-reporter] 
+@mcpcn/playground:build: (!) Some chunks are larger than 500 kB after minification. Consider:
+@mcpcn/playground:build: - Using dynamic import() to code-split the application
+@mcpcn/playground:build: - Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+@mcpcn/playground:build: - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+@mcpcn/docs:build: cache miss, executing 63558648d369ae9b
+@mcpcn/docs:build: 
+@mcpcn/docs:build: > @mcpcn/docs@0.1.0 build /home/runner/work/_temp/mcpcn-hosting-cWU3g7/source/apps/docs
+@mcpcn/docs:build: > node ../../tooling/stage-playground.mjs --target docs && node ../../tooling/stage-docs-registry.mjs && next build
+@mcpcn/docs:build: 
+@mcpcn/docs:build: mcpcn: docs_registry_artifact_entries_invalid
+@mcpcn/docs:build:  ELIFECYCLE  Command failed with exit code 1.
+
+  Tasks:    6 successful, 7 total
+ Cached:    6 cached, 7 total
+   Time:    418ms 
+Summary:    /home/runner/work/_temp/mcpcn-hosting-cWU3g7/source/.turbo/runs/3LqE5T1et4u2FL3XE0R4onCtLw8.json
+ Failed:    @mcpcn/docs#build
+
