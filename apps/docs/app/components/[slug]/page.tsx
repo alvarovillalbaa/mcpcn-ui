@@ -11,6 +11,8 @@ import { ToolResultCardDemo, RunningTaskCardDemo, PartialResultViewerDemo, Queue
 import { toolWorkflowExampleCode } from "../../../components/tool-workflow-examples";
 import { MissingDataRequestDemo, MultiStepFormDemo, InlineEditFormDemo, FormProgressCardDemo, ValidatedFieldListDemo } from "../../../components/form-workflow-demos";
 import { formWorkflowExampleCode } from "../../../components/form-workflow-examples";
+import { DocumentPreviewDemo, FileReviewDemo } from "../../../components/file-review-demos";
+import { fileReviewExampleCode } from "../../../components/file-review-examples";
 import { ComponentPreview } from "../../../components/component-preview";
 
 export function generateStaticParams() { return catalog.map(item => ({ slug: item.slug })); }
@@ -24,6 +26,7 @@ const demos: Record<string, ReactNode> = {
   "partial-result-viewer": <PartialResultViewerDemo />, "queued-step-list": <QueuedStepListDemo />, "tool-trace-viewer": <ToolTraceViewerDemo />,
   "missing-data-request": <MissingDataRequestDemo />, "multi-step-form": <MultiStepFormDemo />, "inline-edit-form": <InlineEditFormDemo />,
   "form-progress-card": <FormProgressCardDemo />, "validated-field-list": <ValidatedFieldListDemo />,
+  "document-preview": <DocumentPreviewDemo />, "file-review": <FileReviewDemo />,
   "schema-form": <FormDemo />, "entity-review-table": <ReviewDemo />, "audit-trail": <AuditDemo />,
   "confirmation-panel": <ConfirmationPanelDemo />, "risk-review-panel": <RiskReviewPanelDemo />,
   "diff-viewer": <DiffViewerDemo />, "source-evidence-panel": <SourceEvidencePanelDemo />,
@@ -50,6 +53,8 @@ const events: Record<string, Array<[string, string]>> = {
   "inline-edit-form": [["commit-inline-edit", "{ id, changes: ordered { fieldId, op: set, value } or { fieldId, op: clear } }"], ["cancel-inline-edit", "{ id }"]],
   "form-progress-card": [["select-form-progress-step", "{ id, stepId }"], ["inspect-form-progress", "{ id }"], ["inspect-form-progress-step", "{ id, stepId, status }"]],
   "validated-field-list": [["select-validated-field", "{ id, fieldId }"], ["inspect-validated-field", "{ id, fieldId, status }"], ["validate-field", "{ id, fieldId; no raw value }"]],
+  "document-preview": [["document-page-change", "{ previewId, fileId, fileRevision, pageId }"], ["document-source-change", "{ previewId, fileId, fileRevision, sourceId, pageId?; no content }"]],
+  "file-review": [["file-correction-change", "{ reviewId, fileId, fileRevision, extractionId, extractionRevision, fieldId, value }"], ["save-file-review", "{ reviewId, fileId, fileRevision, extractionId, extractionRevision, values: current declared corrections }"], ["document-page-change / document-source-change", "Preview-scoped view identity only"]],
   "schema-form": [["submit", "{ values: current field allowlist, tool? }"]],
   "entity-review-table": [["confirm", "{ ids: current row IDs, tool? }"]],
   "audit-trail": [],
@@ -81,13 +86,17 @@ function fieldType(value: unknown): string {
 export default async function ComponentPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params, item = findCatalogItem(slug);
   if (!item) notFound();
-  const schema = componentDataSchema(slug), properties = object(schema?.properties);
-  const requiredFields = schema?.required;
+  const schema = componentDataSchema(slug);
+  const variants = schema && Array.isArray(schema.oneOf ?? schema.anyOf) ? (schema.oneOf ?? schema.anyOf) as unknown[] : [];
+  const properties = variants.length ? Object.assign({}, ...variants.map(variant => object(object(variant).properties))) as Record<string, unknown> : object(schema?.properties);
+  const firstRequired = variants.length ? object(variants[0]).required : schema?.required;
+  const requiredFields = variants.length && Array.isArray(firstRequired) ? firstRequired.filter(key => variants.every(variant => Array.isArray(object(variant).required) && (object(variant).required as unknown[]).includes(key))) : firstRequired;
   const required = new Set(Array.isArray(requiredFields) ? requiredFields.filter((value): value is string => typeof value === "string") : []);
   const implementation = item.category === "primitive" ? "Primitive" : item.specialized ? "Domain component" : "Shared informational alias";
   const toolWorkflowCode = toolWorkflowExampleCode(slug);
   const formWorkflowCode = formWorkflowExampleCode(slug);
-  const renderCode = formWorkflowCode ?? toolWorkflowCode ?? approvalExampleCode(slug) ?? 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
+  const fileReviewCode = fileReviewExampleCode(slug);
+  const renderCode = fileReviewCode ?? formWorkflowCode ?? toolWorkflowCode ?? approvalExampleCode(slug) ?? 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
   const serverCode = 'import { ' + item.name + 'Schema } from "@mcpcn/schemas";\nimport { createStructuredResult } from "@mcpcn/server";\n\nexport function reviewedResult(candidate: unknown) {\n  const data = ' + item.name + 'Schema.parse(candidate);\n  return createStructuredResult("' + item.slug + '", data);\n}';
   return <main>
     <span className="eyebrow">{item.category}</span><h1>{item.name}</h1><p className="lede">{item.description}</p>
@@ -107,6 +116,14 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
           {Object.entries(properties).map(([name, field]) => <tr key={name}><th scope="row"><code>{name}</code></th><td>{fieldType(field)}</td><td>{"default" in object(field) ? "Defaulted" : required.has(name) ? "Required" : "Optional"}</td></tr>)}
         </tbody></table></div>
         <h2>React integration</h2><pre className="code">{renderCode}</pre>
+        {fileReviewCode && <>
+          <h2>Supplied representations</h2>
+          <p>Inspect complete text, bounded JSON or up to twenty ordered pages containing text, PNG, JPEG or WebP data. The consumer owns reading, conversion, extraction and persistence. Supplied pages and reported confidence do not verify original file bytes or extraction accuracy.</p>
+          <p>Only the selected raster page is mounted. Native page/source controls and fit/zoom support inspection; HTML, SVG, arbitrary image URLs and PDF embeds are not rendered. Header validation is bounded; a browser decode error remains visible beside supplied text.</p>
+          <p>The native DTO budget is 2 MiB of UTF-8 JSON: text is at most 65536 UTF-16 units per page, each image at most 256 KiB decoded, images collectively at most 1 MiB, dimensions at most 4096 per side and 8 million pixels. JSON retains its existing descriptor-safe bounds. The playground editor has a smaller limit: 8192 units per string and 65536 UTF-8 bytes per result.</p>
+          {slug === "file-review" && <p>File identity, revision and extraction identity must match the displayed ready preview before review and save intent become available. Corrections are caller-controlled. Review the current corrections, check the explicit confirmation, then request saving. Replacements or changed values invalidate confirmation. A rejected callback preserves current corrections; callback settlement does not mean a record was saved.</p>}
+          <p>View intents carry identity only. Corrections and save intents deliberately contain reviewed private values. PrivateOnly catalogue metadata does not redact content already passed to a model. Keep private documents in app-only state and publish model context explicitly.</p>
+        </>}
         <p><code>className</code> styles the surface and <code>onAction</code> receives consumer-owned intent. The new domain controls and revised approval/form surfaces expose <code>busy</code> and <code>error</code> feedback. Controlled selections and answers must be acknowledged by updating their props.</p>
         <h2>Events</h2>{events[slug]?.length ? <div className="mcpcn-table-wrap"><table className="mcpcn-table"><caption>{item.name} action payloads</caption><thead><tr><th>Action type</th><th>Data</th></tr></thead><tbody>{events[slug]!.map(([type, data]) => <tr key={type}><th scope="row"><code>{type}</code></th><td><code>{data}</code></td></tr>)}</tbody></table></div> : <p>This surface displays data and has no dedicated domain event contract.</p>}
         <h2>JSON Schema</h2><pre className="code" aria-label={item.name + " JSON Schema"}>{JSON.stringify(schema, null, 2)}</pre>

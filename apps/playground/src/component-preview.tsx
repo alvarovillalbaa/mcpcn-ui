@@ -6,6 +6,8 @@ import type { ApprovalCardData, ApprovalChecklistData, BeforeSubmitConfirmationD
 import { playgroundItems, validateFixture, type BlockFixtures, type PrimitiveFixtures } from "./fixtures";
 import type { ToolResultCardData, RunningTaskCardData, PartialResultViewerData, QueuedStepListData, ToolTraceViewerData } from "@mcpcn/schemas";
 import type { MissingDataRequestData, MultiStepFormData, InlineEditFormData, FormProgressCardData, ValidatedFieldListData } from "@mcpcn/schemas";
+import type { DocumentPreviewData, FileReviewData } from "@mcpcn/schemas";
+import { sameReviewFile } from "@mcpcn/schemas";
 
 type Props = { payload: MCPCNPayload<string, unknown>; onAction: (action: UI.ComponentAction) => void | Promise<void> };
 type Data = Record<string, unknown>;
@@ -79,6 +81,8 @@ function Preview({ payload, onAction }: Props) {
       case "inline-edit-form": component = <UI.InlineEditForm {...data as InlineEditFormData} {...common} />; break;
       case "form-progress-card": component = <UI.FormProgressCard {...data as FormProgressCardData} {...common} />; break;
       case "validated-field-list": component = <UI.ValidatedFieldList {...data as ValidatedFieldListData} {...common} />; break;
+      case "document-preview": component = <UI.DocumentPreview {...data as DocumentPreviewData} {...common} />; break;
+      case "file-review": component = <UI.FileReview {...data as FileReviewData} {...common} />; break;
       case "schema-form": component = <UI.SchemaForm {...data as SchemaFormData} {...common} />; break;
       case "entity-review-table": component = <UI.EntityReviewTable {...data as EntityReviewTableData} {...common} />; break;
       case "audit-trail": component = <UI.AuditTrail {...data as AuditTrailData} {...common} />; break;
@@ -150,6 +154,22 @@ export function controlledData(slug: string, current: Data, action: UI.Component
   const value = action.data;
   if (!object(value)) return undefined;
   switch (slug) {
+    case "document-preview": return documentViewPatch(current as DocumentPreviewData, action);
+    case "file-review": {
+      const data = current as FileReviewData, extraction = data.extraction;
+      if (data.preview) {
+        const patch = documentViewPatch(data.preview, action);
+        if (patch) return { preview: { ...data.preview, ...patch } };
+      }
+      if (action.type !== "file-correction-change" || data.disabled || !data.file || !extraction
+        || data.preview?.state !== "ready" || !sameReviewFile(data.file, data.preview.file)
+        || value.reviewId !== data.id || value.fileId !== data.file.id || value.fileRevision !== data.file.revision
+        || value.extractionId !== extraction.id || value.extractionRevision !== extraction.revision
+        || extraction.fileId !== data.file.id || extraction.fileRevision !== data.file.revision
+        || typeof value.fieldId !== "string" || typeof value.value !== "string" || value.value.length > 4000
+        || !extraction.fields.some(field => field.id === value.fieldId && !field.disabled)) return undefined;
+      return { extraction: { ...extraction, fields: extraction.fields.map(field => field.id === value.fieldId ? { ...field, value: value.value as string } : field) } };
+    }
     case "multi-step-form": {
       const d = current as MultiStepFormData;
       return action.type === "change-form-step" && value.id === d.id && value.fromStepId === d.currentStepId
@@ -220,4 +240,17 @@ export function controlledData(slug: string, current: Data, action: UI.Component
     case "score-breakdown": return action.type === "criterion-review" && typeof value.criterionId === "string" ? { selectedCriterionId: value.criterionId } : undefined;
     default: return undefined;
   }
+}
+
+/** View callbacks update selection only after checking the current representation. */
+function documentViewPatch(data: DocumentPreviewData, action: UI.ComponentAction): Data | undefined {
+  const value = action.data;
+  if (!object(value) || data.state !== "ready" || value.previewId !== data.id || value.fileId !== data.file.id || value.fileRevision !== data.file.revision) return undefined;
+  if (action.type === "document-page-change" && typeof value.pageId === "string" && data.content?.type === "pages" && data.content.pages.some(page => page.id === value.pageId)) return { selectedPageId: value.pageId };
+  if (action.type === "document-source-change" && typeof value.sourceId === "string") {
+    const source = data.sources?.find(source => source.id === value.sourceId);
+    if (!source) return undefined;
+    return { selectedSourceId: source.id, ...(source.pageId ? { selectedPageId: source.pageId } : {}) };
+  }
+  return undefined;
 }

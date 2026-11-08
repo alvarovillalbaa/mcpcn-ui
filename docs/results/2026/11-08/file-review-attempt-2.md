@@ -1,0 +1,15 @@
+# File review checks — second invocation failed
+
+Source [`d92ec712a6d1461493192c2702ea8f14c9a88f0e`](https://github.com/alvarovillalbaa/mcpcn-ui/commit/d92ec712a6d1461493192c2702ea8f14c9a88f0e), tree `13b6b46d56023988c50ea496930497f286ca2076`, directly follows the same base0b4e2d9c. It restores the output collector's declaration and preserves the [first failure](file-review-attempt-1.md). The unchanged temporary workflow7da4cfc9 checked it in [run42518818815](https://github.com/alvarovillalbaa/mcpcn-ui/actions/runs/42518818815), job128847601149, first attempt. No rerun or adoption occurred.
+
+The repaired collector retained the actual [Vitest JSON](file-review-attempt-2-originals/output-vitest.json):79 tests registered,78 passed and1 failed. The six docs cases did not register because their suite could not import `@mcpcn/schemas` from the document-extraction example. That example declares only its React component package and React. Schema42, React22 and registry7 cases passed; playground fixtures passed7 of8. No skips/todos were reported. The required complete85-case packet failed; acceptance counters remain0. The first invocation's missing individual outcomes remain unknown.
+
+The failed fixture case compared a patch of schema-normalized fixture data with raw authored extraction fields. Source inspection shows the normalized fields include default flags that the expected raw object omitted. The prospective correction compares the full patch with the parsed current extraction while retaining all wrong-scope, immutability and field-allowlist assertions.
+
+The prospective example repair derives its DTO types from the existing FileReview public props, matching the repository's original example pattern. It removes the unnecessary direct runtime schema import, retains65536-character text and4000-character field limits, and lets the actual FileReview component validate before rendering or emitting intent. Exact `File` ownership, explicit reading, read-generation/unmount fences and caller-controlled corrections remain. No package manifest, lockfile, dependency, format or persistence service changes.
+
+Twelve shared ownership prerequisites, required package/playground/CLI builds, playground typecheck and two deterministic generations passed. Four full source guards passed over2644 files. The controller failed at `unit_result_totals`; docs production build, consumers and browsers were not reached. Owned cleanup passed with root removed, zero remaining attributed processes and no uncertainty.
+
+The [originals](file-review-attempt-2-originals/) retain83 files /20,298,747 bytes:80 normal originals, exact failed generated gzip, decode manifest and [retention record](file-review-attempt-2-originals/retention.json). The private provider log remains separately retained at19,663,467 bytes. Raw stream whitespace is preserved verbatim. The generated bundle is unaccepted/unadopted; it cannot supply a public release or any missing unit/browser proof.
+
+The next sibling will contain only these two source/oracle repairs, this failed evidence and the same85/12/2+12 mandatory scope. Current hosting remains the closed form release.
