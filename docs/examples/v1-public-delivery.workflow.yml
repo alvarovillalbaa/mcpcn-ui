@@ -1,0 +1,58 @@
+# Inactive preparation. Publish a separate temporary main workflow only after acceptance and deployment review.
+name: MCPCN v1 anonymous public delivery
+on:
+  workflow_dispatch:
+    inputs:
+      source_sha:
+        description: Full reviewed deployed source SHA containing verified generated registry files
+        type: string
+        required: true
+      deployment_id:
+        description: Actual reviewed Vercel deployment ID (metadata input, not HTTP provenance)
+        type: string
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: mcpcn-v1-public-delivery
+  cancel-in-progress: false
+jobs:
+  public-http:
+    if: github.repository == 'alvarovillalbaa/mcpcn-ui' && github.event.repository.private == false && github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    env:
+      CI: 'true'
+      SOURCE_COMMIT: ${{ inputs.source_sha }}
+      MCPCN_V1_DEPLOYMENT_ID: ${{ inputs.deployment_id }}
+      MCPCN_PUBLIC_REPOSITORY: ${{ github.event.repository.private == false }}
+    steps:
+      - name: Validate immutable comparison inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$SOURCE_COMMIT" =~ ^[a-f0-9]{40}$ ]]
+          [[ "$MCPCN_V1_DEPLOYMENT_ID" =~ ^dpl_[A-Za-z0-9]{10,100}$ ]]
+          printf 'MCPCN_V1_HTTP_JOB_STARTED_MS=%s\n' "$(date +%s%3N)" >> "$GITHUB_ENV"
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ env.SOURCE_COMMIT }}
+          persist-credentials: false
+          clean: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: '24.22.2'
+      - name: Check seven anonymous public responses against the immutable source
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$SOURCE_COMMIT"
+          test -z "$(git status --porcelain=v1 --untracked-files=all)"
+          git diff --check
+          export MCPCN_V1_HTTP_VERIFIED_SOURCE="$SOURCE_COMMIT"
+          code=0
+          node tooling/check-v1-public-delivery.mjs --source-commit "$SOURCE_COMMIT" --deployment-id "$MCPCN_V1_DEPLOYMENT_ID" || code=$?
+          test "$(git rev-parse HEAD)" = "$SOURCE_COMMIT"
+          test -z "$(git status --porcelain=v1 --untracked-files=all)"
+          git diff --check
+          exit "$code"

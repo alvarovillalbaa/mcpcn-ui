@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "a8bd783fc41cdd8eebd1a6eac9944ca96085f1fe",
+  "caseId": "B04",
+  "title": "B04 narrow schema-form replacement required fields and typed intent",
+  "profile": "narrow",
+  "route": "/components/schema-form",
+  "origin": "http://127.0.0.1:4173",
+  "playwright": "1.65.0",
+  "startedAt": "2026-11-07T23:38:28.555Z",
+  "browserVersion": "158.0.8127.18",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "touchEmulated": true,
+  "status": "passed",
+  "observations": [
+    {
+      "stage": "initial_theme_and_viewport",
+      "atMs": 265.0347419999998,
+      "theme": {
+        "mode": "dark",
+        "backgroundColor": "rgb(24, 24, 27)",
+        "color": "rgb(250, 250, 250)"
+      },
+      "viewport": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "documentWidth": 390,
+        "maxTouchPoints": 1
+      }
+    },
+    {
+      "stage": "replaced_field_allowlist_rejected_once",
+      "atMs": 1422.0135730000002,
+      "action": {
+        "type": "submit",
+        "data": {
+          "values": {
+            "ownerEmail": "owner@example.com",
+            "confirmed": true,
+            "budget": ""
+          },
+          "tool": "save_reviewed_details"
+        }
+      }
+    },
+    {
+      "stage": "replaced_field_allowlist_success",
+      "atMs": 2273.1362719999997,
+      "action": {
+        "type": "submit",
+        "data": {
+          "values": {
+            "ownerEmail": "owner@example.com",
+            "confirmed": true,
+            "budget": ""
+          },
+          "tool": "save_reviewed_details"
+        }
+      }
+    }
+  ],
+  "input": {
+    "trackedTaps": 1,
+    "trackedClicks": 0
+  },
+  "network": {
+    "requests": 12,
+    "requestFailures": 0,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "webSockets": 0,
+    "errorCount": 0,
+    "errors": [],
+    "rows": [
+      {
+        "ordinal": 1,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/components/schema-form",
+        "startedAtMs": 40.88046899999972,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "status": 200,
+        "responseAtMs": 45.0575800000006,
+        "terminalAtMs": 56.176541999999245,
+        "responseFinishedAtMs": 56.1900569999998
+      },
+      {
+        "ordinal": 2,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/352lbty23olht.css",
+        "startedAtMs": 55.92882800000007,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "status": 200,
+        "responseAtMs": 61.98912100000052,
+        "terminalAtMs": 64.26084900000023,
+        "responseFinishedAtMs": 64.27619799999957
+      },
+      {
+        "ordinal": 3,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/3yh5jaalv1u8v.js",
+        "startedAtMs": 55.9692840000007,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "status": 200,
+        "responseAtMs": 115.52702999999929,
+        "terminalAtMs": 115.95626300000004,
+        "responseFinishedAtMs": 115.97191200000088
+      },
+      {
+        "ordinal": 4,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/22lgiphrawvbj.js",
+        "startedAtMs": 55.99516299999959,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "status": 200,
+        "responseAtMs": 116.99961699999949,
+        "terminalAtMs": 117.2228840000007,
+        "responseFinishedAtMs": 117.23019799999929
+      },
+      {
+        "ordinal": 5,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/1fx8wyr62n54x.js",
+        "startedAtMs": 56.016772999999375,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "status": 200,
+        "responseAtMs": 118.86616400000094,
+        "terminalAtMs": 119.01203700000042,
+        "responseFinishedAtMs": 119.01612399999976
+      },
+      {
+        "ordinal": 6,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/1cu4dap_usbwa.js",
+        "startedAtMs": 56.03682099999969,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "status": 200,
+        "responseAtMs": 118.3285990000004,
+        "terminalAtMs": 118.63653499999964,
+        "responseFinishedAtMs": 118.6418450000001
+      },
+      {
+        "ordinal": 7,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/turbopack-20368txdglzwk.js",
+        "startedAtMs": 56.05717899999945,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "status": 200,
+        "responseAtMs": 117.27102399999967,
+        "terminalAtMs": 117.5093369999995,
+        "responseFinishedAtMs": 117.51693100000011
+      },
+      {
+        "ordinal": 8,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/332uslzbhf388.js",
+        "startedAtMs": 56.07789699999921,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "status": 200,
+        "responseAtMs": 117.57455900000059,
+        "terminalAtMs": 117.75448499999948,
+        "responseFinishedAtMs": 117.76095700000042
+      },
+      {
+        "ordinal": 9,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/02ft08jx0ludd.js",
+        "startedAtMs": 56.0969929999992,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "status": 200,
+        "responseAtMs": 118.68001600000025,
+        "terminalAtMs": 118.83082800000011,
+        "responseFinishedAtMs": 118.83498599999984
+      },
+      {
+        "ordinal": 10,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/242ma0xc6jctp.js",
+        "startedAtMs": 56.11742100000083,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "status": 200,
+        "responseAtMs": 119.04821500000071,
+        "terminalAtMs": 119.18771600000036,
+        "responseFinishedAtMs": 119.19350599999962
+      },
+      {
+        "ordinal": 11,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/",
+        "startedAtMs": 216.68727600000057,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "status": 200,
+        "responseAtMs": 222.14567999999963,
+        "terminalAtMs": 223.57592400000067,
+        "responseFinishedAtMs": 223.59008100000028
+      },
+      {
+        "ordinal": 12,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/",
+        "startedAtMs": 223.67169400000057,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "status": 200,
+        "responseAtMs": 227.65763499999957,
+        "terminalAtMs": 228.00636699999995,
+        "responseFinishedAtMs": 228.01643499999955
+      }
+    ]
+  },
+  "cleanup": {
+    "contextCreated": true,
+    "contextClosed": true,
+    "pagesCreated": 1,
+    "pagesClosed": 1,
+    "pendingRequests": 0,
+    "observerJobs": 0,
+    "closeStartedAtMs": 2303.5863520000003
+  },
+  "proofLimits": [
+    "Owned Next production docs server and authored intent callbacks only; no external MCP host, tools, authentication, model or persistence.",
+    "Narrow uses Chromium mobile/touch emulation, not a physical device. Assertions establish selected keyboard/semantics behavior, not accessibility conformance.",
+    "Network rows bind observed Playwright Request identities and terminal acknowledgements; no all-assets integrity or raw transport EOF assertion.",
+    "One viewport screenshot records the final observed state, not every transition. Browser-process teardown is the outer supervisor's responsibility."
+  ],
+  "navigation": {
+    "requestOrdinal": 1,
+    "status": 200,
+    "exactRequestIdentity": true,
+    "requestFinished": "finished",
+    "responseFinished": "null"
+  },
+  "theme": {
+    "mode": "dark",
+    "backgroundColor": "rgb(24, 24, 27)",
+    "color": "rgb(250, 250, 250)"
+  },
+  "observedViewport": {
+    "innerWidth": 390,
+    "innerHeight": 844,
+    "documentWidth": 390,
+    "maxTouchPoints": 1
+  },
+  "screenshot": {
+    "filename": "B04.png",
+    "bytes": 34906,
+    "sha256": "52c46bd8856618442e7f3027020022485e6220505a0f69d1ad28067c13acbcaf",
+    "viewportOnly": true
+  },
+  "completedAt": "2026-11-07T23:38:30.863Z"
+}

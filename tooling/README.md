@@ -18,6 +18,8 @@ acceptance remain separate.
 The separate [sixteen-component v1 packet](../docs/proposals/v1-components-checks.md)
 owns the new domain components, fourteen-module copied-source profile and
 focused installer regressions. Its controller, browser cases and fresh-consumer
-helper are prepared source until an immutable CI run supplies actual results.
+helper now have [accepted immutable CI results](../docs/results/2026/11-07/v1-components-checks.md):
+107 unit/installer cases, 26 browser cases and two installed consumers, with
+owned cleanup. The temporary workflow is retired; hosting is still pending.
 Keep its generated-output vector and source seed distinct from the historical
 consumer receipt above.

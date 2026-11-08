@@ -1,6 +1,6 @@
 # MCPCN
 
-Last updated: 2026-11-07
+Last updated: 2026-11-08
 
 **MCP Component Network** is a React UI library for human-controlled agent workflows inside MCP Apps.
 
@@ -14,12 +14,16 @@ The eleven additional core components now have dedicated typed schemas,
 controlled domain interactions and actual documentation previews. ApprovalCard
 and SchemaForm also isolate replaced review/form payloads, preserve current
 field ownership and handle asynchronous consumer feedback. The new
-[v1 component packet](docs/proposals/v1-components-checks.md) remains unaccepted:
-107 unit/installer cases, the docs build and both installed-consumer profiles
-passed again in its fourth invocation. Two of 26 browser cases and process
-ownership closure failed; their narrow repairs need a new invocation.
+[v1 component packet](docs/results/2026/11-07/v1-components-checks.md) passed:
+107 unit/installer cases, the docs build, both installed consumers and all
+26 desktop/narrow Chromium cases, with verified owned cleanup. The exact
+generated registry is included with its separately bound publication vector.
 Keep this evidence separate from the historical packets below. The broader catalogue,
 real-host playground, public npm release and quality matrix remain unfinished.
+
+The hosted v1 update is pending a working Vercel connection. The earlier
+hosting receipt below covers its own older source; the new seven-route
+anonymous delivery check is prepared and unrun.
 
 **Public package availability remains unverified.** Registry lookups for
 `mcpcn` and `@mcpcn/react` returned npm E404 on 29 October 2026; the commands

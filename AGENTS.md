@@ -1,6 +1,6 @@
 # MCPCN source ownership
 
-Last updated: 2026-11-07
+Last updated: 2026-11-08
 
 - Product intent: the Notion `mcpcn-ui` React MCP Apps library brief. Preserve
   both package imports and editable source installation, a configurable docs
@@ -118,3 +118,13 @@ hand-edit registry JSON or call stale generated output the tested source.
 Retain complete bounded evidence, failed originals and owned teardown. Retire
 the temporary workflow after terminal acceptance. No npm publication, login,
 new account, model call or paid service belongs to this packet.
+
+The [fifth source packet](docs/results/2026/11-07/v1-components-checks.md) passed
+at `a8bd783fc41cdd8eebd1a6eac9944ca96085f1fe`: 107 exact unit/installer cases,
+26 browser cases and both strict installed consumers, five source guards and
+complete owned cleanup. Preserve all four failed invocations. The exact
+generated profile is adopted with its [publication vector](docs/results/2026/11-07/v1-generated-publication.json),
+distinct from seed Git bytes. Workflow `410720792` is disabled and removed in
+this evidence edition. Existing broad CI/release jobs remain unchanged.
+Vercel transport is unavailable; the public HTTP packet remains prepared and
+unrun. Keep npm, live-host and broader library gates pending.

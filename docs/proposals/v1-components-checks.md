@@ -1,6 +1,7 @@
 # Sixteen core components: source and acceptance
 
-7 November 2026 UTC. Status: implementation prepared; full packet unaccepted.
+7 November 2026 UTC. Status: [accepted fifth source packet](../results/2026/11-07/v1-components-checks.md).
+Hosting and public npm acceptance remain separate and pending.
 
 The [first invocation](../results/2026/11-07/v1-components-attempt-1.md) failed
 before installation when the new export guard rejected the existing public
