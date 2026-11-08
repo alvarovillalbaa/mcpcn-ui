@@ -2,16 +2,19 @@ import { StrictMode, useCallback, useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { AgentAppProvider, OfficialMCPAdapter, useAgentApp } from "@mcpcn/runtime";
 import { InvalidPayload, type ComponentAction } from "@mcpcn/react";
-import { PlaygroundComponent } from "./component-preview.js";
+import { PlaygroundComponent, evidencePreviewKey } from "./component-preview.js";
 import { validateFixture } from "./fixtures.js";
 import "@mcpcn/react/styles.css";
 import "./frame.css";
 
 function ConnectedApp({ unavailable }: { unavailable(): void }) {
   const app = useAgentApp();
-  // Each received result owns its request feedback, including identical data
-  // received in a later invocation. Late setters belong to the unmounted view.
-  const invocation = useMemo(() => crypto.randomUUID(), [app.structuredContent]);
+  // Evidence owns same-root presentation across results. Other surfaces retain
+  // invocation-owned feedback; late setters belong to their unmounted view.
+  const invocation = useMemo(() => {
+    const parsed = validateFixture(app.structuredContent);
+    return parsed.success ? evidencePreviewKey(parsed.data) ?? crypto.randomUUID() : crypto.randomUUID();
+  }, [app.structuredContent]);
   return <InvocationView key={invocation} unavailable={unavailable} />;
 }
 function InvocationView({ unavailable }: { unavailable(): void }) {
@@ -45,7 +48,7 @@ function InvocationView({ unavailable }: { unavailable(): void }) {
     {!ready ? <p>Waiting for the SDK initialization handshake.</p>
       : !app.toolResult ? <p>Use “Invoke tool result” in the host to load a component.</p>
         : app.toolResult.isError ? <p role="alert">The host supplied a tool error result.</p>
-          : parsed.success ? <PlaygroundComponent key={JSON.stringify(app.structuredContent)} payload={parsed.data} onAction={onAction} />
+          : parsed.success ? <PlaygroundComponent key={evidencePreviewKey(parsed.data) ?? JSON.stringify(app.structuredContent)} payload={parsed.data} onAction={onAction} />
             : <InvalidPayload title="Component payload is invalid" issues={parsed.issues} />}
     {error && <p role="alert">{error}</p>}{notice && <p role="status">{notice}</p>}
     <section aria-label="App requests" className="frame-requests">
@@ -62,7 +65,9 @@ function InvocationView({ unavailable }: { unavailable(): void }) {
       <button disabled={!ready} onClick={() => void attempt(() => app.requestDisplayMode("fullscreen"))}>Request fullscreen</button>
       <button disabled={!ready} onClick={() => void attempt(() => app.requestDisplayMode("inline"))}>Request inline</button>
     </section>
-    <details><summary>App state and capabilities</summary><pre aria-label="App capabilities">{JSON.stringify(app.capabilities, null, 2)}</pre><pre aria-label="Received tool input">{JSON.stringify(app.toolInput ?? null, null, 2)}</pre></details>
+    <details><summary>App state and capabilities</summary><pre aria-label="App capabilities">{JSON.stringify(app.capabilities, null, 2)}</pre><pre aria-label="Received tool input">{JSON.stringify(app.toolInput ?? null, null, 2)}</pre>
+      {ready && app.toolResult && !app.toolResult.isError && parsed.success && evidencePreviewKey(parsed.data) && <pre aria-label="Received evidence payload">{JSON.stringify(parsed.data, null, 2)}</pre>}
+    </details>
     <details><summary>Last component intent</summary><pre aria-label="Last component intent">{JSON.stringify(action, null, 2)}</pre></details>
     <details><summary>Fixture tool response</summary><pre aria-label="Fixture tool response">{JSON.stringify(toolResult, null, 2)}</pre></details>
     <details><summary>UI-only metadata</summary><pre aria-label="UI-only metadata">{JSON.stringify(app.meta ?? null, null, 2)}</pre></details>

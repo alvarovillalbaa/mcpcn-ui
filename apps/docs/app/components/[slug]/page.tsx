@@ -13,6 +13,8 @@ import { MissingDataRequestDemo, MultiStepFormDemo, InlineEditFormDemo, FormProg
 import { formWorkflowExampleCode } from "../../../components/form-workflow-examples";
 import { DocumentPreviewDemo, FileReviewDemo } from "../../../components/file-review-demos";
 import { fileReviewExampleCode } from "../../../components/file-review-examples";
+import { SourceListDemo, EvidenceDrawerDemo, EvidenceDrawerStackDemo } from "../../../components/source-evidence-demos";
+import { sourceEvidenceExampleCode } from "../../../components/source-evidence-examples";
 import { ComponentPreview } from "../../../components/component-preview";
 
 export function generateStaticParams() { return catalog.map(item => ({ slug: item.slug })); }
@@ -27,6 +29,7 @@ const demos: Record<string, ReactNode> = {
   "missing-data-request": <MissingDataRequestDemo />, "multi-step-form": <MultiStepFormDemo />, "inline-edit-form": <InlineEditFormDemo />,
   "form-progress-card": <FormProgressCardDemo />, "validated-field-list": <ValidatedFieldListDemo />,
   "document-preview": <DocumentPreviewDemo />, "file-review": <FileReviewDemo />,
+  "source-list": <SourceListDemo />, "evidence-drawer": <EvidenceDrawerDemo />,
   "schema-form": <FormDemo />, "entity-review-table": <ReviewDemo />, "audit-trail": <AuditDemo />,
   "confirmation-panel": <ConfirmationPanelDemo />, "risk-review-panel": <RiskReviewPanelDemo />,
   "diff-viewer": <DiffViewerDemo />, "source-evidence-panel": <SourceEvidencePanelDemo />,
@@ -62,6 +65,8 @@ const events: Record<string, Array<[string, string]>> = {
   "risk-review-panel": [["acknowledge-risk", "{ reviewId, riskId, acknowledged }"], ["accept-risks", "{ reviewId, riskIds }"], ["cancel", "{ reviewId }"]],
   "diff-viewer": [["select-change", "{ reviewId, changeId }"]],
   "source-evidence-panel": [["select-source", "{ reviewId, sourceId }"]],
+  "source-list": [["select-source", "{ listId, listRevision, sourceId, sourceRevision }"], ["inspect-source", "{ listId, listRevision, sourceId, sourceRevision }"]],
+  "evidence-drawer": [["open-evidence", "{ drawerId, drawerRevision, sourceId?, sourceRevision? }"], ["close-evidence", "{ drawerId, drawerRevision, sourceId?, sourceRevision? }"]],
   "dynamic-question-flow": [["answer-change", "{ flowId, questionId, value }"], ["question-change", "{ flowId, questionId }"], ["submit", "{ flowId, answers: visible question allowlist }"]],
   "extracted-fields-review": [["correction-change", "{ reviewId, fieldId, value }"], ["submit", "{ reviewId, values: current field allowlist }"]],
   "comparison-matrix": [["selection-change", "{ comparisonId, selectedId }"], ["confirm", "{ comparisonId, selectedId }"]],
@@ -96,7 +101,8 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
   const toolWorkflowCode = toolWorkflowExampleCode(slug);
   const formWorkflowCode = formWorkflowExampleCode(slug);
   const fileReviewCode = fileReviewExampleCode(slug);
-  const renderCode = fileReviewCode ?? formWorkflowCode ?? toolWorkflowCode ?? approvalExampleCode(slug) ?? 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
+  const sourceEvidenceCode = sourceEvidenceExampleCode(slug);
+  const renderCode = sourceEvidenceCode ?? fileReviewCode ?? formWorkflowCode ?? toolWorkflowCode ?? approvalExampleCode(slug) ?? 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
   const serverCode = 'import { ' + item.name + 'Schema } from "@mcpcn/schemas";\nimport { createStructuredResult } from "@mcpcn/server";\n\nexport function reviewedResult(candidate: unknown) {\n  const data = ' + item.name + 'Schema.parse(candidate);\n  return createStructuredResult("' + item.slug + '", data);\n}';
   return <main>
     <span className="eyebrow">{item.category}</span><h1>{item.name}</h1><p className="lede">{item.description}</p>
@@ -107,6 +113,7 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
       {demos[slug] ?? (item.category !== "primitive" ? <GenericDemo title={item.name} /> : <p>A dedicated interactive preview for this primitive is not available yet.</p>)}
       </ComponentPreview>
     </section>
+    {slug === "evidence-drawer" && <section className="preview-shell" aria-label="Native modal stacking example"><h2>Two native evidence views</h2><ComponentPreview><EvidenceDrawerStackDemo /></ComponentPreview></section>}
     <section className="section prose">
       <h2>Install</h2><pre className="code">pnpm dlx mcpcn add {item.slug}</pre>
       <p>Public npm availability is a separate release gate. The repository documentation records the currently verified source, archives and hosting profile.</p>
@@ -116,6 +123,16 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
           {Object.entries(properties).map(([name, field]) => <tr key={name}><th scope="row"><code>{name}</code></th><td>{fieldType(field)}</td><td>{"default" in object(field) ? "Defaulted" : required.has(name) ? "Required" : "Optional"}</td></tr>)}
         </tbody></table></div>
         <h2>React integration</h2><pre className="code">{renderCode}</pre>
+        {sourceEvidenceCode && <>
+          <h2>Supplied evidence</h2>
+          <p>Sources, excerpts and support statements are caller-supplied claims. These components do not fetch URLs, verify sources, rank claims or persist content. Safe HTTP(S) links open only through explicit user action. Text and JSON render completely as escaped data.</p>
+          <p>Native data fits 2 MiB of UTF-8 JSON, with text up to 65536 UTF-16 units and the existing guarded JSON limit of 1000 nodes/depth8. The playground keeps its smaller8192-unit string and65536-byte result limits and rejects oversized payloads without truncating them.</p>
+          {slug === "source-list" ? <p>Omit selectedSourceId for local selection. Supplying an ID or null makes selection controlled: acknowledge current identity/revision intent through new props. Without a callback that controlled selection is read-only. Replacing the selected source clears local selection and fences stale feedback; unrelated appends preserve it.</p>
+            : <><p>The native dialog opens after hydration through showModal. Close, Escape and a genuine backdrop click dismiss immediately, including during pending or rejected consumer notifications and external busy feedback. Notifications report presentation; they never authorize closing.</p>
+              <p>Omit open for local presentation. False waits for an external true acknowledgement. A fresh true request opens once; unchanged true cannot reverse a user dismissal. Root or meaningful evidence replacement closes old content and fences old callbacks. The Open control can explicitly reopen a consumed request.</p>
+              <p>The browser contains focus within the modal in its own document and restores a usable invoker. An iframe modal does not make its host document inert. Server-rendered closed dialog markup alone does not prove native modality, focus containment or assistive-technology compatibility.</p></>}
+          <p>All view intents contain current identities and revisions only. Keep source labels, URLs, excerpts, supports and complete evidence in app-only state. PrivateOnly catalogue metadata does not redact content already supplied to a model; publish model context only through an explicit application decision.</p>
+        </>}
         {fileReviewCode && <>
           <h2>Supplied representations</h2>
           <p>Inspect complete text, bounded JSON or up to twenty ordered pages containing text, PNG, JPEG or WebP data. The consumer owns reading, conversion, extraction and persistence. Supplied pages and reported confidence do not verify original file bytes or extraction accuracy.</p>
