@@ -12,7 +12,7 @@ const names:Record<CatalogCategory,string[]>={
   trust:["AuditTrail","ReasoningSummary","SourceList","EvidenceDrawer","DataAccessNotice","PrivacyBoundaryCard","ConsentPanel","ModelContextPreview"],
   "host-state":["AuthRequiredCard","BillingGate","UnsupportedHostNotice","NoDataState","LoadingBridgeState","OfflineState","PermissionDeniedState","ExpiredSessionState"]
 };
-const specialized=new Set(["ApprovalCard","ApprovalChecklist","BeforeSubmitConfirmation","DestructiveActionGuard","HumanOverridePanel","PermissionRequestCard","ConfirmationPanel","RiskReviewPanel","ToolProgressTimeline","ToolCallCard","ToolResultCard","RunningTaskCard","RetryableErrorState","PartialResultViewer","QueuedStepList","ToolTraceViewer","SchemaForm","DynamicQuestionFlow","MissingDataRequest","MultiStepForm","InlineEditForm","FormProgressCard","ValidatedFieldList","EntityReviewTable","ExtractedFieldsReview","DiffViewer","ComparisonMatrix","ScoreBreakdown","AuditTrail","SourceEvidencePanel","AuthRequiredCard"]);
+const specialized=new Set(["ApprovalCard","ApprovalChecklist","BeforeSubmitConfirmation","DestructiveActionGuard","HumanOverridePanel","PermissionRequestCard","ConfirmationPanel","RiskReviewPanel","ToolProgressTimeline","ToolCallCard","ToolResultCard","RunningTaskCard","RetryableErrorState","PartialResultViewer","QueuedStepList","ToolTraceViewer","SchemaForm","DynamicQuestionFlow","MissingDataRequest","MultiStepForm","InlineEditForm","FormProgressCard","ValidatedFieldList","EntityReviewTable","ExtractedFieldsReview","DiffViewer","ComparisonMatrix","ScoreBreakdown","AuditTrail","SourceEvidencePanel","AuthRequiredCard","DocumentPreview","FileReview"]);
 const componentDescriptions:Record<string,string> = {
   ApprovalChecklist: "Review required checklist items before emitting an explicit approval intent.",
   BeforeSubmitConfirmation: "Review current field values and explicitly consent before submission intent.",
@@ -35,6 +35,8 @@ const componentDescriptions:Record<string,string> = {
   FormProgressCard: "Inspect consumer-reported form status and step progress without inferring completion.",
   ValidatedFieldList: "Review reported field validation, inspect complete values and request eligible field validation.",
   ExtractedFieldsReview: "Correct extracted fields against originals and evidence before submission.",
+  DocumentPreview: "Inspect complete supplied text, JSON or ordered raster/text pages without reading or uploading a file.",
+  FileReview: "Review a current file representation and extracted corrections before explicit scoped save intent.",
   DiffViewer: "Inspect before/after values and select an individual change for review.",
   ComparisonMatrix: "Compare criteria, select an available option and explicitly confirm it.",
   ScoreBreakdown: "Inspect finite weighted totals and individual criterion evidence.",
@@ -55,7 +57,11 @@ const formWorkflowSecurity:Record<string,CatalogItem["security"]> = {
   FormProgressCard: { modelVisible: ["id", "status", "progress", "steps.id", "steps.status", "steps.progress", "selectedStepId"], privateOnly: ["title", "description", "steps.label"], callsTools: [], destructive: false },
   ValidatedFieldList: { modelVisible: ["id", "fields.id", "fields.status", "fields.validatable", "selectedFieldId"], privateOnly: ["title", "description", "fields.label", "fields.value", "fields.message"], callsTools: [], destructive: false },
 };
-export const catalog:CatalogItem[]=Object.entries(names).flatMap(([category,items])=>items.map(name=>({name,slug:slug(name),category:category as CatalogCategory,description:componentDescriptions[name]??`${descriptions[category as CatalogCategory]}: ${name}.`,specialized:specialized.has(name),dependencies:["@mcpcn/core","@mcpcn/schemas","react"],registryDependencies:category==="primitive"?[]:["button","card","badge"],security:formWorkflowSecurity[name]??toolWorkflowSecurity[name]??{modelVisible:category==="host-state"?[]:["decision","userInput"],privateOnly:["internalId","rawPII"],callsTools:category==="approval"||category==="tool-execution"?["configuredTool"]:[],destructive:category==="approval"}})));
+const fileReviewSecurity:Record<string,CatalogItem["security"]> = {
+  DocumentPreview: { modelVisible: ["id", "file.id", "file.revision", "state", "selectedPageId", "selectedSourceId"], privateOnly: ["title", "description", "file.name", "file.mimeType", "content.text", "content.value", "content.pages", "sources", "message"], callsTools: [], destructive: false },
+  FileReview: { modelVisible: ["id", "file.id", "file.revision", "extraction.id", "extraction.revision", "extraction.fileId", "extraction.fileRevision"], privateOnly: ["title", "description", "file.name", "file.mimeType", "preview", "extraction.fields", "extraction.fields.original", "extraction.fields.value", "extraction.fields.evidence", "drafts", "values"], callsTools: [], destructive: false },
+};
+export const catalog:CatalogItem[]=Object.entries(names).flatMap(([category,items])=>items.map(name=>({name,slug:slug(name),category:category as CatalogCategory,description:componentDescriptions[name]??`${descriptions[category as CatalogCategory]}: ${name}.`,specialized:specialized.has(name),dependencies:["@mcpcn/core","@mcpcn/schemas","react"],registryDependencies:category==="primitive"?[]:["button","card","badge"],security:fileReviewSecurity[name]??formWorkflowSecurity[name]??toolWorkflowSecurity[name]??{modelVisible:category==="host-state"?[]:["decision","userInput"],privateOnly:["internalId","rawPII"],callsTools:category==="approval"||category==="tool-execution"?["configuredTool"]:[],destructive:category==="approval"}})));
 
 export const blockCatalog = [
   ["review-before-action","Review a planned external-state change before executing it.",["approval-card","diff-viewer","audit-trail"]],

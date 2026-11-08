@@ -384,3 +384,21 @@ remain. The public delivery receipt links its bounded cleanup projection. New
 work must measure the current source baseline and declare its own finite bounds;
 this cohort's source count and scoped limits are historical, not a standing
 exception for later packets.
+## File review cohort — 2026-11-08
+
+Standing owner authorization covers the separate [file review contract](docs/specs/file-review-components.md)
+and [focused checks](docs/proposals/file-review-checks.md). Preserve baseline
+`0b4e2d9c6592914e731eb127364cb3583d59b873` and all closed packets. Specialize only
+DocumentPreview/FileReview with complete supplied text/JSON/raster pages and
+explicit scoped correction/save intent. Preserve79 identities; target33
+specialized/23 generic,22 source modules,26/27 payloads and80/105 installed files.
+Native FileUploadAndExtract ownership stays object identity and caller-owned.
+
+Only85 new literal product cases,12 new browser scenarios and2 fresh consumers
+belong to acceptance. The accepted12 process fixtures/helpers are separately
+declared unchanged infrastructure prerequisites; real shared MCPCN_FORMS
+root/nonce environment markers are compatible aliases for this new task only.
+Use MCPCN_FILES for the new ledger and preserve the helper's original proof.
+No local app/build/test/browser work while Storage Guard remains below reserve.
+Temporary free public CI and source/generated publication are authorized;
+acceptance/public delivery remain pending until the complete new packet passes.
