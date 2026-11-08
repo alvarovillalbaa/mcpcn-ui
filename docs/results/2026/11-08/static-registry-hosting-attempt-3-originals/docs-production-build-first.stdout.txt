@@ -1,0 +1,109 @@
+
+   • Packages in scope: @mcpcn/docs
+   • Running build in 1 packages
+   • Remote caching disabled
+
+@mcpcn/core:build: cache miss, executing 9f7890bc6ef9cd10
+@mcpcn/core:build: 
+@mcpcn/core:build: > @mcpcn/core@0.1.0 build /home/runner/work/_temp/mcpcn-hosting-KO69xM/source/packages/core
+@mcpcn/core:build: > tsc -p tsconfig.json
+@mcpcn/core:build: 
+@mcpcn/runtime:build: cache miss, executing 53076c2ff831284f
+@mcpcn/schemas:build: cache miss, executing b894671e94fafa01
+@mcpcn/runtime:build: 
+@mcpcn/runtime:build: > @mcpcn/runtime@0.1.0 build /home/runner/work/_temp/mcpcn-hosting-KO69xM/source/packages/runtime
+@mcpcn/runtime:build: > tsc -p tsconfig.json
+@mcpcn/runtime:build: 
+@mcpcn/schemas:build: 
+@mcpcn/schemas:build: > @mcpcn/schemas@0.1.0 build /home/runner/work/_temp/mcpcn-hosting-KO69xM/source/packages/schemas
+@mcpcn/schemas:build: > tsc -p tsconfig.json
+@mcpcn/schemas:build: 
+@mcpcn/react:build: cache miss, executing 910e08d83ce8073e
+@mcpcn/registry:build: cache miss, executing e2c002809b976c15
+@mcpcn/react:build: 
+@mcpcn/react:build: > @mcpcn/react@0.1.0 build /home/runner/work/_temp/mcpcn-hosting-KO69xM/source/packages/react
+@mcpcn/react:build: > tsc -p tsconfig.json && cp src/styles.css dist/styles.css
+@mcpcn/react:build: 
+@mcpcn/registry:build: 
+@mcpcn/registry:build: > @mcpcn/registry@0.1.0 build /home/runner/work/_temp/mcpcn-hosting-KO69xM/source/packages/registry
+@mcpcn/registry:build: > tsc -p tsconfig.json && node dist/bin.js build
+@mcpcn/registry:build: 
+@mcpcn/registry:build: Built 79 source registry items
+@mcpcn/playground:build: cache miss, executing 5d59fd13c2893066
+@mcpcn/playground:build: 
+@mcpcn/playground:build: > @mcpcn/playground@0.1.0 build /home/runner/work/_temp/mcpcn-hosting-KO69xM/source/apps/playground
+@mcpcn/playground:build: > vite build && node ../../tooling/stage-playground.mjs --manifest
+@mcpcn/playground:build: 
+@mcpcn/playground:build: vite v8.2.1 building client environment for production...
+@mcpcn/playground:build: [2K@mcpcn/playground:build: transforming...✓ 193 modules transformed.
+@mcpcn/playground:build: rendering chunks...
+@mcpcn/playground:build: computing gzip size...
+@mcpcn/playground:build: dist/frame.html                        0.51 kB │ gzip:   0.33 kB
+@mcpcn/playground:build: dist/index.html                        0.68 kB │ gzip:   0.45 kB
+@mcpcn/playground:build: dist/assets/index-ylmVxKY0.css         3.32 kB │ gzip:   1.16 kB
+@mcpcn/playground:build: dist/assets/frame-BCAh7JKd.css         7.31 kB │ gzip:   2.10 kB
+@mcpcn/playground:build: dist/assets/index-CWhdqbja.js         44.16 kB │ gzip:  12.81 kB
+@mcpcn/playground:build: dist/assets/frame-mseXV9PA.js        166.50 kB │ gzip:  37.06 kB
+@mcpcn/playground:build: dist/assets/jsx-runtime-5TLZpg5L.js  574.59 kB │ gzip: 153.31 kB
+@mcpcn/playground:build: 
+@mcpcn/playground:build: ✓ built in 172ms
+@mcpcn/playground:build: [plugin builtin:vite-reporter] 
+@mcpcn/playground:build: (!) Some chunks are larger than 500 kB after minification. Consider:
+@mcpcn/playground:build: - Using dynamic import() to code-split the application
+@mcpcn/playground:build: - Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+@mcpcn/playground:build: - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+@mcpcn/docs:build: cache miss, executing a0698c275ae9d8a1
+@mcpcn/docs:build: 
+@mcpcn/docs:build: > @mcpcn/docs@0.1.0 build /home/runner/work/_temp/mcpcn-hosting-KO69xM/source/apps/docs
+@mcpcn/docs:build: > node ../../tooling/stage-playground.mjs --target docs && node ../../tooling/stage-docs-registry.mjs && next build
+@mcpcn/docs:build: 
+@mcpcn/docs:build: {"schemaVersion":1,"kind":"mcpcn.docs.registry-static.stage.v1","status":"staged","source":{"path":"registry/registry.json","bytes":21357274,"sha256":"dea9330bc53e1d1269f598f8ba548b3717097ce429610f189d5e6ffb297f6c24"},"destination":"apps/docs/public/r","files":[{"path":"registry.json","bytes":21357274,"sha256":"dea9330bc53e1d1269f598f8ba548b3717097ce429610f189d5e6ffb297f6c24"},{"path":"registry-static-manifest.json","bytes":237,"sha256":"9f6701585bd86697cbe05ee7e24020e484f9bd1b423d3147b45e345b78172f52"}]}
+@mcpcn/docs:build: ▲ Next.js 16.3.0 (Turbopack)
+@mcpcn/docs:build: ✓ Running next.config.ts took 22ms
+@mcpcn/docs:build: ⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+@mcpcn/docs:build: - Experiments (use with caution):
+@mcpcn/docs:build:   · optimizePackageImports
+@mcpcn/docs:build: 
+@mcpcn/docs:build:   Creating an optimized production build ...
+@mcpcn/docs:build: ✓ Compiled successfully in 6.2s
+@mcpcn/docs:build:   Running TypeScript ...
+@mcpcn/docs:build:   Finished TypeScript in 4.1s ...
+@mcpcn/docs:build:   Collecting page data using 3 workers ...
+@mcpcn/docs:build:   Generating static pages using 3 workers (0/81) ...
+@mcpcn/docs:build:   Generating static pages using 3 workers (20/81) 
+@mcpcn/docs:build:   Generating static pages using 3 workers (40/81) 
+@mcpcn/docs:build:   Generating static pages using 3 workers (60/81) 
+@mcpcn/docs:build: ✓ Generating static pages using 3 workers (81/81) in 822ms
+@mcpcn/docs:build:   Finalizing page optimization ...
+@mcpcn/docs:build: 
+@mcpcn/docs:build: Route (app)
+@mcpcn/docs:build: ┌ ○ /
+@mcpcn/docs:build: ├ ○ /_not-found
+@mcpcn/docs:build: ├ ○ /blocks
+@mcpcn/docs:build: ├ ○ /components
+@mcpcn/docs:build: ├   /components/[slug]
+@mcpcn/docs:build: │ ├ ● /components/button
+@mcpcn/docs:build: │ ├ ● /components/card
+@mcpcn/docs:build: │ ├ ● /components/badge
+@mcpcn/docs:build: │ └ ● [+65 more paths]
+@mcpcn/docs:build: ├ ○ /create
+@mcpcn/docs:build: ├ ○ /docs
+@mcpcn/docs:build: ├ ○ /examples
+@mcpcn/docs:build: ├ ○ /icon.svg
+@mcpcn/docs:build: ├ ƒ /llms-full.txt
+@mcpcn/docs:build: ├ ƒ /llms.txt
+@mcpcn/docs:build: ├ ○ /playground
+@mcpcn/docs:build: ├ ƒ /r/[name]
+@mcpcn/docs:build: └ ƒ /schema/config.json
+@mcpcn/docs:build: 
+@mcpcn/docs:build: 
+@mcpcn/docs:build: ○  (Static)   prerendered as static content
+@mcpcn/docs:build: ●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+@mcpcn/docs:build: ƒ  (Dynamic)  server-rendered on demand
+@mcpcn/docs:build: 
+
+  Tasks:    7 successful, 7 total
+ Cached:    0 cached, 7 total
+   Time:    21.782s 
+Summary:    /home/runner/work/_temp/mcpcn-hosting-KO69xM/source/.turbo/runs/3LqF3ErFdZiPx5cV7o7GoMjeY4G.json
+

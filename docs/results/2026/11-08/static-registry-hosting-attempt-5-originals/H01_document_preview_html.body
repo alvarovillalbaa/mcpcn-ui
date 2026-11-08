@@ -1,0 +1,613 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/_next/static/chunks/3t2vtugqgb105.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/3yh5jaalv1u8v.js"/><script src="/_next/static/chunks/22lgiphrawvbj.js" async=""></script><script src="/_next/static/chunks/1fx8wyr62n54x.js" async=""></script><script src="/_next/static/chunks/1cu4dap_usbwa.js" async=""></script><script src="/_next/static/chunks/turbopack-20368txdglzwk.js" async=""></script><script src="/_next/static/chunks/332uslzbhf388.js" async="" crossorigin=""></script><script src="/_next/static/chunks/0pm-zemb86dsc.js" async="" crossorigin=""></script><script src="/_next/static/chunks/0j025_waacoq-.js" async="" crossorigin=""></script><script src="/_next/static/chunks/1oixx7gea3izf.js" async="" crossorigin=""></script><title>MCPCN — MCP Component Network</title><meta name="description" content="React components and workflow blocks for human-controlled MCP Apps."/><link rel="icon" href="/icon.svg?icon.2_h8rghwmeofm.svg" sizes="any" type="image/svg+xml"/><script src="/_next/static/chunks/0cz1d0mv5g_q7.js" noModule=""></script></head><body><div hidden=""><!--$--><!--/$--></div><header class="site-nav"><a class="brand" href="/"><span class="brand-mark">M</span>MCPCN</a><nav><a href="/docs">Docs</a><a href="/components">Components</a><a href="/blocks">Blocks</a><a href="/examples">Examples</a><a href="/playground">Playground</a></nav><div class="nav-actions"><a class="button secondary" href="/create">Create</a><a href="https://github.com/alvarovillalbaa/mcpcn-ui" class="button">GitHub</a></div></header><main><span class="eyebrow">data-review</span><h1>DocumentPreview</h1><p class="lede">Inspect complete supplied text, JSON or ordered raster/text pages without reading or uploading a file.</p><div class="filter-row"><span class="pill">Domain component</span><span class="pill">React</span><span class="pill">Validated data</span></div><section class="preview-shell" aria-label="DocumentPreview preview"><div class="mcpcn-stack"><label class="mcpcn-label">Preview theme<select aria-label="Preview theme"><option value="light" selected="">Light</option><option value="dark">Dark</option></select></label><div data-preview-theme="light"><div class="mcpcn-stack"><label class="mcpcn-label">Consumer response<select aria-label="Consumer response"><option value="immediate" selected="">Immediate</option><option value="delayed">Delayed</option><option value="reject">Reject</option></select></label><section class="mcpcn mcpcn-card mcpcn-file-root" role="region" aria-label="Inspect the supplied document" aria-busy="false"><header class="mcpcn-header"><h3 class="mcpcn-title">Inspect the supplied document</h3></header><div class="mcpcn-body mcpcn-stack"><dl class="mcpcn-file-details" aria-label="Reported file details"><div><dt>File name</dt><dd>Authored invoice.txt</dd></div><div><dt>File ID</dt><dd>authored-file-1</dd></div><div><dt>Revision</dt><dd>1</dd></div><div><dt>Reported bytes</dt><dd>62</dd></div><div><dt>MIME hint</dt><dd>text/plain</dd></div></dl><p class="mcpcn-hint">This supplied representation does not verify the original file.</p><nav class="mcpcn-row" aria-label="Document page navigation"><button class="mcpcn mcpcn-button" type="button" data-variant="secondary" disabled="">Previous page</button><label class="mcpcn-label">Document page<select class="mcpcn mcpcn-input" aria-label="Document page"><option value="page-1" selected="">Invoice</option><option value="page-2">Review note</option></select></label><button class="mcpcn mcpcn-button" type="button" data-variant="secondary">Next page</button><output role="status" aria-live="polite">Page <!-- -->1<!-- --> of <!-- -->2</output></nav><div id="_R_2mav5ubtb_" class="mcpcn-file-viewport" role="region" aria-label="Document content" tabindex="0"><article aria-label="Invoice"><h4>Invoice</h4><pre class="mcpcn-file-text">Authored invoice
+Supplier: Acme Labs
+Total: EUR 48.20
+Page one ends here.</pre></article></div><section aria-label="Document sources"><h4>Sources</h4><ol class="mcpcn-stack"><li><button class="mcpcn mcpcn-button" type="button" data-variant="secondary" aria-label="Select source: Supplier source" aria-pressed="false" aria-controls="_R_2mav5ubtb_">Supplier source</button><p class="mcpcn-hint">Page: <!-- -->Invoice</p><blockquote class="mcpcn-file-text">Supplier: Acme Labs</blockquote></li><li><button class="mcpcn mcpcn-button" type="button" data-variant="secondary" aria-label="Select source: Payment terms source" aria-pressed="false" aria-controls="_R_2mav5ubtb_">Payment terms source</button><p class="mcpcn-hint">Page: <!-- -->Review note</p><blockquote class="mcpcn-file-text">Payment terms: 30 days</blockquote></li></ol></section></div></section><div class="filter-row"><button type="button" class="button secondary">Append unrelated page</button><button type="button" class="button secondary">Replace file revision</button></div><p class="mcpcn-hint">Authored representations and local consumer feedback only. The component does not read files, extract data or save records. Matching IDs do not verify original bytes.</p><p>File review intents: <output aria-label="File review intent count">0</output> · Settled: <output aria-label="Settled callback count">0</output></p><pre class="code" aria-label="Last file review intent">null</pre></div></div></div></section><section class="section prose"><h2>Install</h2><pre class="code">pnpm dlx mcpcn add <!-- -->document-preview</pre><p>Public npm availability is a separate release gate. The repository documentation records the currently verified source, archives and hosting profile.</p><h2>Data props</h2><p>These fields come from the actual exported schema. Defaults may be omitted on input; the schema below describes validated output. Runtime checks also validate identities, conditional values and safe evidence links.</p><div class="mcpcn-table-wrap"><table class="mcpcn-table"><caption>DocumentPreview<!-- --> data fields</caption><thead><tr><th>Field</th><th>Type</th><th>Input</th></tr></thead><tbody><tr><th scope="row"><code>id</code></th><td>string</td><td>Required</td></tr><tr><th scope="row"><code>title</code></th><td>string</td><td>Required</td></tr><tr><th scope="row"><code>description</code></th><td>string</td><td>Optional</td></tr><tr><th scope="row"><code>file</code></th><td>object</td><td>Required</td></tr><tr><th scope="row"><code>state</code></th><td>string</td><td>Required</td></tr><tr><th scope="row"><code>content</code></th><td>union</td><td>Optional</td></tr><tr><th scope="row"><code>message</code></th><td>string</td><td>Optional</td></tr><tr><th scope="row"><code>sources</code></th><td>array</td><td>Defaulted</td></tr><tr><th scope="row"><code>selectedPageId</code></th><td>string</td><td>Optional</td></tr><tr><th scope="row"><code>selectedSourceId</code></th><td>string</td><td>Optional</td></tr></tbody></table></div><h2>React integration</h2><pre class="code">&quot;use client&quot;;
+import { useState } from &quot;react&quot;;
+import { DocumentPreview, type ComponentAction } from &quot;@mcpcn/react&quot;;
+import type { DocumentPreviewData } from &quot;@mcpcn/schemas&quot;;
+
+export function Example() {
+  const [data] = useState&lt;DocumentPreviewData&gt;({
+  &quot;id&quot;: &quot;authored-preview-1&quot;,
+  &quot;title&quot;: &quot;Inspect the supplied document&quot;,
+  &quot;file&quot;: {
+    &quot;id&quot;: &quot;authored-file-1&quot;,
+    &quot;revision&quot;: &quot;1&quot;,
+    &quot;name&quot;: &quot;Authored invoice.txt&quot;,
+    &quot;bytes&quot;: 62,
+    &quot;mimeType&quot;: &quot;text/plain&quot;
+  },
+  &quot;state&quot;: &quot;ready&quot;,
+  &quot;content&quot;: {
+    &quot;type&quot;: &quot;pages&quot;,
+    &quot;pages&quot;: [
+      {
+        &quot;id&quot;: &quot;page-1&quot;,
+        &quot;label&quot;: &quot;Invoice&quot;,
+        &quot;text&quot;: &quot;Authored invoice\nSupplier: Acme Labs\nTotal: EUR 48.20\nPage one ends here.&quot;
+      },
+      {
+        &quot;id&quot;: &quot;page-2&quot;,
+        &quot;label&quot;: &quot;Review note&quot;,
+        &quot;text&quot;: &quot;Authored appendix\nPayment terms: 30 days\nFinal authored line.&quot;
+      }
+    ]
+  },
+  &quot;sources&quot;: [
+    {
+      &quot;id&quot;: &quot;supplier-source&quot;,
+      &quot;label&quot;: &quot;Supplier source&quot;,
+      &quot;text&quot;: &quot;Supplier: Acme Labs&quot;,
+      &quot;pageId&quot;: &quot;page-1&quot;
+    },
+    {
+      &quot;id&quot;: &quot;terms-source&quot;,
+      &quot;label&quot;: &quot;Payment terms source&quot;,
+      &quot;text&quot;: &quot;Payment terms: 30 days&quot;,
+      &quot;pageId&quot;: &quot;page-2&quot;
+    }
+  ]
+});
+  const [last, setLast] = useState&lt;ComponentAction | null&gt;(null);
+  const handleAction = (action: ComponentAction) =&gt; {
+    setLast(action);
+  };
+  return &lt;&gt;
+    &lt;DocumentPreview {...data} onAction={handleAction} /&gt;
+    &lt;pre aria-label=&quot;Last file review intent&quot;&gt;{JSON.stringify(last, null, 2)}&lt;/pre&gt;
+  &lt;/&gt;;
+}</pre><h2>Supplied representations</h2><p>Inspect complete text, bounded JSON or up to twenty ordered pages containing text, PNG, JPEG or WebP data. The consumer owns reading, conversion, extraction and persistence. Supplied pages and reported confidence do not verify original file bytes or extraction accuracy.</p><p>Only the selected raster page is mounted. Native page/source controls and fit/zoom support inspection; HTML, SVG, arbitrary image URLs and PDF embeds are not rendered. Header validation is bounded; a browser decode error remains visible beside supplied text.</p><p>The native DTO budget is 2 MiB of UTF-8 JSON: text is at most 65536 UTF-16 units per page, each image at most 256 KiB decoded, images collectively at most 1 MiB, dimensions at most 4096 per side and 8 million pixels. JSON retains its existing descriptor-safe bounds. The playground editor has a smaller limit: 8192 units per string and 65536 UTF-8 bytes per result.</p><p>View intents carry identity only. Corrections and save intents deliberately contain reviewed private values. PrivateOnly catalogue metadata does not redact content already passed to a model. Keep private documents in app-only state and publish model context explicitly.</p><p><code>className</code> styles the surface and <code>onAction</code> receives consumer-owned intent. The new domain controls and revised approval/form surfaces expose <code>busy</code> and <code>error</code> feedback. Controlled selections and answers must be acknowledged by updating their props.</p><h2>Events</h2><div class="mcpcn-table-wrap"><table class="mcpcn-table"><caption>DocumentPreview<!-- --> action payloads</caption><thead><tr><th>Action type</th><th>Data</th></tr></thead><tbody><tr><th scope="row"><code>document-page-change</code></th><td><code>{ previewId, fileId, fileRevision, pageId }</code></td></tr><tr><th scope="row"><code>document-source-change</code></th><td><code>{ previewId, fileId, fileRevision, sourceId, pageId?; no content }</code></td></tr></tbody></table></div><h2>JSON Schema</h2><pre class="code" aria-label="DocumentPreview JSON Schema">{
+  &quot;$schema&quot;: &quot;https://json-schema.org/draft/2020-12/schema&quot;,
+  &quot;oneOf&quot;: [
+    {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;minLength&quot;: 1,
+          &quot;maxLength&quot;: 128
+        },
+        &quot;title&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;maxLength&quot;: 240
+        },
+        &quot;description&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;maxLength&quot;: 2000
+        },
+        &quot;file&quot;: {
+          &quot;type&quot;: &quot;object&quot;,
+          &quot;properties&quot;: {
+            &quot;id&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;minLength&quot;: 1,
+              &quot;maxLength&quot;: 128
+            },
+            &quot;revision&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;minLength&quot;: 1,
+              &quot;maxLength&quot;: 128
+            },
+            &quot;name&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;maxLength&quot;: 500
+            },
+            &quot;bytes&quot;: {
+              &quot;type&quot;: &quot;integer&quot;,
+              &quot;minimum&quot;: 0,
+              &quot;maximum&quot;: 9007199254740991
+            },
+            &quot;mimeType&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;maxLength&quot;: 120
+            }
+          },
+          &quot;required&quot;: [
+            &quot;id&quot;,
+            &quot;revision&quot;,
+            &quot;name&quot;,
+            &quot;bytes&quot;
+          ],
+          &quot;additionalProperties&quot;: false
+        },
+        &quot;state&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;const&quot;: &quot;ready&quot;
+        },
+        &quot;content&quot;: {
+          &quot;oneOf&quot;: [
+            {
+              &quot;type&quot;: &quot;object&quot;,
+              &quot;properties&quot;: {
+                &quot;type&quot;: {
+                  &quot;type&quot;: &quot;string&quot;,
+                  &quot;const&quot;: &quot;text&quot;
+                },
+                &quot;text&quot;: {
+                  &quot;type&quot;: &quot;string&quot;,
+                  &quot;maxLength&quot;: 65536
+                }
+              },
+              &quot;required&quot;: [
+                &quot;type&quot;,
+                &quot;text&quot;
+              ],
+              &quot;additionalProperties&quot;: false
+            },
+            {
+              &quot;type&quot;: &quot;object&quot;,
+              &quot;properties&quot;: {
+                &quot;type&quot;: {
+                  &quot;type&quot;: &quot;string&quot;,
+                  &quot;const&quot;: &quot;json&quot;
+                },
+                &quot;value&quot;: {
+                  &quot;$ref&quot;: &quot;#/$defs/__schema0&quot;
+                }
+              },
+              &quot;required&quot;: [
+                &quot;type&quot;,
+                &quot;value&quot;
+              ],
+              &quot;additionalProperties&quot;: false
+            },
+            {
+              &quot;type&quot;: &quot;object&quot;,
+              &quot;properties&quot;: {
+                &quot;type&quot;: {
+                  &quot;type&quot;: &quot;string&quot;,
+                  &quot;const&quot;: &quot;pages&quot;
+                },
+                &quot;pages&quot;: {
+                  &quot;minItems&quot;: 1,
+                  &quot;maxItems&quot;: 20,
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;type&quot;: &quot;object&quot;,
+                    &quot;properties&quot;: {
+                      &quot;id&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;minLength&quot;: 1,
+                        &quot;maxLength&quot;: 128
+                      },
+                      &quot;label&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;maxLength&quot;: 500
+                      },
+                      &quot;text&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;maxLength&quot;: 65536
+                      },
+                      &quot;image&quot;: {
+                        &quot;type&quot;: &quot;object&quot;,
+                        &quot;properties&quot;: {
+                          &quot;mimeType&quot;: {
+                            &quot;type&quot;: &quot;string&quot;,
+                            &quot;enum&quot;: [
+                              &quot;image/png&quot;,
+                              &quot;image/jpeg&quot;,
+                              &quot;image/webp&quot;
+                            ]
+                          },
+                          &quot;base64&quot;: {
+                            &quot;type&quot;: &quot;string&quot;,
+                            &quot;minLength&quot;: 1,
+                            &quot;maxLength&quot;: 349528
+                          },
+                          &quot;width&quot;: {
+                            &quot;type&quot;: &quot;integer&quot;,
+                            &quot;minimum&quot;: 1,
+                            &quot;maximum&quot;: 4096
+                          },
+                          &quot;height&quot;: {
+                            &quot;type&quot;: &quot;integer&quot;,
+                            &quot;minimum&quot;: 1,
+                            &quot;maximum&quot;: 4096
+                          },
+                          &quot;alt&quot;: {
+                            &quot;type&quot;: &quot;string&quot;,
+                            &quot;maxLength&quot;: 2000
+                          }
+                        },
+                        &quot;required&quot;: [
+                          &quot;mimeType&quot;,
+                          &quot;base64&quot;,
+                          &quot;width&quot;,
+                          &quot;height&quot;,
+                          &quot;alt&quot;
+                        ],
+                        &quot;additionalProperties&quot;: false,
+                        &quot;description&quot;: &quot;Canonical bounded raster bytes with matching header dimensions. Header checks do not prove complete image decoding, original-file fidelity or extraction accuracy; animation declarations are not a decoding guarantee.&quot;
+                      }
+                    },
+                    &quot;required&quot;: [
+                      &quot;id&quot;,
+                      &quot;label&quot;
+                    ],
+                    &quot;additionalProperties&quot;: false
+                  }
+                }
+              },
+              &quot;required&quot;: [
+                &quot;type&quot;,
+                &quot;pages&quot;
+              ],
+              &quot;additionalProperties&quot;: false
+            }
+          ]
+        },
+        &quot;message&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;maxLength&quot;: 2000
+        },
+        &quot;sources&quot;: {
+          &quot;default&quot;: [],
+          &quot;maxItems&quot;: 20,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;object&quot;,
+            &quot;properties&quot;: {
+              &quot;id&quot;: {
+                &quot;type&quot;: &quot;string&quot;,
+                &quot;minLength&quot;: 1,
+                &quot;maxLength&quot;: 128
+              },
+              &quot;label&quot;: {
+                &quot;type&quot;: &quot;string&quot;,
+                &quot;maxLength&quot;: 500
+              },
+              &quot;text&quot;: {
+                &quot;type&quot;: &quot;string&quot;,
+                &quot;maxLength&quot;: 4000
+              },
+              &quot;pageId&quot;: {
+                &quot;type&quot;: &quot;string&quot;,
+                &quot;minLength&quot;: 1,
+                &quot;maxLength&quot;: 128
+              }
+            },
+            &quot;required&quot;: [
+              &quot;id&quot;,
+              &quot;label&quot;,
+              &quot;text&quot;
+            ],
+            &quot;additionalProperties&quot;: false
+          }
+        },
+        &quot;selectedPageId&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;minLength&quot;: 1,
+          &quot;maxLength&quot;: 128
+        },
+        &quot;selectedSourceId&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;minLength&quot;: 1,
+          &quot;maxLength&quot;: 128
+        }
+      },
+      &quot;required&quot;: [
+        &quot;id&quot;,
+        &quot;title&quot;,
+        &quot;file&quot;,
+        &quot;state&quot;,
+        &quot;content&quot;,
+        &quot;sources&quot;
+      ],
+      &quot;additionalProperties&quot;: false
+    },
+    {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;minLength&quot;: 1,
+          &quot;maxLength&quot;: 128
+        },
+        &quot;title&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;maxLength&quot;: 240
+        },
+        &quot;description&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;maxLength&quot;: 2000
+        },
+        &quot;file&quot;: {
+          &quot;type&quot;: &quot;object&quot;,
+          &quot;properties&quot;: {
+            &quot;id&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;minLength&quot;: 1,
+              &quot;maxLength&quot;: 128
+            },
+            &quot;revision&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;minLength&quot;: 1,
+              &quot;maxLength&quot;: 128
+            },
+            &quot;name&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;maxLength&quot;: 500
+            },
+            &quot;bytes&quot;: {
+              &quot;type&quot;: &quot;integer&quot;,
+              &quot;minimum&quot;: 0,
+              &quot;maximum&quot;: 9007199254740991
+            },
+            &quot;mimeType&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;maxLength&quot;: 120
+            }
+          },
+          &quot;required&quot;: [
+            &quot;id&quot;,
+            &quot;revision&quot;,
+            &quot;name&quot;,
+            &quot;bytes&quot;
+          ],
+          &quot;additionalProperties&quot;: false
+        },
+        &quot;state&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;const&quot;: &quot;loading&quot;
+        },
+        &quot;message&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;maxLength&quot;: 2000
+        }
+      },
+      &quot;required&quot;: [
+        &quot;id&quot;,
+        &quot;title&quot;,
+        &quot;file&quot;,
+        &quot;state&quot;
+      ],
+      &quot;additionalProperties&quot;: false
+    },
+    {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;minLength&quot;: 1,
+          &quot;maxLength&quot;: 128
+        },
+        &quot;title&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;maxLength&quot;: 240
+        },
+        &quot;description&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;maxLength&quot;: 2000
+        },
+        &quot;file&quot;: {
+          &quot;type&quot;: &quot;object&quot;,
+          &quot;properties&quot;: {
+            &quot;id&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;minLength&quot;: 1,
+              &quot;maxLength&quot;: 128
+            },
+            &quot;revision&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;minLength&quot;: 1,
+              &quot;maxLength&quot;: 128
+            },
+            &quot;name&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;maxLength&quot;: 500
+            },
+            &quot;bytes&quot;: {
+              &quot;type&quot;: &quot;integer&quot;,
+              &quot;minimum&quot;: 0,
+              &quot;maximum&quot;: 9007199254740991
+            },
+            &quot;mimeType&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;maxLength&quot;: 120
+            }
+          },
+          &quot;required&quot;: [
+            &quot;id&quot;,
+            &quot;revision&quot;,
+            &quot;name&quot;,
+            &quot;bytes&quot;
+          ],
+          &quot;additionalProperties&quot;: false
+        },
+        &quot;state&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;const&quot;: &quot;empty&quot;
+        },
+        &quot;message&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;maxLength&quot;: 2000
+        }
+      },
+      &quot;required&quot;: [
+        &quot;id&quot;,
+        &quot;title&quot;,
+        &quot;file&quot;,
+        &quot;state&quot;
+      ],
+      &quot;additionalProperties&quot;: false
+    },
+    {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;minLength&quot;: 1,
+          &quot;maxLength&quot;: 128
+        },
+        &quot;title&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;maxLength&quot;: 240
+        },
+        &quot;description&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;maxLength&quot;: 2000
+        },
+        &quot;file&quot;: {
+          &quot;type&quot;: &quot;object&quot;,
+          &quot;properties&quot;: {
+            &quot;id&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;minLength&quot;: 1,
+              &quot;maxLength&quot;: 128
+            },
+            &quot;revision&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;minLength&quot;: 1,
+              &quot;maxLength&quot;: 128
+            },
+            &quot;name&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;maxLength&quot;: 500
+            },
+            &quot;bytes&quot;: {
+              &quot;type&quot;: &quot;integer&quot;,
+              &quot;minimum&quot;: 0,
+              &quot;maximum&quot;: 9007199254740991
+            },
+            &quot;mimeType&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;maxLength&quot;: 120
+            }
+          },
+          &quot;required&quot;: [
+            &quot;id&quot;,
+            &quot;revision&quot;,
+            &quot;name&quot;,
+            &quot;bytes&quot;
+          ],
+          &quot;additionalProperties&quot;: false
+        },
+        &quot;state&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;const&quot;: &quot;error&quot;
+        },
+        &quot;message&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;maxLength&quot;: 2000
+        }
+      },
+      &quot;required&quot;: [
+        &quot;id&quot;,
+        &quot;title&quot;,
+        &quot;file&quot;,
+        &quot;state&quot;,
+        &quot;message&quot;
+      ],
+      &quot;additionalProperties&quot;: false
+    },
+    {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;minLength&quot;: 1,
+          &quot;maxLength&quot;: 128
+        },
+        &quot;title&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;maxLength&quot;: 240
+        },
+        &quot;description&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;maxLength&quot;: 2000
+        },
+        &quot;file&quot;: {
+          &quot;type&quot;: &quot;object&quot;,
+          &quot;properties&quot;: {
+            &quot;id&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;minLength&quot;: 1,
+              &quot;maxLength&quot;: 128
+            },
+            &quot;revision&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;minLength&quot;: 1,
+              &quot;maxLength&quot;: 128
+            },
+            &quot;name&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;maxLength&quot;: 500
+            },
+            &quot;bytes&quot;: {
+              &quot;type&quot;: &quot;integer&quot;,
+              &quot;minimum&quot;: 0,
+              &quot;maximum&quot;: 9007199254740991
+            },
+            &quot;mimeType&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;maxLength&quot;: 120
+            }
+          },
+          &quot;required&quot;: [
+            &quot;id&quot;,
+            &quot;revision&quot;,
+            &quot;name&quot;,
+            &quot;bytes&quot;
+          ],
+          &quot;additionalProperties&quot;: false
+        },
+        &quot;state&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;const&quot;: &quot;unsupported&quot;
+        },
+        &quot;message&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;maxLength&quot;: 2000
+        }
+      },
+      &quot;required&quot;: [
+        &quot;id&quot;,
+        &quot;title&quot;,
+        &quot;file&quot;,
+        &quot;state&quot;,
+        &quot;message&quot;
+      ],
+      &quot;additionalProperties&quot;: false
+    }
+  ],
+  &quot;description&quot;: &quot;Strict consumer-supplied document representations and current page/source references, at most 2 MiB parsed UTF-8 JSON. Ready content is not proof of original bytes.&quot;,
+  &quot;$defs&quot;: {
+    &quot;__schema0&quot;: {
+      &quot;anyOf&quot;: [
+        {
+          &quot;type&quot;: &quot;null&quot;
+        },
+        {
+          &quot;type&quot;: &quot;boolean&quot;
+        },
+        {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        {
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/$defs/__schema0&quot;
+          }
+        },
+        {
+          &quot;type&quot;: &quot;object&quot;,
+          &quot;propertyNames&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          },
+          &quot;additionalProperties&quot;: {
+            &quot;$ref&quot;: &quot;#/$defs/__schema0&quot;
+          }
+        }
+      ]
+    }
+  }
+}</pre><h2>Structured tool result</h2><pre class="code">import { DocumentPreviewSchema } from &quot;@mcpcn/schemas&quot;;
+import { createStructuredResult } from &quot;@mcpcn/server&quot;;
+
+export function reviewedResult(candidate: unknown) {
+  const data = DocumentPreviewSchema.parse(candidate);
+  return createStructuredResult(&quot;document-preview&quot;, data);
+}</pre><h2>Security contract</h2><p>Previews use authored data and consumer callbacks. Applications own authorization, persistence, tool execution and explicit model-context publication.</p><p><strong>Declared model-visible fields:</strong> <!-- -->id, file.id, file.revision, state, selectedPageId, selectedSourceId</p><p><strong>Private fields:</strong> <!-- -->title, description, file.name, file.mimeType, content.text, content.value, content.pages, sources, message</p><p><strong>Declared consumer tool intents:</strong> <!-- -->None</p><p><strong>Destructive intent:</strong> <!-- -->No by default</p><h2>Host and keyboard behavior</h2><p>Host integration uses the consuming application&#x27;s runtime provider. Native inputs, buttons, links and semantic tables expose the local interactions shown above. External-host compatibility and full accessibility conformance require their own acceptance evidence.</p></section></main><!--$--><!--/$--><footer><div><strong>MCPCN</strong><p>Human control for agentic apps.</p></div><div><a href="/llms.txt">llms.txt</a><a href="https://github.com/alvarovillalbaa/mcpcn-ui">GitHub</a><a href="https://github.com/alvarovillalbaa/mcpcn-ui/blob/main/SECURITY.md">Security</a></div></footer><script src="/_next/static/chunks/3yh5jaalv1u8v.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[14058,[\"/_next/static/chunks/332uslzbhf388.js\"],\"\"]\n3:I[43820,[\"/_next/static/chunks/332uslzbhf388.js\"],\"default\"]\n4:I[98737,[\"/_next/static/chunks/332uslzbhf388.js\"],\"default\"]\n6:I[69110,[\"/_next/static/chunks/332uslzbhf388.js\"],\"OutletBoundary\"]\n7:\"$Sreact.suspense\"\na:I[69110,[\"/_next/static/chunks/332uslzbhf388.js\"],\"ViewportBoundary\"]\nc:I[69110,[\"/_next/static/chunks/332uslzbhf388.js\"],\"MetadataBoundary\"]\ne:I[98025,[\"/_next/static/chunks/332uslzbhf388.js\"],\"default\",1]\n:HL[\"/_next/static/chunks/3t2vtugqgb105.css\",\"style\"]\n9:X\n0:{\"P\":null,\"c\":[\"\",\"components\",\"document-preview\"],\"q\":\"\",\"i\":false,\"f\":[[[\"\",{\"children\":[\"components\",{\"children\":[[\"slug\",\"document-preview\",\"d\",[]],{\"children\":[\"__PAGE__\",{},\"$undefined\",\"$undefined\",4608]},\"$undefined\",\"$undefined\",4608]},\"$undefined\",\"$undefined\",4608]},\"$undefined\",\"$undefined\",4624],[[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/3t2vtugqgb105.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/332uslzbhf388.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"children\":[[\"$\",\"header\",null,{\"className\":\"site-nav\",\"children\":[[\"$\",\"$L2\",null,{\"href\":\"/\",\"className\":\"brand\",\"children\":[[\"$\",\"span\",null,{\"className\":\"brand-mark\",\"children\":\"M\"}],\"MCPCN\"]}],[\"$\",\"nav\",null,{\"children\":[[\"$\",\"$L2\",\"/docs\",{\"href\":\"/docs\",\"children\":\"Docs\"}],[\"$\",\"$L2\",\"/components\",{\"href\":\"/components\",\"children\":\"Components\"}],[\"$\",\"$L2\",\"/blocks\",{\"href\":\"/blocks\",\"children\":\"Blocks\"}],[\"$\",\"$L2\",\"/examples\",{\"href\":\"/examples\",\"children\":\"Examples\"}],[\"$\",\"$L2\",\"/playground\",{\"href\":\"/playground\",\"children\":\"Playground\"}]]}],[\"$\",\"div\",null,{\"className\":\"nav-actions\",\"children\":[[\"$\",\"$L2\",null,{\"href\":\"/create\",\"className\":\"button secondary\",\"children\":\"Create\"}],[\"$\",\"a\",null,{\"href\":\"https://github.com/alvarovillalbaa/mcpcn-ui\",\"className\":\"button\",\"children\":\"GitHub\"}]]}]]}],[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}],[\"$\",\"footer\",null,{\"children\":[[\"$\",\"div\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"MCPCN\"}],[\"$\",\"p\",null,{\"children\":\"Human control for agentic apps.\"}]]}],[\"$\",\"div\",null,{\"children\":[[\"$\",\"a\",null,{\"href\":\"/llms.txt\",\"children\":\"llms.txt\"}],[\"$\",\"a\",null,{\"href\":\"https://github.com/alvarovillalbaa/mcpcn-ui\",\"children\":\"GitHub\"}],[\"$\",\"a\",null,{\"href\":\"https://github.com/alvarovillalbaa/mcpcn-ui/blob/main/SECURITY.md\",\"children\":\"Security\"}]]}]]}]]}]}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[\"$L5\",[[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/0pm-zemb86dsc.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/_next/static/chunks/0j025_waacoq-.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-2\",{\"src\":\"/_next/static/chunks/1oixx7gea3izf.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"$L6\",null,{\"children\":[\"$\",\"$7\",null,{\"name\":\"Next.MetadataOutlet\",\"children\":\"$@8\"}]}]]}],{},null,false,null]},null,false,\"$9\"]},null,false,\"$9\"]},null,false,null],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$La\",null,{\"children\":\"$Lb\"}],[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$Lc\",null,{\"children\":[\"$\",\"$7\",null,{\"name\":\"Next.Metadata\",\"children\":\"$Ld\"}]}]}],null]}],false]],\"m\":\"$undefined\",\"G\":[\"$e\",[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/3t2vtugqgb105.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]]],\"S\":true,\"h\":null,\"r\":\"$undefined\",\"s\":\"$undefined\",\"a\":\"$undefined\",\"l\":\"$undefined\",\"p\":\"$undefined\",\"d\":\"$undefined\",\"b\":\"12dnPvF9fVNKIFrKdP0Bx\"}\nf:I[17509,[\"/_next/static/chunks/332uslzbhf388.js\",\"/_next/static/chunks/0pm-zemb86dsc.js\",\"/_next/static/chunks/0j025_waacoq-.js\",\"/_next/static/chunks/1oixx7gea3izf.js\"],\"ComponentPreview\"]\n10:I[11863,[\"/_next/static/chunks/332uslzbhf388.js\",\"/_next/static/chunks/0pm-zemb86dsc.js\",\"/_next/static/chunks/0j025_waacoq-.js\",\"/_next/static/chunks/1oixx7gea3izf.js\"],\"DocumentPreviewDemo\"]\n9:C\n11:T5d5,\"use client\";\nimport { useState } from \"react\";\nimport { DocumentPreview, type ComponentAction } from \"@mcpcn/react\";\nimport type { DocumentPreviewData } from \"@mcpcn/schemas\";\n\nexport function Example() {\n  const [data] = useState\u003cDocumentPreviewData\u003e({\n  \"id\": \"authored-preview-1\",\n  \"title\": \"Inspect the supplied document\",\n  \"file\": {\n    \"id\": \"authored-file-1\",\n    \"revision\": \"1\",\n    \"name\": \"Authored invoice.txt\",\n    \"bytes\": 62,\n    \"mimeType\": \"text/plain\"\n  },\n  \"state\": \"ready\",\n  \"content\": {\n    \"type\": \"pages\",\n    \"pages\": [\n      {\n        \"id\": \"page-1\",\n        \"label\": \"Invoice\",\n        \"text\": \"Authored invoice\\nSupplier: Acme Labs\\nTotal: EUR 48.20\\nPage one ends here.\"\n      },\n      {\n        \"id\": \"page-2\",\n        \"label\": \"Review note\",\n        \"text\": \"Authored appendix\\nPayment terms: 30 days\\nFinal authored line.\"\n      }\n    ]\n  },\n  \"sources\": [\n    {\n      \"id\": \"supplier-source\",\n      \"label\": \"Supplier source\",\n      \"text\": \"Supplier: Acme Labs\",\n      \"pageId\": \"page-1\"\n    },\n    {\n      \"id\": \"terms-source\",\n      \"label\": \"Payment terms source\",\n      \"text\": \"Payment terms: 30 days\",\n      \"pageId\": \"page-2\"\n    }\n  ]\n});\n  const [last, setLast] = useState\u003cComponentAction | null\u003e(null);\n  const handleAction = (action: ComponentAction) =\u003e {\n    setLast(action);\n  };\n  return \u003c\u003e\n    \u003cDocumentPreview {...data} onAction={handleAction} /\u003e\n    \u003cpre aria-label=\"Last file review intent\"\u003e{JSON.stringify(last, null, 2)}\u003c/pre\u003e\n  \u003c/\u003e;\n}5:[\"$\",\"main\",null,{\"children\":[[\"$\",\"span\",null,{\"className\":\"eyebrow\",\"children\":\"data-review\"}],[\"$\",\"h1\",null,{\"children\":\"DocumentPreview\"}],[\"$\",\"p\",null,{\"className\":\"lede\",\"children\":\"Inspect complete supplied text, JSON or ordered raster/text pages without reading or uploading a file.\"}],[\"$\",\"div\",null,{\"className\":\"filter-row\",\"children\":[[\"$\",\"span\",null,{\"className\":\"pill\",\"children\":\"Domain component\"}],[\"$\",\"span\",null,{\"className\":\"pill\",\"children\":\"React\"}],[\"$\",\"span\",null,{\"className\":\"pill\",\"children\":\"Validated data\"}]]}],false,[\"$\",\"section\",null,{\"className\":\"preview-shell\",\"aria-label\":\"DocumentPreview preview\",\"children\":[\"$\",\"$Lf\",null,{\"children\":[\"$\",\"$L10\",null,{}]}]}],[\"$\",\"section\",null,{\"className\":\"section prose\",\"children\":[[\"$\",\"h2\",null,{\"children\":\"Install\"}],[\"$\",\"pre\",null,{\"className\":\"code\",\"children\":[\"pnpm dlx mcpcn add \",\"document-preview\"]}],[\"$\",\"p\",null,{\"children\":\"Public npm availability is a separate release gate. The repository documentation records the currently verified source, archives and hosting profile.\"}],[[\"$\",\"h2\",null,{\"children\":\"Data props\"}],[\"$\",\"p\",null,{\"children\":\"These fields come from the actual exported schema. Defaults may be omitted on input; the schema below describes validated output. Runtime checks also validate identities, conditional values and safe evidence links.\"}],[\"$\",\"div\",null,{\"className\":\"mcpcn-table-wrap\",\"children\":[\"$\",\"table\",null,{\"className\":\"mcpcn-table\",\"children\":[[\"$\",\"caption\",null,{\"children\":[\"DocumentPreview\",\" data fields\"]}],[\"$\",\"thead\",null,{\"children\":[\"$\",\"tr\",null,{\"children\":[[\"$\",\"th\",null,{\"children\":\"Field\"}],[\"$\",\"th\",null,{\"children\":\"Type\"}],[\"$\",\"th\",null,{\"children\":\"Input\"}]]}]}],[\"$\",\"tbody\",null,{\"children\":[[\"$\",\"tr\",\"id\",{\"children\":[[\"$\",\"th\",null,{\"scope\":\"row\",\"children\":[\"$\",\"code\",null,{\"children\":\"id\"}]}],[\"$\",\"td\",null,{\"children\":\"string\"}],[\"$\",\"td\",null,{\"children\":\"Required\"}]]}],[\"$\",\"tr\",\"title\",{\"children\":[[\"$\",\"th\",null,{\"scope\":\"row\",\"children\":[\"$\",\"code\",null,{\"children\":\"title\"}]}],[\"$\",\"td\",null,{\"children\":\"string\"}],[\"$\",\"td\",null,{\"children\":\"Required\"}]]}],[\"$\",\"tr\",\"description\",{\"children\":[[\"$\",\"th\",null,{\"scope\":\"row\",\"children\":[\"$\",\"code\",null,{\"children\":\"description\"}]}],[\"$\",\"td\",null,{\"children\":\"string\"}],[\"$\",\"td\",null,{\"children\":\"Optional\"}]]}],[\"$\",\"tr\",\"file\",{\"children\":[[\"$\",\"th\",null,{\"scope\":\"row\",\"children\":[\"$\",\"code\",null,{\"children\":\"file\"}]}],[\"$\",\"td\",null,{\"children\":\"object\"}],[\"$\",\"td\",null,{\"children\":\"Required\"}]]}],[\"$\",\"tr\",\"state\",{\"children\":[[\"$\",\"th\",null,{\"scope\":\"row\",\"children\":[\"$\",\"code\",null,{\"children\":\"state\"}]}],[\"$\",\"td\",null,{\"children\":\"string\"}],[\"$\",\"td\",null,{\"children\":\"Required\"}]]}],[\"$\",\"tr\",\"content\",{\"children\":[[\"$\",\"th\",null,{\"scope\":\"row\",\"children\":[\"$\",\"code\",null,{\"children\":\"content\"}]}],[\"$\",\"td\",null,{\"children\":\"union\"}],[\"$\",\"td\",null,{\"children\":\"Optional\"}]]}],[\"$\",\"tr\",\"message\",{\"children\":[[\"$\",\"th\",null,{\"scope\":\"row\",\"children\":[\"$\",\"code\",null,{\"children\":\"message\"}]}],[\"$\",\"td\",null,{\"children\":\"string\"}],[\"$\",\"td\",null,{\"children\":\"Optional\"}]]}],[\"$\",\"tr\",\"sources\",{\"children\":[[\"$\",\"th\",null,{\"scope\":\"row\",\"children\":[\"$\",\"code\",null,{\"children\":\"sources\"}]}],[\"$\",\"td\",null,{\"children\":\"array\"}],[\"$\",\"td\",null,{\"children\":\"Defaulted\"}]]}],[\"$\",\"tr\",\"selectedPageId\",{\"children\":[[\"$\",\"th\",null,{\"scope\":\"row\",\"children\":[\"$\",\"code\",null,{\"children\":\"selectedPageId\"}]}],[\"$\",\"td\",null,{\"children\":\"string\"}],[\"$\",\"td\",null,{\"children\":\"Optional\"}]]}],[\"$\",\"tr\",\"selectedSourceId\",{\"children\":[[\"$\",\"th\",null,{\"scope\":\"row\",\"children\":[\"$\",\"code\",null,{\"children\":\"selectedSourceId\"}]}],[\"$\",\"td\",null,{\"children\":\"string\"}],[\"$\",\"td\",null,{\"children\":\"Optional\"}]]}]]}]]}]}],[\"$\",\"h2\",null,{\"children\":\"React integration\"}],[\"$\",\"pre\",null,{\"className\":\"code\",\"children\":\"$11\"}],\"$L12\",\"$L13\",\"$L14\",\"$L15\",\"$L16\",\"$L17\",\"$L18\",\"$undefined\",\"$undefined\",\"$L19\"],\"$L1a\",\"$L1b\",\"$L1c\",\"$L1d\",\"$L1e\",\"$L1f\",\"$L20\",\"$L21\",\"$undefined\"]}]]}]\n12:[[\"$\",\"h2\",null,{\"children\":\"Supplied representations\"}],[\"$\",\"p\",null,{\"children\":\"Inspect complete text, bounded JSON or up to twenty ordered pages containing text, PNG, JPEG or WebP data. The consumer owns reading, conversion, extraction and persistence. Supplied pages and reported confidence do not verify original file bytes or extraction accuracy.\"}],[\"$\",\"p\",null,{\"children\":\"Only the selected raster page is mounted. Native page/source controls and fit/zoom support inspection; HTML, SVG, arbitrary image URLs and PDF embeds are not rendered. Header validation is bounded; a browser decode error remains visible beside supplied text.\"}],[\"$\",\"p\",null,{\"children\":\"The native DTO budget is 2 MiB of UTF-8 JSON: text is at most 65536 UTF-16 units per page, each image at most 256 KiB decoded, images collectively at most 1 MiB, dimensions at most 4096 per side and 8 million pixels. JSON retains its existing descriptor-safe bounds. The playground editor has a smaller limit: 8192 units per string and 65536 UTF-8 bytes per result.\"}],false,[\"$\",\"p\",null,{\"children\":\"View intents carry identity only. Corrections and save intents deliberately contain reviewed private values. PrivateOnly catalogue metadata does not redact content already passed to a model. Keep private documents in app-only state and publish model context explicitly.\"}]]\n13:[\"$\",\"p\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"className\"}],\" styles the surface and \",[\"$\",\"code\",null,{\"children\":\"onAction\"}],\" receives consumer-owned intent. The new domain controls and revised approval/form surfaces expose \",[\"$\",\"code\",null,{\"children\":\"busy\"}],\" and \",[\"$\",\"code\",null,{\"children\":\"error\"}],\" feedback. Controlled selections and answers must be acknowledged by updating their props.\"]}]\n14:[\"$\",\"h2\",null,{\"children\":\"Events\"}]\n15:[\"$\",\"div\",null,{\"className\":\"mcpcn-table-wrap\",\"children\":[\"$\",\"table\",null,{\"className\":\"mcpcn-table\",\"children\":[[\"$\",\"caption\",null,{\"children\":[\"DocumentPreview\",\" action payloads\"]}],[\"$\",\"thead\",null,{\"children\":[\"$\",\"tr\",null,{\"children\":[[\"$\",\"th\",null,{\"children\":\"Action type\"}],[\"$\",\"th\",null,{\"children\":\"Data\"}]]}]}],[\"$\",\"tbody\",null,{\"children\":[[\"$\",\"tr\",\"document-page-change\",{\"children\":[[\"$\",\"th\",null,{\"scope\":\"row\",\"children\":[\"$\",\"code\",null,{\"children\":\"document-page-change\"}]}],[\"$\",\"td\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"{ previewId, fileId, fileRevision, pageId }\"}]}]]}],[\"$\",\"tr\",\"document-source-change\",{\"children\":[[\"$\",\"th\",null,{\"scope\":\"row\",\"children\":[\"$\",\"code\",null,{\"children\":\"document-source-change\"}]}],[\"$\",\"td\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"{ previewId, fileId, fileRevision, sourceId, pageId?; no content }\"}]}]]}]]}]]}]}]\n16:[\"$\",\"h2\",null,{\"children\":\"JSON Schema\"}]\n22:T3567,{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n  \"oneOf\": [\n    {\n      \"type\": \"object\",\n      \"properties\": {\n        \"id\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 128\n        },\n        \"title\": {\n          \"type\": \"string\",\n          \"maxLength\": 240\n        },\n        \"description\": {\n          \"type\": \"string\",\n          \"maxLength\": 2000\n        },\n        \"file\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"id\": {\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"maxLength\": 128\n            },\n            \"revision\": {\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"maxLength\": 128\n            },\n            \"name\": {\n              \"type\": \"string\",\n              \"maxLength\": 500\n            },\n            \"bytes\": {\n              \"type\": \"integer\",\n              \"minimum\": 0,\n              \"maximum\": 9007199254740991\n            },\n            \"mimeType\": {\n              \"type\": \"string\",\n              \"maxLength\": 120\n            }\n          },\n          \"required\": [\n            \"id\",\n            \"revision\",\n            \"name\",\n            \"bytes\"\n          ],\n          \"additionalProperties\": false\n        },\n        \"state\": {\n          \"type\": \"string\",\n          \"const\": \"ready\"\n        },\n        \"content\": {\n          \"oneOf\": [\n            {\n              \"type\": \"object\",\n              \"properties\": {\n                \"type\": {\n                  \"type\": \"string\",\n                  \"const\": \"text\"\n                },\n                \"text\": {\n                  \"type\": \"string\",\n                  \"maxLength\": 65536\n                }\n              },\n              \"required\": [\n                \"type\",\n                \"text\"\n              ],\n              \"additionalProperties\": false\n            },\n            {\n              \"type\": \"object\",\n              \"properties\": {\n                \"type\": {\n                  \"type\": \"string\",\n                  \"const\": \"json\"\n                },\n                \"value\": {\n                  \"$ref\": \"#/$defs/__schema0\"\n                }\n              },\n              \"required\": [\n                \"type\",\n                \"value\"\n              ],\n              \"additionalProperties\": false\n            },\n            {\n              \"type\": \"object\",\n              \"properties\": {\n                \"type\": {\n                  \"type\": \"string\",\n                  \"const\": \"pages\"\n                },\n                \"pages\": {\n                  \"minItems\": 1,\n                  \"maxItems\": 20,\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                      \"id\": {\n                        \"type\": \"string\",\n                        \"minLength\": 1,\n                        \"maxLength\": 128\n                      },\n                      \"label\": {\n                        \"type\": \"string\",\n                        \"maxLength\": 500\n                      },\n                      \"text\": {\n                        \"type\": \"string\",\n                        \"maxLength\": 65536\n                      },\n                      \"image\": {\n                        \"type\": \"object\",\n                        \"properties\": {\n                          \"mimeType\": {\n                            \"type\": \"string\",\n                            \"enum\": [\n                              \"image/png\",\n                              \"image/jpeg\",\n                              \"image/webp\"\n                            ]\n                          },\n                          \"base64\": {\n                            \"type\": \"string\",\n                            \"minLength\": 1,\n                            \"maxLength\": 349528\n                          },\n                          \"width\": {\n                            \"type\": \"integer\",\n                            \"minimum\": 1,\n                            \"maximum\": 4096\n                          },\n                          \"height\": {\n                            \"type\": \"integer\",\n                            \"minimum\": 1,\n                            \"maximum\": 4096\n                          },\n                          \"alt\": {\n                            \"type\": \"string\",\n                            \"maxLength\": 2000\n                          }\n                        },\n                        \"required\": [\n                          \"mimeType\",\n                          \"base64\",\n                          \"width\",\n                          \"height\",\n                          \"alt\"\n                        ],\n                        \"additionalProperties\": false,\n                        \"description\": \"Canonical bounded raster bytes with matching header dimensions. Header checks do not prove complete image decoding, original-file fidelity or extraction accuracy; animation declarations are not a decoding guarantee.\"\n                      }\n                    },\n                    \"required\": [\n                      \"id\",\n                      \"label\"\n                    ],\n                    \"additionalProperties\": false\n                  }\n                }\n              },\n              \"required\": [\n                \"type\",\n                \"pages\"\n              ],\n              \"additionalProperties\": false\n            }\n          ]\n        },\n        \"message\": {\n          \"type\": \"string\",\n          \"maxLength\": 2000\n        },\n        \"sources\": {\n          \"default\": [],\n          \"maxItems\": 20,\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"id\": {\n                \"type\": \"string\",\n                \"minLength\": 1,\n                \"maxLength\": 128\n              },\n              \"label\": {\n                \"type\": \"string\",\n                \"maxLength\": 500\n              },\n              \"text\": {\n                \"type\": \"string\",\n                \"maxLength\": 4000\n              },\n              \"pageId\": {\n                \"type\": \"string\",\n                \"minLength\": 1,\n                \"maxLength\": 128\n              }\n            },\n            \"required\": [\n              \"id\",\n              \"label\",\n              \"text\"\n            ],\n            \"additionalProperties\": false\n          }\n        },\n        \"selectedPageId\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 128\n        },\n        \"selectedSourceId\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 128\n        }\n      },\n      \"required\": [\n        \"id\",\n        \"title\",\n        \"file\",\n        \"state\",\n        \"content\",\n        \"sources\"\n      ],\n      \"additionalProperties\": false\n    },\n    {\n      \"type\": \"object\",\n      \"properties\": {\n        \"id\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 128\n        },\n        \"title\": {\n          \"type\": \"string\",\n          \"maxLength\": 240\n        },\n        \"description\": {\n          \"type\": \"string\",\n          \"maxLength\": 2000\n        },\n        \"file\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"id\": {\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"maxLength\": 128\n            },\n            \"revision\": {\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"maxLength\": 128\n            },\n            \"name\": {\n              \"type\": \"string\",\n              \"maxLength\": 500\n            },\n            \"bytes\": {\n              \"type\": \"integer\",\n              \"minimum\": 0,\n              \"maximum\": 9007199254740991\n            },\n            \"mimeType\": {\n              \"type\": \"string\",\n              \"maxLength\": 120\n            }\n          },\n          \"required\": [\n            \"id\",\n            \"revision\",\n            \"name\",\n            \"bytes\"\n          ],\n          \"additionalProperties\": false\n        },\n        \"state\": {\n          \"type\": \"string\",\n          \"const\": \"loading\"\n        },\n        \"message\": {\n          \"type\": \"string\",\n          \"maxLength\": 2000\n        }\n      },\n      \"required\": [\n        \"id\",\n        \"title\",\n        \"file\",\n        \"state\"\n      ],\n      \"additionalProperties\": false\n    },\n    {\n      \"type\": \"object\",\n      \"properties\": {\n        \"id\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 128\n        },\n        \"title\": {\n          \"type\": \"string\",\n          \"maxLength\": 240\n        },\n        \"description\": {\n          \"type\": \"string\",\n          \"maxLength\": 2000\n        },\n        \"file\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"id\": {\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"maxLength\": 128\n            },\n            \"revision\": {\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"maxLength\": 128\n            },\n            \"name\": {\n              \"type\": \"string\",\n              \"maxLength\": 500\n            },\n            \"bytes\": {\n              \"type\": \"integer\",\n              \"minimum\": 0,\n              \"maximum\": 9007199254740991\n            },\n            \"mimeType\": {\n              \"type\": \"string\",\n              \"maxLength\": 120\n            }\n          },\n          \"required\": [\n            \"id\",\n            \"revision\",\n            \"name\",\n            \"bytes\"\n          ],\n          \"additionalProperties\": false\n        },\n        \"state\": {\n          \"type\": \"string\",\n          \"const\": \"empty\"\n        },\n        \"message\": {\n          \"type\": \"string\",\n          \"maxLength\": 2000\n        }\n      },\n      \"required\": [\n        \"id\",\n        \"title\",\n        \"file\",\n        \"state\"\n      ],\n      \"additionalProperties\": false\n    },\n    {\n      \"type\": \"object\",\n      \"properties\": {\n        \"id\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 128\n        },\n        \"title\": {\n          \"type\": \"string\",\n          \"maxLength\": 240\n        },\n        \"description\": {\n          \"type\": \"string\",\n          \"maxLength\": 2000\n        },\n        \"file\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"id\": {\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"maxLength\": 128\n            },\n            \"revision\": {\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"maxLength\": 128\n            },\n            \"name\": {\n              \"type\": \"string\",\n              \"maxLength\": 500\n            },\n            \"bytes\": {\n              \"type\": \"integer\",\n              \"minimum\": 0,\n              \"maximum\": 9007199254740991\n            },\n            \"mimeType\": {\n              \"type\": \"string\",\n              \"maxLength\": 120\n            }\n          },\n          \"required\": [\n            \"id\",\n            \"revision\",\n            \"name\",\n            \"bytes\"\n          ],\n          \"additionalProperties\": false\n        },\n        \"state\": {\n          \"type\": \"string\",\n          \"const\": \"error\"\n        },\n        \"message\": {\n          \"type\": \"string\",\n          \"maxLength\": 2000\n        }\n      },\n      \"required\": [\n        \"id\",\n        \"title\",\n        \"file\",\n        \"state\",\n        \"message\"\n      ],\n      \"additionalProperties\": false\n    },\n    {\n      \"type\": \"object\",\n      \"properties\": {\n        \"id\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 128\n        },\n        \"title\": {\n          \"type\": \"string\",\n          \"maxLength\": 240\n        },\n        \"description\": {\n          \"type\": \"string\",\n          \"maxLength\": 2000\n        },\n        \"file\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"id\": {\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"maxLength\": 128\n            },\n            \"revision\": {\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"maxLength\": 128\n            },\n            \"name\": {\n              \"type\": \"string\",\n              \"maxLength\": 500\n            },\n            \"bytes\": {\n              \"type\": \"integer\",\n              \"minimum\": 0,\n              \"maximum\": 9007199254740991\n            },\n            \"mimeType\": {\n              \"type\": \"string\",\n              \"maxLength\": 120\n            }\n          },\n          \"required\": [\n            \"id\",\n            \"revision\",\n            \"name\",\n            \"bytes\"\n          ],\n          \"additionalProperties\": false\n        },\n        \"state\": {\n          \"type\": \"string\",\n          \"const\": \"unsupported\"\n        },\n        \"message\": {\n          \"type\": \"string\",\n          \"maxLength\": 2000\n        }\n      },\n      \"required\": [\n        \"id\",\n        \"title\",\n        \"file\",\n        \"state\",\n        \"message\"\n      ],\n      \"additionalProperties\": false\n    }\n  ],\n  \"description\": \"Strict consumer-supplied document representations and current page/source references, at most 2 MiB parsed UTF-8 JSON. Ready content is not proof of original bytes.\",\n  \"$defs\": {\n    \"__schema0\": {\n      \"anyOf\": [\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"type\": \"boolean\"\n        },\n        {\n          \"type\": \"number\"\n        },\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"array\",\n          \"items\": {\n            \"$ref\": \"#/$defs/__schema0\"\n          }\n        },\n        {\n          \"type\": \"object\",\n          \"propertyNames\": {\n            \"type\": \"string\"\n          },\n          \"additionalProperties\": {\n            \"$ref\": \"#/$defs/__schema0\"\n          }\n        }\n      ]\n    }\n  }\n}17:[\"$\",\"pre\",null,{\"className\":\"code\",\"aria-label\":\"DocumentPreview JSON Schema\",\"children\":\"$22\"}]\n18:[\"$\",\"h2\",null,{\"children\":\"Structured tool result\"}]\n19:[\"$\",\"pre\",null,{\"className\":\"code\",\"children\":\"import { DocumentPreviewSchema } from \\\"@mcpcn/schemas\\\";\\nimport { createStructuredResult } from \\\"@mcpcn/server\\\";\\n\\nexport function reviewedResult(candidate: unknown) {\\n  const data = DocumentPreviewSchema.parse(candidate);\\n  return createStructuredResult(\\\"document-preview\\\", data);\\n}\"}]\n1a:[\"$\",\"h2\",null,{\"children\":\"Security contract\"}]\n1b:[\"$\",\"p\",null,{\"children\":\"Previews use authored data and consumer callbacks. Applications own authorization, persistence, tool execution and explicit model-context publication.\"}]\n1c:[\"$\",\"p\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"Declared model-visible fields:\"}],\" \",\"id, file.id, file.revision, state, selectedPageId, selectedSourceId\"]}]\n1d:[\"$\",\"p\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"Private fields:\"}],\" \",\"title, description, file.name, file.mimeType, content.text, content.value, content.pages, sources, message\"]}]\n1e:[\"$\",\"p\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"Declared consumer tool intents:\"}],\" \",\"None\"]}]\n1f:[\"$\",\"p\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"Destructive intent:\"}],\" \",\"No by default\"]}]\n20:[\"$\",\"h2\",null,{\"children\":\"Host and keyboard behavior\"}]\n21:[\"$\",\"p\",null,{\"children\":\"Host integration uses the consuming application's runtime provider. Native inputs, buttons, links and semantic tables expose the local interactions shown above. External-host compatibility and full accessibility conformance require their own acceptance evidence.\"}]\nb:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n23:I[15718,[\"/_next/static/chunks/332uslzbhf388.js\"],\"IconMark\"]\n8:null\nd:[[\"$\",\"title\",\"0\",{\"children\":\"MCPCN — MCP Component Network\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"React components and workflow blocks for human-controlled MCP Apps.\"}],[\"$\",\"link\",\"2\",{\"rel\":\"icon\",\"href\":\"/icon.svg?icon.2_h8rghwmeofm.svg\",\"sizes\":\"any\",\"type\":\"image/svg+xml\"}],[\"$\",\"$L23\",\"3\",{}]]\n"])</script></body></html>
