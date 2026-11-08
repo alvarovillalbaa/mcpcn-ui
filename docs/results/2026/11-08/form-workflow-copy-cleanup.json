@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "mcpcn.form-workflow-copy-cleanup-projection.v1",
+  "status": "passed",
+  "acceptedHead": "382fb0fc60eb50bcd50c3bedc8ad454d96d8a152",
+  "preparedDeliveryTree": "753399bcafb1d95fc025c17752374c01bab5796d",
+  "attempts": 6,
+  "removedCopies": 3657,
+  "removedBytes": 811811534,
+  "kinds": {
+    "verified_source_blob_request": 2872,
+    "decoded_original_copy": 745,
+    "decoded_archive_copy": 35,
+    "decoded_generated_bundle_copy": 5
+  },
+  "nativeOpenerChecks": 3703,
+  "sourceSnapshotUnchanged": true,
+  "canonicalOriginalsRetained": true,
+  "preserved": [
+    "raw job logs",
+    "canonical failed/passing CI and generated/archive originals",
+    "decode/publication manifests",
+    "commit/provider/release metadata and originals",
+    "tree/commit/dispatch control bodies",
+    "HTTP evidence",
+    "helpers and operation notes"
+  ],
+  "privateReceipt": {
+    "bytes": 4257667,
+    "sha256": "0a9e5727793ebdf4bc7b67de3977d539c45feb8219fbda39bd848fa2efdbcd72"
+  },
+  "proofLimits": [
+    "Retained GitHub main-ref readback plus native local ancestry; no fresh network request by this helper.",
+    "Exact-path user lsof checks are not privileged host-wide process proof.",
+    "Only files are removed; task directories and all canonical evidence remain."
+  ]
+}

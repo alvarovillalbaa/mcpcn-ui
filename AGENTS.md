@@ -367,3 +367,20 @@ vector. All five failed sources/originals remain failed. Workflow411297713 is
 disabled; accepted publication removes its definition and preserves all six
 candidate sources as parents before retiring only owned QA refs. CI is closed;
 delivery/publication proof is separate and the broader library remains unfinished.
+
+Accepted source382fb0fc60eb50bcd50c3bedc8ad454d96d8a152 deployed once;
+the [public delivery record](docs/results/2026/11-08/form-workflow-public-delivery.md)
+binds READY/source/canonical alias, sixteen anonymous HTTP observations and
+seven unchanged passing archives. Registry semantics and all770912 simulator
+asset bytes match;139 raw/131 unique build-event dictionaries are retained with
+eight exact duplicates accounted for. No raw hosted socket/browser proof is
+claimed. Workflow411297713 is deleted after disable/removal, the two original
+broad definitions remain unchanged, and all six owned QA refs are retired with
+their sources preserved as parents. This cohort is closed; future work must
+select an actual unfinished requirement rather than rerun its accepted packet.
+Verified redundant-copy cleanup removed3657 files/811811534 bytes with unchanged
+source/index snapshots; canonical evidence, raw logs, metadata and directories
+remain. The public delivery receipt links its bounded cleanup projection. New
+work must measure the current source baseline and declare its own finite bounds;
+this cohort's source count and scoped limits are historical, not a standing
+exception for later packets.

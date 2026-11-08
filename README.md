@@ -22,6 +22,11 @@ fixtures and full source/stream/cleanup gates also passed. All167 generated
 paths were verified;159 changed files were adopted. Five failed invocations
 and their original evidence remain preserved in the receipt. CI acceptance
 and hosted delivery are separate proof boundaries.
+The [public delivery](docs/results/2026/11-08/form-workflow-public-delivery.md)
+records READY source `382fb0fc`, sixteen anonymous HTTP200/TLS observations,
+exact registry semantics and every simulator asset. The
+[candidate prerelease](https://github.com/alvarovillalbaa/mcpcn-ui/releases/tag/v0.1.0-forms.1)
+contains all seven unchanged passing archives with verified server digests.
 
 The five remaining tool-execution aliases now have dedicated source for outcomes,
 reported progress, partial results, ordered steps and filtered trace events.
