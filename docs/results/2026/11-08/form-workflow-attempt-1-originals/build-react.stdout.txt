@@ -1,0 +1,11 @@
+
+> @mcpcn/react@0.1.0 build /home/runner/work/_temp/mcpcn-forms-tdMEVE/source/packages/react
+> tsc -p tsconfig.json && cp src/styles.css dist/styles.css
+
+src/form-workflow-components.tsx(50,71): error TS2322: Type '{ [k: string]: Entry | undefined; }' is not assignable to type 'Record<string, Entry>'.
+  'string' index signatures are incompatible.
+    Type 'Entry | undefined' is not assignable to type 'Entry'.
+      Type 'undefined' is not assignable to type 'Entry'.
+/home/runner/work/_temp/mcpcn-forms-tdMEVE/source/packages/react:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @mcpcn/react@0.1.0 build: `tsc -p tsconfig.json && cp src/styles.css dist/styles.css`
+Exit status 2

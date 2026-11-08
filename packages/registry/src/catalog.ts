@@ -12,7 +12,7 @@ const names:Record<CatalogCategory,string[]>={
   trust:["AuditTrail","ReasoningSummary","SourceList","EvidenceDrawer","DataAccessNotice","PrivacyBoundaryCard","ConsentPanel","ModelContextPreview"],
   "host-state":["AuthRequiredCard","BillingGate","UnsupportedHostNotice","NoDataState","LoadingBridgeState","OfflineState","PermissionDeniedState","ExpiredSessionState"]
 };
-const specialized=new Set(["ApprovalCard","ApprovalChecklist","BeforeSubmitConfirmation","DestructiveActionGuard","HumanOverridePanel","PermissionRequestCard","ConfirmationPanel","RiskReviewPanel","ToolProgressTimeline","ToolCallCard","ToolResultCard","RunningTaskCard","RetryableErrorState","PartialResultViewer","QueuedStepList","ToolTraceViewer","SchemaForm","DynamicQuestionFlow","EntityReviewTable","ExtractedFieldsReview","DiffViewer","ComparisonMatrix","ScoreBreakdown","AuditTrail","SourceEvidencePanel","AuthRequiredCard"]);
+const specialized=new Set(["ApprovalCard","ApprovalChecklist","BeforeSubmitConfirmation","DestructiveActionGuard","HumanOverridePanel","PermissionRequestCard","ConfirmationPanel","RiskReviewPanel","ToolProgressTimeline","ToolCallCard","ToolResultCard","RunningTaskCard","RetryableErrorState","PartialResultViewer","QueuedStepList","ToolTraceViewer","SchemaForm","DynamicQuestionFlow","MissingDataRequest","MultiStepForm","InlineEditForm","FormProgressCard","ValidatedFieldList","EntityReviewTable","ExtractedFieldsReview","DiffViewer","ComparisonMatrix","ScoreBreakdown","AuditTrail","SourceEvidencePanel","AuthRequiredCard"]);
 const componentDescriptions:Record<string,string> = {
   ApprovalChecklist: "Review required checklist items before emitting an explicit approval intent.",
   BeforeSubmitConfirmation: "Review current field values and explicitly consent before submission intent.",
@@ -29,6 +29,11 @@ const componentDescriptions:Record<string,string> = {
   ToolTraceViewer: "Filter an ordered trace and inspect complete selected event details without starting a trace runtime.",
   RetryableErrorState: "Request a retry of retained tool arguments when the consumer permits it.",
   DynamicQuestionFlow: "Complete conditional questions and submit only currently visible answers.",
+  MissingDataRequest: "Collect only missing typed fields while keeping known context read-only and outside submission.",
+  MultiStepForm: "Edit typed fields across controlled steps, preserve drafts and validate before progressing or submitting.",
+  InlineEditForm: "Review and edit typed values, then explicitly request only changed values or removals.",
+  FormProgressCard: "Inspect consumer-reported form status and step progress without inferring completion.",
+  ValidatedFieldList: "Review reported field validation, inspect complete values and request eligible field validation.",
   ExtractedFieldsReview: "Correct extracted fields against originals and evidence before submission.",
   DiffViewer: "Inspect before/after values and select an individual change for review.",
   ComparisonMatrix: "Compare criteria, select an available option and explicitly confirm it.",
@@ -43,7 +48,14 @@ const toolWorkflowSecurity:Record<string,CatalogItem["security"]> = {
   QueuedStepList: { modelVisible: ["id", "steps.id", "steps.status", "steps.attempt", "selectedStepId"], privateOnly: ["title", "description", "steps.label", "steps.message"], callsTools: [], destructive: false },
   ToolTraceViewer: { modelVisible: ["id", "events.id", "events.kind", "events.parentId", "events.elapsedMs", "filterKind", "selectedEventId"], privateOnly: ["title", "description", "events.label", "events.details"], callsTools: [], destructive: false },
 };
-export const catalog:CatalogItem[]=Object.entries(names).flatMap(([category,items])=>items.map(name=>({name,slug:slug(name),category:category as CatalogCategory,description:componentDescriptions[name]??`${descriptions[category as CatalogCategory]}: ${name}.`,specialized:specialized.has(name),dependencies:["@mcpcn/core","@mcpcn/schemas","react"],registryDependencies:category==="primitive"?[]:["button","card","badge"],security:toolWorkflowSecurity[name]??{modelVisible:category==="host-state"?[]:["decision","userInput"],privateOnly:["internalId","rawPII"],callsTools:category==="approval"||category==="tool-execution"?["configuredTool"]:[],destructive:category==="approval"}})));
+const formWorkflowSecurity:Record<string,CatalogItem["security"]> = {
+  MissingDataRequest: { modelVisible: ["id", "fields.id", "knownFields.id"], privateOnly: ["title", "description", "fields.label", "fields.description", "fields.options", "knownFields.label", "knownFields.value", "drafts", "values"], callsTools: [], destructive: false },
+  MultiStepForm: { modelVisible: ["id", "steps.id", "steps.fields.id", "currentStepId"], privateOnly: ["title", "description", "steps.title", "steps.description", "steps.fields.label", "steps.fields.description", "steps.fields.value", "steps.fields.options", "drafts", "values"], callsTools: [], destructive: false },
+  InlineEditForm: { modelVisible: ["id", "fields.id"], privateOnly: ["title", "description", "fields.label", "fields.description", "fields.value", "fields.options", "drafts", "changes.value"], callsTools: [], destructive: false },
+  FormProgressCard: { modelVisible: ["id", "status", "progress", "steps.id", "steps.status", "steps.progress", "selectedStepId"], privateOnly: ["title", "description", "steps.label"], callsTools: [], destructive: false },
+  ValidatedFieldList: { modelVisible: ["id", "fields.id", "fields.status", "fields.validatable", "selectedFieldId"], privateOnly: ["title", "description", "fields.label", "fields.value", "fields.message"], callsTools: [], destructive: false },
+};
+export const catalog:CatalogItem[]=Object.entries(names).flatMap(([category,items])=>items.map(name=>({name,slug:slug(name),category:category as CatalogCategory,description:componentDescriptions[name]??`${descriptions[category as CatalogCategory]}: ${name}.`,specialized:specialized.has(name),dependencies:["@mcpcn/core","@mcpcn/schemas","react"],registryDependencies:category==="primitive"?[]:["button","card","badge"],security:formWorkflowSecurity[name]??toolWorkflowSecurity[name]??{modelVisible:category==="host-state"?[]:["decision","userInput"],privateOnly:["internalId","rawPII"],callsTools:category==="approval"||category==="tool-execution"?["configuredTool"]:[],destructive:category==="approval"}})));
 
 export const blockCatalog = [
   ["review-before-action","Review a planned external-state change before executing it.",["approval-card","diff-viewer","audit-trail"]],
