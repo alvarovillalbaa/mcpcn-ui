@@ -1,0 +1,237 @@
+﻿2026-11-08T01:58:58.7439883Z Current runner version: '2.338.2'
+2026-11-08T01:58:58.7478932Z ##[group]Runner Image Provisioner
+2026-11-08T01:58:58.7480383Z Hosted Compute Agent
+2026-11-08T01:58:58.7481461Z Version: 20261028.624
+2026-11-08T01:58:58.7482686Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-08T01:58:58.7484124Z Build Date: 2026-10-28T21:51:42Z
+2026-11-08T01:58:58.7485492Z Worker ID: {a8aff63c-5563-4439-a400-849c223cf1f0}
+2026-11-08T01:58:58.7487186Z Region: eastus
+2026-11-08T01:58:58.7488852Z Cloud: Azure
+2026-11-08T01:58:58.7489891Z ##[endgroup]
+2026-11-08T01:58:58.7492706Z ##[group]Operating System
+2026-11-08T01:58:58.7493991Z Ubuntu
+2026-11-08T01:58:58.7495035Z 24.04.5
+2026-11-08T01:58:58.7496078Z LTS
+2026-11-08T01:58:58.7497310Z ##[endgroup]
+2026-11-08T01:58:58.7498377Z ##[group]Runner Image
+2026-11-08T01:58:58.7499702Z Image: ubuntu-24.04
+2026-11-08T01:58:58.7500763Z Version: 20261101.360.1
+2026-11-08T01:58:58.7502975Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-08T01:58:58.7505888Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+2026-11-08T01:58:58.7508071Z ##[endgroup]
+2026-11-08T01:58:58.7510152Z ##[group]GITHUB_TOKEN Permissions
+2026-11-08T01:58:58.7513422Z Contents: read
+2026-11-08T01:58:58.7514605Z Metadata: read
+2026-11-08T01:58:58.7515696Z ##[endgroup]
+2026-11-08T01:58:58.7519362Z Secret source: Actions
+2026-11-08T01:58:58.7521049Z Cache mode: write
+2026-11-08T01:58:58.7522766Z Prepare workflow directory
+2026-11-08T01:58:58.8352570Z Prepare all required actions
+2026-11-08T01:58:58.8431073Z Getting action download info
+2026-11-08T01:58:59.0009021Z Download action repository 'actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803' (SHA:d23441a48e516b6c34aea4fa41551a30e30af803)
+2026-11-08T01:58:59.1361818Z Download action repository 'actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38' (SHA:249970729cb0ef3589644e2896645e5dc5ba9c38)
+2026-11-08T01:58:59.3272190Z Complete job name: public-http
+2026-11-08T01:58:59.4011180Z ##[group]Run set -euo pipefail
+2026-11-08T01:58:59.4011861Z [36;1mset -euo pipefail[0m
+2026-11-08T01:58:59.4012442Z [36;1m[[ "$SOURCE_COMMIT" =~ ^[a-f0-9]{40}$ ]][0m
+2026-11-08T01:58:59.4013189Z [36;1m[[ "$MCPCN_V1_DEPLOYMENT_ID" =~ ^dpl_[A-Za-z0-9]{10,100}$ ]][0m
+2026-11-08T01:58:59.4014105Z [36;1mprintf 'MCPCN_V1_HTTP_JOB_STARTED_MS=%s\n' "$(date +%s%3N)" >> "$GITHUB_ENV"[0m
+2026-11-08T01:58:59.4039283Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T01:58:59.4040249Z env:
+2026-11-08T01:58:59.4040663Z   CI: true
+2026-11-08T01:58:59.4041184Z   SOURCE_COMMIT: 42aec9dd7c712364d6c1b9021ef9eb188b5b91f0
+2026-11-08T01:58:59.4041936Z   MCPCN_V1_DEPLOYMENT_ID: dpl_DsDWTQn3nJJcNZ28m8ivLbgnB8AH
+2026-11-08T01:58:59.4042599Z   MCPCN_PUBLIC_REPOSITORY: true
+2026-11-08T01:58:59.4043098Z ##[endgroup]
+2026-11-08T01:58:59.4388144Z ##[group]Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+2026-11-08T01:58:59.4388932Z with:
+2026-11-08T01:58:59.4389458Z   ref: 42aec9dd7c712364d6c1b9021ef9eb188b5b91f0
+2026-11-08T01:58:59.4390072Z   persist-credentials: false
+2026-11-08T01:58:59.4390574Z   clean: false
+2026-11-08T01:58:59.4391043Z   repository: alvarovillalbaa/mcpcn-ui
+2026-11-08T01:58:59.4394703Z   token: ***
+2026-11-08T01:58:59.4395142Z   ssh-strict: true
+2026-11-08T01:58:59.4395574Z   ssh-user: git
+2026-11-08T01:58:59.4396030Z   sparse-checkout-cone-mode: true
+2026-11-08T01:58:59.4396561Z   fetch-depth: 1
+2026-11-08T01:58:59.4397424Z   fetch-tags: false
+2026-11-08T01:58:59.4397897Z   show-progress: true
+2026-11-08T01:58:59.4398348Z   lfs: false
+2026-11-08T01:58:59.4398755Z   submodules: false
+2026-11-08T01:58:59.4399204Z   set-safe-directory: true
+2026-11-08T01:58:59.4399708Z   allow-unsafe-pr-checkout: false
+2026-11-08T01:58:59.4400214Z env:
+2026-11-08T01:58:59.4400600Z   CI: true
+2026-11-08T01:58:59.4401121Z   SOURCE_COMMIT: 42aec9dd7c712364d6c1b9021ef9eb188b5b91f0
+2026-11-08T01:58:59.4401990Z   MCPCN_V1_DEPLOYMENT_ID: dpl_DsDWTQn3nJJcNZ28m8ivLbgnB8AH
+2026-11-08T01:58:59.4402894Z   MCPCN_PUBLIC_REPOSITORY: true
+2026-11-08T01:58:59.4403433Z   MCPCN_V1_HTTP_JOB_STARTED_MS: 1794103139416
+2026-11-08T01:58:59.4403992Z ##[endgroup]
+2026-11-08T01:58:59.7093301Z Syncing repository: alvarovillalbaa/mcpcn-ui
+2026-11-08T01:58:59.7096609Z ##[group]Getting Git version info
+2026-11-08T01:58:59.7098197Z Working directory is '/home/runner/work/mcpcn-ui/mcpcn-ui'
+2026-11-08T01:58:59.7100046Z [command]/usr/bin/git version
+2026-11-08T01:58:59.7191465Z git version 2.56.0
+2026-11-08T01:58:59.7218789Z ##[endgroup]
+2026-11-08T01:58:59.7235902Z Temporarily overriding HOME='/home/runner/work/_temp/c0b83451-f8b0-4000-9136-5872f3593d6a' before making global git config changes
+2026-11-08T01:58:59.7239644Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T01:58:59.7245672Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mcpcn-ui/mcpcn-ui
+2026-11-08T01:58:59.7319856Z Deleting the contents of '/home/runner/work/mcpcn-ui/mcpcn-ui'
+2026-11-08T01:58:59.7352744Z ##[group]Determining repository object format
+2026-11-08T01:58:59.7356029Z ##[endgroup]
+2026-11-08T01:58:59.7358557Z ##[group]Initializing the repository
+2026-11-08T01:58:59.7363447Z [command]/usr/bin/git init /home/runner/work/mcpcn-ui/mcpcn-ui
+2026-11-08T01:58:59.7497780Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-08T01:58:59.7501932Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-08T01:58:59.7504157Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-08T01:58:59.7506291Z hint: call:
+2026-11-08T01:58:59.7507657Z hint:
+2026-11-08T01:58:59.7509486Z hint: 	git config --global init.defaultBranch <name>
+2026-11-08T01:58:59.7511086Z hint:
+2026-11-08T01:58:59.7513194Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-08T01:58:59.7515676Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-08T01:58:59.7517849Z hint:
+2026-11-08T01:58:59.7519074Z hint: 	git branch -m <name>
+2026-11-08T01:58:59.7520603Z hint:
+2026-11-08T01:58:59.7522469Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-08T01:58:59.7525287Z Initialized empty Git repository in /home/runner/work/mcpcn-ui/mcpcn-ui/.git/
+2026-11-08T01:58:59.7530797Z [command]/usr/bin/git remote add origin https://github.com/alvarovillalbaa/mcpcn-ui
+2026-11-08T01:58:59.7594632Z ##[endgroup]
+2026-11-08T01:58:59.7596368Z ##[group]Disabling automatic garbage collection
+2026-11-08T01:58:59.7599177Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-08T01:58:59.7648030Z ##[endgroup]
+2026-11-08T01:58:59.7650221Z ##[group]Setting up auth
+2026-11-08T01:58:59.7651452Z Removing SSH command configuration
+2026-11-08T01:58:59.7661104Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T01:58:59.7726963Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T01:58:59.8194353Z Removing HTTP extra header
+2026-11-08T01:58:59.8201651Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T01:58:59.8248950Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T01:58:59.8518854Z Removing includeIf entries pointing to credentials config files
+2026-11-08T01:58:59.8526286Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T01:58:59.8574975Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T01:58:59.8829500Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-c0757b18-1b51-409c-aa72-e2e1443ec561.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-08T01:58:59.8883034Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/mcpcn-ui/mcpcn-ui/.git.path /home/runner/work/_temp/git-credentials-c0757b18-1b51-409c-aa72-e2e1443ec561.config
+2026-11-08T01:58:59.8927845Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/mcpcn-ui/mcpcn-ui/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-c0757b18-1b51-409c-aa72-e2e1443ec561.config
+2026-11-08T01:58:59.8973781Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-c0757b18-1b51-409c-aa72-e2e1443ec561.config
+2026-11-08T01:58:59.9030334Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-c0757b18-1b51-409c-aa72-e2e1443ec561.config
+2026-11-08T01:58:59.9069269Z ##[endgroup]
+2026-11-08T01:58:59.9070095Z ##[group]Fetching the repository
+2026-11-08T01:58:59.9078178Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 42aec9dd7c712364d6c1b9021ef9eb188b5b91f0
+2026-11-08T01:59:01.4612336Z From https://github.com/alvarovillalbaa/mcpcn-ui
+2026-11-08T01:59:01.4616162Z  * branch            42aec9dd7c712364d6c1b9021ef9eb188b5b91f0 -> FETCH_HEAD
+2026-11-08T01:59:01.4625643Z [command]/usr/bin/git rev-parse --verify --quiet 42aec9dd7c712364d6c1b9021ef9eb188b5b91f0^{object}
+2026-11-08T01:59:01.4662537Z 42aec9dd7c712364d6c1b9021ef9eb188b5b91f0
+2026-11-08T01:59:01.4669969Z ##[endgroup]
+2026-11-08T01:59:01.4672238Z ##[group]Determining the checkout info
+2026-11-08T01:59:01.4674469Z ##[endgroup]
+2026-11-08T01:59:01.4676537Z [command]/usr/bin/git sparse-checkout disable
+2026-11-08T01:59:01.4739730Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-08T01:59:01.4780732Z ##[group]Checking out the ref
+2026-11-08T01:59:01.4784330Z [command]/usr/bin/git checkout --progress --force 42aec9dd7c712364d6c1b9021ef9eb188b5b91f0
+2026-11-08T01:59:01.6100589Z Note: switching to '42aec9dd7c712364d6c1b9021ef9eb188b5b91f0'.
+2026-11-08T01:59:01.6102258Z 
+2026-11-08T01:59:01.6103366Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-08T01:59:01.6106148Z changes and commit them, and you can discard any commits you make in this
+2026-11-08T01:59:01.6109194Z state without impacting any branches by switching back to a branch.
+2026-11-08T01:59:01.6110738Z 
+2026-11-08T01:59:01.6111855Z If you want to create a new branch to retain commits you create, you may
+2026-11-08T01:59:01.6114922Z do so (now or later) by using -c with the switch command. Example:
+2026-11-08T01:59:01.6116655Z 
+2026-11-08T01:59:01.6117724Z   git switch -c <new-branch-name>
+2026-11-08T01:59:01.6118950Z 
+2026-11-08T01:59:01.6120137Z Or undo this operation with:
+2026-11-08T01:59:01.6120999Z 
+2026-11-08T01:59:01.6121673Z   git switch -
+2026-11-08T01:59:01.6122722Z 
+2026-11-08T01:59:01.6124032Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-08T01:59:01.6125416Z 
+2026-11-08T01:59:01.6126605Z HEAD is now at 42aec9d Record verified core candidate archives and pending hosting [skip ci]
+2026-11-08T01:59:01.6131609Z ##[endgroup]
+2026-11-08T01:59:01.6184354Z [command]/usr/bin/git log -1 --format=%H
+2026-11-08T01:59:01.6219990Z 42aec9dd7c712364d6c1b9021ef9eb188b5b91f0
+2026-11-08T01:59:01.6230774Z ##[group]Removing auth
+2026-11-08T01:59:01.6232200Z Removing SSH command configuration
+2026-11-08T01:59:01.6234806Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T01:59:01.6279702Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T01:59:01.6524244Z Removing HTTP extra header
+2026-11-08T01:59:01.6530305Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T01:59:01.6578482Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T01:59:01.6818618Z Removing includeIf entries pointing to credentials config files
+2026-11-08T01:59:01.6822205Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T01:59:01.6859246Z includeif.gitdir:/home/runner/work/mcpcn-ui/mcpcn-ui/.git.path
+2026-11-08T01:59:01.6863150Z includeif.gitdir:/home/runner/work/mcpcn-ui/mcpcn-ui/.git/worktrees/*.path
+2026-11-08T01:59:01.6866486Z includeif.gitdir:/github/workspace/.git.path
+2026-11-08T01:59:01.6869775Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-08T01:59:01.6875839Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/mcpcn-ui/mcpcn-ui/.git.path
+2026-11-08T01:59:01.6913512Z /home/runner/work/_temp/git-credentials-c0757b18-1b51-409c-aa72-e2e1443ec561.config
+2026-11-08T01:59:01.6926149Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/mcpcn-ui/mcpcn-ui/.git.path /home/runner/work/_temp/git-credentials-c0757b18-1b51-409c-aa72-e2e1443ec561.config
+2026-11-08T01:59:01.6972423Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/mcpcn-ui/mcpcn-ui/.git/worktrees/*.path
+2026-11-08T01:59:01.7004344Z /home/runner/work/_temp/git-credentials-c0757b18-1b51-409c-aa72-e2e1443ec561.config
+2026-11-08T01:59:01.7019916Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/mcpcn-ui/mcpcn-ui/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-c0757b18-1b51-409c-aa72-e2e1443ec561.config
+2026-11-08T01:59:01.7071429Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-08T01:59:01.7111333Z /github/runner_temp/git-credentials-c0757b18-1b51-409c-aa72-e2e1443ec561.config
+2026-11-08T01:59:01.7118244Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-c0757b18-1b51-409c-aa72-e2e1443ec561.config
+2026-11-08T01:59:01.7162716Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-08T01:59:01.7196015Z /github/runner_temp/git-credentials-c0757b18-1b51-409c-aa72-e2e1443ec561.config
+2026-11-08T01:59:01.7205344Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-c0757b18-1b51-409c-aa72-e2e1443ec561.config
+2026-11-08T01:59:01.7249142Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T01:59:01.7495536Z Removing credentials config '/home/runner/work/_temp/git-credentials-c0757b18-1b51-409c-aa72-e2e1443ec561.config'
+2026-11-08T01:59:01.7504601Z ##[endgroup]
+2026-11-08T01:59:01.7915485Z ##[group]Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+2026-11-08T01:59:01.7917559Z with:
+2026-11-08T01:59:01.7918454Z   node-version: 24.22.2
+2026-11-08T01:59:01.7919493Z   check-latest: false
+2026-11-08T01:59:01.7929329Z   token: ***
+2026-11-08T01:59:01.7930343Z   package-manager-cache: true
+2026-11-08T01:59:01.7931458Z env:
+2026-11-08T01:59:01.7932272Z   CI: true
+2026-11-08T01:59:01.7933364Z   SOURCE_COMMIT: 42aec9dd7c712364d6c1b9021ef9eb188b5b91f0
+2026-11-08T01:59:01.7935044Z   MCPCN_V1_DEPLOYMENT_ID: dpl_DsDWTQn3nJJcNZ28m8ivLbgnB8AH
+2026-11-08T01:59:01.7936524Z   MCPCN_PUBLIC_REPOSITORY: true
+2026-11-08T01:59:01.7937930Z   MCPCN_V1_HTTP_JOB_STARTED_MS: 1794103139416
+2026-11-08T01:59:01.7939190Z ##[endgroup]
+2026-11-08T01:59:01.9398223Z Found in cache @ /opt/hostedtoolcache/node/24.22.2/x64
+2026-11-08T01:59:01.9401879Z ##[group]Environment details
+2026-11-08T01:59:02.3542657Z node: v24.22.2
+2026-11-08T01:59:02.3543600Z npm: 11.19.1
+2026-11-08T01:59:02.3545936Z yarn: 1.22.22
+2026-11-08T01:59:02.3548422Z ##[endgroup]
+2026-11-08T01:59:02.3686253Z ##[group]Run set -euo pipefail
+2026-11-08T01:59:02.3686596Z [36;1mset -euo pipefail[0m
+2026-11-08T01:59:02.3687280Z [36;1mtest "$(git rev-parse HEAD)" = "$SOURCE_COMMIT"[0m
+2026-11-08T01:59:02.3687707Z [36;1mtest -z "$(git status --porcelain=v1 --untracked-files=all)"[0m
+2026-11-08T01:59:02.3688128Z [36;1mgit diff --check[0m
+2026-11-08T01:59:02.3688460Z [36;1mexport MCPCN_V1_HTTP_VERIFIED_SOURCE="$SOURCE_COMMIT"[0m
+2026-11-08T01:59:02.3688804Z [36;1mcode=0[0m
+2026-11-08T01:59:02.3689402Z [36;1mnode tooling/check-v1-public-delivery.mjs --source-commit "$SOURCE_COMMIT" --deployment-id "$MCPCN_V1_DEPLOYMENT_ID" || code=$?[0m
+2026-11-08T01:59:02.3690079Z [36;1mtest "$(git rev-parse HEAD)" = "$SOURCE_COMMIT"[0m
+2026-11-08T01:59:02.3690492Z [36;1mtest -z "$(git status --porcelain=v1 --untracked-files=all)"[0m
+2026-11-08T01:59:02.3690851Z [36;1mgit diff --check[0m
+2026-11-08T01:59:02.3691083Z [36;1mexit "$code"[0m
+2026-11-08T01:59:02.3720212Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T01:59:02.3720584Z env:
+2026-11-08T01:59:02.3720784Z   CI: true
+2026-11-08T01:59:02.3721038Z   SOURCE_COMMIT: 42aec9dd7c712364d6c1b9021ef9eb188b5b91f0
+2026-11-08T01:59:02.3721449Z   MCPCN_V1_DEPLOYMENT_ID: dpl_DsDWTQn3nJJcNZ28m8ivLbgnB8AH
+2026-11-08T01:59:02.3721808Z   MCPCN_PUBLIC_REPOSITORY: true
+2026-11-08T01:59:02.3722100Z   MCPCN_V1_HTTP_JOB_STARTED_MS: 1794103139416
+2026-11-08T01:59:02.3722392Z ##[endgroup]
+2026-11-08T01:59:05.2754381Z MCPCN_V1_PUBLIC_DELIVERY_RESULT={"schemaVersion":"mcpcn.v1-public-delivery.v1","sourceCommit":"42aec9dd7c712364d6c1b9021ef9eb188b5b91f0","deploymentId":"dpl_DsDWTQn3nJJcNZ28m8ivLbgnB8AH","workflowCommit":"e102fbc3ecffb66a9292d54f9935fab1ef498cb7","origin":"https://mcpcn-ui.vercel.app","status":"passed","startedAt":"2026-11-08T01:59:02.551Z","runtime":{"node":"v24.22.2","platform":"linux"},"anonymous":{"authorization":false,"cookies":false,"credentials":false,"proxy":false,"redirectFollowing":false},"limits":{"sequentialRequests":7,"requestSeconds":15,"totalSeconds":90,"htmlBytes":1048576,"jsonBytes":16777216,"combinedBytes":25165824,"reportBytes":32768,"stdoutSeconds":2},"checks":[{"route":"/","status":"passed","startedAtMs":1794103142689,"deadlineMs":1794103157689,"httpStatus":200,"bodyBytes":22029,"bodySha256":"864f7edd81086c1541c0157b2e95cf653919d2d25392855dbdec5eb511867c1d","bodyComplete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"tlsProtocol":"TLSv1.3","contentType":"text/html; charset=utf-8","contentLength":22029,"closedAtMs":1794103143085,"html":{"title":"Home","markers":[{"marker":"Human control for agentic apps.","present":true},{"marker":"Public package release pending.","present":true}],"catalogCounts":[{"count":68,"label":"catalog entries","present":true},{"count":11,"label":"workflow blocks","present":true},{"count":5,"label":"reference examples","present":true},{"count":2,"label":"install modes","present":true}]}},{"route":"/components/confirmation-panel","status":"passed","startedAtMs":1794103143086,"deadlineMs":1794103158086,"httpStatus":200,"bodyBytes":29439,"bodySha256":"21b97b2122b56b7282dd575b9f34894e03fc356f823a2e5bc287d2ab67384ea2","bodyComplete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"tlsProtocol":"TLSv1.3","contentType":"text/html; charset=utf-8","contentLength":29439,"closedAtMs":1794103143599,"html":{"title":"ConfirmationPanel","markers":[{"marker":"Confirm document changes","present":true},{"marker":"Change confirmation terms","present":true}],"domainComponent":true,"initialThemeControl":"light"}},{"route":"/components/dynamic-question-flow","status":"passed","startedAtMs":1794103143599,"deadlineMs":1794103158599,"httpStatus":200,"bodyBytes":33269,"bodySha256":"456ddb23aa4511b1060a1f558bbb81c21372b6eba5b3264c5b9b92ed4d4d812a","bodyComplete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"tlsProtocol":"TLSv1.3","contentType":"text/html; charset=utf-8","contentLength":33269,"closedAtMs":1794103143703,"html":{"title":"DynamicQuestionFlow","markers":[{"marker":"Collect the missing answers","present":true},{"marker":"What do you need?","present":true},{"marker":"Reset question flow","present":true}],"domainComponent":true,"initialThemeControl":"light"}},{"route":"/components/tool-call-card","status":"passed","startedAtMs":1794103143703,"deadlineMs":1794103158703,"httpStatus":200,"bodyBytes":27644,"bodySha256":"0b75726c218626354b2832d134252da452a7fe4ad912c5b5fbb4c21dfe66f528","bodyComplete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"tlsProtocol":"TLSv1.3","contentType":"text/html; charset=utf-8","contentLength":27644,"closedAtMs":1794103143838,"html":{"title":"ToolCallCard","markers":[{"marker":"Inspect the invoice lookup","present":true},{"marker":"Review tool call","present":true},{"marker":"Tool-call example status","present":true}],"domainComponent":true,"initialThemeControl":"light"}},{"route":"/schema/config.json","status":"passed","startedAtMs":1794103143839,"deadlineMs":1794103158839,"httpStatus":200,"bodyBytes":991,"bodySha256":"0fd326873c472331d6919282e79920cbd80c46a278c640a4d4242d21bd61bef4","bodyComplete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"tlsProtocol":"TLSv1.3","contentType":"application/json","contentLength":null,"closedAtMs":1794103144105,"comparison":{"source":"registry/config.schema.json","sourceBytes":1407,"sourceSha256":"4f0cb01ca67a1ff673f0c7462821b75e00a3096a4f66825ef063276caf8b7ef8","sourceSemanticSha256":"4266616b67ae09e9e8d4a996f6cbcd020a4228d0a7f442484931957fbb329059","responseSemanticSha256":"4266616b67ae09e9e8d4a996f6cbcd020a4228d0a7f442484931957fbb329059","equal":true}},{"route":"/r/comparison-matrix.json","status":"passed","startedAtMs":1794103144106,"deadlineMs":1794103159106,"httpStatus":200,"bodyBytes":111052,"bodySha256":"12c62940b6f3b93100a346dfbdf281cec516d1f1c22d54765c5fc0b12c786e98","bodyComplete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"tlsProtocol":"TLSv1.3","contentType":"application/json","contentLength":null,"closedAtMs":1794103144739,"comparison":{"source":"registry/items/comparison-matrix.json","sourceBytes":114906,"sourceSha256":"2cc0300ccfb3231532822d41ac8de7cdb99706bde1c03813c38137743a71f448","sourceSemanticSha256":"f957f9783c17008e75cf5ffd839e7863d4b234f5e6457fb3b985aa1197f3c9e5","responseSemanticSha256":"f957f9783c17008e75cf5ffd839e7863d4b234f5e6457fb3b985aa1197f3c9e5","equal":true}},{"route":"/r/registry.json","status":"passed","startedAtMs":1794103144742,"deadlineMs":1794103159742,"httpStatus":200,"bodyBytes":8910003,"bodySha256":"3f33d8e9f906eb3d25f017738bdd340d02e29334b9c78d0320d99dbb5f77860e","bodyComplete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"tlsProtocol":"TLSv1.3","contentType":"application/json","contentLength":8910003,"closedAtMs":1794103145050,"comparison":{"source":"registry/registry.json","sourceBytes":9096911,"sourceSha256":"4ea9431f1e9a22fdd7bc429b5a8d4cb884e62e7ac82889c2f3c5e0fdcf81daa2","sourceSemanticSha256":"3432de6cf7f41e86586cf22fa9fc540e7a1fca520d0fbf08a9906579d994c6ae","responseSemanticSha256":"3432de6cf7f41e86586cf22fa9fc540e7a1fca520d0fbf08a9906579d994c6ae","equal":true},"implementationCounts":{"specialized":16,"generic-alias":40,"primitive":12,"workflow-block":11}}],"sources":[{"path":"apps/docs/app/page.tsx","bytes":2553,"sha256":"a16507064329a83c8e94504ee7f8f92b8b88db8ccc22cb33d92370027064e2b9","device":2049,"inode":9175748,"mtimeMs":1794103141484.1836,"ctimeMs":1794103141484.1836},{"path":"apps/docs/app/components/[slug]/page.tsx","bytes":8806,"sha256":"9d40694dd82af069ec126f1908c8d5e61a1808d9d5f6b6359d400212bd715b4c","device":2049,"inode":9175734,"mtimeMs":1794103141484.1707,"ctimeMs":1794103141484.1707},{"path":"apps/docs/components/component-preview.tsx","bytes":594,"sha256":"f721915739ee8165b4ba5d9ac3cfad1eecff6c0aa1dad922e2c59b30b0b85c39","device":2049,"inode":9175761,"mtimeMs":1794103141485.0405,"ctimeMs":1794103141485.0405},{"path":"apps/docs/components/v1-review-demos.tsx","bytes":4212,"sha256":"60e82dae336d8f8a0523f986427aa3f8158940e4692835c7eb03c20b6c3e0b8f","device":2049,"inode":9175767,"mtimeMs":1794103141485.2175,"ctimeMs":1794103141485.2175},{"path":"apps/docs/components/v1-decision-demos.tsx","bytes":7238,"sha256":"3d4beb63ba5aec6eb22301ef4223b83f9fae77dec89040a25a462bac0a62ae1e","device":2049,"inode":9175765,"mtimeMs":1794103141485.2175,"ctimeMs":1794103141485.2175},{"path":"apps/docs/components/v1-execution-demos.tsx","bytes":4584,"sha256":"5237ce3e101f9b36a1b24bf0fc6d2574624038a9002b58becd65bef1f3acc44e","device":2049,"inode":9175766,"mtimeMs":1794103141485.2175,"ctimeMs":1794103141485.2175},{"path":"registry/config.schema.json","bytes":1407,"sha256":"4f0cb01ca67a1ff673f0c7462821b75e00a3096a4f66825ef063276caf8b7ef8","device":2049,"inode":9176852,"mtimeMs":1794103141560.1836,"ctimeMs":1794103141560.1836},{"path":"registry/items/comparison-matrix.json","bytes":114906,"sha256":"2cc0300ccfb3231532822d41ac8de7cdb99706bde1c03813c38137743a71f448","device":2049,"inode":9176893,"mtimeMs":1794103141564.1836,"ctimeMs":1794103141564.1836},{"path":"registry/registry.json","bytes":9096911,"sha256":"4ea9431f1e9a22fdd7bc429b5a8d4cb884e62e7ac82889c2f3c5e0fdcf81daa2","device":2049,"inode":9176974,"mtimeMs":1794103141602.1836,"ctimeMs":1794103141602.1836}],"errors":[],"cleanup":{"pendingRequests":0,"pendingSockets":0,"pendingResponses":0,"allClosed":true},"proofLimits":["Seven anonymous canonical-origin TLS GET responses only. No browser, interaction, CSS rendering, all-assets, accessibility, live MCP host, package publication or future availability proof.","sourceCommit identifies the immutable checkout used for JSON comparisons. deploymentId is a supplied provider observation; HTTP does not independently prove deployment-to-source mapping.","Object keys are compared without order; array order and every JSON value are retained. Full response bodies exist only in memory; the report retains sizes, hashes and finite observations.","The current homepage has 68 catalog entries, 11 blocks, five examples and two install modes. Sixteen domain components and forty aliases are checked in registry metadata, not invented homepage copy.","The prior five-route delivery and separate v1 build, browser and installed-consumer packets keep their own sources and acceptance boundaries."],"jobStartedMs":1794103139416,"combinedBodyBytes":9134427,"completedAt":"2026-11-08T01:59:05.269Z"}
+2026-11-08T01:59:05.3099168Z Post job cleanup.
+2026-11-08T01:59:05.4577141Z Post job cleanup.
+2026-11-08T01:59:05.5529218Z [command]/usr/bin/git version
+2026-11-08T01:59:05.5574795Z git version 2.56.0
+2026-11-08T01:59:05.5620419Z Temporarily overriding HOME='/home/runner/work/_temp/0221ce03-a8be-4aa5-a831-a970ff3c9bdc' before making global git config changes
+2026-11-08T01:59:05.5622132Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T01:59:05.5627614Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mcpcn-ui/mcpcn-ui
+2026-11-08T01:59:05.5668350Z Removing SSH command configuration
+2026-11-08T01:59:05.5675839Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T01:59:05.5735523Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T01:59:05.5992846Z Removing HTTP extra header
+2026-11-08T01:59:05.5999733Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T01:59:05.6039296Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T01:59:05.6321081Z Removing includeIf entries pointing to credentials config files
+2026-11-08T01:59:05.6330394Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T01:59:05.6380895Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T01:59:05.6782838Z Cleaning up orphan processes

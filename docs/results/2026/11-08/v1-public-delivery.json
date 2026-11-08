@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "kind": "mcpcn-v1-public-delivery",
+  "observedAtUtc": "2026-11-08T01:59:27Z",
+  "sourceCommit": "42aec9dd7c712364d6c1b9021ef9eb188b5b91f0",
+  "production": {
+    "project": "prj_cnLeaJNJjMZac7HpqsKw2jhIAQsW",
+    "team": "team_JpdIsOJgYNpX0ywVZ54Zdb7m",
+    "deploymentId": "dpl_DsDWTQn3nJJcNZ28m8ivLbgnB8AH",
+    "url": "https://mcpcn-c2a0ou7r3-my-team-4f230354.vercel.app",
+    "canonicalOrigin": "https://mcpcn-ui.vercel.app",
+    "readyState": "READY",
+    "target": "production",
+    "createdAtMs": 1794102999482,
+    "readyAtMs": 1794103034341,
+    "aliasUpdatedAtMs": 1794103034473,
+    "sourceMetadataMatches": true,
+    "aliasMatches": true,
+    "aliasError": null,
+    "build": {
+      "node": "v24.22.2",
+      "pnpm": "10.24.0",
+      "next": "16.3.0",
+      "turboSuccessful": 6,
+      "turboCached": 0,
+      "staticPages": 82,
+      "registryItems": 79,
+      "registryIndexDelivery": "force-static",
+      "workspaceBinWarnings": 2,
+      "warningOutcome": "Prebuild registry bin target was not present; owner package subsequently built and all six tasks passed.",
+      "installCommand": "cd ../.. && pnpm install --frozen-lockfile --ignore-scripts",
+      "buildCommand": "cd ../.. && node --version && pnpm --version && node -e \"if (!process.version.startsWith('v24.')) throw new Error('MCPCN docs require Node 24');\" && pnpm exec turbo run build --filter=@mcpcn/docs...",
+      "rootDirectory": "apps/docs",
+      "sourceFilesOutsideRootDirectory": true,
+      "nodeVersion": "24.x",
+      "buildMachine": "existing default, 2 cores and 8 GB",
+      "eventEvidence": "Four separate complete bounded windows; the first all-events response was truncated and is not the complete-log evidence."
+    },
+    "settings": {
+      "existingProject": true,
+      "existingDomains": true,
+      "authPolicyChanged": false,
+      "paidPlan": false,
+      "newAccount": false,
+      "perDeploymentBuildOverrides": "Same reviewed Node 24/frozen-install/docs-monorepo overrides as the earlier hosting receipt."
+    }
+  },
+  "http": {
+    "status": "passed",
+    "runId": 42436541743,
+    "jobId": 128596492891,
+    "workflowId": 410811864,
+    "workflowCommit": "e102fbc3ecffb66a9292d54f9935fab1ef498cb7",
+    "runUrl": "https://github.com/alvarovillalbaa/mcpcn-ui/actions/runs/42436541743",
+    "startedAt": "2026-11-08T01:59:02.551Z",
+    "completedAt": "2026-11-08T01:59:05.269Z",
+    "combinedBodyBytes": 9134427,
+    "passed": 7,
+    "failed": 0,
+    "jsonSemanticMatches": 3,
+    "tls": "TLSv1.3, authorized",
+    "cleanup": {
+      "pendingRequests": 0,
+      "pendingSockets": 0,
+      "pendingResponses": 0,
+      "allClosed": true
+    },
+    "checks": [
+      {
+        "route": "/",
+        "status": "passed",
+        "httpStatus": 200,
+        "bodyBytes": 22029,
+        "bodySha256": "864f7edd81086c1541c0157b2e95cf653919d2d25392855dbdec5eb511867c1d"
+      },
+      {
+        "route": "/components/confirmation-panel",
+        "status": "passed",
+        "httpStatus": 200,
+        "bodyBytes": 29439,
+        "bodySha256": "21b97b2122b56b7282dd575b9f34894e03fc356f823a2e5bc287d2ab67384ea2"
+      },
+      {
+        "route": "/components/dynamic-question-flow",
+        "status": "passed",
+        "httpStatus": 200,
+        "bodyBytes": 33269,
+        "bodySha256": "456ddb23aa4511b1060a1f558bbb81c21372b6eba5b3264c5b9b92ed4d4d812a"
+      },
+      {
+        "route": "/components/tool-call-card",
+        "status": "passed",
+        "httpStatus": 200,
+        "bodyBytes": 27644,
+        "bodySha256": "0b75726c218626354b2832d134252da452a7fe4ad912c5b5fbb4c21dfe66f528"
+      },
+      {
+        "route": "/schema/config.json",
+        "status": "passed",
+        "httpStatus": 200,
+        "bodyBytes": 991,
+        "bodySha256": "0fd326873c472331d6919282e79920cbd80c46a278c640a4d4242d21bd61bef4",
+        "semanticMatch": true
+      },
+      {
+        "route": "/r/comparison-matrix.json",
+        "status": "passed",
+        "httpStatus": 200,
+        "bodyBytes": 111052,
+        "bodySha256": "12c62940b6f3b93100a346dfbdf281cec516d1f1c22d54765c5fc0b12c786e98",
+        "semanticMatch": true
+      },
+      {
+        "route": "/r/registry.json",
+        "status": "passed",
+        "httpStatus": 200,
+        "bodyBytes": 8910003,
+        "bodySha256": "3f33d8e9f906eb3d25f017738bdd340d02e29334b9c78d0320d99dbb5f77860e",
+        "semanticMatch": true,
+        "implementationCounts": {
+          "specialized": 16,
+          "generic-alias": 40,
+          "primitive": 12,
+          "workflow-block": 11
+        }
+      }
+    ],
+    "originals": "v1-public-delivery-originals/manifest.json",
+    "report": "v1-public-delivery-originals/report.json",
+    "log": "v1-public-delivery-originals/job.log",
+    "reportEncoding": "Original one-line JSON extracted once from the decoded GitHub log; LF retained.",
+    "logEncoding": "Exact UTF-8 serialization of GitHub connector decoded log content, not an assertion about the upstream compressed byte stream."
+  },
+  "retirement": {
+    "workflowDisabled": true,
+    "workflowFileRemovedInThisEdition": true,
+    "originalWorkflows": [
+      356415610,
+      356415611
+    ],
+    "originalDefinitionsChanged": false,
+    "oldQaBookmarksChanged": false
+  },
+  "proofLimits": [
+    "Seven anonymous canonical-origin TLS GET responses only. No browser, interaction, CSS rendering, all-assets, accessibility, live MCP host, package publication or future availability proof.",
+    "sourceCommit identifies the immutable checkout used for JSON comparisons. deploymentId is a supplied provider observation; HTTP does not independently prove deployment-to-source mapping.",
+    "Object keys are compared without order; array order and every JSON value are retained. Full response bodies exist only in memory; the report retains sizes, hashes and finite observations.",
+    "The current homepage has 68 catalog entries, 11 blocks, five examples and two install modes. Sixteen domain components and forty aliases are checked in registry metadata, not invented homepage copy.",
+    "The prior five-route delivery and separate v1 build, browser and installed-consumer packets keep their own sources and acceptance boundaries.",
+    "Prior Vercel transport failure remains historical. This new actual connection and provider observation supersede its pending hosting gate.",
+    "The GitHub candidate publication receipt remains unchanged at its earlier observation time. Public npm availability/ownership and installed public-name consumers are still pending.",
+    "Real external MCP host, actual iframe simulator and CLI dev/preview, remaining bespoke catalogue, full reference applications and accessibility/device/framework acceptance remain unfinished."
+  ]
+}

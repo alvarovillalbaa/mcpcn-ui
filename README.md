@@ -26,9 +26,13 @@ contains the seven exact archives from the passing consumers. Their server
 sizes and SHA256 digests match the [publication receipt](docs/results/2026/11-08/core-candidate-publication.json).
 Package versions remain 0.1.0; this prerelease is separate from npm publication.
 
-The hosted v1 update is pending a working Vercel connection. The earlier
-hosting receipt below covers its own older source; the new seven-route
-anonymous delivery check is prepared and unrun.
+The [hosted v1 delivery](docs/results/2026/11-08/v1-public-delivery.md) passed
+at exact source `42aec9dd7c712364d6c1b9021ef9eb188b5b91f0`: READY production
+deployment and canonical alias, seven anonymous HTTP 200 responses, complete
+JSON semantic parity and closed requests, responses and sockets. This hosting
+evidence is separate from the local Chromium and installed-consumer packet.
+Public npm, real MCP hosts, the iframe playground and broader quality gates
+remain unfinished.
 
 **Public package availability remains unverified.** Registry lookups for
 `mcpcn` and `@mcpcn/react` returned npm E404 on 29 October 2026; the commands
@@ -131,16 +135,18 @@ The consumer workflow is removed and its branch is a retired bookmark at
 Browser/real-host acceptance, public npm release and hosted docs delivery remain
 separate work; this local CI build establishes no new hosting or page proof.
 
-The [public documentation site](https://mcpcn-ui.vercel.app) is deployed at
-`435af4b7c523bd8013d25e852c1be81dfe9893b3`. Its
-[delivery receipt](docs/results/2026/11-04/public-delivery.md) records five
-anonymous HTTP 200 checks: homepage, docs, config schema, button payload and
-the complete 79-entry registry. Both HTML pages contain the corrected security
-link and release-status copy; all three JSON responses match the pinned source.
-The production docs build passed on Node 24.22.2, with six Turbo tasks and 81
-static pages; five dependency tasks reused cache. The temporary HTTP workflow
-is removed and its branch is retired. Native browser interaction, live MCP hosts
-and public npm publication remain separate acceptance work.
+The historical [4 November delivery](docs/results/2026/11-04/public-delivery.md)
+recorded the public documentation site at
+`435af4b7c523bd8013d25e852c1be81dfe9893b3`: five anonymous HTTP 200 checks for
+the homepage, docs, config schema, button payload and complete 79-entry registry.
+Both HTML pages contained the corrected security link and release-status copy;
+all three JSON responses matched that pinned source. Its production docs build
+passed on Node 24.22.2, with six Turbo tasks and 81 static pages; five dependency
+tasks reused cache. That temporary HTTP workflow was removed and its branch
+retired. Those observations remain scoped to the older source; the current
+[public documentation site](https://mcpcn-ui.vercel.app) and its seven-route
+v1 delivery are recorded in the newer receipt above. Neither HTTP packet proves
+live MCP-host compatibility or public npm publication.
 
 ## Security
 

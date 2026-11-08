@@ -126,5 +126,13 @@ complete owned cleanup. Preserve all four failed invocations. The exact
 generated profile is adopted with its [publication vector](docs/results/2026/11-07/v1-generated-publication.json),
 distinct from seed Git bytes. Workflow `410720792` is disabled and removed in
 this evidence edition. Existing broad CI/release jobs remain unchanged.
-Vercel transport is unavailable; the public HTTP packet remains prepared and
-unrun. Keep npm, live-host and broader library gates pending.
+The [8 November public delivery](docs/results/2026/11-08/v1-public-delivery.md)
+records READY production source
+`42aec9dd7c712364d6c1b9021ef9eb188b5b91f0`, its canonical alias and seven
+anonymous TLS GET responses with complete body/request/response/socket closure.
+All three JSON responses match that source semantically. Workflow `410811864`
+was disabled after acceptance and is removed in this evidence edition; the two
+broad workflows remain unchanged. Provider source/alias metadata and HTTP
+observations retain separate provenance. Keep public npm, real MCP hosts, the
+iframe playground, untrusted-HTML isolation, all-assets integrity, physical
+devices and full accessibility acceptance pending.
