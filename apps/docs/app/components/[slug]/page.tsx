@@ -9,6 +9,8 @@ import { ApprovalChecklistDemo, BeforeSubmitConfirmationDemo, DestructiveActionG
 import { approvalExampleCode } from "../../../components/approval-examples";
 import { ToolResultCardDemo, RunningTaskCardDemo, PartialResultViewerDemo, QueuedStepListDemo, ToolTraceViewerDemo } from "../../../components/tool-workflow-demos";
 import { toolWorkflowExampleCode } from "../../../components/tool-workflow-examples";
+import { MissingDataRequestDemo, MultiStepFormDemo, InlineEditFormDemo, FormProgressCardDemo, ValidatedFieldListDemo } from "../../../components/form-workflow-demos";
+import { formWorkflowExampleCode } from "../../../components/form-workflow-examples";
 import { ComponentPreview } from "../../../components/component-preview";
 
 export function generateStaticParams() { return catalog.map(item => ({ slug: item.slug })); }
@@ -20,6 +22,8 @@ const demos: Record<string, ReactNode> = {
   "permission-request-card": <PermissionRequestCardDemo />,
   "tool-result-card": <ToolResultCardDemo />, "running-task-card": <RunningTaskCardDemo />,
   "partial-result-viewer": <PartialResultViewerDemo />, "queued-step-list": <QueuedStepListDemo />, "tool-trace-viewer": <ToolTraceViewerDemo />,
+  "missing-data-request": <MissingDataRequestDemo />, "multi-step-form": <MultiStepFormDemo />, "inline-edit-form": <InlineEditFormDemo />,
+  "form-progress-card": <FormProgressCardDemo />, "validated-field-list": <ValidatedFieldListDemo />,
   "schema-form": <FormDemo />, "entity-review-table": <ReviewDemo />, "audit-trail": <AuditDemo />,
   "confirmation-panel": <ConfirmationPanelDemo />, "risk-review-panel": <RiskReviewPanelDemo />,
   "diff-viewer": <DiffViewerDemo />, "source-evidence-panel": <SourceEvidencePanelDemo />,
@@ -41,6 +45,11 @@ const events: Record<string, Array<[string, string]>> = {
   "partial-result-viewer": [["select-result-part", "{ id, partId }"], ["inspect-result-part", "{ id, partId, status, attempt }"], ["retry-result-part", "{ id, partId, attempt }"]],
   "queued-step-list": [["select-queued-step", "{ id, stepId }"], ["inspect-queued-step", "{ id, stepId, status, attempt }"], ["retry-queued-step", "{ id, stepId, attempt }"]],
   "tool-trace-viewer": [["change-trace-filter", "{ id, kind }"], ["select-trace-event", "{ id, eventId }"], ["inspect-trace-event", "{ id, eventId, kind }"]],
+  "missing-data-request": [["submit-missing-data", "{ id, values: current requested supplied valid fields only; no known context }"], ["cancel-missing-data", "{ id }"]],
+  "multi-step-form": [["change-form-step", "{ id, fromStepId, stepId; no draft values }"], ["submit-multi-step-form", "{ id, values: every current supplied valid field }"], ["cancel-multi-step-form", "{ id }"]],
+  "inline-edit-form": [["commit-inline-edit", "{ id, changes: ordered { fieldId, op: set, value } or { fieldId, op: clear } }"], ["cancel-inline-edit", "{ id }"]],
+  "form-progress-card": [["select-form-progress-step", "{ id, stepId }"], ["inspect-form-progress", "{ id }"], ["inspect-form-progress-step", "{ id, stepId, status }"]],
+  "validated-field-list": [["select-validated-field", "{ id, fieldId }"], ["inspect-validated-field", "{ id, fieldId, status }"], ["validate-field", "{ id, fieldId; no raw value }"]],
   "schema-form": [["submit", "{ values: current field allowlist, tool? }"]],
   "entity-review-table": [["confirm", "{ ids: current row IDs, tool? }"]],
   "audit-trail": [],
@@ -77,7 +86,8 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
   const required = new Set(Array.isArray(requiredFields) ? requiredFields.filter((value): value is string => typeof value === "string") : []);
   const implementation = item.category === "primitive" ? "Primitive" : item.specialized ? "Domain component" : "Shared informational alias";
   const toolWorkflowCode = toolWorkflowExampleCode(slug);
-  const renderCode = toolWorkflowCode ?? approvalExampleCode(slug) ?? 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
+  const formWorkflowCode = formWorkflowExampleCode(slug);
+  const renderCode = formWorkflowCode ?? toolWorkflowCode ?? approvalExampleCode(slug) ?? 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
   const serverCode = 'import { ' + item.name + 'Schema } from "@mcpcn/schemas";\nimport { createStructuredResult } from "@mcpcn/server";\n\nexport function reviewedResult(candidate: unknown) {\n  const data = ' + item.name + 'Schema.parse(candidate);\n  return createStructuredResult("' + item.slug + '", data);\n}';
   return <main>
     <span className="eyebrow">{item.category}</span><h1>{item.name}</h1><p className="lede">{item.description}</p>
@@ -100,7 +110,7 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
         <p><code>className</code> styles the surface and <code>onAction</code> receives consumer-owned intent. The new domain controls and revised approval/form surfaces expose <code>busy</code> and <code>error</code> feedback. Controlled selections and answers must be acknowledged by updating their props.</p>
         <h2>Events</h2>{events[slug]?.length ? <div className="mcpcn-table-wrap"><table className="mcpcn-table"><caption>{item.name} action payloads</caption><thead><tr><th>Action type</th><th>Data</th></tr></thead><tbody>{events[slug]!.map(([type, data]) => <tr key={type}><th scope="row"><code>{type}</code></th><td><code>{data}</code></td></tr>)}</tbody></table></div> : <p>This surface displays data and has no dedicated domain event contract.</p>}
         <h2>JSON Schema</h2><pre className="code" aria-label={item.name + " JSON Schema"}>{JSON.stringify(schema, null, 2)}</pre>
-        <h2>Structured tool result</h2>{toolWorkflowCode && <p>This helper includes the supplied data in structured content. Choose model-safe input before using it: private-field metadata does not redact result values, messages or trace details already supplied to a model. Local inspection and retry callbacks send identity/status/attempt fields only.</p>}<pre className="code">{serverCode}</pre>
+        <h2>Structured tool result</h2>{toolWorkflowCode && <p>This helper includes the supplied data in structured content. Choose model-safe input before using it: private-field metadata does not redact result values, messages or trace details already supplied to a model. Local inspection and retry callbacks send identity/status/attempt fields only.</p>}{formWorkflowCode && <p>This helper includes the supplied data in structured content; private metadata does not redact values already supplied to a model. Human-reviewed form submissions and inline commits contain their explicit current values or removals. Navigation, inspection and validation requests carry identity and reported state only. The consuming app must independently validate, authorize and persist any change; no callback implies successful saving or server validation.</p>}<pre className="code">{serverCode}</pre>
       </>}
       <h2>Security contract</h2>
       <p>Previews use authored data and consumer callbacks. Applications own authorization, persistence, tool execution and explicit model-context publication.</p>
@@ -110,6 +120,7 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
       <p><strong>Destructive intent:</strong> {item.security.destructive ? "Potentially; review the exact application action" : "No by default"}</p>
       <h2>Host and keyboard behavior</h2>
       <p>Host integration uses the consuming application's runtime provider. Native inputs, buttons, links and semantic tables expose the local interactions shown above. External-host compatibility and full accessibility conformance require their own acceptance evidence.</p>
+      {formWorkflowCode && <p>Typed form drafts distinguish absent values from null, false, zero and empty text. Clear removes a supplied value. JSON stays in a labelled text editor; unsafe or malformed drafts cannot submit. Multi-step navigation is controlled, validates before moving forward and preserves drafts when moving back. Reported progress and validation labels are supplied facts, not inferred completion or authorization.</p>}
     </section>
   </main>;
 }

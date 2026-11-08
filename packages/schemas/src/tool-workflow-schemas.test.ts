@@ -44,7 +44,7 @@ describe("tool workflow shared schema contract", () => {
     expect(schemaBySlug["tool-trace-viewer"]).toBe(ToolTraceViewerSchema);
     expect(RecordInspectorSchema).toBe(GenericComponentSchema);
     for (const { schema } of examples()) expect(schema).not.toBe(GenericComponentSchema);
-    expect(Object.keys(schemaBySlug)).toHaveLength(26);
+    expect(Object.keys(schemaBySlug)).toHaveLength(31);
   });
 
   it("requires trimmed bounded stable identities and visible titles", () => {

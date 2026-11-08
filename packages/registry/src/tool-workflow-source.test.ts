@@ -20,8 +20,8 @@ describe("tool workflow cohort canonical registry integration", () => {
     const { registry, items } = await build();
     expect(items.map(item => item.name)).toEqual([...catalog.map(item => item.slug), ...blockCatalog.map(item => item.name)]);
     expect(new Set(items.map(item => item.name)).size).toBe(79); expect(registry.items).toBe(items);
-    expect(items.filter(item => item.meta.implementation === "specialized")).toHaveLength(26);
-    expect(items.filter(item => item.meta.implementation === "generic-alias")).toHaveLength(30);
+    expect(items.filter(item => item.meta.implementation === "specialized")).toHaveLength(31);
+    expect(items.filter(item => item.meta.implementation === "generic-alias")).toHaveLength(25);
     for (const [slug] of cohort) expect(items.find(item => item.name === slug)?.meta.implementation).toBe("specialized");
   });
   it("publishes five dedicated strict data schemas instead of generic card schemas", () => {
@@ -32,8 +32,8 @@ describe("tool workflow cohort canonical registry integration", () => {
     }
   });
   it("appends both actual owner modules after the existing sixteen source modules", async () => {
-    const { items } = await build(); expect(sourceModulePaths).toHaveLength(18);
-    expect(sourceModulePaths.slice(-4)).toEqual(["_mcpcn/approval-schemas.ts", "_mcpcn/approval-components.tsx", "_mcpcn/tool-workflow-schemas.ts", "_mcpcn/tool-workflow-components.tsx"]);
+    const { items } = await build(); expect(sourceModulePaths).toHaveLength(20);
+    expect(sourceModulePaths.slice(14, 18)).toEqual(["_mcpcn/approval-schemas.ts", "_mcpcn/approval-components.tsx", "_mcpcn/tool-workflow-schemas.ts", "_mcpcn/tool-workflow-components.tsx"]);
     for (const item of items) for (const [path, target] of modules) {
       expect(item.files.find(file => file.path === `components/mcpcn/_mcpcn/${target}`)?.content).toBe(adapt(await readSource(path)));
       expect((item.meta.provenance as { sourceFiles: string[] }).sourceFiles).toContain(path);
@@ -52,7 +52,7 @@ describe("tool workflow cohort canonical registry integration", () => {
   it("resolves the eighteen module closure with 22 component 23 block and 101 union files", async () => {
     const { items } = await build(), union = new Set<string>();
     for (const item of items) {
-      expect(item.files).toHaveLength(item.type === "registry:block" ? 23 : 22);
+      expect(item.files).toHaveLength(item.type === "registry:block" ? 25 : 24);
       const paths = new Set(item.files.map(file => file.path));
       for (const source of item.files) {
         union.add(source.path); expect(source.content).not.toContain("@mcpcn/");
@@ -63,7 +63,7 @@ describe("tool workflow cohort canonical registry integration", () => {
         }
       }
     }
-    expect(union.size).toBe(101);
+    expect(union.size).toBe(103);
   });
   it("declares raw result part and trace details private with no direct tool execution", () => {
     for (const [slug] of cohort) {

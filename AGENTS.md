@@ -281,3 +281,39 @@ disabled and removed; only the two original broad definitions remain. Both
 owned QA branches are retired with source preserved as merge parents. This
 cohort is closed; later work must select an actual unfinished requirement
 instead of rerunning this packet for a different catalogue cohort.
+
+## Five remaining form components — 8 November 2026
+
+Standing owner authorization covers the separate [form contract](docs/specs/form-workflow-components.md)
+and [focused checks](docs/proposals/form-workflow-checks.md). MissingDataRequest,
+MultiStepForm, InlineEditForm, FormProgressCard and ValidatedFieldList become
+dedicated typed forms/reviews; preserve79 identities, target31 specialized/25
+generic. Explicit submits carry only current human-reviewed values/changes;
+navigation/inspection carries IDs. Reported validation/progress never implies
+authorization or inferred completion. Preserve old APIs, runtime/server/core,
+host protocols, dependencies/lock, primitives and styles. Append two owner
+modules after18; source-copy closure20 modules,24/25-file payloads,80/103 files.
+
+Use exact baseline5652a906 and new owned QAqa/mcpcn-form-workflows-20261108.
+Publish concrete source/controller/counts before manual main-only public read-
+only20-minute CI; main preparation/publication retains [skip ci]. New five
+literal unit files/twelve F01–F12 browser cases/two fresh consumers are separate
+from every closed packet. Source cap2500 and raw receipt-only8MiB are set before
+execution for actual baseline growth; other normal originals4MiB, compressed
+normal8/generated12/aggregate20MiB and generated raw128MiB retain finite bounds.
+Keep accepted generic process/stream/source/cleanup supervision fixed.
+
+Storage Guard now fails24.9GiB/34required: local source/static/data only, no app/
+install/build/test suite/browser/server. No new paid service/account, model/tool,
+npm or full-product claim. Keep accepted registry/hosting until new source and
+owner-generated output pass, retain originals/failures, adopt verified bytes,
+publish/deploy existing resources and retire only this cohort's owned controls.
+
+The [first form invocation](docs/results/2026/11-08/form-workflow-attempt-1.md)
+failed at source15047be9 on React TS2322 before units/consumers/browser or owner
+generation. Preserve all44 normal originals, source, failed status and verified
+cleanup. Repair only repeated record-index narrowing by capturing the previous
+entry once and explicitly checking undefined. The changed candidate directly
+follows5652a906 on qa/mcpcn-form-workflows-20261108-attempt-2; keep first source
+and both QA refs until preserved as accepted merge parents. Same110 identities,
+controller/browser/consumer/limits; no carried passes or unchanged rerun.
