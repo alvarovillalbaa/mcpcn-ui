@@ -1,0 +1,68 @@
+# Inactive preparation. Activate only after passing CI artifact adoption and independent READY/source/alias review.
+name: MCPCN playground anonymous public delivery
+on:
+  workflow_dispatch:
+    inputs:
+      source_sha:
+        description: Exact reviewed deployed source SHA containing passing CI receipt and artifact oracle
+        type: string
+        required: true
+      deployment_id:
+        description: Actual independently reviewed Vercel deployment ID (not HTTP provenance)
+        type: string
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: mcpcn-playground-public-delivery
+  cancel-in-progress: false
+jobs:
+  public-http:
+    if: github.repository == 'alvarovillalbaa/mcpcn-ui' && github.event.repository.private == false && github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    env:
+      CI: 'true'
+      SOURCE_COMMIT: ${{ inputs.source_sha }}
+      MCPCN_V1_DEPLOYMENT_ID: ${{ inputs.deployment_id }}
+      MCPCN_PUBLIC_REPOSITORY: ${{ github.event.repository.private == false }}
+    steps:
+      - name: Bind immutable inputs and earliest job clock
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$SOURCE_COMMIT" =~ ^[a-f0-9]{40}$ ]]
+          [[ "$MCPCN_V1_DEPLOYMENT_ID" =~ ^dpl_[A-Za-z0-9]{10,100}$ ]]
+          python3 - <<'PY'
+          import os,time
+          now = time.time_ns() // 1000000
+          with open(os.environ['GITHUB_ENV'], 'a') as output:
+              output.write(f'MCPCN_V1_HTTP_JOB_STARTED_MS={now}\nMCPCN_PLAYGROUND_PUBLIC_JOB_STARTED_MS={now}\n')
+          PY
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ env.SOURCE_COMMIT }}
+          persist-credentials: false
+          clean: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: '24.22.2'
+      - name: Check the original seven routes then the passing playground artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$SOURCE_COMMIT"
+          test -z "$(git status --porcelain=v1 --untracked-files=all)"
+          git diff --check
+          node -e 'const start=Number(process.env.MCPCN_PLAYGROUND_PUBLIC_JOB_STARTED_MS);if(!Number.isSafeInteger(start)||start>Date.now()||start+240000-Date.now()<190000)process.exit(1)'
+          export MCPCN_V1_HTTP_VERIFIED_SOURCE="$SOURCE_COMMIT"
+          export MCPCN_PLAYGROUND_PUBLIC_VERIFIED_SOURCE="$SOURCE_COMMIT"
+          first=0
+          node tooling/check-v1-public-delivery.mjs --source-commit "$SOURCE_COMMIT" --deployment-id "$MCPCN_V1_DEPLOYMENT_ID" || first=$?
+          second=0
+          node tooling/check-playground-public-delivery.mjs --source-commit "$SOURCE_COMMIT" --deployment-id "$MCPCN_V1_DEPLOYMENT_ID" || second=$?
+          test "$(git rev-parse HEAD)" = "$SOURCE_COMMIT"
+          test -z "$(git status --porcelain=v1 --untracked-files=all)"
+          git diff --check
+          test "$first" -eq 0
+          exit "$second"
