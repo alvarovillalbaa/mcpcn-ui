@@ -36,6 +36,8 @@ const SOURCES = [
   ["packages/react/src/tool-workflow-components.tsx", "_mcpcn/tool-workflow-components.tsx", "registry:component"],
   ["packages/schemas/src/form-workflow-schemas.ts", "_mcpcn/form-workflow-schemas.ts", "registry:lib"],
   ["packages/react/src/form-workflow-components.tsx", "_mcpcn/form-workflow-components.tsx", "registry:component"],
+  ["packages/schemas/src/file-review-schemas.ts", "_mcpcn/file-review-schemas.ts", "registry:lib"],
+  ["packages/react/src/file-review-components.tsx", "_mcpcn/file-review-components.tsx", "registry:component"],
 ] as const;
 export const sourceModulePaths: readonly string[] = Object.freeze(SOURCES.map(([, target]) => target));
 const INTERNAL_IMPORTS:Record<string,string> = {"@mcpcn/core":"./core","@mcpcn/schemas":"./schemas","@mcpcn/react":"./components","@mcpcn/runtime":"./runtime"};

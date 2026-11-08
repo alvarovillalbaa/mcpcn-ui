@@ -7,6 +7,7 @@ import { ToolCallCardSchema, RetryableErrorStateSchema, AuthRequiredCardSchema }
 import { ApprovalChecklistSchema, BeforeSubmitConfirmationSchema, DestructiveActionGuardSchema, HumanOverridePanelSchema, PermissionRequestCardSchema } from "./approval-schemas.js";
 import { ToolResultCardSchema, RunningTaskCardSchema, PartialResultViewerSchema, QueuedStepListSchema, ToolTraceViewerSchema } from "./tool-workflow-schemas.js";
 import { MissingDataRequestSchema, MultiStepFormSchema, InlineEditFormSchema, FormProgressCardSchema, ValidatedFieldListSchema } from "./form-workflow-schemas.js";
+import { DocumentPreviewSchema, FileReviewSchema } from "./file-review-schemas.js";
 export { RiskLevelSchema, ChangeSchema, SchemaFieldSchema } from "./schema-common.js";
 export * from "./review-schemas.js";
 export * from "./decision-schemas.js";
@@ -14,6 +15,7 @@ export * from "./execution-schemas.js";
 export * from "./approval-schemas.js";
 export * from "./tool-workflow-schemas.js";
 export * from "./form-workflow-schemas.js";
+export * from "./file-review-schemas.js";
 
 export const ApprovalCardSchema = z.object({
   title: z.string().refine(value => Boolean(value.trim()), "A review needs a visible title."),
@@ -94,7 +96,6 @@ export const GenericComponentSchema = z.object({
 // their contracts; the remaining informational aliases share the generic shape.
 export const RecordInspectorSchema=GenericComponentSchema, FieldConfidenceListSchema=GenericComponentSchema,
   ConflictResolverSchema=GenericComponentSchema, ValidationSummarySchema=GenericComponentSchema,
-  DocumentPreviewSchema=GenericComponentSchema, FileReviewSchema=GenericComponentSchema,
   OptionSelectorSchema=GenericComponentSchema, RecommendationCardSchema=GenericComponentSchema,
   TradeoffPanelSchema=GenericComponentSchema,
   RankingListSchema=GenericComponentSchema, DecisionMemoSchema=GenericComponentSchema,
@@ -156,5 +157,7 @@ export const schemaBySlug = {
   "multi-step-form": MultiStepFormSchema,
   "inline-edit-form": InlineEditFormSchema,
   "form-progress-card": FormProgressCardSchema,
-  "validated-field-list": ValidatedFieldListSchema
+  "validated-field-list": ValidatedFieldListSchema,
+  "document-preview": DocumentPreviewSchema,
+  "file-review": FileReviewSchema
 } as const;
