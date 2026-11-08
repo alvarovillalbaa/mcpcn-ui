@@ -5,11 +5,13 @@ import { ConfirmationPanelSchema, RiskReviewPanelSchema, DiffViewerSchema, Sourc
 import { DynamicQuestionFlowSchema, ExtractedFieldsReviewSchema, ComparisonMatrixSchema, ScoreBreakdownSchema } from "./decision-schemas.js";
 import { ToolCallCardSchema, RetryableErrorStateSchema, AuthRequiredCardSchema } from "./execution-schemas.js";
 import { ApprovalChecklistSchema, BeforeSubmitConfirmationSchema, DestructiveActionGuardSchema, HumanOverridePanelSchema, PermissionRequestCardSchema } from "./approval-schemas.js";
+import { ToolResultCardSchema, RunningTaskCardSchema, PartialResultViewerSchema, QueuedStepListSchema, ToolTraceViewerSchema } from "./tool-workflow-schemas.js";
 export { RiskLevelSchema, ChangeSchema, SchemaFieldSchema } from "./schema-common.js";
 export * from "./review-schemas.js";
 export * from "./decision-schemas.js";
 export * from "./execution-schemas.js";
 export * from "./approval-schemas.js";
+export * from "./tool-workflow-schemas.js";
 
 export const ApprovalCardSchema = z.object({
   title: z.string().refine(value => Boolean(value.trim()), "A review needs a visible title."),
@@ -88,10 +90,7 @@ export const GenericComponentSchema = z.object({
 
 // Every catalog surface has a named schema export. Specialized components own
 // their contracts; the remaining informational aliases share the generic shape.
-export const ToolResultCardSchema=GenericComponentSchema, RunningTaskCardSchema=GenericComponentSchema,
-  PartialResultViewerSchema=GenericComponentSchema,
-  QueuedStepListSchema=GenericComponentSchema, ToolTraceViewerSchema=GenericComponentSchema,
-  RecordInspectorSchema=GenericComponentSchema, FieldConfidenceListSchema=GenericComponentSchema,
+export const RecordInspectorSchema=GenericComponentSchema, FieldConfidenceListSchema=GenericComponentSchema,
   ConflictResolverSchema=GenericComponentSchema, ValidationSummarySchema=GenericComponentSchema,
   DocumentPreviewSchema=GenericComponentSchema, FileReviewSchema=GenericComponentSchema,
   MissingDataRequestSchema=GenericComponentSchema, MultiStepFormSchema=GenericComponentSchema,
@@ -148,5 +147,10 @@ export const schemaBySlug = {
   "before-submit-confirmation": BeforeSubmitConfirmationSchema,
   "destructive-action-guard": DestructiveActionGuardSchema,
   "human-override-panel": HumanOverridePanelSchema,
-  "permission-request-card": PermissionRequestCardSchema
+  "permission-request-card": PermissionRequestCardSchema,
+  "tool-result-card": ToolResultCardSchema,
+  "running-task-card": RunningTaskCardSchema,
+  "partial-result-viewer": PartialResultViewerSchema,
+  "queued-step-list": QueuedStepListSchema,
+  "tool-trace-viewer": ToolTraceViewerSchema
 } as const;

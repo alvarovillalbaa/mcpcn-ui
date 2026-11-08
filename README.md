@@ -6,9 +6,16 @@ Last updated: 2026-11-08
 
 The source includes components, controlled workflow blocks, MCP Apps runtime
 adapters, server helpers, a source registry, a CLI and a documentation app.
-The current source has 12 primitives, 21 specialized components and 35 named aliases
+The current source has 12 primitives, 26 specialized components and 30 named aliases
 of the generic informational component. Eleven workflow blocks now contain
 actual editing, selection, file-review, progress and approval compositions.
+
+The five remaining tool-execution aliases now have dedicated source for outcomes,
+reported progress, partial results, ordered steps and filtered trace events.
+Their [contract](docs/specs/tool-workflow-components.md) and
+[new acceptance scope](docs/proposals/tool-workflow-checks.md) are prepared:
+91 new unit/SSR cases, twelve browser scenarios and two fresh consumers remain
+unrun. Source preparation does not replace the accepted receipts below.
 
 Five additional approval components now have dedicated source implementations:
 ApprovalChecklist, BeforeSubmitConfirmation, DestructiveActionGuard,

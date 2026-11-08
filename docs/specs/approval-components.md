@@ -7,10 +7,12 @@ status. Existing review, decision and execution components remain separate.
 
 The schemas live in `packages/schemas/src/approval-schemas.ts`. Public package
 exports and `schemaBySlug` expose all five. Each has an input `*Data` type and a
-`Parsed*Data` type reflecting applied defaults. Schema and UI checks authored
-for this cohort are **unrun** until the new remote packet supplies evidence.
-No local Node, application, test, install or build is authorized below Storage
-Guard's reserve. Historical passing packets are not this cohort's acceptance.
+`Parsed*Data` type reflecting applied defaults. The cohort's schema/UI/browser
+and consumer checks [passed separately](../results/2026/11-08/approval-checks.md)
+at their immutable source. Later tool-workflow source does not rerun them.
+No local application, test suite, install or build is authorized below Storage
+Guard's reserve. Source parsing is separate; older v1/playground receipts do not
+replace this cohort's own acceptance.
 
 ## Shared data and intent boundary
 

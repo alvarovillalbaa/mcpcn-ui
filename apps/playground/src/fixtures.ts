@@ -2,6 +2,7 @@ import type { MCPCNPayload } from "@mcpcn/core";
 import { blockCatalog, catalog } from "@mcpcn/registry/catalog";
 import { ApprovalCardSchema, AuditTrailSchema, GenericComponentSchema, ToolProgressTimelineSchema, schemaBySlug, toJSONSchema } from "@mcpcn/schemas";
 import type { ApprovalChecklistData, BeforeSubmitConfirmationData, DestructiveActionGuardData, HumanOverridePanelData, PermissionRequestCardData } from "@mcpcn/schemas";
+import type { ToolResultCardData, RunningTaskCardData, PartialResultViewerData, QueuedStepListData, ToolTraceViewerData } from "@mcpcn/schemas";
 import type { AgentGeneratedReportReviewProps, CompareOptionsApproveProps, FileUploadAndExtractProps, MultiStepToolRunProps, ReviewBeforeActionProps, TableBulkActionReviewProps, WorkflowFormProps } from "@mcpcn/react/blocks";
 
 export type PlaygroundItem = { slug: string; name: string; kind: "specialized" | "generic-alias" | "primitive" | "workflow-block" };
@@ -78,8 +79,22 @@ const approvalFixtures = {
   "human-override-panel": HumanOverridePanelData;
   "permission-request-card": PermissionRequestCardData;
 };
+const toolWorkflowFixtures = {
+  "tool-result-card": { id: "outcome-1", title: "Inspect authored tool outcome", description: "Reported data only; this preview did not execute a tool.", tool: "read_authored_records", status: "partial", result: { records: [{ id: "record-a", accepted: false, count: 0, note: "" }], next: null } },
+  "running-task-card": { id: "task-1", title: "Review authored task progress", status: "running", currentStep: "Review authored output", progress: { completed: 2, total: 3 }, elapsedMs: 1200, cancellable: true },
+  "partial-result-viewer": { id: "parts-1", title: "Review authored result parts", status: "partial", parts: [{ id: "summary", label: "Authored summary", status: "available", value: { accepted: false, count: 0, note: "", next: null } }, { id: "details", label: "Authored details", status: "failed", message: "The authored details need another attempt.", value: null, attempt: 2, retryable: true }, { id: "pending", label: "Pending appendix", status: "pending" }], selectedPartId: "summary" },
+  "queued-step-list": { id: "queue-1", title: "Review authored queue", steps: [{ id: "read", label: "Read authored input", status: "succeeded", attempt: 1 }, { id: "review", label: "Review authored output", status: "failed", message: "The authored review needs another attempt.", attempt: 2, retryable: true }, { id: "publish", label: "Publish authored result", status: "queued" }], selectedStepId: "review" },
+  "tool-trace-viewer": { id: "trace-1", title: "Review authored tool trace", events: [{ id: "input", label: "Authored input", kind: "input", details: { query: "Authored record", limit: 0 } }, { id: "progress", label: "Authored progress", kind: "progress", parentId: "input", elapsedMs: 0, details: false }, { id: "output", label: "Authored output", kind: "output", parentId: "input", elapsedMs: 1200, details: { records: [], next: null } }, { id: "error", label: "Authored diagnostic", kind: "error", parentId: "input", details: "Authored diagnostic only" }, { id: "note", label: "Authored note", kind: "note", details: "" }], filterKind: "all", selectedEventId: "output" },
+} satisfies {
+  "tool-result-card": ToolResultCardData;
+  "running-task-card": RunningTaskCardData;
+  "partial-result-viewer": PartialResultViewerData;
+  "queued-step-list": QueuedStepListData;
+  "tool-trace-viewer": ToolTraceViewerData;
+};
 const specializedFixtures: Record<string, unknown> = {
   ...approvalFixtures,
+  ...toolWorkflowFixtures,
   "approval-card": { title: "Approve authored changes", changes: [change], riskLevel: "medium", requiresExplicitConsent: true },
   "tool-progress-timeline": { title: "Authored progress", steps, retryTool: "authored_preview_only" },
   "schema-form": { title: "Authored request", fields: [{ name: "subject", label: "Subject", type: "text", required: true }, { name: "notes", label: "Notes", type: "textarea" }] },

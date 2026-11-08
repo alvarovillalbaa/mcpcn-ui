@@ -4,6 +4,7 @@ import * as UI from "@mcpcn/react";
 import * as Blocks from "@mcpcn/react/blocks";
 import type { ApprovalCardData, ApprovalChecklistData, BeforeSubmitConfirmationData, DestructiveActionGuardData, HumanOverridePanelData, PermissionRequestCardData, AuditTrailData, AuthRequiredCardData, ComparisonMatrixData, ConfirmationPanelData, DiffViewerData, DynamicQuestionFlowData, EntityReviewTableData, ExtractedFieldsReviewData, RetryableErrorStateData, RiskReviewPanelData, SchemaFormData, ScoreBreakdownData, SourceEvidencePanelData, ToolCallCardData, ToolProgressTimelineData } from "@mcpcn/schemas";
 import { playgroundItems, validateFixture, type BlockFixtures, type PrimitiveFixtures } from "./fixtures";
+import type { ToolResultCardData, RunningTaskCardData, PartialResultViewerData, QueuedStepListData, ToolTraceViewerData } from "@mcpcn/schemas";
 
 type Props = { payload: MCPCNPayload<string, unknown>; onAction: (action: UI.ComponentAction) => void | Promise<void> };
 type Data = Record<string, unknown>;
@@ -67,6 +68,11 @@ function Preview({ payload, onAction }: Props) {
       case "human-override-panel": component = <UI.HumanOverridePanel {...data as HumanOverridePanelData} {...common} />; break;
       case "permission-request-card": component = <UI.PermissionRequestCard {...data as PermissionRequestCardData} {...common} />; break;
       case "tool-progress-timeline": component = <UI.ToolProgressTimeline {...data as ToolProgressTimelineData} {...common} />; break;
+      case "tool-result-card": component = <UI.ToolResultCard {...data as ToolResultCardData} {...common} />; break;
+      case "running-task-card": component = <UI.RunningTaskCard {...data as RunningTaskCardData} {...common} />; break;
+      case "partial-result-viewer": component = <UI.PartialResultViewer {...data as PartialResultViewerData} {...common} />; break;
+      case "queued-step-list": component = <UI.QueuedStepList {...data as QueuedStepListData} {...common} />; break;
+      case "tool-trace-viewer": component = <UI.ToolTraceViewer {...data as ToolTraceViewerData} {...common} />; break;
       case "schema-form": component = <UI.SchemaForm {...data as SchemaFormData} {...common} />; break;
       case "entity-review-table": component = <UI.EntityReviewTable {...data as EntityReviewTableData} {...common} />; break;
       case "audit-trail": component = <UI.AuditTrail {...data as AuditTrailData} {...common} />; break;
@@ -138,6 +144,23 @@ export function controlledData(slug: string, current: Data, action: UI.Component
   const value = action.data;
   if (!object(value)) return undefined;
   switch (slug) {
+    case "partial-result-viewer": {
+      const d = current as PartialResultViewerData;
+      return value.id === d.id && action.type === "select-result-part" && typeof value.partId === "string" && d.parts.some(part => part.id === value.partId)
+        ? { selectedPartId: value.partId } : undefined;
+    }
+    case "queued-step-list": {
+      const d = current as QueuedStepListData;
+      return value.id === d.id && action.type === "select-queued-step" && typeof value.stepId === "string" && d.steps.some(step => step.id === value.stepId)
+        ? { selectedStepId: value.stepId } : undefined;
+    }
+    case "tool-trace-viewer": {
+      const d = current as ToolTraceViewerData;
+      if (value.id !== d.id) return undefined;
+      if (action.type === "change-trace-filter" && typeof value.kind === "string" && ["all", "input", "progress", "output", "error", "note"].includes(value.kind)) return { filterKind: value.kind };
+      return action.type === "select-trace-event" && typeof value.eventId === "string" && d.events.some(event => event.id === value.eventId)
+        ? { selectedEventId: value.eventId } : undefined;
+    }
     case "approval-checklist": {
       const d = current as ApprovalChecklistData;
       if (value.reviewId !== d.reviewId || action.type !== "check-item" || typeof value.itemId !== "string" || typeof value.checked !== "boolean" || !d.items.some(item => item.id === value.itemId)) return undefined;

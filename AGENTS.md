@@ -231,3 +231,34 @@ provider, sixteen anonymous HTTP and seven candidate-archive boundaries.
 Workflow411128785 was disabled then removed; only the two original broad
 workflows remain. The owned approval QA branch is retired; its immutable source
 remains an accepted merge parent. Preserve all older QA bookmarks and releases.
+
+## Five remaining tool-execution components — 8 November 2026
+
+Standing owner approval covers the [tool-workflow scope](docs/proposals/tool-workflow-checks.md)
+and [contract](docs/specs/tool-workflow-components.md). Preserve the other 21
+specialized implementations and all 79 identities; the new source has 26
+specialized/30 generic components. New intents contain current identity/status/
+attempt and never execute tools, queues, tracing, network, model context,
+clocks, permissions or billing. Reuse the bounded JSON guard through one named
+export; append two owner modules after sixteen. Existing runtime/server/core,
+host protocols, manifests/lock and styling stay fixed. Narrow old test count/
+closure expectations and unrelated-alias sentinels follow the new contract;
+closed historical packets are not rerun or relabelled.
+
+Publish the exact candidate directly after `d94ba3b2` on
+`qa/mcpcn-tool-workflows-20261108` before one temporary manual main dispatch.
+Use read-only token/public Ubuntu/twenty-minute cap and `[skip ci]` preparation/
+publication. Its own 91 literal unit/SSR cases, twelve browser cases and two
+fresh consumers must run. Verify all 167 generated paths, eighteen modules,
+22/23-file payloads, 101/80 installed files and deterministic generation.
+Retain exact output/vector separately from seed Git bytes.
+
+The new output budget is 12 MiB generated gzip, 8 MiB normal, 20 MiB aggregate,
+128 MiB raw, set before execution for source growth. Keep accepted supervisor
+semantics fixed. Direct browser proof must distinguish selected-section busy/
+feedback from parent state and producer alerts; forced iframe remount cannot
+prove same-root member replacement. Storage Guard fails at 25.4 GiB free/34 GiB
+required: no local application/install/build/test suite/browser/server. Keep
+accepted main runtime/registry/hosting fixed until this new packet passes; then
+adopt only verified output and publish to existing resources. Retire only owned
+controls. No paid service/account, provider/model, npm or full-product claim.

@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   ApprovalChecklistSchema, BeforeSubmitConfirmationSchema, DestructiveActionGuardSchema,
   HumanOverridePanelSchema, PermissionRequestCardSchema, GenericComponentSchema,
-  ToolResultCardSchema, schemaBySlug, toJSONSchema,
+  RecordInspectorSchema, schemaBySlug, toJSONSchema,
 } from "./index.js";
 
 const checklist = () => ({ reviewId: "checklist-1", title: "Release review", items: [
@@ -31,7 +31,7 @@ describe("approval cohort schemas", () => {
     expect(schemaBySlug["destructive-action-guard"]).toBe(DestructiveActionGuardSchema);
     expect(schemaBySlug["human-override-panel"]).toBe(HumanOverridePanelSchema);
     expect(schemaBySlug["permission-request-card"]).toBe(PermissionRequestCardSchema);
-    expect(ToolResultCardSchema).toBe(GenericComponentSchema);
+    expect(RecordInspectorSchema).toBe(GenericComponentSchema);
     expect(ApprovalChecklistSchema).not.toBe(GenericComponentSchema);
   });
 

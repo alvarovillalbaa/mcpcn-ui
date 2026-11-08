@@ -47,6 +47,7 @@ function guardedJSON(objectOnly: boolean) {
   });
 }
 const jsonValue = (guardedJSON(false) as z.ZodType<InspectableJSON, InspectableJSON>).pipe(jsonShape);
+export { jsonValue as InspectableJSONSchema };
 const argumentsObject = (guardedJSON(true) as z.ZodType<ToolArguments, ToolArguments>).pipe(z.record(z.string(), jsonShape));
 
 export const ToolCallCardSchema = z.object({
