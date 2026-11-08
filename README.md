@@ -19,7 +19,10 @@ installed consumers at `ad288e1f63814211d061e7258ea330b1048fa30a`.
 All 167 generated paths were verified and adopted from that passing packet.
 The [first run](docs/results/2026/11-08/tool-workflow-attempt-1.md) remains failed
 at 90/91 after a getter-safety failure; its consumers/browser were not reached.
-Hosting and release acceptance for this cohort remain separate.
+The separate [public delivery](docs/results/2026/11-08/tool-workflow-public-delivery.md)
+records READY production source `c33e8a13`, sixteen anonymous delivery responses
+and the [seven-archive candidate](https://github.com/alvarovillalbaa/mcpcn-ui/releases/tag/v0.1.0-tool-workflows.1).
+Public npm, external hosts and hosted interaction remain separate.
 
 Five additional approval components now have dedicated source implementations:
 ApprovalChecklist, BeforeSubmitConfirmation, DestructiveActionGuard,

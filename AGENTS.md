@@ -274,5 +274,10 @@ the originals and separately adopted 167-path generated vector. The repair
 only prevented serialization of already-invalid nested data and extended the
 existing zero-getter case; the old JSON guard and packet controls stayed fixed.
 This cohort's CI packet is accepted; preserve the failed source/originals and
-both source identities. Hosting, release and workflow retirement remain separate
-from this CI acceptance.
+both source identities. The separate [public delivery](docs/results/2026/11-08/tool-workflow-public-delivery.md)
+binds accepted publication `c33e8a13` to READY deployment, sixteen anonymous HTTP
+observations and seven unchanged candidate archives. Workflow411202304 was
+disabled and removed; only the two original broad definitions remain. Both
+owned QA branches are retired with source preserved as merge parents. This
+cohort is closed; later work must select an actual unfinished requirement
+instead of rerunning this packet for a different catalogue cohort.

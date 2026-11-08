@@ -80,8 +80,10 @@ Changed source guards against serializing an already-invalid value and extends
 that same case across result/part/trace channels. This fresh full pass carries
 no earlier pass forward; historical packets remain closed.
 
-Workflow `411202304` is disabled. Source/generated publication and existing-site
-deployment remain separate owner steps. External MCP hosts, real tool/queue/
+Workflow `411202304` was disabled and removed after acceptance. The separate
+[delivery record](tool-workflow-public-delivery.md) binds publication `c33e8a13`
+to READY production, anonymous responses and unchanged candidate archives.
+External MCP hosts, real tool/queue/
 authorization execution, arbitrary-HTML isolation, hosted browser interaction,
 physical devices, exhaustive accessibility, public npm and the remaining
 full-product scope are not established by this packet.
