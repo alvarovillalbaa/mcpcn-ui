@@ -426,3 +426,94 @@ all2561othertracked and163then-untracked originals preserved. Canonical original
 needed for metadata-only publication; preserve exact checked application bytes
 plus only returned generated outputs. Public READY/alias/nativeHTTP/archive
 publication and task-control retirement remain separate pending steps.
+
+## Static registry hosting repair — 2026-11-08
+
+The seven exact passing archives are published as release438508097,
+tag `v0.1.0-file-review.1`, at package source6b008cded. Preserve that target.
+The [first hosting attempt](docs/results/2026/11-08/file-review-hosting-attempt-1.md)
+failed at that source with FALLBACK_BODY_TOO_LARGE after compilation and82pages;
+the canonical alias still serves the previous form deployment. Do not bypass
+the limit or replay the closed85/12/2 component packet.
+
+Standing owner authority covers the separate [hosting contract](docs/specs/static-registry-hosting.md)
+and [focused proposal](docs/proposals/static-registry-hosting-checks.md).
+Base6b008cded/tree4e44c119 stays immutable. Exactly seven application paths may
+change: one ignore entry, the docs build string, a docs-scoped Turbo task,
+deletion of the explicit aggregate ISR route, and the new stager/test/controller.
+Preserve the complete canonical index,167generated outputs, dynamic item route,
+all component/package/lock bytes and the original two broad workflows.
+
+Use qa/mcpcn-static-registry-20261108 for an immutable direct-child candidate.
+One main-only temporary manual public Ubuntu job, read-only token,20minute cap,
+checks eight new staging cases, the unchanged12 ownership prerequisites, actual
+docs build and cache restoration, absence of aggregate prerendering and six
+complete production loopback GETs. No browser/component/consumer replay,
+generated adoption or Mac installation/build/server/test execution. Storage
+Guard fails at13.7GiB/34GiB; source/static/data handling remains separate.
+Publish source and workflow with [skip ci], preserve any failed originals,
+and retire only these owned controls. New hosting source/CI/provider/HTTP proof
+must remain distinct from the package release and old component source.
+
+The [first hosting CI](docs/results/2026/11-08/static-registry-hosting-attempt-1.md)
+passed8ST/12PO but failed before compilation because Turbo could not discover
+the already pinned pnpm executable on sanitized PATH. Preserve42originals and
+its successful cleanup; no cache/HTTP pass is inferred. A direct6b sibling on
+qa/mcpcn-static-registry-20261108-attempt-2 may verify the owned pnpm bin link and
+prepend only that tools directory, retaining all checks/flags/limits and the
+same main-only temporary workflow. Keep the first failed source as a parent.
+
+The [second hosting CI](docs/results/2026/11-08/static-registry-hosting-attempt-2.md)
+built81pages and verified complete static bytes, but docs hash changed before
+the second command, which missed cache and safely refused the empty artifact.
+Preserve54originals and successful cleanup. A third direct6b sibling may only
+retain the second actual Turbo summary before enforcing command/cache success,
+so its exact input drift can be diagnosed. All pass gates/config/arguments stay
+fixed; no guessed ignore repair or acceptance of a miss. The owned branch is
+qa/mcpcn-static-registry-20261108-attempt-3; preserve both earlier sources.
+
+The [third diagnostic CI](docs/results/2026/11-08/static-registry-hosting-attempt-3.md)
+retained both full summaries and proved exactly8generated playground files
+entered second inputs; all original/global/config/env/dependency hashes match.
+Preserve55originals and failed status. A fourth direct6b sibling may add only
+`!public/playground-simulator/**` and `!public/r/**` after `$TURBO_DEFAULT$` in
+the docs task inputs, keep both as outputs and mirror that exact expectation
+in the controller/provenance helpers. All checks/limits and same-hash HIT/body
+restoration gates stay fixed. Owned branchqa/mcpcn-static-registry-20261108-attempt-4;
+all three failed source identities must remain publication ancestors.
+
+The [fourth hosting CI](docs/results/2026/11-08/static-registry-hosting-attempt-4.md)
+proved same-key cache restoration, but the first complete HTTP200 page failed
+a literal caption oracle because React inserts`<!-- -->` between the title
+and data-fields text. Preserve59originals and failed status. A fifth direct6b
+sibling onqa/mcpcn-static-registry-20261108-attempt-5 may accept only those two
+exact caption forms; H1/supplied/status/MIME/body/closure and all6HTTP cases
+remain mandatory. No application/config/limit change; preserve all4failures.
+
+The [fifth hosting CI](docs/results/2026/11-08/static-registry-hosting-attempt-5.md)
+passed all8ST/12PO/build/cache/6HTTP cases but remains failed: a premature eager
+error was recorded before a fresh ENOENT recheck classified that PID vanished.
+It was never adopted/signalled; cleanup passed/0remaining/no uncertainty.
+Preserve71originals. The sixth direct6b sibling may remove only that premature
+sticky error push, keeping the mandatory proof throw, fresh recheck/classifier
+and fatal stable-unknown/failed-recheck rules. This is a scoped one-line caller
+attribution change, not unchanged generic bytes; shared12 helpers/fixtures and
+all bounds/proof/adoption/signalling gates stay fixed. Two independent reviews
+cleared this exact control flow. Audit every new disposition and full closure;
+no new dedicated caller fixture is claimed. Owned branch is
+qa/mcpcn-static-registry-20261108-attempt-6; preserve all5failed sources.
+
+The [sixth hosting packet](docs/results/2026/11-08/static-registry-hosting-checks.md)
+passed at3007041275df2a87bef9f3070a90b19b0a6ace42/run42527232965/job128873426037:
+8ST/12unchangedPO,81pages,firstMISS/secondHIT at the samea0698c275ae9d8a1 hash
+and41identical source inputs,0generated inputs. Both exact public files were
+removed/observed absent/restored; all6completeHTTP cases,167unchanged generated
+paths and7simulatorassets797096B passed. All30commands/60streams/four3198-file
+guards/sixexportguards and owned teardown passed;0remaining/uncertainty/scan
+dispositions/eagerattempts. This passing run did not exercise a disappearing
+caller race; the exact one-line correction has independent control-flow review
+and the earlier failed race remains preserved. No new caller fixture is claimed.
+Canonical71normal/73retainedfiles9566881B. Workflow411466901 is disabled;
+accepted publication removes its definition and preserves all6candidate sources
+before retiring only the9owned component/hostingQArefs. CI is now closed;
+VercelREADY/alias/14nativeHTTP and final delivery remain separate pending work.
