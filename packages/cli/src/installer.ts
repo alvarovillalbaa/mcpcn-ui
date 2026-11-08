@@ -26,7 +26,8 @@ type InstallLock = {
   items: Record<string, { files: string[] }>;
 };
 const JSON_LIMIT = 2 * 1024 * 1024;
-const TOTAL_LIMIT = 16 * 1024 * 1024;
+// Bound cumulative declared source before shared files are deduplicated.
+const TOTAL_LIMIT = 32 * 1024 * 1024;
 const REQUEST_TIMEOUT_MS = 10_000;
 const INSTALL_LOCK = ".mcpcn-install.lock";
 const MANIFEST = "mcpcn.lock.json";
