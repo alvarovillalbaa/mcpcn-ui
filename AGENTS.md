@@ -188,3 +188,39 @@ the broad CI/release definitions and all older QA bookmarks remain unchanged.
 Retire the temporary workflow after terminal acceptance. No local heavy runtime
 below Storage Guard's reserve, public npm release, new account, paid service,
 external tools/model, production data or untrusted-HTML isolation claim.
+
+## Five approval components — 8 November 2026
+
+Standing owner approval covers the separate [approval catalogue scope](docs/proposals/approval-components-checks.md):
+all five remaining approval aliases become typed dedicated interactions with
+schemas, controlled playground/docs and editable source installation. Preserve
+all 79 catalogue identities; 21 specialized components leave 35 honest aliases
+unfinished. Callback intent does not execute tools, alter authorization or grant
+permissions. No runtime/server/core or dependency/lock changes are intended.
+
+The immutable candidate belongs to `qa/mcpcn-approval-components-20261108`,
+directly after `3e9e787863002c59b13736597a416019035508d1`. Publish the concrete
+controller/proposal before a single main-only manual temporary CI dispatch.
+Its own scope is 79 new literal unit/SSR cases, twelve new desktop/narrow browser
+cases and two fresh relevant installed consumers; historical checks stay closed.
+The new copy closure appends two owner modules after the original fourteen.
+Generate the existing 167 owner outputs only in private CI export, verify every
+module/item/schema and deterministic regeneration, then retain/adopt exact
+passing bytes separately from the seed commit. Never edit generated JSON manually.
+
+Keep accepted runtime/registry/hosting unchanged before acceptance; temporary
+main preparation adds only its workflow and retains `[skip ci]`. Preserve broad
+workflows, older QA bookmarks, raw failed receipts, source/stream/process gates
+and verified owned cleanup. Retire owned controls afterward. Storage Guard now
+fails at 6.9 GiB free/34 GiB required: no local install/build/test/app/server/
+browser execution. Source parsing/static/data handling is separate. No paid
+service/account, external host/tool/model, public npm or full-product acceptance
+belongs to this packet.
+
+This approval cohort passed once at `b67ee0819b4e07fcf3a177750079c9b459e57ab2`:
+79 units/SSR, twelve browser cases and both fresh consumers. The
+[canonical receipt](docs/results/2026/11-08/approval-checks.md) retains exact
+originals and the separately adopted 167-path generated vector. This packet
+is closed; do not rerun it merely to support a later catalogue cohort. Later
+publication may remove the controller's one trailing blank line only; the
+checked controller hash remains bound to the immutable candidate.

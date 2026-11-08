@@ -5,7 +5,7 @@ describe("playground authored fixture boundary", () => {
   it("covers all 79 unique catalogue identities with honest implementation kinds", () => {
     expect(playgroundItems).toHaveLength(79);
     expect(new Set(playgroundItems.map(item => item.slug)).size).toBe(79);
-    expect(["specialized", "generic-alias", "primitive", "workflow-block"].map(kind => playgroundItems.filter(item => item.kind === kind).length)).toEqual([16, 40, 12, 11]);
+    expect(["specialized", "generic-alias", "primitive", "workflow-block"].map(kind => playgroundItems.filter(item => item.kind === kind).length)).toEqual([21, 35, 12, 11]);
     for (const item of playgroundItems) {
       const fixture = makeFixture(item.slug);
       expect(fixture.kind).toBe(`mcpcn/${item.slug}`);
@@ -21,7 +21,7 @@ describe("playground authored fixture boundary", () => {
     expect(parsed.success).toBe(true);
     if (parsed.success) expect(parsed.data.data).not.toBe(first.data);
   });
-  it("uses owned schemas for sixteen specialized and forty generic entries only", () => {
+  it("uses owned schemas for specialized and generic entries only", () => {
     for (const item of playgroundItems) {
       const schema = schemaFor(item.slug);
       if (item.kind === "specialized" || item.kind === "generic-alias") expect(schema).toMatchObject({ type: "object" });

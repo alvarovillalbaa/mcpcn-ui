@@ -30,8 +30,11 @@ The missing sandbox permission was observed in the second failed browser run.
 The third packet observed actual controlled CLI-preview form submissions after
 the repair; it does not establish every form interaction on every surface.
 
-The selector covers the existing 79 identities: sixteen specialized components,
-forty explicitly labelled generic aliases, twelve primitives and eleven blocks.
+The selector keeps the existing 79 identities. The approval-cohort source
+contains 21 specialized components, 35 explicitly labelled generic aliases,
+twelve primitives and eleven blocks. Its [separate acceptance packet](../results/2026/11-08/approval-checks.md)
+passed 79 units, twelve new browser cases and two installed consumers; earlier
+shared-playground evidence retains its sixteen/forty profile.
 Owned component schemas validate the first two groups. Primitives and blocks
 use a curated local fixture contract, not invented public Zod schemas. The file
 block retains its native File locally and emits only name/type/size intent;

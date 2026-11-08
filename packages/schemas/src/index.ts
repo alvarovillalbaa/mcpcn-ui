@@ -4,10 +4,12 @@ import { RiskLevelSchema, ChangeSchema, SchemaFieldSchema } from "./schema-commo
 import { ConfirmationPanelSchema, RiskReviewPanelSchema, DiffViewerSchema, SourceEvidencePanelSchema } from "./review-schemas.js";
 import { DynamicQuestionFlowSchema, ExtractedFieldsReviewSchema, ComparisonMatrixSchema, ScoreBreakdownSchema } from "./decision-schemas.js";
 import { ToolCallCardSchema, RetryableErrorStateSchema, AuthRequiredCardSchema } from "./execution-schemas.js";
+import { ApprovalChecklistSchema, BeforeSubmitConfirmationSchema, DestructiveActionGuardSchema, HumanOverridePanelSchema, PermissionRequestCardSchema } from "./approval-schemas.js";
 export { RiskLevelSchema, ChangeSchema, SchemaFieldSchema } from "./schema-common.js";
 export * from "./review-schemas.js";
 export * from "./decision-schemas.js";
 export * from "./execution-schemas.js";
+export * from "./approval-schemas.js";
 
 export const ApprovalCardSchema = z.object({
   title: z.string().refine(value => Boolean(value.trim()), "A review needs a visible title."),
@@ -84,12 +86,9 @@ export const GenericComponentSchema = z.object({
   items: z.array(z.record(z.string(), z.unknown())).optional(), actions: z.array(z.object({ label: z.string(), value: z.string(), destructive: z.boolean().optional() })).optional()
 }).passthrough();
 
-// Every catalog surface has a named schema export. Specialized components refine
-// this contract above; resilient informational surfaces share the generic shape.
-export const ApprovalChecklistSchema=GenericComponentSchema, BeforeSubmitConfirmationSchema=GenericComponentSchema,
-  DestructiveActionGuardSchema=GenericComponentSchema, HumanOverridePanelSchema=GenericComponentSchema,
-  PermissionRequestCardSchema=GenericComponentSchema,
-  ToolResultCardSchema=GenericComponentSchema, RunningTaskCardSchema=GenericComponentSchema,
+// Every catalog surface has a named schema export. Specialized components own
+// their contracts; the remaining informational aliases share the generic shape.
+export const ToolResultCardSchema=GenericComponentSchema, RunningTaskCardSchema=GenericComponentSchema,
   PartialResultViewerSchema=GenericComponentSchema,
   QueuedStepListSchema=GenericComponentSchema, ToolTraceViewerSchema=GenericComponentSchema,
   RecordInspectorSchema=GenericComponentSchema, FieldConfidenceListSchema=GenericComponentSchema,
@@ -144,5 +143,10 @@ export const schemaBySlug = {
   "score-breakdown": ScoreBreakdownSchema,
   "tool-call-card": ToolCallCardSchema,
   "retryable-error-state": RetryableErrorStateSchema,
-  "auth-required-card": AuthRequiredCardSchema
+  "auth-required-card": AuthRequiredCardSchema,
+  "approval-checklist": ApprovalChecklistSchema,
+  "before-submit-confirmation": BeforeSubmitConfirmationSchema,
+  "destructive-action-guard": DestructiveActionGuardSchema,
+  "human-override-panel": HumanOverridePanelSchema,
+  "permission-request-card": PermissionRequestCardSchema
 } as const;

@@ -1,6 +1,7 @@
 import type { MCPCNPayload } from "@mcpcn/core";
 import { blockCatalog, catalog } from "@mcpcn/registry/catalog";
 import { ApprovalCardSchema, AuditTrailSchema, GenericComponentSchema, ToolProgressTimelineSchema, schemaBySlug, toJSONSchema } from "@mcpcn/schemas";
+import type { ApprovalChecklistData, BeforeSubmitConfirmationData, DestructiveActionGuardData, HumanOverridePanelData, PermissionRequestCardData } from "@mcpcn/schemas";
 import type { AgentGeneratedReportReviewProps, CompareOptionsApproveProps, FileUploadAndExtractProps, MultiStepToolRunProps, ReviewBeforeActionProps, TableBulkActionReviewProps, WorkflowFormProps } from "@mcpcn/react/blocks";
 
 export type PlaygroundItem = { slug: string; name: string; kind: "specialized" | "generic-alias" | "primitive" | "workflow-block" };
@@ -64,7 +65,21 @@ const blockFixtures: BlockFixtures = {
   "table-bulk-action-review": { ...reviewTerms, rows: [{ id: "row-a", label: "Document A", changes: [change] }, { id: "row-b", label: "Document B", changes: [change] }], value: [] },
   "admin-change-review": { ...review, affectedCount: 2, rollback: "Restore the previous authored values." },
 };
+const approvalFixtures = {
+  "approval-checklist": { reviewId: "checklist-1", title: "Review authored checklist", description: "Review each required item. This example only emits intent.", items: [{ id: "scope", label: "Review affected records", required: true }, { id: "rollback", label: "Review rollback plan", required: true }, { id: "notes", label: "Include review notes", required: false }], checkedItemIds: [] },
+  "before-submit-confirmation": { reviewId: "submission-1", title: "Review authored submission", description: "No form is sent by this preview.", fields: [{ id: "subject", label: "Subject", value: "Authored request" }, { id: "records", label: "Records", value: 2 }, { id: "notify", label: "Notify reviewers", value: false }] },
+  "destructive-action-guard": { reviewId: "destructive-1", title: "Review authored destructive action", targetLabel: "Two authored draft records", summary: "The consuming app would remove these draft records.", affectedCount: 2, confirmationText: "REMOVE DRAFTS", rollback: "Restore the previous authored revision." },
+  "human-override-panel": { reviewId: "override-1", title: "Review authored recommendation", recommendation: "Use the standard review route.", options: [{ id: "standard", label: "Standard review" }, { id: "manual", label: "Manual review" }, { id: "defer", label: "Defer review" }], recommendedOptionId: "standard" },
+  "permission-request-card": { reviewId: "permission-1", title: "Review authored permission request", requester: "Authored review assistant", purpose: "Read the selected authored document metadata.", scopes: [{ id: "documents.read", label: "Read document metadata", required: true }, { id: "notes.read", label: "Read review notes", required: false }], selectedScopeIds: [] },
+} satisfies {
+  "approval-checklist": ApprovalChecklistData;
+  "before-submit-confirmation": BeforeSubmitConfirmationData;
+  "destructive-action-guard": DestructiveActionGuardData;
+  "human-override-panel": HumanOverridePanelData;
+  "permission-request-card": PermissionRequestCardData;
+};
 const specializedFixtures: Record<string, unknown> = {
+  ...approvalFixtures,
   "approval-card": { title: "Approve authored changes", changes: [change], riskLevel: "medium", requiresExplicitConsent: true },
   "tool-progress-timeline": { title: "Authored progress", steps, retryTool: "authored_preview_only" },
   "schema-form": { title: "Authored request", fields: [{ name: "subject", label: "Subject", type: "text", required: true }, { name: "notes", label: "Notes", type: "textarea" }] },

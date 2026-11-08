@@ -6,11 +6,22 @@ Last updated: 2026-11-08
 
 The source includes components, controlled workflow blocks, MCP Apps runtime
 adapters, server helpers, a source registry, a CLI and a documentation app.
-The current source has 12 primitives, sixteen specialized components and 40 named aliases
+The current source has 12 primitives, 21 specialized components and 35 named aliases
 of the generic informational component. Eleven workflow blocks now contain
 actual editing, selection, file-review, progress and approval compositions.
 
-The eleven additional core components now have dedicated typed schemas,
+Five additional approval components now have dedicated source implementations:
+ApprovalChecklist, BeforeSubmitConfirmation, DestructiveActionGuard,
+HumanOverridePanel and PermissionRequestCard. Their [typed contract](docs/specs/approval-components.md)
+and [focused acceptance receipt](docs/results/2026/11-08/approval-checks.md)
+passed 79 new unit/SSR cases, twelve desktop/narrow browser scenarios and both
+fresh installed consumers at `b67ee0819b4e07fcf3a177750079c9b459e57ab2`.
+All 167 generated paths were verified; 159 changed outputs were adopted from
+that passing packet. Existing v1/playground receipts and public archives below
+retain their earlier sixteen-component source boundaries. Publication and
+hosting of this newer cohort have separate evidence.
+
+The earlier v1 completion added eleven core components with dedicated typed schemas,
 controlled domain interactions and actual documentation previews. ApprovalCard
 and SchemaForm also isolate replaced review/form payloads, preserve current
 field ownership and handle asynchronous consumer feedback. The new
