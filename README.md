@@ -6,9 +6,22 @@ Last updated: 2026-11-08
 
 The source includes components, controlled workflow blocks, MCP Apps runtime
 adapters, server helpers, a source registry, a CLI and a documentation app.
-The current source has 12 primitives, 26 specialized components and 30 named aliases
+The current source has 12 primitives, 31 specialized components and 25 named aliases
 of the generic informational component. Eleven workflow blocks now contain
 actual editing, selection, file-review, progress and approval compositions.
+
+The five remaining forms now have dedicated source: MissingDataRequest,
+MultiStepForm, InlineEditForm, FormProgressCard and ValidatedFieldList. Their
+[contract](docs/specs/form-workflow-components.md) covers typed missing values,
+controlled steps, structured JSON editing, explicit set/clear changes and
+reported progress/validation. The [focused CI receipt](docs/results/2026/11-08/form-workflow-checks.md)
+passed110 new unit/SSR cases, twelve desktop/narrow browser scenarios and both
+fresh strict consumers, including actual SSR of installed editable source, at
+`3b0b203225cf41aa2cd339afb977f24182991a22`. Twelve separate process-ownership
+fixtures and full source/stream/cleanup gates also passed. All167 generated
+paths were verified;159 changed files were adopted. Five failed invocations
+and their original evidence remain preserved in the receipt. CI acceptance
+and hosted delivery are separate proof boundaries.
 
 The five remaining tool-execution aliases now have dedicated source for outcomes,
 reported progress, partial results, ordered steps and filtered trace events.

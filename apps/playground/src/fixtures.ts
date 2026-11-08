@@ -3,6 +3,7 @@ import { blockCatalog, catalog } from "@mcpcn/registry/catalog";
 import { ApprovalCardSchema, AuditTrailSchema, GenericComponentSchema, ToolProgressTimelineSchema, schemaBySlug, toJSONSchema } from "@mcpcn/schemas";
 import type { ApprovalChecklistData, BeforeSubmitConfirmationData, DestructiveActionGuardData, HumanOverridePanelData, PermissionRequestCardData } from "@mcpcn/schemas";
 import type { ToolResultCardData, RunningTaskCardData, PartialResultViewerData, QueuedStepListData, ToolTraceViewerData } from "@mcpcn/schemas";
+import type { MissingDataRequestData, MultiStepFormData, InlineEditFormData, FormProgressCardData, ValidatedFieldListData } from "@mcpcn/schemas";
 import type { AgentGeneratedReportReviewProps, CompareOptionsApproveProps, FileUploadAndExtractProps, MultiStepToolRunProps, ReviewBeforeActionProps, TableBulkActionReviewProps, WorkflowFormProps } from "@mcpcn/react/blocks";
 
 export type PlaygroundItem = { slug: string; name: string; kind: "specialized" | "generic-alias" | "primitive" | "workflow-block" };
@@ -92,9 +93,24 @@ const toolWorkflowFixtures = {
   "queued-step-list": QueuedStepListData;
   "tool-trace-viewer": ToolTraceViewerData;
 };
+const formDeliveryOptions = [{ value: "standard", label: "Standard" }, { value: "express", label: "Express" }, { value: "unavailable", label: "Unavailable", disabled: true }];
+const formWorkflowFixtures = {
+  "missing-data-request": { id: "missing-1", title: "Provide authored missing fields", fields: [{ id: "subject", label: "Subject", type: "text", required: true, minLength: 3 }, { id: "count", label: "Count", type: "number", required: true, min: 0, max: 10 }, { id: "reviewed", label: "Reviewed", type: "boolean", required: true }, { id: "details", label: "Details", type: "json" }], knownFields: [{ id: "document", label: "Known authored document", value: { title: "Authored record", count: 0, reviewed: false, next: null } }] },
+  "multi-step-form": { id: "multi-1", title: "Complete authored form steps", currentStepId: "details", steps: [{ id: "details", title: "Details", fields: [{ id: "team", label: "Team", type: "text", required: true, minLength: 2, value: "Authored team" }, { id: "quantity", label: "Quantity", type: "number", required: true, min: 1, value: 2 }, { id: "delivery", label: "Delivery", type: "select", required: true, value: "standard", options: formDeliveryOptions }] }, { id: "review", title: "Review", fields: [{ id: "notes", label: "Notes", type: "textarea", value: "Authored\nnotes" }, { id: "confirmed", label: "Confirmed", type: "boolean", required: true, value: false }, { id: "config", label: "Config", type: "json", required: true, value: null }] }] },
+  "inline-edit-form": { id: "inline-1", title: "Edit authored structured values", fields: [{ id: "subject", label: "Subject", type: "text", required: true, value: "Authored subject" }, { id: "count", label: "Count", type: "number", required: true, value: 0 }, { id: "reviewed", label: "Reviewed", type: "boolean", required: true, value: false }, { id: "payload", label: "Payload", type: "json", required: true, value: { records: [], next: null } }, { id: "notes", label: "Notes", type: "textarea", value: "Authored notes" }, { id: "delivery", label: "Delivery", type: "select", value: "standard", options: formDeliveryOptions }] },
+  "form-progress-card": { id: "form-progress-1", title: "Review authored form progress", status: "in-progress", progress: { completed: 2, total: 3 }, steps: [{ id: "collect", label: "Collect details", status: "complete", progress: { completed: 2, total: 2 } }, { id: "review", label: "Review details", status: "in-progress", progress: { completed: 0, total: 1 } }, { id: "submit", label: "Submit reviewed form", status: "not-started" }], selectedStepId: "review" },
+  "validated-field-list": { id: "validated-1", title: "Review authored field validation", fields: [{ id: "subject", label: "Subject", status: "invalid", value: "Authored subject", message: "Needs authored review.", validatable: true }, { id: "count", label: "Count", status: "valid", value: 0 }, { id: "reviewed", label: "Reviewed", status: "valid", value: false }, { id: "payload", label: "Payload", status: "valid", value: null }, { id: "pending", label: "Pending detail", status: "pending" }], selectedFieldId: "subject" },
+} satisfies {
+  "missing-data-request": MissingDataRequestData;
+  "multi-step-form": MultiStepFormData;
+  "inline-edit-form": InlineEditFormData;
+  "form-progress-card": FormProgressCardData;
+  "validated-field-list": ValidatedFieldListData;
+};
 const specializedFixtures: Record<string, unknown> = {
   ...approvalFixtures,
   ...toolWorkflowFixtures,
+  ...formWorkflowFixtures,
   "approval-card": { title: "Approve authored changes", changes: [change], riskLevel: "medium", requiresExplicitConsent: true },
   "tool-progress-timeline": { title: "Authored progress", steps, retryTool: "authored_preview_only" },
   "schema-form": { title: "Authored request", fields: [{ name: "subject", label: "Subject", type: "text", required: true }, { name: "notes", label: "Notes", type: "textarea" }] },

@@ -1,0 +1,42 @@
+
+Running 12 tests using 1 worker
+··········FF
+
+  1) [chromium] › tooling/form-workflow-browser.spec.mjs:653:26 › F11 desktop docs draft updates and replacement fences 
+
+    AssertionError: observation_original_bound
+
+      42 | }
+      43 | function original(value) {
+    > 44 |   const bytes = Buffer.from(value); assert.ok(bytes.length <= 65536, "observation_original_bound");
+         |                                            ^
+      45 |   const packed = gzipSync(bytes);
+      46 |   return { encoding: "gzip-base64", bytes: bytes.length, sha256: sha(bytes), compressedBytes: packed.length, data: packed.toString("base64"), complete: true };
+      47 | }
+        at original (/home/runner/work/_temp/mcpcn-forms-I1soVE/source/tooling/form-workflow-browser.spec.mjs:44:44)
+        at snapshot (/home/runner/work/_temp/mcpcn-forms-I1soVE/source/tooling/form-workflow-browser.spec.mjs:191:85)
+        at runCase (/home/runner/work/_temp/mcpcn-forms-I1soVE/source/tooling/form-workflow-browser.spec.mjs:630:214)
+
+    Error Context: ../output/browser-runner-artifacts/form-workflow-browser-F11--604ca-ates-and-replacement-fences-chromium/error-context.md
+
+  2) [chromium] › tooling/form-workflow-browser.spec.mjs:653:26 › F12 narrow docs draft updates and replacement fences 
+
+    AssertionError: observation_original_bound
+
+      42 | }
+      43 | function original(value) {
+    > 44 |   const bytes = Buffer.from(value); assert.ok(bytes.length <= 65536, "observation_original_bound");
+         |                                            ^
+      45 |   const packed = gzipSync(bytes);
+      46 |   return { encoding: "gzip-base64", bytes: bytes.length, sha256: sha(bytes), compressedBytes: packed.length, data: packed.toString("base64"), complete: true };
+      47 | }
+        at original (/home/runner/work/_temp/mcpcn-forms-I1soVE/source/tooling/form-workflow-browser.spec.mjs:44:44)
+        at snapshot (/home/runner/work/_temp/mcpcn-forms-I1soVE/source/tooling/form-workflow-browser.spec.mjs:191:85)
+        at runCase (/home/runner/work/_temp/mcpcn-forms-I1soVE/source/tooling/form-workflow-browser.spec.mjs:630:214)
+
+    Error Context: ../output/browser-runner-artifacts/form-workflow-browser-F12--15133-ates-and-replacement-fences-chromium/error-context.md
+
+  2 failed
+    [chromium] › tooling/form-workflow-browser.spec.mjs:653:26 › F11 desktop docs draft updates and replacement fences 
+    [chromium] › tooling/form-workflow-browser.spec.mjs:653:26 › F12 narrow docs draft updates and replacement fences 
+  10 passed (21.5s)

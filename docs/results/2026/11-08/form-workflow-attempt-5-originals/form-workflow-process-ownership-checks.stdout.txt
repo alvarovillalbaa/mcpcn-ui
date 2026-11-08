@@ -1,0 +1,82 @@
+TAP version 13
+# Subtest: PO01_direct_group_binds_exact_two_edge_chain
+ok 1 - PO01_direct_group_binds_exact_two_edge_chain
+  ---
+  duration_ms: 3.32397
+  type: 'test'
+  ...
+# Subtest: PO02_nonce_group_binds_without_promoting_derived_parent
+ok 2 - PO02_nonce_group_binds_without_promoting_derived_parent
+  ---
+  duration_ms: 0.397595
+  type: 'test'
+  ...
+# Subtest: PO03_only_fresh_parent_nonce_absence_enables_fallback
+ok 3 - PO03_only_fresh_parent_nonce_absence_enables_fallback
+  ---
+  duration_ms: 0.618509
+  type: 'test'
+  ...
+# Subtest: PO04_derived_or_changed_group_never_becomes_independent
+ok 4 - PO04_derived_or_changed_group_never_becomes_independent
+  ---
+  duration_ms: 0.393968
+  type: 'test'
+  ...
+# Subtest: PO05_offchain_parent_or_collapsed_edges_are_refused
+ok 5 - PO05_offchain_parent_or_collapsed_edges_are_refused
+  ---
+  duration_ms: 0.455334
+  type: 'test'
+  ...
+# Subtest: PO06_reparenting_before_or_after_nonce_read_is_refused
+ok 6 - PO06_reparenting_before_or_after_nonce_read_is_refused
+  ---
+  duration_ms: 0.589795
+  type: 'test'
+  ...
+# Subtest: PO07_pid_or_starttime_reuse_at_each_edge_is_refused
+ok 7 - PO07_pid_or_starttime_reuse_at_each_edge_is_refused
+  ---
+  duration_ms: 1.517654
+  type: 'test'
+  ...
+# Subtest: PO08_group_nonce_and_root_must_match_exact_current_namespace
+ok 8 - PO08_group_nonce_and_root_must_match_exact_current_namespace
+  ---
+  duration_ms: 0.886462
+  type: 'test'
+  ...
+# Subtest: PO09_uid_mismatch_or_change_at_any_identity_is_refused
+ok 9 - PO09_uid_mismatch_or_change_at_any_identity_is_refused
+  ---
+  duration_ms: 0.483155
+  type: 'test'
+  ...
+# Subtest: PO10_pgid_mismatch_or_change_at_any_identity_is_refused
+ok 10 - PO10_pgid_mismatch_or_change_at_any_identity_is_refused
+  ---
+  duration_ms: 0.588894
+  type: 'test'
+  ...
+# Subtest: PO11_job_cutoff_and_group_parent_child_start_order_are_required
+ok 11 - PO11_job_cutoff_and_group_parent_child_start_order_are_required
+  ---
+  duration_ms: 0.328335
+  type: 'test'
+  ...
+# Subtest: PO12_probe_environment_and_identity_read_bounds_fail_closed
+ok 12 - PO12_probe_environment_and_identity_read_bounds_fail_closed
+  ---
+  duration_ms: 0.602229
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 80.433142
