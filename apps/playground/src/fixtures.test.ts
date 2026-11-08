@@ -5,7 +5,7 @@ describe("playground authored fixture boundary", () => {
   it("covers all 79 unique catalogue identities with honest implementation kinds", () => {
     expect(playgroundItems).toHaveLength(79);
     expect(new Set(playgroundItems.map(item => item.slug)).size).toBe(79);
-    expect(["specialized", "generic-alias", "primitive", "workflow-block"].map(kind => playgroundItems.filter(item => item.kind === kind).length)).toEqual([31, 25, 12, 11]);
+    expect(["specialized", "generic-alias", "primitive", "workflow-block"].map(kind => playgroundItems.filter(item => item.kind === kind).length)).toEqual([35, 21, 12, 11]);
     for (const item of playgroundItems) {
       const fixture = makeFixture(item.slug);
       expect(fixture.kind).toBe(`mcpcn/${item.slug}`);
@@ -24,7 +24,11 @@ describe("playground authored fixture boundary", () => {
   it("uses owned schemas for specialized and generic entries only", () => {
     for (const item of playgroundItems) {
       const schema = schemaFor(item.slug);
-      if (item.kind === "specialized" || item.kind === "generic-alias") expect(schema).toMatchObject({ type: "object" });
+      if (["document-preview", "source-list", "evidence-drawer"].includes(item.slug)) {
+        const variants = (schema?.oneOf ?? schema?.anyOf) as unknown[];
+        expect(variants).toHaveLength(item.slug === "document-preview" ? 5 : 4);
+        for (const variant of variants) expect(variant).toMatchObject({ type: "object" });
+      } else if (item.kind === "specialized" || item.kind === "generic-alias") expect(schema).toMatchObject({ type: "object" });
       else expect(schema).toBeUndefined();
     }
     expect(schemaFor("not-a-catalogue-entry")).toBeUndefined();
