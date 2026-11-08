@@ -18,21 +18,37 @@ field ownership and handle asynchronous consumer feedback. The new
 107 unit/installer cases, the docs build, both installed consumers and all
 26 desktop/narrow Chromium cases, with verified owned cleanup. The exact
 generated registry is included with its separately bound publication vector.
-Keep this evidence separate from the historical packets below. The broader catalogue,
-real-host playground, public npm release and quality matrix remain unfinished.
+This v1 packet predates the shared playground below and keeps its own source
+and acceptance boundary. The broader catalogue, external MCP-host compatibility,
+public npm release and quality matrix remain unfinished.
 
 The [core v1 GitHub candidate](https://github.com/alvarovillalbaa/mcpcn-ui/releases/tag/v0.1.0-core.1)
 contains the seven exact archives from the passing consumers. Their server
 sizes and SHA256 digests match the [publication receipt](docs/results/2026/11-08/core-candidate-publication.json).
 Package versions remain 0.1.0; this prerelease is separate from npm publication.
+It predates the shared-playground artifact and does not establish that later
+CLI service's acceptance.
 
 The [hosted v1 delivery](docs/results/2026/11-08/v1-public-delivery.md) passed
 at exact source `42aec9dd7c712364d6c1b9021ef9eb188b5b91f0`: READY production
 deployment and canonical alias, seven anonymous HTTP 200 responses, complete
 JSON semantic parity and closed requests, responses and sockets. This hosting
 evidence is separate from the local Chromium and installed-consumer packet.
-Public npm, real MCP hosts, the iframe playground and broader quality gates
-remain unfinished.
+This earlier HTTP receipt retains its original source and scope. Public npm,
+external MCP hosts and broader quality gates remain unfinished.
+
+The [shared iframe playground](https://mcpcn-ui.vercel.app/playground) now serves
+the same manifest-bound simulator as the source-built and installed CLI. Its
+[third CI packet](docs/results/2026/11-08/playground-checks.md) passed all
+76 focused units, twelve desktop/narrow browser cases and both fresh installed
+consumers at `caa5f6fbc62c7dabb36e9ed80d1e8698ebd5f0cb`, with owned cleanup.
+The separate [public-delivery packet](docs/results/2026/11-08/playground-public-delivery.md)
+passed sixteen anonymous HTTP GET observations at comparison source
+`6489c25dfa38b51076fab77eb8429ece3fc5239a`: the original seven routes, plus the
+SSR wrapper, manifest and all seven shared artifact files. These HTTP checks
+did not run a hosted browser. The [playground contract](docs/specs/iframe-playground.md)
+keeps the authored fixture host, trusted built-in frames and external-host/
+untrusted-HTML boundaries explicit; both failed playground attempts remain retained.
 
 **Public package availability remains unverified.** Registry lookups for
 `mcpcn` and `@mcpcn/react` returned npm E404 on 29 October 2026; the commands
@@ -83,13 +99,36 @@ the completed CI packet performed no local installation or build:
 
 ```sh
 pnpm install --frozen-lockfile
-pnpm --filter @mcpcn/core build
-pnpm --filter @mcpcn/schemas build
-pnpm --filter @mcpcn/registry build
-pnpm --filter mcpcn build
+pnpm exec turbo run build --filter=mcpcn...
 ```
 
+The CLI's workspace dependency graph includes the private playground. Turbo's
+`^build` ordering builds its required packages and the two-page Vite artifact
+before the CLI stages that artifact into `dist/playground`; building only the
+old core/schema/registry sequence omits these prerequisites.
+
 After building, `node packages/cli/dist/index.js --help` is the source CLI entry.
+Choose a source-built service command:
+
+```sh
+node packages/cli/dist/index.js dev --port=4545
+# Or start with a selected component or block:
+node packages/cli/dist/index.js preview approval-card --port=4546
+```
+
+If an archive built from this shared-playground source is already installed in
+an app, its local binary supports the same commands:
+
+```sh
+./node_modules/.bin/mcpcn dev --port=4545
+./node_modules/.bin/mcpcn preview approval-card --port=4546
+```
+
+Both commands bind only `127.0.0.1` (4545 by default), serve reviewed bundled
+fixtures and stay running until stopped. They do not open a browser, serve the
+working directory or connect an external tool/model. Public npm availability
+is still unverified; the installed example assumes an existing reviewed archive.
+
 To use it in another existing TypeScript React app, keep the built CLI's absolute
 path in a shell variable, change into that app, and run its `init`/`add` commands.
 The generated configuration defaults to this repository's public source registry.
