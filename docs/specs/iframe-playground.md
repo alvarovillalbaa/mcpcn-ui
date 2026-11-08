@@ -80,6 +80,11 @@ application import, build, browser or server was used locally for this work.
 The accepted remote packet observed installed CLI launches, both frame documents,
 edited fixtures, negotiated capabilities, errors, bounded privacy observations,
 lifecycle and owned cleanup. Its seven-file artifact matched all four built/staged/
-installed copies. New public HTTP delivery of that artifact remains unrun here;
-public npm, external real hosts, devices, full accessibility and the remaining
-library/example work remain separate.
+installed copies. The separate [public delivery observation](../results/2026/11-08/playground-public-delivery.md)
+subsequently passed sixteen anonymous canonical-origin GETs at source
+`6489c25dfa38b51076fab77eb8429ece3fc5239a`: the original seven routes and the
+SSR wrapper/manifest/all seven artifact files. It establishes full body/hash and
+HTTP closure observations, not hosted browser interaction or SDK negotiation.
+Provider READY/source/alias metadata is recorded separately. Public npm,
+external real hosts, devices, full accessibility and the remaining library/
+example work remain separate.

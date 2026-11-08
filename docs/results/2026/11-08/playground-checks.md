@@ -76,3 +76,14 @@ cached previews. The visible trace omits bodies, but SDK `console.debug` logs
 complete messages. External MCP hosts, model/tool execution, authentication,
 untrusted-HTML isolation, devices, exhaustive accessibility, full-library
 behavior, public npm release and new hosted delivery remain unproved.
+
+## 8 November 2026 — subsequent public HTTP observation
+
+The later [public-delivery packet](playground-public-delivery.md) passed sixteen
+anonymous canonical-origin GETs at comparison source
+`6489c25dfa38b51076fab77eb8429ece3fc5239a`: seven original routes plus the SSR
+wrapper, manifest and all seven 688,184-byte shared artifact files. Complete
+bodies and request/response/socket closure were observed; READY/source/alias
+metadata has separate provenance. This dated update supersedes only the earlier
+pending hosted-delivery boundary. It does not rerun the 76/12/two-consumer packet
+or establish hosted browser interaction, npm publication or external-host proof.

@@ -164,9 +164,16 @@ iframe browser cases and both fresh installed consumers. Actual Next reported
 installed copies. Five source guards and owned cleanup passed, with six observed
 vanished processes and no unknown/remaining identities. Deterministic generation
 returned 167 files; owner-controlled adoption is separate from the checked seed.
-Keep both failed packets unchanged. Public delivery of this new artifact, public
-npm, external hosts, untrusted-HTML isolation and physical-device/full-accessibility
-acceptance remain separate; prior hosting evidence retains its original source.
+Keep both failed packets unchanged. The separate
+[public HTTP delivery](docs/results/2026/11-08/playground-public-delivery.md)
+passed sixteen anonymous canonical-origin GET observations at comparison source
+`6489c25dfa38b51076fab77eb8429ece3fc5239a`: the original seven routes, plus the
+SSR wrapper, manifest and every one of the seven passing-CI artifact files.
+All bodies and request/response/socket closures completed. READY/source/alias
+metadata remains separate from HTTP, and the twelve earlier browser cases ran
+on owned localhost CI services. Public npm, external hosts, untrusted-HTML
+isolation, hosted interaction and physical-device/full-accessibility acceptance
+remain separate; prior receipts retain their original source identities.
 
 Use the new focused remote packet for these new paths. Source parsing and
 authored tests are preparation, not execution. Do not invoke the earlier whole

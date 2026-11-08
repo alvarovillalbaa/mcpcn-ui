@@ -1,0 +1,251 @@
+﻿2026-11-08T03:42:25.3824364Z Current runner version: '2.338.2'
+2026-11-08T03:42:25.3846125Z ##[group]Runner Image Provisioner
+2026-11-08T03:42:25.3846891Z Hosted Compute Agent
+2026-11-08T03:42:25.3847742Z Version: 20261028.624
+2026-11-08T03:42:25.3848296Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-08T03:42:25.3848899Z Build Date: 2026-10-28T21:51:42Z
+2026-11-08T03:42:25.3849808Z Worker ID: {9f5e927e-e813-4b66-9054-9e6952d3ee52}
+2026-11-08T03:42:25.3850736Z Region: centralus
+2026-11-08T03:42:25.3851508Z Cloud: Azure
+2026-11-08T03:42:25.3852267Z ##[endgroup]
+2026-11-08T03:42:25.3853823Z ##[group]Operating System
+2026-11-08T03:42:25.3854724Z Ubuntu
+2026-11-08T03:42:25.3855395Z 24.04.5
+2026-11-08T03:42:25.3856089Z LTS
+2026-11-08T03:42:25.3856765Z ##[endgroup]
+2026-11-08T03:42:25.3857663Z ##[group]Runner Image
+2026-11-08T03:42:25.3858533Z Image: ubuntu-24.04
+2026-11-08T03:42:25.3859257Z Version: 20261101.360.1
+2026-11-08T03:42:25.3860922Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-08T03:42:25.3863022Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+2026-11-08T03:42:25.3864442Z ##[endgroup]
+2026-11-08T03:42:25.3865779Z ##[group]GITHUB_TOKEN Permissions
+2026-11-08T03:42:25.3868926Z Contents: read
+2026-11-08T03:42:25.3869775Z Metadata: read
+2026-11-08T03:42:25.3870483Z ##[endgroup]
+2026-11-08T03:42:25.3873152Z Secret source: Actions
+2026-11-08T03:42:25.3874747Z Cache mode: write
+2026-11-08T03:42:25.3876057Z Prepare workflow directory
+2026-11-08T03:42:25.4356502Z Prepare all required actions
+2026-11-08T03:42:25.4413760Z Getting action download info
+2026-11-08T03:42:25.6596921Z Download action repository 'actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803' (SHA:d23441a48e516b6c34aea4fa41551a30e30af803)
+2026-11-08T03:42:25.7524859Z Download action repository 'actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38' (SHA:249970729cb0ef3589644e2896645e5dc5ba9c38)
+2026-11-08T03:42:25.9567834Z Complete job name: public-http
+2026-11-08T03:42:26.0126511Z ##[group]Run set -euo pipefail
+2026-11-08T03:42:26.0127063Z [36;1mset -euo pipefail[0m
+2026-11-08T03:42:26.0127696Z [36;1m[[ "$SOURCE_COMMIT" =~ ^[a-f0-9]{40}$ ]][0m
+2026-11-08T03:42:26.0128288Z [36;1m[[ "$MCPCN_V1_DEPLOYMENT_ID" =~ ^dpl_[A-Za-z0-9]{10,100}$ ]][0m
+2026-11-08T03:42:26.0128839Z [36;1mpython3 - <<'PY'[0m
+2026-11-08T03:42:26.0129240Z [36;1mimport os,time[0m
+2026-11-08T03:42:26.0129648Z [36;1mnow = time.time_ns() // 1000000[0m
+2026-11-08T03:42:26.0130177Z [36;1mwith open(os.environ['GITHUB_ENV'], 'a') as output:[0m
+2026-11-08T03:42:26.0130978Z [36;1m    output.write(f'MCPCN_V1_HTTP_JOB_STARTED_MS={now}\nMCPCN_PLAYGROUND_PUBLIC_JOB_STARTED_MS={now}\n')[0m
+2026-11-08T03:42:26.0131684Z [36;1mPY[0m
+2026-11-08T03:42:26.0152696Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T03:42:26.0153408Z env:
+2026-11-08T03:42:26.0153761Z   CI: true
+2026-11-08T03:42:26.0154184Z   SOURCE_COMMIT: 6489c25dfa38b51076fab77eb8429ece3fc5239a
+2026-11-08T03:42:26.0154843Z   MCPCN_V1_DEPLOYMENT_ID: dpl_G9CsFzCpiUv4vyWeVpN2vDyo1rQy
+2026-11-08T03:42:26.0155380Z   MCPCN_PUBLIC_REPOSITORY: true
+2026-11-08T03:42:26.0155785Z ##[endgroup]
+2026-11-08T03:42:26.0569024Z ##[group]Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+2026-11-08T03:42:26.0569714Z with:
+2026-11-08T03:42:26.0570283Z   ref: 6489c25dfa38b51076fab77eb8429ece3fc5239a
+2026-11-08T03:42:26.0570973Z   persist-credentials: false
+2026-11-08T03:42:26.0571384Z   clean: false
+2026-11-08T03:42:26.0571753Z   repository: alvarovillalbaa/mcpcn-ui
+2026-11-08T03:42:26.0574691Z   token: ***
+2026-11-08T03:42:26.0575048Z   ssh-strict: true
+2026-11-08T03:42:26.0575401Z   ssh-user: git
+2026-11-08T03:42:26.0575770Z   sparse-checkout-cone-mode: true
+2026-11-08T03:42:26.0576193Z   fetch-depth: 1
+2026-11-08T03:42:26.0576543Z   fetch-tags: false
+2026-11-08T03:42:26.0576895Z   show-progress: true
+2026-11-08T03:42:26.0577250Z   lfs: false
+2026-11-08T03:42:26.0577768Z   submodules: false
+2026-11-08T03:42:26.0578481Z   set-safe-directory: true
+2026-11-08T03:42:26.0578897Z   allow-unsafe-pr-checkout: false
+2026-11-08T03:42:26.0579300Z env:
+2026-11-08T03:42:26.0579609Z   CI: true
+2026-11-08T03:42:26.0580043Z   SOURCE_COMMIT: 6489c25dfa38b51076fab77eb8429ece3fc5239a
+2026-11-08T03:42:26.0580627Z   MCPCN_V1_DEPLOYMENT_ID: dpl_G9CsFzCpiUv4vyWeVpN2vDyo1rQy
+2026-11-08T03:42:26.0581146Z   MCPCN_PUBLIC_REPOSITORY: true
+2026-11-08T03:42:26.0581571Z   MCPCN_V1_HTTP_JOB_STARTED_MS: 1794109346036
+2026-11-08T03:42:26.0582083Z   MCPCN_PLAYGROUND_PUBLIC_JOB_STARTED_MS: 1794109346036
+2026-11-08T03:42:26.0582561Z ##[endgroup]
+2026-11-08T03:42:26.3072045Z Syncing repository: alvarovillalbaa/mcpcn-ui
+2026-11-08T03:42:26.3074342Z ##[group]Getting Git version info
+2026-11-08T03:42:26.3074991Z Working directory is '/home/runner/work/mcpcn-ui/mcpcn-ui'
+2026-11-08T03:42:26.3075909Z [command]/usr/bin/git version
+2026-11-08T03:42:26.3148969Z git version 2.56.0
+2026-11-08T03:42:26.3168859Z ##[endgroup]
+2026-11-08T03:42:26.3184600Z Temporarily overriding HOME='/home/runner/work/_temp/68586c2e-ca7c-4047-a7c1-7fa5b5edaa83' before making global git config changes
+2026-11-08T03:42:26.3186652Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T03:42:26.3198557Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mcpcn-ui/mcpcn-ui
+2026-11-08T03:42:26.3239617Z Deleting the contents of '/home/runner/work/mcpcn-ui/mcpcn-ui'
+2026-11-08T03:42:26.3243003Z ##[group]Determining repository object format
+2026-11-08T03:42:26.3245161Z ##[endgroup]
+2026-11-08T03:42:26.3246149Z ##[group]Initializing the repository
+2026-11-08T03:42:26.3250544Z [command]/usr/bin/git init /home/runner/work/mcpcn-ui/mcpcn-ui
+2026-11-08T03:42:26.3393316Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-08T03:42:26.3394618Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-08T03:42:26.3395559Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-08T03:42:26.3396308Z hint: call:
+2026-11-08T03:42:26.3396673Z hint:
+2026-11-08T03:42:26.3397137Z hint: 	git config --global init.defaultBranch <name>
+2026-11-08T03:42:26.3397890Z hint:
+2026-11-08T03:42:26.3398510Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-08T03:42:26.3399562Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-08T03:42:26.3400217Z hint:
+2026-11-08T03:42:26.3400595Z hint: 	git branch -m <name>
+2026-11-08T03:42:26.3401047Z hint:
+2026-11-08T03:42:26.3401913Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-08T03:42:26.3404803Z Initialized empty Git repository in /home/runner/work/mcpcn-ui/mcpcn-ui/.git/
+2026-11-08T03:42:26.3416731Z [command]/usr/bin/git remote add origin https://github.com/alvarovillalbaa/mcpcn-ui
+2026-11-08T03:42:26.3466008Z ##[endgroup]
+2026-11-08T03:42:26.3467196Z ##[group]Disabling automatic garbage collection
+2026-11-08T03:42:26.3469838Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-08T03:42:26.3501020Z ##[endgroup]
+2026-11-08T03:42:26.3502112Z ##[group]Setting up auth
+2026-11-08T03:42:26.3503367Z Removing SSH command configuration
+2026-11-08T03:42:26.3508401Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T03:42:26.3558666Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T03:42:26.3895730Z Removing HTTP extra header
+2026-11-08T03:42:26.3913858Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T03:42:26.3940793Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T03:42:26.4152236Z Removing includeIf entries pointing to credentials config files
+2026-11-08T03:42:26.4157652Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T03:42:26.4197182Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T03:42:26.4423443Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-f589462f-9be5-4a42-9fdc-deaeff61e890.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-08T03:42:26.4470451Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/mcpcn-ui/mcpcn-ui/.git.path /home/runner/work/_temp/git-credentials-f589462f-9be5-4a42-9fdc-deaeff61e890.config
+2026-11-08T03:42:26.4511501Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/mcpcn-ui/mcpcn-ui/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-f589462f-9be5-4a42-9fdc-deaeff61e890.config
+2026-11-08T03:42:26.4548927Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-f589462f-9be5-4a42-9fdc-deaeff61e890.config
+2026-11-08T03:42:26.4584826Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-f589462f-9be5-4a42-9fdc-deaeff61e890.config
+2026-11-08T03:42:26.4616972Z ##[endgroup]
+2026-11-08T03:42:26.4617870Z ##[group]Fetching the repository
+2026-11-08T03:42:26.4623534Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 6489c25dfa38b51076fab77eb8429ece3fc5239a
+2026-11-08T03:42:28.5983220Z From https://github.com/alvarovillalbaa/mcpcn-ui
+2026-11-08T03:42:28.5983984Z  * branch            6489c25dfa38b51076fab77eb8429ece3fc5239a -> FETCH_HEAD
+2026-11-08T03:42:28.5992390Z [command]/usr/bin/git rev-parse --verify --quiet 6489c25dfa38b51076fab77eb8429ece3fc5239a^{object}
+2026-11-08T03:42:28.6025363Z 6489c25dfa38b51076fab77eb8429ece3fc5239a
+2026-11-08T03:42:28.6029729Z ##[endgroup]
+2026-11-08T03:42:28.6030145Z ##[group]Determining the checkout info
+2026-11-08T03:42:28.6031195Z ##[endgroup]
+2026-11-08T03:42:28.6035952Z [command]/usr/bin/git sparse-checkout disable
+2026-11-08T03:42:28.6092520Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-08T03:42:28.6132285Z ##[group]Checking out the ref
+2026-11-08T03:42:28.6133008Z [command]/usr/bin/git checkout --progress --force 6489c25dfa38b51076fab77eb8429ece3fc5239a
+2026-11-08T03:42:28.7430808Z Note: switching to '6489c25dfa38b51076fab77eb8429ece3fc5239a'.
+2026-11-08T03:42:28.7431349Z 
+2026-11-08T03:42:28.7431675Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-08T03:42:28.7432393Z changes and commit them, and you can discard any commits you make in this
+2026-11-08T03:42:28.7433095Z state without impacting any branches by switching back to a branch.
+2026-11-08T03:42:28.7433486Z 
+2026-11-08T03:42:28.7433765Z If you want to create a new branch to retain commits you create, you may
+2026-11-08T03:42:28.7434477Z do so (now or later) by using -c with the switch command. Example:
+2026-11-08T03:42:28.7434865Z 
+2026-11-08T03:42:28.7435378Z   git switch -c <new-branch-name>
+2026-11-08T03:42:28.7435658Z 
+2026-11-08T03:42:28.7435825Z Or undo this operation with:
+2026-11-08T03:42:28.7436086Z 
+2026-11-08T03:42:28.7436231Z   git switch -
+2026-11-08T03:42:28.7436412Z 
+2026-11-08T03:42:28.7436721Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-08T03:42:28.7437158Z 
+2026-11-08T03:42:28.7437746Z HEAD is now at 6489c25 Deliver verified shared iframe playground and packaged CLI services [skip ci]
+2026-11-08T03:42:28.7450659Z ##[endgroup]
+2026-11-08T03:42:28.7500463Z [command]/usr/bin/git log -1 --format=%H
+2026-11-08T03:42:28.7530227Z 6489c25dfa38b51076fab77eb8429ece3fc5239a
+2026-11-08T03:42:28.7537955Z ##[group]Removing auth
+2026-11-08T03:42:28.7538365Z Removing SSH command configuration
+2026-11-08T03:42:28.7541298Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T03:42:28.7576541Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T03:42:28.7786375Z Removing HTTP extra header
+2026-11-08T03:42:28.7790592Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T03:42:28.7830296Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T03:42:28.8039309Z Removing includeIf entries pointing to credentials config files
+2026-11-08T03:42:28.8043195Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T03:42:28.8076716Z includeif.gitdir:/home/runner/work/mcpcn-ui/mcpcn-ui/.git.path
+2026-11-08T03:42:28.8077764Z includeif.gitdir:/home/runner/work/mcpcn-ui/mcpcn-ui/.git/worktrees/*.path
+2026-11-08T03:42:28.8078461Z includeif.gitdir:/github/workspace/.git.path
+2026-11-08T03:42:28.8079014Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-08T03:42:28.8092377Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/mcpcn-ui/mcpcn-ui/.git.path
+2026-11-08T03:42:28.8120626Z /home/runner/work/_temp/git-credentials-f589462f-9be5-4a42-9fdc-deaeff61e890.config
+2026-11-08T03:42:28.8129835Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/mcpcn-ui/mcpcn-ui/.git.path /home/runner/work/_temp/git-credentials-f589462f-9be5-4a42-9fdc-deaeff61e890.config
+2026-11-08T03:42:28.8171336Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/mcpcn-ui/mcpcn-ui/.git/worktrees/*.path
+2026-11-08T03:42:28.8200291Z /home/runner/work/_temp/git-credentials-f589462f-9be5-4a42-9fdc-deaeff61e890.config
+2026-11-08T03:42:28.8208799Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/mcpcn-ui/mcpcn-ui/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-f589462f-9be5-4a42-9fdc-deaeff61e890.config
+2026-11-08T03:42:28.8250869Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-08T03:42:28.8279771Z /github/runner_temp/git-credentials-f589462f-9be5-4a42-9fdc-deaeff61e890.config
+2026-11-08T03:42:28.8295420Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-f589462f-9be5-4a42-9fdc-deaeff61e890.config
+2026-11-08T03:42:28.8342062Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-08T03:42:28.8372339Z /github/runner_temp/git-credentials-f589462f-9be5-4a42-9fdc-deaeff61e890.config
+2026-11-08T03:42:28.8379085Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-f589462f-9be5-4a42-9fdc-deaeff61e890.config
+2026-11-08T03:42:28.8421941Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T03:42:28.8634817Z Removing credentials config '/home/runner/work/_temp/git-credentials-f589462f-9be5-4a42-9fdc-deaeff61e890.config'
+2026-11-08T03:42:28.8644891Z ##[endgroup]
+2026-11-08T03:42:28.8901350Z ##[group]Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+2026-11-08T03:42:28.8901723Z with:
+2026-11-08T03:42:28.8901936Z   node-version: 24.22.2
+2026-11-08T03:42:28.8902169Z   check-latest: false
+2026-11-08T03:42:28.8904188Z   token: ***
+2026-11-08T03:42:28.8904416Z   package-manager-cache: true
+2026-11-08T03:42:28.8904664Z env:
+2026-11-08T03:42:28.8904872Z   CI: true
+2026-11-08T03:42:28.8905122Z   SOURCE_COMMIT: 6489c25dfa38b51076fab77eb8429ece3fc5239a
+2026-11-08T03:42:28.8905475Z   MCPCN_V1_DEPLOYMENT_ID: dpl_G9CsFzCpiUv4vyWeVpN2vDyo1rQy
+2026-11-08T03:42:28.8905787Z   MCPCN_PUBLIC_REPOSITORY: true
+2026-11-08T03:42:28.8906228Z   MCPCN_V1_HTTP_JOB_STARTED_MS: 1794109346036
+2026-11-08T03:42:28.8906540Z   MCPCN_PLAYGROUND_PUBLIC_JOB_STARTED_MS: 1794109346036
+2026-11-08T03:42:28.8906826Z ##[endgroup]
+2026-11-08T03:42:29.0132534Z Found in cache @ /opt/hostedtoolcache/node/24.22.2/x64
+2026-11-08T03:42:29.0135800Z ##[group]Environment details
+2026-11-08T03:42:29.3590805Z node: v24.22.2
+2026-11-08T03:42:29.3591428Z npm: 11.19.1
+2026-11-08T03:42:29.3591869Z yarn: 1.22.22
+2026-11-08T03:42:29.3592709Z ##[endgroup]
+2026-11-08T03:42:29.3715175Z ##[group]Run set -euo pipefail
+2026-11-08T03:42:29.3715437Z [36;1mset -euo pipefail[0m
+2026-11-08T03:42:29.3715675Z [36;1mtest "$(git rev-parse HEAD)" = "$SOURCE_COMMIT"[0m
+2026-11-08T03:42:29.3716013Z [36;1mtest -z "$(git status --porcelain=v1 --untracked-files=all)"[0m
+2026-11-08T03:42:29.3716293Z [36;1mgit diff --check[0m
+2026-11-08T03:42:29.3716849Z [36;1mnode -e 'const start=Number(process.env.MCPCN_PLAYGROUND_PUBLIC_JOB_STARTED_MS);if(!Number.isSafeInteger(start)||start>Date.now()||start+240000-Date.now()<190000)process.exit(1)'[0m
+2026-11-08T03:42:29.3717980Z [36;1mexport MCPCN_V1_HTTP_VERIFIED_SOURCE="$SOURCE_COMMIT"[0m
+2026-11-08T03:42:29.3718364Z [36;1mexport MCPCN_PLAYGROUND_PUBLIC_VERIFIED_SOURCE="$SOURCE_COMMIT"[0m
+2026-11-08T03:42:29.3718656Z [36;1mfirst=0[0m
+2026-11-08T03:42:29.3719079Z [36;1mnode tooling/check-v1-public-delivery.mjs --source-commit "$SOURCE_COMMIT" --deployment-id "$MCPCN_V1_DEPLOYMENT_ID" || first=$?[0m
+2026-11-08T03:42:29.3719575Z [36;1msecond=0[0m
+2026-11-08T03:42:29.3720034Z [36;1mnode tooling/check-playground-public-delivery.mjs --source-commit "$SOURCE_COMMIT" --deployment-id "$MCPCN_V1_DEPLOYMENT_ID" || second=$?[0m
+2026-11-08T03:42:29.3720553Z [36;1mtest "$(git rev-parse HEAD)" = "$SOURCE_COMMIT"[0m
+2026-11-08T03:42:29.3720867Z [36;1mtest -z "$(git status --porcelain=v1 --untracked-files=all)"[0m
+2026-11-08T03:42:29.3721144Z [36;1mgit diff --check[0m
+2026-11-08T03:42:29.3721340Z [36;1mtest "$first" -eq 0[0m
+2026-11-08T03:42:29.3721536Z [36;1mexit "$second"[0m
+2026-11-08T03:42:29.3746893Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T03:42:29.3747166Z env:
+2026-11-08T03:42:29.3747493Z   CI: true
+2026-11-08T03:42:29.3747717Z   SOURCE_COMMIT: 6489c25dfa38b51076fab77eb8429ece3fc5239a
+2026-11-08T03:42:29.3748024Z   MCPCN_V1_DEPLOYMENT_ID: dpl_G9CsFzCpiUv4vyWeVpN2vDyo1rQy
+2026-11-08T03:42:29.3748289Z   MCPCN_PUBLIC_REPOSITORY: true
+2026-11-08T03:42:29.3748519Z   MCPCN_V1_HTTP_JOB_STARTED_MS: 1794109346036
+2026-11-08T03:42:29.3748774Z   MCPCN_PLAYGROUND_PUBLIC_JOB_STARTED_MS: 1794109346036
+2026-11-08T03:42:29.3749020Z ##[endgroup]
+2026-11-08T03:42:33.0689014Z MCPCN_V1_PUBLIC_DELIVERY_RESULT={"schemaVersion":"mcpcn.v1-public-delivery.v1","sourceCommit":"6489c25dfa38b51076fab77eb8429ece3fc5239a","deploymentId":"dpl_G9CsFzCpiUv4vyWeVpN2vDyo1rQy","workflowCommit":"66197571e4f6a28babc7a117570a2d7ba529d5e7","origin":"https://mcpcn-ui.vercel.app","status":"passed","startedAt":"2026-11-08T03:42:29.571Z","runtime":{"node":"v24.22.2","platform":"linux"},"anonymous":{"authorization":false,"cookies":false,"credentials":false,"proxy":false,"redirectFollowing":false},"limits":{"sequentialRequests":7,"requestSeconds":15,"totalSeconds":90,"htmlBytes":1048576,"jsonBytes":16777216,"combinedBytes":25165824,"reportBytes":32768,"stdoutSeconds":2},"checks":[{"route":"/","status":"passed","startedAtMs":1794109349686,"deadlineMs":1794109364686,"httpStatus":200,"bodyBytes":22029,"bodySha256":"4c6980777016f87a69c1879f9d1db3e0029c84ed5979fca8b54987e352a35de9","bodyComplete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"tlsProtocol":"TLSv1.3","contentType":"text/html; charset=utf-8","contentLength":22029,"closedAtMs":1794109350059,"html":{"title":"Home","markers":[{"marker":"Human control for agentic apps.","present":true},{"marker":"Public package release pending.","present":true}],"catalogCounts":[{"count":68,"label":"catalog entries","present":true},{"count":11,"label":"workflow blocks","present":true},{"count":5,"label":"reference examples","present":true},{"count":2,"label":"install modes","present":true}]}},{"route":"/components/confirmation-panel","status":"passed","startedAtMs":1794109350060,"deadlineMs":1794109365060,"httpStatus":200,"bodyBytes":29439,"bodySha256":"c4c7ed28a6a4fcb12360e58cf712c7d4a560b94fc25732ee1cd13edfe9b8dfa9","bodyComplete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"tlsProtocol":"TLSv1.3","contentType":"text/html; charset=utf-8","contentLength":29439,"closedAtMs":1794109350367,"html":{"title":"ConfirmationPanel","markers":[{"marker":"Confirm document changes","present":true},{"marker":"Change confirmation terms","present":true}],"domainComponent":true,"initialThemeControl":"light"}},{"route":"/components/dynamic-question-flow","status":"passed","startedAtMs":1794109350367,"deadlineMs":1794109365367,"httpStatus":200,"bodyBytes":33269,"bodySha256":"8b70ff18d5b921caba5bc7d02dfe5196870ec5207c206de46b8c551a5bc01542","bodyComplete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"tlsProtocol":"TLSv1.3","contentType":"text/html; charset=utf-8","contentLength":33269,"closedAtMs":1794109350637,"html":{"title":"DynamicQuestionFlow","markers":[{"marker":"Collect the missing answers","present":true},{"marker":"What do you need?","present":true},{"marker":"Reset question flow","present":true}],"domainComponent":true,"initialThemeControl":"light"}},{"route":"/components/tool-call-card","status":"passed","startedAtMs":1794109350637,"deadlineMs":1794109365637,"httpStatus":200,"bodyBytes":27644,"bodySha256":"5554c4df235102965ceaccc44e3b5fc91cf4e1e9f76820b343e850165b8f432c","bodyComplete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"tlsProtocol":"TLSv1.3","contentType":"text/html; charset=utf-8","contentLength":27644,"closedAtMs":1794109350981,"html":{"title":"ToolCallCard","markers":[{"marker":"Inspect the invoice lookup","present":true},{"marker":"Review tool call","present":true},{"marker":"Tool-call example status","present":true}],"domainComponent":true,"initialThemeControl":"light"}},{"route":"/schema/config.json","status":"passed","startedAtMs":1794109350982,"deadlineMs":1794109365982,"httpStatus":200,"bodyBytes":991,"bodySha256":"0fd326873c472331d6919282e79920cbd80c46a278c640a4d4242d21bd61bef4","bodyComplete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"tlsProtocol":"TLSv1.3","contentType":"application/json","contentLength":null,"closedAtMs":1794109351318,"comparison":{"source":"registry/config.schema.json","sourceBytes":1407,"sourceSha256":"4f0cb01ca67a1ff673f0c7462821b75e00a3096a4f66825ef063276caf8b7ef8","sourceSemanticSha256":"4266616b67ae09e9e8d4a996f6cbcd020a4228d0a7f442484931957fbb329059","responseSemanticSha256":"4266616b67ae09e9e8d4a996f6cbcd020a4228d0a7f442484931957fbb329059","equal":true}},{"route":"/r/comparison-matrix.json","status":"passed","startedAtMs":1794109351318,"deadlineMs":1794109366318,"httpStatus":200,"bodyBytes":116964,"bodySha256":"6dfa0ad4e9b60ef602f610e5a753db60f33bb6d48d63b5eeddfb76e5f5eca09f","bodyComplete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"tlsProtocol":"TLSv1.3","contentType":"application/json","contentLength":null,"closedAtMs":1794109352310,"comparison":{"source":"registry/items/comparison-matrix.json","sourceBytes":120818,"sourceSha256":"7720158bfc2e39a5791a9d904472595d9732a632892439d88e991bdfb3172125","sourceSemanticSha256":"9ca221381aaa85f05236781c534eb5193a15b559c96b3eeca8490acc32cc08ed","responseSemanticSha256":"9ca221381aaa85f05236781c534eb5193a15b559c96b3eeca8490acc32cc08ed","equal":true}},{"route":"/r/registry.json","status":"passed","startedAtMs":1794109352313,"deadlineMs":1794109367313,"httpStatus":200,"bodyBytes":9377051,"bodySha256":"6ac68874f70755eb9a5e1a02a659c4660d9eb58489dac2b75bbf2b7c92121d22","bodyComplete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"tlsProtocol":"TLSv1.3","contentType":"application/json","contentLength":9377051,"closedAtMs":1794109352866,"comparison":{"source":"registry/registry.json","sourceBytes":9563959,"sourceSha256":"85d3718a3b72c5ae1d8009caedc60674a1b71f624060e7d78e645e3ec3619553","sourceSemanticSha256":"812eead420ec9011e0ee77bf3664b8ebf2b87ea4ba2ec344bbae9a243fc552e1","responseSemanticSha256":"812eead420ec9011e0ee77bf3664b8ebf2b87ea4ba2ec344bbae9a243fc552e1","equal":true},"implementationCounts":{"specialized":16,"generic-alias":40,"primitive":12,"workflow-block":11}}],"sources":[{"path":"apps/docs/app/page.tsx","bytes":2553,"sha256":"a16507064329a83c8e94504ee7f8f92b8b88db8ccc22cb33d92370027064e2b9","device":66305,"inode":9175750,"mtimeMs":1794109348618.3904,"ctimeMs":1794109348618.3904},{"path":"apps/docs/app/components/[slug]/page.tsx","bytes":8806,"sha256":"9d40694dd82af069ec126f1908c8d5e61a1808d9d5f6b6359d400212bd715b4c","device":66305,"inode":9175736,"mtimeMs":1794109348618.3904,"ctimeMs":1794109348618.3904},{"path":"apps/docs/components/component-preview.tsx","bytes":594,"sha256":"f721915739ee8165b4ba5d9ac3cfad1eecff6c0aa1dad922e2c59b30b0b85c39","device":66305,"inode":9175763,"mtimeMs":1794109348619.056,"ctimeMs":1794109348619.056},{"path":"apps/docs/components/v1-review-demos.tsx","bytes":4212,"sha256":"60e82dae336d8f8a0523f986427aa3f8158940e4692835c7eb03c20b6c3e0b8f","device":66305,"inode":9175769,"mtimeMs":1794109348619.1912,"ctimeMs":1794109348619.1912},{"path":"apps/docs/components/v1-decision-demos.tsx","bytes":7238,"sha256":"3d4beb63ba5aec6eb22301ef4223b83f9fae77dec89040a25a462bac0a62ae1e","device":66305,"inode":9175767,"mtimeMs":1794109348619.1912,"ctimeMs":1794109348619.1912},{"path":"apps/docs/components/v1-execution-demos.tsx","bytes":4584,"sha256":"5237ce3e101f9b36a1b24bf0fc6d2574624038a9002b58becd65bef1f3acc44e","device":66305,"inode":9175768,"mtimeMs":1794109348619.1912,"ctimeMs":1794109348619.1912},{"path":"registry/config.schema.json","bytes":1407,"sha256":"4f0cb01ca67a1ff673f0c7462821b75e00a3096a4f66825ef063276caf8b7ef8","device":66305,"inode":9177055,"mtimeMs":1794109348698.001,"ctimeMs":1794109348698.001},{"path":"registry/items/comparison-matrix.json","bytes":120818,"sha256":"7720158bfc2e39a5791a9d904472595d9732a632892439d88e991bdfb3172125","device":66305,"inode":9177096,"mtimeMs":1794109348702.2751,"ctimeMs":1794109348702.2751},{"path":"registry/registry.json","bytes":9563959,"sha256":"85d3718a3b72c5ae1d8009caedc60674a1b71f624060e7d78e645e3ec3619553","device":66305,"inode":9177177,"mtimeMs":1794109348735.0024,"ctimeMs":1794109348735.0024}],"errors":[],"cleanup":{"pendingRequests":0,"pendingSockets":0,"pendingResponses":0,"allClosed":true},"proofLimits":["Seven anonymous canonical-origin TLS GET responses only. No browser, interaction, CSS rendering, all-assets, accessibility, live MCP host, package publication or future availability proof.","sourceCommit identifies the immutable checkout used for JSON comparisons. deploymentId is a supplied provider observation; HTTP does not independently prove deployment-to-source mapping.","Object keys are compared without order; array order and every JSON value are retained. Full response bodies exist only in memory; the report retains sizes, hashes and finite observations.","The current homepage has 68 catalog entries, 11 blocks, five examples and two install modes. Sixteen domain components and forty aliases are checked in registry metadata, not invented homepage copy.","The prior five-route delivery and separate v1 build, browser and installed-consumer packets keep their own sources and acceptance boundaries."],"jobStartedMs":1794109346036,"combinedBodyBytes":9607387,"completedAt":"2026-11-08T03:42:33.062Z"}
+2026-11-08T03:42:34.6607271Z MCPCN_PLAYGROUND_PUBLIC_DELIVERY_RESULT={"schemaVersion":"mcpcn.playground-public-delivery.v1","sourceCommit":"6489c25dfa38b51076fab77eb8429ece3fc5239a","deploymentId":"dpl_G9CsFzCpiUv4vyWeVpN2vDyo1rQy","workflowCommit":"66197571e4f6a28babc7a117570a2d7ba529d5e7","origin":"https://mcpcn-ui.vercel.app","status":"passed","startedAt":"2026-11-08T03:42:33.113Z","runtime":{"node":"v24.22.2","platform":"linux"},"anonymous":{"authorization":false,"cookies":false,"credentials":false,"proxy":false,"redirectFollowing":false},"limits":{"assetFiles":64,"requestSeconds":15,"totalSeconds":60,"htmlBytes":1048576,"manifestBytes":32768,"assetBytes":4194304,"allAssetBytes":16777216,"allResponseBytes":17858560,"reportBytes":32768,"stdoutSeconds":2},"checks":[{"route":"/playground","status":"passed","deadlineMs":1794109368130,"httpStatus":200,"bytes":10220,"sha256":"e17180674e0a0772634c5ec5feb6f89b8c198cea8882cf6d6de2643161a19155","complete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"contentType":"text/html; charset=utf-8","settledAtMs":1794109353357,"comparison":"actual_ssr_title_and_exact_iframe_src"},{"route":"/playground-simulator/asset-manifest.json","status":"passed","deadlineMs":1794109368358,"httpStatus":200,"bytes":1178,"sha256":"a29b16dcf30b458ccc11bd5a693c6ea0a31d934ff171cd40179ba3e796ea54bd","complete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"contentType":"application/json; charset=utf-8","settledAtMs":1794109353488,"comparison":"exact_manifest_semantics"},{"route":"/playground-simulator/assets/frame-D6SMnEfz.js","status":"passed","deadlineMs":1794109368488,"httpStatus":200,"bytes":102943,"sha256":"b8c057d7e2834fa7774beaa8b87b3fc3e34647a0a00032680f54991742b2766d","complete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"contentType":"application/javascript; charset=utf-8","settledAtMs":1794109353645,"comparison":"exact_passing_ci_bytes_and_sha256"},{"route":"/playground-simulator/assets/frame-eUJvySwm.css","status":"passed","deadlineMs":1794109368646,"httpStatus":200,"bytes":5959,"sha256":"d1bf1a3d0ffd48f5a888551300c3535ac5548a4a7dd11f8976c60648c349ccfb","complete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"contentType":"text/css; charset=utf-8","settledAtMs":1794109353782,"comparison":"exact_passing_ci_bytes_and_sha256"},{"route":"/playground-simulator/assets/index-BKbWhCDZ.js","status":"passed","deadlineMs":1794109368782,"httpStatus":200,"bytes":44168,"sha256":"694adc74066a944e0e353a260865c16910a6534e42d67af192645589ad607a62","complete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"contentType":"application/javascript; charset=utf-8","settledAtMs":1794109353915,"comparison":"exact_passing_ci_bytes_and_sha256"},{"route":"/playground-simulator/assets/index-ylmVxKY0.css","status":"passed","deadlineMs":1794109368915,"httpStatus":200,"bytes":3322,"sha256":"7ae3b7970f66da5e0da8f0d8ce74f15bdb4a11095aa0560324c9e05bd8d3ee2c","complete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"contentType":"text/css; charset=utf-8","settledAtMs":1794109354031,"comparison":"exact_passing_ci_bytes_and_sha256"},{"route":"/playground-simulator/assets/jsx-runtime-CDrNYZmU.js","status":"passed","deadlineMs":1794109369031,"httpStatus":200,"bytes":530594,"sha256":"55fe56f4a8bd4da3c6b28db9d6ee148baa7730c7c0f5079a84c63354ca4ad75c","complete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"contentType":"application/javascript; charset=utf-8","settledAtMs":1794109354336,"comparison":"exact_passing_ci_bytes_and_sha256"},{"route":"/playground-simulator/frame.html","status":"passed","deadlineMs":1794109369336,"httpStatus":200,"bytes":518,"sha256":"6d4b81ba3220ee22c77d408cde683683fd14f1e79cdc162191a05a36a31975bf","complete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"contentType":"text/html; charset=utf-8","settledAtMs":1794109354473,"comparison":"exact_passing_ci_bytes_and_sha256"},{"route":"/playground-simulator/index.html","status":"passed","deadlineMs":1794109369473,"httpStatus":200,"bytes":680,"sha256":"b750c12818e6bdd28986590885bf6b7607910e44d1dd985014c5f469bc0412d7","complete":true,"responseEnded":true,"responseClosed":true,"requestClosed":true,"socketClosed":true,"tlsAuthorized":true,"error":null,"contentType":"text/html; charset=utf-8","settledAtMs":1794109354653,"comparison":"exact_passing_ci_bytes_and_sha256"}],"sources":[{"path":"tooling/check-playground-public-delivery.mjs","bytes":22663,"sha256":"a0a604671929e9ab70237e50b5fc05a9255e2950728fd79b23124cb0111e3994","device":66305,"inode":9177238,"mtimeMs":1794109348739.603,"ctimeMs":1794109348739.603,"cap":262144},{"path":"tooling/check-v1-public-delivery.mjs","bytes":16211,"sha256":"5b33e7fa417e903fd702dcb9419e0779f3b939c00f4e0e205e6efa9f4858202d","device":66305,"inode":9177239,"mtimeMs":1794109348739.603,"ctimeMs":1794109348739.603,"cap":262144},{"path":"apps/docs/app/playground/page.tsx","bytes":870,"sha256":"a2b21d641a195ce7a7c0887945d1bcf87180ae5e180ed38083f6ea58cb114779","device":66305,"inode":9175752,"mtimeMs":1794109348618.3904,"ctimeMs":1794109348618.3904,"cap":65536},{"path":"docs/results/2026/11-08/playground-asset-manifest.json","bytes":1178,"sha256":"a29b16dcf30b458ccc11bd5a693c6ea0a31d934ff171cd40179ba3e796ea54bd","device":66305,"inode":9176722,"mtimeMs":1794109348679.311,"ctimeMs":1794109348679.311,"cap":32768},{"path":"docs/results/2026/11-08/playground-asset-oracle.json","bytes":641,"sha256":"fe5f03bebb36c837a5ac46fd89be3f7326efac86cfa9ad02faf150d3fafefe1e","device":66305,"inode":9176723,"mtimeMs":1794109348679.311,"ctimeMs":1794109348679.311,"cap":32768},{"path":"docs/results/2026/11-08/playground-checks-originals/receipt.json","bytes":2695407,"sha256":"29ceccba3e21bf4e2a03494ea6fe1dc3b78f8216932f8ec520900bd90e0f9197","device":66305,"inode":9176880,"mtimeMs":1794109348689.0007,"ctimeMs":1794109348689.0007,"cap":4194304}],"errors":[],"cleanup":{"pendingRequests":0,"pendingSockets":0,"pendingResponses":0,"allClosed":true},"proofLimits":["Anonymous canonical-origin HTTP only: the SSR iframe marker, manifest and every file named by the passing retained CI artifact. No browser interaction, CSS rendering, general docs all-assets or future availability proof.","The checked CI source/workflow and supplied run/job metadata identify the retained passing packet. The deployed comparison source can include later evidence; supplied deployment ID and READY/alias source binding remain independent provider observations, not proven by HTTP.","Full response bodies exist only in memory. Retained status, lengths, hashes, comparisons and terminal acknowledgements do not publish response bodies.","Trusted built-in same-origin examples do not establish isolation of arbitrary third-party HTML. No external tool, model, account, authentication or npm publication is exercised."],"jobStartedMs":1794109346036,"oracle":{"path":"docs/results/2026/11-08/playground-asset-oracle.json","sha256":"fe5f03bebb36c837a5ac46fd89be3f7326efac86cfa9ad02faf150d3fafefe1e","checkedSourceCommit":"caa5f6fbc62c7dabb36e9ed80d1e8698ebd5f0cb","checkedWorkflowCommit":"f9587291a6f35defcd34a6c3da4fbd954ad9e590","runId":"42442808721","jobId":"128615434896","receipt":{"path":"docs/results/2026/11-08/playground-checks-originals/receipt.json","bytes":2695407,"sha256":"29ceccba3e21bf4e2a03494ea6fe1dc3b78f8216932f8ec520900bd90e0f9197"},"manifest":{"path":"docs/results/2026/11-08/playground-asset-manifest.json","bytes":1178,"sha256":"a29b16dcf30b458ccc11bd5a693c6ea0a31d934ff171cd40179ba3e796ea54bd"},"files":7,"assetBytes":688184,"fileVectorSha256":"a1e7fddbf9294837e4b80a44611016b4ffe1f3757602218a8a2a921da9c1bc7f","passingLocations":4,"processObservations":{"count":6,"vanished":6,"pidReused":0,"unknown":0},"metadataBinding":"supplied_retained_ci_metadata_not_independently_observed_via_http"},"expectedRequests":9,"combinedBodyBytes":699582,"assetBodyBytes":688184,"completedAt":"2026-11-08T03:42:34.656Z"}
+2026-11-08T03:42:34.6838636Z Post job cleanup.
+2026-11-08T03:42:34.7962949Z Post job cleanup.
+2026-11-08T03:42:34.8688709Z [command]/usr/bin/git version
+2026-11-08T03:42:34.8725172Z git version 2.56.0
+2026-11-08T03:42:34.8759300Z Temporarily overriding HOME='/home/runner/work/_temp/6409c5b2-505f-4d67-ae6a-f1d9314b5396' before making global git config changes
+2026-11-08T03:42:34.8760573Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T03:42:34.8764139Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mcpcn-ui/mcpcn-ui
+2026-11-08T03:42:34.8797728Z Removing SSH command configuration
+2026-11-08T03:42:34.8804447Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T03:42:34.8842941Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T03:42:34.9098092Z Removing HTTP extra header
+2026-11-08T03:42:34.9098753Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T03:42:34.9146047Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T03:42:34.9357713Z Removing includeIf entries pointing to credentials config files
+2026-11-08T03:42:34.9365855Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T03:42:34.9406867Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T03:42:34.9742084Z Cleaning up orphan processes
