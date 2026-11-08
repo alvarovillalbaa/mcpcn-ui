@@ -2,6 +2,11 @@
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
     "build": { "dependsOn": ["^build"], "outputs": ["dist/**", ".next/**", "!.next/cache/**"] },
+    "@mcpcn/docs#build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", "$TURBO_ROOT$/registry/registry.json", "$TURBO_ROOT$/tooling/stage-playground.mjs", "$TURBO_ROOT$/tooling/stage-docs-registry.mjs"],
+      "outputs": [".next/**", "!.next/cache/**", "public/playground-simulator/**", "public/r/**"]
+    },
     "dev": { "cache": false, "persistent": true },
     "test": { "dependsOn": ["^build"], "outputs": ["coverage/**"] },
     "typecheck": { "dependsOn": ["^build"], "outputs": [] },

@@ -18,8 +18,14 @@ The [focused file-review receipt](docs/results/2026/11-08/file-review-checks.md)
 passed 85 new unit/SSR cases, 12 desktop/narrow browser scenarios and 2 fresh strict
 consumers at `7fbde9bb1181a1587b0a3655d60f64775a65113a`, plus 12 separately declared
 shared ownership fixtures. All 167 generated paths were verified; 159 changed
-files were adopted. Both earlier failures remain preserved. Public deployment
-and archive publication are separate subsequent proof boundaries.
+files were adopted. Both earlier failures remain preserved. The
+[seven-archive candidate](https://github.com/alvarovillalbaa/mcpcn-ui/releases/tag/v0.1.0-file-review.1)
+is published at source `6b008cded663f9dc746cb6dfa099018018d47501`; all server
+digests match those passing archives. The [first hosting attempt](docs/results/2026/11-08/file-review-hosting-attempt-1.md)
+failed because the complete aggregate registry exceeds Vercel's ISR limit.
+A separate [static registry repair](docs/specs/static-registry-hosting.md)
+preserves every registry byte and the package release's source identity.
+Its focused CI and changed-source public delivery remain pending.
 
 The five remaining forms now have dedicated source: MissingDataRequest,
 MultiStepForm, InlineEditForm, FormProgressCard and ValidatedFieldList. Their
