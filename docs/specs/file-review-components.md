@@ -1,6 +1,6 @@
 # Document preview and file review
 
-Status: implementation contract, 2026-11-08. The [focused source checks](../results/2026/11-08/file-review-checks.md) passed at `7fbde9bb`; public delivery is separate and pending.
+Status: implemented and delivered,2026-11-08. The [focused source checks](../results/2026/11-08/file-review-checks.md) passed at `7fbde9bb`; separate [public delivery](../results/2026/11-08/file-review-public-delivery.md) passed at hosting source `1da61676` after the focused static-registry repair. Package archives remain bound to source `6b008cde`.
 
 Owner: the [uis brief](https://app.notion.com/p/3b6a1ee8bd0680539d4ecb4b8a8ab4c7), read in full on 2026-11-08. It names DocumentPreview, FileReview and file-upload-and-extract, and describes contract/invoice/resume extraction with confidence, evidence, corrections and save confirmation. The page is marked unverified and was last edited 2026-08-24; no newer intent is inferred. GitHub remains the implementation truth.
 

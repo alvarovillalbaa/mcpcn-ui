@@ -1,0 +1,310 @@
+{
+  "schemaVersion": "mcpcn.file-review-provider-projection.v1",
+  "sourceCommit": "1da616761feb6da12dda63b87e0369c5327866d0",
+  "checkedSourceCommit": "7fbde9bb1181a1587b0a3655d60f64775a65113a",
+  "runId": 42519724556,
+  "jobId": 128850356438,
+  "attempt": 3,
+  "packageSourceCommit": "6b008cded663f9dc746cb6dfa099018018d47501",
+  "hostingCheckedSourceCommit": "3007041275df2a87bef9f3070a90b19b0a6ace42",
+  "hostingWorkflowCommit": "f29c29ef37b29edd3f8cb97a879da636caf97d14",
+  "hostingRunId": 42527232965,
+  "hostingJobId": 128873426037,
+  "deploymentId": "dpl_F7t7aCbS7Z3hkZm8GAEBC7A1bJng",
+  "releaseId": 438508097,
+  "releaseTag": "v0.1.0-file-review.1",
+  "hostingLineage": {
+    "schemaVersion": "mcpcn.static-registry-lineage.v1",
+    "packageSourceCommit": "6b008cded663f9dc746cb6dfa099018018d47501",
+    "hostingCheckedSourceCommit": "3007041275df2a87bef9f3070a90b19b0a6ace42",
+    "hostingWorkflowCommit": "f29c29ef37b29edd3f8cb97a879da636caf97d14",
+    "hostingRunId": 42527232965,
+    "hostingJobId": 128873426037,
+    "receipt": {
+      "path": "static-registry-hosting-checks-originals/receipt.json",
+      "bytes": 6491638,
+      "sha256": "12e47dbf1c7e6fe140fe592827a93c7edcd68e2c9dcd5e94c2d75939047f1ebb"
+    },
+    "retention": {
+      "path": "static-registry-hosting-checks-originals/retention.json",
+      "bytes": 17831,
+      "sha256": "f89ed56d42bb4480ca0127db483132ce58a24f4c49dbd1d6b8e1dba42dce1015"
+    },
+    "applicationDelta": [
+      {
+        "path": ".gitignore",
+        "before": {
+          "mode": "100644",
+          "blob": "a659ff8d4486afba84a3b78ce5f8f0fbcdb54115"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "f6e23624d21dc8f4cc179a9ec6e3aaa324f8dd82"
+        }
+      },
+      {
+        "path": "apps/docs/app/r/registry.json/route.ts",
+        "before": {
+          "mode": "100644",
+          "blob": "7a118330ff52cc316056763af1507f690b9e25ca"
+        },
+        "after": null
+      },
+      {
+        "path": "apps/docs/package.json",
+        "before": {
+          "mode": "100644",
+          "blob": "db525b2f6fdbc1cbe41c54f338bcb793aa4b6b77"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "e26c394ddc5e4948c06b0ad456b356cf7480a87d"
+        }
+      },
+      {
+        "path": "tooling/run-static-registry-checks.mjs",
+        "before": null,
+        "after": {
+          "mode": "100644",
+          "blob": "3ed9506715801c58094fbd5ac67ed6d637e70a70"
+        }
+      },
+      {
+        "path": "tooling/stage-docs-registry.mjs",
+        "before": null,
+        "after": {
+          "mode": "100644",
+          "blob": "b636dd3477e4facda72f85b67aaef54e6d75b467"
+        }
+      },
+      {
+        "path": "tooling/stage-docs-registry.test.mjs",
+        "before": null,
+        "after": {
+          "mode": "100644",
+          "blob": "b9b6464027a41c643148676aebddb0201347ad74"
+        }
+      },
+      {
+        "path": "turbo.json",
+        "before": {
+          "mode": "100644",
+          "blob": "22c1247e6db4a1ef6ec5ec6aa3988df9d12f42c2"
+        },
+        "after": {
+          "mode": "100644",
+          "blob": "dedc98e0d8dfdbc806ae32c39dc11ab00f6958ab"
+        }
+      }
+    ],
+    "allOtherApplicationInputsUnchanged": true,
+    "hostingCheckedToDeployedApplicationInputsUnchanged": true,
+    "productCheckedToPackageGeneratedChanges": [
+      "registry/admin-change-review.json",
+      "registry/agent-generated-report-review.json",
+      "registry/alert.json",
+      "registry/approval-card.json",
+      "registry/approval-checklist.json",
+      "registry/approval-gated-tool-call.json",
+      "registry/audit-trail.json",
+      "registry/auth-required-card.json",
+      "registry/badge.json",
+      "registry/before-submit-confirmation.json",
+      "registry/billing-gate.json",
+      "registry/button.json",
+      "registry/card.json",
+      "registry/collect-missing-data.json",
+      "registry/compare-options-approve.json",
+      "registry/comparison-matrix.json",
+      "registry/confirmation-panel.json",
+      "registry/conflict-resolver.json",
+      "registry/consent-panel.json",
+      "registry/data-access-notice.json",
+      "registry/decision-memo.json",
+      "registry/destructive-action-guard.json",
+      "registry/dialog.json",
+      "registry/diff-viewer.json",
+      "registry/document-preview.json",
+      "registry/dynamic-question-flow.json",
+      "registry/empty-state.json",
+      "registry/entity-review-table.json",
+      "registry/evidence-drawer.json",
+      "registry/expired-session-state.json",
+      "registry/extract-review-save.json",
+      "registry/extracted-fields-review.json",
+      "registry/field-confidence-list.json",
+      "registry/file-review.json",
+      "registry/file-upload-and-extract.json",
+      "registry/form-progress-card.json",
+      "registry/human-corrects-ai-output.json",
+      "registry/human-override-panel.json",
+      "registry/inline-edit-form.json",
+      "registry/input.json",
+      "registry/items/admin-change-review.json",
+      "registry/items/agent-generated-report-review.json",
+      "registry/items/alert.json",
+      "registry/items/approval-card.json",
+      "registry/items/approval-checklist.json",
+      "registry/items/approval-gated-tool-call.json",
+      "registry/items/audit-trail.json",
+      "registry/items/auth-required-card.json",
+      "registry/items/badge.json",
+      "registry/items/before-submit-confirmation.json",
+      "registry/items/billing-gate.json",
+      "registry/items/button.json",
+      "registry/items/card.json",
+      "registry/items/collect-missing-data.json",
+      "registry/items/compare-options-approve.json",
+      "registry/items/comparison-matrix.json",
+      "registry/items/confirmation-panel.json",
+      "registry/items/conflict-resolver.json",
+      "registry/items/consent-panel.json",
+      "registry/items/data-access-notice.json",
+      "registry/items/decision-memo.json",
+      "registry/items/destructive-action-guard.json",
+      "registry/items/dialog.json",
+      "registry/items/diff-viewer.json",
+      "registry/items/document-preview.json",
+      "registry/items/dynamic-question-flow.json",
+      "registry/items/empty-state.json",
+      "registry/items/entity-review-table.json",
+      "registry/items/evidence-drawer.json",
+      "registry/items/expired-session-state.json",
+      "registry/items/extract-review-save.json",
+      "registry/items/extracted-fields-review.json",
+      "registry/items/field-confidence-list.json",
+      "registry/items/file-review.json",
+      "registry/items/file-upload-and-extract.json",
+      "registry/items/form-progress-card.json",
+      "registry/items/human-corrects-ai-output.json",
+      "registry/items/human-override-panel.json",
+      "registry/items/inline-edit-form.json",
+      "registry/items/input.json",
+      "registry/items/loading-bridge-state.json",
+      "registry/items/missing-data-request.json",
+      "registry/items/model-context-preview.json",
+      "registry/items/multi-step-form.json",
+      "registry/items/multi-step-tool-run.json",
+      "registry/items/no-data-state.json",
+      "registry/items/offline-state.json",
+      "registry/items/option-selector.json",
+      "registry/items/partial-result-viewer.json",
+      "registry/items/permission-denied-state.json",
+      "registry/items/permission-request-card.json",
+      "registry/items/privacy-boundary-card.json",
+      "registry/items/queued-step-list.json",
+      "registry/items/ranking-list.json",
+      "registry/items/reasoning-summary.json",
+      "registry/items/recommendation-card.json",
+      "registry/items/record-inspector.json",
+      "registry/items/retryable-error-state.json",
+      "registry/items/review-before-action.json",
+      "registry/items/risk-review-panel.json",
+      "registry/items/running-task-card.json",
+      "registry/items/schema-form.json",
+      "registry/items/score-breakdown.json",
+      "registry/items/select.json",
+      "registry/items/skeleton.json",
+      "registry/items/source-evidence-panel.json",
+      "registry/items/source-list.json",
+      "registry/items/table-bulk-action-review.json",
+      "registry/items/tabs.json",
+      "registry/items/textarea.json",
+      "registry/items/tool-call-card.json",
+      "registry/items/tool-progress-timeline.json",
+      "registry/items/tool-result-card.json",
+      "registry/items/tool-trace-viewer.json",
+      "registry/items/tooltip.json",
+      "registry/items/tradeoff-panel.json",
+      "registry/items/unsupported-host-notice.json",
+      "registry/items/validated-field-list.json",
+      "registry/items/validation-summary.json",
+      "registry/loading-bridge-state.json",
+      "registry/missing-data-request.json",
+      "registry/model-context-preview.json",
+      "registry/multi-step-form.json",
+      "registry/multi-step-tool-run.json",
+      "registry/no-data-state.json",
+      "registry/offline-state.json",
+      "registry/option-selector.json",
+      "registry/partial-result-viewer.json",
+      "registry/permission-denied-state.json",
+      "registry/permission-request-card.json",
+      "registry/privacy-boundary-card.json",
+      "registry/queued-step-list.json",
+      "registry/ranking-list.json",
+      "registry/reasoning-summary.json",
+      "registry/recommendation-card.json",
+      "registry/record-inspector.json",
+      "registry/registry.json",
+      "registry/retryable-error-state.json",
+      "registry/review-before-action.json",
+      "registry/risk-review-panel.json",
+      "registry/running-task-card.json",
+      "registry/schema-form.json",
+      "registry/score-breakdown.json",
+      "registry/select.json",
+      "registry/skeleton.json",
+      "registry/source-evidence-panel.json",
+      "registry/source-list.json",
+      "registry/table-bulk-action-review.json",
+      "registry/tabs.json",
+      "registry/textarea.json",
+      "registry/tool-call-card.json",
+      "registry/tool-progress-timeline.json",
+      "registry/tool-result-card.json",
+      "registry/tool-trace-viewer.json",
+      "registry/tooltip.json",
+      "registry/tradeoff-panel.json",
+      "registry/unsupported-host-notice.json",
+      "registry/validated-field-list.json",
+      "registry/validation-summary.json"
+    ],
+    "stagingCases": 8,
+    "sharedOwnershipCases": 12,
+    "httpCases": 6,
+    "docsPages": 81,
+    "turboDocsHash": "a0698c275ae9d8a1",
+    "requestResponseSocketClosurePassed": true,
+    "generatedPathsUnchanged": 167
+  },
+  "deployment": {
+    "id": "dpl_F7t7aCbS7Z3hkZm8GAEBC7A1bJng",
+    "url": "mcpcn-cq0tvcrft-my-team-4f230354.vercel.app",
+    "state": "READY",
+    "readyState": "READY",
+    "createdAt": 1794175043094,
+    "buildingAt": 1794175044223,
+    "ready": 1794175096176,
+    "target": "production"
+  },
+  "canonicalAlias": "mcpcn-ui.vercel.app",
+  "reportedSourceSha": "1da616761feb6da12dda63b87e0369c5327866d0",
+  "buildEvents": {
+    "count": 128,
+    "rawCount": 139,
+    "exactDuplicateCount": 11,
+    "windowCounts": [
+      99,
+      40
+    ],
+    "projection": "file-review-delivery-originals/build-events.json",
+    "projectedFields": [
+      "date",
+      "type",
+      "text",
+      "level"
+    ]
+  },
+  "privateProviderOriginals": {
+    "bytes": 4888,
+    "sha256": "1f9a663c04a1842e38076a65b36b1a7de01f3b79fa40970116dd15a2539ed244"
+  },
+  "privateBuildWindowOriginals": {
+    "bytes": 48425,
+    "sha256": "21ce30be4a8e20e5822d129388a7149d0894706defbbac2fb47d9a30587b0a43"
+  },
+  "proofLimits": [
+    "Only necessary provider fields/event columns and original-response hashes are public; complete responses and raw repeated event occurrences remain private. HTTP responses do not independently prove provider source assignment."
+  ]
+}

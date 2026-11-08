@@ -30,7 +30,10 @@ passed at `3007041275df2a87bef9f3070a90b19b0a6ace42`: eight staging cases,
 12 unchanged ownership fixtures, actual81-page docs build, same-key cache
 restoration and six complete production HTTP checks. All167 generated outputs
 and797,096 simulator asset bytes stayed unchanged. All five failed hosting CI
-invocations remain preserved. Changed-source Vercel/public delivery is pending.
+invocations remain preserved. The [public delivery](docs/results/2026/11-08/file-review-public-delivery.md)
+binds accepted source `1da616761feb6da12dda63b87e0369c5327866d0` to READY,
+the canonical alias and14 anonymous HTTP200/TLS observations. The complete
+registry and all seven simulator assets match; package release source stays6b.
 
 The five remaining forms now have dedicated source: MissingDataRequest,
 MultiStepForm, InlineEditForm, FormProgressCard and ValidatedFieldList. Their

@@ -1,6 +1,6 @@
 # Static aggregate registry hosting
 
-Implemented; [focused CI passed](../results/2026/11-08/static-registry-hosting-checks.md) at `3007041275df2a87bef9f3070a90b19b0a6ace42`,2026-11-08. Changed-source Vercel/public delivery remains pending. This is a hosting repair after the accepted [file-review packet](../results/2026/11-08/file-review-checks.md), not a replay of its85 product cases. The five failed hosting CI sources/originals remain preserved in the [proposal history](../proposals/static-registry-hosting-checks.md).
+Implemented; [focused CI passed](../results/2026/11-08/static-registry-hosting-checks.md) at `3007041275df2a87bef9f3070a90b19b0a6ace42`,2026-11-08. Separate [public delivery](../results/2026/11-08/file-review-public-delivery.md) passed at source `1da616761feb6da12dda63b87e0369c5327866d0`: READY, canonical alias and14 anonymous HTTP observations including the complete exact aggregate. This is a hosting repair after the accepted [file-review packet](../results/2026/11-08/file-review-checks.md), not a replay of its85 product cases. The five failed hosting CI sources/originals remain preserved in the [proposal history](../proposals/static-registry-hosting-checks.md).
 
 ## Observed problem and unchanged library
 
