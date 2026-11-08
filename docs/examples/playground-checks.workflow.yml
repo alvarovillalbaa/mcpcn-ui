@@ -1,0 +1,47 @@
+# Inactive source. Root owns the separate active main-only workflow and retirement.
+name: MCPCN real iframe playground and packaged CLI services
+on:
+  workflow_dispatch:
+    inputs:
+      source_sha:
+        description: Exact reviewed 40-character source SHA on qa/mcpcn-playground-20261108
+        type: string
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: mcpcn-playground-checks
+  cancel-in-progress: false
+jobs:
+  playground:
+    if: github.repository == 'alvarovillalbaa/mcpcn-ui' && github.event.repository.private == false && github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      CI: 'true'
+      SOURCE_COMMIT: ${{ inputs.source_sha }}
+      MCPCN_PUBLIC_REPOSITORY: ${{ github.event.repository.private == false }}
+    steps:
+      - name: Bind source input and earliest owned job clock
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$SOURCE_COMMIT" =~ ^[a-f0-9]{40}$ ]]
+          test "$SOURCE_COMMIT" != "$GITHUB_SHA"
+          python3 - <<'PY'
+          import os,time
+          ticks = int(float(open('/proc/uptime').read().split()[0]) * os.sysconf('SC_CLK_TCK'))
+          with open(os.environ['GITHUB_ENV'], 'a') as output:
+              output.write(f'MCPCN_PLAYGROUND_JOB_STARTED_MS={time.time_ns()//1000000}\nMCPCN_PLAYGROUND_START_TICKS={ticks}\n')
+          PY
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ env.SOURCE_COMMIT }}
+          persist-credentials: false
+          clean: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: '24.22.2'
+      - name: Check the exact prepared source in owned storage
+        shell: bash
+        run: node tooling/run-playground-checks.mjs --source-commit "$SOURCE_COMMIT"

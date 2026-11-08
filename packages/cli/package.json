@@ -6,6 +6,7 @@
   "description": "Install and configure MCPCN agent workflow components",
   "bin": { "mcpcn": "dist/index.js" },
   "files": ["dist"],
-  "scripts": { "build": "tsc -p tsconfig.json", "typecheck": "tsc -p tsconfig.json --noEmit", "test": "vitest run", "lint": "tsc -p tsconfig.json --noEmit" },
-  "dependencies": { "@mcpcn/registry": "workspace:*" }
+  "scripts": { "build": "tsc -p tsconfig.json && node ../../tooling/stage-playground.mjs --target cli", "typecheck": "tsc -p tsconfig.json --noEmit", "test": "vitest run", "lint": "tsc -p tsconfig.json --noEmit" },
+  "dependencies": { "@mcpcn/registry": "workspace:*" },
+  "devDependencies": { "@mcpcn/playground": "workspace:*" }
 }

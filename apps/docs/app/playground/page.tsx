@@ -1,1 +1,9 @@
-import Link from "next/link";import {ApprovalDemo,ProgressDemo} from "../../components/demos";export const metadata={title:"Playground"};export default function Playground(){return <main><span className="eyebrow">Host simulator</span><h1>Test the whole interaction.</h1><p className="lede">Render fixture payloads, inspect tool calls, and simulate host capabilities before opening your app in a production MCP host.</p><div className="demo-grid"><div><h3>Rendered app iframe</h3><div className="preview-shell"><ApprovalDemo/></div></div><div><h3>Tool invocation trace</h3><ProgressDemo/><pre className="code" style={{marginTop:18}}>{`→ ui/initialize\n← ui/notifications/tool-result\n→ tools/call approve_pricing\n← structuredContent mcpcn/audit-trail`}</pre></div></div><p style={{marginTop:30}}><Link href="/docs" className="button">Run locally on port 4545</Link></p></main>}
+export const metadata = { title: "Playground" };
+export default function Playground() {
+  return <main>
+    <span className="eyebrow">MCP Apps playground</span><h1>Test the whole interaction.</h1>
+    <p className="lede">Load authored fixtures into a real app iframe, inspect observed SDK messages and rehearse host capabilities. The same simulator is bundled with the local CLI.</p>
+    <iframe title="MCPCN host simulator" src="/playground-simulator/index.html" sandbox="allow-scripts allow-same-origin allow-downloads" allow="clipboard-write" style={{ width: "100%", minHeight: 2000, border: "1px solid var(--border)", borderRadius: 12 }} />
+    <p>Run <code>mcpcn dev</code> or <code>mcpcn preview approval-card</code> from a built package to serve this simulator on <code>127.0.0.1:4545</code>. Public npm availability remains pending.</p>
+  </main>;
+}

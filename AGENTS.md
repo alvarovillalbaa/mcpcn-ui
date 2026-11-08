@@ -136,3 +136,26 @@ broad workflows remain unchanged. Provider source/alias metadata and HTTP
 observations retain separate provenance. Keep public npm, real MCP hosts, the
 iframe playground, untrusted-HTML isolation, all-assets integrity, physical
 devices and full accessibility acceptance pending.
+
+## Shared iframe playground — 8 November 2026
+
+The owner's standing “Keep going / Do all the work” instruction authorizes the
+next [shared playground scope](docs/specs/iframe-playground.md): actual official
+SDK host/app documents, negotiated runtime lifecycle and the packaged loopback
+`dev`/`preview` service. Preserve public method signatures, the fourteen copied
+source modules and all historical evidence. The only dependency edits declare
+existing locked SDK/workspace edges; no external version upgrade is intended.
+
+Use the new focused remote packet for these new paths. Source parsing and
+authored tests are preparation, not execution. Do not invoke the earlier whole
+107/26, 52-case or HTTP packets as substitutes for the new acceptance. Regenerate
+canonical source payloads only through the existing owner in isolated storage;
+do not hand-edit generated JSON. Keep the accepted public registry and hosting
+source unchanged until the new source and generated profile pass.
+
+One bounded temporary public workflow may check an immutable source on main
+dispatch with a read-only token. Preparation/publication retains `[skip ci]`;
+the broad CI/release definitions and all older QA bookmarks remain unchanged.
+Retire the temporary workflow after terminal acceptance. No local heavy runtime
+below Storage Guard's reserve, public npm release, new account, paid service,
+external tools/model, production data or untrusted-HTML isolation claim.
