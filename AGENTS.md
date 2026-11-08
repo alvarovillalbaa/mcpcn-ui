@@ -143,8 +143,12 @@ The owner's standing “Keep going / Do all the work” instruction authorizes t
 next [shared playground scope](docs/specs/iframe-playground.md): actual official
 SDK host/app documents, negotiated runtime lifecycle and the packaged loopback
 `dev`/`preview` service. Preserve public method signatures, the fourteen copied
-source modules and all historical evidence. The only dependency edits declare
-existing locked SDK/workspace edges; no external version upgrade is intended.
+source modules and all historical evidence. Dependency edits declare existing
+locked SDK/workspace edges and the existing-catalog React DOM test dependency;
+no external version upgrade is intended. Preserve the
+[first failed invocation](docs/results/2026/11-08/playground-attempt-1.md):
+47 collected passes, 29 adapter cases uncollected because the SSR test's direct
+React DOM dependency was undeclared. Do not waive its strict 76-case gate.
 
 Use the new focused remote packet for these new paths. Source parsing and
 authored tests are preparation, not execution. Do not invoke the earlier whole
