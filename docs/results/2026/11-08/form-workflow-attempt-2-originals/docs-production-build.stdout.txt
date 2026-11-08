@@ -1,0 +1,48 @@
+
+> @mcpcn/docs@0.1.0 build /home/runner/work/_temp/mcpcn-forms-nWTNu2/source/apps/docs
+> node ../../tooling/stage-playground.mjs --target docs && next build
+
+▲ Next.js 16.3.0 (Turbopack)
+✓ Running next.config.ts took 24ms
+⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+- Experiments (use with caution):
+  · optimizePackageImports
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 6.7s
+  Running TypeScript ...
+  Finished TypeScript in 4.4s ...
+  Collecting page data using 3 workers ...
+  Generating static pages using 3 workers (0/82) ...
+  Generating static pages using 3 workers (20/82) 
+  Generating static pages using 3 workers (40/82) 
+  Generating static pages using 3 workers (61/82) 
+✓ Generating static pages using 3 workers (82/82) in 1943ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /blocks
+├ ○ /components
+├   /components/[slug]
+│ ├ ● /components/button
+│ ├ ● /components/card
+│ ├ ● /components/badge
+│ └ ● [+65 more paths]
+├ ○ /create
+├ ○ /docs
+├ ○ /examples
+├ ○ /icon.svg
+├ ƒ /llms-full.txt
+├ ƒ /llms.txt
+├ ○ /playground
+├ ƒ /r/[name]
+├ ○ /r/registry.json
+└ ƒ /schema/config.json
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

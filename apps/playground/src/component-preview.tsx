@@ -5,6 +5,7 @@ import * as Blocks from "@mcpcn/react/blocks";
 import type { ApprovalCardData, ApprovalChecklistData, BeforeSubmitConfirmationData, DestructiveActionGuardData, HumanOverridePanelData, PermissionRequestCardData, AuditTrailData, AuthRequiredCardData, ComparisonMatrixData, ConfirmationPanelData, DiffViewerData, DynamicQuestionFlowData, EntityReviewTableData, ExtractedFieldsReviewData, RetryableErrorStateData, RiskReviewPanelData, SchemaFormData, ScoreBreakdownData, SourceEvidencePanelData, ToolCallCardData, ToolProgressTimelineData } from "@mcpcn/schemas";
 import { playgroundItems, validateFixture, type BlockFixtures, type PrimitiveFixtures } from "./fixtures";
 import type { ToolResultCardData, RunningTaskCardData, PartialResultViewerData, QueuedStepListData, ToolTraceViewerData } from "@mcpcn/schemas";
+import type { MissingDataRequestData, MultiStepFormData, InlineEditFormData, FormProgressCardData, ValidatedFieldListData } from "@mcpcn/schemas";
 
 type Props = { payload: MCPCNPayload<string, unknown>; onAction: (action: UI.ComponentAction) => void | Promise<void> };
 type Data = Record<string, unknown>;
@@ -73,6 +74,11 @@ function Preview({ payload, onAction }: Props) {
       case "partial-result-viewer": component = <UI.PartialResultViewer {...data as PartialResultViewerData} {...common} />; break;
       case "queued-step-list": component = <UI.QueuedStepList {...data as QueuedStepListData} {...common} />; break;
       case "tool-trace-viewer": component = <UI.ToolTraceViewer {...data as ToolTraceViewerData} {...common} />; break;
+      case "missing-data-request": component = <UI.MissingDataRequest {...data as MissingDataRequestData} {...common} />; break;
+      case "multi-step-form": component = <UI.MultiStepForm {...data as MultiStepFormData} {...common} />; break;
+      case "inline-edit-form": component = <UI.InlineEditForm {...data as InlineEditFormData} {...common} />; break;
+      case "form-progress-card": component = <UI.FormProgressCard {...data as FormProgressCardData} {...common} />; break;
+      case "validated-field-list": component = <UI.ValidatedFieldList {...data as ValidatedFieldListData} {...common} />; break;
       case "schema-form": component = <UI.SchemaForm {...data as SchemaFormData} {...common} />; break;
       case "entity-review-table": component = <UI.EntityReviewTable {...data as EntityReviewTableData} {...common} />; break;
       case "audit-trail": component = <UI.AuditTrail {...data as AuditTrailData} {...common} />; break;
@@ -144,6 +150,22 @@ export function controlledData(slug: string, current: Data, action: UI.Component
   const value = action.data;
   if (!object(value)) return undefined;
   switch (slug) {
+    case "multi-step-form": {
+      const d = current as MultiStepFormData;
+      return action.type === "change-form-step" && value.id === d.id && value.fromStepId === d.currentStepId
+        && typeof value.stepId === "string" && d.steps.some(step => step.id === value.stepId)
+        ? { currentStepId: value.stepId } : undefined;
+    }
+    case "form-progress-card": {
+      const d = current as FormProgressCardData;
+      return action.type === "select-form-progress-step" && value.id === d.id && typeof value.stepId === "string"
+        && d.steps?.some(step => step.id === value.stepId) ? { selectedStepId: value.stepId } : undefined;
+    }
+    case "validated-field-list": {
+      const d = current as ValidatedFieldListData;
+      return action.type === "select-validated-field" && value.id === d.id && typeof value.fieldId === "string"
+        && d.fields.some(field => field.id === value.fieldId) ? { selectedFieldId: value.fieldId } : undefined;
+    }
     case "partial-result-viewer": {
       const d = current as PartialResultViewerData;
       return value.id === d.id && action.type === "select-result-part" && typeof value.partId === "string" && d.parts.some(part => part.id === value.partId)
