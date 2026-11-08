@@ -224,3 +224,10 @@ originals and the separately adopted 167-path generated vector. This packet
 is closed; do not rerun it merely to support a later catalogue cohort. Later
 publication may remove the controller's one trailing blank line only; the
 checked controller hash remains bound to the immutable candidate.
+
+Accepted publication `a526f29b90a056963eec2c8382942302f881959b` deployed once;
+the [delivery record](docs/results/2026/11-08/approval-public-delivery.md) retains
+provider, sixteen anonymous HTTP and seven candidate-archive boundaries.
+Workflow411128785 was disabled then removed; only the two original broad
+workflows remain. The owned approval QA branch is retired; its immutable source
+remains an accepted merge parent. Preserve all older QA bookmarks and releases.

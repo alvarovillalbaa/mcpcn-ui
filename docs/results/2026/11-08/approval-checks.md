@@ -68,8 +68,11 @@ groups. Five complete 1,167-file canonical guards and ten exported-source guards
 passed. All twelve contexts closed with zero pending requests/jobs; 261 observed
 GET/HEAD requests had no request, console, page, WebSocket or cookie errors.
 Owned scratch was removed with zero remaining or uncertain processes. Three
-vanished process observations and their accepted ownership dispositions remain
-in the original receipt; attribution is not a host-wide sandbox.
+vanished process observations remain in the original receipt. Three separate
+EACCES zombie-process fallbacks used stable child/parent/group identities and
+previously independently nonce-owned anchors. Fresh nonce probes, unsafe-anchor
+refusals and identity-change branches were unexercised. Attribution is not a
+host-wide sandbox.
 
 The complete [receipt](approval-checks-originals/receipt.json) is 3,252,204 bytes,
 SHA256 `140b9ce51445c399209f08396f0a0cb615740cac071c605cc9e09f623eb39e61`.
@@ -84,6 +87,8 @@ Three prebuild workspace-bin warnings and the 537,532-byte minified chunk warnin
 are preserved. Staged whitespace checking found one new trailing controller
 blank line; publication removes only that blank line, while CI keeps the exact
 original controller hash `fc72d8475b049cfce5201413b66e3fadb4d51f660ce5aa4f0dc5cbecefcd72db`.
+Twelve whitespace warnings in verbatim retained streams remain unchanged;
+handwritten source/docs whitespace checks pass.
 A data-only retention helper initially refused per-line BOMs before creating any
 destination; matching the decoder's BOM handling fixed retention without rerunning
 or altering CI evidence. Older failed packets remain unchanged.
@@ -95,3 +100,7 @@ physical devices, exhaustive accessibility, hosted browser interactions, public
 npm and the remaining catalogue/full-product requirements stay unverified.
 Source acceptance, generated adoption, release and hosting each retain separate
 boundaries; this progress does not complete the portfolio goal.
+
+The subsequent [delivery record](approval-public-delivery.md) binds accepted
+publication `a526f29b` to its READY deployment, anonymous HTTP observations and
+seven unchanged GitHub candidate assets. It does not rerun this CI packet.

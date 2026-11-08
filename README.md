@@ -18,8 +18,14 @@ passed 79 new unit/SSR cases, twelve desktop/narrow browser scenarios and both
 fresh installed consumers at `b67ee0819b4e07fcf3a177750079c9b459e57ab2`.
 All 167 generated paths were verified; 159 changed outputs were adopted from
 that passing packet. Existing v1/playground receipts and public archives below
-retain their earlier sixteen-component source boundaries. Publication and
-hosting of this newer cohort have separate evidence.
+retain their earlier sixteen-component source boundaries. The
+[approval candidate](https://github.com/alvarovillalbaa/mcpcn-ui/releases/tag/v0.1.0-approvals.1)
+publishes the seven unchanged passing archives; the
+[delivery receipt](docs/results/2026/11-08/approval-public-delivery.md) records
+the READY production deployment and sixteen successful anonymous HTTP checks.
+The [publication record](docs/results/2026/11-08/approval-candidate-publication.json)
+binds server digests to those archives. Package versions remain 0.1.0; public
+npm and hosted browser interactions remain separate, unverified boundaries.
 
 The earlier v1 completion added eleven core components with dedicated typed schemas,
 controlled domain interactions and actual documentation previews. ApprovalCard
