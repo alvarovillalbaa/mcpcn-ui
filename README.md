@@ -21,6 +21,11 @@ generated registry is included with its separately bound publication vector.
 Keep this evidence separate from the historical packets below. The broader catalogue,
 real-host playground, public npm release and quality matrix remain unfinished.
 
+The [core v1 GitHub candidate](https://github.com/alvarovillalbaa/mcpcn-ui/releases/tag/v0.1.0-core.1)
+contains the seven exact archives from the passing consumers. Their server
+sizes and SHA256 digests match the [publication receipt](docs/results/2026/11-08/core-candidate-publication.json).
+Package versions remain 0.1.0; this prerelease is separate from npm publication.
+
 The hosted v1 update is pending a working Vercel connection. The earlier
 hosting receipt below covers its own older source; the new seven-route
 anonymous delivery check is prepared and unrun.
