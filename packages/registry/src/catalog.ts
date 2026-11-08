@@ -12,8 +12,13 @@ const names:Record<CatalogCategory,string[]>={
   trust:["AuditTrail","ReasoningSummary","SourceList","EvidenceDrawer","DataAccessNotice","PrivacyBoundaryCard","ConsentPanel","ModelContextPreview"],
   "host-state":["AuthRequiredCard","BillingGate","UnsupportedHostNotice","NoDataState","LoadingBridgeState","OfflineState","PermissionDeniedState","ExpiredSessionState"]
 };
-const specialized=new Set(["ApprovalCard","ConfirmationPanel","RiskReviewPanel","ToolProgressTimeline","ToolCallCard","RetryableErrorState","SchemaForm","DynamicQuestionFlow","EntityReviewTable","ExtractedFieldsReview","DiffViewer","ComparisonMatrix","ScoreBreakdown","AuditTrail","SourceEvidencePanel","AuthRequiredCard"]);
+const specialized=new Set(["ApprovalCard","ApprovalChecklist","BeforeSubmitConfirmation","DestructiveActionGuard","HumanOverridePanel","PermissionRequestCard","ConfirmationPanel","RiskReviewPanel","ToolProgressTimeline","ToolCallCard","RetryableErrorState","SchemaForm","DynamicQuestionFlow","EntityReviewTable","ExtractedFieldsReview","DiffViewer","ComparisonMatrix","ScoreBreakdown","AuditTrail","SourceEvidencePanel","AuthRequiredCard"]);
 const componentDescriptions:Record<string,string> = {
+  ApprovalChecklist: "Review required checklist items before emitting an explicit approval intent.",
+  BeforeSubmitConfirmation: "Review current field values and explicitly consent before submission intent.",
+  DestructiveActionGuard: "Review exact impact, type the confirmation phrase and explicitly consent to destructive intent.",
+  HumanOverridePanel: "Select an alternative and explain an explicitly consented human override.",
+  PermissionRequestCard: "Review requested scopes and explicitly request or deny consumer-owned permission intent.",
   ConfirmationPanel: "Review current change terms and explicitly confirm or cancel.",
   RiskReviewPanel: "Acknowledge identified risks and confirm the current mitigation terms.",
   ToolCallCard: "Inspect exact tool arguments, outputs and execution status.",

@@ -5,12 +5,17 @@ import { ApprovalDemo, AuditDemo, FormDemo, GenericDemo, ProgressDemo, ReviewDem
 import { ConfirmationPanelDemo, RiskReviewPanelDemo, DiffViewerDemo, SourceEvidencePanelDemo } from "../../../components/v1-review-demos";
 import { DynamicQuestionFlowDemo, ExtractedFieldsReviewDemo, ComparisonMatrixDemo, ScoreBreakdownDemo } from "../../../components/v1-decision-demos";
 import { ToolCallCardDemo, RetryableErrorStateDemo, AuthRequiredCardDemo } from "../../../components/v1-execution-demos";
+import { ApprovalChecklistDemo, BeforeSubmitConfirmationDemo, DestructiveActionGuardDemo, HumanOverridePanelDemo, PermissionRequestCardDemo } from "../../../components/approval-demos";
+import { approvalExampleCode } from "../../../components/approval-examples";
 import { ComponentPreview } from "../../../components/component-preview";
 
 export function generateStaticParams() { return catalog.map(item => ({ slug: item.slug })); }
 
 const demos: Record<string, ReactNode> = {
   "approval-card": <ApprovalDemo />, "tool-progress-timeline": <ProgressDemo />,
+  "approval-checklist": <ApprovalChecklistDemo />, "before-submit-confirmation": <BeforeSubmitConfirmationDemo />,
+  "destructive-action-guard": <DestructiveActionGuardDemo />, "human-override-panel": <HumanOverridePanelDemo />,
+  "permission-request-card": <PermissionRequestCardDemo />,
   "schema-form": <FormDemo />, "entity-review-table": <ReviewDemo />, "audit-trail": <AuditDemo />,
   "confirmation-panel": <ConfirmationPanelDemo />, "risk-review-panel": <RiskReviewPanelDemo />,
   "diff-viewer": <DiffViewerDemo />, "source-evidence-panel": <SourceEvidencePanelDemo />,
@@ -21,6 +26,11 @@ const demos: Record<string, ReactNode> = {
 };
 const events: Record<string, Array<[string, string]>> = {
   "approval-card": [["approve", "{ tool? }"], ["cancel", "No data"]],
+  "approval-checklist": [["check-item", "{ reviewId, itemId, checked }"], ["approve-checklist", "{ reviewId, itemIds: current checked IDs }"], ["cancel", "{ reviewId }"]],
+  "before-submit-confirmation": [["confirm-submit", "{ reviewId, fieldIds: all current IDs; no field values }"], ["cancel", "{ reviewId }"]],
+  "destructive-action-guard": [["confirm-destructive", "{ reviewId, affectedCount }"], ["cancel", "{ reviewId }"]],
+  "human-override-panel": [["select-override-option", "{ reviewId, optionId }"], ["override", "{ reviewId, optionId, reason: trimmed local reason }"], ["cancel", "{ reviewId }"]],
+  "permission-request-card": [["select-scope", "{ reviewId, scopeId, selected }"], ["request-permission", "{ reviewId, scopeIds: current selected IDs }"], ["deny-permission", "{ reviewId }"]],
   "tool-progress-timeline": [["retry", "{ stepId, tool }"]],
   "schema-form": [["submit", "{ values: current field allowlist, tool? }"]],
   "entity-review-table": [["confirm", "{ ids: current row IDs, tool? }"]],
@@ -57,7 +67,7 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
   const requiredFields = schema?.required;
   const required = new Set(Array.isArray(requiredFields) ? requiredFields.filter((value): value is string => typeof value === "string") : []);
   const implementation = item.category === "primitive" ? "Primitive" : item.specialized ? "Domain component" : "Shared informational alias";
-  const renderCode = 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
+  const renderCode = approvalExampleCode(slug) ?? 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
   const serverCode = 'import { ' + item.name + 'Schema } from "@mcpcn/schemas";\nimport { createStructuredResult } from "@mcpcn/server";\n\nexport function reviewedResult(candidate: unknown) {\n  const data = ' + item.name + 'Schema.parse(candidate);\n  return createStructuredResult("' + item.slug + '", data);\n}';
   return <main>
     <span className="eyebrow">{item.category}</span><h1>{item.name}</h1><p className="lede">{item.description}</p>

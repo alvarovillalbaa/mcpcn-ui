@@ -12,6 +12,7 @@ export { Button, Card, Badge, Input, Textarea, Select, Alert, Skeleton, EmptySta
 export { ConfirmationPanel, RiskReviewPanel, DiffViewer, SourceEvidencePanel } from "./review-components.js";
 export { DynamicQuestionFlow, ExtractedFieldsReview, ComparisonMatrix, ScoreBreakdown } from "./decision-components.js";
 export { ToolCallCard, RetryableErrorState, AuthRequiredCard } from "./execution-components.js";
+export { ApprovalChecklist, BeforeSubmitConfirmation, DestructiveActionGuard, HumanOverridePanel, PermissionRequestCard } from "./approval-components.js";
 
 export const ApprovalCardSecurity: MCPCNSecurityManifest = { modelVisible:["decision","reason"], privateOnly:["internalRecordId"], callsTools:["approvalTool"], destructive:true };
 export function ApprovalCard(props: ComponentProps<ApprovalCardData>) {
@@ -88,7 +89,6 @@ export function AuditTrail(props: ComponentProps<AuditTrailData>) { const parsed
 export type GenericAgentComponentProps = ComponentProps<{ title:string; description?:string; status?:string; items?:Array<Record<string,unknown>>; actions?:Array<{label:string;value:string;destructive?:boolean}>; [key:string]:unknown }>;
 export function GenericAgentComponent(props: GenericAgentComponentProps) { const parsed=GenericComponentSchema.safeParse(props); if(!parsed.success)return <InvalidPayload issues={parsed.error.issues.map(i=>i.message)} />; const data=parsed.data; return <Card className={props.className}><div className="mcpcn-header"><div className="mcpcn-row mcpcn-between"><h3 className="mcpcn-title">{data.title}</h3>{data.status&&<Badge>{data.status}</Badge>}</div>{data.description&&<p className="mcpcn-description">{data.description}</p>}</div>{data.items&&<div className="mcpcn-body mcpcn-stack">{data.items.map((item,index)=><div key={index} className="mcpcn-change">{Object.entries(item).slice(0,3).map(([key,value])=><span key={key}><span className="mcpcn-hint">{key}</span><br/>{String(value)}</span>)}</div>)}</div>}{data.actions?.length?<div className="mcpcn-footer mcpcn-row" style={{justifyContent:"flex-end"}}>{data.actions.map(a=><Button key={a.value} data-variant={a.destructive?"danger":undefined} onClick={()=>props.onAction?.({type:a.value})}>{a.label}</Button>)}</div>:null}</Card> }
 
-export const ApprovalChecklist=GenericAgentComponent, BeforeSubmitConfirmation=GenericAgentComponent, DestructiveActionGuard=GenericAgentComponent, HumanOverridePanel=GenericAgentComponent, PermissionRequestCard=GenericAgentComponent;
 export const ToolResultCard=GenericAgentComponent, RunningTaskCard=GenericAgentComponent, PartialResultViewer=GenericAgentComponent, QueuedStepList=GenericAgentComponent, ToolTraceViewer=GenericAgentComponent;
 export const RecordInspector=GenericAgentComponent, FieldConfidenceList=GenericAgentComponent, ConflictResolver=GenericAgentComponent, ValidationSummary=GenericAgentComponent, DocumentPreview=GenericAgentComponent, FileReview=GenericAgentComponent;
 export const MissingDataRequest=GenericAgentComponent, MultiStepForm=GenericAgentComponent, InlineEditForm=GenericAgentComponent, FormProgressCard=GenericAgentComponent, ValidatedFieldList=GenericAgentComponent;

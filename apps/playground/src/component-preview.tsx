@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { MCPCNPayload } from "@mcpcn/core";
 import * as UI from "@mcpcn/react";
 import * as Blocks from "@mcpcn/react/blocks";
-import type { ApprovalCardData, AuditTrailData, AuthRequiredCardData, ComparisonMatrixData, ConfirmationPanelData, DiffViewerData, DynamicQuestionFlowData, EntityReviewTableData, ExtractedFieldsReviewData, RetryableErrorStateData, RiskReviewPanelData, SchemaFormData, ScoreBreakdownData, SourceEvidencePanelData, ToolCallCardData, ToolProgressTimelineData } from "@mcpcn/schemas";
+import type { ApprovalCardData, ApprovalChecklistData, BeforeSubmitConfirmationData, DestructiveActionGuardData, HumanOverridePanelData, PermissionRequestCardData, AuditTrailData, AuthRequiredCardData, ComparisonMatrixData, ConfirmationPanelData, DiffViewerData, DynamicQuestionFlowData, EntityReviewTableData, ExtractedFieldsReviewData, RetryableErrorStateData, RiskReviewPanelData, SchemaFormData, ScoreBreakdownData, SourceEvidencePanelData, ToolCallCardData, ToolProgressTimelineData } from "@mcpcn/schemas";
 import { playgroundItems, validateFixture, type BlockFixtures, type PrimitiveFixtures } from "./fixtures";
 
 type Props = { payload: MCPCNPayload<string, unknown>; onAction: (action: UI.ComponentAction) => void | Promise<void> };
@@ -61,6 +61,11 @@ function Preview({ payload, onAction }: Props) {
   if (item.kind === "specialized") {
     switch (slug) {
       case "approval-card": component = <UI.ApprovalCard {...data as ApprovalCardData} {...common} />; break;
+      case "approval-checklist": component = <UI.ApprovalChecklist {...data as ApprovalChecklistData} {...common} />; break;
+      case "before-submit-confirmation": component = <UI.BeforeSubmitConfirmation {...data as BeforeSubmitConfirmationData} {...common} />; break;
+      case "destructive-action-guard": component = <UI.DestructiveActionGuard {...data as DestructiveActionGuardData} {...common} />; break;
+      case "human-override-panel": component = <UI.HumanOverridePanel {...data as HumanOverridePanelData} {...common} />; break;
+      case "permission-request-card": component = <UI.PermissionRequestCard {...data as PermissionRequestCardData} {...common} />; break;
       case "tool-progress-timeline": component = <UI.ToolProgressTimeline {...data as ToolProgressTimelineData} {...common} />; break;
       case "schema-form": component = <UI.SchemaForm {...data as SchemaFormData} {...common} />; break;
       case "entity-review-table": component = <UI.EntityReviewTable {...data as EntityReviewTableData} {...common} />; break;
@@ -129,10 +134,25 @@ function fileMetadata(file: File | null) {
   return file ? { name: file.name.slice(0, 240).replace(/[\u0000-\u001f\u007f]/g, ""), bytes: file.size, type: file.type.slice(0, 120) } : null;
 }
 
-function controlledData(slug: string, current: Data, action: UI.ComponentAction): Data | undefined {
+export function controlledData(slug: string, current: Data, action: UI.ComponentAction): Data | undefined {
   const value = action.data;
   if (!object(value)) return undefined;
   switch (slug) {
+    case "approval-checklist": {
+      const d = current as ApprovalChecklistData;
+      if (value.reviewId !== d.reviewId || action.type !== "check-item" || typeof value.itemId !== "string" || typeof value.checked !== "boolean" || !d.items.some(item => item.id === value.itemId)) return undefined;
+      return { checkedItemIds: value.checked ? [...new Set([...(d.checkedItemIds ?? []), value.itemId])] : (d.checkedItemIds ?? []).filter(id => id !== value.itemId) };
+    }
+    case "human-override-panel": {
+      const d = current as HumanOverridePanelData;
+      return value.reviewId === d.reviewId && action.type === "select-override-option" && typeof value.optionId === "string" && d.options.some(option => option.id === value.optionId)
+        ? { selectedOptionId: value.optionId } : undefined;
+    }
+    case "permission-request-card": {
+      const d = current as PermissionRequestCardData;
+      if (value.reviewId !== d.reviewId || action.type !== "select-scope" || typeof value.scopeId !== "string" || typeof value.selected !== "boolean" || !d.scopes.some(scope => scope.id === value.scopeId)) return undefined;
+      return { selectedScopeIds: value.selected ? [...new Set([...(d.selectedScopeIds ?? []), value.scopeId])] : (d.selectedScopeIds ?? []).filter(id => id !== value.scopeId) };
+    }
     case "risk-review-panel": {
       const d = current as RiskReviewPanelData;
       if (action.type !== "acknowledge-risk" || typeof value.riskId !== "string" || typeof value.acknowledged !== "boolean" || !d.risks.some(risk => risk.id === value.riskId)) return undefined;
