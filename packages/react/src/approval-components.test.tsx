@@ -62,7 +62,7 @@ describe("dedicated approval components", () => {
     expect(publicComponents.HumanOverridePanel).toBe(HumanOverridePanel);
     expect(publicComponents.PermissionRequestCard).toBe(PermissionRequestCard);
     expect(ApprovalChecklist).not.toBe(publicComponents.GenericAgentComponent);
-    expect(publicComponents.ToolResultCard).toBe(publicComponents.GenericAgentComponent);
+    expect(publicComponents.RecordInspector).toBe(publicComponents.GenericAgentComponent);
     expect(publicComponents.BillingGate).toBe(publicComponents.GenericAgentComponent);
   });
 

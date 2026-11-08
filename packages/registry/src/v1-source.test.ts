@@ -16,6 +16,7 @@ const requiredComponents = [
   ["destructive-action-guard", "DestructiveActionGuard"], ["human-override-panel", "HumanOverridePanel"], ["permission-request-card", "PermissionRequestCard"],
   ["approval-card", "ApprovalCard"], ["confirmation-panel", "ConfirmationPanel"], ["risk-review-panel", "RiskReviewPanel"],
   ["tool-progress-timeline", "ToolProgressTimeline"], ["tool-call-card", "ToolCallCard"], ["retryable-error-state", "RetryableErrorState"],
+  ["tool-result-card", "ToolResultCard"], ["running-task-card", "RunningTaskCard"], ["partial-result-viewer", "PartialResultViewer"], ["queued-step-list", "QueuedStepList"], ["tool-trace-viewer", "ToolTraceViewer"],
   ["schema-form", "SchemaForm"], ["dynamic-question-flow", "DynamicQuestionFlow"], ["entity-review-table", "EntityReviewTable"],
   ["extracted-fields-review", "ExtractedFieldsReview"], ["diff-viewer", "DiffViewer"], ["comparison-matrix", "ComparisonMatrix"],
   ["score-breakdown", "ScoreBreakdown"], ["audit-trail", "AuditTrail"], ["source-evidence-panel", "SourceEvidencePanel"], ["auth-required-card", "AuthRequiredCard"],
@@ -30,13 +31,15 @@ const modules = [
   ["packages/react/src/execution-components.tsx", "execution-components.tsx"], ["packages/react/src/component-types.ts", "component-types.ts"],
   ["packages/schemas/src/approval-schemas.ts", "approval-schemas.ts"],
   ["packages/react/src/approval-components.tsx", "approval-components.tsx"],
+  ["packages/schemas/src/tool-workflow-schemas.ts", "tool-workflow-schemas.ts"],
+  ["packages/react/src/tool-workflow-components.tsx", "tool-workflow-components.tsx"],
 ] as const;
 const namespaces: Record<string, string> = { "@mcpcn/core": "./core", "@mcpcn/schemas": "./schemas", "@mcpcn/react": "./components", "@mcpcn/runtime": "./runtime" };
 const adapt = (text: string) => text.replace(/(["'])(@mcpcn\/(?:core|schemas|react|runtime))\1/g, (_match, quote: string, name: string) => `${quote}${namespaces[name]}${quote}`);
 
 describe("v1 component schema and copied-source integration", () => {
   it("binds all named schemas to real component functions instead of the generic alias", async () => {
-    const implementations = (await Promise.all(["index", "review-components", "decision-components", "execution-components", "approval-components"].map(name => readSource(`packages/react/src/${name}.tsx`)))).join("\n");
+    const implementations = (await Promise.all(["index", "review-components", "decision-components", "execution-components", "approval-components", "tool-workflow-components"].map(name => readSource(`packages/react/src/${name}.tsx`)))).join("\n");
     expect(Object.keys(schemaBySlug).sort()).toEqual(requiredComponents.map(([slug]) => slug).sort());
     for (const [slug, name] of requiredComponents) {
       expect(schemaBySlug[slug]).not.toBe(GenericComponentSchema);
@@ -61,7 +64,7 @@ describe("v1 component schema and copied-source integration", () => {
   it("keeps generic contracts honest and omits schemas for twelve primitives and unknown names", () => {
     const generic = catalog.filter(item => item.category !== "primitive" && !item.specialized);
     const primitive = catalog.filter(item => item.category === "primitive");
-    expect(generic).toHaveLength(35); expect(primitive).toHaveLength(12);
+    expect(generic).toHaveLength(30); expect(primitive).toHaveLength(12);
     for (const item of generic) expect(componentDataSchema(item.slug)).toEqual(toJSONSchema(GenericComponentSchema));
     for (const item of primitive) expect(componentDataSchema(item.slug)).toBeUndefined();
     for (const name of ["missing-component", "ApprovalCard", "APPROVAL-CARD", "review-before-action"]) expect(componentDataSchema(name)).toBeUndefined();
@@ -77,8 +80,8 @@ describe("v1 component schema and copied-source integration", () => {
   it("places canonical data schemas in identical index and item metadata with the exact category counts", async () => {
     const { registry, items } = await build();
     expect(items).toHaveLength(79); expect(registry.items).toBe(items);
-    expect(items.filter(item => item.meta.implementation === "specialized")).toHaveLength(21);
-    expect(items.filter(item => item.meta.implementation === "generic-alias")).toHaveLength(35);
+    expect(items.filter(item => item.meta.implementation === "specialized")).toHaveLength(26);
+    expect(items.filter(item => item.meta.implementation === "generic-alias")).toHaveLength(30);
     expect(items.filter(item => item.meta.implementation === "primitive")).toHaveLength(12);
     expect(items.filter(item => item.meta.implementation === "workflow-block")).toHaveLength(11);
     for (const item of items) {
@@ -88,7 +91,7 @@ describe("v1 component schema and copied-source integration", () => {
     }
   });
 
-  it("copies every one of the sixteen real modules with namespace-only adaptations and complete provenance", async () => {
+  it("copies every one of the eighteen real modules with namespace-only adaptations and complete provenance", async () => {
     const { items } = await build();
     const originals = await Promise.all(modules.map(async ([path, name]) => ({ path, name, text: await readSource(path) })));
     for (const item of items) {

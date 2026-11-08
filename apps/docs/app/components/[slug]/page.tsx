@@ -7,6 +7,8 @@ import { DynamicQuestionFlowDemo, ExtractedFieldsReviewDemo, ComparisonMatrixDem
 import { ToolCallCardDemo, RetryableErrorStateDemo, AuthRequiredCardDemo } from "../../../components/v1-execution-demos";
 import { ApprovalChecklistDemo, BeforeSubmitConfirmationDemo, DestructiveActionGuardDemo, HumanOverridePanelDemo, PermissionRequestCardDemo } from "../../../components/approval-demos";
 import { approvalExampleCode } from "../../../components/approval-examples";
+import { ToolResultCardDemo, RunningTaskCardDemo, PartialResultViewerDemo, QueuedStepListDemo, ToolTraceViewerDemo } from "../../../components/tool-workflow-demos";
+import { toolWorkflowExampleCode } from "../../../components/tool-workflow-examples";
 import { ComponentPreview } from "../../../components/component-preview";
 
 export function generateStaticParams() { return catalog.map(item => ({ slug: item.slug })); }
@@ -16,6 +18,8 @@ const demos: Record<string, ReactNode> = {
   "approval-checklist": <ApprovalChecklistDemo />, "before-submit-confirmation": <BeforeSubmitConfirmationDemo />,
   "destructive-action-guard": <DestructiveActionGuardDemo />, "human-override-panel": <HumanOverridePanelDemo />,
   "permission-request-card": <PermissionRequestCardDemo />,
+  "tool-result-card": <ToolResultCardDemo />, "running-task-card": <RunningTaskCardDemo />,
+  "partial-result-viewer": <PartialResultViewerDemo />, "queued-step-list": <QueuedStepListDemo />, "tool-trace-viewer": <ToolTraceViewerDemo />,
   "schema-form": <FormDemo />, "entity-review-table": <ReviewDemo />, "audit-trail": <AuditDemo />,
   "confirmation-panel": <ConfirmationPanelDemo />, "risk-review-panel": <RiskReviewPanelDemo />,
   "diff-viewer": <DiffViewerDemo />, "source-evidence-panel": <SourceEvidencePanelDemo />,
@@ -32,6 +36,11 @@ const events: Record<string, Array<[string, string]>> = {
   "human-override-panel": [["select-override-option", "{ reviewId, optionId }"], ["override", "{ reviewId, optionId, reason: trimmed local reason }"], ["cancel", "{ reviewId }"]],
   "permission-request-card": [["select-scope", "{ reviewId, scopeId, selected }"], ["request-permission", "{ reviewId, scopeIds: current selected IDs }"], ["deny-permission", "{ reviewId }"]],
   "tool-progress-timeline": [["retry", "{ stepId, tool }"]],
+  "tool-result-card": [["inspect-result", "{ id, tool, status; no result or error detail }"]],
+  "running-task-card": [["inspect-task", "{ id }"], ["cancel-task", "{ id, status }"]],
+  "partial-result-viewer": [["select-result-part", "{ id, partId }"], ["inspect-result-part", "{ id, partId, status, attempt }"], ["retry-result-part", "{ id, partId, attempt }"]],
+  "queued-step-list": [["select-queued-step", "{ id, stepId }"], ["inspect-queued-step", "{ id, stepId, status, attempt }"], ["retry-queued-step", "{ id, stepId, attempt }"]],
+  "tool-trace-viewer": [["change-trace-filter", "{ id, kind }"], ["select-trace-event", "{ id, eventId }"], ["inspect-trace-event", "{ id, eventId, kind }"]],
   "schema-form": [["submit", "{ values: current field allowlist, tool? }"]],
   "entity-review-table": [["confirm", "{ ids: current row IDs, tool? }"]],
   "audit-trail": [],
@@ -67,7 +76,8 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
   const requiredFields = schema?.required;
   const required = new Set(Array.isArray(requiredFields) ? requiredFields.filter((value): value is string => typeof value === "string") : []);
   const implementation = item.category === "primitive" ? "Primitive" : item.specialized ? "Domain component" : "Shared informational alias";
-  const renderCode = approvalExampleCode(slug) ?? 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
+  const toolWorkflowCode = toolWorkflowExampleCode(slug);
+  const renderCode = toolWorkflowCode ?? approvalExampleCode(slug) ?? 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
   const serverCode = 'import { ' + item.name + 'Schema } from "@mcpcn/schemas";\nimport { createStructuredResult } from "@mcpcn/server";\n\nexport function reviewedResult(candidate: unknown) {\n  const data = ' + item.name + 'Schema.parse(candidate);\n  return createStructuredResult("' + item.slug + '", data);\n}';
   return <main>
     <span className="eyebrow">{item.category}</span><h1>{item.name}</h1><p className="lede">{item.description}</p>
@@ -90,7 +100,7 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
         <p><code>className</code> styles the surface and <code>onAction</code> receives consumer-owned intent. The new domain controls and revised approval/form surfaces expose <code>busy</code> and <code>error</code> feedback. Controlled selections and answers must be acknowledged by updating their props.</p>
         <h2>Events</h2>{events[slug]?.length ? <div className="mcpcn-table-wrap"><table className="mcpcn-table"><caption>{item.name} action payloads</caption><thead><tr><th>Action type</th><th>Data</th></tr></thead><tbody>{events[slug]!.map(([type, data]) => <tr key={type}><th scope="row"><code>{type}</code></th><td><code>{data}</code></td></tr>)}</tbody></table></div> : <p>This surface displays data and has no dedicated domain event contract.</p>}
         <h2>JSON Schema</h2><pre className="code" aria-label={item.name + " JSON Schema"}>{JSON.stringify(schema, null, 2)}</pre>
-        <h2>Structured tool result</h2><pre className="code">{serverCode}</pre>
+        <h2>Structured tool result</h2>{toolWorkflowCode && <p>This helper includes the supplied data in structured content. Choose model-safe input before using it: private-field metadata does not redact result values, messages or trace details already supplied to a model. Local inspection and retry callbacks send identity/status/attempt fields only.</p>}<pre className="code">{serverCode}</pre>
       </>}
       <h2>Security contract</h2>
       <p>Previews use authored data and consumer callbacks. Applications own authorization, persistence, tool execution and explicit model-context publication.</p>
