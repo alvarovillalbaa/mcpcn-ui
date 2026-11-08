@@ -5,11 +5,13 @@ import type { DisplayMode, HostCapabilities, ToolResult } from "@mcpcn/core";
 import { App as MCPApp } from "@modelcontextprotocol/ext-apps";
 
 export type AgentAppSnapshot = {
+  /** Official/OpenAI adapters expose raw arguments, not a notification envelope. */
   toolInput?: unknown;
   toolResult?: ToolResult;
   structuredContent?: unknown;
   meta?: Record<string, unknown>;
   displayMode: DisplayMode;
+  theme?: "light" | "dark";
   widgetState?: unknown;
   capabilities: HostCapabilities;
 };
@@ -74,50 +76,120 @@ export class StandardMCPAdapter implements AgentAppAdapter {
   getCapabilities(): HostCapabilities { return { callTool: true, sendMessage: true, updateModelContext: true, widgetState: true, displayModes: ["inline", "pip", "fullscreen"], host: this.kind }; }
 }
 
+type OfficialSession = {
+  app: MCPApp;
+  listener: (snapshot: Partial<AgentAppSnapshot>) => void;
+  active: boolean;
+  ready: boolean;
+  tearingDown: boolean;
+  closed: boolean;
+  closeRequested: boolean;
+};
+
 /** Standard MCP Apps adapter backed by the official ext-apps SDK. */
 export class OfficialMCPAdapter implements AgentAppAdapter {
   readonly kind = "standard-mcp" as const;
-  private app = new MCPApp({ name: "mcpcn-app", version: "0.1.0" }, {}, { autoResize: true, strict: true });
+  private session?: OfficialSession;
+  private current(session: OfficialSession) {
+    return session.active && !session.tearingDown && this.session === session;
+  }
+  private close(session: OfficialSession) {
+    if (session.closeRequested || session.closed) return;
+    session.closeRequested = true;
+    void session.app.close().then(() => { session.closed = true; }).catch(() => {
+      if (this.current(session)) session.listener({ meta: { connectionError: "The MCP App connection could not be closed." } });
+    });
+  }
+  private ready(capability?: "callTool" | "sendMessage" | "updateModelContext") {
+    const session = this.session;
+    if (!session || !session.active || !session.ready || session.closed) throw new Error("The MCP App connection is not ready.");
+    if (capability && !this.getCapabilities()[capability]) throw new Error(`The host does not support ${capability}.`);
+    return session;
+  }
+  private completed(session: OfficialSession) {
+    if (!this.current(session) || !session.ready || session.closed) throw new Error("The MCP App connection changed before the request completed.");
+  }
+  private publishContext(session: OfficialSession) {
+    if (!this.current(session) || session.closed) return;
+    const context = session.app.getHostContext(), displayMode = context?.displayMode, theme = context?.theme;
+    session.listener({ capabilities: this.getCapabilities(),
+      ...(displayMode === "inline" || displayMode === "pip" || displayMode === "fullscreen" ? { displayMode } : {}),
+      ...(theme === "light" || theme === "dark" ? { theme } : {}) });
+  }
   connect(listener: (snapshot: Partial<AgentAppSnapshot>) => void): () => void {
-    this.app.ontoolinput = (input) => listener({ toolInput: input });
-    this.app.ontoolresult = (result) => {
+    if (this.session?.active) throw new Error("The MCP App adapter is already connected.");
+    const app = new MCPApp({ name: "mcpcn-app", version: "0.1.0" }, {}, { autoResize: true, strict: true });
+    const session = { app, listener, active: true, ready: false, tearingDown: false, closed: false, closeRequested: false };
+    this.session = session;
+    app.ontoolinput = (input) => { if (this.current(session) && !session.closed) listener({ toolInput: input.arguments }); };
+    app.ontoolresult = (result) => {
+      if (!this.current(session) || session.closed) return;
       const normalized = result as ToolResult;
       listener({ toolResult: normalized, structuredContent: normalized.structuredContent, meta: normalized._meta });
     };
-    this.app.onhostcontextchanged = (context) => {
-      const displayMode = context.displayMode;
-      if (displayMode === "inline" || displayMode === "pip" || displayMode === "fullscreen") listener({ displayMode });
+    app.onhostcontextchanged = () => this.publishContext(session);
+    app.onteardown = () => {
+      if (this.current(session)) { session.ready = false; session.tearingDown = true; listener({ capabilities: this.getCapabilities() }); }
+      return {};
     };
-    void this.app.connect().then(() => {
-      const context = this.app.getHostContext();
-      const displayMode = context?.displayMode;
-      listener({ capabilities: this.getCapabilities(), ...(displayMode === "inline" || displayMode === "pip" || displayMode === "fullscreen" ? { displayMode } : {}) });
-    }).catch((error) => listener({ meta: { connectionError: error instanceof Error ? error.message : String(error) } }));
+    app.onclose = () => {
+      session.ready = false; session.closed = true;
+      if (this.current(session)) listener({ capabilities: this.getCapabilities(), meta: { connectionError: "The MCP App connection closed." } });
+    };
+    listener({ toolInput: undefined, toolResult: undefined, structuredContent: undefined, meta: undefined, widgetState: undefined,
+      displayMode: "inline", theme: undefined, capabilities: this.getCapabilities() });
+    void app.connect(undefined, { timeout: 10000 }).then(() => {
+      if (!this.current(session) || session.closed) return;
+      session.ready = true; this.publishContext(session);
+    }).catch((error) => {
+      if (!this.current(session)) return;
+      session.ready = false;
+      listener({ capabilities: this.getCapabilities(), meta: { connectionError: error instanceof Error ? error.message : String(error) } });
+      session.tearingDown = true;
+      this.close(session);
+    });
     return () => {
-      this.app.ontoolinput = undefined;
-      this.app.ontoolresult = undefined;
-      this.app.onhostcontextchanged = undefined;
+      if (!session.active) return;
+      session.active = false; session.ready = false;
+      if (this.session === session) this.session = undefined;
+      app.ontoolinput = undefined; app.ontoolresult = undefined; app.onhostcontextchanged = undefined; app.onteardown = undefined; app.onclose = undefined;
+      this.close(session);
     };
   }
-  async callTool(name: string, args: Record<string, unknown> = {}): Promise<ToolResult> { return await this.app.callServerTool({ name, arguments: args }) as ToolResult; }
-  async sendMessage(message: string): Promise<void> { await this.app.sendMessage({ role: "user", content: [{ type: "text", text: message }] }); }
-  async updateModelContext(context: unknown): Promise<void> { await this.app.updateModelContext({ content: [{ type: "text", text: typeof context === "string" ? context : JSON.stringify(context) }] }); }
-  async setWidgetState(): Promise<void> { /* Standard MCP Apps does not define private host widget storage. */ }
-  async requestDisplayMode(mode: DisplayMode): Promise<void> { await this.app.requestDisplayMode({ mode }); }
+  async callTool(name: string, args: Record<string, unknown> = {}): Promise<ToolResult> {
+    const session = this.ready("callTool"), result = await session.app.callServerTool({ name, arguments: args });
+    this.completed(session); return result as ToolResult;
+  }
+  async sendMessage(message: string): Promise<void> {
+    const session = this.ready("sendMessage"); await session.app.sendMessage({ role: "user", content: [{ type: "text", text: message }] }); this.completed(session);
+  }
+  async updateModelContext(context: unknown): Promise<void> {
+    const session = this.ready("updateModelContext");
+    await session.app.updateModelContext({ content: [{ type: "text", text: typeof context === "string" ? context : JSON.stringify(context) }] }); this.completed(session);
+  }
+  async setWidgetState(): Promise<void> { throw new Error("Standard MCP Apps does not support private host widget storage."); }
+  async requestDisplayMode(mode: DisplayMode): Promise<void> {
+    const session = this.ready();
+    if (!this.getCapabilities().displayModes.includes(mode)) throw new Error("The host does not support this display mode.");
+    const result = await session.app.requestDisplayMode({ mode });
+    this.completed(session); session.listener({ displayMode: result.mode });
+  }
   getCapabilities(): HostCapabilities {
-    const host = this.app.getHostContext();
-    return { callTool: true, sendMessage: true, updateModelContext: true, widgetState: false, displayModes: host?.availableDisplayModes ?? ["inline"], host: this.kind };
+    const session = this.session, ready = session?.active && session.ready && !session.closed;
+    const capabilities = ready ? session.app.getHostCapabilities() : undefined, host = ready ? session.app.getHostContext() : undefined;
+    return { callTool: !!capabilities?.serverTools, sendMessage: !!capabilities?.message?.text, updateModelContext: !!capabilities?.updateModelContext?.text,
+      widgetState: false, displayModes: ready ? [...(host?.availableDisplayModes ?? ["inline"])] : [], host: this.kind };
   }
 }
 
-type OpenAIWindow = Window & { openai?: { callTool?: (name: string, args: Record<string, unknown>) => Promise<ToolResult>; sendFollowUpMessage?: (args: { prompt: string }) => Promise<void>; setWidgetState?: (state: unknown) => Promise<void>; toolInput?: unknown; toolOutput?: ToolResult; widgetState?: unknown; displayMode?: DisplayMode } };
+type OpenAIWindow = Window & { openai?: { callTool?: (name: string, args: Record<string, unknown>) => Promise<ToolResult>; sendFollowUpMessage?: (args: { prompt: string }) => Promise<void>; setWidgetState?: (state: unknown) => Promise<void>; toolInput?: unknown; toolOutput?: ToolResult; widgetState?: unknown; displayMode?: DisplayMode; theme?: "light" | "dark" } };
 export class OpenAIAdapter implements AgentAppAdapter {
   readonly kind = "openai" as const;
   private api() { return (window as OpenAIWindow).openai; }
   connect(listener: (snapshot: Partial<AgentAppSnapshot>) => void): () => void {
     const api = this.api();
-    listener({ toolInput: api?.toolInput, toolResult: api?.toolOutput, structuredContent: api?.toolOutput?.structuredContent, widgetState: api?.widgetState, displayMode: api?.displayMode ?? "inline" });
-    const handler = () => listener({ toolInput: api?.toolInput, toolResult: api?.toolOutput, structuredContent: api?.toolOutput?.structuredContent, widgetState: api?.widgetState, displayMode: api?.displayMode ?? "inline" });
+    listener({ toolInput: api?.toolInput, toolResult: api?.toolOutput, structuredContent: api?.toolOutput?.structuredContent, widgetState: api?.widgetState, displayMode: api?.displayMode ?? "inline", theme: api?.theme === "light" || api?.theme === "dark" ? api.theme : undefined });
+    const handler = () => listener({ toolInput: api?.toolInput, toolResult: api?.toolOutput, structuredContent: api?.toolOutput?.structuredContent, widgetState: api?.widgetState, displayMode: api?.displayMode ?? "inline", theme: api?.theme === "light" || api?.theme === "dark" ? api.theme : undefined });
     window.addEventListener("openai:set_globals", handler);
     return () => window.removeEventListener("openai:set_globals", handler);
   }
@@ -131,12 +203,18 @@ export class OpenAIAdapter implements AgentAppAdapter {
 export class MockAdapter implements AgentAppAdapter {
   readonly kind = "mock" as const;
   calls: Array<{ name: string; args: Record<string, unknown> }> = [];
+  private listeners = new Set<(snapshot: Partial<AgentAppSnapshot>) => void>();
   constructor(public snapshot: Partial<AgentAppSnapshot> = {}, private toolHandler?: (name: string, args: Record<string, unknown>) => Promise<ToolResult>) {}
-  connect(listener: (snapshot: Partial<AgentAppSnapshot>) => void) { listener(this.snapshot); return () => undefined; }
+  private publish(next: Partial<AgentAppSnapshot>) { this.snapshot = { ...this.snapshot, ...next }; for (const listener of this.listeners) listener(next); }
+  connect(listener: (snapshot: Partial<AgentAppSnapshot>) => void) { this.listeners.add(listener); listener(this.snapshot); return () => { this.listeners.delete(listener); }; }
   async callTool(name: string, args: Record<string, unknown> = {}) { this.calls.push({ name, args }); return this.toolHandler ? this.toolHandler(name, args) : { structuredContent: { ok: true } }; }
-  async sendMessage(message: string) { this.snapshot = { ...this.snapshot, meta: { ...this.snapshot.meta, lastMessage: message } }; }
-  async updateModelContext(context: unknown) { this.snapshot = { ...this.snapshot, meta: { ...this.snapshot.meta, modelContext: context } }; }
-  async setWidgetState(widgetState: unknown) { this.snapshot = { ...this.snapshot, widgetState }; }
+  async sendMessage(message: string) { this.publish({ meta: { ...this.snapshot.meta, lastMessage: message } }); }
+  async updateModelContext(context: unknown) { this.publish({ meta: { ...this.snapshot.meta, modelContext: context } }); }
+  async setWidgetState(widgetState: unknown) { this.publish({ widgetState }); }
+  async requestDisplayMode(mode: DisplayMode) {
+    if (!this.getCapabilities().displayModes.includes(mode)) throw new Error("The mock host does not support this display mode.");
+    this.publish({ displayMode: mode });
+  }
   getCapabilities(): HostCapabilities { return { callTool: true, sendMessage: true, updateModelContext: true, widgetState: true, displayModes: ["inline", "fullscreen"], host: this.kind }; }
 }
 
@@ -155,19 +233,35 @@ type AgentAppContextValue = AgentAppSnapshot & {
   requestDisplayMode(mode: DisplayMode): Promise<void>;
 };
 const AgentAppContext = createContext<AgentAppContextValue | null>(null);
+function initialSnapshot(adapter: AgentAppAdapter): AgentAppSnapshot { return { displayMode: "inline", capabilities: adapter.getCapabilities() }; }
 
 export function AgentAppProvider({ children, adapter }: { children: ReactNode; adapter?: AgentAppAdapter }) {
-  const adapterRef = useRef<AgentAppAdapter>(adapter ?? detectAdapter());
-  const [snapshot, setSnapshot] = useState<AgentAppSnapshot>(() => ({ displayMode: "inline", capabilities: adapterRef.current.getCapabilities() }));
-  useEffect(() => adapterRef.current.connect?.((next) => setSnapshot((current) => ({ ...current, ...next }))), []);
-  const value = useMemo<AgentAppContextValue>(() => ({
-    ...snapshot,
-    callTool: adapterRef.current.callTool.bind(adapterRef.current),
-    sendMessage: adapterRef.current.sendMessage.bind(adapterRef.current),
-    updateModelContext: adapterRef.current.updateModelContext.bind(adapterRef.current),
-    setWidgetState: adapterRef.current.setWidgetState.bind(adapterRef.current),
-    requestDisplayMode: async (mode) => { await adapterRef.current.requestDisplayMode?.(mode); setSnapshot((s) => ({ ...s, displayMode: mode })); }
-  }), [snapshot]);
+  const connection = useMemo(() => ({ adapter: adapter ?? detectAdapter() }), [adapter]), selected = connection.adapter;
+  const activeConnection = useRef<typeof connection | null>(null);
+  const [state, setState] = useState(() => ({ connection, snapshot: initialSnapshot(selected) }));
+  const snapshot = state.connection === connection ? state.snapshot : initialSnapshot(selected);
+  useEffect(() => {
+    let active = true; activeConnection.current = connection;
+    setState({ connection, snapshot: initialSnapshot(selected) });
+    const disconnect = selected.connect?.((next) => {
+      if (!active || activeConnection.current !== connection) return;
+      setState((current) => active && activeConnection.current === connection ? { connection, snapshot: { ...(current.connection === connection ? current.snapshot : initialSnapshot(selected)), ...next } } : current);
+    });
+    return () => { active = false; if (activeConnection.current === connection) activeConnection.current = null; disconnect?.(); };
+  }, [connection, selected]);
+  const value = useMemo<AgentAppContextValue>(() => {
+    const current = () => { if (activeConnection.current !== connection) throw new Error("This app provider connection is not active."); };
+    return { ...snapshot,
+      callTool: async (name, args) => { current(); const result = await selected.callTool(name, args); current(); return result; },
+      sendMessage: async (message) => { current(); await selected.sendMessage(message); current(); },
+      updateModelContext: async (context) => { current(); await selected.updateModelContext(context); current(); },
+      setWidgetState: async (widgetState) => { current(); await selected.setWidgetState(widgetState); current(); },
+      requestDisplayMode: async (mode) => {
+        current(); if (!selected.requestDisplayMode) throw new Error("The adapter does not support display mode requests.");
+        await selected.requestDisplayMode(mode); current();
+      }
+    };
+  }, [connection, selected, snapshot]);
   return <AgentAppContext.Provider value={value}>{children}</AgentAppContext.Provider>;
 }
 

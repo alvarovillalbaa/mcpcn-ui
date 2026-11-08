@@ -1,0 +1,322 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "caa5f6fbc62c7dabb36e9ed80d1e8698ebd5f0cb",
+  "caseId": "P12",
+  "title": "P12 narrow CLI preview workflow selection and file intents",
+  "profile": "narrow",
+  "scenario": "blocks",
+  "originKey": "cliPreview",
+  "route": "/?component=schema-form",
+  "origin": "http://127.0.0.1:4546",
+  "playwright": "1.65.0",
+  "browserVersion": "158.0.8127.18",
+  "startedAt": "2026-11-08T03:29:48.664Z",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "touchEmulated": true,
+  "status": "passed",
+  "observations": [
+    {
+      "stage": "actual_nested_bridge_ready",
+      "atMs": 382.57765699999436,
+      "frames": {
+        "outerPage": {
+          "origin": "http://127.0.0.1:4546",
+          "pathname": "/"
+        },
+        "hostUrl": {
+          "origin": "http://127.0.0.1:4546",
+          "pathname": "/"
+        },
+        "appUrl": {
+          "origin": "http://127.0.0.1:4546",
+          "pathname": "/frame.html"
+        },
+        "sessionFragmentSha256": "bca8c142d211b73f5fd23e08af1768713bc9989215a8a9d6d4d171ac65eeddbd",
+        "hostRole": "direct CLI simulator",
+        "appRole": "Rendered MCP app",
+        "hostFrameCount": 0,
+        "appFrameCount": 1,
+        "actualFrameCount": 2
+      },
+      "theme": "dark",
+      "viewport": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "documentWidth": 390,
+        "maxTouchPoints": 1
+      }
+    },
+    {
+      "stage": "controlled_workflow_selection_and_consent",
+      "atMs": 630.7008979999955,
+      "intent": {
+        "type": "approve",
+        "data": {
+          "reviewId": "authored-review-1",
+          "selectedId": "express"
+        }
+      },
+      "explicitConsentObserved": true
+    },
+    {
+      "stage": "native_authored_file_metadata_only",
+      "atMs": 820.5030599999955,
+      "fileMetadata": {
+        "name": "authored-playground.txt",
+        "bytes": 36,
+        "type": "text/plain"
+      },
+      "actualInputSelection": true,
+      "extractWasIntentOnly": true,
+      "outgoingToolCountUnchanged": true,
+      "bodyNotRendered": true,
+      "clearObserved": true
+    }
+  ],
+  "input": {
+    "trackedTaps": 5,
+    "trackedClicks": 0,
+    "keyboardActions": 0
+  },
+  "wire": [
+    {
+      "ordinal": 1,
+      "method": "tools/call",
+      "atMs": 610.9744449999998,
+      "bytes": 185,
+      "sha256": "739170bb2ed2044995da6948e904de194ffbd5c0c97c17e4c854d51f9c9d92e0",
+      "canaryAbsent": true,
+      "fileBodyAbsent": true,
+      "privateKeyAbsent": true,
+      "name": "playground_action",
+      "arguments": {
+        "component": "compare-options-approve",
+        "decision": "approve"
+      }
+    }
+  ],
+  "sdkSends": {
+    "ui/initialize": 1,
+    "ui/notifications/initialized": 1,
+    "ui/notifications/tool-input": 3,
+    "ui/notifications/tool-result": 3,
+    "ui/notifications/size-changed": 4,
+    "ui/notifications/host-context-changed": 1,
+    "tools/call": 1
+  },
+  "displayMessages": [],
+  "console": {
+    "debugCount": 32,
+    "warningCount": 2,
+    "warnings": [
+      {
+        "sha256": "3a92556d5d156c40a75c548248ca4a3a7d6ca2bf3d0376ce86d31b72dc84f7e7",
+        "sandboxSameOriginWarning": true
+      },
+      {
+        "sha256": "3a92556d5d156c40a75c548248ca4a3a7d6ca2bf3d0376ce86d31b72dc84f7e7",
+        "sandboxSameOriginWarning": true
+      }
+    ],
+    "sdkSendPreviewCount": 16,
+    "unclassifiedSendCount": 0,
+    "unclassifiedSends": []
+  },
+  "downloadEvents": 0,
+  "blobDownload": {
+    "rows": [],
+    "nativeDownloadJoined": null
+  },
+  "network": {
+    "requests": 8,
+    "requestFailures": 0,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "webSockets": 0,
+    "errorCount": 0,
+    "errors": [],
+    "rows": [
+      {
+        "ordinal": 1,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4546",
+        "pathname": "/",
+        "startedAtMs": 52.34524799999781,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 54.99629299999651,
+        "terminalAtMs": 65.13273199999821,
+        "responseFinishedAtMs": 65.1477689999956
+      },
+      {
+        "ordinal": 2,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4546",
+        "pathname": "/assets/index-BKbWhCDZ.js",
+        "startedAtMs": 64.89223399999901,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 72.26143400000001,
+        "terminalAtMs": 72.43734199999744,
+        "responseFinishedAtMs": 72.44376399999601
+      },
+      {
+        "ordinal": 3,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4546",
+        "pathname": "/assets/jsx-runtime-CDrNYZmU.js",
+        "startedAtMs": 64.94120499999553,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 94.66567599999689,
+        "terminalAtMs": 94.9289759999956,
+        "responseFinishedAtMs": 94.93852399999741
+      },
+      {
+        "ordinal": 4,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4546",
+        "pathname": "/assets/index-ylmVxKY0.css",
+        "startedAtMs": 64.98006699999678,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 71.77463799999532,
+        "terminalAtMs": 72.21284399999422,
+        "responseFinishedAtMs": 72.22078899999906
+      },
+      {
+        "ordinal": 5,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4546",
+        "pathname": "/frame.html",
+        "startedAtMs": 208.6389979999949,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 210.76032799999666,
+        "terminalAtMs": 225.4130359999981,
+        "responseFinishedAtMs": 225.4359289999993
+      },
+      {
+        "ordinal": 6,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4546",
+        "pathname": "/assets/frame-D6SMnEfz.js",
+        "startedAtMs": 224.44031499999983,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 231.7292759999982,
+        "terminalAtMs": 232.06723599999532,
+        "responseFinishedAtMs": 232.07858699999633
+      },
+      {
+        "ordinal": 7,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4546",
+        "pathname": "/assets/jsx-runtime-CDrNYZmU.js",
+        "startedAtMs": 224.7425679999942,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 253.32309899999382,
+        "terminalAtMs": 253.6735819999958,
+        "responseFinishedAtMs": 253.68435099999624
+      },
+      {
+        "ordinal": 8,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4546",
+        "pathname": "/assets/frame-eUJvySwm.css",
+        "startedAtMs": 224.78337399999873,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 230.32994099999632,
+        "terminalAtMs": 230.55903699999908,
+        "responseFinishedAtMs": 230.57072899999912
+      }
+    ]
+  },
+  "cleanup": {
+    "contextCreated": true,
+    "contextClosed": true,
+    "pagesCreated": 1,
+    "pagesClosed": 1,
+    "pendingRequests": 0,
+    "observerJobs": 0,
+    "closeStartedAtMs": 853.6772829999973,
+    "downloadArmRemaining": false
+  },
+  "limits": {
+    "workMs": 36000,
+    "closeMs": 39000,
+    "nativeMs": 40000,
+    "reportBytes": 262144,
+    "screenshotBytes": 262144
+  },
+  "proofLimits": [
+    "Trusted bundled examples using real nested frames and official SDK in owned production/installed-CLI servers; no external host, model, authentication or real tool.",
+    "Mandatory tools/call, context and message requests are decoded from actual read-only SDK console arguments in every case; display responses are decoded only in the stable display scenario. Mandatory observer errors remain fatal.",
+    "Other SDK method counts/barriers use bounded pinned Playwright console preview text, not decoded payloads; unclassified previews are counted and hashed and cannot satisfy positive method counts. Visible trace omits bodies. Synthetic wrong-source MessageEvent is an authored control, not real attack proof.",
+    "Native File input uses an authored in-memory fixture and emits metadata only; no extraction/read/upload is claimed. Clipboard permission is granted only to this owned browser context/origin.",
+    "Chromium narrow/touch emulation and selected DOM/theme checks are not physical-device, accessibility or arbitrary-HTML isolation acceptance.",
+    "The single armed blob export uses native Download failure-null/original hash/JSON/removal acknowledgements; any blob Request is joined by actual Download URL hash and reported separately without HTTP EOF claims. Every ordinary HTTP request failure remains fatal.",
+    "Request identity/completion observations do not prove every asset's integrity or raw socket EOF; browser-process teardown belongs to the outer supervisor."
+  ],
+  "navigation": {
+    "requestOrdinal": 1,
+    "status": 200,
+    "exactRequestIdentity": true,
+    "requestFinished": "finished",
+    "responseFinished": "null"
+  },
+  "frames": {
+    "outerPage": {
+      "origin": "http://127.0.0.1:4546",
+      "pathname": "/"
+    },
+    "hostUrl": {
+      "origin": "http://127.0.0.1:4546",
+      "pathname": "/"
+    },
+    "appUrl": {
+      "origin": "http://127.0.0.1:4546",
+      "pathname": "/frame.html"
+    },
+    "sessionFragmentSha256": "bca8c142d211b73f5fd23e08af1768713bc9989215a8a9d6d4d171ac65eeddbd",
+    "hostRole": "direct CLI simulator",
+    "appRole": "Rendered MCP app",
+    "hostFrameCount": 0,
+    "appFrameCount": 1,
+    "actualFrameCount": 2
+  },
+  "observedViewport": {
+    "innerWidth": 390,
+    "innerHeight": 844,
+    "documentWidth": 390,
+    "maxTouchPoints": 1
+  },
+  "screenshot": {
+    "filename": "P12.png",
+    "bytes": 51541,
+    "sha256": "78eeec3767d0a6616bab90839e7f990ada96972d95e691562274fff3c1953aa5",
+    "viewportOnly": true
+  },
+  "completedAt": "2026-11-08T03:29:49.516Z"
+}

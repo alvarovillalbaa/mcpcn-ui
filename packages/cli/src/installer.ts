@@ -6,12 +6,14 @@ import { fileURLToPath } from "node:url";
 import { blockCatalog, catalog, findCatalogItem } from "@mcpcn/registry/catalog";
 import { blockExportName, buildInstallationPlan, defaultConfig, renderProvider, resolveInstallConfig, type InstallConfig } from "@mcpcn/registry/installation";
 import { sourceModulePaths } from "@mcpcn/registry/source-registry";
+import { LocalServiceError, runLocalService } from "./local-service.js";
 
 export type CLIContext = {
   cwd?: string;
   fetch?: typeof globalThis.fetch;
   log?: (value: string) => void;
   error?: (value: string) => void;
+  localService?: typeof runLocalService;
 };
 type Identity = { dev: number; ino: number };
 type Captured = { bytes: Buffer; stat: Stats };
@@ -462,7 +464,17 @@ function options(args: string[]): Record<string, string | boolean> {
   }
   return result;
 }
-const HELP = "MCPCN — configure an existing React app\n\ninit | create [--mode=copy|package] [--style=default|graphite|violet] [--host=auto|standard-mcp|openai]\n  [--manager=npm|pnpm|bun] [--components-dir=components/mcpcn] [--registry=URL]\nadd <components or blocks...>   install reviewed source or package wrappers\ndoctor                         inspect configuration only\nlist | search [query] | view <item>\nupgrade --diff                 audit tracked file changes only\nvalidate <file> <item>          check JSON envelope shape only\ngenerate block|schema          print a starter\npreview <item>                 show the source catalog location\ndev | registry build|validate  show repository commands\n";
+const HELP = "MCPCN — configure an existing React app\n\ninit | create [--mode=copy|package] [--style=default|graphite|violet] [--host=auto|standard-mcp|openai]\n  [--manager=npm|pnpm|bun] [--components-dir=components/mcpcn] [--registry=URL]\nadd <components or blocks...>   install reviewed source or package wrappers\ndoctor                         inspect configuration only\nlist | search [query] | view <item>\nupgrade --diff                 audit tracked file changes only\nvalidate <file> <item>          check JSON envelope shape only\ngenerate block|schema          print a starter\npreview <item> [--port=N]       run the local simulator with an item selected\ndev [--port=N]                  run the local simulator (default 127.0.0.1:4545)\nregistry build|validate         show repository commands\n";
+
+function serviceOptions(args: string[], preview: boolean): { component: string; port: number } {
+  const names = args.filter(arg => !arg.startsWith("--")), flags = args.filter(arg => arg.startsWith("--"));
+  if (names.length !== (preview ? 1 : 0) || flags.length > 1 || flags.some(flag => !/^--port=[1-9][0-9]{0,4}$/.test(flag))) fail("invalid_arguments");
+  const port = flags.length ? Number(flags[0]!.slice(7)) : 4545;
+  if (port > 65535) fail("invalid_arguments");
+  const item = preview ? findCatalogItem(names[0]!) ?? blockCatalog.find(item => item.name === names[0]) : undefined;
+  if (preview && !item) fail("invalid_selection");
+  return { component: item ? ("slug" in item ? item.slug : item.name) : "approval-card", port };
+}
 
 export async function runCLI(argv: string[], context: CLIContext = {}): Promise<number> {
   const log = context.log ?? console.log;
@@ -470,6 +482,7 @@ export async function runCLI(argv: string[], context: CLIContext = {}): Promise<
   try {
     const [command = "help", ...args] = argv;
     if (["help", "--help", "-h"].includes(command)) { if (args.length) fail("invalid_arguments"); log(HELP); return 0; }
+    if (command === "dev" || command === "preview") return await (context.localService ?? runLocalService)({ ...serviceOptions(args, command === "preview"), log });
     const root = await realpath(context.cwd ?? process.cwd());
     if (!(await lstat(root)).isDirectory()) fail("io_error");
     if (command === "init" || command === "create") {
@@ -491,11 +504,11 @@ export async function runCLI(argv: string[], context: CLIContext = {}): Promise<
       const query = args.join(" ").toLowerCase();
       for (const item of catalog) if (!query || (item.slug + " " + item.name + " " + item.description).toLowerCase().includes(query)) log(item.slug + " — " + item.description);
       for (const item of blockCatalog) if (!query || (item.name + " " + item.description).toLowerCase().includes(query)) log(item.name + " — " + item.description);
-    } else if (command === "view" || command === "preview") {
+    } else if (command === "view") {
       if (args.length !== 1) fail("invalid_arguments");
       const item = findCatalogItem(args[0]!) ?? blockCatalog.find(item => item.name === args[0]);
       if (!item) fail("invalid_selection");
-      log(command === "view" ? JSON.stringify(item, null, 2) : "Source catalog: https://github.com/alvarovillalbaa/mcpcn-ui#readme\nUse the local documentation app to preview this item.");
+      log(JSON.stringify(item, null, 2));
     } else if (command === "doctor") {
       if (args.length) fail("invalid_arguments");
       const { config } = await readConfig(root);
@@ -535,16 +548,13 @@ export async function runCLI(argv: string[], context: CLIContext = {}): Promise<
       if (args.length !== 1 || !["schema", "block"].includes(args[0]!)) fail("invalid_arguments");
       log(args[0] === "schema" ? 'import { z } from "zod";\nexport const ResultSchema = z.object({ title: z.string() });'
         : "export function AgentWorkflowBlock() { return <div>Review agent output here</div> }");
-    } else if (command === "dev") {
-      if (args.length) fail("invalid_arguments");
-      log("Repository command only: pnpm --filter @mcpcn/playground dev");
     } else if (command === "registry") {
       if (args.length !== 1 || !["build", "validate"].includes(args[0]!)) fail("invalid_arguments");
       log("Repository command only: pnpm --filter @mcpcn/registry " + args[0]);
     } else fail("invalid_arguments");
     return 0;
   } catch (cause) {
-    error("mcpcn: " + (cause instanceof CLIError ? cause.code : "io_error"));
+    error("mcpcn: " + (cause instanceof CLIError || cause instanceof LocalServiceError ? cause.code : "io_error"));
     return 1;
   }
 }

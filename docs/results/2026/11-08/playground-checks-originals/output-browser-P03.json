@@ -1,0 +1,366 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "caa5f6fbc62c7dabb36e9ed80d1e8698ebd5f0cb",
+  "caseId": "P03",
+  "title": "P03 desktop CLI preview editors export and clipboard",
+  "profile": "desktop",
+  "scenario": "editors",
+  "originKey": "cliPreview",
+  "route": "/?component=schema-form",
+  "origin": "http://127.0.0.1:4546",
+  "playwright": "1.65.0",
+  "browserVersion": "158.0.8127.18",
+  "startedAt": "2026-11-08T03:29:17.368Z",
+  "viewport": {
+    "width": 1280,
+    "height": 900
+  },
+  "touchEmulated": false,
+  "status": "passed",
+  "observations": [
+    {
+      "stage": "actual_nested_bridge_ready",
+      "atMs": 354.6355959999996,
+      "frames": {
+        "outerPage": {
+          "origin": "http://127.0.0.1:4546",
+          "pathname": "/"
+        },
+        "hostUrl": {
+          "origin": "http://127.0.0.1:4546",
+          "pathname": "/"
+        },
+        "appUrl": {
+          "origin": "http://127.0.0.1:4546",
+          "pathname": "/frame.html"
+        },
+        "sessionFragmentSha256": "2080cb195f051404f6fce210e288200c9004eca3f1073ea210a3539912f624e1",
+        "hostRole": "direct CLI simulator",
+        "appRole": "Rendered MCP app",
+        "hostFrameCount": 0,
+        "appFrameCount": 1,
+        "actualFrameCount": 2
+      },
+      "theme": "light",
+      "viewport": {
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "documentWidth": 1280,
+        "maxTouchPoints": 0
+      }
+    },
+    {
+      "stage": "edited_input_result_and_actual_submit",
+      "atMs": 665.523839,
+      "receivedInput": {
+        "component": "schema-form",
+        "fixtureRevision": "authored-editor-1"
+      },
+      "intent": {
+        "type": "submit",
+        "data": {
+          "values": {
+            "owner": "Authored reviewer",
+            "notes": "Local only"
+          }
+        }
+      }
+    },
+    {
+      "stage": "malformed_refusal_invalid_schema_and_recovery",
+      "atMs": 862.7427419999999,
+      "malformedJSONRefused": true,
+      "invalidSchemaRenderedSafely": true,
+      "recoveredValue": ""
+    },
+    {
+      "stage": "single_export_acknowledged_and_removed",
+      "atMs": 898.8688089999996,
+      "suggestedFilename": "mcpcn-schema-form-fixture.json",
+      "urlSha256": "c5bc9215547f5e03007b0a58c1c9b948e8186f6f7641e15fd296df8070fba8d9",
+      "bytes": 868,
+      "sha256": "10bcf895cd21bcc963d61e3d7c7f0dd2159d40d2daab3df92f079b69901dd5fd",
+      "failure": null,
+      "jsonEqual": true,
+      "removed": true,
+      "raw": {
+        "encoding": "gzip-base64",
+        "bytes": 868,
+        "sha256": "10bcf895cd21bcc963d61e3d7c7f0dd2159d40d2daab3df92f079b69901dd5fd",
+        "compressedBytes": 355,
+        "data": "H4sIAAAAAAAAA42SzWrDMBCE736KReekJdfcTKAQMAmk9BBKMYq9IaKy5EorJyX43Yss2yip+3Ozd6RvZld7TQAYaS3XqnbElnBNAABYoataK1S+xGxxworPj9pUbBb0o7iQM7jDRlihlT/FHZ20wXKOpSBt5guWALSzwWCH1snIwZJxhWeUK60oOAUJgL0LVXpmVdSFevzuD8AaNL3zYqyVnHiE8c6CJHpS2qeDkA5uYF1DKEvLlvA61iACdWcUrzqWPis00eVOlPyA0qvbKZU+6+4q4YXuNYMfThj0DZNxeKc2XLruKovq7ezvlEoT2h9TbqbUOCU3yH9JeuTS/i/q+P0Wjdu6QyUoG9I8oyphWCAw2Ag8D5AA6Dtmxbgsw0PFrz095fA/sQSm28mHW6c+JssrvNkmVhvRcMKnsPp+gJ6ZbVdplr+s8+0m2+erdJPu9gHocW3SJl8Z/tKGZAMAAA==",
+        "complete": true
+      }
+    },
+    {
+      "stage": "clipboard_server_snippet",
+      "atMs": 969.9163289999997,
+      "bytes": 895,
+      "sha256": "ca2635630201cc6f1d2f419bb28bdf34678827200edf6a2964c3621bc7b4ea0d",
+      "exactAuthoredSnippet": true,
+      "metadataCanaryAbsent": true,
+      "permissionOrigin": "http://127.0.0.1:4546"
+    }
+  ],
+  "input": {
+    "trackedTaps": 0,
+    "trackedClicks": 7,
+    "keyboardActions": 0
+  },
+  "wire": [
+    {
+      "ordinal": 1,
+      "method": "tools/call",
+      "atMs": 631.9498269999999,
+      "bytes": 172,
+      "sha256": "ce2535d3f40f3da1a5f8513d5064e0b93e68a6a9c5a64ec026980617f6e70bea",
+      "canaryAbsent": true,
+      "fileBodyAbsent": true,
+      "privateKeyAbsent": true,
+      "name": "playground_action",
+      "arguments": {
+        "component": "schema-form",
+        "decision": "submit"
+      }
+    }
+  ],
+  "sdkSends": {
+    "ui/initialize": 1,
+    "ui/notifications/initialized": 1,
+    "ui/notifications/tool-input": 4,
+    "ui/notifications/tool-result": 4,
+    "ui/notifications/size-changed": 1,
+    "tools/call": 1
+  },
+  "displayMessages": [],
+  "console": {
+    "debugCount": 28,
+    "warningCount": 2,
+    "warnings": [
+      {
+        "sha256": "3a92556d5d156c40a75c548248ca4a3a7d6ca2bf3d0376ce86d31b72dc84f7e7",
+        "sandboxSameOriginWarning": true
+      },
+      {
+        "sha256": "3a92556d5d156c40a75c548248ca4a3a7d6ca2bf3d0376ce86d31b72dc84f7e7",
+        "sandboxSameOriginWarning": true
+      }
+    ],
+    "sdkSendPreviewCount": 14,
+    "unclassifiedSendCount": 0,
+    "unclassifiedSends": []
+  },
+  "downloadEvents": 1,
+  "blobDownload": {
+    "rows": [],
+    "nativeDownloadJoined": null
+  },
+  "network": {
+    "requests": 8,
+    "requestFailures": 0,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "webSockets": 0,
+    "errorCount": 0,
+    "errors": [],
+    "rows": [
+      {
+        "ordinal": 1,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4546",
+        "pathname": "/",
+        "startedAtMs": 42.33634299999994,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 43.22113099999979,
+        "terminalAtMs": 52.34629499999983,
+        "responseFinishedAtMs": 52.359939999999824
+      },
+      {
+        "ordinal": 2,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4546",
+        "pathname": "/assets/index-BKbWhCDZ.js",
+        "startedAtMs": 51.82625599999983,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 60.31847099999959,
+        "terminalAtMs": 60.61224799999991,
+        "responseFinishedAtMs": 60.61890999999969
+      },
+      {
+        "ordinal": 3,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4546",
+        "pathname": "/assets/jsx-runtime-CDrNYZmU.js",
+        "startedAtMs": 51.918948999999884,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 83.31824299999971,
+        "terminalAtMs": 83.66699299999982,
+        "responseFinishedAtMs": 83.67516799999976
+      },
+      {
+        "ordinal": 4,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4546",
+        "pathname": "/assets/index-ylmVxKY0.css",
+        "startedAtMs": 51.97574399999985,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 58.64035599999988,
+        "terminalAtMs": 59.892387999999755,
+        "responseFinishedAtMs": 59.90505099999973
+      },
+      {
+        "ordinal": 5,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4546",
+        "pathname": "/frame.html",
+        "startedAtMs": 187.90143799999987,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 193.91550499999994,
+        "terminalAtMs": 211.33653099999992,
+        "responseFinishedAtMs": 211.358342
+      },
+      {
+        "ordinal": 6,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4546",
+        "pathname": "/assets/frame-D6SMnEfz.js",
+        "startedAtMs": 211.21675799999957,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 221.89460399999962,
+        "terminalAtMs": 222.2087379999998,
+        "responseFinishedAtMs": 222.22143199999982
+      },
+      {
+        "ordinal": 7,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4546",
+        "pathname": "/assets/jsx-runtime-CDrNYZmU.js",
+        "startedAtMs": 211.27187099999992,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 239.95502699999997,
+        "terminalAtMs": 240.35721599999988,
+        "responseFinishedAtMs": 240.37205399999993
+      },
+      {
+        "ordinal": 8,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4546",
+        "pathname": "/assets/frame-eUJvySwm.css",
+        "startedAtMs": 211.31425999999965,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 214.6904069999996,
+        "terminalAtMs": 215.00664599999982,
+        "responseFinishedAtMs": 215.0169249999999
+      }
+    ]
+  },
+  "cleanup": {
+    "contextCreated": true,
+    "contextClosed": true,
+    "pagesCreated": 1,
+    "pagesClosed": 1,
+    "pendingRequests": 0,
+    "observerJobs": 0,
+    "closeStartedAtMs": 1038.2405909999998,
+    "downloadArmRemaining": false
+  },
+  "limits": {
+    "workMs": 36000,
+    "closeMs": 39000,
+    "nativeMs": 40000,
+    "reportBytes": 262144,
+    "screenshotBytes": 262144
+  },
+  "proofLimits": [
+    "Trusted bundled examples using real nested frames and official SDK in owned production/installed-CLI servers; no external host, model, authentication or real tool.",
+    "Mandatory tools/call, context and message requests are decoded from actual read-only SDK console arguments in every case; display responses are decoded only in the stable display scenario. Mandatory observer errors remain fatal.",
+    "Other SDK method counts/barriers use bounded pinned Playwright console preview text, not decoded payloads; unclassified previews are counted and hashed and cannot satisfy positive method counts. Visible trace omits bodies. Synthetic wrong-source MessageEvent is an authored control, not real attack proof.",
+    "Native File input uses an authored in-memory fixture and emits metadata only; no extraction/read/upload is claimed. Clipboard permission is granted only to this owned browser context/origin.",
+    "Chromium narrow/touch emulation and selected DOM/theme checks are not physical-device, accessibility or arbitrary-HTML isolation acceptance.",
+    "The single armed blob export uses native Download failure-null/original hash/JSON/removal acknowledgements; any blob Request is joined by actual Download URL hash and reported separately without HTTP EOF claims. Every ordinary HTTP request failure remains fatal.",
+    "Request identity/completion observations do not prove every asset's integrity or raw socket EOF; browser-process teardown belongs to the outer supervisor."
+  ],
+  "navigation": {
+    "requestOrdinal": 1,
+    "status": 200,
+    "exactRequestIdentity": true,
+    "requestFinished": "finished",
+    "responseFinished": "null"
+  },
+  "frames": {
+    "outerPage": {
+      "origin": "http://127.0.0.1:4546",
+      "pathname": "/"
+    },
+    "hostUrl": {
+      "origin": "http://127.0.0.1:4546",
+      "pathname": "/"
+    },
+    "appUrl": {
+      "origin": "http://127.0.0.1:4546",
+      "pathname": "/frame.html"
+    },
+    "sessionFragmentSha256": "2080cb195f051404f6fce210e288200c9004eca3f1073ea210a3539912f624e1",
+    "hostRole": "direct CLI simulator",
+    "appRole": "Rendered MCP app",
+    "hostFrameCount": 0,
+    "appFrameCount": 1,
+    "actualFrameCount": 2
+  },
+  "observedViewport": {
+    "innerWidth": 1280,
+    "innerHeight": 900,
+    "documentWidth": 1280,
+    "maxTouchPoints": 0
+  },
+  "downloadUrlSha256": "c5bc9215547f5e03007b0a58c1c9b948e8186f6f7641e15fd296df8070fba8d9",
+  "downloadSuggestedName": "mcpcn-schema-form-fixture.json",
+  "download": {
+    "suggestedFilename": "mcpcn-schema-form-fixture.json",
+    "urlSha256": "c5bc9215547f5e03007b0a58c1c9b948e8186f6f7641e15fd296df8070fba8d9",
+    "bytes": 868,
+    "sha256": "10bcf895cd21bcc963d61e3d7c7f0dd2159d40d2daab3df92f079b69901dd5fd",
+    "failure": null,
+    "jsonEqual": true,
+    "removed": true,
+    "raw": {
+      "encoding": "gzip-base64",
+      "bytes": 868,
+      "sha256": "10bcf895cd21bcc963d61e3d7c7f0dd2159d40d2daab3df92f079b69901dd5fd",
+      "compressedBytes": 355,
+      "data": "H4sIAAAAAAAAA42SzWrDMBCE736KReekJdfcTKAQMAmk9BBKMYq9IaKy5EorJyX43Yss2yip+3Ozd6RvZld7TQAYaS3XqnbElnBNAABYoataK1S+xGxxworPj9pUbBb0o7iQM7jDRlihlT/FHZ20wXKOpSBt5guWALSzwWCH1snIwZJxhWeUK60oOAUJgL0LVXpmVdSFevzuD8AaNL3zYqyVnHiE8c6CJHpS2qeDkA5uYF1DKEvLlvA61iACdWcUrzqWPis00eVOlPyA0qvbKZU+6+4q4YXuNYMfThj0DZNxeKc2XLruKovq7ezvlEoT2h9TbqbUOCU3yH9JeuTS/i/q+P0Wjdu6QyUoG9I8oyphWCAw2Ag8D5AA6Dtmxbgsw0PFrz095fA/sQSm28mHW6c+JssrvNkmVhvRcMKnsPp+gJ6ZbVdplr+s8+0m2+erdJPu9gHocW3SJl8Z/tKGZAMAAA==",
+      "complete": true
+    }
+  },
+  "screenshot": {
+    "filename": "P03.png",
+    "bytes": 148930,
+    "sha256": "c73e30c40fc333335e6909a7ae46c065818a1fa8f61fa3ab24a6ac9f5ef593d3",
+    "viewportOnly": true
+  },
+  "completedAt": "2026-11-08T03:29:18.415Z"
+}

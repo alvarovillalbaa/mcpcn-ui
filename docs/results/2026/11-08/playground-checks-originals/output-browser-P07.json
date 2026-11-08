@@ -1,0 +1,578 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "caa5f6fbc62c7dabb36e9ed80d1e8698ebd5f0cb",
+  "caseId": "P07",
+  "title": "P07 desktop CLI dev capabilities timeout and fresh sessions",
+  "profile": "desktop",
+  "scenario": "lifecycle",
+  "originKey": "cliDev",
+  "route": "/?component=approval-card",
+  "origin": "http://127.0.0.1:4545",
+  "playwright": "1.65.0",
+  "browserVersion": "158.0.8127.18",
+  "startedAt": "2026-11-08T03:29:22.082Z",
+  "viewport": {
+    "width": 1280,
+    "height": 900
+  },
+  "touchEmulated": false,
+  "status": "passed",
+  "observations": [
+    {
+      "stage": "actual_nested_bridge_ready",
+      "atMs": 378.9748950000012,
+      "frames": {
+        "outerPage": {
+          "origin": "http://127.0.0.1:4545",
+          "pathname": "/"
+        },
+        "hostUrl": {
+          "origin": "http://127.0.0.1:4545",
+          "pathname": "/"
+        },
+        "appUrl": {
+          "origin": "http://127.0.0.1:4545",
+          "pathname": "/frame.html"
+        },
+        "sessionFragmentSha256": "ae243b9e519922d6abe5492ac88e97fc6598f3173fd49c00af0449e7de1572f5",
+        "hostRole": "direct CLI simulator",
+        "appRole": "Rendered MCP app",
+        "hostFrameCount": 0,
+        "appFrameCount": 1,
+        "actualFrameCount": 2
+      },
+      "theme": "light",
+      "viewport": {
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "documentWidth": 1280,
+        "maxTouchPoints": 0
+      }
+    },
+    {
+      "stage": "negotiated_capability_refusal",
+      "atMs": 916.3650780000007,
+      "callTool": false,
+      "updateModelContext": false,
+      "actualOutgoingToolRequests": 0,
+      "actualOutgoingContextRequests": 0,
+      "permittedMessageWorked": true
+    },
+    {
+      "stage": "missing_bridge_actual_five_second_timeout",
+      "atMs": 6532.520055000001,
+      "unavailableVisible": true
+    },
+    {
+      "stage": "fresh_window_and_wrong_source_fault",
+      "atMs": 6935.2390940000005,
+      "oldAndNewWindowIdentityDiffer": true,
+      "localConsentReset": true,
+      "oldIntentReset": true,
+      "oldResponseReset": true,
+      "wrongSource": "simulator_window",
+      "syntheticMessageEventFaultOnly": true,
+      "wrongSourceMarkerAbsentAfterRoundtrip": true,
+      "validBridgeRoundtripAfterFault": true,
+      "receivedBarrierInput": {
+        "component": "approval-card",
+        "fixtureRevision": "after-source-fault"
+      }
+    }
+  ],
+  "input": {
+    "trackedTaps": 0,
+    "trackedClicks": 7,
+    "keyboardActions": 1
+  },
+  "wire": [
+    {
+      "ordinal": 1,
+      "method": "ui/message",
+      "atMs": 857.1879900000004,
+      "bytes": 153,
+      "sha256": "a7c550efca32b576bf4fc91f9e630816afe6833bbb5f204083251a7f11144361",
+      "canaryAbsent": true,
+      "fileBodyAbsent": true,
+      "privateKeyAbsent": true,
+      "message": "Reviewed the approval-card authored fixture."
+    }
+  ],
+  "sdkSends": {
+    "ui/initialize": 5,
+    "ui/notifications/initialized": 4,
+    "ui/notifications/tool-input": 5,
+    "ui/notifications/tool-result": 5,
+    "ui/notifications/size-changed": 4,
+    "ui/resource-teardown": 3,
+    "ui/message": 1
+  },
+  "displayMessages": [],
+  "console": {
+    "debugCount": 70,
+    "warningCount": 10,
+    "warnings": [
+      {
+        "sha256": "3a92556d5d156c40a75c548248ca4a3a7d6ca2bf3d0376ce86d31b72dc84f7e7",
+        "sandboxSameOriginWarning": true
+      },
+      {
+        "sha256": "3a92556d5d156c40a75c548248ca4a3a7d6ca2bf3d0376ce86d31b72dc84f7e7",
+        "sandboxSameOriginWarning": true
+      },
+      {
+        "sha256": "3a92556d5d156c40a75c548248ca4a3a7d6ca2bf3d0376ce86d31b72dc84f7e7",
+        "sandboxSameOriginWarning": true
+      },
+      {
+        "sha256": "3a92556d5d156c40a75c548248ca4a3a7d6ca2bf3d0376ce86d31b72dc84f7e7",
+        "sandboxSameOriginWarning": true
+      },
+      {
+        "sha256": "3a92556d5d156c40a75c548248ca4a3a7d6ca2bf3d0376ce86d31b72dc84f7e7",
+        "sandboxSameOriginWarning": true
+      },
+      {
+        "sha256": "3a92556d5d156c40a75c548248ca4a3a7d6ca2bf3d0376ce86d31b72dc84f7e7",
+        "sandboxSameOriginWarning": true
+      },
+      {
+        "sha256": "3a92556d5d156c40a75c548248ca4a3a7d6ca2bf3d0376ce86d31b72dc84f7e7",
+        "sandboxSameOriginWarning": true
+      },
+      {
+        "sha256": "3a92556d5d156c40a75c548248ca4a3a7d6ca2bf3d0376ce86d31b72dc84f7e7",
+        "sandboxSameOriginWarning": true
+      },
+      {
+        "sha256": "3a92556d5d156c40a75c548248ca4a3a7d6ca2bf3d0376ce86d31b72dc84f7e7",
+        "sandboxSameOriginWarning": true
+      },
+      {
+        "sha256": "3a92556d5d156c40a75c548248ca4a3a7d6ca2bf3d0376ce86d31b72dc84f7e7",
+        "sandboxSameOriginWarning": true
+      }
+    ],
+    "sdkSendPreviewCount": 35,
+    "unclassifiedSendCount": 0,
+    "unclassifiedSends": []
+  },
+  "downloadEvents": 0,
+  "blobDownload": {
+    "rows": [],
+    "nativeDownloadJoined": null
+  },
+  "network": {
+    "requests": 24,
+    "requestFailures": 0,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "webSockets": 0,
+    "errorCount": 0,
+    "errors": [],
+    "rows": [
+      {
+        "ordinal": 1,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/",
+        "startedAtMs": 49.082988000000114,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 52.636116000000584,
+        "terminalAtMs": 64.69200700000056,
+        "responseFinishedAtMs": 64.75604700000076
+      },
+      {
+        "ordinal": 2,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/assets/index-BKbWhCDZ.js",
+        "startedAtMs": 64.4759550000008,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 71.03217500000028,
+        "terminalAtMs": 71.35646900000029,
+        "responseFinishedAtMs": 71.36587600000075
+      },
+      {
+        "ordinal": 3,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/assets/jsx-runtime-CDrNYZmU.js",
+        "startedAtMs": 64.5569860000005,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 104.79213700000037,
+        "terminalAtMs": 105.3740200000002,
+        "responseFinishedAtMs": 105.3872250000004
+      },
+      {
+        "ordinal": 4,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/assets/index-ylmVxKY0.css",
+        "startedAtMs": 64.6598270000004,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 72.74825099999998,
+        "terminalAtMs": 73.40879100000075,
+        "responseFinishedAtMs": 73.42104400000062
+      },
+      {
+        "ordinal": 5,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/frame.html",
+        "startedAtMs": 224.5350270000008,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 224.83051700000033,
+        "terminalAtMs": 245.0867700000008,
+        "responseFinishedAtMs": 245.10370200000034
+      },
+      {
+        "ordinal": 6,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/assets/frame-D6SMnEfz.js",
+        "startedAtMs": 244.9703640000007,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 251.26529700000083,
+        "terminalAtMs": 252.95552400000088,
+        "responseFinishedAtMs": 252.97092300000077
+      },
+      {
+        "ordinal": 7,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/assets/jsx-runtime-CDrNYZmU.js",
+        "startedAtMs": 245.02482500000042,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 270.41950800000086,
+        "terminalAtMs": 270.6812260000006,
+        "responseFinishedAtMs": 270.69640400000026
+      },
+      {
+        "ordinal": 8,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/assets/frame-eUJvySwm.css",
+        "startedAtMs": 245.06374700000015,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 247.57883100000072,
+        "terminalAtMs": 248.74382100000003,
+        "responseFinishedAtMs": 248.7602510000006
+      },
+      {
+        "ordinal": 9,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/frame.html",
+        "startedAtMs": 440.38855499999954,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 443.1401999999998,
+        "terminalAtMs": 450.8235800000002,
+        "responseFinishedAtMs": 450.8479349999998
+      },
+      {
+        "ordinal": 10,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/assets/frame-D6SMnEfz.js",
+        "startedAtMs": 450.6937479999997,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 456.8401649999996,
+        "terminalAtMs": 457.1579070000007,
+        "responseFinishedAtMs": 457.1669030000012
+      },
+      {
+        "ordinal": 11,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/assets/jsx-runtime-CDrNYZmU.js",
+        "startedAtMs": 450.7578480000011,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 478.57596399999966,
+        "terminalAtMs": 478.8873240000012,
+        "responseFinishedAtMs": 478.89999700000044
+      },
+      {
+        "ordinal": 12,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/assets/frame-eUJvySwm.css",
+        "startedAtMs": 450.8021000000008,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 455.675897000001,
+        "terminalAtMs": 456.1206149999998,
+        "responseFinishedAtMs": 456.1338800000012
+      },
+      {
+        "ordinal": 13,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/frame.html",
+        "startedAtMs": 621.8205699999999,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 623.8336710000003,
+        "terminalAtMs": 633.497698000001,
+        "responseFinishedAtMs": 633.5207810000011
+      },
+      {
+        "ordinal": 14,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/assets/frame-D6SMnEfz.js",
+        "startedAtMs": 633.3705010000012,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 640.2271390000005,
+        "terminalAtMs": 640.4900280000002,
+        "responseFinishedAtMs": 640.5015400000011
+      },
+      {
+        "ordinal": 15,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/assets/jsx-runtime-CDrNYZmU.js",
+        "startedAtMs": 633.4297810000007,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 661.3218960000013,
+        "terminalAtMs": 661.7420780000011,
+        "responseFinishedAtMs": 661.7574370000002
+      },
+      {
+        "ordinal": 16,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/assets/frame-eUJvySwm.css",
+        "startedAtMs": 633.4732930000009,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 635.4882529999995,
+        "terminalAtMs": 635.9295849999999,
+        "responseFinishedAtMs": 635.9450740000011
+      },
+      {
+        "ordinal": 17,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/frame.html",
+        "startedAtMs": 972.1393680000001,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 976.0382790000003,
+        "terminalAtMs": 986.7073560000008,
+        "responseFinishedAtMs": 986.7317110000004
+      },
+      {
+        "ordinal": 18,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/assets/frame-D6SMnEfz.js",
+        "startedAtMs": 986.4264930000008,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 992.9186440000012,
+        "terminalAtMs": 993.11535,
+        "responseFinishedAtMs": 993.1246370000008
+      },
+      {
+        "ordinal": 19,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/assets/jsx-runtime-CDrNYZmU.js",
+        "startedAtMs": 986.4855829999997,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1014.667367,
+        "terminalAtMs": 1014.9687279999998,
+        "responseFinishedAtMs": 1014.9820529999997
+      },
+      {
+        "ordinal": 20,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/assets/frame-eUJvySwm.css",
+        "startedAtMs": 986.5435010000001,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 991.8580380000003,
+        "terminalAtMs": 992.3149489999996,
+        "responseFinishedAtMs": 992.3282940000008
+      },
+      {
+        "ordinal": 21,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/frame.html",
+        "startedAtMs": 6572.306541,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 6577.071835000001,
+        "terminalAtMs": 6585.203171000001,
+        "responseFinishedAtMs": 6585.217608000001
+      },
+      {
+        "ordinal": 22,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/assets/frame-D6SMnEfz.js",
+        "startedAtMs": 6584.907351,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 6590.603876000001,
+        "terminalAtMs": 6590.88041,
+        "responseFinishedAtMs": 6590.889797
+      },
+      {
+        "ordinal": 23,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/assets/jsx-runtime-CDrNYZmU.js",
+        "startedAtMs": 6584.963806,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 6614.131872,
+        "terminalAtMs": 6614.350799,
+        "responseFinishedAtMs": 6614.36205
+      },
+      {
+        "ordinal": 24,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4545",
+        "pathname": "/assets/frame-eUJvySwm.css",
+        "startedAtMs": 6585.179056000001,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 6588.780262,
+        "terminalAtMs": 6589.166300000001,
+        "responseFinishedAtMs": 6589.180636000001
+      }
+    ]
+  },
+  "cleanup": {
+    "contextCreated": true,
+    "contextClosed": true,
+    "pagesCreated": 1,
+    "pagesClosed": 1,
+    "pendingRequests": 0,
+    "observerJobs": 0,
+    "closeStartedAtMs": 6985.955586,
+    "downloadArmRemaining": false
+  },
+  "limits": {
+    "workMs": 36000,
+    "closeMs": 39000,
+    "nativeMs": 40000,
+    "reportBytes": 262144,
+    "screenshotBytes": 262144
+  },
+  "proofLimits": [
+    "Trusted bundled examples using real nested frames and official SDK in owned production/installed-CLI servers; no external host, model, authentication or real tool.",
+    "Mandatory tools/call, context and message requests are decoded from actual read-only SDK console arguments in every case; display responses are decoded only in the stable display scenario. Mandatory observer errors remain fatal.",
+    "Other SDK method counts/barriers use bounded pinned Playwright console preview text, not decoded payloads; unclassified previews are counted and hashed and cannot satisfy positive method counts. Visible trace omits bodies. Synthetic wrong-source MessageEvent is an authored control, not real attack proof.",
+    "Native File input uses an authored in-memory fixture and emits metadata only; no extraction/read/upload is claimed. Clipboard permission is granted only to this owned browser context/origin.",
+    "Chromium narrow/touch emulation and selected DOM/theme checks are not physical-device, accessibility or arbitrary-HTML isolation acceptance.",
+    "The single armed blob export uses native Download failure-null/original hash/JSON/removal acknowledgements; any blob Request is joined by actual Download URL hash and reported separately without HTTP EOF claims. Every ordinary HTTP request failure remains fatal.",
+    "Request identity/completion observations do not prove every asset's integrity or raw socket EOF; browser-process teardown belongs to the outer supervisor."
+  ],
+  "navigation": {
+    "requestOrdinal": 1,
+    "status": 200,
+    "exactRequestIdentity": true,
+    "requestFinished": "finished",
+    "responseFinished": "null"
+  },
+  "frames": {
+    "outerPage": {
+      "origin": "http://127.0.0.1:4545",
+      "pathname": "/"
+    },
+    "hostUrl": {
+      "origin": "http://127.0.0.1:4545",
+      "pathname": "/"
+    },
+    "appUrl": {
+      "origin": "http://127.0.0.1:4545",
+      "pathname": "/frame.html"
+    },
+    "sessionFragmentSha256": "ae243b9e519922d6abe5492ac88e97fc6598f3173fd49c00af0449e7de1572f5",
+    "hostRole": "direct CLI simulator",
+    "appRole": "Rendered MCP app",
+    "hostFrameCount": 0,
+    "appFrameCount": 1,
+    "actualFrameCount": 2
+  },
+  "observedViewport": {
+    "innerWidth": 1280,
+    "innerHeight": 900,
+    "documentWidth": 1280,
+    "maxTouchPoints": 0
+  },
+  "screenshot": {
+    "filename": "P07.png",
+    "bytes": 103087,
+    "sha256": "bf9dc53f58240da086d361388bfe13ed87ca36bcd6277eaeb43a9c23f88cea11",
+    "viewportOnly": true
+  },
+  "completedAt": "2026-11-08T03:29:29.071Z"
+}

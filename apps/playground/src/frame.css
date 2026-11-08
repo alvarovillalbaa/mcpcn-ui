@@ -1,0 +1,16 @@
+* { box-sizing: border-box; }
+body { margin: 0; font: 14px/1.5 system-ui, sans-serif; }
+.frame-app { padding: 18px; min-height: 100vh; background: #fafafa; color: #18181b; overflow-wrap: anywhere; }
+.frame-app.dark { background: #18181b; color: #f4f4f5; color-scheme: dark; }
+.frame-app > header { display: flex; gap: 12px; flex-wrap: wrap; justify-content: space-between; font-size: 12px; }
+.frame-hint { color: #71717a; font-size: 12px; }
+.dark .frame-hint { color: #a1a1aa; }
+.frame-requests { display: flex; gap: 8px; flex-wrap: wrap; margin: 20px 0; }
+.frame-requests > button { border: 1px solid #a1a1aa; background: transparent; color: inherit; border-radius: 7px; padding: 8px 10px; font: inherit; cursor: pointer; }
+.frame-requests > button:disabled { opacity: .45; cursor: default; }
+.frame-app details { margin: 12px 0; }
+.frame-app summary { cursor: pointer; }
+.frame-app pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 12px; max-height: 240px; overflow: auto; }
+.frame-app > [role="alert"] { color: #be123c; }
+.frame-app.dark > [role="alert"] { color: #fda4af; }
+@media (max-width: 480px) { .frame-app { padding: 12px; } .frame-requests > button { flex: 1 1 42%; } }

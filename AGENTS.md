@@ -133,6 +133,51 @@ anonymous TLS GET responses with complete body/request/response/socket closure.
 All three JSON responses match that source semantically. Workflow `410811864`
 was disabled after acceptance and is removed in this evidence edition; the two
 broad workflows remain unchanged. Provider source/alias metadata and HTTP
-observations retain separate provenance. Keep public npm, real MCP hosts, the
-iframe playground, untrusted-HTML isolation, all-assets integrity, physical
-devices and full accessibility acceptance pending.
+observations retain separate provenance. Those HTTP observations alone do not
+establish public npm, real MCP hosts, the iframe playground, untrusted-HTML
+isolation, all-assets integrity, physical devices or full accessibility.
+
+## Shared iframe playground — 8 November 2026
+
+The owner's standing “Keep going / Do all the work” instruction authorizes the
+next [shared playground scope](docs/specs/iframe-playground.md): actual official
+SDK host/app documents, negotiated runtime lifecycle and the packaged loopback
+`dev`/`preview` service. Preserve public method signatures, the fourteen copied
+source modules and all historical evidence. Dependency edits declare existing
+locked SDK/workspace edges and the existing-catalog React DOM test dependency;
+no external version upgrade is intended. Preserve the
+[first failed invocation](docs/results/2026/11-08/playground-attempt-1.md):
+47 collected passes, 29 adapter cases uncollected because the SSR test's direct
+React DOM dependency was undeclared. Do not waive its strict 76-case gate.
+
+The [second failed invocation](docs/results/2026/11-08/playground-attempt-2.md)
+passed all 76 units and both consumers, but only seven of twelve browser cases.
+Retain its four stable unreadable process identities and unremoved scratch as
+failed cleanup. Trusted form-event permission, exact polling/observer repairs
+and independent fresh nonce-anchor sampling must keep unknown ownership fatal;
+neither source repair changes this historical result into a pass.
+
+The [third invocation](docs/results/2026/11-08/playground-checks.md) passed at
+`caa5f6fbc62c7dabb36e9ed80d1e8698ebd5f0cb`: all 76 focused units, twelve new
+iframe browser cases and both fresh installed consumers. Actual Next reported
+82 pages; the seven-file 688,184-byte simulator matched all four built/staged/
+installed copies. Five source guards and owned cleanup passed, with six observed
+vanished processes and no unknown/remaining identities. Deterministic generation
+returned 167 files; owner-controlled adoption is separate from the checked seed.
+Keep both failed packets unchanged. Public delivery of this new artifact, public
+npm, external hosts, untrusted-HTML isolation and physical-device/full-accessibility
+acceptance remain separate; prior hosting evidence retains its original source.
+
+Use the new focused remote packet for these new paths. Source parsing and
+authored tests are preparation, not execution. Do not invoke the earlier whole
+107/26, 52-case or HTTP packets as substitutes for the new acceptance. Regenerate
+canonical source payloads only through the existing owner in isolated storage;
+do not hand-edit generated JSON. Keep the accepted public registry and hosting
+source unchanged until the new source and generated profile pass.
+
+One bounded temporary public workflow may check an immutable source on main
+dispatch with a read-only token. Preparation/publication retains `[skip ci]`;
+the broad CI/release definitions and all older QA bookmarks remain unchanged.
+Retire the temporary workflow after terminal acceptance. No local heavy runtime
+below Storage Guard's reserve, public npm release, new account, paid service,
+external tools/model, production data or untrusted-HTML isolation claim.
