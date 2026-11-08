@@ -12,7 +12,7 @@ const names:Record<CatalogCategory,string[]>={
   trust:["AuditTrail","ReasoningSummary","SourceList","EvidenceDrawer","DataAccessNotice","PrivacyBoundaryCard","ConsentPanel","ModelContextPreview"],
   "host-state":["AuthRequiredCard","BillingGate","UnsupportedHostNotice","NoDataState","LoadingBridgeState","OfflineState","PermissionDeniedState","ExpiredSessionState"]
 };
-const specialized=new Set(["ApprovalCard","ApprovalChecklist","BeforeSubmitConfirmation","DestructiveActionGuard","HumanOverridePanel","PermissionRequestCard","ConfirmationPanel","RiskReviewPanel","ToolProgressTimeline","ToolCallCard","RetryableErrorState","SchemaForm","DynamicQuestionFlow","EntityReviewTable","ExtractedFieldsReview","DiffViewer","ComparisonMatrix","ScoreBreakdown","AuditTrail","SourceEvidencePanel","AuthRequiredCard"]);
+const specialized=new Set(["ApprovalCard","ApprovalChecklist","BeforeSubmitConfirmation","DestructiveActionGuard","HumanOverridePanel","PermissionRequestCard","ConfirmationPanel","RiskReviewPanel","ToolProgressTimeline","ToolCallCard","ToolResultCard","RunningTaskCard","RetryableErrorState","PartialResultViewer","QueuedStepList","ToolTraceViewer","SchemaForm","DynamicQuestionFlow","EntityReviewTable","ExtractedFieldsReview","DiffViewer","ComparisonMatrix","ScoreBreakdown","AuditTrail","SourceEvidencePanel","AuthRequiredCard"]);
 const componentDescriptions:Record<string,string> = {
   ApprovalChecklist: "Review required checklist items before emitting an explicit approval intent.",
   BeforeSubmitConfirmation: "Review current field values and explicitly consent before submission intent.",
@@ -22,6 +22,11 @@ const componentDescriptions:Record<string,string> = {
   ConfirmationPanel: "Review current change terms and explicitly confirm or cancel.",
   RiskReviewPanel: "Acknowledge identified risks and confirm the current mitigation terms.",
   ToolCallCard: "Inspect exact tool arguments, outputs and execution status.",
+  ToolResultCard: "Inspect an explicit tool outcome and its complete structured result without executing a tool.",
+  RunningTaskCard: "Review consumer-reported task progress and explicitly request inspection or cancellation.",
+  PartialResultViewer: "Select reported result parts, inspect complete structured values and request an eligible part retry.",
+  QueuedStepList: "Review ordered step states and attempts, select a step and request an eligible retry.",
+  ToolTraceViewer: "Filter an ordered trace and inspect complete selected event details without starting a trace runtime.",
   RetryableErrorState: "Request a retry of retained tool arguments when the consumer permits it.",
   DynamicQuestionFlow: "Complete conditional questions and submit only currently visible answers.",
   ExtractedFieldsReview: "Correct extracted fields against originals and evidence before submission.",
@@ -31,7 +36,14 @@ const componentDescriptions:Record<string,string> = {
   SourceEvidencePanel: "Review supporting claims and excerpts, then select an evidence source.",
   AuthRequiredCard: "Request scoped access through a consumer-owned intent callback."
 };
-export const catalog:CatalogItem[]=Object.entries(names).flatMap(([category,items])=>items.map(name=>({name,slug:slug(name),category:category as CatalogCategory,description:componentDescriptions[name]??`${descriptions[category as CatalogCategory]}: ${name}.`,specialized:specialized.has(name),dependencies:["@mcpcn/core","@mcpcn/schemas","react"],registryDependencies:category==="primitive"?[]:["button","card","badge"],security:{modelVisible:category==="host-state"?[]:["decision","userInput"],privateOnly:["internalId","rawPII"],callsTools:category==="approval"||category==="tool-execution"?["configuredTool"]:[],destructive:category==="approval"}})));
+const toolWorkflowSecurity:Record<string,CatalogItem["security"]> = {
+  ToolResultCard: { modelVisible: ["id", "tool", "status"], privateOnly: ["title", "description", "result", "errorMessage"], callsTools: [], destructive: false },
+  RunningTaskCard: { modelVisible: ["id", "status", "progress", "elapsedMs"], privateOnly: ["title", "description", "currentStep", "errorMessage"], callsTools: [], destructive: false },
+  PartialResultViewer: { modelVisible: ["id", "status", "parts.id", "parts.status", "parts.attempt", "selectedPartId"], privateOnly: ["title", "description", "parts.label", "parts.value", "parts.message"], callsTools: [], destructive: false },
+  QueuedStepList: { modelVisible: ["id", "steps.id", "steps.status", "steps.attempt", "selectedStepId"], privateOnly: ["title", "description", "steps.label", "steps.message"], callsTools: [], destructive: false },
+  ToolTraceViewer: { modelVisible: ["id", "events.id", "events.kind", "events.parentId", "events.elapsedMs", "filterKind", "selectedEventId"], privateOnly: ["title", "description", "events.label", "events.details"], callsTools: [], destructive: false },
+};
+export const catalog:CatalogItem[]=Object.entries(names).flatMap(([category,items])=>items.map(name=>({name,slug:slug(name),category:category as CatalogCategory,description:componentDescriptions[name]??`${descriptions[category as CatalogCategory]}: ${name}.`,specialized:specialized.has(name),dependencies:["@mcpcn/core","@mcpcn/schemas","react"],registryDependencies:category==="primitive"?[]:["button","card","badge"],security:toolWorkflowSecurity[name]??{modelVisible:category==="host-state"?[]:["decision","userInput"],privateOnly:["internalId","rawPII"],callsTools:category==="approval"||category==="tool-execution"?["configuredTool"]:[],destructive:category==="approval"}})));
 
 export const blockCatalog = [
   ["review-before-action","Review a planned external-state change before executing it.",["approval-card","diff-viewer","audit-trail"]],
