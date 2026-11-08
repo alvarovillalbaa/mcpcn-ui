@@ -22,6 +22,12 @@ never HTML or JavaScript. This single-origin development fixture is not the
 SDK's separate-origin architecture for untrusted HTML. The latter remains a
 distinct acceptance boundary.
 
+Both trusted iframe ancestors permit native form events with `allow-forms`.
+The app document retains `form-action 'none'` through its own CSP so controlled
+React submit handlers can run without granting navigation to a form endpoint.
+The missing sandbox permission was observed in the second failed browser run;
+it is repaired in source and still requires the next actual browser result.
+
 The selector covers the existing 79 identities: sixteen specialized components,
 forty explicitly labelled generic aliases, twelve primitives and eleven blocks.
 Owned component schemas validate the first two groups. Primitives and blocks

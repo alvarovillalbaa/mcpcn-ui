@@ -150,6 +150,13 @@ no external version upgrade is intended. Preserve the
 47 collected passes, 29 adapter cases uncollected because the SSR test's direct
 React DOM dependency was undeclared. Do not waive its strict 76-case gate.
 
+The [second failed invocation](docs/results/2026/11-08/playground-attempt-2.md)
+passed all 76 units and both consumers, but only seven of twelve browser cases.
+Retain its four stable unreadable process identities and unremoved scratch as
+failed cleanup. Trusted form-event permission, exact polling/observer repairs
+and independent fresh nonce-anchor sampling must keep unknown ownership fatal;
+neither source repair changes this historical result into a pass.
+
 Use the new focused remote packet for these new paths. Source parsing and
 authored tests are preparation, not execution. Do not invoke the earlier whole
 107/26, 52-case or HTTP packets as substitutes for the new acceptance. Regenerate

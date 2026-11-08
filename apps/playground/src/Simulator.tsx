@@ -122,7 +122,7 @@ export function Simulator() {
       <section aria-label="Fake chat"><h2>Fake chat</h2><p className="chat">The agent supplied <b>{slug}</b> for review.</p>{chat.map((message, index) => <p className="chat" key={index}>{message}</p>)}</section>
     </aside>
     <main className="preview-area"><div className="preview-bar"><span>Rendered MCP app iframe</span><span>{settings.displayMode} · {settings.theme}</span></div>
-      <div className="frame-viewport" style={{ width: settings.width }}><iframe key={generation} ref={frame} title="Rendered MCP app" className="app-frame" sandbox="allow-scripts allow-same-origin" /></div>
+      <div className="frame-viewport" style={{ width: settings.width }}><iframe key={generation} ref={frame} title="Rendered MCP app" className="app-frame" sandbox="allow-scripts allow-same-origin allow-forms" /></div>
       <p className="hint">This frame runs trusted bundled examples. It does not establish isolation for arbitrary third-party HTML.</p>
       {error && <p role="alert" className="studio-error">{error}</p>}{notice && <p role="status">{notice}</p>}
     </main>

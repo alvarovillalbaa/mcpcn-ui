@@ -141,28 +141,55 @@ function processErrorCode(error) {
   return /^[a-z0-9_]{1,32}$/.test(error?.message ?? '') ? error.message.toUpperCase() : 'UNKNOWN';
 }
 function verifiedOwnedParentAndGroup(info) {
+  const attempt = { child: info, disposition: 'unproven', failure: null, before: null, after: null, anchors: {} };
+  report.cleanup.ownershipAttempts ??= []; report.cleanup.ownershipAttemptCount = (report.cleanup.ownershipAttemptCount ?? 0) + 1;
+  if (report.cleanup.ownershipAttempts.length < 64) report.cleanup.ownershipAttempts.push(attempt);
+  const refuse = code => { attempt.failure = code; return null; };
   try {
     const parentBefore = proc(info.ppid), groupBefore = proc(info.pgid), childBefore = proc(info.pid);
-    const known = current => {
-      if (!current) return null;
-      const direct = report.commands.find(command => same(command.identity, current));
-      if (direct) return { method: 'direct_command_identity', label: direct.label, identity: direct.identity };
-      const prior = observed.get(`${current.pid}:${current.starttime}`);
-      return same(prior, current) && ['nonce_environment', 'direct_command_identity'].includes(prior.ownershipMethod)
-        ? { method: prior.ownershipMethod, label: prior.directCommandLabel, identity: prior } : null;
-    };
-    const parent = known(parentBefore), group = known(groupBefore), cutoff = BigInt(taskStartTicks);
-    if (!parent || !group || !same(info, childBefore) || info.ppid !== childBefore.ppid
+    attempt.before = { child: childBefore, parent: parentBefore, groupLeader: groupBefore };
+    const cutoff = BigInt(taskStartTicks);
+    if (!parentBefore || !groupBefore || !same(info, childBefore) || info.ppid !== childBefore.ppid
       || info.ppid === info.pid || parentBefore.uid !== info.uid || groupBefore.uid !== info.uid
       || parentBefore.pgid !== info.pgid || groupBefore.pgid !== info.pgid || groupBefore.pid !== info.pgid
       || BigInt(info.starttime) < cutoff || BigInt(parentBefore.starttime) < cutoff || BigInt(groupBefore.starttime) < cutoff
-      || BigInt(parentBefore.starttime) > BigInt(info.starttime) || BigInt(groupBefore.starttime) > BigInt(info.starttime)) return null;
+      || BigInt(parentBefore.starttime) > BigInt(info.starttime) || BigInt(groupBefore.starttime) > BigInt(info.starttime)) return refuse('anchor_structure_unproved');
+    const known = (current, role) => {
+      const anchor = { identity: current, disposition: 'unproven', errno: null, identityAfter: null }; attempt.anchors[role] = anchor;
+      const direct = report.commands.find(command => same(command.identity, current));
+      if (direct) { anchor.disposition = 'prior_direct'; return { method: 'direct_command_identity', label: direct.label, identity: direct.identity }; }
+      const prior = observed.get(`${current.pid}:${current.starttime}`);
+      if (same(prior, current) && ['nonce_environment', 'direct_command_identity'].includes(prior.ownershipMethod)) {
+        anchor.disposition = 'prior_independent'; return { method: prior.ownershipMethod, label: prior.directCommandLabel, identity: prior };
+      }
+      if (prior) { anchor.disposition = 'derived_anchor_ineligible'; return null; }
+      report.cleanup.anchorNonceProbeCount = (report.cleanup.anchorNonceProbeCount ?? 0) + 1;
+      if (report.cleanup.anchorNonceProbeCount > 64) { anchor.disposition = 'probe_bound'; return null; }
+      let raw;
+      try { raw = readProc(`/proc/${current.pid}/environ`, 1048576); }
+      catch (error) { anchor.disposition = 'nonce_read_failed'; anchor.errno = processErrorCode(error); return null; }
+      const fields = raw.toString().split('\0'), nonceNamespace = ['MCPCN_PLAYGROUND', 'MCPCN_V1'].find(prefix =>
+        fields.includes(`${prefix}_RUN_ROOT=${root}`) && fields.includes(`${prefix}_NONCE=${nonce}`));
+      try { anchor.identityAfter = proc(current.pid); }
+      catch (error) { anchor.disposition = 'identity_recheck_failed'; anchor.errno = processErrorCode(error); return null; }
+      if (!same(current, anchor.identityAfter) || current.ppid !== anchor.identityAfter.ppid) { anchor.disposition = 'identity_changed'; return null; }
+      if (!nonceNamespace) { anchor.disposition = 'nonce_absent'; return null; }
+      const owned = { ...current, ownershipMethod: 'nonce_environment', directCommandLabel: null, nonceNamespace,
+        nonceObservation: { source: 'fresh_anchor_probe', before: current, after: anchor.identityAfter } };
+      observed.set(`${current.pid}:${current.starttime}`, owned); report.cleanup.processes.push(owned); anchor.disposition = 'fresh_nonce_verified';
+      return { method: 'nonce_environment', label: null, identity: owned };
+    };
+    const parent = known(parentBefore, 'parent'), group = known(groupBefore, 'groupLeader');
+    if (!parent || !group) return refuse('anchor_independent_ownership_unproved');
     const childAfter = proc(info.pid), parentAfter = proc(info.ppid), groupAfter = proc(info.pgid);
-    if (!same(childBefore, childAfter) || childAfter.ppid !== info.ppid || !same(parentBefore, parentAfter) || !same(groupBefore, groupAfter)) return null;
+    attempt.after = { child: childAfter, parent: parentAfter, groupLeader: groupAfter };
+    if (!same(childBefore, childAfter) || childAfter.ppid !== info.ppid || !same(parentBefore, parentAfter) || parentBefore.ppid !== parentAfter.ppid
+      || !same(groupBefore, groupAfter) || groupBefore.ppid !== groupAfter.ppid) return refuse('fresh_identity_recheck_unproved');
+    attempt.disposition = 'accepted';
     return { taskStartTicks, childBefore, childAfter,
       parent: { provenance: parent, before: parentBefore, after: parentAfter },
       groupLeader: { provenance: group, before: groupBefore, after: groupAfter } };
-  } catch { return null; }
+  } catch (error) { attempt.errno = processErrorCode(error); return refuse('ownership_probe_failed'); }
 }
 function scan() {
   const names = fs.readdirSync('/proc').filter(x => /^\d+$/.test(x)); need(names.length <= 16384, 'proc_scan_bound'); const rows = []; let inspected = 0;

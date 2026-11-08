@@ -1,5 +1,22 @@
 # Focused real iframe playground checks
 
+The second invocation's four stable unreadable children remain unproved. Future
+fallback may sample an anchor missing from the prior ledger only through its own
+bounded exact nonce/root environment read and fresh PID/UID/start/PGID/PPID
+checks. Both immediate parent and group leader need independent provenance;
+derived or group-only ownership is insufficient. At most 64 fresh nonce probes
+and 64 detailed attempts are retained; missing proof remains fatal. This changes
+neither that historical failure nor the cleanup acceptance requirement.
+
+Browser polling can wait through a bounded non-JSON placeholder before requiring
+exact final JSON. Mandatory tools/context/message requests still decode actual
+SDK console arguments in every case, and every such observer error is fatal.
+Only the stable display scenario decodes display response objects; other SDK
+method metadata uses pinned cached console previews with explicit proof limits.
+This avoids unnecessary old-frame remote-object reads; it does not identify the
+unrecorded exception in the second invocation. The trusted-frame form permission
+repair and its CSP still require the next actual browser result.
+
 Status: authored and source-reviewed only; no execution is implied by this proposal. The existing v1 components packet remains separate. This scope invokes neither its whole 107-unit/26-browser packet nor the older 52-case suite.
 
 The inactive [workflow example](../examples/playground-checks.workflow.yml) accepts one exact 40-character prepared source SHA. The separate manual-only main workflow runs on public Ubuntu 24.04 with Node 24.22.2 and read-only contents permission. Its workflow commit is recorded separately from the checked source commit. No credentials, publication, accounts, model, provider or external MCP host are required.

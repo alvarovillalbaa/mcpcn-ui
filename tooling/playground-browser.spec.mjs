@@ -44,7 +44,8 @@ async function absent(filename) {
 }
 async function json(locator) {
   const value = await locator.textContent(); assert.ok(typeof value === "string" && Buffer.byteLength(value) <= 65536);
-  return JSON.parse(value);
+  try { return JSON.parse(value); }
+  catch (error) { if (!(error instanceof SyntaxError)) throw error; return { notJSON: true, sha256: sha(value) }; }
 }
 async function jsonIs(locator, expected) { await expect.poll(() => json(locator)).toEqual(expected); return json(locator); }
 const object = value => value !== null && typeof value === "object" && !Array.isArray(value);
@@ -55,7 +56,12 @@ function observe(context, report, started, deadline, allowedOrigin) {
   const reset = () => { changed = new Promise(resolve => { signal = resolve; }); }; reset();
   const notify = () => { signal(); reset(); };
   const error = (code, extra = {}) => { report.network.errorCount++; if (report.network.errors.length < 20) report.network.errors.push({ code, atMs: performance.now() - started, ...extra }); notify(); };
-  const track = work => { let job; job = work.catch(() => error("observer_operation_failed")).finally(() => { jobs.delete(job); notify(); }); jobs.add(job); };
+  const track = (work, operation, detail = {}) => {
+    let job;
+    job = work.catch(value => error("observer_operation_failed", { operation, ...detail,
+      errorName: /^[A-Za-z][A-Za-z0-9]{0,39}$/.test(value?.name ?? "") ? value.name : "OtherError", messageSha256: sha(String(value?.message ?? value)) }))
+      .finally(() => { jobs.delete(job); notify(); }); jobs.add(job);
+  };
   const terminal = (row, value) => { if (row.terminal) error("duplicate_terminal", { ordinal: row.ordinal }); else { row.terminal = value; row.terminalAtMs = performance.now() - started; } notify(); };
   context.on("request", request => {
     if (closing) error("request_after_close_started");
@@ -86,7 +92,7 @@ function observe(context, report, started, deadline, allowedOrigin) {
         if (result !== null) error("response_finished_error", { ordinal: row.ordinal });
       } catch { row.responseFinished = "unresolved_or_late"; error("response_finished_unproved", { ordinal: row.ordinal }); }
       notify();
-    })());
+    })(), "http_response_finished");
   });
   context.on("requestfinished", request => { const blob = blobRows.get(request); if (blob) { blob.terminal = "finished"; notify(); return; } const row = rows.get(request); row ? terminal(row, "finished") : error("finished_without_request"); });
   context.on("requestfailed", request => {
@@ -102,22 +108,36 @@ function observe(context, report, started, deadline, allowedOrigin) {
       if (type === "error") { report.network.consoleErrors++; error("console_error", { messageSha256: sha(text) }); }
       if (type === "warning") { report.console.warningCount++; if (report.console.warnings.length < 20) report.console.warnings.push({ sha256: sha(text), sandboxSameOriginWarning: text.includes("allow-scripts") && text.includes("allow-same-origin") }); }
       if (type === "debug") report.console.debugCount++;
-      if (type !== "debug" || !text.startsWith("Sending message") || message.args().length < 2) return;
+      if (type !== "debug" || !text.startsWith("Sending message")) return;
+      report.console.sdkSendPreviewCount++;
+      const mandatory = ["tools/call", "ui/update-model-context", "ui/message"], preview = text.slice("Sending message".length).trim();
+      const methods = [...preview.matchAll(/(?:\{|,)\s*method:\s*([A-Za-z0-9_/-]{1,100})(?=\s*[,}])/g)];
+      const candidate = text.length <= 4096 && preview.startsWith("{") && preview.endsWith("}") && methods.length === 1 ? methods[0][1] : undefined;
+      const responsePreview = text.length <= 4096 && preview.startsWith("{") && preview.endsWith("}") && !methods.length
+        && /(?:\{|,)\s*(?:result|error):/.test(preview) && /(?:\{|,)\s*id:/.test(preview);
+      if (candidate) {
+        if (Object.keys(report.sdkSends).length >= 60 && !Object.hasOwn(report.sdkSends, candidate)) { error("sdk_method_metadata_bound"); return; }
+        report.sdkSends[candidate] = (report.sdkSends[candidate] ?? 0) + 1;
+      } else if (!responsePreview) {
+        report.console.unclassifiedSendCount++;
+        if (report.console.unclassifiedSends.length < 20) report.console.unclassifiedSends.push({ bytes: Buffer.byteLength(text), sha256: sha(text) });
+        if (mandatory.some(method => text.includes(method))) error("mandatory_send_preview_unclassified");
+      }
+      const request = mandatory.includes(candidate), display = report.scenario === "display" && (candidate === "ui/request-display-mode" || responsePreview);
+      if (!request && !display) return;
+      if (message.args().length < 2) { error("required_console_argument_missing", { candidateMethod: candidate ?? "methodless_response" }); return; }
       track((async () => {
         const value = await within(message.args()[1].jsonValue(), Math.min(deadline, performance.now() + 3000), "wire_console_deadline");
-        if (!object(value) || value.jsonrpc !== "2.0") return;
-        if (typeof value.method === "string") {
-          assert.match(value.method, /^[A-Za-z0-9_/-]{1,100}$/);
-          assert.ok(Object.keys(report.sdkSends).length < 60 || Object.hasOwn(report.sdkSends, value.method));
-          report.sdkSends[value.method] = (report.sdkSends[value.method] ?? 0) + 1;
-        }
+        assert.ok(object(value) && value.jsonrpc === "2.0", "required_console_message_invalid");
+        if (candidate) assert.equal(value.method, candidate, "console_preview_method_mismatch");
+        else assert.ok(value.method === undefined && Object.hasOwn(value, "id") && (Object.hasOwn(value, "result") || Object.hasOwn(value, "error")), "console_preview_response_mismatch");
         if (value.method === "ui/request-display-mode" || (!value.method && object(value.result) && ["inline", "pip", "fullscreen"].includes(value.result.mode))) {
           assert.ok(report.displayMessages.length < 20 && ["string", "number"].includes(typeof value.id));
           const request = value.method === "ui/request-display-mode", mode = request ? value.params?.mode : value.result.mode;
           assert.ok(["inline", "pip", "fullscreen"].includes(mode));
           report.displayMessages.push({ kind: request ? "request" : "response", idSha256: sha(typeof value.id + ":" + String(value.id)), mode, atMs: performance.now() - started }); notify();
         }
-        if (!["tools/call", "ui/update-model-context", "ui/message"].includes(value.method)) return;
+        if (!request) return;
         const raw = JSON.stringify(value); assert.ok(Buffer.byteLength(raw) <= 16384 && report.wire.length < 60, "wire_bound");
         const row = { ordinal: report.wire.length + 1, method: value.method, atMs: performance.now() - started, bytes: Buffer.byteLength(raw), sha256: sha(raw), canaryAbsent: !raw.includes(canary), fileBodyAbsent: !raw.includes(fileBody.trim()), privateKeyAbsent: !raw.includes("privateFixtureNote") };
         if (!row.canaryAbsent || !row.fileBodyAbsent || !row.privateKeyAbsent) error("private_value_in_outbound_request");
@@ -136,7 +156,7 @@ function observe(context, report, started, deadline, allowedOrigin) {
           assert.match(value.params.content[0].text, /^Reviewed the [a-z][a-z0-9-]{0,99} authored fixture\.$/); row.message = value.params.content[0].text;
         }
         report.wire.push(row); notify();
-      })());
+      })(), request ? "mandatory_sdk_request" : "display_sdk_response", { candidateMethod: candidate ?? "methodless_response" });
     });
     page.on("pageerror", value => { report.network.pageErrors++; error("page_error", { messageSha256: sha(String(value.message)) }); });
     page.on("websocket", () => { report.network.webSockets++; error("websocket"); });
@@ -148,7 +168,7 @@ function observe(context, report, started, deadline, allowedOrigin) {
       else { downloadArmed = false; report.downloadUrlSha256 = sha(download.url()); report.downloadSuggestedName = download.suggestedFilename().slice(0, 160); }
       notify();
     });
-    page.on("dialog", dialog => { error("unexpected_dialog"); track(dialog.dismiss()); });
+    page.on("dialog", dialog => { error("unexpected_dialog"); track(dialog.dismiss(), "unexpected_dialog_dismiss"); });
     page.on("close", () => { report.cleanup.pagesClosed++; if (!closing) error("unexpected_page_close"); notify(); });
   });
   context.on("serviceworker", () => error("unexpected_service_worker"));
@@ -270,6 +290,8 @@ async function editors({ page, context, host, app, report, observer, record, act
   const text = await within(() => host.locator("body").evaluate(() => navigator.clipboard.readText()), deadline, "clipboard_read_deadline");
   assert.equal(text, expectedSnippet()); assert.ok(!text.includes(canary));
   record("clipboard_server_snippet", { bytes: Buffer.byteLength(text), sha256: sha(text), exactAuthoredSnippet: true, metadataCanaryAbsent: true, permissionOrigin: origins.cliPreview });
+  await observer.settle(); assert.equal(toolCalls(report).length, 1);
+  assert.deepEqual(toolCalls(report)[0].arguments, { component: "schema-form", decision: "submit" });
 }
 
 async function display({ host, app, report, record, activate, profile }) {
@@ -311,6 +333,7 @@ async function display({ host, app, report, record, activate, profile }) {
 
 async function lifecycle({ page, host, app, report, observer, record, activate }) {
   const replaceSession = async control => {
+    await observer.settle();
     const element = host.locator('iframe[title="Rendered MCP app"]'), before = await element.getAttribute("src");
     await activate(control);
     await expect.poll(async () => { const after = await element.getAttribute("src"); return typeof after === "string" && after.length > 0 && after !== before; }, { timeout: 5000 }).toBe(true);
@@ -437,11 +460,11 @@ async function runCase(browser, testInfo, [caseId, title, profile, scenario, ori
   const jsonPath = path.join(output, caseId + ".json"), pngPath = path.join(output, caseId + ".png"); await absent(jsonPath); await absent(pngPath);
   const viewport = profile === "desktop" ? { width: 1280, height: 900 } : { width: 390, height: 844 };
   const report = { schemaVersion: 1, sourceCommit, caseId, title, profile, scenario, originKey, route, origin, playwright: packageManifest.version, browserVersion: browser.version(), startedAt: new Date().toISOString(), viewport, touchEmulated: profile === "narrow", status: "failed", observations: [],
-    input: { trackedTaps: 0, trackedClicks: 0, keyboardActions: 0 }, wire: [], sdkSends: {}, displayMessages: [], console: { debugCount: 0, warningCount: 0, warnings: [] }, downloadEvents: 0, blobDownload: { rows: [], nativeDownloadJoined: null },
+    input: { trackedTaps: 0, trackedClicks: 0, keyboardActions: 0 }, wire: [], sdkSends: {}, displayMessages: [], console: { debugCount: 0, warningCount: 0, warnings: [], sdkSendPreviewCount: 0, unclassifiedSendCount: 0, unclassifiedSends: [] }, downloadEvents: 0, blobDownload: { rows: [], nativeDownloadJoined: null },
     network: { requests: 0, requestFailures: 0, consoleErrors: 0, pageErrors: 0, webSockets: 0, errorCount: 0, errors: [], rows: [] },
     cleanup: { contextCreated: false, contextClosed: false, pagesCreated: 0, pagesClosed: 0, pendingRequests: null, observerJobs: null },
     limits: { workMs: total - 4000, closeMs: total - 1000, nativeMs: total, reportBytes: 262144, screenshotBytes: 262144 },
-    proofLimits: ["Trusted bundled examples using real nested frames and official SDK in owned production/installed-CLI servers; no external host, model, authentication or real tool.", "Read-only console arguments observe actual SDK outgoing request objects; visible trace omits bodies. Synthetic wrong-source MessageEvent is an authored control, not real attack proof.", "Native File input uses an authored in-memory fixture and emits metadata only; no extraction/read/upload is claimed. Clipboard permission is granted only to this owned browser context/origin.", "Chromium narrow/touch emulation and selected DOM/theme checks are not physical-device, accessibility or arbitrary-HTML isolation acceptance.", "The single armed blob export uses native Download failure-null/original hash/JSON/removal acknowledgements; any blob Request is joined by actual Download URL hash and reported separately without HTTP EOF claims. Every ordinary HTTP request failure remains fatal.", "Request identity/completion observations do not prove every asset's integrity or raw socket EOF; browser-process teardown belongs to the outer supervisor."] };
+    proofLimits: ["Trusted bundled examples using real nested frames and official SDK in owned production/installed-CLI servers; no external host, model, authentication or real tool.", "Mandatory tools/call, context and message requests are decoded from actual read-only SDK console arguments in every case; display responses are decoded only in the stable display scenario. Mandatory observer errors remain fatal.", "Other SDK method counts/barriers use bounded pinned Playwright console preview text, not decoded payloads; unclassified previews are counted and hashed and cannot satisfy positive method counts. Visible trace omits bodies. Synthetic wrong-source MessageEvent is an authored control, not real attack proof.", "Native File input uses an authored in-memory fixture and emits metadata only; no extraction/read/upload is claimed. Clipboard permission is granted only to this owned browser context/origin.", "Chromium narrow/touch emulation and selected DOM/theme checks are not physical-device, accessibility or arbitrary-HTML isolation acceptance.", "The single armed blob export uses native Download failure-null/original hash/JSON/removal acknowledgements; any blob Request is joined by actual Download URL hash and reported separately without HTTP EOF claims. Every ordinary HTTP request failure remains fatal.", "Request identity/completion observations do not prove every asset's integrity or raw socket EOF; browser-process teardown belongs to the outer supervisor."] };
   let context, page, observer, primary;
   const record = (stage, value) => { assert.ok(report.observations.length < 20); report.observations.push({ stage, atMs: performance.now() - started, ...value }); };
   try {
@@ -470,6 +493,7 @@ async function runCase(browser, testInfo, [caseId, title, profile, scenario, ori
     record("actual_nested_bridge_ready", { frames: report.frames, theme: profile === "narrow" ? "dark" : "light", viewport: report.observedViewport });
     await within(() => journey({ page, context, host, app, report, observer, record, activate, deadline, profile }), deadline, "journey_deadline");
     assert.ok(profile === "narrow" ? report.input.trackedTaps > 0 : report.input.trackedClicks > 0); await observer.settle(); assert.equal((await context.cookies()).length, 0);
+    for (const method of ["tools/call", "ui/update-model-context", "ui/message"]) assert.equal(report.wire.filter(row => row.method === method).length, report.sdkSends[method] ?? 0, "mandatory_send_decode_count");
     if (scenario === "editors") assert.ok(report.downloadEvents === 1 && report.download?.removed && report.download.failure === null && report.download.urlSha256 === report.downloadUrlSha256); else assert.equal(report.downloadEvents, 0);
     assert.equal(report.network.requestFailures, 0);
   } catch (error) { primary = error; report.failure = { name: String(error?.name ?? "Error").slice(0, 80), messageSha256: sha(String(error?.message ?? error)) }; }
