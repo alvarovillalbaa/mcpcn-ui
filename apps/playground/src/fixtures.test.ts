@@ -5,7 +5,7 @@ describe("playground authored fixture boundary", () => {
   it("covers all 79 unique catalogue identities with honest implementation kinds", () => {
     expect(playgroundItems).toHaveLength(79);
     expect(new Set(playgroundItems.map(item => item.slug)).size).toBe(79);
-    expect(["specialized", "generic-alias", "primitive", "workflow-block"].map(kind => playgroundItems.filter(item => item.kind === kind).length)).toEqual([26, 30, 12, 11]);
+    expect(["specialized", "generic-alias", "primitive", "workflow-block"].map(kind => playgroundItems.filter(item => item.kind === kind).length)).toEqual([31, 25, 12, 11]);
     for (const item of playgroundItems) {
       const fixture = makeFixture(item.slug);
       expect(fixture.kind).toBe(`mcpcn/${item.slug}`);

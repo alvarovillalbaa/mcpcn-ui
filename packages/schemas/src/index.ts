@@ -6,12 +6,14 @@ import { DynamicQuestionFlowSchema, ExtractedFieldsReviewSchema, ComparisonMatri
 import { ToolCallCardSchema, RetryableErrorStateSchema, AuthRequiredCardSchema } from "./execution-schemas.js";
 import { ApprovalChecklistSchema, BeforeSubmitConfirmationSchema, DestructiveActionGuardSchema, HumanOverridePanelSchema, PermissionRequestCardSchema } from "./approval-schemas.js";
 import { ToolResultCardSchema, RunningTaskCardSchema, PartialResultViewerSchema, QueuedStepListSchema, ToolTraceViewerSchema } from "./tool-workflow-schemas.js";
+import { MissingDataRequestSchema, MultiStepFormSchema, InlineEditFormSchema, FormProgressCardSchema, ValidatedFieldListSchema } from "./form-workflow-schemas.js";
 export { RiskLevelSchema, ChangeSchema, SchemaFieldSchema } from "./schema-common.js";
 export * from "./review-schemas.js";
 export * from "./decision-schemas.js";
 export * from "./execution-schemas.js";
 export * from "./approval-schemas.js";
 export * from "./tool-workflow-schemas.js";
+export * from "./form-workflow-schemas.js";
 
 export const ApprovalCardSchema = z.object({
   title: z.string().refine(value => Boolean(value.trim()), "A review needs a visible title."),
@@ -93,9 +95,6 @@ export const GenericComponentSchema = z.object({
 export const RecordInspectorSchema=GenericComponentSchema, FieldConfidenceListSchema=GenericComponentSchema,
   ConflictResolverSchema=GenericComponentSchema, ValidationSummarySchema=GenericComponentSchema,
   DocumentPreviewSchema=GenericComponentSchema, FileReviewSchema=GenericComponentSchema,
-  MissingDataRequestSchema=GenericComponentSchema, MultiStepFormSchema=GenericComponentSchema,
-  InlineEditFormSchema=GenericComponentSchema, FormProgressCardSchema=GenericComponentSchema,
-  ValidatedFieldListSchema=GenericComponentSchema,
   OptionSelectorSchema=GenericComponentSchema, RecommendationCardSchema=GenericComponentSchema,
   TradeoffPanelSchema=GenericComponentSchema,
   RankingListSchema=GenericComponentSchema, DecisionMemoSchema=GenericComponentSchema,
@@ -152,5 +151,10 @@ export const schemaBySlug = {
   "running-task-card": RunningTaskCardSchema,
   "partial-result-viewer": PartialResultViewerSchema,
   "queued-step-list": QueuedStepListSchema,
-  "tool-trace-viewer": ToolTraceViewerSchema
+  "tool-trace-viewer": ToolTraceViewerSchema,
+  "missing-data-request": MissingDataRequestSchema,
+  "multi-step-form": MultiStepFormSchema,
+  "inline-edit-form": InlineEditFormSchema,
+  "form-progress-card": FormProgressCardSchema,
+  "validated-field-list": ValidatedFieldListSchema
 } as const;
