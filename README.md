@@ -50,6 +50,13 @@ did not run a hosted browser. The [playground contract](docs/specs/iframe-playgr
 keeps the authored fixture host, trusted built-in frames and external-host/
 untrusted-HTML boundaries explicit; both failed playground attempts remain retained.
 
+The [playground GitHub candidate](https://github.com/alvarovillalbaa/mcpcn-ui/releases/tag/v0.1.0-playground.1)
+supplies all seven unchanged archives from that passing packet, including the
+bundled CLI simulator. Server sizes and SHA256 digests match the
+[publication receipt](docs/results/2026/11-08/playground-candidate-publication.json).
+Internal package versions remain 0.1.0; the GitHub prerelease tag is separate
+from public npm publication. The earlier core candidate remains available.
+
 **Public package availability remains unverified.** Registry lookups for
 `mcpcn` and `@mcpcn/react` returned npm E404 on 29 October 2026; the commands
 below describe the intended release, not a newly verified registry result.
