@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "mcpcn.file-review-hosting-failure.v1",
+  "status": "failed",
+  "sourceCommit": "6b008cded663f9dc746cb6dfa099018018d47501",
+  "deployment": {
+    "id": "dpl_ARy2aG5XVbUhC91waC7gSgCmHoRs",
+    "projectId": "prj_cnLeaJNJjMZac7HpqsKw2jhIAQsW",
+    "readyState": "ERROR",
+    "errorCode": "FALLBACK_BODY_TOO_LARGE",
+    "errorMessage": "ISR page r/registry.json is 21.06 MB, over the 20 MB limit, and will fail at runtime (FALLBACK_BODY_TOO_LARGE). Reduce its size and redeploy, or set VERCEL_BYPASS_FALLBACK_OVERSIZED_ERROR=1 to deploy anyway.",
+    "sourceCommit": "6b008cded663f9dc746cb6dfa099018018d47501"
+  },
+  "canonicalRegistry": {
+    "bytes": 21357274,
+    "sha256": "dea9330bc53e1d1269f598f8ba548b3717097ce429610f189d5e6ffb297f6c24"
+  },
+  "canonicalAlias": {
+    "alias": "mcpcn-ui.vercel.app",
+    "projectId": "prj_cnLeaJNJjMZac7HpqsKw2jhIAQsW",
+    "deploymentId": "dpl_CdBmEmYAXBoyfJm1gLDRiwXKwvdC"
+  },
+  "buildEvents": {
+    "windowCounts": [
+      99,
+      37
+    ],
+    "rawOccurrences": 136,
+    "uniqueCompleteDictionaries": 129,
+    "exactDuplicateOccurrences": 7,
+    "globalFullDictionaryDeduplication": true
+  },
+  "privateProviderOriginal": {
+    "bytes": 51338,
+    "sha256": "965ccbba3fb9c1dffa6afe82a2139d0f65135317368f0f13c0d399f7edadaa11"
+  },
+  "proofLimits": [
+    "Failed deployment metadata and original bounded provider windows; no production runtime acceptance or oversized fallback bypass.",
+    "The canonical alias still targets the prior form deployment; the package archive candidate is independently published."
+  ]
+}
