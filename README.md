@@ -6,9 +6,20 @@ Last updated: 2026-11-08
 
 The source includes components, controlled workflow blocks, MCP Apps runtime
 adapters, server helpers, a source registry, a CLI and a documentation app.
-The current source has 12 primitives, 31 specialized components and 25 named aliases
+The current source has 12 primitives, 33 specialized components and 23 named aliases
 of the generic informational component. Eleven workflow blocks now contain
 actual editing, selection, file-review, progress and approval compositions.
+
+DocumentPreview and FileReview now have dedicated source for full supplied text,
+JSON and paginated raster/text inspection, caller-controlled corrections and
+explicit scoped save intent. The [file review contract](docs/specs/file-review-components.md)
+keeps file reading, conversion, extraction and persistence in the consuming app.
+The [focused file-review receipt](docs/results/2026/11-08/file-review-checks.md)
+passed 85 new unit/SSR cases, 12 desktop/narrow browser scenarios and 2 fresh strict
+consumers at `7fbde9bb1181a1587b0a3655d60f64775a65113a`, plus 12 separately declared
+shared ownership fixtures. All 167 generated paths were verified; 159 changed
+files were adopted. Both earlier failures remain preserved. Public deployment
+and archive publication are separate subsequent proof boundaries.
 
 The five remaining forms now have dedicated source: MissingDataRequest,
 MultiStepForm, InlineEditForm, FormProgressCard and ValidatedFieldList. Their
