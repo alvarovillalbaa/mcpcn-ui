@@ -7,6 +7,7 @@ import type { MissingDataRequestData, MultiStepFormData, InlineEditFormData, For
 import type { AgentGeneratedReportReviewProps, CompareOptionsApproveProps, FileUploadAndExtractProps, MultiStepToolRunProps, ReviewBeforeActionProps, TableBulkActionReviewProps, WorkflowFormProps } from "@mcpcn/react/blocks";
 import { fileReviewFixtures } from "./file-review-fixtures";
 import { sourceEvidenceFixtures } from "./source-evidence-fixtures";
+import { recordInspectionFixtures } from "./record-inspection-fixtures";
 
 export type PlaygroundItem = { slug: string; name: string; kind: "specialized" | "generic-alias" | "primitive" | "workflow-block" };
 export const playgroundItems: readonly PlaygroundItem[] = [
@@ -115,6 +116,7 @@ const specializedFixtures: Record<string, unknown> = {
   ...formWorkflowFixtures,
   ...fileReviewFixtures,
   ...sourceEvidenceFixtures,
+  ...recordInspectionFixtures,
   "approval-card": { title: "Approve authored changes", changes: [change], riskLevel: "medium", requiresExplicitConsent: true },
   "tool-progress-timeline": { title: "Authored progress", steps, retryTool: "authored_preview_only" },
   "schema-form": { title: "Authored request", fields: [{ name: "subject", label: "Subject", type: "text", required: true }, { name: "notes", label: "Notes", type: "textarea" }] },
@@ -241,7 +243,7 @@ export function validateFixture(value: unknown): FixtureValidation {
   try {
     // Inspect only an own data descriptor until the descriptor-safe walk passes.
     const kind = value && typeof value === "object" ? Object.getOwnPropertyDescriptor(value, "kind") : undefined;
-    const evidence = kind && "value" in kind && ["mcpcn/source-list", "mcpcn/evidence-drawer"].includes(kind.value);
+    const evidence = kind && "value" in kind && ["mcpcn/source-list", "mcpcn/evidence-drawer", "mcpcn/record-inspector", "mcpcn/field-confidence-list"].includes(kind.value);
     if (!boundedJSON(value, Boolean(evidence))) return refused("fixture_json_refused");
     if (!record(value) || !exact(value, ["kind", "version", "data", "stateVersion"]) || value.version !== 1 || typeof value.kind !== "string" || !value.kind.startsWith("mcpcn/")
       || !optional(value.stateVersion, version => Number.isSafeInteger(version) && Number(version) >= 0)) return refused("fixture_envelope_invalid");

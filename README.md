@@ -6,9 +6,17 @@ Last updated: 2026-11-08
 
 The source includes components, controlled workflow blocks, MCP Apps runtime
 adapters, server helpers, a source registry, a CLI and a documentation app.
-The current source has 12 primitives, 35 specialized components and 21 named aliases
+The current source has 12 primitives, 37 specialized components and 19 named aliases
 of the generic informational component. Eleven workflow blocks now contain
 actual editing, selection, file-review, progress and approval compositions.
+
+RecordInspector and FieldConfidenceList now have dedicated authored source for
+selecting current fields and reading complete typed values and supplied evidence.
+Zero confidence remains distinct from missing confidence. The
+[inspection contract](docs/specs/record-inspection-components.md) defines local
+and controlled selection, identity-only notifications and replacement fences.
+Focused CI, package adoption and hosted delivery for this pair are pending;
+authored source and static review establish no runtime acceptance.
 
 SourceList and EvidenceDrawer now have dedicated strict source for current
 source selection and complete supplied text/JSON inspection. The native drawer

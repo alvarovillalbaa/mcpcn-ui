@@ -9,6 +9,7 @@ import { ToolResultCardSchema, RunningTaskCardSchema, PartialResultViewerSchema,
 import { MissingDataRequestSchema, MultiStepFormSchema, InlineEditFormSchema, FormProgressCardSchema, ValidatedFieldListSchema } from "./form-workflow-schemas.js";
 import { DocumentPreviewSchema, FileReviewSchema } from "./file-review-schemas.js";
 import { SourceListSchema, EvidenceDrawerSchema } from "./source-evidence-schemas.js";
+import { RecordInspectorSchema, FieldConfidenceListSchema } from "./record-inspection-schemas.js";
 export { RiskLevelSchema, ChangeSchema, SchemaFieldSchema } from "./schema-common.js";
 export * from "./review-schemas.js";
 export * from "./decision-schemas.js";
@@ -18,6 +19,7 @@ export * from "./tool-workflow-schemas.js";
 export * from "./form-workflow-schemas.js";
 export * from "./file-review-schemas.js";
 export * from "./source-evidence-schemas.js";
+export * from "./record-inspection-schemas.js";
 
 export const ApprovalCardSchema = z.object({
   title: z.string().refine(value => Boolean(value.trim()), "A review needs a visible title."),
@@ -96,8 +98,7 @@ export const GenericComponentSchema = z.object({
 
 // Every catalog surface has a named schema export. Specialized components own
 // their contracts; the remaining informational aliases share the generic shape.
-export const RecordInspectorSchema=GenericComponentSchema, FieldConfidenceListSchema=GenericComponentSchema,
-  ConflictResolverSchema=GenericComponentSchema, ValidationSummarySchema=GenericComponentSchema,
+export const ConflictResolverSchema=GenericComponentSchema, ValidationSummarySchema=GenericComponentSchema,
   OptionSelectorSchema=GenericComponentSchema, RecommendationCardSchema=GenericComponentSchema,
   TradeoffPanelSchema=GenericComponentSchema,
   RankingListSchema=GenericComponentSchema, DecisionMemoSchema=GenericComponentSchema,
@@ -162,5 +163,7 @@ export const schemaBySlug = {
   "document-preview": DocumentPreviewSchema,
   "file-review": FileReviewSchema,
   "source-list": SourceListSchema,
-  "evidence-drawer": EvidenceDrawerSchema
+  "evidence-drawer": EvidenceDrawerSchema,
+  "record-inspector": RecordInspectorSchema,
+  "field-confidence-list": FieldConfidenceListSchema
 } as const;
