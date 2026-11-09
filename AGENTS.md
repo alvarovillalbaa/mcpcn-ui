@@ -693,8 +693,25 @@ and the index. Preserve all four failed originals and source identities.
 Post-retention native inventory measured5008files; only adoption/accepted/final
 metadata inventories now use5500. Checked source4832files/vector/CI guard stays
 5000, and historical receipts remain unchanged. Publication must preserveW and
-allC1–C5 sources before retiring the five exact QArefs/owned workflow. Release,
-deployment and public delivery are still pending; do not infer them from CI.
+allC1–C5 sources before retiring the five exact QArefs/owned workflow. CI alone
+does not establish release, deployment or public delivery.
+
+The [actual conflict/validation delivery](docs/results/2026/11-09/conflict-validation-public-delivery.md)
+records accepted sourcec08a97044131dd77553ac9326ea19276a2ebe234, seven unchanged
+archives/release438756436/tagv0.1.0-conflict-validation.1 and READY canonical
+deploymentdpl_EJDF7SGxQbD3dsBRHJtZU7HnYuzo. Fourteen complete anonymous native
+HTTPS200/TLS0/no-redirect observations retain29235618bodybytes; the full index,
+two items and all seven852389-byte simulator assets match their source profile.
+Provider buildNode24.22.2/136raw/128unique event dictionaries remain distinct
+from native HTTP evidence. Initial SSR controls do not prove hosted interaction.
+The [five QArefs are deleted and workflow411662634 is inactive](docs/results/2026/11-09/conflict-validation-retirement.json).
+All checked sources remain accepted ancestors; the two broad definitions stay
+unchanged. The workflow was already deleted before its exact403 not-active
+disable refusal. Preserve that unsuccessful request. A new data-only verifier
+edition accepts only matching deleted before/after states and that exact refusal;
+the original verifier and every application/source/byte/ref gate stay unchanged.
+Final native verification remains a separate metadata audit. Preserve17aliases and
+all publicnpm/externalhost/physical-device/assistive-technology proof limits.
 
 Measured BASE4364files/rawtree578336B/seed77462538B fits existing prospective
 5000source/1MiB exact rawGit tree stdout/96MiBseed bounds. Other streams remain

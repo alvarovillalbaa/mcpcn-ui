@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "mcpcn.conflict-validation-retirement-projection.v1",
+  "acceptedSourceCommit": "c08a97044131dd77553ac9326ea19276a2ebe234",
+  "status": "retired",
+  "qaRefs": [
+    {
+      "branch": "qa/mcpcn-conflict-validation-20261109",
+      "sourceCommit": "a667170c2d31c6b334f5eff0632f1c2ceb429b8f",
+      "deleted": true,
+      "ancestorProved": "c08a97044131dd77553ac9326ea19276a2ebe234",
+      "noForce": true
+    },
+    {
+      "branch": "qa/mcpcn-conflict-validation-20261109-attempt-2",
+      "sourceCommit": "a54af454cb501c348025642eaef72e86f9bea362",
+      "deleted": true,
+      "ancestorProved": "c08a97044131dd77553ac9326ea19276a2ebe234",
+      "noForce": true
+    },
+    {
+      "branch": "qa/mcpcn-conflict-validation-20261109-attempt-3",
+      "sourceCommit": "af0146099b17267270eda193bb760d401f2d1835",
+      "deleted": true,
+      "ancestorProved": "c08a97044131dd77553ac9326ea19276a2ebe234",
+      "noForce": true
+    },
+    {
+      "branch": "qa/mcpcn-conflict-validation-20261109-attempt-4",
+      "sourceCommit": "d43574200766c4aab9ec497b9570eb40b01f0070",
+      "deleted": true,
+      "ancestorProved": "c08a97044131dd77553ac9326ea19276a2ebe234",
+      "noForce": true
+    },
+    {
+      "branch": "qa/mcpcn-conflict-validation-20261109-attempt-5",
+      "sourceCommit": "4cf1226adde8147c76468bf9fe8f2f4aabada813",
+      "deleted": true,
+      "ancestorProved": "c08a97044131dd77553ac9326ea19276a2ebe234",
+      "noForce": true
+    }
+  ],
+  "nativeAbsenceChecks": 10,
+  "workflow": {
+    "id": 411662634,
+    "path": ".github/workflows/conflict-validation-checks.yml",
+    "beforeState": "deleted",
+    "afterState": "deleted",
+    "definitionAbsentFromAcceptedSource": true,
+    "runsDeleted": false,
+    "disableRequestSucceeded": false,
+    "disableRequestExitCode": 1,
+    "disableRequestHttpStatus": 403,
+    "disableRefusal": "Unable to disable a workflow that is not active."
+  },
+  "privateQaProofSha256": "c998f20c409e3732ee459cc473746e49dae80fbc3bcd25545e97943179aafeeb",
+  "privateWorkflowProofSha256": "9fc7077f6b1e14aef36874fbd3346c1a9f5ad81aa05b0d0df5e7f268ad79c213",
+  "verificationEdition": {
+    "filename": "verify-final-inactive-workflow.py",
+    "bytes": 71697,
+    "sha256": "ed53194aee57ce937f2a6910b1367dcee7eea958e834e444f1c5d4d9658176b7",
+    "scope": "Data-only distinction between an already-deleted workflow and a successful disable request. Original verifier remains unchanged; all application/source/byte/ref gates preserved."
+  },
+  "proofLimits": [
+    "Exact owned task controls only. The final native metadata audit is a separate action; no failed disable request is recorded as successful."
+  ]
+}

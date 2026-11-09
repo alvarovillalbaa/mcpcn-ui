@@ -38,8 +38,15 @@ full88-stage/190-DOM/two-reading/24-PNG profile and all source/process/cleanup
 gates. The [exact generated output was then adopted](../results/2026/11-09/conflict-validation-generated-publication.json):
 167verified paths,159changes,4665othertracked/176untracked files and index
 unchanged. Preserve all four failures; no earlier partial pass supplies this
-acceptance. Release, deployment, public HTTPS delivery and owned retirement
-remain separate pending boundaries.
+acceptance. The [public delivery](../results/2026/11-09/conflict-validation-public-delivery.md)
+then bound accepted sourcec08a97044131dd77553ac9326ea19276a2ebe234 to the
+seven matching release438756436 archives, READY canonical deployment and14
+complete nativeHTTPS responses. The [five owned QA refs are deleted](../results/2026/11-09/conflict-validation-retirement.json),
+with all checked sources preserved in accepted ancestry. The workflow was already
+deleted; its actual403 disable refusal is preserved as unsuccessful. A separate
+data-only verifier edition requires that exact refusal plus matching deleted
+before/after states; no application/source/byte/ref gate changes. The original
+verifier remains unchanged. Final native verification is a separate metadata action.
 
 The [owner contract](../specs/conflict-validation-components.md) replaces only
 ConflictResolver and ValidationSummary after clean36129be78ef310545930e0fa9e92ae2aa65b2f06.
@@ -48,8 +55,8 @@ All79 catalogue identities remain; new source targets39specialized/17generic,
 Existing blocks, per-value JSON guards, dependencies/lock, runtime/server/core,
 host protocol/CSP/primitives and closed check sources stay unchanged. Canonical
 registry bytes now contain the independently verified C5 output. Its seven
-checked archives are retained; the existing hosted site/release keep their
-inspection identity until separate new publication and delivery evidence.
+checked archives are published unchanged asv0.1.0-conflict-validation.1; actual
+current-source hosting and nativeHTTPS evidence are retained separately.
 
 ## Exact intended scope
 
@@ -184,8 +191,9 @@ closure. Preserve baseline/supervisor exclusions, fresh two-edge ownership proof
 stable-unknown fatality and complete owned teardown. No local build/install/app
 import/test/server/browser/database while Storage Guard lacks its reserve.
 
-Retention and independent generated adoption are complete. The seven-archive
-prerelease, existing Vercel production build and fourteen anonymous nativeHTTPS
-responses still require separate actual current-source receipts. No paid plan, account,
+Retention, independent generated adoption, the seven-archive prerelease,
+existing Vercel production build and fourteen anonymous nativeHTTPS responses
+have separate actual current-source receipts. Owned controls are retired;
+final native verification remains a separate metadata audit. No paid plan, account,
 model/provider API, public npm publish, live external MCP host, auth grant,
 production data or hosted-interaction claim belongs to this focused packet.

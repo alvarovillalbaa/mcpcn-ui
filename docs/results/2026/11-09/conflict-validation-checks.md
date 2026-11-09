@@ -65,8 +65,10 @@ proof-limit sentence incorrectly says five files; actual manifest/runner data
 prove six. C5 corrects that prose and tags feedback by generation without changing
 any of the six unit bodies, browser/consumer sources or execution gates.
 
-Release publication, deployment, public HTTPS delivery and owned-control
-retirement remain pending. Local preparation did not rerun applications or
+The separate [public delivery](conflict-validation-public-delivery.md) records
+the seven unchanged released archives, READY accepted-source hosting and14
+complete nativeHTTPS observations. The [owned controls are retired](conflict-validation-retirement.json);
+the separate final native audit checks metadata. Local preparation did not rerun applications or
 checks. Narrow Chromium is touch emulation, not physical-device or full
 assistive-technology proof. This packet establishes neither hosted browser
 interaction, external MCP-host acceptance, public npm availability, persistence
