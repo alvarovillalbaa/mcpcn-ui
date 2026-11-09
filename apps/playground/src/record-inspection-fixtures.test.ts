@@ -12,8 +12,8 @@ const envelope = (data: unknown, slug = "record-inspector") => ({ kind: `mcpcn/$
 describe("record inspection playground consumers", () => {
   it("RI-F01 preserves all identities while dispatching the two new dedicated schemas", () => {
     expect(playgroundItems).toHaveLength(79);
-    expect(playgroundItems.filter(item => item.kind === "specialized")).toHaveLength(39);
-    expect(playgroundItems.filter(item => item.kind === "generic-alias")).toHaveLength(17);
+    expect(playgroundItems.filter(item => item.kind === "specialized")).toHaveLength(41);
+    expect(playgroundItems.filter(item => item.kind === "generic-alias")).toHaveLength(15);
     for (const slug of ["record-inspector", "field-confidence-list"] as const) {
       const fixture = makeFixture(slug);
       expect(validateFixture(fixture).success).toBe(true); expect(schemaBySlug[slug].safeParse(fixture.data).success).toBe(true);

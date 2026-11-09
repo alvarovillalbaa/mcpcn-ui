@@ -372,7 +372,7 @@ describe("conflict and validation schemas", () => {
   it("CV-S39 routes public validation to the new owners while preserving unrelated aliases", () => {
     expect(publicSchemas.ConflictResolverSchema).toBe(ConflictResolverSchema); expect(publicSchemas.ValidationSummarySchema).toBe(ValidationSummarySchema);
     expect(publicSchemas.schemaBySlug["conflict-resolver"]).toBe(ConflictResolverSchema); expect(publicSchemas.schemaBySlug["validation-summary"]).toBe(ValidationSummarySchema);
-    expect(publicSchemas.RecordInspectorSchema).toBe(RecordInspectorSchema); expect(publicSchemas.OptionSelectorSchema).toBe(publicSchemas.GenericComponentSchema);
+    expect(publicSchemas.RecordInspectorSchema).toBe(RecordInspectorSchema); expect(publicSchemas.RecommendationCardSchema).toBe(publicSchemas.GenericComponentSchema);
     const conflictEnvelope = { version: 1, kind: "mcpcn/conflict-resolver", data: resolver() };
     const validationEnvelope = { version: 1, kind: "mcpcn/validation-summary", data: summary() };
     expect(publicSchemas.validatePayload(conflictEnvelope, ConflictResolverSchema).success).toBe(true);

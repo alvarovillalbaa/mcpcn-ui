@@ -6,9 +6,18 @@ Last updated: 2026-11-09
 
 The source includes components, controlled workflow blocks, MCP Apps runtime
 adapters, server helpers, a source registry, a CLI and a documentation app.
-The current source has 12 primitives, 39 specialized components and 17 named aliases
+The current source has 12 primitives, 41 specialized components and 15 named aliases
 of the generic informational component. Eleven workflow blocks now contain
 actual editing, selection, file-review, progress and approval compositions.
+
+OptionSelector and RankingList now have authored typed source for supplied
+options, reported order/ranks/scores and complete private values/evidence.
+Selection emits current identities only. Their
+[contract](docs/specs/option-ranking-components.md) preserves local/controlled
+reading and generation-bound feedback. The103 new focused cases and new browser/
+consumer packet remain unexecuted; source review is preparation. Canonical
+generated data, checked archives and hosted delivery retain the accepted
+conflict/validation identity below until the new packet passes and is published.
 
 ConflictResolver and ValidationSummary now have dedicated authored source for
 current candidate selection, separate explicit confirmation and complete supplied

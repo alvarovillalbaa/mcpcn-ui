@@ -11,6 +11,7 @@ import { DocumentPreviewSchema, FileReviewSchema } from "./file-review-schemas.j
 import { SourceListSchema, EvidenceDrawerSchema } from "./source-evidence-schemas.js";
 import { RecordInspectorSchema, FieldConfidenceListSchema } from "./record-inspection-schemas.js";
 import { ConflictResolverSchema, ValidationSummarySchema } from "./conflict-validation-schemas.js";
+import { OptionSelectorSchema, RankingListSchema } from "./option-ranking-schemas.js";
 export { RiskLevelSchema, ChangeSchema, SchemaFieldSchema } from "./schema-common.js";
 export * from "./review-schemas.js";
 export * from "./decision-schemas.js";
@@ -22,6 +23,7 @@ export * from "./file-review-schemas.js";
 export * from "./source-evidence-schemas.js";
 export * from "./record-inspection-schemas.js";
 export * from "./conflict-validation-schemas.js";
+export * from "./option-ranking-schemas.js";
 
 export const ApprovalCardSchema = z.object({
   title: z.string().refine(value => Boolean(value.trim()), "A review needs a visible title."),
@@ -100,9 +102,9 @@ export const GenericComponentSchema = z.object({
 
 // Every catalog surface has a named schema export. Specialized components own
 // their contracts; the remaining informational aliases share the generic shape.
-export const OptionSelectorSchema=GenericComponentSchema, RecommendationCardSchema=GenericComponentSchema,
+export const RecommendationCardSchema=GenericComponentSchema,
   TradeoffPanelSchema=GenericComponentSchema,
-  RankingListSchema=GenericComponentSchema, DecisionMemoSchema=GenericComponentSchema,
+  DecisionMemoSchema=GenericComponentSchema,
   ReasoningSummarySchema=GenericComponentSchema, DataAccessNoticeSchema=GenericComponentSchema,
   PrivacyBoundaryCardSchema=GenericComponentSchema, ConsentPanelSchema=GenericComponentSchema,
   ModelContextPreviewSchema=GenericComponentSchema,
@@ -168,5 +170,7 @@ export const schemaBySlug = {
   "record-inspector": RecordInspectorSchema,
   "field-confidence-list": FieldConfidenceListSchema,
   "conflict-resolver": ConflictResolverSchema,
-  "validation-summary": ValidationSummarySchema
+  "validation-summary": ValidationSummarySchema,
+  "option-selector": OptionSelectorSchema,
+  "ranking-list": RankingListSchema
 } as const;

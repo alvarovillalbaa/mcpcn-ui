@@ -11,6 +11,7 @@ import { sameReviewFile } from "@mcpcn/schemas";
 import { stableReviewKey, type SourceListData, type EvidenceDrawerData } from "@mcpcn/schemas";
 import type { RecordInspectorData, FieldConfidenceListData } from "@mcpcn/schemas";
 import type { ConflictResolverData, ValidationSummaryData } from "@mcpcn/schemas";
+import type { OptionSelectorData, RankingListData } from "@mcpcn/schemas";
 
 type Props = { payload: MCPCNPayload<string, unknown>; onAction: (action: UI.ComponentAction) => void | Promise<void> };
 type Data = Record<string, unknown>;
@@ -27,6 +28,8 @@ export function PlaygroundComponent({ payload, onAction }: Props) {
   if (inspectionIdentity) return <InspectionPreview key={inspectionIdentity} payload={parsed.data} onAction={onAction} />;
   const conflictIdentity = conflictValidationPreviewKey(parsed.data);
   if (conflictIdentity) return <ConflictValidationPreview key={conflictIdentity} payload={parsed.data} onAction={onAction} />;
+  const optionIdentity = optionRankingPreviewKey(parsed.data);
+  if (optionIdentity) return <OptionRankingPreview key={optionIdentity} payload={parsed.data} onAction={onAction} />;
   return <Preview key={JSON.stringify(parsed.data)} payload={parsed.data} onAction={onAction} />;
 }
 
@@ -94,6 +97,64 @@ function ConflictValidationPreview({ payload, onAction }: Props) {
   return <div className="mcpcn mcpcn-stack">{slug === "conflict-resolver"
     ? <UI.ConflictResolver {...current.data as ConflictResolverData} onAction={receive} />
     : <UI.ValidationSummary {...current.data as ValidationSummaryData} onAction={receive} />}</div>;
+}
+
+/** Same-root refreshes preserve native controls; the owner reconciles members. */
+export function optionRankingPreviewKey(payload: MCPCNPayload<string, unknown>): string | undefined {
+  if (payload.kind !== "mcpcn/option-selector" && payload.kind !== "mcpcn/ranking-list") return undefined;
+  const data = payload.data as OptionSelectorData | RankingListData;
+  return stableReviewKey({ kind: payload.kind, id: data.id, revision: data.revision });
+}
+function OptionRankingPreview({ payload, onAction }: Props) {
+  const externalKey = stableReviewKey(payload.data), slug = payload.kind.slice(6);
+  const [stored, setStored] = useState(() => ({ externalKey, data: payload.data as Data }));
+  const current = stored.externalKey === externalKey ? stored : { externalKey, data: payload.data as Data };
+  if (stored !== current) setStored(current);
+  const receive = (action: UI.ComponentAction) => {
+    const patch = controlledData(slug, current.data, action);
+    if (patch) {
+      const parsed = validateFixture({ ...payload, data: { ...current.data, ...patch } });
+      if (parsed.success) setStored({ externalKey, data: parsed.data.data as Data });
+    }
+    return onAction(action);
+  };
+  return <div className="mcpcn mcpcn-stack">{slug === "option-selector"
+    ? <UI.OptionSelector {...current.data as OptionSelectorData} onAction={receive} />
+    : <UI.RankingList {...current.data as RankingListData} onAction={receive} />}</div>;
+}
+
+function optionRankingControlledData(slug: string, current: Data, action: UI.ComponentAction): Data | undefined {
+  try {
+    const parsed = validateFixture({ kind: `mcpcn/${slug}`, version: 1, data: current });
+    if (!parsed.success) return undefined;
+    const data = parsed.data.data as OptionSelectorData | RankingListData;
+    if (data.state !== "ready") return undefined;
+    const own = (input: unknown): Data | undefined => {
+      if (!input || typeof input !== "object" || Array.isArray(input) || ![Object.prototype, null].includes(Object.getPrototypeOf(input))) return undefined;
+      const result: Data = {};
+      for (const key of Reflect.ownKeys(input)) {
+        if (typeof key !== "string" || ["__proto__", "constructor", "prototype"].includes(key)) return undefined;
+        const descriptor = Object.getOwnPropertyDescriptor(input, key);
+        if (!descriptor || !descriptor.enumerable || !("value" in descriptor)) return undefined;
+        result[key] = descriptor.value;
+      }
+      return result;
+    };
+    const request = own(action), value = request && own(request.data);
+    if (!request || !value || Object.keys(request).length !== 2 || !Object.hasOwn(request, "type") || !Object.hasOwn(request, "data")) return undefined;
+    const option = "group" in data, owner = option ? data.group : data.list;
+    if ((option ? data.selectedOptionId : data.selectedEntryId) === undefined) return undefined;
+    const ownerKey = option ? "group" : "list", memberKey = option ? "option" : "entry";
+    const select = option ? "select-option" : "inspect-ranked-option", clear = option ? "clear-option" : "clear-ranked-option";
+    if (request.type !== select && request.type !== clear) return undefined;
+    const keys = ["componentId", "componentRevision", ownerKey + "Id", ownerKey + "Revision", ...(request.type === select ? [memberKey + "Id", memberKey + "Revision"] : [])];
+    if (Object.keys(value).length !== keys.length || keys.some(key => !Object.hasOwn(value, key))
+      || value.componentId !== data.id || value.componentRevision !== data.revision || value[ownerKey + "Id"] !== owner.id || value[ownerKey + "Revision"] !== owner.revision) return undefined;
+    const found = request.type === clear ? null : (option ? data.group.options : data.list.entries).find(member => member.id === value[memberKey + "Id"] && member.revision === value[memberKey + "Revision"]);
+    if (request.type !== clear && !found) return undefined;
+    const patch = { [option ? "selectedOptionId" : "selectedEntryId"]: found?.id ?? null };
+    return validateFixture({ kind: `mcpcn/${slug}`, version: 1, data: { ...data, ...patch } }).success ? patch : undefined;
+  } catch { return undefined; }
 }
 
 function Preview({ payload, onAction }: Props) {
@@ -226,6 +287,7 @@ function fileMetadata(file: File | null) {
 }
 
 export function controlledData(slug: string, current: Data, action: UI.ComponentAction): Data | undefined {
+  if (slug === "option-selector" || slug === "ranking-list") return optionRankingControlledData(slug, current, action);
   const value = action.data;
   if (!object(value)) return undefined;
   switch (slug) {
