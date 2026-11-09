@@ -40,6 +40,8 @@ const SOURCES = [
   ["packages/react/src/file-review-components.tsx", "_mcpcn/file-review-components.tsx", "registry:component"],
   ["packages/schemas/src/source-evidence-schemas.ts", "_mcpcn/source-evidence-schemas.ts", "registry:lib"],
   ["packages/react/src/source-evidence-components.tsx", "_mcpcn/source-evidence-components.tsx", "registry:component"],
+  ["packages/schemas/src/record-inspection-schemas.ts", "_mcpcn/record-inspection-schemas.ts", "registry:lib"],
+  ["packages/react/src/record-inspection-components.tsx", "_mcpcn/record-inspection-components.tsx", "registry:component"],
 ] as const;
 export const sourceModulePaths: readonly string[] = Object.freeze(SOURCES.map(([, target]) => target));
 const INTERNAL_IMPORTS:Record<string,string> = {"@mcpcn/core":"./core","@mcpcn/schemas":"./schemas","@mcpcn/react":"./components","@mcpcn/runtime":"./runtime"};

@@ -9,6 +9,7 @@ import type { MissingDataRequestData, MultiStepFormData, InlineEditFormData, For
 import type { DocumentPreviewData, FileReviewData } from "@mcpcn/schemas";
 import { sameReviewFile } from "@mcpcn/schemas";
 import { stableReviewKey, type SourceListData, type EvidenceDrawerData } from "@mcpcn/schemas";
+import type { RecordInspectorData, FieldConfidenceListData } from "@mcpcn/schemas";
 
 type Props = { payload: MCPCNPayload<string, unknown>; onAction: (action: UI.ComponentAction) => void | Promise<void> };
 type Data = Record<string, unknown>;
@@ -21,6 +22,8 @@ export function PlaygroundComponent({ payload, onAction }: Props) {
   if (!parsed.success) return <UI.InvalidPayload title="Playground payload is invalid" issues={parsed.issues} />;
   const identity = evidencePreviewKey(parsed.data);
   if (identity) return <EvidencePreview key={identity} payload={parsed.data} onAction={onAction} />;
+  const inspectionIdentity = inspectionPreviewKey(parsed.data);
+  if (inspectionIdentity) return <InspectionPreview key={inspectionIdentity} payload={parsed.data} onAction={onAction} />;
   return <Preview key={JSON.stringify(parsed.data)} payload={parsed.data} onAction={onAction} />;
 }
 
@@ -43,6 +46,27 @@ function EvidencePreview({ payload, onAction }: Props) {
   return <div className="mcpcn mcpcn-stack">{slug === "source-list"
     ? <UI.SourceList {...current.data as SourceListData} onAction={receive} />
     : <UI.EvidenceDrawer {...current.data as EvidenceDrawerData} onAction={receive} />}</div>;
+}
+
+/** Preserve the new read-only controls while a same-root producer refreshes. */
+export function inspectionPreviewKey(payload: MCPCNPayload<string, unknown>): string | undefined {
+  if (payload.kind !== "mcpcn/record-inspector" && payload.kind !== "mcpcn/field-confidence-list") return undefined;
+  const data = payload.data as RecordInspectorData | FieldConfidenceListData;
+  return stableReviewKey({ kind: payload.kind, id: data.id, revision: data.revision });
+}
+function InspectionPreview({ payload, onAction }: Props) {
+  const externalKey = stableReviewKey(payload.data), slug = payload.kind.slice(6);
+  const [stored, setStored] = useState(() => ({ externalKey, data: payload.data as Data }));
+  const current = stored.externalKey === externalKey ? stored : { externalKey, data: payload.data as Data };
+  if (stored !== current) setStored(current);
+  const receive = (action: UI.ComponentAction) => {
+    const patch = controlledData(slug, current.data, action);
+    if (patch) setStored({ externalKey, data: { ...current.data, ...patch } });
+    return onAction(action);
+  };
+  return <div className="mcpcn mcpcn-stack">{slug === "record-inspector"
+    ? <UI.RecordInspector {...current.data as RecordInspectorData} onAction={receive} />
+    : <UI.FieldConfidenceList {...current.data as FieldConfidenceListData} onAction={receive} />}</div>;
 }
 
 function Preview({ payload, onAction }: Props) {
@@ -178,6 +202,21 @@ export function controlledData(slug: string, current: Data, action: UI.Component
   const value = action.data;
   if (!object(value)) return undefined;
   switch (slug) {
+    case "record-inspector":
+    case "field-confidence-list": {
+      const d = current as RecordInspectorData | FieldConfidenceListData;
+      if (d.state !== "ready" || d.selectedFieldId === undefined || value.componentId !== d.id || value.componentRevision !== d.revision) return undefined;
+      const record = "record" in d ? d.record : undefined;
+      if (record && (value.recordId !== record.id || value.recordRevision !== record.revision)) return undefined;
+      const clear = action.type === (record ? "clear-record-field" : "clear-confidence-field");
+      const keys = ["componentId", "componentRevision", ...(record ? ["recordId", "recordRevision"] : []), ...(clear ? [] : ["fieldId", "fieldRevision"])];
+      if (Object.keys(value).length !== keys.length || keys.some(key => !Object.hasOwn(value, key))) return undefined;
+      const fields = record ? record.fields : (d as Extract<FieldConfidenceListData, { state: "ready" }>).fields;
+      if (clear) return { selectedFieldId: null };
+      return action.type === (record ? "inspect-record-field" : "inspect-confidence-field")
+        && fields.some(field => field.id === value.fieldId && field.revision === value.fieldRevision)
+        ? { selectedFieldId: value.fieldId } : undefined;
+    }
     case "source-list": {
       const d = current as SourceListData;
       return d.state === "ready" && d.selectedSourceId !== undefined && action.type === "select-source"

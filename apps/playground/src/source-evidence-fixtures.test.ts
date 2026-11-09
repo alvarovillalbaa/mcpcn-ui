@@ -12,8 +12,8 @@ const fixture = (data: unknown, kind = "mcpcn/source-list") => ({ kind, version:
 describe("source evidence playground ownership", () => {
   it("SE-F01 preserves 79 identities with 35 dedicated and 21 generic components", () => {
     expect(playgroundItems).toHaveLength(79);
-    expect(playgroundItems.filter(item => item.kind === "specialized")).toHaveLength(35);
-    expect(playgroundItems.filter(item => item.kind === "generic-alias")).toHaveLength(21);
+    expect(playgroundItems.filter(item => item.kind === "specialized")).toHaveLength(37);
+    expect(playgroundItems.filter(item => item.kind === "generic-alias")).toHaveLength(19);
     for (const slug of slugs) {
       expect(validateFixture(makeFixture(slug)).success).toBe(true);
       expect(schemaBySlug[slug].safeParse(makeFixture(slug).data).success).toBe(true);

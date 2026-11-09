@@ -20,8 +20,8 @@ describe("approval cohort canonical registry integration", () => {
     const { registry, items } = await build();
     expect(items.map(item => item.name)).toEqual([...catalog.map(item => item.slug), ...blockCatalog.map(item => item.name)]);
     expect(new Set(items.map(item => item.name)).size).toBe(79); expect(registry.items).toBe(items);
-    expect(items.filter(item => item.meta.implementation === "specialized")).toHaveLength(35);
-    expect(items.filter(item => item.meta.implementation === "generic-alias")).toHaveLength(21);
+    expect(items.filter(item => item.meta.implementation === "specialized")).toHaveLength(37);
+    expect(items.filter(item => item.meta.implementation === "generic-alias")).toHaveLength(19);
     for (const [slug] of cohort) expect(items.find(item => item.name === slug)?.meta.implementation).toBe("specialized");
   });
   it("publishes five dedicated canonical schemas rather than the generic contract", () => {
@@ -32,7 +32,7 @@ describe("approval cohort canonical registry integration", () => {
     }
   });
   it("copies the two actual approval modules and their provenance into every item", async () => {
-    const { items } = await build(); expect(sourceModulePaths).toHaveLength(24);
+    const { items } = await build(); expect(sourceModulePaths).toHaveLength(26);
     for (const item of items) {
       for (const [path, target] of modules) {
         expect(item.files.find(file => file.path === `components/mcpcn/_mcpcn/${target}`)?.content).toBe(adapt(await readSource(path)));

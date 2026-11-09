@@ -9,8 +9,8 @@ const data = (slug: typeof slugs[number]) => makeFixture(slug).data as Record<st
 describe("form workflow cohort playground fixtures and controlled intent", () => {
   it("provides five strict dedicated fixtures within all 79 unchanged catalogue identities", () => {
     expect(playgroundItems).toHaveLength(79);
-    expect(playgroundItems.filter(item => item.kind === "specialized")).toHaveLength(35);
-    expect(playgroundItems.filter(item => item.kind === "generic-alias")).toHaveLength(21);
+    expect(playgroundItems.filter(item => item.kind === "specialized")).toHaveLength(37);
+    expect(playgroundItems.filter(item => item.kind === "generic-alias")).toHaveLength(19);
     for (const slug of slugs) {
       expect(playgroundItems.find(item => item.slug === slug)?.kind).toBe("specialized");
       expect(validateFixture(makeFixture(slug)).success).toBe(true);

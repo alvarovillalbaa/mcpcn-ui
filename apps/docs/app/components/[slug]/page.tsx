@@ -15,6 +15,8 @@ import { DocumentPreviewDemo, FileReviewDemo } from "../../../components/file-re
 import { fileReviewExampleCode } from "../../../components/file-review-examples";
 import { SourceListDemo, EvidenceDrawerDemo, EvidenceDrawerStackDemo } from "../../../components/source-evidence-demos";
 import { sourceEvidenceExampleCode } from "../../../components/source-evidence-examples";
+import { RecordInspectorDemo, FieldConfidenceListDemo } from "../../../components/record-inspection-demos";
+import { recordInspectionExampleCode } from "../../../components/record-inspection-examples";
 import { ComponentPreview } from "../../../components/component-preview";
 
 export function generateStaticParams() { return catalog.map(item => ({ slug: item.slug })); }
@@ -30,6 +32,7 @@ const demos: Record<string, ReactNode> = {
   "form-progress-card": <FormProgressCardDemo />, "validated-field-list": <ValidatedFieldListDemo />,
   "document-preview": <DocumentPreviewDemo />, "file-review": <FileReviewDemo />,
   "source-list": <SourceListDemo />, "evidence-drawer": <EvidenceDrawerDemo />,
+  "record-inspector": <RecordInspectorDemo />, "field-confidence-list": <FieldConfidenceListDemo />,
   "schema-form": <FormDemo />, "entity-review-table": <ReviewDemo />, "audit-trail": <AuditDemo />,
   "confirmation-panel": <ConfirmationPanelDemo />, "risk-review-panel": <RiskReviewPanelDemo />,
   "diff-viewer": <DiffViewerDemo />, "source-evidence-panel": <SourceEvidencePanelDemo />,
@@ -67,6 +70,8 @@ const events: Record<string, Array<[string, string]>> = {
   "source-evidence-panel": [["select-source", "{ reviewId, sourceId }"]],
   "source-list": [["select-source", "{ listId, listRevision, sourceId, sourceRevision }"], ["inspect-source", "{ listId, listRevision, sourceId, sourceRevision }"]],
   "evidence-drawer": [["open-evidence", "{ drawerId, drawerRevision, sourceId?, sourceRevision? }"], ["close-evidence", "{ drawerId, drawerRevision, sourceId?, sourceRevision? }"]],
+  "record-inspector": [["inspect-record-field", "{ componentId, componentRevision, recordId, recordRevision, fieldId, fieldRevision; no values or evidence }"], ["clear-record-field", "{ componentId, componentRevision, recordId, recordRevision }"]],
+  "field-confidence-list": [["inspect-confidence-field", "{ componentId, componentRevision, fieldId, fieldRevision; no values, confidence or evidence }"], ["clear-confidence-field", "{ componentId, componentRevision }"]],
   "dynamic-question-flow": [["answer-change", "{ flowId, questionId, value }"], ["question-change", "{ flowId, questionId }"], ["submit", "{ flowId, answers: visible question allowlist }"]],
   "extracted-fields-review": [["correction-change", "{ reviewId, fieldId, value }"], ["submit", "{ reviewId, values: current field allowlist }"]],
   "comparison-matrix": [["selection-change", "{ comparisonId, selectedId }"], ["confirm", "{ comparisonId, selectedId }"]],
@@ -102,7 +107,8 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
   const formWorkflowCode = formWorkflowExampleCode(slug);
   const fileReviewCode = fileReviewExampleCode(slug);
   const sourceEvidenceCode = sourceEvidenceExampleCode(slug);
-  const renderCode = sourceEvidenceCode ?? fileReviewCode ?? formWorkflowCode ?? toolWorkflowCode ?? approvalExampleCode(slug) ?? 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
+  const recordInspectionCode = recordInspectionExampleCode(slug);
+  const renderCode = recordInspectionCode ?? sourceEvidenceCode ?? fileReviewCode ?? formWorkflowCode ?? toolWorkflowCode ?? approvalExampleCode(slug) ?? 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
   const serverCode = 'import { ' + item.name + 'Schema } from "@mcpcn/schemas";\nimport { createStructuredResult } from "@mcpcn/server";\n\nexport function reviewedResult(candidate: unknown) {\n  const data = ' + item.name + 'Schema.parse(candidate);\n  return createStructuredResult("' + item.slug + '", data);\n}';
   return <main>
     <span className="eyebrow">{item.category}</span><h1>{item.name}</h1><p className="lede">{item.description}</p>
@@ -123,6 +129,13 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
           {Object.entries(properties).map(([name, field]) => <tr key={name}><th scope="row"><code>{name}</code></th><td>{fieldType(field)}</td><td>{"default" in object(field) ? "Defaulted" : required.has(name) ? "Required" : "Optional"}</td></tr>)}
         </tbody></table></div>
         <h2>React integration</h2><pre className="code">{renderCode}</pre>
+        {recordInspectionCode && <>
+          <h2>Inspect supplied fields</h2>
+          <p>Select a current field to read its complete JSON value and supplied evidence. Null, false, zero, empty strings and nested values keep their types. Reported confidence of zero is displayed as 0%; omitted confidence is shown as Not supplied. Neither confidence nor evidence verifies accuracy or authorizes an action.</p>
+          <p>Omit selectedFieldId for local inspection, including without a callback. Supplying null or a current ID makes selection controlled: acknowledge identity-only requests through new props. Busy or pending notification feedback does not prevent local reading. Replacing the current member clears local choice and fences obsolete feedback; unrelated appends preserve it.</p>
+          <p>Each component accepts up to 100 fields with complete guarded JSON values, at most 20 evidence references per field and a collective 2 MiB parsed UTF-8 JSON budget. The shared playground retains its smaller 8192-unit string and 65536-byte result limits and refuses oversized input without truncation.</p>
+          <p>Keep values, labels, confidence and evidence in app-only state. Inspection and clear events contain current identities/revisions only. The structured-result helper below includes its supplied data; private-field metadata does not redact values already sent to a model. Choose model-safe structured content separately from private inspection data.</p>
+        </>}
         {sourceEvidenceCode && <>
           <h2>Supplied evidence</h2>
           <p>Sources, excerpts and support statements are caller-supplied claims. These components do not fetch URLs, verify sources, rank claims or persist content. Safe HTTP(S) links open only through explicit user action. Text and JSON render completely as escaped data.</p>
