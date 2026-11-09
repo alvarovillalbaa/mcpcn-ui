@@ -1,6 +1,6 @@
 # MCPCN
 
-Last updated: 2026-11-08
+Last updated: 2026-11-09
 
 **MCP Component Network** is a React UI library for human-controlled agent workflows inside MCP Apps.
 
@@ -19,8 +19,13 @@ Its [focused acceptance](docs/results/2026/11-09/record-inspection-checks.md)
 passed 94 new unit/SSR checks, twelve desktop/narrow browser cases and both
 fresh strict installed consumers at `82024eae19e3b726682a3408c8c41033f24b33fc`.
 Actual keyboard reading, replacement fences and all owned cleanup gates passed.
-All 167 generated paths were verified and 159 changed files adopted. Package
-publication and hosted delivery remain separate boundaries.
+All 167 generated paths were verified and 159 changed files adopted. The
+[seven-archive prerelease](https://github.com/alvarovillalbaa/mcpcn-ui/releases/tag/v0.1.0-inspection.1)
+contains the unchanged checked archives with matching server digests. The
+[public delivery](docs/results/2026/11-09/record-inspection-public-delivery.md)
+binds accepted source `787df7cc630cbd9de4cbda22272556daa08fa49d` to READY,
+the canonical site and fourteen complete anonymous HTTPS checks. Public npm,
+external MCP hosts and hosted browser interaction remain unverified.
 
 SourceList and EvidenceDrawer now have dedicated strict source for current
 source selection and complete supplied text/JSON inspection. The native drawer

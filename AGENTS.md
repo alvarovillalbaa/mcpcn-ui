@@ -1,6 +1,6 @@
 # MCPCN source ownership
 
-Last updated: 2026-11-08
+Last updated: 2026-11-09
 
 - Product intent: the Notion `mcpcn-ui` React MCP Apps library brief. Preserve
   both package imports and editable source installation, a configurable docs
@@ -669,3 +669,15 @@ generated bodies were independently verified;159 changes adopted, preserving
 3985 other tracked files and176 untracked originals. Preserve checked source
 and workflow3ab8f5f6 as accepted ancestors before retiring only the one new QA
 ref and workflow411598940. No closed packet was replayed or outcome rewritten.
+
+The [inspection public delivery](docs/results/2026/11-09/record-inspection-public-delivery.md)
+records accepted source787df7cc630cbd9de4cbda22272556daa08fa49d, seven unchanged
+checked archives/release438681281/tagv0.1.0-inspection.1 and READY deployment
+dpl_Gky7HM2HcV43wuunpox9kscHSDWc. Fourteen complete anonymous nativeHTTPS
+observations match the full registry/items and all seven simulator assets.
+The two SSR pages prove initial controls only; the twelve CI browser cases
+remain separate interaction evidence. The one owned QA ref is retired and
+workflow411598940 is deleted/inactive; both original broad workflows stay exact.
+Later metadata leaves accepted application/config/generated inputs unchanged.
+Remaining19aliases, publicnpm, externalhosts, hostedinteraction and physical
+device/assistive-technology acceptance still require their own useful scope.
