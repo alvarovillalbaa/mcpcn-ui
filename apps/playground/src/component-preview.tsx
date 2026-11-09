@@ -8,6 +8,7 @@ import type { ToolResultCardData, RunningTaskCardData, PartialResultViewerData, 
 import type { MissingDataRequestData, MultiStepFormData, InlineEditFormData, FormProgressCardData, ValidatedFieldListData } from "@mcpcn/schemas";
 import type { DocumentPreviewData, FileReviewData } from "@mcpcn/schemas";
 import { sameReviewFile } from "@mcpcn/schemas";
+import { stableReviewKey, type SourceListData, type EvidenceDrawerData } from "@mcpcn/schemas";
 
 type Props = { payload: MCPCNPayload<string, unknown>; onAction: (action: UI.ComponentAction) => void | Promise<void> };
 type Data = Record<string, unknown>;
@@ -18,7 +19,30 @@ const object = (value: unknown): value is Data => value !== null && typeof value
 export function PlaygroundComponent({ payload, onAction }: Props) {
   const parsed = validateFixture(payload);
   if (!parsed.success) return <UI.InvalidPayload title="Playground payload is invalid" issues={parsed.issues} />;
+  const identity = evidencePreviewKey(parsed.data);
+  if (identity) return <EvidencePreview key={identity} payload={parsed.data} onAction={onAction} />;
   return <Preview key={JSON.stringify(parsed.data)} payload={parsed.data} onAction={onAction} />;
+}
+
+/** Only the two evidence contracts preserve native control/presentation identity. */
+export function evidencePreviewKey(payload: MCPCNPayload<string, unknown>): string | undefined {
+  if (payload.kind !== "mcpcn/source-list" && payload.kind !== "mcpcn/evidence-drawer") return undefined;
+  const data = payload.data as SourceListData | EvidenceDrawerData;
+  return stableReviewKey({ kind: payload.kind, id: data.id, revision: data.revision });
+}
+function EvidencePreview({ payload, onAction }: Props) {
+  const externalKey = stableReviewKey(payload.data), slug = payload.kind.slice(6);
+  const [stored, setStored] = useState(() => ({ externalKey, data: payload.data as Data }));
+  const current = stored.externalKey === externalKey ? stored : { externalKey, data: payload.data as Data };
+  if (stored !== current) setStored(current);
+  const receive = (action: UI.ComponentAction) => {
+    const patch = controlledData(slug, current.data, action);
+    if (patch) setStored({ externalKey, data: { ...current.data, ...patch } });
+    return onAction(action);
+  };
+  return <div className="mcpcn mcpcn-stack">{slug === "source-list"
+    ? <UI.SourceList {...current.data as SourceListData} onAction={receive} />
+    : <UI.EvidenceDrawer {...current.data as EvidenceDrawerData} onAction={receive} />}</div>;
 }
 
 function Preview({ payload, onAction }: Props) {
@@ -154,6 +178,15 @@ export function controlledData(slug: string, current: Data, action: UI.Component
   const value = action.data;
   if (!object(value)) return undefined;
   switch (slug) {
+    case "source-list": {
+      const d = current as SourceListData;
+      return d.state === "ready" && d.selectedSourceId !== undefined && action.type === "select-source"
+        && value.listId === d.id && value.listRevision === d.revision
+        && d.sources.some(source => source.id === value.sourceId && source.revision === value.sourceRevision)
+        ? { selectedSourceId: value.sourceId } : undefined;
+    }
+    // Opening acknowledgement is an explicit producer update, never a local echo.
+    case "evidence-drawer": return undefined;
     case "document-preview": return documentViewPatch(current as DocumentPreviewData, action);
     case "file-review": {
       const data = current as FileReviewData, extraction = data.extraction;

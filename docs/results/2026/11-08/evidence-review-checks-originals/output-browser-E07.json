@@ -1,0 +1,1336 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "f6149dde73a81c9d0cd74206ca10b1226b093d4f",
+  "caseId": "E07",
+  "title": "E07 desktop docs external requests and owned dismissal",
+  "profile": "desktop",
+  "scenario": "requests",
+  "originKey": "docs",
+  "route": "/playground",
+  "origin": "http://127.0.0.1:4173",
+  "playwright": "1.65.0",
+  "browserVersion": "158.0.8127.18",
+  "startedAt": "2026-11-09T00:24:07.963Z",
+  "viewport": {
+    "width": 1280,
+    "height": 900
+  },
+  "touchEmulated": false,
+  "status": "passed",
+  "observations": [
+    {
+      "stage": "actual_nested_bridge_ready",
+      "atMs": 615.2475950000007,
+      "frames": {
+        "outerPage": {
+          "origin": "http://127.0.0.1:4173",
+          "pathname": "/playground"
+        },
+        "hostUrl": {
+          "origin": "http://127.0.0.1:4173",
+          "pathname": "/playground-simulator/index.html"
+        },
+        "appUrl": {
+          "origin": "http://127.0.0.1:4173",
+          "pathname": "/playground-simulator/frame.html"
+        },
+        "sessionFragmentSha256": "7a494aeca6fce5e16858206fbeb96cb69d3f5f2c9f8e3b1004734647533bfd46",
+        "hostRole": "MCPCN host simulator",
+        "appRole": "Rendered MCP app",
+        "hostFrameCount": 1,
+        "appFrameCount": 1,
+        "actualFrameCount": 3
+      },
+      "viewport": {
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "documentWidth": 1280,
+        "maxTouchPoints": 0
+      },
+      "theme": "light",
+      "proof": {
+        "dom": {
+          "encoding": "gzip-base64",
+          "bytes": 8710,
+          "sha256": "cc5e5ffed6071326f258d302208c200dee49c2ddea473e43ac119ce12d507bb0",
+          "compressedBytes": 1176,
+          "data": "H4sIAAAAAAAAA+1ZW2/bNhT+K8R5KDbAjtzL0EKRBaSOtwRYkyBxd8FUBLR4HBOlSYKkHBtB/vtASrIlO17abtj2oBdBJL/Dc+EhwY/nAVTh0JxNPvwMMSQWc8eVJLmg1g4zWOQ6lyR8+zk1rPrFJWcoc+wbpVwGxCiBwwwM3nElMyDUcNoXdIpimMFNobXgyEgtVQOmhV0PM5hRYTGDNJkjZWjauvtlZxh+vTPkuBNecE9BEs1fp0lUiqYJ48sdyali68oV62j+2U+vdxVz6TJIx9WchFtia0UzZQiXVpfROibcWZIr6VA6S6hBIpUjXDLUKBlKJ9ZkiYbPOLKjJNJpMi2cOxDmcigD4tbaB3XTbgX1UqPcC+icWq10oYcZME6FuqsHvG1GCa/q1ty+vK37caWpZMgaq9CaOIlK7WkSMb70kfSzEs4aEz3lwyY/2mYE4wWy6bqUH3h5Rh3ta4MWpaM+nH2lUX5hXlT6jLqvo4fuHlEGsVcbQwd7htbJQxyd+oVaDTPovzyQTK++bcGCZ0vvuXTDDCzmSjJq1rtrORLKYmMx03ZHYxEOZ/Qm4lUatrP7Kzdoncvt8Ax8UPc1W1UYv9Joc8O1C/OnyfxNelK4uTLIiF9bavK53xU+nG/SRKcJJXODs2EGc+e0jaMIV3ShBR7lahHVO63vRYIZ5g59EG+ngsrgUTBdKp8saIhUBmdojD8qSP2rleD5OsD62+H0WYVJRNOwTXfPhMpXXOVotD8dNj5WXeSFcMe4eHHnjj+jdoRa4nDlfG9Udh+R8cVpf/zbaHx9NQlKCnFgObxNyriYPB1JH2bB05PtsZQLyhfHf334CB6kvBE3H6+uLq8nZV9UiHqXa4OHsss7k0H6fvzT+UV//Mv56fhiNM7kNgx1BnmPy4TwThfSmcI6ZN99H0KxHSEGF5RLS7SgXIZgHWVypPzCONy6tplYcIkdokN0iA7RITpEh+gQHaJD/KuIcIWvbr9JpA0efD64CYzBEio39/nwQNC+s9teuLTX1/SNvvKxoLyVRyWXTpOoeqRJoQf+vjwqyRrE+0TuH3+8aL0O7Klr89anWcuz5GuPUiW4SJtkKolwkbZo1FdRoAbzeZ7GJCVTSRsEJqnYS9pRlw7RITpEh+gQHaJDdIgO8f9HNKnL3yQn0IOZygsL8QM4egcxvL88/R16ECoZEMtCiJKi1P9cXocKFMShuNcDpvJigdKdUftjOVUYeOxVBUwL8R8PwBnEZb0ReuALPhv5hWJUbFqhpvcUD4Ie+ApYbYYvt3woJSsb6fTcV7lOnDN8WrgK+fhpa2HAj1ThidagB3VFNdhXOf9xMrm8gNrjdol2G5W9fsYtnQpkGzd8MdT6dmlciHFj2JfNtob7uljdMtuo1+Wuq1ACq9zpHTK1Tdwatu4N/AfGnmztfJY87ibft5n7RXpqb6qSJFQePVWShH0XmyVJCHmGjvKQT596QAUaV/3nPufQVK0lx3u/T/2e41Ki+ZUzN4f47Q/vemXHGfK7uYP47bvBNnubqAVdTVSRz68Ul17J4PHxTydiUM4GIgAA",
+          "complete": true
+        },
+        "intent": {
+          "encoding": "gzip-base64",
+          "bytes": 4,
+          "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "compressedBytes": 24,
+          "data": "H4sIAAAAAAAAA8srzckBAE/8yyUEAAAA",
+          "complete": true
+        },
+        "intentValue": null,
+        "payload": {
+          "encoding": "gzip-base64",
+          "bytes": 3634,
+          "sha256": "4fce612ac42dca1bdd0b9e219267bab4c00ad806ba18ac47f55fafb612befee3",
+          "compressedBytes": 508,
+          "data": "H4sIAAAAAAAAA+2XTWvbQBCG7/4Vw55aqCVyVY1BVdRicGXjJKWhCWa7O6mXSKtld+TaBP/3spK8VkLPOeki8KtnPjyjwzsvEwDmyDaCGosyqzWhJpbAywQAgD0rLVkCrBJG6Bj3SqIWOJWW/0XLPnXQHq1TtWYJXPWK5MRDEgCm2iQh/KqPBGAW96oPZgOZFJXotZvGmFKhhHPwhXHEqWUscnkc6HVjBQ7KhwZ0TTjlgQRgJf+NpX+VNrSrLUqw6JBbsQMPD9HGtuCOyLgkjvHAK1NiJOoqdn2T07cxeBBoDb0q0Gsww2r+jIaAOyA80CzGah5BXlxP859ZvlnfDjP5ErUlxxL4FVQAlsK5OIiSq+qz7xuUlmhQS9RUHmGPVj0plNEgIQDzlW7u1uvV5pYF/XFQ8/Vuev0U5izefCzd4o6m3Yn/R8P+298JsC/5t0UxzX8srvMiyx/0ZSz9fmHmhFWG5o0m2zhC+eHjLO41sFhxpR2Ykivdji160FntN0F4GUVIViqNIzESIzESIzESIzESIzES70q0lr53vMFGT87P1lAPzHRn78Pp9F9DHex0sM/fs3VWeFt8/GPrRkt4Ugd/0kUsFGqtPdtWOLjNmLFqzwm/dnRRdxfVcpWly+3dYrsqlvfbLC3Szb1PdJqc/gHxjuFFMg4AAA==",
+          "complete": true
+        }
+      }
+    },
+    {
+      "stage": "external_false_emits_request_and_waits_for_producer",
+      "atMs": 878.4654659999997,
+      "proof": {
+        "dom": {
+          "encoding": "gzip-base64",
+          "bytes": 8731,
+          "sha256": "16fdc58e18d394fa8515c0d5d380c5a8b27d050293ac4dfa698bd27af9831376",
+          "compressedBytes": 1184,
+          "data": "H4sIAAAAAAAAA+1ZbW/bNhD+K8R9KDZAjtyXoYUiC0hdbwnQJkHibgOmIqDFS0yUJgmScmwE+e8DKcm2/LKkXTHsg74YJvmQd/fwKPDhPYAqHZrT8aePkEBqsXBcSVIIau0gh1mhC0nCb6+ghtV/cc4ZygJ7RimXAzFK4CAHg3dcyRwINZz2BJ2gGORwXWotODLSzGoAk9IuBzncUmExhyydImVo2rZ7VWcYfr015LgTfuKOgTSevs7SuJqapYzPt2ZOFFvWoVhHi69+eb1tmEuXQzaq1yTcEtsYulWGcGl1xdYx4c6SQkmH0llCDRKpHOGSoUbJUDqxJHM0/JYjO0pjnaWT0rkDNFdDORC31J7UVbtF6oVGuUPolFqtdKkHOTBOhbprBrxvRglv6sbcvLxp+nGhqWTINnahtXAaV9azNGZ87pn0qxLONhbaF8MqP9puBOcFssmymt/38xl1tKcNWpSOejp7SqN8Zl7U9oy6b9hDd48ow7RXK0f7O442yUMcnfiNWgxy6L08kEyvvm/DQmRzH7l0gxwsFkoyapbbezkUyuLGZmbtjo1NOJzRK8brNGxn9zce0CaX2/T0Pam7lq0qjd9ptIXh2oX1s3T6Jjsp3VQZZMTvLTXF1J8KT+ebLNVZSsnU4O0gh6lz2iZxjAs60wKPCjWLm5PW81OCG+YOPYk3E0FliCi4LpVPFjREKoO3aIz/VJDmr1aCF8sA662HsycNpjHNwjHd/ibUseKiQKP912EVY91FXgh3jLMXd+74K2pHqCUOF873xlX3ERmdf+iN/hyOri7HwUgpDmyH90kZl5D9THqaBc9O1p+lQlA+O/7nj4/gYZZ34vrz5eXF1bjqi0vRnHJt8FB2+WByyN6Pfjs7741+P/swOh+OcrmmockgH3GVED7oUjpTWofsp58DFesRYnBGubREC8plIOsol0PlN8bhOrTVwoJL7BAdokN0iA7RITpEh+gQHeI/RYQrfH37TWNt8ODzwXVQDJZQubrPhweC9p3dRuHS3lzTV/aqx4LqVh5XWjpL4/qRJoMI/H15WIk1SHaF3A9/vGi9DuyYa+vW/arlSfG1I6lSnGWbYiqNcZa1ZNQ3SaAN5fO0jEkrpZJtCJi0Vi9ZJ106RIfoEB2iQ3SIDtEhOsT/H7EpXf6lOIEIblVRWkgewNE7SOD95/H44hwiCLUMSNplylqv7Onm8ipUpiBxpsQImCrKGUp3Su2vlQXf/xjVZU0LyV8PwBkkVRUSIvBlIEhCyTCCmWJUrFqh0rdPHUEEvi4GiSyFiMAXYT5VM6sORydnvvZ14pzhk9LVyMcvawcDfqhKL7/6ETR11uDfFiUHQj/EFOOWTgSyVRi+RGp9u3IuMO+bFWO+lrb22xfLmpZBsf5b1cAuQ12sjiY65GlbzW24ujPwbF/r4R/g7MnazycV5dr1auXvc/dZdppo6jol1BHtq1PCboibdUoIaYaO8pBOXyKgAo2r/xc+5dDUrTnHe394/UHkUqL5gzM3heTtL++iquMU+d3UQfL2XX+dvJuoGV2MVVlMLxWX3kj/8fFvyzqpiBsiAAA=",
+          "complete": true
+        },
+        "intent": {
+          "encoding": "gzip-base64",
+          "bytes": 155,
+          "sha256": "9ba316ef717cc3fccaf53e237d2bc247cd2427d088548bc4558f696bcfb6f723",
+          "compressedBytes": 113,
+          "data": "H4sIAAAAAAAAA1XLMQ6AIBBE0Z5TbLaWwtYb2HoDAlPQAAHEGMLdDRpJKCfvTxVEnO8A3oh9gJMo1sBp8NLJqKx4oyqI+orqQtxNj/9Orm859ECxyXrXm0HJn1HjOzqfIdUs80kQNdEewtJ2CZsAAAA=",
+          "complete": true
+        },
+        "intentValue": {
+          "type": "open-evidence",
+          "data": {
+            "drawerId": "evidence-1",
+            "drawerRevision": "1",
+            "sourceId": "note-a",
+            "sourceRevision": "1"
+          }
+        },
+        "payload": {
+          "encoding": "gzip-base64",
+          "bytes": 3655,
+          "sha256": "b88e8aa51e364b19d0edd0a824dda5435dd3007124331dee4be833e4cb6afb3c",
+          "compressedBytes": 515,
+          "data": "H4sIAAAAAAAAA+2XTWvbQBCG7/4Vw55aqC1yVY3BVdRicGXjJKWhKWa7O66XSLvL7si1Cf7vYSVlraQ996SjXj3zoRkd3nkaATBPrhZUO5SZ0YSaWApPIwAA9qi0ZCmwSlihEzwoiVrgWDr+Bx370EIHdF4ZzVK46hTJicckAEw1SWL4VRcJwBweVBfMejIpKjFoN7W1pUIJL8EXxhOnhnHI5amnm9oJ7JWPDWhDOOaRBGAl/4VleDWvaW8cSnDokTuxhwD30do14J7I+jRJ8MgrW+JEmCrxXZPjtzF4FOgsvSrQaTDFavaIloB7IDzSNMFqNoG8uB7n37N8s77tZwoljCPPUvgRVQA2h5fiIEquqo+hb1BaokUtUVN5ggM6tVMoJ72EACxUurlbr1ebWxb1n72ar3fT6ec4Z/HmZ2kXd7LNTsIX9ftvnlNgn/Ivi2Kcf1tc50WWP+jLWLr9wtQLpyzNak2u9oTy3ftp0mngsOJKe7AlV7oZ2+RBZyZsgvAyipisVBoHYiAGYiAGYiAGYiAGYiD+K9FY+s7x/m2jjcXgsHe89Nho51H3uuewW88f76l/uuzosaOn/pqtsyJ45dNvZ2otYaeO4c6bsFio8ftsW2HvYGPWqQMn/NzShWnPrOUqmy+3d4vtqljeb7N5Md/ch0Tn0fkZo0MVzEcOAAA=",
+          "complete": true
+        }
+      }
+    },
+    {
+      "stage": "unchanged_true_does_not_undo_owned_dismissal",
+      "atMs": 1157.5575059999992,
+      "proof": {
+        "dom": {
+          "encoding": "gzip-base64",
+          "bytes": 8710,
+          "sha256": "cc5e5ffed6071326f258d302208c200dee49c2ddea473e43ac119ce12d507bb0",
+          "compressedBytes": 1176,
+          "data": "H4sIAAAAAAAAA+1ZW2/bNhT+K8R5KDbAjtzL0EKRBaSOtwRYkyBxd8FUBLR4HBOlSYKkHBtB/vtASrIlO17abtj2oBdBJL/Dc+EhwY/nAVTh0JxNPvwMMSQWc8eVJLmg1g4zWOQ6lyR8+zk1rPrFJWcoc+wbpVwGxCiBwwwM3nElMyDUcNoXdIpimMFNobXgyEgtVQOmhV0PM5hRYTGDNJkjZWjauvtlZxh+vTPkuBNecE9BEs1fp0lUiqYJ48sdyali68oV62j+2U+vdxVz6TJIx9WchFtia0UzZQiXVpfROibcWZIr6VA6S6hBIpUjXDLUKBlKJ9ZkiYbPOLKjJNJpMi2cOxDmcigD4tbaB3XTbgX1UqPcC+icWq10oYcZME6FuqsHvG1GCa/q1ty+vK37caWpZMgaq9CaOIlK7WkSMb70kfSzEs4aEz3lwyY/2mYE4wWy6bqUH3h5Rh3ta4MWpaM+nH2lUX5hXlT6jLqvo4fuHlEGsVcbQwd7htbJQxyd+oVaDTPovzyQTK++bcGCZ0vvuXTDDCzmSjJq1rtrORLKYmMx03ZHYxEOZ/Qm4lUatrP7Kzdoncvt8Ax8UPc1W1UYv9Joc8O1C/OnyfxNelK4uTLIiF9bavK53xU+nG/SRKcJJXODs2EGc+e0jaMIV3ShBR7lahHVO63vRYIZ5g59EG+ngsrgUTBdKp8saIhUBmdojD8qSP2rleD5OsD62+H0WYVJRNOwTXfPhMpXXOVotD8dNj5WXeSFcMe4eHHnjj+jdoRa4nDlfG9Udh+R8cVpf/zbaHx9NQlKCnFgObxNyriYPB1JH2bB05PtsZQLyhfHf334CB6kvBE3H6+uLq8nZV9UiHqXa4OHsss7k0H6fvzT+UV//Mv56fhiNM7kNgx1BnmPy4TwThfSmcI6ZN99H0KxHSEGF5RLS7SgXIZgHWVypPzCONy6tplYcIkdokN0iA7RITpEh+gQHaJD/KuIcIWvbr9JpA0efD64CYzBEio39/nwQNC+s9teuLTX1/SNvvKxoLyVRyWXTpOoeqRJoQf+vjwqyRrE+0TuH3+8aL0O7Klr89anWcuz5GuPUiW4SJtkKolwkbZo1FdRoAbzeZ7GJCVTSRsEJqnYS9pRlw7RITpEh+gQHaJDdIgO8f9HNKnL3yQn0IOZygsL8QM4egcxvL88/R16ECoZEMtCiJKi1P9cXocKFMShuNcDpvJigdKdUftjOVUYeOxVBUwL8R8PwBnEZb0ReuALPhv5hWJUbFqhpvcUD4Ie+ApYbYYvt3woJSsb6fTcV7lOnDN8WrgK+fhpa2HAj1ThidagB3VFNdhXOf9xMrm8gNrjdol2G5W9fsYtnQpkGzd8MdT6dmlciHFj2JfNtob7uljdMtuo1+Wuq1ACq9zpHTK1Tdwatu4N/AfGnmztfJY87ibft5n7RXpqb6qSJFQePVWShH0XmyVJCHmGjvKQT596QAUaV/3nPufQVK0lx3u/T/2e41Ki+ZUzN4f47Q/vemXHGfK7uYP47bvBNnubqAVdTVSRz68Ul17J4PHxTydiUM4GIgAA",
+          "complete": true
+        },
+        "intent": {
+          "encoding": "gzip-base64",
+          "bytes": 156,
+          "sha256": "17957dbb285636d143cd591d1cbf3b3184c1a124e3947d48ec6b60f10b921d10",
+          "compressedBytes": 114,
+          "data": "H4sIAAAAAAAAA1XLQQqAIBSE4b2neLx1Ltp2g7bdQHQWQmioGSHePSwSXA7fP0UQcboP8EKsdx8hka2B0+CpmVFJ8UJFELUV1IWwmlb/nZzfsuuGbKP1rjWdoj+Dxnd0PkGqUcaTIKqiPi9y7TicAAAA",
+          "complete": true
+        },
+        "intentValue": {
+          "type": "close-evidence",
+          "data": {
+            "drawerId": "evidence-1",
+            "drawerRevision": "1",
+            "sourceId": "note-a",
+            "sourceRevision": "1"
+          }
+        },
+        "payload": {
+          "encoding": "gzip-base64",
+          "bytes": 3654,
+          "sha256": "6c2a041464b53c3fe024ab1b2f7773c4f3016f4c9bbb2abceb45036445e820cd",
+          "compressedBytes": 514,
+          "data": "H4sIAAAAAAAAA+2XTWvbQBCG7/4Vw55aqCxyVY3BVdRicGXjJKWhCWa7O6mXSLvL7si1Cf7vYWVlrSQ996SjXj3zoRkd3nkaATBPrhHUOJS50YSaWAZPIwAA9qi0ZBmwWlihU9wpiVpgIh3/i459OkE7dF4ZzTK46BTJicckAEy1SWL4RRcJwBzuVBfMejIpqjBoV421lUIJL8FnxhOnlnHI5aGnm8YJ7JWPDWhDmPBIArCK/8YqvJo1tDUOJTj0yJ3YQoD7aONacEtkfZamuOe1rXAsTJ36rsnkbQzuBTpLrwp0Gkywnj6iJeAeCPc0SbGejqEoL5PiZ16sV9f9TKGEceRZBr+iCsBm8FIcRMVV/Tn0DUpLtKglaqoOsEOnHhTKcS8hAAuVrm5Wq+X6mkX9vlfz9W46/RjnLN78LKfFHWy7k/BF/f7b5wzYl+LbvEyKH/PLosyLO30eS7dfmHjhlKVpo8k1nlB++DhJOw0c1lxpD7biSrdjG9/p3IRNEJ5HEZNVSuNADMRADMRADMRADMRADMR/JVpL3zne9zbaWAwOm1yDrXQcdW97Bvtk+eM59U+THS12tNTf81VeBqt8+ONMoyU8qH0488YsFmrtPtvU2LvXmHVqxwm/nujSnK6sxTKfLTY3882yXNxu8lk5W9+GRMfR8Rnge2PbRg4AAA==",
+          "complete": true
+        }
+      }
+    },
+    {
+      "stage": "fresh_external_request_opens_again",
+      "atMs": 1366.3124850000004,
+      "proof": {
+        "dom": {
+          "encoding": "gzip-base64",
+          "bytes": 8727,
+          "sha256": "728046c6819ad4b91d40b990a26eacf2d9c6953f81a63270056e9f93e572a7b2",
+          "compressedBytes": 1186,
+          "data": "H4sIAAAAAAAAA+1ZUW/bNhD+K8Q9FBsgR0naoYUiC0hdbwmwJkHibgOmIqDFs02UJgmScmwE+e8DKcm27HhZu2Hbg14Mk/zIu/t4FPjxHkGVDs3F6OPPkEBqsXBcSVIIam0/h3mhC0nCb6+ghtV/ccEZygJ7RimXAzFKYD8Hg1OuZA6EGk57go5R9HO4K7UWHBlpZjWAcWlX/RwmVFjMIUtnSBmatu1e1RmGX+8MOe6En7hnII1nr7M0rqZmKeOLnZljxVZ1KNbR4otfXu8a5tLlkA3rNQm3xDaGJsoQLq2u2Doj3FlSKOlQOkuoQSKVI1wy1CgZSidWZIGGTziyozTWWTounTtAczWUA3Er7Uldt1ukXmuUe4TOqNVKl7qfA+NUqGkz4H0zSnhT9+b+5L7px6WmkiHr5+BM6blsrZvGlfEsjRlfeCL9ooSzrXWeC2GdHm0vgu8C2XhVzT/28xl1tKcNWpSOejZ7SqNcO0Tq1gv5URs26qFhEd0DogzTTtceH+953CQRcXTsN2zZz6F3ciCpTr9t40KIC0+BdP0cLBZKMmpWu3s6EMri1qZm7Y6t3Tic2Wvq63RsZ/lXHtQmp9v0HHtS9y1bVRq/5WgLw7UL62fp7E12XrqZMsiI32Rqipk/HZ7ON1mqs5SSmcFJP4eZc9omcYxLOtcCjwo1j5sT1/NTghtmip7E+7GgMkQUXJfK5wkaIpXBCRrjPxmk+auV4MUqwHqb4exFg2lMs3Bcd78Nday4LNBo/5VYx1h3kVfCneH81dSdfUHtCLXE4dL53rjqPiLDqw+94W+D4e3NKBgpxYHt8D4p4xLyPJOeZsGz883nqRCUz8/+/CMkeJjlnbj7dHNzfTuq+uJSNMddGzyUXT6YHLL3w58ur3rDXy4/DK8Gw1xuaGgyyEdcJYQPupTOlNYh++77QMVmhBicUy4t0YJyGcg6yuVA+Y1xuAltvbDgEjtEh+gQHaJDdIgO0SE6RIf4VxHhCl/fftNYGzz4jHAXFIMlVK7v8+GhoH1nt1G4tDfX9LW96tGgupXHlajO0rh+rMkgAn9fHlRiDZJ9IfePP2K0ngn2zLV16/Oq5UXxtSepUpxn22IqjXGetWTUV0mgLeXzsoxJK6WSbQmYtFYvWSddOkSH6BAdokN0iA7RITrE/x+xLV3+pjiBCCaqKC0kj+DoFBK4OIUIQh0DElkKUQmU55QJRMDlbShHQeJLfhEwVZRzlO6C2h+rZX3/U1TXNC0kvz8CZ5BUNUiIwNd+mtlzxahoGqG4d8CsL4U13vm6y8dqYu0uHV/6cte5c4aPS1cjnz5v3Av4gSq94jqJoCmxBu8qFt5/Go2ur2AdfEs0bQja62fc0rFABkkojUfgy6PWtyvnAtlbw75+tnHcF8ialtlsQFP3ugm1sDqc6JCrbQW35evewH/g7PnGzxdV5G4efpu7f8lOE01dm4Q6oudqk7Af4nZtEkKeoaM85NPnCKhA4+r/hc85NHVrwfHBH1h/+LiUaH7lzM0gefvDu6jquEA+nTlI3r473mTvNmpOlyNVFrMbxaU3cvz09AfemK20FyIAAA==",
+          "complete": true
+        },
+        "intent": {
+          "encoding": "gzip-base64",
+          "bytes": 156,
+          "sha256": "17957dbb285636d143cd591d1cbf3b3184c1a124e3947d48ec6b60f10b921d10",
+          "compressedBytes": 114,
+          "data": "H4sIAAAAAAAAA1XLQQqAIBSE4b2neLx1Ltp2g7bdQHQWQmioGSHePSwSXA7fP0UQcboP8EKsdx8hka2B0+CpmVFJ8UJFELUV1IWwmlb/nZzfsuuGbKP1rjWdoj+Dxnd0PkGqUcaTIKqiPi9y7TicAAAA",
+          "complete": true
+        },
+        "intentValue": {
+          "type": "close-evidence",
+          "data": {
+            "drawerId": "evidence-1",
+            "drawerRevision": "1",
+            "sourceId": "note-a",
+            "sourceRevision": "1"
+          }
+        },
+        "payload": {
+          "encoding": "gzip-base64",
+          "bytes": 3654,
+          "sha256": "6c2a041464b53c3fe024ab1b2f7773c4f3016f4c9bbb2abceb45036445e820cd",
+          "compressedBytes": 514,
+          "data": "H4sIAAAAAAAAA+2XTWvbQBCG7/4Vw55aqCxyVY3BVdRicGXjJKWhCWa7O6mXSLvL7si1Cf7vYWVlrSQ996SjXj3zoRkd3nkaATBPrhHUOJS50YSaWAZPIwAA9qi0ZBmwWlihU9wpiVpgIh3/i459OkE7dF4ZzTK46BTJicckAEy1SWL4RRcJwBzuVBfMejIpqjBoV421lUIJL8FnxhOnlnHI5aGnm8YJ7JWPDWhDmPBIArCK/8YqvJo1tDUOJTj0yJ3YQoD7aONacEtkfZamuOe1rXAsTJ36rsnkbQzuBTpLrwp0Gkywnj6iJeAeCPc0SbGejqEoL5PiZ16sV9f9TKGEceRZBr+iCsBm8FIcRMVV/Tn0DUpLtKglaqoOsEOnHhTKcS8hAAuVrm5Wq+X6mkX9vlfz9W46/RjnLN78LKfFHWy7k/BF/f7b5wzYl+LbvEyKH/PLosyLO30eS7dfmHjhlKVpo8k1nlB++DhJOw0c1lxpD7biSrdjG9/p3IRNEJ5HEZNVSuNADMRADMRADMRADMRADMR/JVpL3zne9zbaWAwOm1yDrXQcdW97Bvtk+eM59U+THS12tNTf81VeBqt8+ONMoyU8qH0488YsFmrtPtvU2LvXmHVqxwm/nujSnK6sxTKfLTY3882yXNxu8lk5W9+GRMfR8Rnge2PbRg4AAA==",
+          "complete": true
+        }
+      }
+    },
+    {
+      "stage": "busy_pending_rejected_notifications_cannot_strand_dismissal",
+      "atMs": 3768.2962209999987,
+      "proof": {
+        "dom": {
+          "encoding": "gzip-base64",
+          "bytes": 9280,
+          "sha256": "080eca2e226f1bf917eda234559b691117ab3377e1433196b512d56d711f2c71",
+          "compressedBytes": 1345,
+          "data": "H4sIAAAAAAAAA+1a3W7bNhR+FYIXxQbIkZt2w6bIAtLUWwKsaZC464ApCCjxxCZCkxpJuTGKAHuaPdieZDiUZFn+SdquGHahG0MiP/Kc8/FQ4Mfjj1SXDszp5M0vNKKxhdwJrUgumbWjlM7zIlfE/w5yZnj9CAvBQeUwMFq7lBKjJYxSamAqtEopYUawgWQZyFFKz5QtIHfElkUhBXDSjG6AWWmXo5Q6U0JKk3gGjIPpujCoGn33i40uJ5zEgXvtxOHsRRKH1RRJzMViY4ZM82UdmXUsv0MzxaYDQrmUJuN6TiJsa+hWGyIq60KrIyKcJblWDpSzhBkgSjsiFIcCFAfl5JIswIhbAfwgDoskzkrn9rBedaWUuGWBHK/eOxy/LUBt8TpjttBFWYxSygWTetp0oG9GSzR1c3mTfc8W35WZy06f3zQIuC+Y4sBHKb1l0iK9HRNxWPmxzRMYo02bEkyCQd4mMyALAR+IgT9KsI7kupTcE5MBMVBo44AfkIlZEjZlQlXE7F6FZnLrmCttSpP32twJNf37z7/8qJCLBa4zxkwE3xnmLq5Xad2ly5MsgWfLjZlwHs4cGxQGLCjHcPkHugC1xttj+VzbNfpDs9rgPgAoP+xw2/Utx5vkJ45lmGD3o5QOnj+xGQ6/LOF8pAtkRDkkH3KtODPLzVw8kdrCWjIm3YY2dR7ZkauVqLdRd3c+/r252gy52YtdmoZI8rZlq0uDGQA2N6Jwfv4knr1Mjks30wY4wbVmJp9h8iKdL5O4SGJGZgZuRymdOVfYKAzhns0LCQe5nofNKgxwiHfDTAFJvMkkUz4i77rSmDxgiNIGbsEY8Fupfiy0FPnSwwZtd/KkwThkyc7dVMcK9zmYAnfpKsa6iTyT7gjmz6bu6A4KR5glDu4dtoZV8wEZn78ejH87GV9eTLyRUu5ZDvRJGxeR3UwizVIkx23K5pKJ+dHjH08p/Ch04urdxcXby0nVFpay+Q4UBvZlFwaT0uTV+Oez88H417PX4/OTcapaGpoMwoirhMCgS+VMaR3wb771VLQ9xMCcCWVJIZlQnqyDVJ1oXBgH27uRSKGgR/SIHtEjekSP6BE9okf0iP8U4Y/w9ek3DgsDe68/rrxisISp1XneX3B0z+w28If25pi+snewps7DSmMncVjfOSU0oHhePqnEGo32Xxx99UuYzt3G519VtNcPe13uauDdCuhJIbclz2KYJ+vCLA5hnnQk2WfJqTUV9bQkiivVk6yJobhWQkkvg3pEj+gRPaJH9Ige0SN6xP8fsS6D/qXQoQG91XlpafSROjalEX31bjJ5e04D6usiNOqWbGvts6NZqEtf5aIR1scDynVezkG5U2Z/qixg+0NQl3gtjX7/SAWn0WbNkwYUi0s08oXJgM41Z3L15uuIj2kuGlCsutFIlVIGFEs8b6oZqgbHsjOsrB07Z0RWuhr5cN267PEnukRxNwxoU4X2Hm+QtIeMfdxxYVkmga/CwYKsxffKOb8W+FpxiJW61m8sxTVvBmT7WFXYLnzVrY4m2OdpV9+tubrV8cm+1t1fwdnj1s8nNWbrejXzl7n7SXaaaOoqKK0j2lUFpdshrldBqU8zcEz4dLoOqv8d4DP9fDlPrzE5S+XAVMnZrGV771AVpT2o5faQIuUN+Aqck/ihYFJmLL97Ao2VbYJxCzUlzojp1Eddgy+qPxhsD1n/jO32aujJQQYwUvwgCaXAvBfczWj0/PCHYVC1nIKYzhyNfhwO2z3bgc3Z/USX+exCC4XkDh8e/gE8c4avQCQAAA==",
+          "complete": true
+        },
+        "intent": {
+          "encoding": "gzip-base64",
+          "bytes": 156,
+          "sha256": "17957dbb285636d143cd591d1cbf3b3184c1a124e3947d48ec6b60f10b921d10",
+          "compressedBytes": 114,
+          "data": "H4sIAAAAAAAAA1XLQQqAIBSE4b2neLx1Ltp2g7bdQHQWQmioGSHePSwSXA7fP0UQcboP8EKsdx8hka2B0+CpmVFJ8UJFELUV1IWwmlb/nZzfsuuGbKP1rjWdoj+Dxnd0PkGqUcaTIKqiPi9y7TicAAAA",
+          "complete": true
+        },
+        "intentValue": {
+          "type": "close-evidence",
+          "data": {
+            "drawerId": "evidence-1",
+            "drawerRevision": "1",
+            "sourceId": "note-a",
+            "sourceRevision": "1"
+          }
+        },
+        "payload": null
+      },
+      "beforeCounters": {
+        "intents": 0,
+        "settled": 0
+      },
+      "afterCounters": {
+        "intents": 2,
+        "settled": 2
+      },
+      "positiveRejectedSettlements": 2
+    }
+  ],
+  "stageScreenshots": [
+    {
+      "stage": "request",
+      "filename": "E07-request.png",
+      "bytes": 156552,
+      "sha256": "4408ac96a4fbff9dbd356312f717311f7013f24506e399a82b0a57e51f51c6ab",
+      "viewportOnly": true
+    }
+  ],
+  "secondaryNavigations": [
+    {
+      "url": "http://127.0.0.1:4173/components/evidence-drawer",
+      "requestOrdinal": 33,
+      "status": 200,
+      "exactRequestIdentity": true,
+      "requestFinished": "finished",
+      "responseFinished": "null"
+    }
+  ],
+  "viewportAlignments": [
+    {
+      "purpose": "close",
+      "chain": [
+        {
+          "depth": 0,
+          "targetTag": "BUTTON",
+          "targetLabel": "Close evidence",
+          "targetTitle": null,
+          "centerX": 665.953125,
+          "centerY": 41,
+          "innerWidth": 758,
+          "innerHeight": 780,
+          "hitTag": "BUTTON",
+          "hitTitle": null,
+          "hitWithinTarget": true
+        },
+        {
+          "depth": 1,
+          "targetTag": "IFRAME",
+          "targetLabel": null,
+          "targetTitle": "Rendered MCP app",
+          "centerX": 1023.453125,
+          "centerY": 199.734375,
+          "innerWidth": 1192,
+          "innerHeight": 2000,
+          "hitTag": "IFRAME",
+          "hitTitle": "Rendered MCP app",
+          "hitWithinTarget": true
+        },
+        {
+          "depth": 2,
+          "targetTag": "IFRAME",
+          "targetLabel": null,
+          "targetTitle": "MCPCN host simulator",
+          "centerX": 1067.453125,
+          "centerY": 450.171875,
+          "innerWidth": 1280,
+          "innerHeight": 900,
+          "hitTag": "IFRAME",
+          "hitTitle": "MCPCN host simulator",
+          "hitWithinTarget": true
+        }
+      ]
+    },
+    {
+      "purpose": "capture:request",
+      "chain": [
+        {
+          "depth": 0,
+          "targetTag": "DIALOG",
+          "targetLabel": null,
+          "targetTitle": null,
+          "centerX": 406,
+          "centerY": 390,
+          "innerWidth": 758,
+          "innerHeight": 780,
+          "hitTag": "PRE",
+          "hitTitle": null,
+          "hitWithinTarget": true
+        },
+        {
+          "depth": 1,
+          "targetTag": "IFRAME",
+          "targetLabel": null,
+          "targetTitle": "Rendered MCP app",
+          "centerX": 763.5,
+          "centerY": 548.734375,
+          "innerWidth": 1192,
+          "innerHeight": 2000,
+          "hitTag": "IFRAME",
+          "hitTitle": "Rendered MCP app",
+          "hitWithinTarget": true
+        },
+        {
+          "depth": 2,
+          "targetTag": "IFRAME",
+          "targetLabel": null,
+          "targetTitle": "MCPCN host simulator",
+          "centerX": 807.5,
+          "centerY": 450.171875,
+          "innerWidth": 1280,
+          "innerHeight": 900,
+          "hitTag": "IFRAME",
+          "hitTitle": "MCPCN host simulator",
+          "hitWithinTarget": true
+        }
+      ]
+    },
+    {
+      "purpose": "close",
+      "chain": [
+        {
+          "depth": 0,
+          "targetTag": "BUTTON",
+          "targetLabel": "Close evidence",
+          "targetTitle": null,
+          "centerX": 665.953125,
+          "centerY": 41,
+          "innerWidth": 758,
+          "innerHeight": 780,
+          "hitTag": "BUTTON",
+          "hitTitle": null,
+          "hitWithinTarget": true
+        },
+        {
+          "depth": 1,
+          "targetTag": "IFRAME",
+          "targetLabel": null,
+          "targetTitle": "Rendered MCP app",
+          "centerX": 1023.453125,
+          "centerY": 199.734375,
+          "innerWidth": 1192,
+          "innerHeight": 2000,
+          "hitTag": "IFRAME",
+          "hitTitle": "Rendered MCP app",
+          "hitWithinTarget": true
+        },
+        {
+          "depth": 2,
+          "targetTag": "IFRAME",
+          "targetLabel": null,
+          "targetTitle": "MCPCN host simulator",
+          "centerX": 1067.453125,
+          "centerY": 450.171875,
+          "innerWidth": 1280,
+          "innerHeight": 900,
+          "hitTag": "IFRAME",
+          "hitTitle": "MCPCN host simulator",
+          "hitWithinTarget": true
+        }
+      ]
+    },
+    {
+      "purpose": "close",
+      "chain": [
+        {
+          "depth": 0,
+          "targetTag": "BUTTON",
+          "targetLabel": "Close evidence",
+          "targetTitle": null,
+          "centerX": 1187.953125,
+          "centerY": 41,
+          "innerWidth": 1280,
+          "innerHeight": 900,
+          "hitTag": "BUTTON",
+          "hitTitle": null,
+          "hitWithinTarget": true
+        }
+      ]
+    }
+  ],
+  "input": {
+    "trackedTaps": 0,
+    "trackedClicks": 10,
+    "keyboardActions": 0,
+    "pointerActions": 0,
+    "programmaticProducerInvocations": 0,
+    "programmaticFocusRestorations": 0
+  },
+  "wire": [],
+  "sdkSends": {
+    "ui/initialize": 1,
+    "ui/notifications/initialized": 1,
+    "ui/notifications/size-changed": 1,
+    "ui/notifications/tool-input": 7,
+    "ui/notifications/tool-result": 7
+  },
+  "displayMessages": [],
+  "console": {
+    "debugCount": 36,
+    "warningCount": 1,
+    "warnings": [
+      {
+        "sha256": "3a92556d5d156c40a75c548248ca4a3a7d6ca2bf3d0376ce86d31b72dc84f7e7",
+        "sandboxSameOriginWarning": true
+      }
+    ],
+    "sdkSendPreviewCount": 18,
+    "responsePreviewCount": 1,
+    "unclassifiedSendCount": 0,
+    "unclassifiedSends": []
+  },
+  "downloadEvents": 0,
+  "blobDownload": {
+    "rows": [],
+    "nativeDownloadJoined": null
+  },
+  "network": {
+    "requests": 58,
+    "requestFailures": 0,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "webSockets": 0,
+    "errorCount": 0,
+    "errors": [],
+    "rows": [
+      {
+        "ordinal": 1,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/playground",
+        "startedAtMs": 44.252911999999924,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 51.550977000000785,
+        "terminalAtMs": 60.71906300000046,
+        "responseFinishedAtMs": 60.73641800000041
+      },
+      {
+        "ordinal": 2,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/2d9rwpm85qkj8.css",
+        "startedAtMs": 58.53092099999958,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 63.87359199999992,
+        "terminalAtMs": 64.51030400000127,
+        "responseFinishedAtMs": 64.52451500000097
+      },
+      {
+        "ordinal": 3,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/3yh5jaalv1u8v.js",
+        "startedAtMs": 58.56812499999978,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 84.30121300000064,
+        "terminalAtMs": 84.65827700000045,
+        "responseFinishedAtMs": 84.66789000000063
+      },
+      {
+        "ordinal": 4,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/22lgiphrawvbj.js",
+        "startedAtMs": 58.59223600000041,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 84.73503100000016,
+        "terminalAtMs": 84.93159800000103,
+        "responseFinishedAtMs": 84.93466100000114
+      },
+      {
+        "ordinal": 5,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/1fx8wyr62n54x.js",
+        "startedAtMs": 58.61421800000062,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 108.01136700000097,
+        "terminalAtMs": 108.19359799999984,
+        "responseFinishedAtMs": 108.19998900000064
+      },
+      {
+        "ordinal": 6,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/1cu4dap_usbwa.js",
+        "startedAtMs": 58.63607800000136,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 107.49541500000123,
+        "terminalAtMs": 107.73343000000023,
+        "responseFinishedAtMs": 107.73783800000092
+      },
+      {
+        "ordinal": 7,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/turbopack-20368txdglzwk.js",
+        "startedAtMs": 58.66131300000052,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 84.96998300000087,
+        "terminalAtMs": 85.22938400000021,
+        "responseFinishedAtMs": 85.2370520000004
+      },
+      {
+        "ordinal": 8,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/332uslzbhf388.js",
+        "startedAtMs": 58.684825000000274,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 107.03921100000116,
+        "terminalAtMs": 107.46071500000107,
+        "responseFinishedAtMs": 107.46614800000134
+      },
+      {
+        "ordinal": 9,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/playground-simulator/index.html",
+        "startedAtMs": 60.464774000000034,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 67.96671400000014,
+        "terminalAtMs": 84.68394500000068,
+        "responseFinishedAtMs": 84.69087500000023
+      },
+      {
+        "ordinal": 10,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/playground-simulator/assets/index-De-g8039.js",
+        "startedAtMs": 84.10064799999964,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 107.77776400000039,
+        "terminalAtMs": 107.97235600000022,
+        "responseFinishedAtMs": 107.97570900000028
+      },
+      {
+        "ordinal": 11,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/playground-simulator/assets/jsx-runtime-i1i9umBl.js",
+        "startedAtMs": 84.14423999999963,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 156.67709400000058,
+        "terminalAtMs": 157.37147399999958,
+        "responseFinishedAtMs": 157.38378999999986
+      },
+      {
+        "ordinal": 12,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/playground-simulator/assets/index-ylmVxKY0.css",
+        "startedAtMs": 84.22111700000096,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 104.32824199999959,
+        "terminalAtMs": 106.99079300000085,
+        "responseFinishedAtMs": 107.00007800000094
+      },
+      {
+        "ordinal": 13,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/playground-simulator/frame.html",
+        "startedAtMs": 267.4471940000003,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 275.16466200000104,
+        "terminalAtMs": 292.62903000000006,
+        "responseFinishedAtMs": 292.64628000000084
+      },
+      {
+        "ordinal": 14,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/",
+        "startedAtMs": 275.6482680000008,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 286.26220900000044,
+        "terminalAtMs": 301.3594869999997,
+        "responseFinishedAtMs": 301.372883
+      },
+      {
+        "ordinal": 15,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/docs",
+        "startedAtMs": 275.68969500000094,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 287.366951,
+        "terminalAtMs": 301.48247000000083,
+        "responseFinishedAtMs": 301.4903599999998
+      },
+      {
+        "ordinal": 16,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/components",
+        "startedAtMs": 275.72254299999986,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 289.9044819999999,
+        "terminalAtMs": 301.8818740000006,
+        "responseFinishedAtMs": 301.89209800000026
+      },
+      {
+        "ordinal": 17,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/blocks",
+        "startedAtMs": 275.7512650000008,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 292.2532970000011,
+        "terminalAtMs": 301.9388080000008,
+        "responseFinishedAtMs": 301.9519799999998
+      },
+      {
+        "ordinal": 18,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/playground-simulator/assets/frame-Cd9yxdbi.js",
+        "startedAtMs": 292.1250770000006,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 322.6821570000011,
+        "terminalAtMs": 323.2004740000011,
+        "responseFinishedAtMs": 323.2082250000003
+      },
+      {
+        "ordinal": 19,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/playground-simulator/assets/jsx-runtime-i1i9umBl.js",
+        "startedAtMs": 292.17469600000004,
+        "status": 304,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 302.0353699999996,
+        "terminalAtMs": 302.34243700000115,
+        "responseFinishedAtMs": 302.34828500000003
+      },
+      {
+        "ordinal": 20,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/playground-simulator/assets/frame-BMol6yfq.css",
+        "startedAtMs": 292.20623800000067,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 302.4094830000013,
+        "terminalAtMs": 305.01605500000005,
+        "responseFinishedAtMs": 305.0323580000004
+      },
+      {
+        "ordinal": 21,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/examples",
+        "startedAtMs": 301.4616960000003,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 305.2656820000011,
+        "terminalAtMs": 322.5194769999998,
+        "responseFinishedAtMs": 322.53298200000063
+      },
+      {
+        "ordinal": 22,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/playground",
+        "startedAtMs": 301.8593120000005,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 309.26767800000016,
+        "terminalAtMs": 320.6711429999996,
+        "responseFinishedAtMs": 320.6849259999999
+      },
+      {
+        "ordinal": 23,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/create",
+        "startedAtMs": 301.9265660000001,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 319.63990399999966,
+        "terminalAtMs": 323.2219180000011,
+        "responseFinishedAtMs": 323.228129000001
+      },
+      {
+        "ordinal": 24,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/",
+        "startedAtMs": 301.99211900000046,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 319.97855900000104,
+        "terminalAtMs": 325.4432969999998,
+        "responseFinishedAtMs": 325.46538300000066
+      },
+      {
+        "ordinal": 25,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/docs",
+        "startedAtMs": 320.7565340000001,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 326.6122599999999,
+        "terminalAtMs": 388.06552900000133,
+        "responseFinishedAtMs": 388.0885880000005
+      },
+      {
+        "ordinal": 26,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/components",
+        "startedAtMs": 322.62788999999975,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 326.9110039999996,
+        "terminalAtMs": 385.5669420000013,
+        "responseFinishedAtMs": 385.5875360000009
+      },
+      {
+        "ordinal": 27,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/blocks",
+        "startedAtMs": 323.28526200000124,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 388.68966400000136,
+        "terminalAtMs": 401.07690600000024,
+        "responseFinishedAtMs": 401.08897100000104
+      },
+      {
+        "ordinal": 28,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/167jz25a1cz49.js",
+        "startedAtMs": 325.52568600000086,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 390.4695100000008,
+        "terminalAtMs": 390.6987680000002,
+        "responseFinishedAtMs": 390.71258000000125
+      },
+      {
+        "ordinal": 29,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/examples",
+        "startedAtMs": 325.56125500000053,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 390.10774800000036,
+        "terminalAtMs": 401.09946200000013,
+        "responseFinishedAtMs": 401.1113290000012
+      },
+      {
+        "ordinal": 30,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/playground",
+        "startedAtMs": 385.68349599999965,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 401.7688020000005,
+        "terminalAtMs": 405.0835989999996,
+        "responseFinishedAtMs": 405.0945620000002
+      },
+      {
+        "ordinal": 31,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/create",
+        "startedAtMs": 388.6364540000013,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 402.28525400000035,
+        "terminalAtMs": 405.9641240000001,
+        "responseFinishedAtMs": 405.9807890000011
+      },
+      {
+        "ordinal": 32,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/3hko8pn-7dqsp.js",
+        "startedAtMs": 406.2090590000007,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 413.47568599999977,
+        "terminalAtMs": 413.7887460000002,
+        "responseFinishedAtMs": 413.802361
+      },
+      {
+        "ordinal": 33,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/components/evidence-drawer",
+        "startedAtMs": 1559.2503699999997,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1568.7200229999999,
+        "terminalAtMs": 1588.837096000001,
+        "responseFinishedAtMs": 1588.8457739999994
+      },
+      {
+        "ordinal": 34,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/2d9rwpm85qkj8.css",
+        "startedAtMs": 1584.1873270000015,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1584.2569510000012,
+        "terminalAtMs": 1584.7074570000023,
+        "responseFinishedAtMs": 1584.7203480000007
+      },
+      {
+        "ordinal": 35,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/3yh5jaalv1u8v.js",
+        "startedAtMs": 1586.7656670000015,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1586.8176660000008,
+        "terminalAtMs": 1587.1209199999994,
+        "responseFinishedAtMs": 1587.1285310000003
+      },
+      {
+        "ordinal": 36,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/22lgiphrawvbj.js",
+        "startedAtMs": 1587.1748329999991,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1587.2182510000002,
+        "terminalAtMs": 1587.4833049999997,
+        "responseFinishedAtMs": 1587.4884480000019
+      },
+      {
+        "ordinal": 37,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/1fx8wyr62n54x.js",
+        "startedAtMs": 1587.5296360000011,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1587.5689030000012,
+        "terminalAtMs": 1587.7730749999992,
+        "responseFinishedAtMs": 1587.7771330000014
+      },
+      {
+        "ordinal": 38,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/1cu4dap_usbwa.js",
+        "startedAtMs": 1587.8070400000015,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1587.843823000001,
+        "terminalAtMs": 1588.0259190000015,
+        "responseFinishedAtMs": 1588.0289620000021
+      },
+      {
+        "ordinal": 39,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/turbopack-20368txdglzwk.js",
+        "startedAtMs": 1588.052314999999,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1588.0843960000002,
+        "terminalAtMs": 1588.2771540000012,
+        "responseFinishedAtMs": 1588.2804760000017
+      },
+      {
+        "ordinal": 40,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/332uslzbhf388.js",
+        "startedAtMs": 1588.3061900000012,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1588.3401759999997,
+        "terminalAtMs": 1588.5940480000008,
+        "responseFinishedAtMs": 1588.5978610000002
+      },
+      {
+        "ordinal": 41,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/0fb-dwk9vrl_o.js",
+        "startedAtMs": 1588.6329090000017,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1602.8985030000022,
+        "terminalAtMs": 1603.217963000001,
+        "responseFinishedAtMs": 1603.2290919999996
+      },
+      {
+        "ordinal": 42,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/167jz25a1cz49.js",
+        "startedAtMs": 1588.6593620000003,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1617.507176000001,
+        "terminalAtMs": 1618.0145260000008,
+        "responseFinishedAtMs": 1618.0218470000018
+      },
+      {
+        "ordinal": 43,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/0siks72dtj-vr.js",
+        "startedAtMs": 1588.683546000002,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1618.0542240000013,
+        "terminalAtMs": 1618.2517129999997,
+        "responseFinishedAtMs": 1618.2571320000006
+      },
+      {
+        "ordinal": 44,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/",
+        "startedAtMs": 1684.7868409999992,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1689.114302,
+        "terminalAtMs": 1694.1654739999994,
+        "responseFinishedAtMs": 1694.180032000002
+      },
+      {
+        "ordinal": 45,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/docs",
+        "startedAtMs": 1686.7698370000016,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1691.7798060000005,
+        "terminalAtMs": 1695.008487000001,
+        "responseFinishedAtMs": 1695.0230090000023
+      },
+      {
+        "ordinal": 46,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/components",
+        "startedAtMs": 1686.8220090000013,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1692.250657999999,
+        "terminalAtMs": 1695.878286000001,
+        "responseFinishedAtMs": 1695.8903780000019
+      },
+      {
+        "ordinal": 47,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/blocks",
+        "startedAtMs": 1686.857231,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1693.1497710000021,
+        "terminalAtMs": 1696.6132430000016,
+        "responseFinishedAtMs": 1696.6321619999999
+      },
+      {
+        "ordinal": 48,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/examples",
+        "startedAtMs": 1694.2437929999996,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1698.58662,
+        "terminalAtMs": 1704.526190999999,
+        "responseFinishedAtMs": 1704.5369960000007
+      },
+      {
+        "ordinal": 49,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/playground",
+        "startedAtMs": 1695.2359779999988,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1700.9242859999995,
+        "terminalAtMs": 1704.959420000001,
+        "responseFinishedAtMs": 1704.9713810000012
+      },
+      {
+        "ordinal": 50,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/create",
+        "startedAtMs": 1696.080895000001,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1702.0145030000003,
+        "terminalAtMs": 1706.718139999999,
+        "responseFinishedAtMs": 1706.7368850000003
+      },
+      {
+        "ordinal": 51,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/",
+        "startedAtMs": 1696.8094,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1704.152641999999,
+        "terminalAtMs": 1705.8069530000012,
+        "responseFinishedAtMs": 1705.8192370000015
+      },
+      {
+        "ordinal": 52,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/docs",
+        "startedAtMs": 1704.596180999999,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1709.2971110000017,
+        "terminalAtMs": 1711.748826000001,
+        "responseFinishedAtMs": 1711.7600220000004
+      },
+      {
+        "ordinal": 53,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/components",
+        "startedAtMs": 1705.1496180000013,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1709.7785039999999,
+        "terminalAtMs": 1715.790375999999,
+        "responseFinishedAtMs": 1715.8043100000014
+      },
+      {
+        "ordinal": 54,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/blocks",
+        "startedAtMs": 1706.011736999999,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1712.02369,
+        "terminalAtMs": 1716.7539290000004,
+        "responseFinishedAtMs": 1716.766841999999
+      },
+      {
+        "ordinal": 55,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/examples",
+        "startedAtMs": 1706.916481000002,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1713.2267660000016,
+        "terminalAtMs": 1717.9300200000016,
+        "responseFinishedAtMs": 1717.9468079999988
+      },
+      {
+        "ordinal": 56,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/playground",
+        "startedAtMs": 1711.8206130000017,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1719.0659710000018,
+        "terminalAtMs": 1719.5834110000014,
+        "responseFinishedAtMs": 1719.5959070000008
+      },
+      {
+        "ordinal": 57,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/create",
+        "startedAtMs": 1716.7317039999998,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1719.640515000001,
+        "terminalAtMs": 1720.2463850000004,
+        "responseFinishedAtMs": 1720.256836999999
+      },
+      {
+        "ordinal": 58,
+        "method": "GET",
+        "protocol": "http:",
+        "host": "127.0.0.1:4173",
+        "pathname": "/_next/static/chunks/3hko8pn-7dqsp.js",
+        "startedAtMs": 1720.295919000002,
+        "status": 200,
+        "responseFinished": "null",
+        "terminal": "finished",
+        "responseAtMs": 1720.324208,
+        "terminalAtMs": 1720.5332670000007,
+        "responseFinishedAtMs": 1720.5379269999994
+      }
+    ]
+  },
+  "cleanup": {
+    "contextCreated": true,
+    "contextClosed": true,
+    "pagesCreated": 1,
+    "pagesClosed": 1,
+    "pendingRequests": 0,
+    "observerJobs": 0,
+    "downloadArmRemaining": false,
+    "closeStartedAtMs": 3839.3152280000013
+  },
+  "limits": {
+    "workMs": 36000,
+    "closeMs": 39000,
+    "nativeMs": 40000,
+    "reportBytes": 262144,
+    "screenshotBytes": 262144
+  },
+  "proofLimits": [
+    "Trusted caller-supplied evidence only, without source fetching/verification, tools, context publication, messages or persistence.",
+    "Native modal acceptance is scoped to its own document. Narrow Chromium is touch emulation; physical devices, full assistive technology and external MCP hosts remain unverified.",
+    "Complete DOM/intent/input originals, actual callback counters and native modal/focus observations are retained. Browser settlement is separate from raw socket/process cleanup.",
+    "Two focus-preserving refresh scenarios prepare the real host editor, set up app focus before delivery and call the existing Invoke button programmatically. Those setup/delivery counts are separate from real component clicks/taps; focus is never repaired after delivery. Close and stage captures align and hit-test the target center through every actual ancestor viewport."
+  ],
+  "frames": {
+    "outerPage": {
+      "origin": "http://127.0.0.1:4173",
+      "pathname": "/playground"
+    },
+    "hostUrl": {
+      "origin": "http://127.0.0.1:4173",
+      "pathname": "/playground-simulator/index.html"
+    },
+    "appUrl": {
+      "origin": "http://127.0.0.1:4173",
+      "pathname": "/playground-simulator/frame.html"
+    },
+    "sessionFragmentSha256": "7a494aeca6fce5e16858206fbeb96cb69d3f5f2c9f8e3b1004734647533bfd46",
+    "hostRole": "MCPCN host simulator",
+    "appRole": "Rendered MCP app",
+    "hostFrameCount": 1,
+    "appFrameCount": 1,
+    "actualFrameCount": 3
+  },
+  "navigation": {
+    "requestOrdinal": 1,
+    "status": 200,
+    "exactRequestIdentity": true,
+    "requestFinished": "finished",
+    "responseFinished": "null"
+  },
+  "observedViewport": {
+    "innerWidth": 1280,
+    "innerHeight": 900,
+    "documentWidth": 1280,
+    "maxTouchPoints": 0
+  },
+  "cookieCount": 0,
+  "finalLocation": {
+    "origin": "http://127.0.0.1:4173",
+    "pathname": "/components/evidence-drawer"
+  },
+  "screenshot": {
+    "filename": "E07.png",
+    "bytes": 129615,
+    "sha256": "eb7baabc0d00083e7fc5bec050c072c2f6e757045ae8a0b486aebfafb593522c",
+    "viewportOnly": true
+  },
+  "completedAt": "2026-11-09T00:24:11.808Z"
+}

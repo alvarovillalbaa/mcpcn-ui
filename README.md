@@ -6,9 +6,22 @@ Last updated: 2026-11-08
 
 The source includes components, controlled workflow blocks, MCP Apps runtime
 adapters, server helpers, a source registry, a CLI and a documentation app.
-The current source has 12 primitives, 33 specialized components and 23 named aliases
+The current source has 12 primitives, 35 specialized components and 21 named aliases
 of the generic informational component. Eleven workflow blocks now contain
 actual editing, selection, file-review, progress and approval compositions.
+
+SourceList and EvidenceDrawer now have dedicated strict source for current
+source selection and complete supplied text/JSON inspection. The native drawer
+owns immediate dismissal and fences obsolete notification feedback. The
+[evidence contract](docs/specs/evidence-review-components.md) separates supplied
+claims, identity-only intents and model-private content. Its
+[focused acceptance](docs/results/2026/11-08/evidence-review-checks.md) passed
+90 new unit/SSR cases, twelve desktop/narrow browser scenarios and two fresh
+strict consumers at `f6149dde73a81c9d0cd74206ca10b1226b093d4f`. Four real
+keyboard-reading proofs verify complete supplied text/JSON. All167 generated
+paths were verified and159 changed files adopted. Earlier failed invocations
+and the fourth scoped pass remain preserved. Package publication and hosted
+delivery are separate boundaries.
 
 DocumentPreview and FileReview now have dedicated source for full supplied text,
 JSON and paginated raster/text inspection, caller-controlled corrections and
