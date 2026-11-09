@@ -20,8 +20,13 @@ claims, identity-only intents and model-private content. Its
 strict consumers at `f6149dde73a81c9d0cd74206ca10b1226b093d4f`. Four real
 keyboard-reading proofs verify complete supplied text/JSON. All167 generated
 paths were verified and159 changed files adopted. Earlier failed invocations
-and the fourth scoped pass remain preserved. Package publication and hosted
-delivery are separate boundaries.
+and the fourth scoped pass remain preserved. The
+[seven-archive prerelease](https://github.com/alvarovillalbaa/mcpcn-ui/releases/tag/v0.1.0-evidence.1)
+contains the unchanged checked archives with matching server digests. The
+[public delivery](docs/results/2026/11-08/evidence-review-public-delivery.md)
+binds accepted source `29543257271674601fc4c9e5f6474c024a1a21ee` to READY,
+the canonical site and fourteen complete anonymous HTTPS checks. Hosted browser
+interaction, external MCP hosts and public npm publication remain unverified.
 
 DocumentPreview and FileReview now have dedicated source for full supplied text,
 JSON and paginated raster/text inspection, caller-controlled corrections and
