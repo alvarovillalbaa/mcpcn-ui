@@ -10,6 +10,7 @@ import type { DocumentPreviewData, FileReviewData } from "@mcpcn/schemas";
 import { sameReviewFile } from "@mcpcn/schemas";
 import { stableReviewKey, type SourceListData, type EvidenceDrawerData } from "@mcpcn/schemas";
 import type { RecordInspectorData, FieldConfidenceListData } from "@mcpcn/schemas";
+import type { ConflictResolverData, ValidationSummaryData } from "@mcpcn/schemas";
 
 type Props = { payload: MCPCNPayload<string, unknown>; onAction: (action: UI.ComponentAction) => void | Promise<void> };
 type Data = Record<string, unknown>;
@@ -24,6 +25,8 @@ export function PlaygroundComponent({ payload, onAction }: Props) {
   if (identity) return <EvidencePreview key={identity} payload={parsed.data} onAction={onAction} />;
   const inspectionIdentity = inspectionPreviewKey(parsed.data);
   if (inspectionIdentity) return <InspectionPreview key={inspectionIdentity} payload={parsed.data} onAction={onAction} />;
+  const conflictIdentity = conflictValidationPreviewKey(parsed.data);
+  if (conflictIdentity) return <ConflictValidationPreview key={conflictIdentity} payload={parsed.data} onAction={onAction} />;
   return <Preview key={JSON.stringify(parsed.data)} payload={parsed.data} onAction={onAction} />;
 }
 
@@ -67,6 +70,30 @@ function InspectionPreview({ payload, onAction }: Props) {
   return <div className="mcpcn mcpcn-stack">{slug === "record-inspector"
     ? <UI.RecordInspector {...current.data as RecordInspectorData} onAction={receive} />
     : <UI.FieldConfidenceList {...current.data as FieldConfidenceListData} onAction={receive} />}</div>;
+}
+
+/** Root identity preserves local choice while the component reconciles owner/member replacements. */
+export function conflictValidationPreviewKey(payload: MCPCNPayload<string, unknown>): string | undefined {
+  if (payload.kind !== "mcpcn/conflict-resolver" && payload.kind !== "mcpcn/validation-summary") return undefined;
+  const data = payload.data as ConflictResolverData | ValidationSummaryData;
+  return stableReviewKey({ kind: payload.kind, id: data.id, revision: data.revision });
+}
+function ConflictValidationPreview({ payload, onAction }: Props) {
+  const externalKey = stableReviewKey(payload.data), slug = payload.kind.slice(6);
+  const [stored, setStored] = useState(() => ({ externalKey, data: payload.data as Data }));
+  const current = stored.externalKey === externalKey ? stored : { externalKey, data: payload.data as Data };
+  if (stored !== current) setStored(current);
+  const receive = (action: UI.ComponentAction) => {
+    const patch = controlledData(slug, current.data, action);
+    if (patch) {
+      const parsed = validateFixture({ ...payload, data: { ...current.data, ...patch } });
+      if (parsed.success) setStored({ externalKey, data: parsed.data.data as Data });
+    }
+    return onAction(action);
+  };
+  return <div className="mcpcn mcpcn-stack">{slug === "conflict-resolver"
+    ? <UI.ConflictResolver {...current.data as ConflictResolverData} onAction={receive} />
+    : <UI.ValidationSummary {...current.data as ValidationSummaryData} onAction={receive} />}</div>;
 }
 
 function Preview({ payload, onAction }: Props) {
@@ -202,6 +229,21 @@ export function controlledData(slug: string, current: Data, action: UI.Component
   const value = action.data;
   if (!object(value)) return undefined;
   switch (slug) {
+    case "conflict-resolver":
+    case "validation-summary": {
+      const data = current as ConflictResolverData | ValidationSummaryData;
+      if (data.state !== "ready" || value.componentId !== data.id || value.componentRevision !== data.revision) return undefined;
+      const conflict = "conflict" in data, owner = conflict ? data.conflict : data.report;
+      if ((conflict ? data.selectedCandidateId : data.selectedIssueId) === undefined) return undefined;
+      const stem = conflict ? "conflict" : "report", member = conflict ? "candidate" : "issue";
+      const select = conflict ? "select-conflict-candidate" : "inspect-validation-issue", clear = conflict ? "clear-conflict-candidate" : "clear-validation-issue";
+      if (action.type !== select && action.type !== clear || value[stem + "Id"] !== owner.id || value[stem + "Revision"] !== owner.revision) return undefined;
+      const keys = ["componentId", "componentRevision", stem + "Id", stem + "Revision", ...(action.type === select ? [member + "Id", member + "Revision"] : [])];
+      if (Object.keys(value).length !== keys.length || keys.some(key => !Object.hasOwn(value, key))) return undefined;
+      if (action.type === clear) return { [conflict ? "selectedCandidateId" : "selectedIssueId"]: null };
+      const found = (conflict ? data.conflict.candidates : data.report.issues).find(item => item.id === value[member + "Id"] && item.revision === value[member + "Revision"]);
+      return found ? { [conflict ? "selectedCandidateId" : "selectedIssueId"]: found.id } : undefined;
+    }
     case "record-inspector":
     case "field-confidence-list": {
       const d = current as RecordInspectorData | FieldConfidenceListData;

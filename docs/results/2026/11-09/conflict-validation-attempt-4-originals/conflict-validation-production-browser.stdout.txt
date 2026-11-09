@@ -1,0 +1,78 @@
+
+Running 12 tests using 1 worker
+········FF··
+
+  1) [chromium] › tooling/conflict-validation-browser.spec.mjs:690:26 › R09 desktop docs independent confirmation and notification fences 
+
+    TimeoutError: locator.click: Timeout 3000ms exceeded.
+    Call log:
+      - waiting for getByRole('region', { name: 'Review supplied conflict choices', exact: true }).getByRole('button', { name: 'Confirm choice', exact: true })
+        - locator resolved to <button disabled type="button" class="mcpcn mcpcn-button">Confirm choice</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is not enabled
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is not enabled
+        - retrying click action
+          - waiting 100ms
+        6 × waiting for element to be visible, enabled and stable
+          - element is not enabled
+        - retrying click action
+          - waiting 500ms
+
+
+      639 |     args.activate = async locator => {
+      640 |       await alignReachable(args, locator, "activate");
+    > 641 |       if (profile === "narrow") { await locator.tap(); report.input.trackedTaps++; } else { await locator.click(); report.input.trackedClicks++; }
+          |                                                                                                           ^
+      642 |     };
+      643 |     if (direct) {
+      644 |       await expect(regionFor(page, scenario)).toBeVisible(); assert.equal(page.frames().length, 1);
+        at args.activate (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:641:107)
+        at fencesJourney (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:511:58)
+        at within (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:36:19)
+        at runCase (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:666:5)
+
+    Error Context: ../output/browser-runner-artifacts/conflict-validation-browse-5aa2b-ion-and-notification-fences-chromium/error-context.md
+
+  2) [chromium] › tooling/conflict-validation-browser.spec.mjs:690:26 › R10 narrow docs independent confirmation and notification fences 
+
+    TimeoutError: locator.tap: Timeout 3000ms exceeded.
+    Call log:
+      - waiting for getByRole('region', { name: 'Review supplied conflict choices', exact: true }).getByRole('button', { name: 'Confirm choice', exact: true })
+        - locator resolved to <button disabled type="button" class="mcpcn mcpcn-button">Confirm choice</button>
+      - attempting tap action
+        2 × waiting for element to be visible, enabled and stable
+          - element is not enabled
+        - retrying tap action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is not enabled
+        - retrying tap action
+          - waiting 100ms
+        6 × waiting for element to be visible, enabled and stable
+          - element is not enabled
+        - retrying tap action
+          - waiting 500ms
+
+
+      639 |     args.activate = async locator => {
+      640 |       await alignReachable(args, locator, "activate");
+    > 641 |       if (profile === "narrow") { await locator.tap(); report.input.trackedTaps++; } else { await locator.click(); report.input.trackedClicks++; }
+          |                                                 ^
+      642 |     };
+      643 |     if (direct) {
+      644 |       await expect(regionFor(page, scenario)).toBeVisible(); assert.equal(page.frames().length, 1);
+        at args.activate (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:641:49)
+        at fencesJourney (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:511:58)
+        at within (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:36:19)
+        at runCase (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:666:5)
+
+    Error Context: ../output/browser-runner-artifacts/conflict-validation-browse-b169f-ion-and-notification-fences-chromium/error-context.md
+
+  2 failed
+    [chromium] › tooling/conflict-validation-browser.spec.mjs:690:26 › R09 desktop docs independent confirmation and notification fences 
+    [chromium] › tooling/conflict-validation-browser.spec.mjs:690:26 › R10 narrow docs independent confirmation and notification fences 
+  10 passed (36.6s)

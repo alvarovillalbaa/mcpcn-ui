@@ -17,6 +17,8 @@ import { SourceListDemo, EvidenceDrawerDemo, EvidenceDrawerStackDemo } from "../
 import { sourceEvidenceExampleCode } from "../../../components/source-evidence-examples";
 import { RecordInspectorDemo, FieldConfidenceListDemo } from "../../../components/record-inspection-demos";
 import { recordInspectionExampleCode } from "../../../components/record-inspection-examples";
+import { ConflictResolverDemo, ValidationSummaryDemo } from "../../../components/conflict-validation-demos";
+import { conflictValidationExampleCode } from "../../../components/conflict-validation-examples";
 import { ComponentPreview } from "../../../components/component-preview";
 
 export function generateStaticParams() { return catalog.map(item => ({ slug: item.slug })); }
@@ -33,6 +35,7 @@ const demos: Record<string, ReactNode> = {
   "document-preview": <DocumentPreviewDemo />, "file-review": <FileReviewDemo />,
   "source-list": <SourceListDemo />, "evidence-drawer": <EvidenceDrawerDemo />,
   "record-inspector": <RecordInspectorDemo />, "field-confidence-list": <FieldConfidenceListDemo />,
+  "conflict-resolver": <ConflictResolverDemo />, "validation-summary": <ValidationSummaryDemo />,
   "schema-form": <FormDemo />, "entity-review-table": <ReviewDemo />, "audit-trail": <AuditDemo />,
   "confirmation-panel": <ConfirmationPanelDemo />, "risk-review-panel": <RiskReviewPanelDemo />,
   "diff-viewer": <DiffViewerDemo />, "source-evidence-panel": <SourceEvidencePanelDemo />,
@@ -108,7 +111,8 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
   const fileReviewCode = fileReviewExampleCode(slug);
   const sourceEvidenceCode = sourceEvidenceExampleCode(slug);
   const recordInspectionCode = recordInspectionExampleCode(slug);
-  const renderCode = recordInspectionCode ?? sourceEvidenceCode ?? fileReviewCode ?? formWorkflowCode ?? toolWorkflowCode ?? approvalExampleCode(slug) ?? 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
+  const conflictValidationCode = conflictValidationExampleCode(slug);
+  const renderCode = conflictValidationCode ?? recordInspectionCode ?? sourceEvidenceCode ?? fileReviewCode ?? formWorkflowCode ?? toolWorkflowCode ?? approvalExampleCode(slug) ?? 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
   const serverCode = 'import { ' + item.name + 'Schema } from "@mcpcn/schemas";\nimport { createStructuredResult } from "@mcpcn/server";\n\nexport function reviewedResult(candidate: unknown) {\n  const data = ' + item.name + 'Schema.parse(candidate);\n  return createStructuredResult("' + item.slug + '", data);\n}';
   return <main>
     <span className="eyebrow">{item.category}</span><h1>{item.name}</h1><p className="lede">{item.description}</p>
@@ -129,6 +133,13 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
           {Object.entries(properties).map(([name, field]) => <tr key={name}><th scope="row"><code>{name}</code></th><td>{fieldType(field)}</td><td>{"default" in object(field) ? "Defaulted" : required.has(name) ? "Required" : "Optional"}</td></tr>)}
         </tbody></table></div>
         <h2>React integration</h2><pre className="code">{renderCode}</pre>
+        {conflictValidationCode && <>
+          <h2>Supplied choices and validation reports</h2>
+          <p>Select a candidate or issue to read its complete escaped value, message and supplied evidence. Omitted selection is local; null or a current ID is controlled and waits for a producer acknowledgement. Callback-free local reading and clearing remain available while notifications or external busy feedback are pending.</p>
+          <p>Confirm choice is a separate explicit intent. It needs a current selection and an available consumer, and it waits while externally busy or confirmation is pending. Successful settlement does not resolve, save or authorize a choice. Reported validation status remains the supplied report's claim, independent of issue severity or count.</p>
+          <p>Current identities and revisions alone appear in events. Candidate values, issue contexts, messages, confidence, evidence and URLs remain private application data. Catalogue privacy metadata does not redact structured content already sent to a model. Keep model-safe output separate from the complete review data.</p>
+          <p>Conflicts contain 2–20 candidates; validation reports contain 0–100 issues. Complete native DTOs fit 2 MiB parsed UTF-8 JSON and retain the existing per-value guards. The shared playground keeps its smaller 8192-unit string and 65536-byte result limits, rejecting oversized input without truncation.</p>
+        </>}
         {recordInspectionCode && <>
           <h2>Inspect supplied fields</h2>
           <p>Select a current field to read its complete JSON value and supplied evidence. Null, false, zero, empty strings and nested values keep their types. Reported confidence of zero is displayed as 0%; omitted confidence is shown as Not supplied. Neither confidence nor evidence verifies accuracy or authorizes an action.</p>

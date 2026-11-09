@@ -1,0 +1,48 @@
+
+> @mcpcn/docs@0.1.0 build /home/runner/work/_temp/mcpcn-conflict-validation-VyqogT/source/apps/docs
+> node ../../tooling/stage-playground.mjs --target docs && node ../../tooling/stage-docs-registry.mjs && next build
+
+{"schemaVersion":1,"kind":"mcpcn.docs.registry-static.stage.v1","status":"staged","source":{"path":"registry/registry.json","bytes":27567029,"sha256":"1f35d9cc20fcd5afd07276b217abbf29bce4c55d03feac25394fd0ff0d2753f6"},"destination":"apps/docs/public/r","files":[{"path":"registry.json","bytes":27567029,"sha256":"1f35d9cc20fcd5afd07276b217abbf29bce4c55d03feac25394fd0ff0d2753f6"},{"path":"registry-static-manifest.json","bytes":237,"sha256":"f1a49c31d23119edaf8b246b9cf509811825d52572f0f70c4b5e37069747ff9b"}]}
+▲ Next.js 16.3.0 (Turbopack)
+✓ Running next.config.ts took 25ms
+⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+- Experiments (use with caution):
+  · optimizePackageImports
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 6.0s
+  Running TypeScript ...
+  Finished TypeScript in 6.0s ...
+  Collecting page data using 3 workers ...
+  Generating static pages using 3 workers (0/81) ...
+  Generating static pages using 3 workers (20/81) 
+  Generating static pages using 3 workers (40/81) 
+  Generating static pages using 3 workers (60/81) 
+✓ Generating static pages using 3 workers (81/81) in 1035ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /blocks
+├ ○ /components
+├   /components/[slug]
+│ ├ ● /components/button
+│ ├ ● /components/card
+│ ├ ● /components/badge
+│ └ ● [+65 more paths]
+├ ○ /create
+├ ○ /docs
+├ ○ /examples
+├ ○ /icon.svg
+├ ƒ /llms-full.txt
+├ ƒ /llms.txt
+├ ○ /playground
+├ ƒ /r/[name]
+└ ƒ /schema/config.json
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+
