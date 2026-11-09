@@ -1,0 +1,21 @@
+
+> @mcpcn/docs@0.1.0 build /home/runner/work/_temp/mcpcn-evidence-j6SfvE/source/apps/docs
+> node ../../tooling/stage-playground.mjs --target docs && node ../../tooling/stage-docs-registry.mjs && next build
+
+{"schemaVersion":1,"kind":"mcpcn.docs.registry-static.stage.v1","status":"staged","source":{"path":"registry/registry.json","bytes":23413265,"sha256":"ae9105bbe5c64c2e05fdebc9192d01d9de2e12c47df4d905d6deb298eed12ccc"},"destination":"apps/docs/public/r","files":[{"path":"registry.json","bytes":23413265,"sha256":"ae9105bbe5c64c2e05fdebc9192d01d9de2e12c47df4d905d6deb298eed12ccc"},{"path":"registry-static-manifest.json","bytes":237,"sha256":"a0c8418dd60ff554156a7c651d3ccf77db3abafff49e991b5b5d9f5543c4bf62"}]}
+▲ Next.js 16.3.0 (Turbopack)
+✓ Running next.config.ts took 16ms
+⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+- Experiments (use with caution):
+  · optimizePackageImports
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 4.6s
+  Running TypeScript ...
+components/source-evidence-demos.tsx(86,45): error TS2352: Conversion of type '{ unsupported: boolean; state: "ready"; sources: { id: string; label: string; revision: string; url?: string | undefined; excerpt?: string | undefined; supports?: string[] | undefined; }[]; id: string; ... 4 more ...; description?: string | undefined; } | { ...; } | { ...; } | { ...; }' to type '{ state: "ready"; sources: { id: string; label: string; revision: string; url?: string | undefined; excerpt?: string | undefined; supports?: string[] | undefined; }[]; id: string; revision: string; title: string; selectedSourceId?: string | ... 1 more ... | undefined; message?: string | undefined; description?: stri...' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Object literal may only specify known properties, and 'unsupported' does not exist in type '{ state: "error"; message: string; id: string; revision: string; title: string; description?: string | undefined; }'.
+components/source-evidence-demos.tsx(136,60): error TS2352: Conversion of type '{ unsupported: boolean; state: "ready"; source: { id: string; label: string; revision: string; url?: string | undefined; excerpt?: string | undefined; supports?: string[] | undefined; }; content: { ...; } | { ...; }; ... 5 more ...; description?: string | undefined; } | { ...; } | { ...; } | { ...; }' to type '{ state: "ready"; source: { id: string; label: string; revision: string; url?: string | undefined; excerpt?: string | undefined; supports?: string[] | undefined; }; content: { type: "text"; text: string; } | { ...; }; ... 5 more ...; description?: string | undefined; } | { ...; } | { ...; } | { ...; }' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Object literal may only specify known properties, and 'unsupported' does not exist in type '{ state: "error"; message: string; id: string; revision: string; title: string; source?: { id: string; label: string; revision: string; url?: string | undefined; excerpt?: string | undefined; supports?: string[] | undefined; } | undefined; open?: boolean | undefined; description?: string | undefined; }'.
+/home/runner/work/_temp/mcpcn-evidence-j6SfvE/source/apps/docs:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @mcpcn/docs@0.1.0 build: `node ../../tooling/stage-playground.mjs --target docs && node ../../tooling/stage-docs-registry.mjs && next build`
+Exit status 1

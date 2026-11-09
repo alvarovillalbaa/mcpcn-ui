@@ -1,0 +1,260 @@
+
+Running 12 tests using 1 worker
+FFFFFFFF····
+
+  1) [chromium] › tooling/evidence-review-browser.spec.mjs:457:26 › E01 desktop docs current supplied source selection 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  locator('iframe[title="MCPCN host simulator"]').contentFrame().locator('iframe[title="Rendered MCP app"]').contentFrame().getByRole('region', { name: 'Supplied research sources', exact: true }).getByRole('button', { name: 'Select source: Authored research note', exact: true })
+    Expected: focused
+    Received: inactive
+    Timeout:  3000ms
+
+    Call log:
+      - Expect "toBeFocused" locator('iframe[title="MCPCN host simulator"]').contentFrame().locator('iframe[title="Rendered MCP app"]').contentFrame().getByRole('region', { name: 'Supplied research sources', exact: true }).getByRole('button', { name: 'Select source: Authored research note', exact: true }) with timeout 3000ms
+      - waiting for locator('iframe[title="MCPCN host simulator"]').contentFrame().locator('iframe[title="Rendered MCP app"]').contentFrame().getByRole('region', { name: 'Supplied research sources', exact: true }).getByRole('button', { name: 'Select source: Authored research note', exact: true })
+        10 × locator resolved to <button type="button" aria-pressed="true" data-variant="secondary" class="mcpcn mcpcn-button" aria-label="Select source: Authored research note">Select source</button>
+           - unexpected value "inactive"
+
+
+      236 |     // Echo the current controlled selection in the new producer result before append.
+      237 |     await edited(host, data => { data.selectedSourceId = "note-a"; data.sources.push({ id: "note-c", revision: "1", label: "Unrelated appended source", supports: [] }); }, activate);
+    > 238 |     await sameNode(select, handle); await expect(select).toHaveAttribute("aria-pressed", "true"); await expect(select).toBeFocused();
+          |                                                                                                                        ^
+      239 |     record("unrelated_append_preserves_selected_node_and_inner_document_focus", { proof: await snapshot(region, app, host), sameNativeNode: true });
+      240 |     await activate(region.getByRole("button", { name: "Inspect source: Authored research note", exact: true }));
+      241 |     await jsonIs(app.getByLabel("Last component intent", { exact: true }), { type: "inspect-source", data: sourceScope });
+        at sourcesJourney (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:238:120)
+        at within (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:36:19)
+        at runCase (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:435:5)
+
+    Error Context: ../output/browser-runner-artifacts/evidence-review-browser-E0-634a7-t-supplied-source-selection-chromium/error-context.md
+
+  2) [chromium] › tooling/evidence-review-browser.spec.mjs:457:26 › E02 narrow docs current supplied source selection 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  locator('iframe[title="MCPCN host simulator"]').contentFrame().locator('iframe[title="Rendered MCP app"]').contentFrame().getByRole('region', { name: 'Supplied research sources', exact: true }).getByRole('button', { name: 'Select source: Authored research note', exact: true })
+    Expected: focused
+    Received: inactive
+    Timeout:  3000ms
+
+    Call log:
+      - Expect "toBeFocused" locator('iframe[title="MCPCN host simulator"]').contentFrame().locator('iframe[title="Rendered MCP app"]').contentFrame().getByRole('region', { name: 'Supplied research sources', exact: true }).getByRole('button', { name: 'Select source: Authored research note', exact: true }) with timeout 3000ms
+      - waiting for locator('iframe[title="MCPCN host simulator"]').contentFrame().locator('iframe[title="Rendered MCP app"]').contentFrame().getByRole('region', { name: 'Supplied research sources', exact: true }).getByRole('button', { name: 'Select source: Authored research note', exact: true })
+        10 × locator resolved to <button type="button" aria-pressed="true" data-variant="secondary" class="mcpcn mcpcn-button" aria-label="Select source: Authored research note">Select source</button>
+           - unexpected value "inactive"
+
+
+      236 |     // Echo the current controlled selection in the new producer result before append.
+      237 |     await edited(host, data => { data.selectedSourceId = "note-a"; data.sources.push({ id: "note-c", revision: "1", label: "Unrelated appended source", supports: [] }); }, activate);
+    > 238 |     await sameNode(select, handle); await expect(select).toHaveAttribute("aria-pressed", "true"); await expect(select).toBeFocused();
+          |                                                                                                                        ^
+      239 |     record("unrelated_append_preserves_selected_node_and_inner_document_focus", { proof: await snapshot(region, app, host), sameNativeNode: true });
+      240 |     await activate(region.getByRole("button", { name: "Inspect source: Authored research note", exact: true }));
+      241 |     await jsonIs(app.getByLabel("Last component intent", { exact: true }), { type: "inspect-source", data: sourceScope });
+        at sourcesJourney (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:238:120)
+        at within (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:36:19)
+        at runCase (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:435:5)
+
+    Error Context: ../output/browser-runner-artifacts/evidence-review-browser-E0-d41b0-t-supplied-source-selection-chromium/error-context.md
+
+  3) [chromium] › tooling/evidence-review-browser.spec.mjs:457:26 › E03 desktop CLI dev native modal inspection 
+
+    AssertionError: Expected values to be strictly equal:
+
+    false !== true
+
+
+      261 |   await expect(dialogFor(region).locator("pre")).toHaveText(expected); assert.ok(expected.includes("END-EVIDENCE"));
+      262 |   assert.equal(await dialogFor(region).locator("script").count(), 0); await jsonIs(app.getByLabel("Last component intent", { exact: true }), { type: "open-evidence", data: drawerScope });
+    > 263 |   for (let i = 0; i < 8; i++) { await press(args, "Tab"); assert.equal(await dialogFor(region).evaluate(node => node.contains(document.activeElement)), true); }
+          |                                                                  ^
+      264 |   for (let i = 0; i < 8; i++) { await press(args, "Shift+Tab"); assert.equal(await dialogFor(region).evaluate(node => node.contains(document.activeElement)), true); }
+      265 |   const bounds = await dialogFor(region).boundingBox(); assert.ok(bounds);
+      266 |   const ownViewport = await dialogFor(region).evaluate(node => ({ width: innerWidth, height: innerHeight, scroll: node.scrollHeight, client: node.clientHeight }));
+        at nativeJourney (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:263:66)
+        at within (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:36:19)
+        at runCase (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:435:5)
+
+    Error Context: ../output/browser-runner-artifacts/evidence-review-browser-E0-5837f-dev-native-modal-inspection-chromium/error-context.md
+
+  4) [chromium] › tooling/evidence-review-browser.spec.mjs:457:26 › E04 narrow CLI dev native modal inspection 
+
+    AssertionError: Expected values to be strictly equal:
+
+    false !== true
+
+
+      261 |   await expect(dialogFor(region).locator("pre")).toHaveText(expected); assert.ok(expected.includes("END-EVIDENCE"));
+      262 |   assert.equal(await dialogFor(region).locator("script").count(), 0); await jsonIs(app.getByLabel("Last component intent", { exact: true }), { type: "open-evidence", data: drawerScope });
+    > 263 |   for (let i = 0; i < 8; i++) { await press(args, "Tab"); assert.equal(await dialogFor(region).evaluate(node => node.contains(document.activeElement)), true); }
+          |                                                                  ^
+      264 |   for (let i = 0; i < 8; i++) { await press(args, "Shift+Tab"); assert.equal(await dialogFor(region).evaluate(node => node.contains(document.activeElement)), true); }
+      265 |   const bounds = await dialogFor(region).boundingBox(); assert.ok(bounds);
+      266 |   const ownViewport = await dialogFor(region).evaluate(node => ({ width: innerWidth, height: innerHeight, scroll: node.scrollHeight, client: node.clientHeight }));
+        at nativeJourney (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:263:66)
+        at within (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:36:19)
+        at runCase (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:435:5)
+
+    Error Context: ../output/browser-runner-artifacts/evidence-review-browser-E0-41767-dev-native-modal-inspection-chromium/error-context.md
+
+  5) [chromium] › tooling/evidence-review-browser.spec.mjs:457:26 › E05 desktop CLI preview complete JSON and presentation scope 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  locator('iframe[title="Rendered MCP app"]').contentFrame().getByRole('region', { name: 'Supplied evidence', exact: true }).locator('dialog').locator('summary')
+    Expected: focused
+    Received: inactive
+    Timeout:  3000ms
+
+    Call log:
+      - Expect "toBeFocused" locator('iframe[title="Rendered MCP app"]').contentFrame().getByRole('region', { name: 'Supplied evidence', exact: true }).locator('dialog').locator('summary') with timeout 3000ms
+      - waiting for locator('iframe[title="Rendered MCP app"]').contentFrame().getByRole('region', { name: 'Supplied evidence', exact: true }).locator('dialog').locator('summary')
+        10 × locator resolved to <summary>Evidence JSON</summary>
+           - unexpected value "inactive"
+
+
+      292 |     const equivalent = { href: false, url: "plain JSON data", alpha: { list: ["<b>literal</b>", { end: "END-JSON" }], nullable: null, no: false, zero: 0, empty: "" } };
+      293 |     await edited(host, data => { data.content = { type: "json", value: equivalent }; }, activate);
+    > 294 |     await modal(region); await sameNode(dialogFor(region), shell); await expect(summary).toBeFocused(); await expect(dialogFor(region).locator("details")).not.toHaveAttribute("open", "");
+          |                                                                                          ^
+      295 |     record("equivalent_key_order_preserves_native_shell_disclosure_and_focus", { proof: await snapshot(region, app, host), sameNativeShell: true, expectedValue: nested }); await capture(args, "json", dialogFor(region));
+      296 |     await edited(host, data => { data.content.value.alpha.zero = 1; }, activate); await modal(region, false); await sameNode(dialogFor(region), shell);
+      297 |     record("meaningful_content_replacement_closes_old_presentation", { proof: await snapshot(region, app, host), sameNativeShell: true });
+        at jsonJourney (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:294:90)
+        at within (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:36:19)
+        at runCase (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:435:5)
+
+    Error Context: ../output/browser-runner-artifacts/evidence-review-browser-E0-9a94a-JSON-and-presentation-scope-chromium/error-context.md
+
+  6) [chromium] › tooling/evidence-review-browser.spec.mjs:457:26 › E06 narrow CLI preview complete JSON and presentation scope 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  locator('iframe[title="Rendered MCP app"]').contentFrame().getByRole('region', { name: 'Supplied evidence', exact: true }).locator('dialog').locator('summary')
+    Expected: focused
+    Received: inactive
+    Timeout:  3000ms
+
+    Call log:
+      - Expect "toBeFocused" locator('iframe[title="Rendered MCP app"]').contentFrame().getByRole('region', { name: 'Supplied evidence', exact: true }).locator('dialog').locator('summary') with timeout 3000ms
+      - waiting for locator('iframe[title="Rendered MCP app"]').contentFrame().getByRole('region', { name: 'Supplied evidence', exact: true }).locator('dialog').locator('summary')
+        10 × locator resolved to <summary>Evidence JSON</summary>
+           - unexpected value "inactive"
+
+
+      292 |     const equivalent = { href: false, url: "plain JSON data", alpha: { list: ["<b>literal</b>", { end: "END-JSON" }], nullable: null, no: false, zero: 0, empty: "" } };
+      293 |     await edited(host, data => { data.content = { type: "json", value: equivalent }; }, activate);
+    > 294 |     await modal(region); await sameNode(dialogFor(region), shell); await expect(summary).toBeFocused(); await expect(dialogFor(region).locator("details")).not.toHaveAttribute("open", "");
+          |                                                                                          ^
+      295 |     record("equivalent_key_order_preserves_native_shell_disclosure_and_focus", { proof: await snapshot(region, app, host), sameNativeShell: true, expectedValue: nested }); await capture(args, "json", dialogFor(region));
+      296 |     await edited(host, data => { data.content.value.alpha.zero = 1; }, activate); await modal(region, false); await sameNode(dialogFor(region), shell);
+      297 |     record("meaningful_content_replacement_closes_old_presentation", { proof: await snapshot(region, app, host), sameNativeShell: true });
+        at jsonJourney (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:294:90)
+        at within (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:36:19)
+        at runCase (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:435:5)
+
+    Error Context: ../output/browser-runner-artifacts/evidence-review-browser-E0-9d95b-JSON-and-presentation-scope-chromium/error-context.md
+
+  7) [chromium] › tooling/evidence-review-browser.spec.mjs:457:26 › E07 desktop docs external requests and owned dismissal 
+
+    TimeoutError: locator.click: Timeout 3000ms exceeded.
+    Call log:
+      - waiting for locator('iframe[title="MCPCN host simulator"]').contentFrame().locator('iframe[title="Rendered MCP app"]').contentFrame().getByRole('region', { name: 'Supplied evidence', exact: true }).locator('dialog').getByRole('button', { name: 'Close evidence', exact: true })
+        - locator resolved to <button type="button" data-variant="secondary" class="mcpcn mcpcn-button" aria-label="Close evidence">Close evidence</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - element is outside of the viewport
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - element is outside of the viewport
+        - retrying click action
+          - waiting 100ms
+        6 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - element is outside of the viewport
+        - retrying click action
+          - waiting 500ms
+
+
+      431 |     report.observedViewport = await page.evaluate(() => ({ innerWidth, innerHeight, documentWidth: document.documentElement.scrollWidth, maxTouchPoints: navigator.maxTouchPoints }));
+      432 |     assert.equal(report.observedViewport.innerWidth, viewport.width); assert.equal(report.observedViewport.innerHeight, viewport.height); assert.ok(report.observedViewport.documentWidth <= viewport.width + 1); assert.ok(profile === "narrow" ? report.observedViewport.maxTouchPoints > 0 : report.observedViewport.maxTouchPoints === 0);
+    > 433 |     const activate = async (locator, force = false) => { if (profile === "narrow") { await locator.tap({ force }); report.input.trackedTaps++; } else { await locator.click({ force }); report.input.trackedClicks++; } };
+          |                                                                                                                                                                       ^
+      434 |     record(direct ? "actual_docs_component_ready" : "actual_nested_bridge_ready", { frames: report.frames, viewport: report.observedViewport, theme: direct ? null : profile === "narrow" ? "dark" : "light", proof: await snapshot(regionFor(app, scenario), app, host, direct ? scenario === "stack" ? "Last stacked evidence intent" : "Last source list intent" : null) });
+      435 |     await within(() => journey({ page, context, host, app, report, observer, record, activate, deadline, profile }), deadline, "journey_deadline");
+      436 |     assert.ok(profile === "narrow" ? report.input.trackedTaps > 0 : report.input.trackedClicks > 0); await observer.settle(); report.cookieCount = (await context.cookies()).length; assert.equal(report.cookieCount, 0);
+        at Object.activate (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:433:167)
+        at close (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:199:14)
+        at requestsJourney (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:311:91)
+        at within (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:36:19)
+        at runCase (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:435:5)
+
+    Error Context: ../output/browser-runner-artifacts/evidence-review-browser-E0-68989-equests-and-owned-dismissal-chromium/error-context.md
+
+  8) [chromium] › tooling/evidence-review-browser.spec.mjs:457:26 › E08 narrow docs external requests and owned dismissal 
+
+    TimeoutError: locator.tap: Timeout 3000ms exceeded.
+    Call log:
+      - waiting for locator('iframe[title="MCPCN host simulator"]').contentFrame().locator('iframe[title="Rendered MCP app"]').contentFrame().getByRole('region', { name: 'Supplied evidence', exact: true }).locator('dialog').getByRole('button', { name: 'Close evidence', exact: true })
+        - locator resolved to <button type="button" data-variant="secondary" class="mcpcn mcpcn-button" aria-label="Close evidence">Close evidence</button>
+      - attempting tap action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - element is outside of the viewport
+        - retrying tap action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - element is outside of the viewport
+        - retrying tap action
+          - waiting 100ms
+        6 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - element is outside of the viewport
+        - retrying tap action
+          - waiting 500ms
+
+
+      431 |     report.observedViewport = await page.evaluate(() => ({ innerWidth, innerHeight, documentWidth: document.documentElement.scrollWidth, maxTouchPoints: navigator.maxTouchPoints }));
+      432 |     assert.equal(report.observedViewport.innerWidth, viewport.width); assert.equal(report.observedViewport.innerHeight, viewport.height); assert.ok(report.observedViewport.documentWidth <= viewport.width + 1); assert.ok(profile === "narrow" ? report.observedViewport.maxTouchPoints > 0 : report.observedViewport.maxTouchPoints === 0);
+    > 433 |     const activate = async (locator, force = false) => { if (profile === "narrow") { await locator.tap({ force }); report.input.trackedTaps++; } else { await locator.click({ force }); report.input.trackedClicks++; } };
+          |                                                                                                    ^
+      434 |     record(direct ? "actual_docs_component_ready" : "actual_nested_bridge_ready", { frames: report.frames, viewport: report.observedViewport, theme: direct ? null : profile === "narrow" ? "dark" : "light", proof: await snapshot(regionFor(app, scenario), app, host, direct ? scenario === "stack" ? "Last stacked evidence intent" : "Last source list intent" : null) });
+      435 |     await within(() => journey({ page, context, host, app, report, observer, record, activate, deadline, profile }), deadline, "journey_deadline");
+      436 |     assert.ok(profile === "narrow" ? report.input.trackedTaps > 0 : report.input.trackedClicks > 0); await observer.settle(); report.cookieCount = (await context.cookies()).length; assert.equal(report.cookieCount, 0);
+        at Object.activate (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:433:100)
+        at close (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:199:14)
+        at requestsJourney (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:311:91)
+        at within (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:36:19)
+        at runCase (/home/runner/work/_temp/mcpcn-evidence-Zt0Ugy/source/tooling/evidence-review-browser.spec.mjs:435:5)
+
+    Error Context: ../output/browser-runner-artifacts/evidence-review-browser-E0-dfe82-equests-and-owned-dismissal-chromium/error-context.md
+
+  8 failed
+    [chromium] › tooling/evidence-review-browser.spec.mjs:457:26 › E01 desktop docs current supplied source selection 
+    [chromium] › tooling/evidence-review-browser.spec.mjs:457:26 › E02 narrow docs current supplied source selection 
+    [chromium] › tooling/evidence-review-browser.spec.mjs:457:26 › E03 desktop CLI dev native modal inspection 
+    [chromium] › tooling/evidence-review-browser.spec.mjs:457:26 › E04 narrow CLI dev native modal inspection 
+    [chromium] › tooling/evidence-review-browser.spec.mjs:457:26 › E05 desktop CLI preview complete JSON and presentation scope 
+    [chromium] › tooling/evidence-review-browser.spec.mjs:457:26 › E06 narrow CLI preview complete JSON and presentation scope 
+    [chromium] › tooling/evidence-review-browser.spec.mjs:457:26 › E07 desktop docs external requests and owned dismissal 
+    [chromium] › tooling/evidence-review-browser.spec.mjs:457:26 › E08 narrow docs external requests and owned dismissal 
+  4 passed (51.4s)

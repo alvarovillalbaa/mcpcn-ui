@@ -1,0 +1,148 @@
+
+Running 12 tests using 1 worker
+····FF······
+
+  1) [chromium] › tooling/evidence-review-browser.spec.mjs:515:26 › E05 desktop CLI preview complete JSON and presentation scope 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('iframe[title="Rendered MCP app"]').contentFrame().getByRole('region', { name: 'Supplied evidence', exact: true }).locator('dialog').locator('pre')
+    Timeout: 3000ms
+    - Expected  - 9
+    + Received  + 9
+
+      {
+    -   "href": false,
+    -   "url": "plain JSON data",
+    +   "alpha": {
+    +     "empty": "",
+    +     "zero": 0,
+    +     "no": false,
+    -   "alpha": {
+    +     "nullable": null,
+          "list": [
+            "<b>literal</b>",
+            {
+              "end": "END-JSON"
+            }
+    -     ],
+    +     ]
+    -     "nullable": null,
+    -     "no": false,
+    -     "zero": 0,
+    +   },
+    +   "url": "plain JSON data",
+    -     "empty": ""
+    -   }
+    +   "href": false
+      }
+
+    Call log:
+      - Expect "toHaveText" locator('iframe[title="Rendered MCP app"]').contentFrame().getByRole('region', { name: 'Supplied evidence', exact: true }).locator('dialog').locator('pre') with timeout 3000ms
+      - waiting for locator('iframe[title="Rendered MCP app"]').contentFrame().getByRole('region', { name: 'Supplied evidence', exact: true }).locator('dialog').locator('pre')
+        10 × locator resolved to <pre class="mcpcn-code">{↵  "alpha": {↵    "empty": "",↵    "zero": 0,↵  …</pre>
+           - unexpected value "{
+      "alpha": {
+        "empty": "",
+        "zero": 0,
+        "no": false,
+        "nullable": null,
+        "list": [
+          "<b>literal</b>",
+          {
+            "end": "END-JSON"
+          }
+        ]
+      },
+      "url": "plain JSON data",
+      "href": false
+    }"
+
+
+      349 |     const equivalent = { href: false, url: "plain JSON data", alpha: { list: ["<b>literal</b>", { end: "END-JSON" }], nullable: null, no: false, zero: 0, empty: "" } };
+      350 |     const refresh = await producerRefresh(args, data => { data.content = { type: "json", value: equivalent }; }, summary);
+    > 351 |     await expect(dialogFor(region).locator("pre")).toHaveText(JSON.stringify(equivalent, null, 2));
+          |                                                    ^
+      352 |     await modal(region); await sameNode(dialogFor(region), shell); await expect(summary).toBeFocused(); await expect(dialogFor(region).locator("details")).not.toHaveAttribute("open", "");
+      353 |     record("equivalent_key_order_preserves_native_shell_disclosure_and_focus", { proof: await snapshot(region, app, host), sameNativeShell: true, expectedValue: nested, producerRefresh: refresh }); await capture(args, "json", dialogFor(region));
+      354 |     await edited(host, data => { data.content.value.alpha.zero = 1; }, activate); await modal(region, false); await sameNode(dialogFor(region), shell);
+        at jsonJourney (/home/runner/work/_temp/mcpcn-evidence-bzmJqA/source/tooling/evidence-review-browser.spec.mjs:351:52)
+        at within (/home/runner/work/_temp/mcpcn-evidence-bzmJqA/source/tooling/evidence-review-browser.spec.mjs:36:19)
+        at runCase (/home/runner/work/_temp/mcpcn-evidence-bzmJqA/source/tooling/evidence-review-browser.spec.mjs:493:5)
+
+    Error Context: ../output/browser-runner-artifacts/evidence-review-browser-E0-9a94a-JSON-and-presentation-scope-chromium/error-context.md
+
+  2) [chromium] › tooling/evidence-review-browser.spec.mjs:515:26 › E06 narrow CLI preview complete JSON and presentation scope 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('iframe[title="Rendered MCP app"]').contentFrame().getByRole('region', { name: 'Supplied evidence', exact: true }).locator('dialog').locator('pre')
+    Timeout: 3000ms
+    - Expected  - 9
+    + Received  + 9
+
+      {
+    -   "href": false,
+    -   "url": "plain JSON data",
+    +   "alpha": {
+    +     "empty": "",
+    +     "zero": 0,
+    +     "no": false,
+    -   "alpha": {
+    +     "nullable": null,
+          "list": [
+            "<b>literal</b>",
+            {
+              "end": "END-JSON"
+            }
+    -     ],
+    +     ]
+    -     "nullable": null,
+    -     "no": false,
+    -     "zero": 0,
+    +   },
+    +   "url": "plain JSON data",
+    -     "empty": ""
+    -   }
+    +   "href": false
+      }
+
+    Call log:
+      - Expect "toHaveText" locator('iframe[title="Rendered MCP app"]').contentFrame().getByRole('region', { name: 'Supplied evidence', exact: true }).locator('dialog').locator('pre') with timeout 3000ms
+      - waiting for locator('iframe[title="Rendered MCP app"]').contentFrame().getByRole('region', { name: 'Supplied evidence', exact: true }).locator('dialog').locator('pre')
+        10 × locator resolved to <pre class="mcpcn-code">{↵  "alpha": {↵    "empty": "",↵    "zero": 0,↵  …</pre>
+           - unexpected value "{
+      "alpha": {
+        "empty": "",
+        "zero": 0,
+        "no": false,
+        "nullable": null,
+        "list": [
+          "<b>literal</b>",
+          {
+            "end": "END-JSON"
+          }
+        ]
+      },
+      "url": "plain JSON data",
+      "href": false
+    }"
+
+
+      349 |     const equivalent = { href: false, url: "plain JSON data", alpha: { list: ["<b>literal</b>", { end: "END-JSON" }], nullable: null, no: false, zero: 0, empty: "" } };
+      350 |     const refresh = await producerRefresh(args, data => { data.content = { type: "json", value: equivalent }; }, summary);
+    > 351 |     await expect(dialogFor(region).locator("pre")).toHaveText(JSON.stringify(equivalent, null, 2));
+          |                                                    ^
+      352 |     await modal(region); await sameNode(dialogFor(region), shell); await expect(summary).toBeFocused(); await expect(dialogFor(region).locator("details")).not.toHaveAttribute("open", "");
+      353 |     record("equivalent_key_order_preserves_native_shell_disclosure_and_focus", { proof: await snapshot(region, app, host), sameNativeShell: true, expectedValue: nested, producerRefresh: refresh }); await capture(args, "json", dialogFor(region));
+      354 |     await edited(host, data => { data.content.value.alpha.zero = 1; }, activate); await modal(region, false); await sameNode(dialogFor(region), shell);
+        at jsonJourney (/home/runner/work/_temp/mcpcn-evidence-bzmJqA/source/tooling/evidence-review-browser.spec.mjs:351:52)
+        at within (/home/runner/work/_temp/mcpcn-evidence-bzmJqA/source/tooling/evidence-review-browser.spec.mjs:36:19)
+        at runCase (/home/runner/work/_temp/mcpcn-evidence-bzmJqA/source/tooling/evidence-review-browser.spec.mjs:493:5)
+
+    Error Context: ../output/browser-runner-artifacts/evidence-review-browser-E0-9d95b-JSON-and-presentation-scope-chromium/error-context.md
+
+  2 failed
+    [chromium] › tooling/evidence-review-browser.spec.mjs:515:26 › E05 desktop CLI preview complete JSON and presentation scope 
+    [chromium] › tooling/evidence-review-browser.spec.mjs:515:26 › E06 narrow CLI preview complete JSON and presentation scope 
+  10 passed (42.7s)
