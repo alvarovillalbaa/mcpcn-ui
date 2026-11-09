@@ -10,6 +10,7 @@ import { MissingDataRequestSchema, MultiStepFormSchema, InlineEditFormSchema, Fo
 import { DocumentPreviewSchema, FileReviewSchema } from "./file-review-schemas.js";
 import { SourceListSchema, EvidenceDrawerSchema } from "./source-evidence-schemas.js";
 import { RecordInspectorSchema, FieldConfidenceListSchema } from "./record-inspection-schemas.js";
+import { ConflictResolverSchema, ValidationSummarySchema } from "./conflict-validation-schemas.js";
 export { RiskLevelSchema, ChangeSchema, SchemaFieldSchema } from "./schema-common.js";
 export * from "./review-schemas.js";
 export * from "./decision-schemas.js";
@@ -20,6 +21,7 @@ export * from "./form-workflow-schemas.js";
 export * from "./file-review-schemas.js";
 export * from "./source-evidence-schemas.js";
 export * from "./record-inspection-schemas.js";
+export * from "./conflict-validation-schemas.js";
 
 export const ApprovalCardSchema = z.object({
   title: z.string().refine(value => Boolean(value.trim()), "A review needs a visible title."),
@@ -98,8 +100,7 @@ export const GenericComponentSchema = z.object({
 
 // Every catalog surface has a named schema export. Specialized components own
 // their contracts; the remaining informational aliases share the generic shape.
-export const ConflictResolverSchema=GenericComponentSchema, ValidationSummarySchema=GenericComponentSchema,
-  OptionSelectorSchema=GenericComponentSchema, RecommendationCardSchema=GenericComponentSchema,
+export const OptionSelectorSchema=GenericComponentSchema, RecommendationCardSchema=GenericComponentSchema,
   TradeoffPanelSchema=GenericComponentSchema,
   RankingListSchema=GenericComponentSchema, DecisionMemoSchema=GenericComponentSchema,
   ReasoningSummarySchema=GenericComponentSchema, DataAccessNoticeSchema=GenericComponentSchema,
@@ -165,5 +166,7 @@ export const schemaBySlug = {
   "source-list": SourceListSchema,
   "evidence-drawer": EvidenceDrawerSchema,
   "record-inspector": RecordInspectorSchema,
-  "field-confidence-list": FieldConfidenceListSchema
+  "field-confidence-list": FieldConfidenceListSchema,
+  "conflict-resolver": ConflictResolverSchema,
+  "validation-summary": ValidationSummarySchema
 } as const;
