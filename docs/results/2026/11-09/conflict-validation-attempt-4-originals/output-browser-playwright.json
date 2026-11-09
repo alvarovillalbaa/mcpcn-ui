@@ -1,0 +1,576 @@
+{
+  "config": {
+    "argv": [
+      "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/tools/node_modules/playwright/cli.js",
+      "test",
+      "--config",
+      "/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/tools/playwright.config.cjs"
+    ],
+    "configFile": "/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/tools/playwright.config.cjs",
+    "rootDir": "/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 450000,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/output/browser-runner-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling",
+        "testIgnore": [],
+        "testMatch": [
+          "conflict-validation-browser.spec.mjs"
+        ],
+        "timeout": 40000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/output/browser-runner-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling",
+        "snapshotDir": "/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling",
+        "testIgnore": [],
+        "testMatch": "conflict-validation-browser.spec.mjs",
+        "timeout": 40000,
+        "use": {
+          "browserName": "chromium",
+          "headless": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/output/browser/playwright.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "conflict-validation-browser.spec.mjs",
+      "file": "conflict-validation-browser.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R01 desktop docs supplied conflict choice and explicit confirmation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 40000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2706,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:22:44.290Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84a578ce70bf87033abf-41bae68a8977ab3546c6",
+          "file": "conflict-validation-browser.spec.mjs",
+          "line": 690,
+          "column": 26
+        },
+        {
+          "title": "R02 narrow docs supplied conflict choice and explicit confirmation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 40000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2814,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:22:47.154Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84a578ce70bf87033abf-f5bfd09f1d4bf2b19c6f",
+          "file": "conflict-validation-browser.spec.mjs",
+          "line": 690,
+          "column": 26
+        },
+        {
+          "title": "R03 desktop CLI dev supplied validation status and current issues",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 40000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2627,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:22:49.976Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84a578ce70bf87033abf-f6fbf18e46cb927edcce",
+          "file": "conflict-validation-browser.spec.mjs",
+          "line": 690,
+          "column": 26
+        },
+        {
+          "title": "R04 narrow CLI dev supplied validation status and current issues",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 40000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2747,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:22:52.610Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84a578ce70bf87033abf-4c5281c65363b7dd92e6",
+          "file": "conflict-validation-browser.spec.mjs",
+          "line": 690,
+          "column": 26
+        },
+        {
+          "title": "R05 desktop CLI preview complete issue context and keyboard reading",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 40000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3881,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:22:55.368Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84a578ce70bf87033abf-9bf65bc1f33e26858a5f",
+          "file": "conflict-validation-browser.spec.mjs",
+          "line": 690,
+          "column": 26
+        },
+        {
+          "title": "R06 narrow CLI preview complete issue context and keyboard reading",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 40000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4159,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:22:59.258Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84a578ce70bf87033abf-991accd3535a251f1742",
+          "file": "conflict-validation-browser.spec.mjs",
+          "line": 690,
+          "column": 26
+        },
+        {
+          "title": "R07 desktop docs controlled conflict selection acknowledgement",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 40000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1452,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:23:03.424Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84a578ce70bf87033abf-96eb3e7f6fca98384d99",
+          "file": "conflict-validation-browser.spec.mjs",
+          "line": 690,
+          "column": 26
+        },
+        {
+          "title": "R08 narrow docs controlled conflict selection acknowledgement",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 40000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1652,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:23:04.894Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84a578ce70bf87033abf-ad82098333b68ecc5511",
+          "file": "conflict-validation-browser.spec.mjs",
+          "line": 690,
+          "column": 26
+        },
+        {
+          "title": "R09 desktop docs independent confirmation and notification fences",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 40000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3937,
+                  "error": {
+                    "message": "TimeoutError: locator.click: Timeout 3000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('region', { name: 'Review supplied conflict choices', exact: true }).getByRole('button', { name: 'Confirm choice', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"button\" class=\"mcpcn mcpcn-button\">Confirm choice</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    6 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n",
+                    "stack": "TimeoutError: locator.click: Timeout 3000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('region', { name: 'Review supplied conflict choices', exact: true }).getByRole('button', { name: 'Confirm choice', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"button\" class=\"mcpcn mcpcn-button\">Confirm choice</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    6 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\n    at args.activate (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:641:107)\n    at fencesJourney (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:511:58)\n    at within (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:36:19)\n    at runCase (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:666:5)",
+                    "location": {
+                      "file": "/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs",
+                      "column": 107,
+                      "line": 641
+                    },
+                    "snippet": "  639 |     args.activate = async locator => {\n  640 |       await alignReachable(args, locator, \"activate\");\n> 641 |       if (profile === \"narrow\") { await locator.tap(); report.input.trackedTaps++; } else { await locator.click(); report.input.trackedClicks++; }\n      |                                                                                                           ^\n  642 |     };\n  643 |     if (direct) {\n  644 |       await expect(regionFor(page, scenario)).toBeVisible(); assert.equal(page.frames().length, 1);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs",
+                        "column": 107,
+                        "line": 641
+                      },
+                      "message": "TimeoutError: locator.click: Timeout 3000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('region', { name: 'Review supplied conflict choices', exact: true }).getByRole('button', { name: 'Confirm choice', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"button\" class=\"mcpcn mcpcn-button\">Confirm choice</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    6 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\n\n  639 |     args.activate = async locator => {\n  640 |       await alignReachable(args, locator, \"activate\");\n> 641 |       if (profile === \"narrow\") { await locator.tap(); report.input.trackedTaps++; } else { await locator.click(); report.input.trackedClicks++; }\n      |                                                                                                           ^\n  642 |     };\n  643 |     if (direct) {\n  644 |       await expect(regionFor(page, scenario)).toBeVisible(); assert.equal(page.frames().length, 1);\n    at args.activate (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:641:107)\n    at fencesJourney (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:511:58)\n    at within (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:36:19)\n    at runCase (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:666:5)"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:23:06.555Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/output/browser-runner-artifacts/conflict-validation-browse-5aa2b-ion-and-notification-fences-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs",
+                    "column": 107,
+                    "line": 641
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "84a578ce70bf87033abf-6b21d4ef62e8a6365e94",
+          "file": "conflict-validation-browser.spec.mjs",
+          "line": 690,
+          "column": 26
+        },
+        {
+          "title": "R10 narrow docs independent confirmation and notification fences",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 40000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 4218,
+                  "error": {
+                    "message": "TimeoutError: locator.tap: Timeout 3000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('region', { name: 'Review supplied conflict choices', exact: true }).getByRole('button', { name: 'Confirm choice', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"button\" class=\"mcpcn mcpcn-button\">Confirm choice</button>\u001b[22m\n\u001b[2m  - attempting tap action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying tap action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying tap action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    6 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying tap action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n",
+                    "stack": "TimeoutError: locator.tap: Timeout 3000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('region', { name: 'Review supplied conflict choices', exact: true }).getByRole('button', { name: 'Confirm choice', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"button\" class=\"mcpcn mcpcn-button\">Confirm choice</button>\u001b[22m\n\u001b[2m  - attempting tap action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying tap action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying tap action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    6 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying tap action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\n    at args.activate (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:641:49)\n    at fencesJourney (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:511:58)\n    at within (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:36:19)\n    at runCase (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:666:5)",
+                    "location": {
+                      "file": "/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs",
+                      "column": 49,
+                      "line": 641
+                    },
+                    "snippet": "  639 |     args.activate = async locator => {\n  640 |       await alignReachable(args, locator, \"activate\");\n> 641 |       if (profile === \"narrow\") { await locator.tap(); report.input.trackedTaps++; } else { await locator.click(); report.input.trackedClicks++; }\n      |                                                 ^\n  642 |     };\n  643 |     if (direct) {\n  644 |       await expect(regionFor(page, scenario)).toBeVisible(); assert.equal(page.frames().length, 1);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs",
+                        "column": 49,
+                        "line": 641
+                      },
+                      "message": "TimeoutError: locator.tap: Timeout 3000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('region', { name: 'Review supplied conflict choices', exact: true }).getByRole('button', { name: 'Confirm choice', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"button\" class=\"mcpcn mcpcn-button\">Confirm choice</button>\u001b[22m\n\u001b[2m  - attempting tap action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying tap action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying tap action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    6 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying tap action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\n\n  639 |     args.activate = async locator => {\n  640 |       await alignReachable(args, locator, \"activate\");\n> 641 |       if (profile === \"narrow\") { await locator.tap(); report.input.trackedTaps++; } else { await locator.click(); report.input.trackedClicks++; }\n      |                                                 ^\n  642 |     };\n  643 |     if (direct) {\n  644 |       await expect(regionFor(page, scenario)).toBeVisible(); assert.equal(page.frames().length, 1);\n    at args.activate (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:641:49)\n    at fencesJourney (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:511:58)\n    at within (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:36:19)\n    at runCase (/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs:666:5)"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:23:10.913Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/output/browser-runner-artifacts/conflict-validation-browse-b169f-ion-and-notification-fences-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/runner/work/_temp/mcpcn-conflict-validation-YVilmX/source/tooling/conflict-validation-browser.spec.mjs",
+                    "column": 49,
+                    "line": 641
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "84a578ce70bf87033abf-e997a0b96bdec2a758ae",
+          "file": "conflict-validation-browser.spec.mjs",
+          "line": 690,
+          "column": 26
+        },
+        {
+          "title": "R11 desktop docs explicit states and validation callback scope",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 40000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2345,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:23:15.624Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84a578ce70bf87033abf-045413f791b99b2281b9",
+          "file": "conflict-validation-browser.spec.mjs",
+          "line": 690,
+          "column": 26
+        },
+        {
+          "title": "R12 narrow docs explicit states and validation callback scope",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 40000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2249,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:23:18.041Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84a578ce70bf87033abf-cc4d96494a6a6617b6b1",
+          "file": "conflict-validation-browser.spec.mjs",
+          "line": 690,
+          "column": 26
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-09T04:22:43.733Z",
+    "duration": 36641.253,
+    "expected": 10,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

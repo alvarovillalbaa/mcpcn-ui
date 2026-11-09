@@ -12,8 +12,8 @@ const data = (slug: typeof slugs[number]) => makeFixture(slug).data as Record<st
 describe("file review playground ownership", () => {
   it("keeps 79 identities and gives both former aliases dedicated strict fixtures", () => {
     expect(playgroundItems).toHaveLength(79);
-    expect(playgroundItems.filter(item => item.kind === "specialized")).toHaveLength(37);
-    expect(playgroundItems.filter(item => item.kind === "generic-alias")).toHaveLength(19);
+    expect(playgroundItems.filter(item => item.kind === "specialized")).toHaveLength(39);
+    expect(playgroundItems.filter(item => item.kind === "generic-alias")).toHaveLength(17);
     for (const slug of slugs) {
       expect(playgroundItems.find(item => item.slug === slug)?.kind).toBe("specialized");
       expect(validateFixture(makeFixture(slug)).success).toBe(true);

@@ -6,9 +6,30 @@ Last updated: 2026-11-09
 
 The source includes components, controlled workflow blocks, MCP Apps runtime
 adapters, server helpers, a source registry, a CLI and a documentation app.
-The current source has 12 primitives, 37 specialized components and 19 named aliases
+The current source has 12 primitives, 39 specialized components and 17 named aliases
 of the generic informational component. Eleven workflow blocks now contain
 actual editing, selection, file-review, progress and approval compositions.
+
+ConflictResolver and ValidationSummary now have dedicated authored source for
+current candidate selection, separate explicit confirmation and complete supplied
+validation reports. Reported status stays independent of issue severity; callbacks
+contain identities only. Their [contract](docs/specs/conflict-validation-components.md)
+defines local/controlled reading, replacement fences and complete JSON/evidence.
+The [first focused invocation](docs/results/2026/11-09/conflict-validation-attempt-1.md)
+reported98of100unit cases passing and two authored fixture mistakes. The
+[second invocation](docs/results/2026/11-09/conflict-validation-attempt-2.md)
+passed100units, then failed docs TypeScript on a test tuple's inferred type.
+The [third invocation](docs/results/2026/11-09/conflict-validation-attempt-3.md)
+passed all100 units, the docs build and package consumer, then copy installation
+refused the new33-file block payloads against the CLI's32-file bound. The
+[fourth invocation](docs/results/2026/11-09/conflict-validation-attempt-4.md)
+passed105 cases in six files, the81-page docs build and both consumers, but only
+10of12browser cases. Returning to a prior candidate revived stale confirmation
+feedback and disabled Confirm. The fifth candidate binds feedback to its current
+generation; all105 unit bodies and browser/consumer assertions stay fixed.
+Complete acceptance remains pending. Existing generated
+registry, checked archives and public delivery remain pinned to the accepted
+inspection cohort below until the new packet passes and its output is adopted.
 
 RecordInspector and FieldConfidenceList now have dedicated authored source for
 selecting current fields and reading complete typed values and supplied evidence.

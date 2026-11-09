@@ -26,6 +26,7 @@ type InstallLock = {
   items: Record<string, { files: string[] }>;
 };
 const JSON_LIMIT = 2 * 1024 * 1024;
+const ITEM_FILE_LIMIT = 33;
 // Bound cumulative declared source before shared files are deduplicated.
 const TOTAL_LIMIT = 32 * 1024 * 1024;
 const REQUEST_TIMEOUT_MS = 10_000;
@@ -142,7 +143,7 @@ function readLock(value: unknown, config: InstallConfig): InstallLock {
   for (const [slug, entry] of Object.entries(value.items)) {
     if ((!catalog.some(item => item.slug === slug) && !blockCatalog.some(item => item.name === slug)) ||
         !record(entry) || !exact(entry, ["files"]) || !Array.isArray(entry.files) ||
-        !entry.files.length || entry.files.length > 32 || new Set(entry.files).size !== entry.files.length ||
+        !entry.files.length || entry.files.length > ITEM_FILE_LIMIT || new Set(entry.files).size !== entry.files.length ||
         entry.files.some(path => typeof path !== "string" || !Object.hasOwn(files, path))) fail("lock_invalid");
     const listed = entry.files as string[];
     const expected = itemPaths(config, slug);
@@ -213,7 +214,7 @@ async function request(url: string, fetcher: typeof globalThis.fetch): Promise<u
 function payloadFiles(value: unknown, slug: string, config: InstallConfig): Map<string, PlannedFile> {
   const block = blockCatalog.some(item => item.name === slug);
   if (!record(value) || value.name !== slug || value.type !== (block ? "registry:block" : "registry:ui") ||
-      !Array.isArray(value.files) || !value.files.length || value.files.length > 32 ||
+      !Array.isArray(value.files) || !value.files.length || value.files.length > ITEM_FILE_LIMIT ||
       !Array.isArray(value.registryDependencies) || value.registryDependencies.some(name => typeof name !== "string" ||
         (!catalog.some(item => item.slug === name) && !blockCatalog.some(item => item.name === name)))) fail("registry_invalid");
   const result = new Map<string, PlannedFile>();
