@@ -56,6 +56,7 @@ export function ReviewAction({ onApprove }: { onApprove: () => void }) {
       <p>The source registry contains component and workflow-block entries with their local source closure. Choose a registry you trust, review installed files, and retain the lockfile to detect changes before updating. The CLI reports required dependencies instead of running a package manager for you.</p>
       <h2 id="server-helpers">Server helpers</h2>
       <p>The separate <code>@mcpcn/server</code> helpers support MCP tool/resource registration. Client installation does not create a server, authorization policy or production endpoint. Connect your reviewed UI to an app-visible tool in your own server integration.</p>
+      <p><Link href="/docs/server">Build a validated MCP server integration</Link> with complete result schemas, request context, explicit private metadata and standard resource/CSP declarations.</p>
       <Link className="button" href="/components">Explore the catalog</Link>
     </article>
   </main>;

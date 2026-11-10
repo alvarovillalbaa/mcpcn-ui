@@ -3,15 +3,12 @@ import type { MCPCNPayload } from "@mcpcn/core";
 import { makeFixture, playgroundItems, schemaFor } from "./fixtures.js";
 import { fixtureResult, parseInput, parseResult } from "./editor.js";
 import { createHostSession, type HostSettings, type PlaygroundResult, type TraceEvent } from "./host-session.js";
+import { serverSnippet } from "./server-snippet.js";
 
 type Session = ReturnType<typeof createHostSession>;
 function initialSelection() {
   const query = new URL(location.href).searchParams.get("component");
   return playgroundItems.find(item => item.slug === query)?.slug ?? "approval-card";
-}
-function serverSnippet(payload: MCPCNPayload<string, unknown>) {
-  const slug = payload.kind.slice(6);
-  return `import { registerComponentApp, createStructuredResult } from "@mcpcn/server";\n\n// Supply your MCP server and your app's bundled HTML.\nexport function registerPreview(server: Parameters<typeof registerComponentApp>[0], appHtml: string) {\n  registerComponentApp(server, {\n    name: "review_${slug.replaceAll("-", "_")}",\n    description: "Review authored ${slug} output",\n    component: ${JSON.stringify(slug)},\n    inputSchema: { type: "object", properties: {} },\n    readOnly: true,\n    html: appHtml,\n    handler: () => createStructuredResult(${JSON.stringify(slug)}, ${JSON.stringify(payload.data, null, 2)})\n  });\n}\n`;
 }
 export function Simulator() {
   const [initial] = useState(initialSelection), [slug, setSlug] = useState(initial);
@@ -95,7 +92,7 @@ export function Simulator() {
     try {
       const parsed = parseResult(result);
       await navigator.clipboard.writeText(serverSnippet(parsed.structuredContent as MCPCNPayload<string, unknown>));
-      setNotice("Server registration snippet copied. Supply your server and app HTML.");
+      setNotice("Server registration snippet copied. Supply your server, app HTML and output data schema.");
     } catch { setError("The snippet could not be copied. Check the payload and clipboard permission."); }
   }
   const item = playgroundItems.find(value => value.slug === slug);
