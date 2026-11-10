@@ -5,7 +5,7 @@ describe("playground authored fixture boundary", () => {
   it("covers all 79 unique catalogue identities with honest implementation kinds", () => {
     expect(playgroundItems).toHaveLength(79);
     expect(new Set(playgroundItems.map(item => item.slug)).size).toBe(79);
-    expect(["specialized", "generic-alias", "primitive", "workflow-block"].map(kind => playgroundItems.filter(item => item.kind === kind).length)).toEqual([52, 4, 12, 11]);
+    expect(["specialized", "generic-alias", "primitive", "workflow-block"].map(kind => playgroundItems.filter(item => item.kind === kind).length)).toEqual([56, 0, 12, 11]);
     for (const item of playgroundItems) {
       const fixture = makeFixture(item.slug);
       expect(fixture.kind).toBe(`mcpcn/${item.slug}`);
@@ -24,7 +24,7 @@ describe("playground authored fixture boundary", () => {
   it("uses owned schemas for specialized and generic entries only", () => {
     for (const item of playgroundItems) {
       const schema = schemaFor(item.slug);
-      if (["document-preview", "source-list", "evidence-drawer", "record-inspector", "field-confidence-list", "conflict-resolver", "validation-summary", "option-selector", "ranking-list", "recommendation-card", "tradeoff-panel", "decision-memo", "reasoning-summary"].includes(item.slug)) {
+      if (["data-access-notice", "privacy-boundary-card", "consent-panel", "model-context-preview", "document-preview", "source-list", "evidence-drawer", "record-inspector", "field-confidence-list", "conflict-resolver", "validation-summary", "option-selector", "ranking-list", "recommendation-card", "tradeoff-panel", "decision-memo", "reasoning-summary"].includes(item.slug)) {
         const variants = (schema?.oneOf ?? schema?.anyOf) as unknown[];
         expect(variants).toHaveLength(item.slug === "document-preview" ? 5 : 4);
         for (const variant of variants) expect(variant).toMatchObject({ type: "object" });

@@ -92,6 +92,26 @@ const optionRankingSecurity:Record<string,CatalogItem["security"]> = {
   OptionSelector: { modelVisible: ["id", "revision", "state", "group.id", "group.revision", "group.options.id", "group.options.revision", "selectedOptionId"], privateOnly: ["title", "description", "group.label", "group.options.label", "group.options.value", "group.options.confidence", "group.options.evidence", "message", "localSelection", "notificationFeedback"], callsTools: [], destructive: false },
   RankingList: { modelVisible: ["id", "revision", "state", "list.id", "list.revision", "list.entries.id", "list.entries.revision", "selectedEntryId"], privateOnly: ["title", "description", "list.label", "list.entries.label", "list.entries.value", "list.entries.rank", "list.entries.score", "list.entries.scoreLabel", "list.entries.confidence", "list.entries.evidence", "message", "localSelection", "notificationFeedback"], callsTools: [], destructive: false },
 };
+const privacyNames = new Set(["DataAccessNotice", "PrivacyBoundaryCard", "ConsentPanel", "ModelContextPreview"]);
+for (const name of privacyNames) specialized.add(name);
+Object.assign(componentDescriptions, {
+  DataAccessNotice: "Review reported resources, operations, field metadata and counts without reading records or granting access.",
+  PrivacyBoundaryCard: "Inspect reported model-visible and private UI values with metadata-only server boundaries; labels do not enforce isolation.",
+  ConsentPanel: "Select current scopes and explicitly acknowledge them before identity-only consent intent; no permission is granted or revoked.",
+  ModelContextPreview: "Read complete supplied planned context and excluded metadata before an acknowledged identity-only handoff request.",
+});
+const privacySecurity = (name: string): CatalogItem["security"] | undefined => {
+  if (!privacyNames.has(name)) return;
+  const report = ({ DataAccessNotice: "access", PrivacyBoundaryCard: "boundary", ConsentPanel: "request", ModelContextPreview: "preview" } as Record<string, string>)[name]!;
+  // This is an intent declaration, not a serializer or an enforced host policy.
+  // No preview value, consent scope description or access metadata is dispatched.
+  return { modelVisible: ["id", "revision", `${report}.id`, `${report}.revision`, ...(name === "ConsentPanel"
+    ? ["approveAction.id", "approveAction.revision", "declineAction.id", "declineAction.revision", "request.scopes.id", "request.scopes.revision"]
+    : ["action.id", "action.revision", ...(name === "ModelContextPreview" ? ["preview.sections.id", "preview.sections.revision"] : [])])],
+    privateOnly: ["title", "description", "message", `${report}.label`, ...(name === "DataAccessNotice" ? ["access.requesterLabel", "access.purpose", "access.reportedStatus", "access.resources"]
+      : name === "PrivacyBoundaryCard" ? ["boundary.entries"] : name === "ConsentPanel" ? ["request.recipientLabel", "request.purpose", "request.reportedDecision", "request.scopes.label", "request.scopes.description", "request.scopes.available", "request.scopes.required", "approveAction.label", "approveAction.available", "declineAction.label", "declineAction.available"]
+        : ["preview.recipientLabel", "preview.purpose", "preview.sections.label", "preview.sections.value", "preview.excluded", "preview.reportedTokenEstimate"]), "action.label", "action.available", "localSelection", "localAcknowledgement", "requestFeedback"], callsTools: [], destructive: false };
+};
 const narrativeNames = new Set(["RecommendationCard", "TradeoffPanel", "DecisionMemo", "ReasoningSummary"]);
 for (const name of narrativeNames) specialized.add(name);
 Object.assign(componentDescriptions, {
@@ -113,7 +133,7 @@ const hostStateSecurity: CatalogItem["security"] = {
   privateOnly: ["title", "message", "description", "reportedAt", "state", "action.label", "action.available", "featureLabel", "currentPlan", "requiredPlan", "hostLabel", "requirements", "collectionLabel", "reason", "querySummary", "bridgeLabel", "phase", "elapsedMs", "progress", "serviceLabel", "unsentChanges", "resourceLabel", "requesterLabel", "scopes", "expiredAt", "requestFeedback"],
   callsTools: [], destructive: false,
 };
-export const catalog:CatalogItem[]=Object.entries(names).flatMap(([category,items])=>items.map(name=>({name,slug:slug(name),category:category as CatalogCategory,description:componentDescriptions[name]??`${descriptions[category as CatalogCategory]}: ${name}.`,specialized:specialized.has(name),dependencies:["@mcpcn/core","@mcpcn/schemas","react"],registryDependencies:category==="primitive"?[]:["button","card","badge"],security:narrativeSecurity(name)??(hostStateNames.has(name)?hostStateSecurity:undefined)??optionRankingSecurity[name]??conflictValidationSecurity[name]??recordInspectionSecurity[name]??sourceEvidenceSecurity[name]??fileReviewSecurity[name]??formWorkflowSecurity[name]??toolWorkflowSecurity[name]??{modelVisible:category==="host-state"?[]:["decision","userInput"],privateOnly:["internalId","rawPII"],callsTools:category==="approval"||category==="tool-execution"?["configuredTool"]:[],destructive:category==="approval"}})));
+export const catalog:CatalogItem[]=Object.entries(names).flatMap(([category,items])=>items.map(name=>({name,slug:slug(name),category:category as CatalogCategory,description:componentDescriptions[name]??`${descriptions[category as CatalogCategory]}: ${name}.`,specialized:specialized.has(name),dependencies:["@mcpcn/core","@mcpcn/schemas","react"],registryDependencies:category==="primitive"?[]:["button","card","badge"],security:privacySecurity(name)??narrativeSecurity(name)??(hostStateNames.has(name)?hostStateSecurity:undefined)??optionRankingSecurity[name]??conflictValidationSecurity[name]??recordInspectionSecurity[name]??sourceEvidenceSecurity[name]??fileReviewSecurity[name]??formWorkflowSecurity[name]??toolWorkflowSecurity[name]??{modelVisible:category==="host-state"?[]:["decision","userInput"],privateOnly:["internalId","rawPII"],callsTools:category==="approval"||category==="tool-execution"?["configuredTool"]:[],destructive:category==="approval"}})));
 
 export const blockCatalog = [
   ["review-before-action","Review a planned external-state change before executing it.",["approval-card","diff-viewer","audit-trail"]],

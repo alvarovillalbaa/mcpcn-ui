@@ -16,6 +16,8 @@ import { BillingGateSchema, UnsupportedHostNoticeSchema, NoDataStateSchema, Load
 export * from "./host-state-schemas.js";
 import { RecommendationCardSchema, TradeoffPanelSchema, DecisionMemoSchema, ReasoningSummarySchema } from "./decision-narrative-schemas.js";
 export * from "./decision-narrative-schemas.js";
+import { DataAccessNoticeSchema, PrivacyBoundaryCardSchema, ConsentPanelSchema, ModelContextPreviewSchema } from "./privacy-context-schemas.js";
+export * from "./privacy-context-schemas.js";
 export { RiskLevelSchema, ChangeSchema, SchemaFieldSchema } from "./schema-common.js";
 export * from "./review-schemas.js";
 export * from "./decision-schemas.js";
@@ -104,12 +106,6 @@ export const GenericComponentSchema = z.object({
   items: z.array(z.record(z.string(), z.unknown())).optional(), actions: z.array(z.object({ label: z.string(), value: z.string(), destructive: z.boolean().optional() })).optional()
 }).passthrough();
 
-// Every catalog surface has a named schema export. Specialized components own
-// their contracts; the remaining informational aliases share the generic shape.
-export const DataAccessNoticeSchema=GenericComponentSchema,
-  PrivacyBoundaryCardSchema=GenericComponentSchema, ConsentPanelSchema=GenericComponentSchema,
-  ModelContextPreviewSchema=GenericComponentSchema;
-
 export const MCPCNPayloadSchema = z.object({
   kind: z.string().startsWith("mcpcn/"), version: z.literal(1), data: z.unknown(), stateVersion: z.number().int().optional()
 });
@@ -129,6 +125,10 @@ export function toJSONSchema(schema: z.ZodType): Record<string, unknown> {
 }
 
 export const schemaBySlug = {
+  "data-access-notice": DataAccessNoticeSchema,
+  "privacy-boundary-card": PrivacyBoundaryCardSchema,
+  "consent-panel": ConsentPanelSchema,
+  "model-context-preview": ModelContextPreviewSchema,
   "recommendation-card": RecommendationCardSchema,
   "tradeoff-panel": TradeoffPanelSchema,
   "decision-memo": DecisionMemoSchema,
