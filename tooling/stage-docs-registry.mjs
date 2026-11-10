@@ -11,7 +11,7 @@ const PUBLIC = path.join(ROOT, 'apps/docs/public');
 const DESTINATION = path.join(PUBLIC, 'r');
 const INDEX = 'registry.json', MANIFEST = 'registry-static-manifest.json';
 const KIND = 'mcpcn.docs.registry-static.v1';
-const MAX_INDEX = 32 * 1024 * 1024, MAX_MANIFEST = 32 * 1024;
+const MAX_INDEX = 40 * 1024 * 1024, MAX_MANIFEST = 32 * 1024;
 const need = (condition, code) => { if (!condition) throw new Error(code); };
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 const identity = value => [value.dev, value.ino, value.uid, value.mode, value.size, value.mtimeMs, value.ctimeMs];

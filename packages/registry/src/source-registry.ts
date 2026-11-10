@@ -50,6 +50,8 @@ const SOURCES = [
   ["packages/react/src/host-state-components.tsx", "_mcpcn/host-state-components.tsx", "registry:component"],
   ["packages/schemas/src/decision-narrative-schemas.ts", "_mcpcn/decision-narrative-schemas.ts", "registry:lib"],
   ["packages/react/src/decision-narrative-components.tsx", "_mcpcn/decision-narrative-components.tsx", "registry:component"],
+  ["packages/schemas/src/privacy-context-schemas.ts", "_mcpcn/privacy-context-schemas.ts", "registry:lib"],
+  ["packages/react/src/privacy-context-components.tsx", "_mcpcn/privacy-context-components.tsx", "registry:component"],
 ] as const;
 export const sourceModulePaths: readonly string[] = Object.freeze(SOURCES.map(([, target]) => target));
 const INTERNAL_IMPORTS:Record<string,string> = {"@mcpcn/core":"./core","@mcpcn/schemas":"./schemas","@mcpcn/react":"./components","@mcpcn/runtime":"./runtime"};

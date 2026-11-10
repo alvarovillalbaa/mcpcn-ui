@@ -2,6 +2,28 @@
 
 Last updated: 2026-11-10
 
+## Privacy and context — 10 November 2026
+
+Standing owner “approve everything / Keep going / Do all the work” covers the
+[privacy/context contract](docs/specs/privacy-context-components.md) and its
+[frozen checks](docs/proposals/privacy-context-checks.md). Replace the finalfour
+generic aliases, fix observed component H1 wrapping, preserve all79identities/
+11blocks. Target56specialized/zerogeneric,36owners,40/41payloads,80/119consumer
+files/117copiedTypeScript. No server/auth/bridge/protocol change or actual
+permission/context operation belongs here. Keep the prior accepted cohorts closed.
+
+New packet:116units(102component/6installation/8fixture),3native stager checks,
+8browser journeys/164DOM/4nativeEndreadings/10headingvectors/18PNGs, two strict
+installedconsumers, sevenbuilds, docs/playground and deterministic generation.
+StorageGuard11.2/34GiB blocks local heavy runtime. Use one pinned read-only public
+manual job capped20minutes; original broad workflows unchanged/main[skip ci].
+Measured seed102437175B already exceeds96MiB; newowner replication exceeds old
+indexheadroom. Prospectively use128MiBseed/40MiBindex and exact41file CLI bound,
+with new boundary checks. Keep7500files/1GiBsource/40MiBfile,40MiBgzip/
+160MiBexpanded/64MiBpacket and32MiBCLItransaction guards. Record actual sizes.
+Historical controllers/results stay immutable. Adoption/release/deployment await
+actual new acceptance; preserve failed candidates and raw originals separately.
+
 ## Decision narratives — 10 November 2026
 
 Standing owner “approve everything / Keep going / Do all the work” authority
