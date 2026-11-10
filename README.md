@@ -34,8 +34,10 @@ and bespoke UIs. The [local guide](apps/docs/app/docs/reference-workflows/page.t
 and focused source bundle make them runnable without repository history. Their
 [focused acceptance](docs/results/2026/11-10/reference-workflow-checks.md) passed:
 80selectedcases,22browserprofiles/80DOM/24PNG,real restart persistence and a
-fresh source-bundle install/build/five SDK workflows. Publication/hosting receipts
-remain separate. These are single-operator local
+fresh source-bundle install/build/five SDK workflows. The
+[public delivery](docs/results/2026/11-10/reference-workflow-public-delivery.md)
+records the exact source archive,corrected production build graph,READY canonical
+site and eight anonymous HTTPS checks. These are single-operator local
 examples: no payment, email, production identity or model service is connected.
 Server code for each registry block remains subsequent work.
 
