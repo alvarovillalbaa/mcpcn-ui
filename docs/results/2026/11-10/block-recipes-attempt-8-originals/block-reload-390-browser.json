@@ -1,0 +1,1365 @@
+{
+  "sourceCommit": "44661eaeb4c813ab4160b29062bce7b57cba0f2b",
+  "width": 390,
+  "phase": "reload",
+  "passed": true,
+  "cases": [
+    {
+      "block": "review-before-action",
+      "width": 390,
+      "phase": "reload",
+      "stages": [
+        {
+          "name": "process-restart-saved",
+          "revisionStatus": "Revision 2 · completed · 1 saved audit events",
+          "dimensions": {
+            "width": 374,
+            "scrollWidth": 374
+          },
+          "body": "Persistent MCP workflow block\n\nAuthored review-before-action\nReload record\n\nRevision 2 · completed · 1 saved audit events\n\nDisposable, transaction-local example. No provider, message, payment or production account is involved.\n\nPlanned operation\n\nset-reviewed-value\n\nComplete operation arguments\n{\n  \"target\": \"setting\",\n  \"expected\": \"draft\",\n  \"value\": \"reviewed\",\n  \"revision\": 1\n}\nSetting\nBefore: Setting\ndraft\nAfter: Setting\nreviewed\n\nsucceeded: The reviewed transaction-local operation completed.\n\nSaved operation result\n{\n  \"target\": \"setting\",\n  \"value\": \"reviewed\",\n  \"revision\": 2,\n  \"amount\": 0,\n  \"enabled\": false\n}\nSaved audit trail\ninfo\nAuthored review-before-action\nRevision 2 · execute-reviewed\nauthored-reviewer · 2026-11-10T13:12:43.115Z"
+        }
+      ],
+      "calls": [
+        {
+          "name": "mcpcn_review_before_action_read",
+          "args": {
+            "id": "authored-record"
+          },
+          "status": 200,
+          "result": {
+            "_meta": {
+              "mcpcn/block-workflow": {
+                "block": "review-before-action",
+                "id": "authored-record",
+                "revision": 2,
+                "state": {
+                  "title": "Authored review-before-action",
+                  "description": "Disposable, transaction-local example. No provider, message, payment or production account is involved.",
+                  "block": "review-before-action",
+                  "status": "completed",
+                  "changes": [
+                    {
+                      "label": "Setting",
+                      "before": "draft",
+                      "after": "reviewed"
+                    }
+                  ],
+                  "riskLevel": "high",
+                  "operation": {
+                    "name": "set-reviewed-value",
+                    "arguments": {
+                      "target": "setting",
+                      "expected": "draft",
+                      "value": "reviewed",
+                      "revision": 1
+                    }
+                  },
+                  "execution": {
+                    "status": "succeeded",
+                    "result": {
+                      "target": "setting",
+                      "value": "reviewed",
+                      "revision": 2,
+                      "amount": 0,
+                      "enabled": false
+                    },
+                    "message": "The reviewed transaction-local operation completed."
+                  }
+                },
+                "audit": [
+                  {
+                    "sequence": 1,
+                    "recordId": "authored-record",
+                    "revision": 2,
+                    "action": "execute-reviewed",
+                    "at": "2026-11-10T13:12:43.115Z",
+                    "actor": "authored-reviewer",
+                    "summary": "Authored review-before-action"
+                  }
+                ],
+                "earlierAuditEvents": 0,
+                "prepared": null
+              }
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The authorized block record and exact review state are available in the app."
+              }
+            ],
+            "structuredContent": {
+              "kind": "mcpcn/review-before-action",
+              "version": 1,
+              "data": {
+                "block": "review-before-action",
+                "id": "authored-record",
+                "revision": 2,
+                "status": "completed",
+                "receipt": null
+              },
+              "stateVersion": 2
+            }
+          }
+        }
+      ],
+      "requestFailures": [],
+      "consoleErrors": [],
+      "unexpectedNetwork": [],
+      "routeErrors": [],
+      "contextClosed": true
+    },
+    {
+      "block": "collect-missing-data",
+      "width": 390,
+      "phase": "reload",
+      "stages": [
+        {
+          "name": "process-restart-saved",
+          "revisionStatus": "Revision 2 · collected · 1 saved audit events",
+          "dimensions": {
+            "width": 374,
+            "scrollWidth": 374
+          },
+          "body": "Persistent MCP workflow block\n\nAuthored collect-missing-data\nReload record\n\nRevision 2 · collected · 1 saved audit events\n\nDisposable, transaction-local example. No provider, message, payment or production account is involved.\n\nKnown context remains read-only\nKnown: account\n\"Read-only authored context\"\nCurrent field values\nAmount\nCurrent value: Amount\n\"0\"\nOriginal value: Amount\n\"10\"\nSource: Amount\nTotal: 10\nEnabled\nCurrent value: Enabled\nfalse\nOriginal value: Enabled\ntrue\nSource: Enabled\nEnabled: true\nSaved audit trail\ninfo\nSave the reviewed missing information\nRevision 2 · collect-fields\nauthored-reviewer · 2026-11-10T13:12:44.345Z"
+        }
+      ],
+      "calls": [
+        {
+          "name": "mcpcn_collect_missing_data_read",
+          "args": {
+            "id": "authored-record"
+          },
+          "status": 200,
+          "result": {
+            "_meta": {
+              "mcpcn/block-workflow": {
+                "block": "collect-missing-data",
+                "id": "authored-record",
+                "revision": 2,
+                "state": {
+                  "title": "Authored collect-missing-data",
+                  "description": "Disposable, transaction-local example. No provider, message, payment or production account is involved.",
+                  "block": "collect-missing-data",
+                  "status": "collected",
+                  "fields": [
+                    {
+                      "name": "amount",
+                      "label": "Amount",
+                      "type": "number",
+                      "required": true,
+                      "source": "Total: 10",
+                      "original": "10"
+                    },
+                    {
+                      "name": "enabled",
+                      "label": "Enabled",
+                      "type": "boolean",
+                      "required": false,
+                      "source": "Enabled: true",
+                      "original": true
+                    }
+                  ],
+                  "known": {
+                    "account": "Read-only authored context"
+                  },
+                  "values": {
+                    "amount": "0",
+                    "enabled": false
+                  }
+                },
+                "audit": [
+                  {
+                    "sequence": 1,
+                    "recordId": "authored-record",
+                    "revision": 2,
+                    "action": "collect-fields",
+                    "at": "2026-11-10T13:12:44.345Z",
+                    "actor": "authored-reviewer",
+                    "summary": "Save the reviewed missing information"
+                  }
+                ],
+                "earlierAuditEvents": 0,
+                "prepared": null
+              }
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The authorized block record and exact review state are available in the app."
+              }
+            ],
+            "structuredContent": {
+              "kind": "mcpcn/collect-missing-data",
+              "version": 1,
+              "data": {
+                "block": "collect-missing-data",
+                "id": "authored-record",
+                "revision": 2,
+                "status": "collected",
+                "receipt": null
+              },
+              "stateVersion": 2
+            }
+          }
+        }
+      ],
+      "requestFailures": [],
+      "consoleErrors": [],
+      "unexpectedNetwork": [],
+      "routeErrors": [],
+      "contextClosed": true
+    },
+    {
+      "block": "extract-review-save",
+      "width": 390,
+      "phase": "reload",
+      "stages": [
+        {
+          "name": "process-restart-saved",
+          "revisionStatus": "Revision 2 · saved · 1 saved audit events",
+          "dimensions": {
+            "width": 374,
+            "scrollWidth": 374
+          },
+          "body": "Persistent MCP workflow block\n\nAuthored extract-review-save\nReload record\n\nRevision 2 · saved · 1 saved audit events\n\nDisposable, transaction-local example. No provider, message, payment or production account is involved.\n\nSupplied sources\nAuthored source\nComplete source excerpt: Authored source\nName: Ada Sample\nSupplier: Example Workshop\nTotal: 0\nCurrency: EUR\nKeep the complete authored source and its trailing evidence.\nCurrent field values\nAmount\nCurrent value: Amount\n\"0\"\nOriginal value: Amount\n\"10\"\nSource: Amount\nTotal: 10\nEnabled\nCurrent value: Enabled\nfalse\nOriginal value: Enabled\ntrue\nSource: Enabled\nEnabled: true\nSaved audit trail\ninfo\nSave the reviewed extracted fields\nRevision 2 · save-fields\nauthored-reviewer · 2026-11-10T13:12:45.544Z"
+        }
+      ],
+      "calls": [
+        {
+          "name": "mcpcn_extract_review_save_read",
+          "args": {
+            "id": "authored-record"
+          },
+          "status": 200,
+          "result": {
+            "_meta": {
+              "mcpcn/block-workflow": {
+                "block": "extract-review-save",
+                "id": "authored-record",
+                "revision": 2,
+                "state": {
+                  "title": "Authored extract-review-save",
+                  "description": "Disposable, transaction-local example. No provider, message, payment or production account is involved.",
+                  "block": "extract-review-save",
+                  "status": "saved",
+                  "fields": [
+                    {
+                      "name": "amount",
+                      "label": "Amount",
+                      "type": "number",
+                      "required": true,
+                      "source": "Total: 10",
+                      "original": "10"
+                    },
+                    {
+                      "name": "enabled",
+                      "label": "Enabled",
+                      "type": "boolean",
+                      "required": false,
+                      "source": "Enabled: true",
+                      "original": true
+                    }
+                  ],
+                  "values": {
+                    "amount": "0",
+                    "enabled": false
+                  },
+                  "sources": [
+                    {
+                      "id": "authored-source",
+                      "label": "Authored source",
+                      "url": "https://example.com/authored-source",
+                      "excerpt": "Name: Ada Sample\nSupplier: Example Workshop\nTotal: 0\nCurrency: EUR\nKeep the complete authored source and its trailing evidence."
+                    }
+                  ]
+                },
+                "audit": [
+                  {
+                    "sequence": 1,
+                    "recordId": "authored-record",
+                    "revision": 2,
+                    "action": "save-fields",
+                    "at": "2026-11-10T13:12:45.544Z",
+                    "actor": "authored-reviewer",
+                    "summary": "Save the reviewed extracted fields"
+                  }
+                ],
+                "earlierAuditEvents": 0,
+                "prepared": null
+              }
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The authorized block record and exact review state are available in the app."
+              }
+            ],
+            "structuredContent": {
+              "kind": "mcpcn/extract-review-save",
+              "version": 1,
+              "data": {
+                "block": "extract-review-save",
+                "id": "authored-record",
+                "revision": 2,
+                "status": "saved",
+                "receipt": null
+              },
+              "stateVersion": 2
+            }
+          }
+        }
+      ],
+      "requestFailures": [],
+      "consoleErrors": [],
+      "unexpectedNetwork": [],
+      "routeErrors": [],
+      "contextClosed": true
+    },
+    {
+      "block": "compare-options-approve",
+      "width": 390,
+      "phase": "reload",
+      "stages": [
+        {
+          "name": "process-restart-saved",
+          "revisionStatus": "Revision 2 · selected · 1 saved audit events",
+          "dimensions": {
+            "width": 374,
+            "scrollWidth": 374
+          },
+          "body": "Persistent MCP workflow block\n\nAuthored compare-options-approve\nReload record\n\nRevision 2 · selected · 1 saved audit events\n\nDisposable, transaction-local example. No provider, message, payment or production account is involved.\n\nComplete option values and evidence\nOption first\n\nComplete authored option first\n\nComplete option value: Option first\n{\n  \"amount\": 0,\n  \"enabled\": false,\n  \"nested\": {\n    \"complete\": \"Trailing option evidence\"\n  }\n}\nName: Ada Sample\nSupplier: Example Workshop\nTotal: 0\nCurrency: EUR\nKeep the complete authored source and its trailing evidence.\nOption second\n\nComplete authored option second\n\nComplete option value: Option second\n{\n  \"amount\": 0,\n  \"enabled\": false,\n  \"nested\": {\n    \"complete\": \"Trailing option evidence\"\n  }\n}\nName: Ada Sample\nSupplier: Example Workshop\nTotal: 0\nCurrency: EUR\nKeep the complete authored source and its trailing evidence.\n\nSaved selection: Option second\n\nSaved audit trail\ninfo\nRecord the reviewed option\nRevision 2 · select-option\nauthored-reviewer · 2026-11-10T13:12:46.994Z"
+        }
+      ],
+      "calls": [
+        {
+          "name": "mcpcn_compare_options_approve_read",
+          "args": {
+            "id": "authored-record"
+          },
+          "status": 200,
+          "result": {
+            "_meta": {
+              "mcpcn/block-workflow": {
+                "block": "compare-options-approve",
+                "id": "authored-record",
+                "revision": 2,
+                "state": {
+                  "title": "Authored compare-options-approve",
+                  "description": "Disposable, transaction-local example. No provider, message, payment or production account is involved.",
+                  "block": "compare-options-approve",
+                  "status": "selected",
+                  "options": [
+                    {
+                      "id": "first",
+                      "label": "Option first",
+                      "description": "Complete authored option first",
+                      "evidence": [
+                        "Name: Ada Sample\nSupplier: Example Workshop\nTotal: 0\nCurrency: EUR\nKeep the complete authored source and its trailing evidence."
+                      ],
+                      "value": {
+                        "amount": 0,
+                        "enabled": false,
+                        "nested": {
+                          "complete": "Trailing option evidence"
+                        }
+                      },
+                      "changes": [
+                        {
+                          "label": "Setting",
+                          "before": "draft",
+                          "after": "reviewed"
+                        }
+                      ],
+                      "disabled": false
+                    },
+                    {
+                      "id": "second",
+                      "label": "Option second",
+                      "description": "Complete authored option second",
+                      "evidence": [
+                        "Name: Ada Sample\nSupplier: Example Workshop\nTotal: 0\nCurrency: EUR\nKeep the complete authored source and its trailing evidence."
+                      ],
+                      "value": {
+                        "amount": 0,
+                        "enabled": false,
+                        "nested": {
+                          "complete": "Trailing option evidence"
+                        }
+                      },
+                      "changes": [
+                        {
+                          "label": "Setting",
+                          "before": "draft",
+                          "after": "reviewed"
+                        }
+                      ],
+                      "disabled": false
+                    }
+                  ],
+                  "selectedId": "second"
+                },
+                "audit": [
+                  {
+                    "sequence": 1,
+                    "recordId": "authored-record",
+                    "revision": 2,
+                    "action": "select-option",
+                    "at": "2026-11-10T13:12:46.994Z",
+                    "actor": "authored-reviewer",
+                    "summary": "Record the reviewed option"
+                  }
+                ],
+                "earlierAuditEvents": 0,
+                "prepared": null
+              }
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The authorized block record and exact review state are available in the app."
+              }
+            ],
+            "structuredContent": {
+              "kind": "mcpcn/compare-options-approve",
+              "version": 1,
+              "data": {
+                "block": "compare-options-approve",
+                "id": "authored-record",
+                "revision": 2,
+                "status": "selected",
+                "receipt": null
+              },
+              "stateVersion": 2
+            }
+          }
+        }
+      ],
+      "requestFailures": [],
+      "consoleErrors": [],
+      "unexpectedNetwork": [],
+      "routeErrors": [],
+      "contextClosed": true
+    },
+    {
+      "block": "multi-step-tool-run",
+      "width": 390,
+      "phase": "reload",
+      "stages": [
+        {
+          "name": "process-restart-saved",
+          "revisionStatus": "Revision 3 · completed · 2 saved audit events",
+          "dimensions": {
+            "width": 374,
+            "scrollWidth": 374
+          },
+          "body": "Persistent MCP workflow block\n\nAuthored multi-step-tool-run\nReload record\n\nRevision 3 · completed · 2 saved audit events\n\nDisposable, transaction-local example. No provider, message, payment or production account is involved.\n\nAuthored multi-step-tool-run\n\nDisposable, transaction-local example. No provider, message, payment or production account is involved.\n\nEarlier completed step\nsucceeded\nRetained earlier result\nFailed local step\nsucceeded\nRetry only this eligible step\nQueued local step\nsucceeded\nRuns only after a separate review\nEarlier completed step · 1 attempts\nComplete step result: Earlier completed step\n{\n  \"retained\": true\n}\nFailed local step · 2 attempts\nComplete step result: Failed local step\n{\n  \"target\": \"retry\",\n  \"value\": \"reviewed\",\n  \"revision\": 2,\n  \"amount\": 0,\n  \"enabled\": false\n}\nQueued local step · 1 attempts\nComplete step result: Queued local step\n{\n  \"target\": \"queued\",\n  \"value\": \"reviewed\",\n  \"revision\": 2,\n  \"amount\": 0,\n  \"enabled\": false\n}\nSaved audit trail\ninfo\nReview Failed local step\nRevision 2 · retry-step\nauthored-reviewer · 2026-11-10T13:12:48.096Z\ninfo\nReview Queued local step\nRevision 3 · run-step\nauthored-reviewer · 2026-11-10T13:12:48.295Z"
+        }
+      ],
+      "calls": [
+        {
+          "name": "mcpcn_multi_step_tool_run_read",
+          "args": {
+            "id": "authored-record"
+          },
+          "status": 200,
+          "result": {
+            "_meta": {
+              "mcpcn/block-workflow": {
+                "block": "multi-step-tool-run",
+                "id": "authored-record",
+                "revision": 3,
+                "state": {
+                  "title": "Authored multi-step-tool-run",
+                  "description": "Disposable, transaction-local example. No provider, message, payment or production account is involved.",
+                  "block": "multi-step-tool-run",
+                  "status": "completed",
+                  "steps": [
+                    {
+                      "id": "retained",
+                      "label": "Earlier completed step",
+                      "description": "Retained earlier result",
+                      "status": "succeeded",
+                      "attempts": 1,
+                      "operation": {
+                        "name": "set-reviewed-value",
+                        "arguments": {
+                          "target": "retained",
+                          "expected": "draft",
+                          "value": "reviewed",
+                          "revision": 1
+                        }
+                      },
+                      "result": {
+                        "retained": true
+                      },
+                      "error": null
+                    },
+                    {
+                      "id": "retry",
+                      "label": "Failed local step",
+                      "description": "Retry only this eligible step",
+                      "status": "succeeded",
+                      "attempts": 2,
+                      "operation": {
+                        "name": "set-reviewed-value",
+                        "arguments": {
+                          "target": "retry",
+                          "expected": "draft",
+                          "value": "reviewed",
+                          "revision": 1
+                        }
+                      },
+                      "result": {
+                        "target": "retry",
+                        "value": "reviewed",
+                        "revision": 2,
+                        "amount": 0,
+                        "enabled": false
+                      },
+                      "error": null
+                    },
+                    {
+                      "id": "queued",
+                      "label": "Queued local step",
+                      "description": "Runs only after a separate review",
+                      "status": "succeeded",
+                      "attempts": 1,
+                      "operation": {
+                        "name": "set-reviewed-value",
+                        "arguments": {
+                          "target": "queued",
+                          "expected": "draft",
+                          "value": "reviewed",
+                          "revision": 1
+                        }
+                      },
+                      "result": {
+                        "target": "queued",
+                        "value": "reviewed",
+                        "revision": 2,
+                        "amount": 0,
+                        "enabled": false
+                      },
+                      "error": null
+                    }
+                  ]
+                },
+                "audit": [
+                  {
+                    "sequence": 1,
+                    "recordId": "authored-record",
+                    "revision": 2,
+                    "action": "retry-step",
+                    "at": "2026-11-10T13:12:48.096Z",
+                    "actor": "authored-reviewer",
+                    "summary": "Review Failed local step"
+                  },
+                  {
+                    "sequence": 2,
+                    "recordId": "authored-record",
+                    "revision": 3,
+                    "action": "run-step",
+                    "at": "2026-11-10T13:12:48.295Z",
+                    "actor": "authored-reviewer",
+                    "summary": "Review Queued local step"
+                  }
+                ],
+                "earlierAuditEvents": 0,
+                "prepared": null
+              }
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The authorized block record and exact review state are available in the app."
+              }
+            ],
+            "structuredContent": {
+              "kind": "mcpcn/multi-step-tool-run",
+              "version": 1,
+              "data": {
+                "block": "multi-step-tool-run",
+                "id": "authored-record",
+                "revision": 3,
+                "status": "completed",
+                "receipt": null
+              },
+              "stateVersion": 3
+            }
+          }
+        }
+      ],
+      "requestFailures": [],
+      "consoleErrors": [],
+      "unexpectedNetwork": [],
+      "routeErrors": [],
+      "contextClosed": true
+    },
+    {
+      "block": "approval-gated-tool-call",
+      "width": 390,
+      "phase": "reload",
+      "stages": [
+        {
+          "name": "process-restart-saved",
+          "revisionStatus": "Revision 2 · completed · 1 saved audit events",
+          "dimensions": {
+            "width": 374,
+            "scrollWidth": 374
+          },
+          "body": "Persistent MCP workflow block\n\nAuthored approval-gated-tool-call\nReload record\n\nRevision 2 · completed · 1 saved audit events\n\nDisposable, transaction-local example. No provider, message, payment or production account is involved.\n\nPlanned operation\n\nset-reviewed-value\n\nComplete operation arguments\n{\n  \"target\": \"setting\",\n  \"expected\": \"draft\",\n  \"value\": \"reviewed\",\n  \"revision\": 1\n}\nSetting\nBefore: Setting\ndraft\nAfter: Setting\nreviewed\n\nsucceeded: The reviewed transaction-local operation completed.\n\nSaved operation result\n{\n  \"target\": \"setting\",\n  \"value\": \"reviewed\",\n  \"revision\": 2,\n  \"amount\": 0,\n  \"enabled\": false\n}\nSaved audit trail\ninfo\nAuthored approval-gated-tool-call\nRevision 2 · execute-reviewed\nauthored-reviewer · 2026-11-10T13:12:49.447Z"
+        }
+      ],
+      "calls": [
+        {
+          "name": "mcpcn_approval_gated_tool_call_read",
+          "args": {
+            "id": "authored-record"
+          },
+          "status": 200,
+          "result": {
+            "_meta": {
+              "mcpcn/block-workflow": {
+                "block": "approval-gated-tool-call",
+                "id": "authored-record",
+                "revision": 2,
+                "state": {
+                  "title": "Authored approval-gated-tool-call",
+                  "description": "Disposable, transaction-local example. No provider, message, payment or production account is involved.",
+                  "block": "approval-gated-tool-call",
+                  "status": "completed",
+                  "changes": [
+                    {
+                      "label": "Setting",
+                      "before": "draft",
+                      "after": "reviewed"
+                    }
+                  ],
+                  "riskLevel": "high",
+                  "operation": {
+                    "name": "set-reviewed-value",
+                    "arguments": {
+                      "target": "setting",
+                      "expected": "draft",
+                      "value": "reviewed",
+                      "revision": 1
+                    }
+                  },
+                  "execution": {
+                    "status": "succeeded",
+                    "result": {
+                      "target": "setting",
+                      "value": "reviewed",
+                      "revision": 2,
+                      "amount": 0,
+                      "enabled": false
+                    },
+                    "message": "The reviewed transaction-local operation completed."
+                  }
+                },
+                "audit": [
+                  {
+                    "sequence": 1,
+                    "recordId": "authored-record",
+                    "revision": 2,
+                    "action": "execute-reviewed",
+                    "at": "2026-11-10T13:12:49.447Z",
+                    "actor": "authored-reviewer",
+                    "summary": "Authored approval-gated-tool-call"
+                  }
+                ],
+                "earlierAuditEvents": 0,
+                "prepared": null
+              }
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The authorized block record and exact review state are available in the app."
+              }
+            ],
+            "structuredContent": {
+              "kind": "mcpcn/approval-gated-tool-call",
+              "version": 1,
+              "data": {
+                "block": "approval-gated-tool-call",
+                "id": "authored-record",
+                "revision": 2,
+                "status": "completed",
+                "receipt": null
+              },
+              "stateVersion": 2
+            }
+          }
+        }
+      ],
+      "requestFailures": [],
+      "consoleErrors": [],
+      "unexpectedNetwork": [],
+      "routeErrors": [],
+      "contextClosed": true
+    },
+    {
+      "block": "human-corrects-ai-output",
+      "width": 390,
+      "phase": "reload",
+      "stages": [
+        {
+          "name": "process-restart-saved",
+          "revisionStatus": "Revision 2 · corrected · 1 saved audit events",
+          "dimensions": {
+            "width": 374,
+            "scrollWidth": 374
+          },
+          "body": "Persistent MCP workflow block\n\nAuthored human-corrects-ai-output\nReload record\n\nRevision 2 · corrected · 1 saved audit events\n\nDisposable, transaction-local example. No provider, message, payment or production account is involved.\n\nSupplied sources\nAuthored source\nComplete source excerpt: Authored source\nName: Ada Sample\nSupplier: Example Workshop\nTotal: 0\nCurrency: EUR\nKeep the complete authored source and its trailing evidence.\nCurrent field values\nAmount\nCurrent value: Amount\n\"0\"\nOriginal value: Amount\n\"10\"\nSource: Amount\nTotal: 10\nEnabled\nCurrent value: Enabled\nfalse\nOriginal value: Enabled\ntrue\nSource: Enabled\nEnabled: true\nSaved audit trail\ninfo\nSave the reviewed structured output\nRevision 2 · correct-fields\nauthored-reviewer · 2026-11-10T13:12:50.710Z"
+        }
+      ],
+      "calls": [
+        {
+          "name": "mcpcn_human_corrects_ai_output_read",
+          "args": {
+            "id": "authored-record"
+          },
+          "status": 200,
+          "result": {
+            "_meta": {
+              "mcpcn/block-workflow": {
+                "block": "human-corrects-ai-output",
+                "id": "authored-record",
+                "revision": 2,
+                "state": {
+                  "title": "Authored human-corrects-ai-output",
+                  "description": "Disposable, transaction-local example. No provider, message, payment or production account is involved.",
+                  "block": "human-corrects-ai-output",
+                  "status": "corrected",
+                  "fields": [
+                    {
+                      "name": "amount",
+                      "label": "Amount",
+                      "type": "number",
+                      "required": true,
+                      "source": "Total: 10",
+                      "original": "10"
+                    },
+                    {
+                      "name": "enabled",
+                      "label": "Enabled",
+                      "type": "boolean",
+                      "required": false,
+                      "source": "Enabled: true",
+                      "original": true
+                    }
+                  ],
+                  "values": {
+                    "amount": "0",
+                    "enabled": false
+                  },
+                  "sources": [
+                    {
+                      "id": "authored-source",
+                      "label": "Authored source",
+                      "url": "https://example.com/authored-source",
+                      "excerpt": "Name: Ada Sample\nSupplier: Example Workshop\nTotal: 0\nCurrency: EUR\nKeep the complete authored source and its trailing evidence."
+                    }
+                  ]
+                },
+                "audit": [
+                  {
+                    "sequence": 1,
+                    "recordId": "authored-record",
+                    "revision": 2,
+                    "action": "correct-fields",
+                    "at": "2026-11-10T13:12:50.710Z",
+                    "actor": "authored-reviewer",
+                    "summary": "Save the reviewed structured output"
+                  }
+                ],
+                "earlierAuditEvents": 0,
+                "prepared": null
+              }
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The authorized block record and exact review state are available in the app."
+              }
+            ],
+            "structuredContent": {
+              "kind": "mcpcn/human-corrects-ai-output",
+              "version": 1,
+              "data": {
+                "block": "human-corrects-ai-output",
+                "id": "authored-record",
+                "revision": 2,
+                "status": "corrected",
+                "receipt": null
+              },
+              "stateVersion": 2
+            }
+          }
+        }
+      ],
+      "requestFailures": [],
+      "consoleErrors": [],
+      "unexpectedNetwork": [],
+      "routeErrors": [],
+      "contextClosed": true
+    },
+    {
+      "block": "agent-generated-report-review",
+      "width": 390,
+      "phase": "reload",
+      "stages": [
+        {
+          "name": "process-restart-saved",
+          "revisionStatus": "Revision 2 · approved · 1 saved audit events",
+          "dimensions": {
+            "width": 374,
+            "scrollWidth": 374
+          },
+          "body": "Persistent MCP workflow block\n\nAuthored agent-generated-report-review\nReload record\n\nRevision 2 · approved · 1 saved audit events\n\nDisposable, transaction-local example. No provider, message, payment or production account is involved.\n\nComplete report summary\nComplete authored report summary.\nEvidence\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nFINAL_REPORT_EVIDENCE\nSaved reviewed conclusion\nReviewed conclusion: zero cost; disabled option retained.\nSupplied sources\nAuthored source\nComplete source excerpt: Authored source\nName: Ada Sample\nSupplier: Example Workshop\nTotal: 0\nCurrency: EUR\nKeep the complete authored source and its trailing evidence.\nSaved audit trail\ninfo\nRecord approval of the reviewed report\nRevision 2 · approve-report\nauthored-reviewer · 2026-11-10T13:12:51.845Z"
+        }
+      ],
+      "calls": [
+        {
+          "name": "mcpcn_agent_generated_report_review_read",
+          "args": {
+            "id": "authored-record"
+          },
+          "status": 200,
+          "result": {
+            "_meta": {
+              "mcpcn/block-workflow": {
+                "block": "agent-generated-report-review",
+                "id": "authored-record",
+                "revision": 2,
+                "state": {
+                  "title": "Authored agent-generated-report-review",
+                  "description": "Disposable, transaction-local example. No provider, message, payment or production account is involved.",
+                  "block": "agent-generated-report-review",
+                  "status": "approved",
+                  "summary": "Complete authored report summary.",
+                  "sections": [
+                    {
+                      "id": "evidence",
+                      "title": "Evidence",
+                      "body": "Authored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nAuthored report evidence remains complete, including zero and false.\nFINAL_REPORT_EVIDENCE"
+                    }
+                  ],
+                  "conclusion": "Reviewed conclusion: zero cost; disabled option retained.",
+                  "sources": [
+                    {
+                      "id": "authored-source",
+                      "label": "Authored source",
+                      "url": "https://example.com/authored-source",
+                      "excerpt": "Name: Ada Sample\nSupplier: Example Workshop\nTotal: 0\nCurrency: EUR\nKeep the complete authored source and its trailing evidence."
+                    }
+                  ]
+                },
+                "audit": [
+                  {
+                    "sequence": 1,
+                    "recordId": "authored-record",
+                    "revision": 2,
+                    "action": "approve-report",
+                    "at": "2026-11-10T13:12:51.845Z",
+                    "actor": "authored-reviewer",
+                    "summary": "Record approval of the reviewed report"
+                  }
+                ],
+                "earlierAuditEvents": 0,
+                "prepared": null
+              }
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The authorized block record and exact review state are available in the app."
+              }
+            ],
+            "structuredContent": {
+              "kind": "mcpcn/agent-generated-report-review",
+              "version": 1,
+              "data": {
+                "block": "agent-generated-report-review",
+                "id": "authored-record",
+                "revision": 2,
+                "status": "approved",
+                "receipt": null
+              },
+              "stateVersion": 2
+            }
+          }
+        }
+      ],
+      "requestFailures": [],
+      "consoleErrors": [],
+      "unexpectedNetwork": [],
+      "routeErrors": [],
+      "contextClosed": true,
+      "nativeEndReading": {
+        "input": "one native End key",
+        "before": {
+          "focused": true,
+          "scrollTop": 0,
+          "height": 430,
+          "scrollHeight": 7581,
+          "tail": "FINAL_REPORT_EVIDENCE"
+        },
+        "readings": [
+          {
+            "focused": true,
+            "scrollTop": 0,
+            "height": 430,
+            "scrollHeight": 7581,
+            "tail": "FINAL_REPORT_EVIDENCE"
+          },
+          {
+            "focused": true,
+            "scrollTop": 742,
+            "height": 430,
+            "scrollHeight": 7581,
+            "tail": "FINAL_REPORT_EVIDENCE"
+          },
+          {
+            "focused": true,
+            "scrollTop": 1682,
+            "height": 430,
+            "scrollHeight": 7581,
+            "tail": "FINAL_REPORT_EVIDENCE"
+          },
+          {
+            "focused": true,
+            "scrollTop": 4285,
+            "height": 430,
+            "scrollHeight": 7581,
+            "tail": "FINAL_REPORT_EVIDENCE"
+          },
+          {
+            "focused": true,
+            "scrollTop": 6442,
+            "height": 430,
+            "scrollHeight": 7581,
+            "tail": "FINAL_REPORT_EVIDENCE"
+          },
+          {
+            "focused": true,
+            "scrollTop": 7151,
+            "height": 430,
+            "scrollHeight": 7581,
+            "tail": "FINAL_REPORT_EVIDENCE"
+          }
+        ],
+        "after": {
+          "focused": true,
+          "scrollTop": 7151,
+          "height": 430,
+          "scrollHeight": 7581,
+          "tail": "FINAL_REPORT_EVIDENCE"
+        }
+      }
+    },
+    {
+      "block": "file-upload-and-extract",
+      "width": 390,
+      "phase": "reload",
+      "stages": [
+        {
+          "name": "process-restart-saved",
+          "revisionStatus": "Revision 3 · accepted · 2 saved audit events",
+          "dimensions": {
+            "width": 374,
+            "scrollWidth": 374
+          },
+          "body": "Persistent MCP workflow block\n\nAuthored file-upload-and-extract\nReload record\n\nRevision 3 · accepted · 2 saved audit events\n\nDisposable, transaction-local example. No provider, message, payment or production account is involved.\n\nauthored-invoice.txt · invoice · 83 UTF-8 bytes\n\nStored file SHA256\nbdb0b73cc47c8c94ffd9eea446ffc139a308e039bf1ffd09956d3cfccf5a1182\nComplete stored file text\n﻿Supplier: Example Workshop\r\nTotal: 0\r\nCurrency: EUR\r\nTrailing complete source.\r\n\nStored extracted fields\nSupplier\nExtracted value: Supplier\n\"Example Workshop\"\n\nLiteral-line confidence: 1\n\nSource match: Supplier\n﻿Supplier: Example Workshop\nTotal\nExtracted value: Total\n\"0\"\n\nLiteral-line confidence: 1\n\nSource match: Total\nTotal: 0\nCurrency\nExtracted value: Currency\n\"EUR\"\n\nLiteral-line confidence: 1\n\nSource match: Currency\nCurrency: EUR\n\nThis exact stored file and extraction are accepted. Start a new record to review another file.\n\nSaved audit trail\ninfo\nSave this exact text extraction\nRevision 2 · extract-text\nauthored-reviewer · 2026-11-10T13:12:52.979Z\ninfo\nAccept the exact stored extraction\nRevision 3 · accept-extraction\nauthored-reviewer · 2026-11-10T13:12:53.177Z"
+        }
+      ],
+      "calls": [
+        {
+          "name": "mcpcn_file_upload_and_extract_read",
+          "args": {
+            "id": "authored-record"
+          },
+          "status": 200,
+          "result": {
+            "_meta": {
+              "mcpcn/block-workflow": {
+                "block": "file-upload-and-extract",
+                "id": "authored-record",
+                "revision": 3,
+                "state": {
+                  "title": "Authored file-upload-and-extract",
+                  "description": "Disposable, transaction-local example. No provider, message, payment or production account is involved.",
+                  "block": "file-upload-and-extract",
+                  "status": "accepted",
+                  "file": {
+                    "name": "authored-invoice.txt",
+                    "kind": "invoice",
+                    "text": "﻿Supplier: Example Workshop\r\nTotal: 0\r\nCurrency: EUR\r\nTrailing complete source.\r\n",
+                    "bytes": 83,
+                    "sha256": "bdb0b73cc47c8c94ffd9eea446ffc139a308e039bf1ffd09956d3cfccf5a1182"
+                  },
+                  "fields": [
+                    {
+                      "id": "supplier",
+                      "label": "Supplier",
+                      "original": "Example Workshop",
+                      "value": "Example Workshop",
+                      "source": "﻿Supplier: Example Workshop",
+                      "confidence": 1
+                    },
+                    {
+                      "id": "total",
+                      "label": "Total",
+                      "original": "0",
+                      "value": "0",
+                      "source": "Total: 0",
+                      "confidence": 1
+                    },
+                    {
+                      "id": "currency",
+                      "label": "Currency",
+                      "original": "EUR",
+                      "value": "EUR",
+                      "source": "Currency: EUR",
+                      "confidence": 1
+                    }
+                  ]
+                },
+                "audit": [
+                  {
+                    "sequence": 1,
+                    "recordId": "authored-record",
+                    "revision": 2,
+                    "action": "extract-text",
+                    "at": "2026-11-10T13:12:52.979Z",
+                    "actor": "authored-reviewer",
+                    "summary": "Save this exact text extraction"
+                  },
+                  {
+                    "sequence": 2,
+                    "recordId": "authored-record",
+                    "revision": 3,
+                    "action": "accept-extraction",
+                    "at": "2026-11-10T13:12:53.177Z",
+                    "actor": "authored-reviewer",
+                    "summary": "Accept the exact stored extraction"
+                  }
+                ],
+                "earlierAuditEvents": 0,
+                "prepared": null
+              }
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The authorized block record and exact review state are available in the app."
+              }
+            ],
+            "structuredContent": {
+              "kind": "mcpcn/file-upload-and-extract",
+              "version": 1,
+              "data": {
+                "block": "file-upload-and-extract",
+                "id": "authored-record",
+                "revision": 3,
+                "status": "accepted",
+                "receipt": null
+              },
+              "stateVersion": 3
+            }
+          }
+        }
+      ],
+      "requestFailures": [],
+      "consoleErrors": [],
+      "unexpectedNetwork": [],
+      "routeErrors": [],
+      "contextClosed": true
+    },
+    {
+      "block": "table-bulk-action-review",
+      "width": 390,
+      "phase": "reload",
+      "stages": [
+        {
+          "name": "process-restart-saved",
+          "revisionStatus": "Revision 2 · applied · 1 saved audit events",
+          "dimensions": {
+            "width": 374,
+            "scrollWidth": 374
+          },
+          "body": "Persistent MCP workflow block\n\nAuthored table-bulk-action-review\nReload record\n\nRevision 2 · applied · 1 saved audit events\n\nDisposable, transaction-local example. No provider, message, payment or production account is involved.\n\nRows to review\n\n0 of 3 rows selected.\n\nSelect rows\nRow one\n\nSetting: draft → reviewed\n\nRow two\n\nSetting: draft → reviewed\n\nRow untouched\n\nSetting: draft → reviewed\n\nClear selection\nAuthored table-bulk-action-review\nhigh risk\n\n0 current rows will be included.\n\nNo field-level changes were provided.\n\nCancel\nPrepare selected rows review\nRow one · revision 2 · unavailable for another action\n\nsucceeded: The reviewed row operation completed.\n\nSaved row result: Row one\n{\n  \"target\": \"one\",\n  \"value\": \"reviewed\",\n  \"revision\": 2,\n  \"amount\": 0,\n  \"enabled\": false\n}\nRow two · revision 2 · unavailable for another action\n\nsucceeded: The reviewed row operation completed.\n\nSaved row result: Row two\n{\n  \"target\": \"two\",\n  \"value\": \"reviewed\",\n  \"revision\": 2,\n  \"amount\": 0,\n  \"enabled\": false\n}\nRow untouched · revision 1\nSaved audit trail\ninfo\nApply this exact reviewed row selection\nRevision 2 · apply-selected-rows\nauthored-reviewer · 2026-11-10T13:12:54.395Z"
+        }
+      ],
+      "calls": [
+        {
+          "name": "mcpcn_table_bulk_action_review_read",
+          "args": {
+            "id": "authored-record"
+          },
+          "status": 200,
+          "result": {
+            "_meta": {
+              "mcpcn/block-workflow": {
+                "block": "table-bulk-action-review",
+                "id": "authored-record",
+                "revision": 2,
+                "state": {
+                  "title": "Authored table-bulk-action-review",
+                  "description": "Disposable, transaction-local example. No provider, message, payment or production account is involved.",
+                  "block": "table-bulk-action-review",
+                  "status": "applied",
+                  "rows": [
+                    {
+                      "id": "one",
+                      "revision": 2,
+                      "label": "Row one",
+                      "changes": [
+                        {
+                          "label": "Setting",
+                          "before": "draft",
+                          "after": "reviewed"
+                        }
+                      ],
+                      "operation": {
+                        "name": "set-reviewed-value",
+                        "arguments": {
+                          "target": "one",
+                          "expected": "draft",
+                          "value": "reviewed",
+                          "revision": 1
+                        }
+                      },
+                      "disabled": true,
+                      "execution": {
+                        "status": "succeeded",
+                        "result": {
+                          "target": "one",
+                          "value": "reviewed",
+                          "revision": 2,
+                          "amount": 0,
+                          "enabled": false
+                        },
+                        "message": "The reviewed row operation completed."
+                      }
+                    },
+                    {
+                      "id": "two",
+                      "revision": 2,
+                      "label": "Row two",
+                      "changes": [
+                        {
+                          "label": "Setting",
+                          "before": "draft",
+                          "after": "reviewed"
+                        }
+                      ],
+                      "operation": {
+                        "name": "set-reviewed-value",
+                        "arguments": {
+                          "target": "two",
+                          "expected": "draft",
+                          "value": "reviewed",
+                          "revision": 1
+                        }
+                      },
+                      "disabled": true,
+                      "execution": {
+                        "status": "succeeded",
+                        "result": {
+                          "target": "two",
+                          "value": "reviewed",
+                          "revision": 2,
+                          "amount": 0,
+                          "enabled": false
+                        },
+                        "message": "The reviewed row operation completed."
+                      }
+                    },
+                    {
+                      "id": "untouched",
+                      "revision": 1,
+                      "label": "Row untouched",
+                      "changes": [
+                        {
+                          "label": "Setting",
+                          "before": "draft",
+                          "after": "reviewed"
+                        }
+                      ],
+                      "operation": {
+                        "name": "set-reviewed-value",
+                        "arguments": {
+                          "target": "untouched",
+                          "expected": "draft",
+                          "value": "reviewed",
+                          "revision": 1
+                        }
+                      },
+                      "disabled": false,
+                      "execution": {
+                        "status": "idle",
+                        "result": null,
+                        "message": ""
+                      }
+                    }
+                  ],
+                  "selectedIds": [
+                    "one",
+                    "two"
+                  ],
+                  "riskLevel": "high"
+                },
+                "audit": [
+                  {
+                    "sequence": 1,
+                    "recordId": "authored-record",
+                    "revision": 2,
+                    "action": "apply-selected-rows",
+                    "at": "2026-11-10T13:12:54.395Z",
+                    "actor": "authored-reviewer",
+                    "summary": "Apply this exact reviewed row selection"
+                  }
+                ],
+                "earlierAuditEvents": 0,
+                "prepared": null
+              }
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The authorized block record and exact review state are available in the app."
+              }
+            ],
+            "structuredContent": {
+              "kind": "mcpcn/table-bulk-action-review",
+              "version": 1,
+              "data": {
+                "block": "table-bulk-action-review",
+                "id": "authored-record",
+                "revision": 2,
+                "status": "applied",
+                "receipt": null
+              },
+              "stateVersion": 2
+            }
+          }
+        }
+      ],
+      "requestFailures": [],
+      "consoleErrors": [],
+      "unexpectedNetwork": [],
+      "routeErrors": [],
+      "contextClosed": true
+    },
+    {
+      "block": "admin-change-review",
+      "width": 390,
+      "phase": "reload",
+      "stages": [
+        {
+          "name": "process-restart-saved",
+          "revisionStatus": "Revision 2 · completed · 1 saved audit events",
+          "dimensions": {
+            "width": 374,
+            "scrollWidth": 374
+          },
+          "body": "Persistent MCP workflow block\n\nAuthored admin-change-review\nReload record\n\nRevision 2 · completed · 1 saved audit events\n\nDisposable, transaction-local example. No provider, message, payment or production account is involved.\n\nPlanned operation\n\nset-reviewed-value\n\nComplete operation arguments\n{\n  \"target\": \"setting\",\n  \"expected\": \"draft\",\n  \"value\": \"reviewed\",\n  \"revision\": 1\n}\nSetting\nBefore: Setting\ndraft\nAfter: Setting\nreviewed\n\n1 affected records.\n\nRollback guidance\nCreate a separately reviewed inverse change using the current business revision.\n\nsucceeded: The reviewed transaction-local operation completed.\n\nSaved operation result\n{\n  \"target\": \"setting\",\n  \"value\": \"reviewed\",\n  \"revision\": 2,\n  \"amount\": 0,\n  \"enabled\": false\n}\nSaved audit trail\ninfo\nAuthored admin-change-review\nRevision 2 · execute-reviewed\nauthored-reviewer · 2026-11-10T13:12:55.528Z"
+        }
+      ],
+      "calls": [
+        {
+          "name": "mcpcn_admin_change_review_read",
+          "args": {
+            "id": "authored-record"
+          },
+          "status": 200,
+          "result": {
+            "_meta": {
+              "mcpcn/block-workflow": {
+                "block": "admin-change-review",
+                "id": "authored-record",
+                "revision": 2,
+                "state": {
+                  "title": "Authored admin-change-review",
+                  "description": "Disposable, transaction-local example. No provider, message, payment or production account is involved.",
+                  "block": "admin-change-review",
+                  "status": "completed",
+                  "changes": [
+                    {
+                      "label": "Setting",
+                      "before": "draft",
+                      "after": "reviewed"
+                    }
+                  ],
+                  "riskLevel": "high",
+                  "operation": {
+                    "name": "set-reviewed-value",
+                    "arguments": {
+                      "target": "setting",
+                      "expected": "draft",
+                      "value": "reviewed",
+                      "revision": 1
+                    }
+                  },
+                  "execution": {
+                    "status": "succeeded",
+                    "result": {
+                      "target": "setting",
+                      "value": "reviewed",
+                      "revision": 2,
+                      "amount": 0,
+                      "enabled": false
+                    },
+                    "message": "The reviewed transaction-local operation completed."
+                  },
+                  "affectedCount": 1,
+                  "rollback": "Create a separately reviewed inverse change using the current business revision."
+                },
+                "audit": [
+                  {
+                    "sequence": 1,
+                    "recordId": "authored-record",
+                    "revision": 2,
+                    "action": "execute-reviewed",
+                    "at": "2026-11-10T13:12:55.528Z",
+                    "actor": "authored-reviewer",
+                    "summary": "Authored admin-change-review"
+                  }
+                ],
+                "earlierAuditEvents": 0,
+                "prepared": null
+              }
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The authorized block record and exact review state are available in the app."
+              }
+            ],
+            "structuredContent": {
+              "kind": "mcpcn/admin-change-review",
+              "version": 1,
+              "data": {
+                "block": "admin-change-review",
+                "id": "authored-record",
+                "revision": 2,
+                "status": "completed",
+                "receipt": null
+              },
+              "stateVersion": 2
+            }
+          }
+        }
+      ],
+      "requestFailures": [],
+      "consoleErrors": [],
+      "unexpectedNetwork": [],
+      "routeErrors": [],
+      "contextClosed": true
+    }
+  ],
+  "errors": [],
+  "browserClosed": true
+}
