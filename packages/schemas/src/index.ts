@@ -14,6 +14,8 @@ import { ConflictResolverSchema, ValidationSummarySchema } from "./conflict-vali
 import { OptionSelectorSchema, RankingListSchema } from "./option-ranking-schemas.js";
 import { BillingGateSchema, UnsupportedHostNoticeSchema, NoDataStateSchema, LoadingBridgeStateSchema, OfflineStateSchema, PermissionDeniedStateSchema, ExpiredSessionStateSchema } from "./host-state-schemas.js";
 export * from "./host-state-schemas.js";
+import { RecommendationCardSchema, TradeoffPanelSchema, DecisionMemoSchema, ReasoningSummarySchema } from "./decision-narrative-schemas.js";
+export * from "./decision-narrative-schemas.js";
 export { RiskLevelSchema, ChangeSchema, SchemaFieldSchema } from "./schema-common.js";
 export * from "./review-schemas.js";
 export * from "./decision-schemas.js";
@@ -104,10 +106,7 @@ export const GenericComponentSchema = z.object({
 
 // Every catalog surface has a named schema export. Specialized components own
 // their contracts; the remaining informational aliases share the generic shape.
-export const RecommendationCardSchema=GenericComponentSchema,
-  TradeoffPanelSchema=GenericComponentSchema,
-  DecisionMemoSchema=GenericComponentSchema,
-  ReasoningSummarySchema=GenericComponentSchema, DataAccessNoticeSchema=GenericComponentSchema,
+export const DataAccessNoticeSchema=GenericComponentSchema,
   PrivacyBoundaryCardSchema=GenericComponentSchema, ConsentPanelSchema=GenericComponentSchema,
   ModelContextPreviewSchema=GenericComponentSchema;
 
@@ -130,6 +129,10 @@ export function toJSONSchema(schema: z.ZodType): Record<string, unknown> {
 }
 
 export const schemaBySlug = {
+  "recommendation-card": RecommendationCardSchema,
+  "tradeoff-panel": TradeoffPanelSchema,
+  "decision-memo": DecisionMemoSchema,
+  "reasoning-summary": ReasoningSummarySchema,
   "approval-card": ApprovalCardSchema,
   "tool-progress-timeline": ToolProgressTimelineSchema,
   "schema-form": SchemaFormSchema,

@@ -6,9 +6,19 @@ Last updated: 2026-11-09
 
 The source includes components, controlled workflow blocks, MCP Apps runtime
 adapters, server helpers, a source registry, a CLI and a documentation app.
-The current source has 12 primitives, 48 specialized components and 8 named aliases
+The current source has 12 primitives, 52 specialized components and 4 named aliases
 of the generic informational component. Eleven workflow blocks now contain
 actual editing, selection, file-review, progress and approval compositions.
+
+RecommendationCard,TradeoffPanel,DecisionMemo and ReasoningSummary now have
+[dedicated authored contracts](docs/specs/decision-narratives.md) and views for
+complete supplied option values, evidence, tradeoffs, reported decisions and
+user-facing rationale. They replace four generic aliases without computing
+recommendations, publishing decisions or exposing an internal model trace.
+Their first pinned source passed107unit cases/builds/generation; a duplicated
+module expectation stopped its package consumer. The exact harness correction
+is prepared. Consumer/browser acceptance, generated adoption and public delivery
+remain pending. Closed host-state and earlier results stay separate.
 
 Seven [reported host-state views](docs/specs/host-state-components.md) replace
 the billing/unsupported-host/empty/bridge/offline/denied/expired placeholders.

@@ -87,3 +87,13 @@
 .mcpcn-or-root .mcpcn-or-content pre{max-height:none;overflow:visible;white-space:pre-wrap;overflow-wrap:anywhere}
 .mcpcn-or-evidence{padding-left:20px}.mcpcn-or-evidence li{min-width:0}.mcpcn-or-evidence p{margin:8px 0}
 @media(max-width:520px){.mcpcn-or-member{align-items:flex-start}.mcpcn-or-content{padding:12px}}
+
+.mcpcn-dn{min-width:0;max-width:100%;overflow-wrap:anywhere}
+.mcpcn-dn-text{white-space:pre-wrap;overflow-wrap:anywhere}
+.mcpcn-dn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:20px;min-width:0}
+.mcpcn-dn-grid>section,.mcpcn-dn-option{min-width:0}
+.mcpcn-dn-option{border:1px solid var(--mcpcn-line);border-radius:9px;padding:16px}
+.mcpcn-dn-json{min-width:0;max-width:100%;max-height:20rem;overflow:auto;overscroll-behavior:contain;border:1px solid var(--mcpcn-line);border-radius:6px;padding:12px}
+.mcpcn-dn-json pre{margin:0;max-height:none;overflow:visible;white-space:pre-wrap;overflow-wrap:anywhere}
+.mcpcn-dn-json:focus-visible{outline:3px solid color-mix(in srgb,var(--mcpcn-accent) 45%,transparent);outline-offset:3px}
+.mcpcn-dn .mcpcn-button{min-height:44px}
