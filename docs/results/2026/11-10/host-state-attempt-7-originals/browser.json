@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "mcpcn.host-state-browser.v1",
+  "sourceCommit": "c422384e345999303e565f2f7d08466ac2eddc6c",
+  "passed": false,
+  "cases": [
+    {
+      "id": "billing-gate-1280",
+      "slug": "billing-gate",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "status": "failed",
+      "stages": [
+        {
+          "label": "initial",
+          "file": "billing-gate-1280-initial.html",
+          "bytes": 2257,
+          "sha256": "7f349c6d4ffe5e6a135dff273e9c8a6831ad8bfbef47b6ce411a8afba60b99ff"
+        },
+        {
+          "label": "keyboard-intent",
+          "file": "billing-gate-1280-keyboard-intent.html",
+          "bytes": 2410,
+          "sha256": "f494c762d0e0532b827b8d0e744df3f6f29bd20212f6f095a5c5750b28c36753"
+        },
+        {
+          "label": "pending",
+          "file": "billing-gate-1280-pending.html",
+          "bytes": 2447,
+          "sha256": "270a14e7df13c0371d06f987f5b2da527daa53a1e17edbdfd365852962171820"
+        },
+        {
+          "label": "rejected",
+          "file": "billing-gate-1280-rejected.html",
+          "bytes": 2495,
+          "sha256": "1119327ac19d51c816f9548d0e5f153abf04042fdfa2523f84b07fe6067532b9"
+        },
+        {
+          "label": "sanitized-failure",
+          "file": "billing-gate-1280-sanitized-failure.html",
+          "bytes": 2495,
+          "sha256": "afbf54cb0dfc0f4443db3b5275598427e089ee2f56fcc43034a5215d9d962496"
+        },
+        {
+          "label": "callback-fence",
+          "file": "billing-gate-1280-callback-fence.html",
+          "bytes": 2410,
+          "sha256": "f603d5e2bf38a4794d567813b0b1427dcf1a06ae3e6eb523487be8d22ad89f2d"
+        },
+        {
+          "label": "report-aba-fence",
+          "file": "billing-gate-1280-report-aba-fence.html",
+          "bytes": 2396,
+          "sha256": "b7118bbf12632cc8cae656e7b868810d34023cb5d33d625da28a2d9c78dd7aeb"
+        },
+        {
+          "label": "unmount-fence",
+          "file": "billing-gate-1280-unmount-fence.html",
+          "bytes": 2396,
+          "sha256": "305244dddd182c525fbb9f85a28deb09c63b165539aaf60edd5de59f1a469fbb"
+        }
+      ],
+      "externalRequestsBlocked": [],
+      "errors": [
+        "Cannot read properties of null (reading 'checked')"
+      ],
+      "error": "locator.uncheck: Timeout 10000ms exceeded.\nCall log:\n  - waiting for getByRole('region', { name: 'BillingGate demonstration', exact: true }).getByLabel('Action available', { exact: true })\n    - locator resolved to <input checked type=\"checkbox\"/>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - performing click action\n    - click action done\n    - waiting for scheduled navigations to finish\n    - navigations have finished\n",
+      "contextClosed": true
+    }
+  ],
+  "browserClosed": true,
+  "proofLimits": [
+    "Desktop and plain 390px Chromium viewport emulation, not a physical device or touch/accessibility certification.",
+    "Loopback authored-state UI only. No live status, permission, session, billing or host observation."
+  ]
+}

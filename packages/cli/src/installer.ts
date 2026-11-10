@@ -26,7 +26,7 @@ type InstallLock = {
   items: Record<string, { files: string[] }>;
 };
 const JSON_LIMIT = 2 * 1024 * 1024;
-const ITEM_FILE_LIMIT = 35;
+const ITEM_FILE_LIMIT = 37;
 // Bound cumulative declared source before shared files are deduplicated.
 const TOTAL_LIMIT = 32 * 1024 * 1024;
 const REQUEST_TIMEOUT_MS = 10_000;
