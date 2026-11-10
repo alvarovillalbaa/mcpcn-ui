@@ -1,0 +1,8 @@
+
+> @mcpcn/server@0.1.0 build /home/runner/work/_temp/mcpcn-server-contract-IQOc7F/source/packages/server
+> tsc -p tsconfig.json
+
+src/index.ts(119,6): error TS2345: Argument of type '(input: Record<string, unknown>, context: RequestHandlerExtra<ServerRequest, ServerNotification>) => Promise<ToolFailure | StructuredResult<...>>' is not assignable to parameter of type 'BaseToolCallback<{ [x: string]: unknown; content: ({ type: "text"; text: string; annotations?: { audience?: ("user" | "assistant")[] | undefined; priority?: number | undefined; lastModified?: string | undefined; } | undefined; _meta?: { ...; } | undefined; } | { ...; } | { ...; } | { ...; } | { ...; })[]; _meta?: { ...'.
+/home/runner/work/_temp/mcpcn-server-contract-IQOc7F/source/packages/server:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @mcpcn/server@0.1.0 build: `tsc -p tsconfig.json`
+Exit status 2

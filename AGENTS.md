@@ -2,6 +2,68 @@
 
 Last updated: 2026-11-10
 
+## Validated server integration — 10 November 2026
+
+Standing owner “approve everything / Keep going / Do all the work” covers the
+[server contract](docs/specs/server-contract.md) and its
+[frozen checks](docs/proposals/server-contract-checks.md), following closed8405fd3c.
+Fix result/envelope validation, one SDK input parse, original request context,
+cancellation/error handling, official registration/CSP and precise resource
+rollback. Add truthful server docs and a schema-required simulator snippet.
+Preserve all prior component evidence and byte-identical160registry files/
+79identities/36owners. This is not external authorization or host acceptance.
+
+New packet:78units(64new/12realSDKprotocol/twolegacy),fourbrowser profiles/
+16DOM/eightPNGs/12actualcodefiles,twofreshstrict Bundler/NodeNext consumers
+with sixrealprotocolsessions each,eightpackagebuilds/archives,docs/playground
+and deterministic168path generation. No vendor patch or skipLibCheck. Narrow
+SDKpeer to>=1.29.0<2 without upgrading; CI must derive exactly one lock
+specifier line with all resolutions unchanged. Only verified pnpm-lock.yaml and
+missing packages/server/LICENSE may be adopted. No native generated edit.
+
+StorageGuard10.9/34GiB blocks local heavy app runtime. Use the pinned temporary
+read-only public manual20minute job; preserve complete original streams,
+source/process/root guards and every attempted source. Existing broad workflows
+remain unchanged/main[skip ci]. New checks/adoption/release/deployment are pending
+until actual receipts exist. Five real workflow integrations,block server
+recipes,external-host/fullquality/adoption requirements remain subsequent work.
+
+The first invocation stopped at server TypeScript: extracting annotations from
+the overloaded SDK method resolved to undefined. Use the SDK's own exported
+ToolAnnotations type; retain all assertions and both strict installed profiles.
+Preserve source4cec1d9c and its complete failed packet. No runtime/unit/browser
+acceptance or generated adoption is established by this failed invocation.
+
+The second invocation stopped at the SDK conditional callback assignment. Keep
+the exact public generic parsed-input/handler contract; resolve the private
+registration call on the SDK's concrete ZodObject surface and explicitly check
+its CallToolResult return. Preserve source86c6c2d6 and actual compiler originals.
+No assertion, skipLibCheck setting, dependency version or runtime behavior changes.
+
+The third source built server and passed77/78cases including12realSDK sessions.
+SV-R22 exposed a fixture helper's default parameter replacing explicit undefined
+with valid data. Distinguish no supplied value from supplied undefined, retaining
+the same rejection assertion and product source. Preserve d55d15da/originals;
+the full78/browser/installed-consumer scope still requires a new actual pass.
+
+The fourth source passed78units/12realprotocolsessions,allbuilds/generation and
+the desktop guide. Narrow guide navigation failed because shared sidebar CSS
+hides its only section links. Scope a mobile display override to this guide,
+retain the same four browser profiles and actually frame the guide heading for
+its initial screenshot. Clarify loopback docs listener versus no MCP listener.
+Preserve source165b5554/actual originals; installed consumers were not reached.
+
+The fifth source3e1f4c36 passed the complete
+[server acceptance](docs/results/2026/11-10/server-contract-checks.md):78cases,
+fourbrowser profiles/16DOM/eightPNGs/12actualcodefiles,two strict installed
+consumers/sixrealSDKsessions each,eightarchives,allbuilds/generation.147originals
+are independently retained. Guarded adoption accepted only the exact generated
+SDKpeer lockline and server MIT notice,preserving160registry files,7473other
+tracked files,147untracked originals,index/refs. Workflow412915474 disabled204/
+readbackdisabled_manually before definition removal. Keep all five source
+parents and failure originals. Actual release/hosting/cleanup remain separate
+receipts; broader brief gates stay open. Never replay closed component packets.
+
 ## Privacy and context — 10 November 2026
 
 Standing owner “approve everything / Keep going / Do all the work” covers the

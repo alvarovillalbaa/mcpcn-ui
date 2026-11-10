@@ -10,6 +10,20 @@ The source has 12 primitives and 56 specialized components; every named
 component now has a dedicated contract. Eleven workflow blocks contain
 actual editing, selection, file-review, progress and approval compositions.
 
+The separate [server integration repair](docs/specs/server-contract.md) adds
+validated result envelopes, real SDK context/cancellation, complete resource CSP,
+an explicit private metadata example and schema-required simulator snippets.
+The [guide source](apps/docs/app/docs/server/page.tsx) has
+[focused acceptance](docs/results/2026/11-10/server-contract-checks.md):78cases,
+fourbrowser profiles and two strict installed server consumers,with12actual
+SDK sessions per unit/combined-consumer boundary and eightpackage archives.
+Only the verified lock metadata and missing server MIT notice were adopted;
+all160registry files remain unchanged. Release and hosting receipts follow
+separately. The four earlier failures remain preserved.
+The [brief audit](docs/research/2026/11-10/brief-acceptance-audit.md) records the
+remaining real reference workflows,block server recipes,external-host,quality,
+public npm and adoption requirements. Existing five examples are reference UIs.
+
 DataAccessNotice, PrivacyBoundaryCard, ConsentPanel and ModelContextPreview have
 [typed privacy/context contracts](docs/specs/privacy-context-components.md),
 complete supplied values/metadata and explicit identity-only review requests.

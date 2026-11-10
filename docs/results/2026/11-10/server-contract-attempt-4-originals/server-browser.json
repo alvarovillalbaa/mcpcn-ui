@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "mcpcn.server-contract-browser.v1",
+  "sourceCommit": "165b5554581c6a0e59ac58c32661342fa4c407ab",
+  "passed": false,
+  "cases": [
+    {
+      "id": "server-guide-1280",
+      "kind": "guide",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "status": "passed",
+      "stages": [
+        {
+          "label": "guide",
+          "file": "server-guide-1280-guide.html",
+          "bytes": 9773,
+          "sha256": "e613113192edba97b86529a45c9bad221d303768a1c15570e0dc0187157a93e5"
+        },
+        {
+          "label": "private-contract",
+          "file": "server-guide-1280-private-contract.html",
+          "bytes": 9773,
+          "sha256": "e613113192edba97b86529a45c9bad221d303768a1c15570e0dc0187157a93e5"
+        },
+        {
+          "label": "resource-contract",
+          "file": "server-guide-1280-resource-contract.html",
+          "bytes": 9773,
+          "sha256": "e613113192edba97b86529a45c9bad221d303768a1c15570e0dc0187157a93e5"
+        },
+        {
+          "label": "honest-examples",
+          "file": "server-guide-1280-honest-examples.html",
+          "bytes": 2475,
+          "sha256": "b595fdbbc75e994bbc24d333276b5776a40bce4f48b7a7cee476c9e2a4b855bc"
+        }
+      ],
+      "screenshots": [
+        "server-guide-1280-guide.png",
+        "server-guide-1280-examples.png"
+      ],
+      "codeFiles": [
+        {
+          "name": "public",
+          "file": "server-guide-1280-code-public.ts",
+          "bytes": 1326,
+          "sha256": "73d0764bb733720155d7476d6d12d9288062df50dde435d7efd7bd7200e6bf92"
+        },
+        {
+          "name": "validation",
+          "file": "server-guide-1280-code-validation.ts",
+          "bytes": 362,
+          "sha256": "0239e35cd51a328a7b0c9d94f476cc5fdaca5cbb47dc7b7f4e97ba2d79ba9460"
+        },
+        {
+          "name": "private",
+          "file": "server-guide-1280-code-private.ts",
+          "bytes": 1125,
+          "sha256": "cff6fefbf5e7ae465f978638229be58c498d5b8caa577be757325e78204d2872"
+        },
+        {
+          "name": "resource",
+          "file": "server-guide-1280-code-resource.ts",
+          "bytes": 509,
+          "sha256": "21f1a01cd3489cd9a4e7c8d53f3afc79cc7cc73ace95a16d2a6ee02b8838547a"
+        }
+      ],
+      "snippets": [],
+      "errors": [],
+      "externalRequestsBlocked": [],
+      "contextClosed": true
+    },
+    {
+      "id": "server-guide-390",
+      "kind": "guide",
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "status": "failed",
+      "stages": [
+        {
+          "label": "guide",
+          "file": "server-guide-390-guide.html",
+          "bytes": 9773,
+          "sha256": "e613113192edba97b86529a45c9bad221d303768a1c15570e0dc0187157a93e5"
+        }
+      ],
+      "screenshots": [
+        "server-guide-390-guide.png"
+      ],
+      "codeFiles": [
+        {
+          "name": "public",
+          "file": "server-guide-390-code-public.ts",
+          "bytes": 1326,
+          "sha256": "73d0764bb733720155d7476d6d12d9288062df50dde435d7efd7bd7200e6bf92"
+        },
+        {
+          "name": "validation",
+          "file": "server-guide-390-code-validation.ts",
+          "bytes": 362,
+          "sha256": "0239e35cd51a328a7b0c9d94f476cc5fdaca5cbb47dc7b7f4e97ba2d79ba9460"
+        },
+        {
+          "name": "private",
+          "file": "server-guide-390-code-private.ts",
+          "bytes": 1125,
+          "sha256": "cff6fefbf5e7ae465f978638229be58c498d5b8caa577be757325e78204d2872"
+        },
+        {
+          "name": "resource",
+          "file": "server-guide-390-code-resource.ts",
+          "bytes": 509,
+          "sha256": "21f1a01cd3489cd9a4e7c8d53f3afc79cc7cc73ace95a16d2a6ee02b8838547a"
+        }
+      ],
+      "snippets": [],
+      "errors": [],
+      "externalRequestsBlocked": [],
+      "error": "locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for getByRole('link', { name: 'Separate private app data', exact: true })\n",
+      "failureScreenshot": "server-guide-390-failure.png",
+      "contextClosed": true
+    }
+  ],
+  "browserClosed": true,
+  "proofLimits": [
+    "Authored source guide and fixture clipboard only, not an external MCP host or production authorization. 390px viewport emulation is not a physical device."
+  ]
+}

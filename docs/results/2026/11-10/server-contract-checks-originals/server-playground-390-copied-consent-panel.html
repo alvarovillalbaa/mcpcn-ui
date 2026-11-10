@@ -1,0 +1,353 @@
+<div class="studio"><header class="studio-header"><div><strong>MCPCN Playground</strong><span>Official MCP Apps SDK · authored fixture host</span></div><span role="status" aria-label="Host connection">ready</span></header><aside class="host-controls" aria-label="Fixture host controls"><h1>Test the whole interaction.</h1><p class="hint">One real app frame, with explicit host capabilities. Built-in examples only; no external tool or model is connected.</p><label>Component or block<select aria-label="Component or block"><option value="button">Button</option><option value="card">Card</option><option value="badge">Badge</option><option value="tabs">Tabs</option><option value="dialog">Dialog</option><option value="input">Input</option><option value="textarea">Textarea</option><option value="select">Select</option><option value="alert">Alert</option><option value="tooltip">Tooltip</option><option value="skeleton">Skeleton</option><option value="empty-state">EmptyState</option><option value="approval-card">ApprovalCard</option><option value="approval-checklist">ApprovalChecklist</option><option value="confirmation-panel">ConfirmationPanel</option><option value="risk-review-panel">RiskReviewPanel</option><option value="before-submit-confirmation">BeforeSubmitConfirmation</option><option value="destructive-action-guard">DestructiveActionGuard</option><option value="human-override-panel">HumanOverridePanel</option><option value="permission-request-card">PermissionRequestCard</option><option value="tool-progress-timeline">ToolProgressTimeline</option><option value="tool-call-card">ToolCallCard</option><option value="tool-result-card">ToolResultCard</option><option value="running-task-card">RunningTaskCard</option><option value="retryable-error-state">RetryableErrorState</option><option value="partial-result-viewer">PartialResultViewer</option><option value="queued-step-list">QueuedStepList</option><option value="tool-trace-viewer">ToolTraceViewer</option><option value="entity-review-table">EntityReviewTable</option><option value="diff-viewer">DiffViewer</option><option value="record-inspector">RecordInspector</option><option value="field-confidence-list">FieldConfidenceList</option><option value="extracted-fields-review">ExtractedFieldsReview</option><option value="conflict-resolver">ConflictResolver</option><option value="validation-summary">ValidationSummary</option><option value="source-evidence-panel">SourceEvidencePanel</option><option value="document-preview">DocumentPreview</option><option value="file-review">FileReview</option><option value="schema-form">SchemaForm</option><option value="dynamic-question-flow">DynamicQuestionFlow</option><option value="missing-data-request">MissingDataRequest</option><option value="multi-step-form">MultiStepForm</option><option value="inline-edit-form">InlineEditForm</option><option value="form-progress-card">FormProgressCard</option><option value="validated-field-list">ValidatedFieldList</option><option value="comparison-matrix">ComparisonMatrix</option><option value="option-selector">OptionSelector</option><option value="recommendation-card">RecommendationCard</option><option value="tradeoff-panel">TradeoffPanel</option><option value="score-breakdown">ScoreBreakdown</option><option value="ranking-list">RankingList</option><option value="decision-memo">DecisionMemo</option><option value="audit-trail">AuditTrail</option><option value="reasoning-summary">ReasoningSummary</option><option value="source-list">SourceList</option><option value="evidence-drawer">EvidenceDrawer</option><option value="data-access-notice">DataAccessNotice</option><option value="privacy-boundary-card">PrivacyBoundaryCard</option><option value="consent-panel">ConsentPanel</option><option value="model-context-preview">ModelContextPreview</option><option value="auth-required-card">AuthRequiredCard</option><option value="billing-gate">BillingGate</option><option value="unsupported-host-notice">UnsupportedHostNotice</option><option value="no-data-state">NoDataState</option><option value="loading-bridge-state">LoadingBridgeState</option><option value="offline-state">OfflineState</option><option value="permission-denied-state">PermissionDeniedState</option><option value="expired-session-state">ExpiredSessionState</option><option value="review-before-action">ReviewBeforeAction</option><option value="collect-missing-data">CollectMissingData</option><option value="extract-review-save">ExtractReviewSave</option><option value="compare-options-approve">CompareOptionsApprove</option><option value="multi-step-tool-run">MultiStepToolRun</option><option value="approval-gated-tool-call">ApprovalGatedToolCall</option><option value="human-corrects-ai-output">HumanCorrectsAiOutput</option><option value="agent-generated-report-review">AgentGeneratedReportReview</option><option value="file-upload-and-extract">FileUploadAndExtract</option><option value="table-bulk-action-review">TableBulkActionReview</option><option value="admin-change-review">AdminChangeReview</option></select></label><p class="hint" aria-label="Implementation kind">specialized</p><label>Theme<select><option value="light">Light</option><option value="dark">Dark</option></select></label><label>Viewport<select><option value="390">Compact · 390 px</option><option value="760">Expanded · 760 px</option></select></label><label>Host display mode<select><option value="inline">Inline</option><option value="pip">Picture in picture</option><option value="fullscreen">Fullscreen</option></select></label><label class="toggle"><input type="checkbox" checked="" style="">Allow fixture tool calls</label><label class="toggle"><input type="checkbox" checked="" style="">Allow model-context updates</label><label class="toggle"><input type="checkbox" style="">Deny app requests for expanded modes</label><label>Fixture tool outcome<select><option value="success">Success</option><option value="tool-error">Tool error result</option><option value="protocol-error">Host request error</option></select></label><button>Invoke tool result</button><button class="secondary">Simulate missing bridge</button><button class="secondary">Reset app session</button><button class="secondary">Send invalid schema fixture</button><section aria-label="Fake chat"><h2>Fake chat</h2><p class="chat">The agent supplied <b>consent-panel</b> for review.</p></section></aside><main class="preview-area"><div class="preview-bar"><span>Rendered MCP app iframe</span><span>inline · light</span></div><div class="frame-viewport" style="width: 760px;"><iframe title="Rendered MCP app" class="app-frame" sandbox="allow-scripts allow-same-origin allow-forms" src="http://127.0.0.1:4387/playground-simulator/frame.html#e13588e4-e5ab-417f-856e-11a29f3d4559"></iframe></div><p class="hint">This frame runs trusted bundled examples. It does not establish isolation for arbitrary third-party HTML.</p><p role="status">Server registration snippet copied. Supply your server, app HTML and output data schema.</p></main><section class="editor-area" aria-label="Invocation editors"><h2>Tool input and result</h2><p class="hint">Edits are sent only when invoked. Paste a component envelope or a text-content tool result containing structuredContent.</p><label>Tool input<textarea aria-label="Tool input JSON" spellcheck="false" style="">{
+  "component": "consent-panel"
+}</textarea></label><label>Tool result<textarea aria-label="Tool result JSON" spellcheck="false" style="">{
+  "structuredContent": {
+    "kind": "mcpcn/consent-panel",
+    "version": 1,
+    "data": {
+      "id": "consent-1",
+      "revision": "1",
+      "title": "Review a current consent request",
+      "state": "ready",
+      "request": {
+        "id": "consent-report",
+        "revision": "1",
+        "label": "Supplied consent request",
+        "recipientLabel": "Authored review service",
+        "purpose": "Review selected authored scopes.",
+        "reportedDecision": "not-recorded",
+        "scopes": [
+          {
+            "id": "scope-required",
+            "revision": "1",
+            "label": "Read authored summary",
+            "description": "Required for this supplied request.",
+            "required": true,
+            "available": true
+          },
+          {
+            "id": "scope-optional",
+            "revision": "2",
+            "label": "Read authored notes",
+            "required": false,
+            "available": true
+          },
+          {
+            "id": "scope-unavailable",
+            "revision": "3",
+            "label": "Export authored records",
+            "required": false,
+            "available": false
+          }
+        ]
+      },
+      "approveAction": {
+        "id": "approve",
+        "revision": "1",
+        "label": "Request consent approval",
+        "available": true
+      },
+      "declineAction": {
+        "id": "decline",
+        "revision": "1",
+        "label": "Decline consent request",
+        "available": true
+      }
+    }
+  },
+  "content": [
+    {
+      "type": "text",
+      "text": "Authored MCPCN playground fixture."
+    }
+  ],
+  "_meta": {
+    "privateFixtureNote": "LOCAL_UI_ONLY_CANARY"
+  }
+}</textarea></label><div class="button-row"><button class="secondary">Export fixture</button><button class="secondary">Copy MCP server snippet</button></div><details><summary>Selected component schema</summary><pre>{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Explicit current scope selection and unchecked acknowledgement before identity-only consent intent. Reported decisions do not preselect scopes; requests do not grant or revoke access.",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 300
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "state": {
+          "type": "string",
+          "const": "ready"
+        },
+        "request": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+            },
+            "revision": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+            },
+            "label": {
+              "type": "string",
+              "maxLength": 300
+            },
+            "recipientLabel": {
+              "type": "string",
+              "maxLength": 300
+            },
+            "purpose": {
+              "type": "string",
+              "maxLength": 10000
+            },
+            "reportedDecision": {
+              "type": "string",
+              "enum": [
+                "not-recorded",
+                "granted",
+                "declined",
+                "revoked",
+                "unknown"
+              ]
+            },
+            "scopes": {
+              "minItems": 1,
+              "maxItems": 20,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+                  },
+                  "revision": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+                  },
+                  "label": {
+                    "type": "string",
+                    "maxLength": 300
+                  },
+                  "description": {
+                    "type": "string",
+                    "maxLength": 4000
+                  },
+                  "required": {
+                    "type": "boolean"
+                  },
+                  "available": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "id",
+                  "revision",
+                  "label",
+                  "required",
+                  "available"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "id",
+            "revision",
+            "label",
+            "recipientLabel",
+            "purpose",
+            "reportedDecision",
+            "scopes"
+          ],
+          "additionalProperties": false
+        },
+        "approveAction": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+            },
+            "revision": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+            },
+            "label": {
+              "type": "string",
+              "maxLength": 300
+            },
+            "available": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "id",
+            "revision",
+            "label",
+            "available"
+          ],
+          "additionalProperties": false
+        },
+        "declineAction": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+            },
+            "revision": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+            },
+            "label": {
+              "type": "string",
+              "maxLength": 300
+            },
+            "available": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "id",
+            "revision",
+            "label",
+            "available"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "revision",
+        "title",
+        "state",
+        "request"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 300
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "state": {
+          "type": "string",
+          "const": "loading"
+        },
+        "message": {
+          "type": "string",
+          "maxLength": 4000
+        }
+      },
+      "required": [
+        "id",
+        "revision",
+        "title",
+        "state"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 300
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "state": {
+          "type": "string",
+          "const": "empty"
+        },
+        "message": {
+          "type": "string",
+          "maxLength": 4000
+        }
+      },
+      "required": [
+        "id",
+        "revision",
+        "title",
+        "state"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 300
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "state": {
+          "type": "string",
+          "const": "error"
+        },
+        "message": {
+          "type": "string",
+          "maxLength": 4000
+        }
+      },
+      "required": [
+        "id",
+        "revision",
+        "title",
+        "state",
+        "message"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}</pre></details></section><section class="trace-area" aria-label="Observed host messages"><h2>Bridge trace</h2><p class="hint">Observed SDK messages for this frame. The last 80 entries stay in memory; payloads and UI-only metadata are omitted.</p><ol aria-label="Bridge trace"><li><time>05:38:02.160</time><b>app → host</b><code>ui/initialize #0</code></li><li><time>05:38:02.163</time><b>host → app</b><code>result #0</code></li><li><time>05:38:02.167</time><b>app → host</b><code>ui/notifications/initialized</code></li><li><time>05:38:02.168</time><b>session</b><code>SDK initialization completed</code></li><li><time>05:38:02.168</time><b>host → app</b><code>ui/notifications/tool-input</code></li><li><time>05:38:02.168</time><b>host → app</b><code>ui/notifications/tool-result</code></li><li><time>05:38:02.183</time><b>app → host</b><code>ui/notifications/size-changed</code></li><li><time>05:38:02.676</time><b>host → app</b><code>ui/notifications/tool-input</code></li><li><time>05:38:02.676</time><b>host → app</b><code>ui/notifications/tool-result</code></li><li><time>05:38:02.750</time><b>host → app</b><code>ui/notifications/tool-input</code></li><li><time>05:38:02.750</time><b>host → app</b><code>ui/notifications/tool-result</code></li><li><time>05:38:02.775</time><b>app → host</b><code>ui/notifications/size-changed</code></li></ol><button class="secondary">Clear trace</button><h2>Shared model context</h2><pre aria-label="Shared model context">No model context shared.</pre></section></div>

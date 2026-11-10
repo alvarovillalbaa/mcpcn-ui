@@ -1,0 +1,43 @@
+{
+  "name": "@mcpcn/react",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./blocks": {
+      "types": "./dist/blocks.d.ts",
+      "import": "./dist/blocks.js"
+    },
+    "./*": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "react": "^19.2.0",
+    "zod": "^4.4.0",
+    "@mcpcn/core": "0.1.0",
+    "@mcpcn/runtime": "0.1.0",
+    "@mcpcn/schemas": "0.1.0"
+  },
+  "peerDependencies": {
+    "react-dom": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && cp src/styles.css dist/styles.css",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "lint": "tsc -p tsconfig.json --noEmit"
+  }
+}

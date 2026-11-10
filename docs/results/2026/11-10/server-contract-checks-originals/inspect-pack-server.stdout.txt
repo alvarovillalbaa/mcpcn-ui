@@ -1,0 +1,31 @@
+{
+  "name": "@mcpcn/server",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/ext-apps": "^1.7.5",
+    "zod": "^4.4.0",
+    "@mcpcn/core": "0.1.0",
+    "@mcpcn/schemas": "0.1.0"
+  },
+  "peerDependencies": {
+    "@modelcontextprotocol/sdk": ">=1.29.0 <2"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "lint": "tsc -p tsconfig.json --noEmit"
+  }
+}
