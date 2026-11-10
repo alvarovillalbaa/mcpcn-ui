@@ -5,5 +5,5 @@
   "engines": { "node": "24.x" },
   "scripts": { "dev": "next dev", "build": "node ../../tooling/stage-playground.mjs --target docs && node ../../tooling/stage-docs-registry.mjs && next build", "typecheck": "tsc --noEmit", "test": "vitest run --passWithNoTests", "lint": "next lint" },
   "dependencies": { "@mcpcn/react": "workspace:*", "@mcpcn/registry": "workspace:*", "@mcpcn/runtime": "workspace:*", "@mcpcn/schemas": "workspace:*", "next": "^16.3.0", "react": "catalog:", "react-dom": "catalog:" },
-  "devDependencies": { "@mcpcn/playground": "workspace:*", "@types/react": "^19.0.0", "@types/react-dom": "^19.0.0" }
+  "devDependencies": { "@mcpcn/playground": "workspace:*", "@mcpcn/reference-workflows": "workspace:*", "@types/react": "^19.0.0", "@types/react-dom": "^19.0.0" }
 }
