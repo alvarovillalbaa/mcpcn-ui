@@ -158,6 +158,7 @@ export function buildInstallationPlan(value: unknown, names: string[], catalog: 
   const dependencies = config.mode === "copy"
     ? ["zod@^4.4.0", "@modelcontextprotocol/ext-apps@1.7.5", "@modelcontextprotocol/sdk@1.30.0"]
     : ["@mcpcn/react", "@mcpcn/runtime", "@mcpcn/schemas", "@mcpcn/themes"];
+  if (selected.some(item => item.kind === "block")) dependencies.push(...(config.mode === "copy" ? ["@types/node@^24.0.0"] : ["@mcpcn/server"]));
   const dependencyCommand = `${config.packageManager} ${config.packageManager === "npm" ? "install" : "add"} ${dependencies.map(shellWord).join(" ")}`;
   const imports = [`import { MCPCNProvider } from ${JSON.stringify(`./${config.componentsDir}/provider`)};`,
     ...selected.map(item => `import { ${item.name} } from ${JSON.stringify(config.mode === "copy"
