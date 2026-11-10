@@ -1,0 +1,271 @@
+{
+  "schemaVersion": "mcpcn.reference-workflow-checks.v1",
+  "sourceCommit": "67fad3aabc77708199a6440fc9b7329102fa334f",
+  "workflowCommit": "bf4b0bd9c02588091725f5a92bd9edc2052eb5c9",
+  "status": "failed",
+  "startedAt": "2026-11-10T09:41:31.715Z",
+  "commands": [
+    {
+      "label": "tools-install",
+      "command": "npm",
+      "args": [
+        "install",
+        "--prefix",
+        "/home/runner/work/_temp/mcpcn-reference-workflows-7dZC2g/tools",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "pnpm@10.24.0",
+        "playwright@1.65.0",
+        "js-yaml@4.3.1"
+      ],
+      "startedAt": "2026-11-10T09:41:34.225Z",
+      "streams": [
+        {
+          "name": "tools-install.stdout.txt",
+          "bytes": 24,
+          "sha256": "4cdf92bf5bf64f07095ea7ba0a74d7dabc8a1cbb2af0217340341654cd193187",
+          "complete": true
+        },
+        {
+          "name": "tools-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2272,
+      "identity": {
+        "pid": 2272,
+        "uid": 1001,
+        "pgid": 2272,
+        "sid": 2272,
+        "start": "8062"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T09:41:37.294Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "derive-workspace-lock",
+      "command": "pnpm",
+      "args": [
+        "install",
+        "--lockfile-only",
+        "--ignore-scripts",
+        "--prefer-offline"
+      ],
+      "startedAt": "2026-11-10T09:41:37.330Z",
+      "streams": [
+        {
+          "name": "derive-workspace-lock.stdout.txt",
+          "bytes": 238,
+          "sha256": "779545ab18e169e346d7dad9f89182b3701a606401002e584298fd4be42b67e1",
+          "complete": true
+        },
+        {
+          "name": "derive-workspace-lock.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2284,
+      "identity": {
+        "pid": 2284,
+        "uid": 1001,
+        "pgid": 2284,
+        "sid": 2284,
+        "start": "8372"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T09:41:39.518Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "workspace-install",
+      "command": "pnpm",
+      "args": [
+        "install",
+        "--frozen-lockfile",
+        "--ignore-scripts"
+      ],
+      "startedAt": "2026-11-10T09:41:40.288Z",
+      "streams": [
+        {
+          "name": "workspace-install.stdout.txt",
+          "bytes": 1478,
+          "sha256": "262076e7b56df21bd77e77170d8b96b01a0b78953cebabfe3f1242c170b0d631",
+          "complete": true
+        },
+        {
+          "name": "workspace-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2298,
+      "identity": {
+        "pid": 2298,
+        "uid": 1001,
+        "pgid": 2298,
+        "sid": 2298,
+        "start": "8668"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T09:41:43.147Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "reference-build",
+      "command": "pnpm",
+      "args": [
+        "examples:build"
+      ],
+      "startedAt": "2026-11-10T09:41:43.890Z",
+      "streams": [
+        {
+          "name": "reference-build.stdout.txt",
+          "bytes": 3198,
+          "sha256": "72e18f86ed4688f6370b8fe149d635dd596fb95d1338b58ade3850bb668c67ea",
+          "complete": true
+        },
+        {
+          "name": "reference-build.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2315,
+      "identity": {
+        "pid": 2315,
+        "uid": 1001,
+        "pgid": 2315,
+        "sid": 2315,
+        "start": "9028"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T09:41:56.073Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "strict-reference-types",
+      "command": "pnpm",
+      "args": [
+        "exec",
+        "tsc",
+        "--project",
+        "examples/checks.tsconfig.json",
+        "--pretty",
+        "false"
+      ],
+      "startedAt": "2026-11-10T09:41:56.074Z",
+      "streams": [
+        {
+          "name": "strict-reference-types.stdout.txt",
+          "bytes": 70447,
+          "sha256": "f6a0bfd59a5a1a4bb36c5902af31550140e2a972d1dc60a09c1c53ebb527cb4e",
+          "complete": true
+        },
+        {
+          "name": "strict-reference-types.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2551,
+      "identity": {
+        "pid": 2551,
+        "uid": 1001,
+        "pgid": 2551,
+        "sid": 2551,
+        "start": "10247"
+      },
+      "exitCode": 2,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T09:42:00.697Z",
+      "originalGroupAbsent": true
+    }
+  ],
+  "guards": [
+    {
+      "label": "before-install",
+      "canonicalFiles": 7721,
+      "canonicalVectorSha256": "154180ed631e7cbf7886e4a494bdea5e4595e9373a3ea681ee776db40a1f70ae",
+      "protectedFiles": 620,
+      "protectedVectorSha256": "fe890fe74e7c0d1985e7e0989ffa5cbf9c8009876416df65b8847c2f925ded0f"
+    },
+    {
+      "label": "after-lock-derivation",
+      "canonicalFiles": 7721,
+      "canonicalVectorSha256": "154180ed631e7cbf7886e4a494bdea5e4595e9373a3ea681ee776db40a1f70ae",
+      "protectedFiles": 620,
+      "protectedVectorSha256": "fe890fe74e7c0d1985e7e0989ffa5cbf9c8009876416df65b8847c2f925ded0f"
+    },
+    {
+      "label": "after-install",
+      "canonicalFiles": 7721,
+      "canonicalVectorSha256": "154180ed631e7cbf7886e4a494bdea5e4595e9373a3ea681ee776db40a1f70ae",
+      "protectedFiles": 620,
+      "protectedVectorSha256": "fe890fe74e7c0d1985e7e0989ffa5cbf9c8009876416df65b8847c2f925ded0f"
+    },
+    {
+      "label": "terminal-source-check",
+      "canonicalFiles": 7721,
+      "canonicalVectorSha256": "154180ed631e7cbf7886e4a494bdea5e4595e9373a3ea681ee776db40a1f70ae",
+      "protectedFiles": 620,
+      "protectedVectorSha256": "fe890fe74e7c0d1985e7e0989ffa5cbf9c8009876416df65b8847c2f925ded0f"
+    }
+  ],
+  "errors": [
+    "strict-reference-types_failed"
+  ],
+  "cleanup": {
+    "activeChildren": 0,
+    "remainingOriginalGroups": [],
+    "allStreamsComplete": true,
+    "rootRemoved": true
+  },
+  "proofLimits": [
+    "Authored local SDK/AppBridge/SQLite workflows, explicit private capability/cookie checks and source-bundle build only. No external host, real identity/provider/model/payment or production data.",
+    "Node24.22.2 Linux CI and 1280/390px Chromium. Native devices, production auth/providers, public npm and full-product acceptance remain separate."
+  ],
+  "export": {
+    "files": 621,
+    "bytes": 108601905
+  },
+  "lockDerivation": {
+    "beforeBytes": 119183,
+    "beforeSha256": "f1de44faa544418b93060c37d57a998320cb6c4baafe4b3122c83376bf38a356",
+    "bytes": 121949,
+    "sha256": "d71cdde93c2f04e3cc0df1608aff704a4034b96c412401bbc853bffed7b71185",
+    "existingExternalVersionsAndIntegritiesUnchanged": true,
+    "changedImporters": [
+      "examples/hr-candidate-review",
+      "examples/document-extraction",
+      "examples/ecommerce-checkout-review",
+      "examples/admin-settings-change",
+      "examples/research-workflow",
+      "examples/shared"
+    ],
+    "onlyDeclaredWorkspaceAndPinnedImporterEdges": true
+  },
+  "completedAt": "2026-11-10T09:42:02.826Z"
+}

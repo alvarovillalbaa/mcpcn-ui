@@ -1,0 +1,25 @@
+
+> mcpcn-ui@0.1.0 examples:build /home/runner/work/_temp/mcpcn-reference-workflows-gXgoMH/source
+> pnpm --filter '@mcpcn/reference-workflows...' --recursive run build && pnpm --filter '@mcpcn/example-*' --recursive run typecheck && pnpm --filter @mcpcn/playground exec vite build --config ../../examples/vite.config.ts
+
+Scope: 7 of 22 workspace projects
+packages/core build$ tsc -p tsconfig.json
+packages/themes build$ tsc -p tsconfig.json && cp src/default.css dist/default.css
+packages/themes build: Done
+packages/core build: Done
+packages/runtime build$ tsc -p tsconfig.json
+packages/schemas build$ tsc -p tsconfig.json
+packages/runtime build: Done
+packages/schemas build: Done
+packages/react build$ tsc -p tsconfig.json && cp src/styles.css dist/styles.css
+packages/server build$ tsc -p tsconfig.json
+packages/server build: Done
+packages/react build: Done
+examples/shared build$ tsc -p tsconfig.json
+examples/shared build: src/server.ts(21,65): error TS2339: Property 'state' does not exist on type '{ [K in keyof ({ -readonly [k in keyof { workflow: ZodEnum<{ "hr-candidate-review": "hr-candidate-review"; "document-extraction": "document-extraction"; "ecommerce-checkout-review": "ecommerce-checkout-review"; "admin-settings-change": "admin-settings-change"; "research-workflow": "research-workflow"; }>; ... 5 more...'.
+examples/shared build: src/server.ts(33,37): error TS2339: Property 'proposal' does not exist on type '{ [K in keyof ({ -readonly [k in keyof { id: ZodString; revision: ZodNumber; proposal: P; } as { id: ZodString; revision: ZodNumber; proposal: P; }[k] extends OptionalOutSchema ? never : k]: { ...; }[k]["_zod"]["output"]; } & { -readonly [k in keyof { ...; } as { ...; }[k] extends OptionalOutSchema ? k : never]?: { ...'.
+examples/shared build: Failed
+/home/runner/work/_temp/mcpcn-reference-workflows-gXgoMH/source/examples/shared:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @mcpcn/reference-workflows@0.1.0 build: `tsc -p tsconfig.json`
+Exit status 2
+ ELIFECYCLE  Command failed with exit code 2.

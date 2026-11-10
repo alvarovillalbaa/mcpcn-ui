@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "mcpcn.reference-browser.v1",
+  "sourceCommit": "00a445a0e3830490d7d9288c68d513182e819eb5",
+  "phase": "flow",
+  "width": 1280,
+  "passed": false,
+  "cases": [
+    {
+      "id": "reference-flow-hr-candidate-review-1280",
+      "workflow": "hr-candidate-review",
+      "title": "Candidate review",
+      "status": "failed",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      },
+      "stages": [
+        {
+          "label": "initial",
+          "file": "reference-flow-hr-candidate-review-1280-initial.html",
+          "bytes": 2338,
+          "sha256": "d35149396579fc0ccaa2b27b7d7938163ae8fb7d97030aa8399884b05b33a992"
+        }
+      ],
+      "errors": [],
+      "blocked": [],
+      "screenshots": [],
+      "contextClosed": true,
+      "network": [
+        {
+          "event": "request",
+          "path": "/"
+        },
+        {
+          "event": "finished",
+          "path": "/"
+        },
+        {
+          "event": "request",
+          "path": "/reference-assets/assets/host-Bhi3YaM-.js"
+        },
+        {
+          "event": "request",
+          "path": "/reference-assets/assets/reference-DiC2vAkU.js"
+        },
+        {
+          "event": "request",
+          "path": "/reference-assets/assets/reference-BIe2yQBy.css"
+        },
+        {
+          "event": "finished",
+          "path": "/reference-assets/assets/reference-BIe2yQBy.css"
+        },
+        {
+          "event": "finished",
+          "path": "/reference-assets/assets/host-Bhi3YaM-.js"
+        },
+        {
+          "event": "finished",
+          "path": "/reference-assets/assets/reference-DiC2vAkU.js"
+        },
+        {
+          "event": "request",
+          "path": "/api/session"
+        },
+        {
+          "event": "request",
+          "path": "/api/session"
+        },
+        {
+          "event": "request",
+          "path": "/api/session"
+        },
+        {
+          "event": "finished",
+          "path": "/api/session"
+        },
+        {
+          "event": "request",
+          "path": "/app/hr-candidate-review"
+        },
+        {
+          "event": "request",
+          "path": "/reference-assets/assets/hr-candidate-review-SUc02oyP.js"
+        },
+        {
+          "event": "request",
+          "path": "/reference-assets/assets/reference-DiC2vAkU.js"
+        },
+        {
+          "event": "request",
+          "path": "/reference-assets/assets/client-CcG4Bv6h.js"
+        },
+        {
+          "event": "request",
+          "path": "/reference-assets/assets/reference-BIe2yQBy.css"
+        },
+        {
+          "event": "finished",
+          "path": "/app/hr-candidate-review"
+        },
+        {
+          "event": "finished",
+          "path": "/reference-assets/assets/hr-candidate-review-SUc02oyP.js"
+        },
+        {
+          "event": "finished",
+          "path": "/reference-assets/assets/reference-BIe2yQBy.css"
+        },
+        {
+          "event": "finished",
+          "path": "/reference-assets/assets/client-CcG4Bv6h.js"
+        },
+        {
+          "event": "finished",
+          "path": "/reference-assets/assets/reference-DiC2vAkU.js"
+        },
+        {
+          "event": "request",
+          "path": "/api/call"
+        },
+        {
+          "event": "finished",
+          "path": "/api/call"
+        }
+      ],
+      "error": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator('iframe').contentFrame().getByRole('region', { name: 'Prepared review' }) to be visible\n",
+      "failureScreenshot": "reference-flow-hr-candidate-review-1280-failure.png"
+    }
+  ],
+  "browserClosed": true
+}

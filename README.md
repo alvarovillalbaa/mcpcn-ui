@@ -26,7 +26,18 @@ The temporary workflow and five owned refs are retired with all source parents
 preserved. The four earlier failures remain preserved.
 The [brief audit](docs/research/2026/11-10/brief-acceptance-audit.md) records the
 remaining real reference workflows,block server recipes,external-host,quality,
-public npm and adoption requirements. Existing five examples are reference UIs.
+public npm and adoption requirements.
+
+The five [persistent reference workflows](examples/README.md) now have real
+local MCP/SQLite execution, exact reviewed mutations, cancellation, durable audit
+and bespoke UIs. The [local guide](apps/docs/app/docs/reference-workflows/page.tsx)
+and focused source bundle make them runnable without repository history. Their
+[focused acceptance](docs/results/2026/11-10/reference-workflow-checks.md) passed:
+80selectedcases,22browserprofiles/80DOM/24PNG,real restart persistence and a
+fresh source-bundle install/build/five SDK workflows. Publication/hosting receipts
+remain separate. These are single-operator local
+examples: no payment, email, production identity or model service is connected.
+Server code for each registry block remains subsequent work.
 
 DataAccessNotice, PrivacyBoundaryCard, ConsentPanel and ModelContextPreview have
 [typed privacy/context contracts](docs/specs/privacy-context-components.md),

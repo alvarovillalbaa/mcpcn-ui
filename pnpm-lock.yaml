@@ -124,9 +124,21 @@ importers:
       '@mcpcn/react':
         specifier: workspace:*
         version: link:../../packages/react
+      '@mcpcn/reference-workflows':
+        specifier: workspace:*
+        version: link:../shared
+      '@mcpcn/runtime':
+        specifier: workspace:*
+        version: link:../../packages/runtime
       react:
         specifier: 'catalog:'
         version: 19.2.8
+      react-dom:
+        specifier: 'catalog:'
+        version: 19.2.8(react@19.2.8)
+      zod:
+        specifier: 'catalog:'
+        version: 4.4.3
     devDependencies:
       '@types/react':
         specifier: ^19.0.0
@@ -137,9 +149,21 @@ importers:
       '@mcpcn/react':
         specifier: workspace:*
         version: link:../../packages/react
+      '@mcpcn/reference-workflows':
+        specifier: workspace:*
+        version: link:../shared
+      '@mcpcn/runtime':
+        specifier: workspace:*
+        version: link:../../packages/runtime
       react:
         specifier: 'catalog:'
         version: 19.2.8
+      react-dom:
+        specifier: 'catalog:'
+        version: 19.2.8(react@19.2.8)
+      zod:
+        specifier: 'catalog:'
+        version: 4.4.3
     devDependencies:
       '@types/react':
         specifier: ^19.0.0
@@ -150,9 +174,21 @@ importers:
       '@mcpcn/react':
         specifier: workspace:*
         version: link:../../packages/react
+      '@mcpcn/reference-workflows':
+        specifier: workspace:*
+        version: link:../shared
+      '@mcpcn/runtime':
+        specifier: workspace:*
+        version: link:../../packages/runtime
       react:
         specifier: 'catalog:'
         version: 19.2.8
+      react-dom:
+        specifier: 'catalog:'
+        version: 19.2.8(react@19.2.8)
+      zod:
+        specifier: 'catalog:'
+        version: 4.4.3
     devDependencies:
       '@types/react':
         specifier: ^19.0.0
@@ -163,9 +199,21 @@ importers:
       '@mcpcn/react':
         specifier: workspace:*
         version: link:../../packages/react
+      '@mcpcn/reference-workflows':
+        specifier: workspace:*
+        version: link:../shared
+      '@mcpcn/runtime':
+        specifier: workspace:*
+        version: link:../../packages/runtime
       react:
         specifier: 'catalog:'
         version: 19.2.8
+      react-dom:
+        specifier: 'catalog:'
+        version: 19.2.8(react@19.2.8)
+      zod:
+        specifier: 'catalog:'
+        version: 4.4.3
     devDependencies:
       '@types/react':
         specifier: ^19.0.0
@@ -176,13 +224,58 @@ importers:
       '@mcpcn/react':
         specifier: workspace:*
         version: link:../../packages/react
+      '@mcpcn/reference-workflows':
+        specifier: workspace:*
+        version: link:../shared
+      '@mcpcn/runtime':
+        specifier: workspace:*
+        version: link:../../packages/runtime
       react:
         specifier: 'catalog:'
         version: 19.2.8
+      react-dom:
+        specifier: 'catalog:'
+        version: 19.2.8(react@19.2.8)
+      zod:
+        specifier: 'catalog:'
+        version: 4.4.3
     devDependencies:
       '@types/react':
         specifier: ^19.0.0
         version: 19.2.18
+
+  examples/shared:
+    dependencies:
+      '@mcpcn/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@mcpcn/react':
+        specifier: workspace:*
+        version: link:../../packages/react
+      '@mcpcn/runtime':
+        specifier: workspace:*
+        version: link:../../packages/runtime
+      '@mcpcn/server':
+        specifier: workspace:*
+        version: link:../../packages/server
+      '@mcpcn/themes':
+        specifier: workspace:*
+        version: link:../../packages/themes
+      '@modelcontextprotocol/ext-apps':
+        specifier: 1.7.5
+        version: 1.7.5(@modelcontextprotocol/sdk@1.30.0(zod@4.4.3))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(zod@4.4.3)
+      '@modelcontextprotocol/sdk':
+        specifier: 1.30.0
+        version: 1.30.0(zod@4.4.3)
+      react:
+        specifier: 'catalog:'
+        version: 19.2.8
+      react-dom:
+        specifier: 'catalog:'
+        version: 19.2.8(react@19.2.8)
+      zod:
+        specifier: 'catalog:'
+        version: 4.4.3
 
   packages/cli:
     dependencies:

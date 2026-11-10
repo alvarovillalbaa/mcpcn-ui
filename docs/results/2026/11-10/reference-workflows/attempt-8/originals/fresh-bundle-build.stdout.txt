@@ -1,0 +1,51 @@
+
+> mcpcn-ui@0.1.0 examples:build /home/runner/work/_temp/mcpcn-reference-workflows-g8a2Q8/fresh-bundle/package
+> pnpm --filter '@mcpcn/reference-workflows...' --recursive run build && pnpm --filter '@mcpcn/example-*' --recursive run typecheck && pnpm --filter @mcpcn/playground exec vite build --config ../../examples/vite.config.ts
+
+Scope: 7 of 16 workspace projects
+packages/core build$ tsc -p tsconfig.json
+packages/themes build$ tsc -p tsconfig.json && cp src/default.css dist/default.css
+packages/themes build: Done
+packages/core build: Done
+packages/runtime build$ tsc -p tsconfig.json
+packages/schemas build$ tsc -p tsconfig.json
+packages/runtime build: Done
+packages/schemas build: Done
+packages/react build$ tsc -p tsconfig.json && cp src/styles.css dist/styles.css
+packages/server build$ tsc -p tsconfig.json
+packages/server build: Done
+packages/react build: Done
+examples/shared build$ tsc -p tsconfig.json
+examples/shared build: Done
+Scope: 5 of 16 workspace projects
+examples/admin-settings-change typecheck$ tsc --noEmit
+examples/document-extraction typecheck$ tsc --noEmit
+examples/ecommerce-checkout-review typecheck$ tsc --noEmit
+examples/hr-candidate-review typecheck$ tsc --noEmit
+examples/hr-candidate-review typecheck: Done
+examples/research-workflow typecheck$ tsc --noEmit
+examples/admin-settings-change typecheck: Done
+examples/ecommerce-checkout-review typecheck: Done
+examples/document-extraction typecheck: Done
+examples/research-workflow typecheck: Done
+vite v8.2.1 building client environment for production...
+[2Ktransforming...✓ 219 modules transformed.
+rendering chunks...
+computing gzip size...
+../../examples/dist/browser/host/index.html                                 0.50 kB │ gzip:   0.29 kB
+../../examples/dist/browser/research-workflow/index.html                    0.60 kB │ gzip:   0.31 kB
+../../examples/dist/browser/document-extraction/index.html                  0.60 kB │ gzip:   0.31 kB
+../../examples/dist/browser/hr-candidate-review/index.html                  0.60 kB │ gzip:   0.31 kB
+../../examples/dist/browser/admin-settings-change/index.html                0.61 kB │ gzip:   0.31 kB
+../../examples/dist/browser/ecommerce-checkout-review/index.html            0.61 kB │ gzip:   0.32 kB
+../../examples/dist/browser/assets/reference-BIe2yQBy.css                  18.07 kB │ gzip:   3.75 kB
+../../examples/dist/browser/assets/admin-settings-change-Dh60eB-w.js        3.26 kB │ gzip:   1.29 kB
+../../examples/dist/browser/assets/hr-candidate-review-SUc02oyP.js          3.49 kB │ gzip:   1.23 kB
+../../examples/dist/browser/assets/research-workflow-DvrvY1Rd.js            3.78 kB │ gzip:   1.56 kB
+../../examples/dist/browser/assets/ecommerce-checkout-review-VmvBKroV.js    4.14 kB │ gzip:   1.54 kB
+../../examples/dist/browser/assets/document-extraction-Quc-70I9.js          4.96 kB │ gzip:   2.00 kB
+../../examples/dist/browser/assets/host-CvCoGXWH.js                        32.21 kB │ gzip:   9.46 kB
+../../examples/dist/browser/assets/client-CcG4Bv6h.js                      52.16 kB │ gzip:  15.48 kB
+../../examples/dist/browser/assets/reference-DiC2vAkU.js                  498.24 kB │ gzip: 130.51 kB
+
+✓ built in 184ms
