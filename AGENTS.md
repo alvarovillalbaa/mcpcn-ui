@@ -2,6 +2,32 @@
 
 Last updated: 2026-11-10
 
+## Validated server integration — 10 November 2026
+
+Standing owner “approve everything / Keep going / Do all the work” covers the
+[server contract](docs/specs/server-contract.md) and its
+[frozen checks](docs/proposals/server-contract-checks.md), following closed8405fd3c.
+Fix result/envelope validation, one SDK input parse, original request context,
+cancellation/error handling, official registration/CSP and precise resource
+rollback. Add truthful server docs and a schema-required simulator snippet.
+Preserve all prior component evidence and byte-identical160registry files/
+79identities/36owners. This is not external authorization or host acceptance.
+
+New packet:78units(64new/12realSDKprotocol/twolegacy),fourbrowser profiles/
+16DOM/eightPNGs/12actualcodefiles,twofreshstrict Bundler/NodeNext consumers
+with sixrealprotocolsessions each,eightpackagebuilds/archives,docs/playground
+and deterministic168path generation. No vendor patch or skipLibCheck. Narrow
+SDKpeer to>=1.29.0<2 without upgrading; CI must derive exactly one lock
+specifier line with all resolutions unchanged. Only verified pnpm-lock.yaml and
+missing packages/server/LICENSE may be adopted. No native generated edit.
+
+StorageGuard10.9/34GiB blocks local heavy app runtime. Use the pinned temporary
+read-only public manual20minute job; preserve complete original streams,
+source/process/root guards and every attempted source. Existing broad workflows
+remain unchanged/main[skip ci]. New checks/adoption/release/deployment are pending
+until actual receipts exist. Five real workflow integrations,block server
+recipes,external-host/fullquality/adoption requirements remain subsequent work.
+
 ## Privacy and context — 10 November 2026
 
 Standing owner “approve everything / Keep going / Do all the work” covers the
