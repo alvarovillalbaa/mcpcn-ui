@@ -20,6 +20,7 @@ export { SourceList, EvidenceDrawer } from "./source-evidence-components.js";
 export { RecordInspector, FieldConfidenceList } from "./record-inspection-components.js";
 export { ConflictResolver, ValidationSummary } from "./conflict-validation-components.js";
 export { OptionSelector, RankingList } from "./option-ranking-components.js";
+export { BillingGate, UnsupportedHostNotice, NoDataState, LoadingBridgeState, OfflineState, PermissionDeniedState, ExpiredSessionState } from "./host-state-components.js";
 
 export const ApprovalCardSecurity: MCPCNSecurityManifest = { modelVisible:["decision","reason"], privateOnly:["internalRecordId"], callsTools:["approvalTool"], destructive:true };
 export function ApprovalCard(props: ComponentProps<ApprovalCardData>) {
@@ -98,4 +99,3 @@ export function GenericAgentComponent(props: GenericAgentComponentProps) { const
 
 export const RecommendationCard=GenericAgentComponent, TradeoffPanel=GenericAgentComponent, DecisionMemo=GenericAgentComponent;
 export const ReasoningSummary=GenericAgentComponent, DataAccessNotice=GenericAgentComponent, PrivacyBoundaryCard=GenericAgentComponent, ConsentPanel=GenericAgentComponent, ModelContextPreview=GenericAgentComponent;
-export const BillingGate=GenericAgentComponent, UnsupportedHostNotice=GenericAgentComponent, NoDataState=GenericAgentComponent, LoadingBridgeState=GenericAgentComponent, OfflineState=GenericAgentComponent, PermissionDeniedState=GenericAgentComponent, ExpiredSessionState=GenericAgentComponent;

@@ -10,6 +10,7 @@ import { sourceEvidenceFixtures } from "./source-evidence-fixtures";
 import { recordInspectionFixtures } from "./record-inspection-fixtures";
 import { conflictValidationFixtures } from "./conflict-validation-fixtures";
 import { optionRankingFixtures } from "./option-ranking-fixtures";
+import { hostStateFixtures } from "./host-state-fixtures";
 
 export type PlaygroundItem = { slug: string; name: string; kind: "specialized" | "generic-alias" | "primitive" | "workflow-block" };
 export const playgroundItems: readonly PlaygroundItem[] = [
@@ -121,6 +122,7 @@ const specializedFixtures: Record<string, unknown> = {
   ...recordInspectionFixtures,
   ...conflictValidationFixtures,
   ...optionRankingFixtures,
+  ...hostStateFixtures,
   "approval-card": { title: "Approve authored changes", changes: [change], riskLevel: "medium", requiresExplicitConsent: true },
   "tool-progress-timeline": { title: "Authored progress", steps, retryTool: "authored_preview_only" },
   "schema-form": { title: "Authored request", fields: [{ name: "subject", label: "Subject", type: "text", required: true }, { name: "notes", label: "Notes", type: "textarea" }] },
