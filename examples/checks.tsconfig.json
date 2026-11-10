@@ -1,0 +1,6 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": { "noEmit": true, "rootDir": "..", "composite": false, "skipLibCheck": false, "types": ["node", "react", "react-dom"] },
+  "include": ["**/src/**/*.ts", "**/src/**/*.tsx", "definitions.ts", "workbench.ts", "vite.config.ts", "../tooling/reference-workbench-fixture.ts"],
+  "exclude": ["**/node_modules/**", "dist", "shared/dist"]
+}
