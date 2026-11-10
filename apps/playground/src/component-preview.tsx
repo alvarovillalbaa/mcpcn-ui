@@ -12,6 +12,7 @@ import { stableReviewKey, type SourceListData, type EvidenceDrawerData } from "@
 import type { RecordInspectorData, FieldConfidenceListData } from "@mcpcn/schemas";
 import type { ConflictResolverData, ValidationSummaryData } from "@mcpcn/schemas";
 import type { OptionSelectorData, RankingListData } from "@mcpcn/schemas";
+import type { BillingGateData, UnsupportedHostNoticeData, NoDataStateData, LoadingBridgeStateData, OfflineStateData, PermissionDeniedStateData, ExpiredSessionStateData } from "@mcpcn/schemas";
 
 type Props = { payload: MCPCNPayload<string, unknown>; onAction: (action: UI.ComponentAction) => void | Promise<void> };
 type Data = Record<string, unknown>;
@@ -201,6 +202,13 @@ function Preview({ payload, onAction }: Props) {
   if (item.kind === "specialized") {
     switch (slug) {
       case "approval-card": component = <UI.ApprovalCard {...data as ApprovalCardData} {...common} />; break;
+      case "billing-gate": component = <UI.BillingGate {...data as BillingGateData} {...common} />; break;
+      case "unsupported-host-notice": component = <UI.UnsupportedHostNotice {...data as UnsupportedHostNoticeData} {...common} />; break;
+      case "no-data-state": component = <UI.NoDataState {...data as NoDataStateData} {...common} />; break;
+      case "loading-bridge-state": component = <UI.LoadingBridgeState {...data as LoadingBridgeStateData} {...common} />; break;
+      case "offline-state": component = <UI.OfflineState {...data as OfflineStateData} {...common} />; break;
+      case "permission-denied-state": component = <UI.PermissionDeniedState {...data as PermissionDeniedStateData} {...common} />; break;
+      case "expired-session-state": component = <UI.ExpiredSessionState {...data as ExpiredSessionStateData} {...common} />; break;
       case "approval-checklist": component = <UI.ApprovalChecklist {...data as ApprovalChecklistData} {...common} />; break;
       case "before-submit-confirmation": component = <UI.BeforeSubmitConfirmation {...data as BeforeSubmitConfirmationData} {...common} />; break;
       case "destructive-action-guard": component = <UI.DestructiveActionGuard {...data as DestructiveActionGuardData} {...common} />; break;
