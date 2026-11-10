@@ -1,0 +1,220 @@
+{
+  "sourceCommit": "56387e7d5dd60080369a11fe041954dc63fa8e8b",
+  "width": 1280,
+  "phase": "reload",
+  "passed": false,
+  "cases": [
+    {
+      "block": "review-before-action",
+      "width": 1280,
+      "phase": "reload",
+      "stages": [
+        {
+          "name": "process-restart-saved",
+          "revisionStatus": "Revision 2 · completed · 1 saved audit events",
+          "dimensions": {
+            "width": 1248,
+            "scrollWidth": 1248
+          },
+          "body": "Persistent MCP workflow block\n\nAuthored review-before-action\nReload record\n\nRevision 2 · completed · 1 saved audit events\n\nDisposable, transaction-local example. No provider, message, payment or production account is involved.\n\nPlanned operation\n\nset-reviewed-value\n\nComplete operation arguments\n{\n  \"target\": \"setting\",\n  \"expected\": \"draft\",\n  \"value\": \"reviewed\",\n  \"revision\": 1\n}\nSetting\nBefore: Setting\ndraft\nAfter: Setting\nreviewed\n\nsucceeded: The reviewed transaction-local operation completed.\n\nSaved operation result\n{\n  \"target\": \"setting\",\n  \"value\": \"reviewed\",\n  \"revision\": 2,\n  \"amount\": 0,\n  \"enabled\": false\n}\nSaved audit trail\ninfo\nAuthored review-before-action\nRevision 2 · execute-reviewed\nauthored-reviewer · 2026-11-10T12:45:40.222Z"
+        }
+      ],
+      "calls": [
+        {
+          "name": "mcpcn_review_before_action_read",
+          "args": {
+            "id": "authored-record"
+          },
+          "status": 200,
+          "result": {
+            "_meta": {
+              "mcpcn/block-workflow": {
+                "block": "review-before-action",
+                "id": "authored-record",
+                "revision": 2,
+                "state": {
+                  "title": "Authored review-before-action",
+                  "description": "Disposable, transaction-local example. No provider, message, payment or production account is involved.",
+                  "block": "review-before-action",
+                  "status": "completed",
+                  "changes": [
+                    {
+                      "label": "Setting",
+                      "before": "draft",
+                      "after": "reviewed"
+                    }
+                  ],
+                  "riskLevel": "high",
+                  "operation": {
+                    "name": "set-reviewed-value",
+                    "arguments": {
+                      "target": "setting",
+                      "expected": "draft",
+                      "value": "reviewed",
+                      "revision": 1
+                    }
+                  },
+                  "execution": {
+                    "status": "succeeded",
+                    "result": {
+                      "target": "setting",
+                      "value": "reviewed",
+                      "revision": 2,
+                      "amount": 0,
+                      "enabled": false
+                    },
+                    "message": "The reviewed transaction-local operation completed."
+                  }
+                },
+                "audit": [
+                  {
+                    "sequence": 1,
+                    "recordId": "authored-record",
+                    "revision": 2,
+                    "action": "execute-reviewed",
+                    "at": "2026-11-10T12:45:40.222Z",
+                    "actor": "authored-reviewer",
+                    "summary": "Authored review-before-action"
+                  }
+                ],
+                "earlierAuditEvents": 0,
+                "prepared": null
+              }
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The authorized block record and exact review state are available in the app."
+              }
+            ],
+            "structuredContent": {
+              "kind": "mcpcn/review-before-action",
+              "version": 1,
+              "data": {
+                "block": "review-before-action",
+                "id": "authored-record",
+                "revision": 2,
+                "status": "completed",
+                "receipt": null
+              },
+              "stateVersion": 2
+            }
+          }
+        }
+      ],
+      "requestFailures": [],
+      "consoleErrors": [],
+      "unexpectedNetwork": [],
+      "contextClosed": true
+    },
+    {
+      "block": "collect-missing-data",
+      "width": 1280,
+      "phase": "reload",
+      "stages": [
+        {
+          "name": "process-restart-saved",
+          "revisionStatus": "Revision 2 · collected · 1 saved audit events",
+          "dimensions": {
+            "width": 1248,
+            "scrollWidth": 1248
+          },
+          "body": "Persistent MCP workflow block\n\nAuthored collect-missing-data\nReload record\n\nRevision 2 · collected · 1 saved audit events\n\nDisposable, transaction-local example. No provider, message, payment or production account is involved.\n\nKnown context remains read-only\nKnown: account\n\"Read-only authored context\"\nCurrent field values\nAmount\nCurrent value: Amount\n\"0\"\nOriginal value: Amount\n\"10\"\nSource: Amount\nTotal: 10\nEnabled\nCurrent value: Enabled\nfalse\nOriginal value: Enabled\ntrue\nSource: Enabled\nEnabled: true\nSaved audit trail\ninfo\nSave the reviewed missing information\nRevision 2 · collect-fields\nauthored-reviewer · 2026-11-10T12:45:41.187Z"
+        }
+      ],
+      "calls": [
+        {
+          "name": "mcpcn_collect_missing_data_read",
+          "args": {
+            "id": "authored-record"
+          },
+          "status": 200,
+          "result": {
+            "_meta": {
+              "mcpcn/block-workflow": {
+                "block": "collect-missing-data",
+                "id": "authored-record",
+                "revision": 2,
+                "state": {
+                  "title": "Authored collect-missing-data",
+                  "description": "Disposable, transaction-local example. No provider, message, payment or production account is involved.",
+                  "block": "collect-missing-data",
+                  "status": "collected",
+                  "fields": [
+                    {
+                      "name": "amount",
+                      "label": "Amount",
+                      "type": "number",
+                      "required": true,
+                      "source": "Total: 10",
+                      "original": "10"
+                    },
+                    {
+                      "name": "enabled",
+                      "label": "Enabled",
+                      "type": "boolean",
+                      "required": false,
+                      "source": "Enabled: true",
+                      "original": true
+                    }
+                  ],
+                  "known": {
+                    "account": "Read-only authored context"
+                  },
+                  "values": {
+                    "amount": "0",
+                    "enabled": false
+                  }
+                },
+                "audit": [
+                  {
+                    "sequence": 1,
+                    "recordId": "authored-record",
+                    "revision": 2,
+                    "action": "collect-fields",
+                    "at": "2026-11-10T12:45:41.187Z",
+                    "actor": "authored-reviewer",
+                    "summary": "Save the reviewed missing information"
+                  }
+                ],
+                "earlierAuditEvents": 0,
+                "prepared": null
+              }
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The authorized block record and exact review state are available in the app."
+              }
+            ],
+            "structuredContent": {
+              "kind": "mcpcn/collect-missing-data",
+              "version": 1,
+              "data": {
+                "block": "collect-missing-data",
+                "id": "authored-record",
+                "revision": 2,
+                "status": "collected",
+                "receipt": null
+              },
+              "stateVersion": 2
+            }
+          }
+        }
+      ],
+      "requestFailures": [
+        {
+          "url": "/block-assets/assets/jsx-runtime-MVpPtLzt.js",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "consoleErrors": [],
+      "unexpectedNetwork": [],
+      "contextClosed": true
+    }
+  ],
+  "errors": [
+    "block_unexpected_request_failure"
+  ],
+  "browserClosed": true
+}

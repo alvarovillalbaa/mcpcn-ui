@@ -21,7 +21,7 @@ describe("T2 privacy/context source contracts", () => {
   it("PC-R02 preserves all79 identities/11blocks and exact36-owner source closure", async () => {
     const { items } = await build(); expect(items).toHaveLength(79); expect(blockCatalog).toHaveLength(11); expect(sourceModulePaths).toHaveLength(36);
     expect(items.filter(item => item.meta.implementation === "specialized")).toHaveLength(56); expect(items.filter(item => item.meta.implementation === "generic-alias")).toHaveLength(0);
-    expect(new Set(items.flatMap(item => item.files.map(file => file.path))).size).toBe(119);
-    expect(items.filter(item => item.type === "registry:block").every(item => item.files.length === 41)).toBe(true);
+    expect(new Set(items.flatMap(item => item.files.map(file => file.path))).size).toBe(171);
+    expect(items.filter(item => item.type === "registry:block").every(item => item.files.length === 53)).toBe(true);
   });
 });

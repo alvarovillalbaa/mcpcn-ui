@@ -1,0 +1,286 @@
+{
+  "sourceCommit": "a0d3f97fa9d6038013f2a15d0c2c294230812ced",
+  "passed": true,
+  "cases": [
+    {
+      "width": 1280,
+      "stages": [
+        {
+          "name": "guide",
+          "dimensions": {
+            "width": 1280,
+            "scrollWidth": 1280
+          },
+          "body": "All eleven blocks\nInstall\nWire the server\nReview lifecycle\nData and execution boundaries\nRecipes and previews\nUI AND SERVER TOGETHER\nMake a reviewed change. Keep the result.\n\nEach workflow block has a controlled React UI, a bound app, typed Zod schemas, a real MCP server registration, an authored input/result fixture, a runnable SDK/SQLite check and a README. The app reads the server record, prepares exact terms, confirms the reviewed change and displays its saved state and audit.\n\nInstall one block\n\nInstall the matching CLI package archive from the repository release first. Public npm publication remains pending; these commands use the installed archive directly.\n\nnode node_modules/mcpcn/dist/index.js init --mode=copy --host=standard-mcp\nnode node_modules/mcpcn/dist/index.js add review-before-action\n\nCopy mode adds editable client code and explicit .server.mts, .fixture.mts, .server.test.mts and .README.md entries under your block directory. Package mode adds equivalent thin entries using matching package archives. The CLI prints dependency commands and never installs dependencies or executes a fixture. Keep server and fixture modules out of browser imports.\n\nUse Node 24.22.2 for the SQLite server. Copied sources use strict Bundler TypeScript and explicit emitted server .mjs modules; the caller package can use CommonJS. Package server declarations support Bundler and NodeNext. Full copied-source NodeNext compatibility remains a separate quality gate because existing client imports and pinned upstream implementation declarations contain extensionless paths.\n\n\"use client\";\nimport { MCPCNProvider } from \"./components/mcpcn/provider\";\nimport { ReviewBeforeActionApp } from \"./components/mcpcn/blocks/review-before-action\";\n\nexport default function App() {\n  return <MCPCNProvider><ReviewBeforeActionApp /></MCPCNProvider>;\n}\n\nThe record identity comes from the authorized read tool result, or an explicit id prop. Select the OpenAI adapter with --host=openai for that host. Neither adapter supplies server authentication.\n\nWire the server-owned operation\n\nOpen an empty dedicated SQLite database in your server, supply validated initial state and resolve a trusted principal from the original verified transport context on every request. The store refuses a foreign schema. This sketch names consumer-owned state, authentication, business validation and built HTML explicitly; replace those integration points with your application.\n\n// Server entry only. Supply a dedicated caller-opened Node24 SQLite DB.\nimport { registerReviewBeforeActionServer, BlockWorkflowStore } from \"@mcpcn/server/blocks\";\n\nconst store = new BlockWorkflowStore(database);\nstore.seed(trustedPrincipal, \"review-before-action\", \"settings-one\", serverOwnedState);\nconst registration = registerReviewBeforeActionServer(mcpServer, {\n  store,\n  policyRevision: \"settings-policy-v1\",\n  resolvePrincipal: resolveVerifiedTransportPrincipal,\n  html: builtReviewBeforeActionAppHtml,\n  executors: {\n    \"change-setting\": ({ database, principal, operation, signal }) => {\n      const change = SettingChangeSchema.parse(operation.arguments);\n      if (signal.aborted) throw new Error(\"cancelled\");\n      const update = database.prepare(\n        \"UPDATE business_settings SET value=?,revision=revision+1 \" +\n        \"WHERE workspace=? AND id=? AND revision=?\"\n      ).run(change.value, principal.workspace, change.id, change.revision);\n      if (update.changes !== 1) throw new Error(\"business_revision_conflict\");\n      return { id: change.id, revision: change.revision + 1, value: change.value };\n    }\n  }\n});\n// dispose() removes only this block's tools/resource and cancels pending work.\n\nImport the matching state schema from @mcpcn/schemas/blocks and the named registration from @mcpcn/server/blocks. Fixture entries show complete authored state and real revision-checked business SQL. Use fixtures only with disposable data; their fixed principal is a check identity.\n\nA review is exact and short-lived\nRead the authorized record and its current revision.\nSubmit a correction, selection or action. Prepare stores exact terms without applying the business change.\nReview full values, arguments and evidence. Every new prepared review starts unchecked.\nConfirm within five minutes. The server rechecks grants, actor, workspace, block, record revision, policy and captured terms before committing state, token consumption and audit.\nReload and inspect the saved outcome. An uncertain network response may follow a committed operation; another mutation stays blocked until a successful read.\n\nCancel revokes an unconsumed review and clears its private proposal. It cannot undo a committed operation. Exact consumed-token replay returns its original receipt and the current record without running SQL again; current block access is still required. Audit history stays in SQLite; the app shows the latest 100 events and the earlier-event count.\n\nConcrete execution and data boundaries\n\nExecutors are trusted synchronous functions using the same SQLite connection. Enforce current business-row revision and principal scope inside each executor. Bulk rows share one savepoint: a failed member rolls back every selected business change and records a sanitized failed outcome. Multi-step runs execute only the next eligible queued step or eligible failed step, after a separate review.\n\nThis transaction does not atomically send email, charge cards or change another service. External or asynchronous actions need your own durable idempotency, outbox and reconciliation. Report approval saves the reviewed report; it does not publish it externally.\n\nOnly deliberate block/id/revision/status/receipt fields enter public text and structured output. Complete business values, arguments, source text, review tokens and audit use app-only metadata, which the host can still read. Metadata, visibility and consent checkboxes are not authentication or proof of human identity.\n\nText extraction supports complete UTF-8 .txt/.md documents up to 64 KiB, preserving a BOM. Invoice labels: Supplier:, Total:, Currency:. Contract labels: Party:, Effective date:, Term:. Resume labels: Name:, Email:, Experience:. Select a file, explicitly extract it, review its complete text/hash/source matches, save that extraction, then separately review acceptance. No PDF, OCR or model provider is included.\n\nAll eleven recipes\nreview-before-action\n\nReview a planned external-state change before executing it.\n\npnpm dlx mcpcn add review-before-action\n\nEditable UI/server/schema/fixture/test/README payload\n\ncollect-missing-data\n\nAsk only for fields an agent still needs.\n\npnpm dlx mcpcn add collect-missing-data\n\nEditable UI/server/schema/fixture/test/README payload\n\nextract-review-save\n\nReview extracted fields, evidence, and corrections before saving.\n\npnpm dlx mcpcn add extract-review-save\n\nEditable UI/server/schema/fixture/test/README payload\n\ncompare-options-approve\n\nCompare options with evidence and approve the final choice.\n\npnpm dlx mcpcn add compare-options-approve\n\nEditable UI/server/schema/fixture/test/README payload\n\nmulti-step-tool-run\n\nTrack a recoverable multi-step tool workflow.\n\npnpm dlx mcpcn add multi-step-tool-run\n\nEditable UI/server/schema/fixture/test/README payload\n\napproval-gated-tool-call\n\nRequire explicit consent before an app-only tool call.\n\npnpm dlx mcpcn add approval-gated-tool-call\n\nEditable UI/server/schema/fixture/test/README payload\n\nhuman-corrects-ai-output\n\nEdit and validate structured agent output.\n\npnpm dlx mcpcn add human-corrects-ai-output\n\nEditable UI/server/schema/fixture/test/README payload\n\nagent-generated-report-review\n\nReview sources, conclusions, and publication intent.\n\npnpm dlx mcpcn add agent-generated-report-review\n\nEditable UI/server/schema/fixture/test/README payload\n\nfile-upload-and-extract\n\nReview a file and its extracted structured content.\n\npnpm dlx mcpcn add file-upload-and-extract\n\nEditable UI/server/schema/fixture/test/README payload\n\ntable-bulk-action-review\n\nShow affected rows and impact before a bulk action.\n\npnpm dlx mcpcn add table-bulk-action-review\n\nEditable UI/server/schema/fixture/test/README payload\n\nadmin-change-review\n\nReview settings diffs, affected users, rollback, and approval.\n\npnpm dlx mcpcn add admin-change-review\n\nEditable UI/server/schema/fixture/test/README payload\n\nSource contract and verification boundary. Public npm, external-host certification, production identity/providers and full accessibility/device acceptance remain separate gates. Generic server integration and five persistent reference applications are also available."
+        },
+        {
+          "name": "actual-downloads",
+          "links": 11,
+          "body": "All eleven blocks\nInstall\nWire the server\nReview lifecycle\nData and execution boundaries\nRecipes and previews\nUI AND SERVER TOGETHER\nMake a reviewed change. Keep the result.\n\nEach workflow block has a controlled React UI, a bound app, typed Zod schemas, a real MCP server registration, an authored input/result fixture, a runnable SDK/SQLite check and a README. The app reads the server record, prepares exact terms, confirms the reviewed change and displays its saved state and audit.\n\nInstall one block\n\nInstall the matching CLI package archive from the repository release first. Public npm publication remains pending; these commands use the installed archive directly.\n\nnode node_modules/mcpcn/dist/index.js init --mode=copy --host=standard-mcp\nnode node_modules/mcpcn/dist/index.js add review-before-action\n\nCopy mode adds editable client code and explicit .server.mts, .fixture.mts, .server.test.mts and .README.md entries under your block directory. Package mode adds equivalent thin entries using matching package archives. The CLI prints dependency commands and never installs dependencies or executes a fixture. Keep server and fixture modules out of browser imports.\n\nUse Node 24.22.2 for the SQLite server. Copied sources use strict Bundler TypeScript and explicit emitted server .mjs modules; the caller package can use CommonJS. Package server declarations support Bundler and NodeNext. Full copied-source NodeNext compatibility remains a separate quality gate because existing client imports and pinned upstream implementation declarations contain extensionless paths.\n\n\"use client\";\nimport { MCPCNProvider } from \"./components/mcpcn/provider\";\nimport { ReviewBeforeActionApp } from \"./components/mcpcn/blocks/review-before-action\";\n\nexport default function App() {\n  return <MCPCNProvider><ReviewBeforeActionApp /></MCPCNProvider>;\n}\n\nThe record identity comes from the authorized read tool result, or an explicit id prop. Select the OpenAI adapter with --host=openai for that host. Neither adapter supplies server authentication.\n\nWire the server-owned operation\n\nOpen an empty dedicated SQLite database in your server, supply validated initial state and resolve a trusted principal from the original verified transport context on every request. The store refuses a foreign schema. This sketch names consumer-owned state, authentication, business validation and built HTML explicitly; replace those integration points with your application.\n\n// Server entry only. Supply a dedicated caller-opened Node24 SQLite DB.\nimport { registerReviewBeforeActionServer, BlockWorkflowStore } from \"@mcpcn/server/blocks\";\n\nconst store = new BlockWorkflowStore(database);\nstore.seed(trustedPrincipal, \"review-before-action\", \"settings-one\", serverOwnedState);\nconst registration = registerReviewBeforeActionServer(mcpServer, {\n  store,\n  policyRevision: \"settings-policy-v1\",\n  resolvePrincipal: resolveVerifiedTransportPrincipal,\n  html: builtReviewBeforeActionAppHtml,\n  executors: {\n    \"change-setting\": ({ database, principal, operation, signal }) => {\n      const change = SettingChangeSchema.parse(operation.arguments);\n      if (signal.aborted) throw new Error(\"cancelled\");\n      const update = database.prepare(\n        \"UPDATE business_settings SET value=?,revision=revision+1 \" +\n        \"WHERE workspace=? AND id=? AND revision=?\"\n      ).run(change.value, principal.workspace, change.id, change.revision);\n      if (update.changes !== 1) throw new Error(\"business_revision_conflict\");\n      return { id: change.id, revision: change.revision + 1, value: change.value };\n    }\n  }\n});\n// dispose() removes only this block's tools/resource and cancels pending work.\n\nImport the matching state schema from @mcpcn/schemas/blocks and the named registration from @mcpcn/server/blocks. Fixture entries show complete authored state and real revision-checked business SQL. Use fixtures only with disposable data; their fixed principal is a check identity.\n\nA review is exact and short-lived\nRead the authorized record and its current revision.\nSubmit a correction, selection or action. Prepare stores exact terms without applying the business change.\nReview full values, arguments and evidence. Every new prepared review starts unchecked.\nConfirm within five minutes. The server rechecks grants, actor, workspace, block, record revision, policy and captured terms before committing state, token consumption and audit.\nReload and inspect the saved outcome. An uncertain network response may follow a committed operation; another mutation stays blocked until a successful read.\n\nCancel revokes an unconsumed review and clears its private proposal. It cannot undo a committed operation. Exact consumed-token replay returns its original receipt and the current record without running SQL again; current block access is still required. Audit history stays in SQLite; the app shows the latest 100 events and the earlier-event count.\n\nConcrete execution and data boundaries\n\nExecutors are trusted synchronous functions using the same SQLite connection. Enforce current business-row revision and principal scope inside each executor. Bulk rows share one savepoint: a failed member rolls back every selected business change and records a sanitized failed outcome. Multi-step runs execute only the next eligible queued step or eligible failed step, after a separate review.\n\nThis transaction does not atomically send email, charge cards or change another service. External or asynchronous actions need your own durable idempotency, outbox and reconciliation. Report approval saves the reviewed report; it does not publish it externally.\n\nOnly deliberate block/id/revision/status/receipt fields enter public text and structured output. Complete business values, arguments, source text, review tokens and audit use app-only metadata, which the host can still read. Metadata, visibility and consent checkboxes are not authentication or proof of human identity.\n\nText extraction supports complete UTF-8 .txt/.md documents up to 64 KiB, preserving a BOM. Invoice labels: Supplier:, Total:, Currency:. Contract labels: Party:, Effective date:, Term:. Resume labels: Name:, Email:, Experience:. Select a file, explicitly extract it, review its complete text/hash/source matches, save that extraction, then separately review acceptance. No PDF, OCR or model provider is included.\n\nAll eleven recipes\nreview-before-action\n\nReview a planned external-state change before executing it.\n\npnpm dlx mcpcn add review-before-action\n\nEditable UI/server/schema/fixture/test/README payload\n\ncollect-missing-data\n\nAsk only for fields an agent still needs.\n\npnpm dlx mcpcn add collect-missing-data\n\nEditable UI/server/schema/fixture/test/README payload\n\nextract-review-save\n\nReview extracted fields, evidence, and corrections before saving.\n\npnpm dlx mcpcn add extract-review-save\n\nEditable UI/server/schema/fixture/test/README payload\n\ncompare-options-approve\n\nCompare options with evidence and approve the final choice.\n\npnpm dlx mcpcn add compare-options-approve\n\nEditable UI/server/schema/fixture/test/README payload\n\nmulti-step-tool-run\n\nTrack a recoverable multi-step tool workflow.\n\npnpm dlx mcpcn add multi-step-tool-run\n\nEditable UI/server/schema/fixture/test/README payload\n\napproval-gated-tool-call\n\nRequire explicit consent before an app-only tool call.\n\npnpm dlx mcpcn add approval-gated-tool-call\n\nEditable UI/server/schema/fixture/test/README payload\n\nhuman-corrects-ai-output\n\nEdit and validate structured agent output.\n\npnpm dlx mcpcn add human-corrects-ai-output\n\nEditable UI/server/schema/fixture/test/README payload\n\nagent-generated-report-review\n\nReview sources, conclusions, and publication intent.\n\npnpm dlx mcpcn add agent-generated-report-review\n\nEditable UI/server/schema/fixture/test/README payload\n\nfile-upload-and-extract\n\nReview a file and its extracted structured content.\n\npnpm dlx mcpcn add file-upload-and-extract\n\nEditable UI/server/schema/fixture/test/README payload\n\ntable-bulk-action-review\n\nShow affected rows and impact before a bulk action.\n\npnpm dlx mcpcn add table-bulk-action-review\n\nEditable UI/server/schema/fixture/test/README payload\n\nadmin-change-review\n\nReview settings diffs, affected users, rollback, and approval.\n\npnpm dlx mcpcn add admin-change-review\n\nEditable UI/server/schema/fixture/test/README payload\n\nSource contract and verification boundary. Public npm, external-host certification, production identity/providers and full accessibility/device acceptance remain separate gates. Generic server integration and five persistent reference applications are also available."
+        }
+      ],
+      "downloads": [
+        {
+          "slug": "review-before-action",
+          "pngStatus": 200,
+          "pngBytes": 82474,
+          "pngSha256": "92a30dae4c12817fb174900b79af94b83d6d039e126f4bf2bef609a9dde1989c",
+          "registryStatus": 200,
+          "registryBytes": 574208,
+          "registrySha256": "4ff00c4c9348cb7eb2bb080a5e1c85aeb7046bb9577c98b639c2154ae79e13a2",
+          "canonicalBodyParity": true
+        },
+        {
+          "slug": "collect-missing-data",
+          "pngStatus": 200,
+          "pngBytes": 83447,
+          "pngSha256": "2eec252c90fb5b1242434cd13f57a0b9bb9121219bee4909bc6b118838a1a86e",
+          "registryStatus": 200,
+          "registryBytes": 574176,
+          "registrySha256": "eb0229d7707033d317297acbca86519290f9ce0e6846308576b94a4c0a4bb175",
+          "canonicalBodyParity": true
+        },
+        {
+          "slug": "extract-review-save",
+          "pngStatus": 200,
+          "pngBytes": 89922,
+          "pngSha256": "8032af05d1a06b0d7e8e5e50009f6cff1a80e096aeb57bef837b8df66ec0925c",
+          "registryStatus": 200,
+          "registryBytes": 574211,
+          "registrySha256": "913b47ca7daf98ca48b8671252a1f79b998bf8a9eddda34ecf8c29ef17388ef0",
+          "canonicalBodyParity": true
+        },
+        {
+          "slug": "compare-options-approve",
+          "pngStatus": 200,
+          "pngBytes": 94741,
+          "pngSha256": "f152e78e406eb35a33dcc819da85855bdd82d28b38559a1ce6d1f82c7b9b75c4",
+          "registryStatus": 200,
+          "registryBytes": 574293,
+          "registrySha256": "6c878f896d4bf23decaac6ec3baeed61f88a3de7cd3ffc6819eedae7ff7b78cb",
+          "canonicalBodyParity": true
+        },
+        {
+          "slug": "multi-step-tool-run",
+          "pngStatus": 200,
+          "pngBytes": 103248,
+          "pngSha256": "d584464d9ef68cafca14ce8a8adde954f4ca4b826195dc3c97f4cbb8ca72c618",
+          "registryStatus": 200,
+          "registryBytes": 574157,
+          "registrySha256": "cdaaf0e56534d15fd18ccfc8e2e473be5b60725b342712d56206ba8520dd9824",
+          "canonicalBodyParity": true
+        },
+        {
+          "slug": "approval-gated-tool-call",
+          "pngStatus": 200,
+          "pngBytes": 83123,
+          "pngSha256": "fb5231b970e0d40197756f9a3a1ccc6300075a7f9fb5c745646e1ca40d7e6809",
+          "registryStatus": 200,
+          "registryBytes": 574286,
+          "registrySha256": "ba583cc5d50562c681400df033dcabd49ab130952da886ab513b6ecdfc9ac913",
+          "canonicalBodyParity": true
+        },
+        {
+          "slug": "human-corrects-ai-output",
+          "pngStatus": 200,
+          "pngBytes": 89788,
+          "pngSha256": "dafa28bbbb201e2d9ef4f8a04e2025475a6c8ce67be4c8bb6b7c0d4166ea8819",
+          "registryStatus": 200,
+          "registryBytes": 574270,
+          "registrySha256": "fd68fc9da4c8a28bb7a5f34c98720c7bac12c47bd95d74ce42fff0e868221904",
+          "canonicalBodyParity": true
+        },
+        {
+          "slug": "agent-generated-report-review",
+          "pngStatus": 200,
+          "pngBytes": 155078,
+          "pngSha256": "687231257f3cabb1912f36d67082e30c3679a016da5b505ac65a80e55ba2b83d",
+          "registryStatus": 200,
+          "registryBytes": 574427,
+          "registrySha256": "741291e5605604354126e7f3042dab1e5cb639ac3000ff65b2f11d3886d2d77c",
+          "canonicalBodyParity": true
+        },
+        {
+          "slug": "file-upload-and-extract",
+          "pngStatus": 200,
+          "pngBytes": 95249,
+          "pngSha256": "81b23fffd89923191758f4f00120620d6b15743b5db9f0a279a1b6388c0fada5",
+          "registryStatus": 200,
+          "registryBytes": 574280,
+          "registrySha256": "e36e72e4e55160440bb3979246533cfd7194f75b8019ae320144c562733668ff",
+          "canonicalBodyParity": true
+        },
+        {
+          "slug": "table-bulk-action-review",
+          "pngStatus": 200,
+          "pngBytes": 92174,
+          "pngSha256": "b6b76af8018c2146bc5c54b08de376ad2ed3289374738b230a4b7128618fc822",
+          "registryStatus": 200,
+          "registryBytes": 574304,
+          "registrySha256": "c33f1f3682258e4d93d1bad61ad56cb89b6a79ff5dfa90e280a712f43b8b4e1c",
+          "canonicalBodyParity": true
+        },
+        {
+          "slug": "admin-change-review",
+          "pngStatus": 200,
+          "pngBytes": 82847,
+          "pngSha256": "fc0c97dbf1e53a53a52b544e392c8170135d660661f6530c0aa2a207ff99a249",
+          "registryStatus": 200,
+          "registryBytes": 574214,
+          "registrySha256": "6aa10d60915435102ffde4a91640dd4fc8b704152b2ae03c823b951096271dce",
+          "canonicalBodyParity": true
+        }
+      ],
+      "pageErrors": [],
+      "contextClosed": true,
+      "componentResponse": {
+        "name": "approval-card",
+        "status": 200,
+        "bytes": 425804,
+        "sha256": "cc3b4fbed1ad3c7306d150c47b9931c18a38897bc4b65596d40dcb78b0b12b13",
+        "existingCompactBodyPreserved": true
+      }
+    },
+    {
+      "width": 390,
+      "stages": [
+        {
+          "name": "guide",
+          "dimensions": {
+            "width": 390,
+            "scrollWidth": 390
+          },
+          "body": "All eleven blocks\nInstall\nWire the server\nReview lifecycle\nData and execution boundaries\nRecipes and previews\nUI AND SERVER TOGETHER\nMake a reviewed change. Keep the result.\n\nEach workflow block has a controlled React UI, a bound app, typed Zod schemas, a real MCP server registration, an authored input/result fixture, a runnable SDK/SQLite check and a README. The app reads the server record, prepares exact terms, confirms the reviewed change and displays its saved state and audit.\n\nInstall one block\n\nInstall the matching CLI package archive from the repository release first. Public npm publication remains pending; these commands use the installed archive directly.\n\nnode node_modules/mcpcn/dist/index.js init --mode=copy --host=standard-mcp\nnode node_modules/mcpcn/dist/index.js add review-before-action\n\nCopy mode adds editable client code and explicit .server.mts, .fixture.mts, .server.test.mts and .README.md entries under your block directory. Package mode adds equivalent thin entries using matching package archives. The CLI prints dependency commands and never installs dependencies or executes a fixture. Keep server and fixture modules out of browser imports.\n\nUse Node 24.22.2 for the SQLite server. Copied sources use strict Bundler TypeScript and explicit emitted server .mjs modules; the caller package can use CommonJS. Package server declarations support Bundler and NodeNext. Full copied-source NodeNext compatibility remains a separate quality gate because existing client imports and pinned upstream implementation declarations contain extensionless paths.\n\n\"use client\";\nimport { MCPCNProvider } from \"./components/mcpcn/provider\";\nimport { ReviewBeforeActionApp } from \"./components/mcpcn/blocks/review-before-action\";\n\nexport default function App() {\n  return <MCPCNProvider><ReviewBeforeActionApp /></MCPCNProvider>;\n}\n\nThe record identity comes from the authorized read tool result, or an explicit id prop. Select the OpenAI adapter with --host=openai for that host. Neither adapter supplies server authentication.\n\nWire the server-owned operation\n\nOpen an empty dedicated SQLite database in your server, supply validated initial state and resolve a trusted principal from the original verified transport context on every request. The store refuses a foreign schema. This sketch names consumer-owned state, authentication, business validation and built HTML explicitly; replace those integration points with your application.\n\n// Server entry only. Supply a dedicated caller-opened Node24 SQLite DB.\nimport { registerReviewBeforeActionServer, BlockWorkflowStore } from \"@mcpcn/server/blocks\";\n\nconst store = new BlockWorkflowStore(database);\nstore.seed(trustedPrincipal, \"review-before-action\", \"settings-one\", serverOwnedState);\nconst registration = registerReviewBeforeActionServer(mcpServer, {\n  store,\n  policyRevision: \"settings-policy-v1\",\n  resolvePrincipal: resolveVerifiedTransportPrincipal,\n  html: builtReviewBeforeActionAppHtml,\n  executors: {\n    \"change-setting\": ({ database, principal, operation, signal }) => {\n      const change = SettingChangeSchema.parse(operation.arguments);\n      if (signal.aborted) throw new Error(\"cancelled\");\n      const update = database.prepare(\n        \"UPDATE business_settings SET value=?,revision=revision+1 \" +\n        \"WHERE workspace=? AND id=? AND revision=?\"\n      ).run(change.value, principal.workspace, change.id, change.revision);\n      if (update.changes !== 1) throw new Error(\"business_revision_conflict\");\n      return { id: change.id, revision: change.revision + 1, value: change.value };\n    }\n  }\n});\n// dispose() removes only this block's tools/resource and cancels pending work.\n\nImport the matching state schema from @mcpcn/schemas/blocks and the named registration from @mcpcn/server/blocks. Fixture entries show complete authored state and real revision-checked business SQL. Use fixtures only with disposable data; their fixed principal is a check identity.\n\nA review is exact and short-lived\nRead the authorized record and its current revision.\nSubmit a correction, selection or action. Prepare stores exact terms without applying the business change.\nReview full values, arguments and evidence. Every new prepared review starts unchecked.\nConfirm within five minutes. The server rechecks grants, actor, workspace, block, record revision, policy and captured terms before committing state, token consumption and audit.\nReload and inspect the saved outcome. An uncertain network response may follow a committed operation; another mutation stays blocked until a successful read.\n\nCancel revokes an unconsumed review and clears its private proposal. It cannot undo a committed operation. Exact consumed-token replay returns its original receipt and the current record without running SQL again; current block access is still required. Audit history stays in SQLite; the app shows the latest 100 events and the earlier-event count.\n\nConcrete execution and data boundaries\n\nExecutors are trusted synchronous functions using the same SQLite connection. Enforce current business-row revision and principal scope inside each executor. Bulk rows share one savepoint: a failed member rolls back every selected business change and records a sanitized failed outcome. Multi-step runs execute only the next eligible queued step or eligible failed step, after a separate review.\n\nThis transaction does not atomically send email, charge cards or change another service. External or asynchronous actions need your own durable idempotency, outbox and reconciliation. Report approval saves the reviewed report; it does not publish it externally.\n\nOnly deliberate block/id/revision/status/receipt fields enter public text and structured output. Complete business values, arguments, source text, review tokens and audit use app-only metadata, which the host can still read. Metadata, visibility and consent checkboxes are not authentication or proof of human identity.\n\nText extraction supports complete UTF-8 .txt/.md documents up to 64 KiB, preserving a BOM. Invoice labels: Supplier:, Total:, Currency:. Contract labels: Party:, Effective date:, Term:. Resume labels: Name:, Email:, Experience:. Select a file, explicitly extract it, review its complete text/hash/source matches, save that extraction, then separately review acceptance. No PDF, OCR or model provider is included.\n\nAll eleven recipes\nreview-before-action\n\nReview a planned external-state change before executing it.\n\npnpm dlx mcpcn add review-before-action\n\nEditable UI/server/schema/fixture/test/README payload\n\ncollect-missing-data\n\nAsk only for fields an agent still needs.\n\npnpm dlx mcpcn add collect-missing-data\n\nEditable UI/server/schema/fixture/test/README payload\n\nextract-review-save\n\nReview extracted fields, evidence, and corrections before saving.\n\npnpm dlx mcpcn add extract-review-save\n\nEditable UI/server/schema/fixture/test/README payload\n\ncompare-options-approve\n\nCompare options with evidence and approve the final choice.\n\npnpm dlx mcpcn add compare-options-approve\n\nEditable UI/server/schema/fixture/test/README payload\n\nmulti-step-tool-run\n\nTrack a recoverable multi-step tool workflow.\n\npnpm dlx mcpcn add multi-step-tool-run\n\nEditable UI/server/schema/fixture/test/README payload\n\napproval-gated-tool-call\n\nRequire explicit consent before an app-only tool call.\n\npnpm dlx mcpcn add approval-gated-tool-call\n\nEditable UI/server/schema/fixture/test/README payload\n\nhuman-corrects-ai-output\n\nEdit and validate structured agent output.\n\npnpm dlx mcpcn add human-corrects-ai-output\n\nEditable UI/server/schema/fixture/test/README payload\n\nagent-generated-report-review\n\nReview sources, conclusions, and publication intent.\n\npnpm dlx mcpcn add agent-generated-report-review\n\nEditable UI/server/schema/fixture/test/README payload\n\nfile-upload-and-extract\n\nReview a file and its extracted structured content.\n\npnpm dlx mcpcn add file-upload-and-extract\n\nEditable UI/server/schema/fixture/test/README payload\n\ntable-bulk-action-review\n\nShow affected rows and impact before a bulk action.\n\npnpm dlx mcpcn add table-bulk-action-review\n\nEditable UI/server/schema/fixture/test/README payload\n\nadmin-change-review\n\nReview settings diffs, affected users, rollback, and approval.\n\npnpm dlx mcpcn add admin-change-review\n\nEditable UI/server/schema/fixture/test/README payload\n\nSource contract and verification boundary. Public npm, external-host certification, production identity/providers and full accessibility/device acceptance remain separate gates. Generic server integration and five persistent reference applications are also available."
+        },
+        {
+          "name": "actual-downloads",
+          "links": 11,
+          "body": "All eleven blocks\nInstall\nWire the server\nReview lifecycle\nData and execution boundaries\nRecipes and previews\nUI AND SERVER TOGETHER\nMake a reviewed change. Keep the result.\n\nEach workflow block has a controlled React UI, a bound app, typed Zod schemas, a real MCP server registration, an authored input/result fixture, a runnable SDK/SQLite check and a README. The app reads the server record, prepares exact terms, confirms the reviewed change and displays its saved state and audit.\n\nInstall one block\n\nInstall the matching CLI package archive from the repository release first. Public npm publication remains pending; these commands use the installed archive directly.\n\nnode node_modules/mcpcn/dist/index.js init --mode=copy --host=standard-mcp\nnode node_modules/mcpcn/dist/index.js add review-before-action\n\nCopy mode adds editable client code and explicit .server.mts, .fixture.mts, .server.test.mts and .README.md entries under your block directory. Package mode adds equivalent thin entries using matching package archives. The CLI prints dependency commands and never installs dependencies or executes a fixture. Keep server and fixture modules out of browser imports.\n\nUse Node 24.22.2 for the SQLite server. Copied sources use strict Bundler TypeScript and explicit emitted server .mjs modules; the caller package can use CommonJS. Package server declarations support Bundler and NodeNext. Full copied-source NodeNext compatibility remains a separate quality gate because existing client imports and pinned upstream implementation declarations contain extensionless paths.\n\n\"use client\";\nimport { MCPCNProvider } from \"./components/mcpcn/provider\";\nimport { ReviewBeforeActionApp } from \"./components/mcpcn/blocks/review-before-action\";\n\nexport default function App() {\n  return <MCPCNProvider><ReviewBeforeActionApp /></MCPCNProvider>;\n}\n\nThe record identity comes from the authorized read tool result, or an explicit id prop. Select the OpenAI adapter with --host=openai for that host. Neither adapter supplies server authentication.\n\nWire the server-owned operation\n\nOpen an empty dedicated SQLite database in your server, supply validated initial state and resolve a trusted principal from the original verified transport context on every request. The store refuses a foreign schema. This sketch names consumer-owned state, authentication, business validation and built HTML explicitly; replace those integration points with your application.\n\n// Server entry only. Supply a dedicated caller-opened Node24 SQLite DB.\nimport { registerReviewBeforeActionServer, BlockWorkflowStore } from \"@mcpcn/server/blocks\";\n\nconst store = new BlockWorkflowStore(database);\nstore.seed(trustedPrincipal, \"review-before-action\", \"settings-one\", serverOwnedState);\nconst registration = registerReviewBeforeActionServer(mcpServer, {\n  store,\n  policyRevision: \"settings-policy-v1\",\n  resolvePrincipal: resolveVerifiedTransportPrincipal,\n  html: builtReviewBeforeActionAppHtml,\n  executors: {\n    \"change-setting\": ({ database, principal, operation, signal }) => {\n      const change = SettingChangeSchema.parse(operation.arguments);\n      if (signal.aborted) throw new Error(\"cancelled\");\n      const update = database.prepare(\n        \"UPDATE business_settings SET value=?,revision=revision+1 \" +\n        \"WHERE workspace=? AND id=? AND revision=?\"\n      ).run(change.value, principal.workspace, change.id, change.revision);\n      if (update.changes !== 1) throw new Error(\"business_revision_conflict\");\n      return { id: change.id, revision: change.revision + 1, value: change.value };\n    }\n  }\n});\n// dispose() removes only this block's tools/resource and cancels pending work.\n\nImport the matching state schema from @mcpcn/schemas/blocks and the named registration from @mcpcn/server/blocks. Fixture entries show complete authored state and real revision-checked business SQL. Use fixtures only with disposable data; their fixed principal is a check identity.\n\nA review is exact and short-lived\nRead the authorized record and its current revision.\nSubmit a correction, selection or action. Prepare stores exact terms without applying the business change.\nReview full values, arguments and evidence. Every new prepared review starts unchecked.\nConfirm within five minutes. The server rechecks grants, actor, workspace, block, record revision, policy and captured terms before committing state, token consumption and audit.\nReload and inspect the saved outcome. An uncertain network response may follow a committed operation; another mutation stays blocked until a successful read.\n\nCancel revokes an unconsumed review and clears its private proposal. It cannot undo a committed operation. Exact consumed-token replay returns its original receipt and the current record without running SQL again; current block access is still required. Audit history stays in SQLite; the app shows the latest 100 events and the earlier-event count.\n\nConcrete execution and data boundaries\n\nExecutors are trusted synchronous functions using the same SQLite connection. Enforce current business-row revision and principal scope inside each executor. Bulk rows share one savepoint: a failed member rolls back every selected business change and records a sanitized failed outcome. Multi-step runs execute only the next eligible queued step or eligible failed step, after a separate review.\n\nThis transaction does not atomically send email, charge cards or change another service. External or asynchronous actions need your own durable idempotency, outbox and reconciliation. Report approval saves the reviewed report; it does not publish it externally.\n\nOnly deliberate block/id/revision/status/receipt fields enter public text and structured output. Complete business values, arguments, source text, review tokens and audit use app-only metadata, which the host can still read. Metadata, visibility and consent checkboxes are not authentication or proof of human identity.\n\nText extraction supports complete UTF-8 .txt/.md documents up to 64 KiB, preserving a BOM. Invoice labels: Supplier:, Total:, Currency:. Contract labels: Party:, Effective date:, Term:. Resume labels: Name:, Email:, Experience:. Select a file, explicitly extract it, review its complete text/hash/source matches, save that extraction, then separately review acceptance. No PDF, OCR or model provider is included.\n\nAll eleven recipes\nreview-before-action\n\nReview a planned external-state change before executing it.\n\npnpm dlx mcpcn add review-before-action\n\nEditable UI/server/schema/fixture/test/README payload\n\ncollect-missing-data\n\nAsk only for fields an agent still needs.\n\npnpm dlx mcpcn add collect-missing-data\n\nEditable UI/server/schema/fixture/test/README payload\n\nextract-review-save\n\nReview extracted fields, evidence, and corrections before saving.\n\npnpm dlx mcpcn add extract-review-save\n\nEditable UI/server/schema/fixture/test/README payload\n\ncompare-options-approve\n\nCompare options with evidence and approve the final choice.\n\npnpm dlx mcpcn add compare-options-approve\n\nEditable UI/server/schema/fixture/test/README payload\n\nmulti-step-tool-run\n\nTrack a recoverable multi-step tool workflow.\n\npnpm dlx mcpcn add multi-step-tool-run\n\nEditable UI/server/schema/fixture/test/README payload\n\napproval-gated-tool-call\n\nRequire explicit consent before an app-only tool call.\n\npnpm dlx mcpcn add approval-gated-tool-call\n\nEditable UI/server/schema/fixture/test/README payload\n\nhuman-corrects-ai-output\n\nEdit and validate structured agent output.\n\npnpm dlx mcpcn add human-corrects-ai-output\n\nEditable UI/server/schema/fixture/test/README payload\n\nagent-generated-report-review\n\nReview sources, conclusions, and publication intent.\n\npnpm dlx mcpcn add agent-generated-report-review\n\nEditable UI/server/schema/fixture/test/README payload\n\nfile-upload-and-extract\n\nReview a file and its extracted structured content.\n\npnpm dlx mcpcn add file-upload-and-extract\n\nEditable UI/server/schema/fixture/test/README payload\n\ntable-bulk-action-review\n\nShow affected rows and impact before a bulk action.\n\npnpm dlx mcpcn add table-bulk-action-review\n\nEditable UI/server/schema/fixture/test/README payload\n\nadmin-change-review\n\nReview settings diffs, affected users, rollback, and approval.\n\npnpm dlx mcpcn add admin-change-review\n\nEditable UI/server/schema/fixture/test/README payload\n\nSource contract and verification boundary. Public npm, external-host certification, production identity/providers and full accessibility/device acceptance remain separate gates. Generic server integration and five persistent reference applications are also available."
+        }
+      ],
+      "downloads": [
+        {
+          "slug": "review-before-action",
+          "pngStatus": 200,
+          "pngBytes": 82474,
+          "pngSha256": "92a30dae4c12817fb174900b79af94b83d6d039e126f4bf2bef609a9dde1989c",
+          "registryStatus": 200,
+          "registryBytes": 574208,
+          "registrySha256": "4ff00c4c9348cb7eb2bb080a5e1c85aeb7046bb9577c98b639c2154ae79e13a2",
+          "canonicalBodyParity": true
+        },
+        {
+          "slug": "collect-missing-data",
+          "pngStatus": 200,
+          "pngBytes": 83447,
+          "pngSha256": "2eec252c90fb5b1242434cd13f57a0b9bb9121219bee4909bc6b118838a1a86e",
+          "registryStatus": 200,
+          "registryBytes": 574176,
+          "registrySha256": "eb0229d7707033d317297acbca86519290f9ce0e6846308576b94a4c0a4bb175",
+          "canonicalBodyParity": true
+        },
+        {
+          "slug": "extract-review-save",
+          "pngStatus": 200,
+          "pngBytes": 89922,
+          "pngSha256": "8032af05d1a06b0d7e8e5e50009f6cff1a80e096aeb57bef837b8df66ec0925c",
+          "registryStatus": 200,
+          "registryBytes": 574211,
+          "registrySha256": "913b47ca7daf98ca48b8671252a1f79b998bf8a9eddda34ecf8c29ef17388ef0",
+          "canonicalBodyParity": true
+        },
+        {
+          "slug": "compare-options-approve",
+          "pngStatus": 200,
+          "pngBytes": 94741,
+          "pngSha256": "f152e78e406eb35a33dcc819da85855bdd82d28b38559a1ce6d1f82c7b9b75c4",
+          "registryStatus": 200,
+          "registryBytes": 574293,
+          "registrySha256": "6c878f896d4bf23decaac6ec3baeed61f88a3de7cd3ffc6819eedae7ff7b78cb",
+          "canonicalBodyParity": true
+        },
+        {
+          "slug": "multi-step-tool-run",
+          "pngStatus": 200,
+          "pngBytes": 103248,
+          "pngSha256": "d584464d9ef68cafca14ce8a8adde954f4ca4b826195dc3c97f4cbb8ca72c618",
+          "registryStatus": 200,
+          "registryBytes": 574157,
+          "registrySha256": "cdaaf0e56534d15fd18ccfc8e2e473be5b60725b342712d56206ba8520dd9824",
+          "canonicalBodyParity": true
+        },
+        {
+          "slug": "approval-gated-tool-call",
+          "pngStatus": 200,
+          "pngBytes": 83123,
+          "pngSha256": "fb5231b970e0d40197756f9a3a1ccc6300075a7f9fb5c745646e1ca40d7e6809",
+          "registryStatus": 200,
+          "registryBytes": 574286,
+          "registrySha256": "ba583cc5d50562c681400df033dcabd49ab130952da886ab513b6ecdfc9ac913",
+          "canonicalBodyParity": true
+        },
+        {
+          "slug": "human-corrects-ai-output",
+          "pngStatus": 200,
+          "pngBytes": 89788,
+          "pngSha256": "dafa28bbbb201e2d9ef4f8a04e2025475a6c8ce67be4c8bb6b7c0d4166ea8819",
+          "registryStatus": 200,
+          "registryBytes": 574270,
+          "registrySha256": "fd68fc9da4c8a28bb7a5f34c98720c7bac12c47bd95d74ce42fff0e868221904",
+          "canonicalBodyParity": true
+        },
+        {
+          "slug": "agent-generated-report-review",
+          "pngStatus": 200,
+          "pngBytes": 155078,
+          "pngSha256": "687231257f3cabb1912f36d67082e30c3679a016da5b505ac65a80e55ba2b83d",
+          "registryStatus": 200,
+          "registryBytes": 574427,
+          "registrySha256": "741291e5605604354126e7f3042dab1e5cb639ac3000ff65b2f11d3886d2d77c",
+          "canonicalBodyParity": true
+        },
+        {
+          "slug": "file-upload-and-extract",
+          "pngStatus": 200,
+          "pngBytes": 95249,
+          "pngSha256": "81b23fffd89923191758f4f00120620d6b15743b5db9f0a279a1b6388c0fada5",
+          "registryStatus": 200,
+          "registryBytes": 574280,
+          "registrySha256": "e36e72e4e55160440bb3979246533cfd7194f75b8019ae320144c562733668ff",
+          "canonicalBodyParity": true
+        },
+        {
+          "slug": "table-bulk-action-review",
+          "pngStatus": 200,
+          "pngBytes": 92174,
+          "pngSha256": "b6b76af8018c2146bc5c54b08de376ad2ed3289374738b230a4b7128618fc822",
+          "registryStatus": 200,
+          "registryBytes": 574304,
+          "registrySha256": "c33f1f3682258e4d93d1bad61ad56cb89b6a79ff5dfa90e280a712f43b8b4e1c",
+          "canonicalBodyParity": true
+        },
+        {
+          "slug": "admin-change-review",
+          "pngStatus": 200,
+          "pngBytes": 82847,
+          "pngSha256": "fc0c97dbf1e53a53a52b544e392c8170135d660661f6530c0aa2a207ff99a249",
+          "registryStatus": 200,
+          "registryBytes": 574214,
+          "registrySha256": "6aa10d60915435102ffde4a91640dd4fc8b704152b2ae03c823b951096271dce",
+          "canonicalBodyParity": true
+        }
+      ],
+      "pageErrors": [],
+      "contextClosed": true,
+      "componentResponse": {
+        "name": "approval-card",
+        "status": 200,
+        "bytes": 425804,
+        "sha256": "cc3b4fbed1ad3c7306d150c47b9931c18a38897bc4b65596d40dcb78b0b12b13",
+        "existingCompactBodyPreserved": true
+      }
+    }
+  ],
+  "errors": [],
+  "browserClosed": true
+}
