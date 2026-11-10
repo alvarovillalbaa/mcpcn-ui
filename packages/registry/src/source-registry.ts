@@ -46,6 +46,8 @@ const SOURCES = [
   ["packages/react/src/conflict-validation-components.tsx", "_mcpcn/conflict-validation-components.tsx", "registry:component"],
   ["packages/schemas/src/option-ranking-schemas.ts", "_mcpcn/option-ranking-schemas.ts", "registry:lib"],
   ["packages/react/src/option-ranking-components.tsx", "_mcpcn/option-ranking-components.tsx", "registry:component"],
+  ["packages/schemas/src/host-state-schemas.ts", "_mcpcn/host-state-schemas.ts", "registry:lib"],
+  ["packages/react/src/host-state-components.tsx", "_mcpcn/host-state-components.tsx", "registry:component"],
 ] as const;
 export const sourceModulePaths: readonly string[] = Object.freeze(SOURCES.map(([, target]) => target));
 const INTERNAL_IMPORTS:Record<string,string> = {"@mcpcn/core":"./core","@mcpcn/schemas":"./schemas","@mcpcn/react":"./components","@mcpcn/runtime":"./runtime"};

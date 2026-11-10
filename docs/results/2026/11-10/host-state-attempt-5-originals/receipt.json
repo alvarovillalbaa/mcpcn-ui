@@ -1,0 +1,3240 @@
+{
+  "schemaVersion": "mcpcn.host-state-checks.v2",
+  "sourceCommit": "5b33eb54c20a821944cfdade4d8a3575def533b4",
+  "workflowCommit": "cd8c75710a85073e41fd007cef2e366db9a22cf4",
+  "status": "failed",
+  "startedAt": "2026-11-10T01:31:39.655Z",
+  "commands": [
+    {
+      "label": "tools-install",
+      "command": "npm",
+      "args": [
+        "install",
+        "--prefix",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/tools",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "pnpm@10.24.0",
+        "playwright@1.65.0"
+      ],
+      "startedAt": "2026-11-10T01:31:42.495Z",
+      "streams": [
+        {
+          "name": "tools-install.stdout.txt",
+          "bytes": 24,
+          "sha256": "c4307d64b5a147f052e2e513ea1e8a6eee29a843d64c201e638d0a6b934f3ed8",
+          "complete": true
+        },
+        {
+          "name": "tools-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2500,
+      "identity": {
+        "pid": 2500,
+        "uid": 1001,
+        "pgid": 2500,
+        "sid": 2500,
+        "start": "25364"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:31:46.249Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "workspace-install",
+      "command": "pnpm",
+      "args": [
+        "install",
+        "--frozen-lockfile",
+        "--ignore-scripts"
+      ],
+      "startedAt": "2026-11-10T01:31:46.250Z",
+      "streams": [
+        {
+          "name": "workspace-install.stdout.txt",
+          "bytes": 1482,
+          "sha256": "8e35e66c7cbd9121e5516351ad08063ced7995bf2b0394e75deb267c90af442f",
+          "complete": true
+        },
+        {
+          "name": "workspace-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2512,
+      "identity": {
+        "pid": 2512,
+        "uid": 1001,
+        "pgid": 2512,
+        "sid": 2512,
+        "start": "25739"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:31:50.718Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "build-core",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "@mcpcn/core",
+        "build"
+      ],
+      "startedAt": "2026-11-10T01:31:51.369Z",
+      "streams": [
+        {
+          "name": "build-core.stdout.txt",
+          "bytes": 120,
+          "sha256": "08bea8ffc2d1cddfd8d8629f1fe1f38965ccd0c074285633daf39805c978f4fc",
+          "complete": true
+        },
+        {
+          "name": "build-core.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2528,
+      "identity": {
+        "pid": 2528,
+        "uid": 1001,
+        "pgid": 2528,
+        "sid": 2528,
+        "start": "26251"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:31:52.886Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "build-schemas",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "@mcpcn/schemas",
+        "build"
+      ],
+      "startedAt": "2026-11-10T01:31:52.886Z",
+      "streams": [
+        {
+          "name": "build-schemas.stdout.txt",
+          "bytes": 126,
+          "sha256": "3af3a5f0c29554fe3a2dac676e53b7a3f3dbc26fc02c3e3dab8cc8f23572fe16",
+          "complete": true
+        },
+        {
+          "name": "build-schemas.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2553,
+      "identity": {
+        "pid": 2553,
+        "uid": 1001,
+        "pgid": 2553,
+        "sid": 2553,
+        "start": "26403"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:31:56.260Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "build-runtime",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "@mcpcn/runtime",
+        "build"
+      ],
+      "startedAt": "2026-11-10T01:31:56.260Z",
+      "streams": [
+        {
+          "name": "build-runtime.stdout.txt",
+          "bytes": 126,
+          "sha256": "7c1751ba69a82b18b85a0cfd75ee14cb51768d0fe7158616fc24ebc22add1986",
+          "complete": true
+        },
+        {
+          "name": "build-runtime.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2578,
+      "identity": {
+        "pid": 2578,
+        "uid": 1001,
+        "pgid": 2578,
+        "sid": 2578,
+        "start": "26740"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:31:58.737Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "build-react",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "@mcpcn/react",
+        "build"
+      ],
+      "startedAt": "2026-11-10T01:31:58.738Z",
+      "streams": [
+        {
+          "name": "build-react.stdout.txt",
+          "bytes": 159,
+          "sha256": "b0c386929352808ab5753b4073edd53a7142f8b90de0415d1e13c2590a91ccd0",
+          "complete": true
+        },
+        {
+          "name": "build-react.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2604,
+      "identity": {
+        "pid": 2604,
+        "uid": 1001,
+        "pgid": 2604,
+        "sid": 2604,
+        "start": "26988"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:03.417Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "build-themes",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "@mcpcn/themes",
+        "build"
+      ],
+      "startedAt": "2026-11-10T01:32:03.417Z",
+      "streams": [
+        {
+          "name": "build-themes.stdout.txt",
+          "bytes": 163,
+          "sha256": "bc9291be3d80bc7f1b3b09e25c7d809dc1cb2c852f96827783b6c1aa979363a5",
+          "complete": true
+        },
+        {
+          "name": "build-themes.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2630,
+      "identity": {
+        "pid": 2630,
+        "uid": 1001,
+        "pgid": 2630,
+        "sid": 2630,
+        "start": "27456"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:04.699Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "build-registry",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "@mcpcn/registry",
+        "build"
+      ],
+      "startedAt": "2026-11-10T01:32:04.700Z",
+      "streams": [
+        {
+          "name": "build-registry.stdout.txt",
+          "bytes": 185,
+          "sha256": "cbf6bd833d89cc538ed021dbe3e34c7cb7690734ff839f4d27e40f909cf9f4e4",
+          "complete": true
+        },
+        {
+          "name": "build-registry.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2657,
+      "identity": {
+        "pid": 2657,
+        "uid": 1001,
+        "pgid": 2657,
+        "sid": 2657,
+        "start": "27584"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:08.416Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "generate-first",
+      "command": "pnpm",
+      "args": [
+        "generate"
+      ],
+      "startedAt": "2026-11-10T01:32:08.417Z",
+      "streams": [
+        {
+          "name": "generate-first.stdout.txt",
+          "bytes": 184,
+          "sha256": "55d5480f023a5efe89ef540b14ff5f55149d756416943c8943394a122cc72006",
+          "complete": true
+        },
+        {
+          "name": "generate-first.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2695,
+      "identity": {
+        "pid": 2695,
+        "uid": 1001,
+        "pgid": 2695,
+        "sid": 2695,
+        "start": "27956"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:10.130Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "generate-second",
+      "command": "pnpm",
+      "args": [
+        "generate"
+      ],
+      "startedAt": "2026-11-10T01:32:10.227Z",
+      "streams": [
+        {
+          "name": "generate-second.stdout.txt",
+          "bytes": 184,
+          "sha256": "55d5480f023a5efe89ef540b14ff5f55149d756416943c8943394a122cc72006",
+          "complete": true
+        },
+        {
+          "name": "generate-second.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2743,
+      "identity": {
+        "pid": 2743,
+        "uid": 1001,
+        "pgid": 2743,
+        "sid": 2743,
+        "start": "28137"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:11.911Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "focused-units",
+      "command": "pnpm",
+      "args": [
+        "exec",
+        "vitest",
+        "run",
+        "packages/schemas/src/host-state-schemas.test.ts",
+        "packages/react/src/host-state-components.test.tsx",
+        "packages/registry/src/host-state-source.test.ts",
+        "apps/playground/src/host-state-fixtures.test.ts",
+        "apps/docs/components/host-state-demos.test.tsx",
+        "apps/playground/src/fixtures.test.ts",
+        "--reporter=json",
+        "--outputFile=/home/runner/work/_temp/mcpcn-host-state-8kCAVz/output/units.json"
+      ],
+      "startedAt": "2026-11-10T01:32:12.620Z",
+      "streams": [
+        {
+          "name": "focused-units.stdout.txt",
+          "bytes": 89,
+          "sha256": "e6ee4ba0aebd3b082d71bd8307114d3b5e906c67f957c34abfda1f91b2b63ec0",
+          "complete": true
+        },
+        {
+          "name": "focused-units.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2783,
+      "identity": {
+        "pid": 2783,
+        "uid": 1001,
+        "pgid": 2783,
+        "sid": 2783,
+        "start": "28376"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:15.355Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "playground-typecheck",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "@mcpcn/playground",
+        "typecheck"
+      ],
+      "startedAt": "2026-11-10T01:32:15.356Z",
+      "streams": [
+        {
+          "name": "playground-typecheck.stdout.txt",
+          "bytes": 124,
+          "sha256": "3e8c893e4ade57a93c10053354f06110770e7ef616db264bff822f1b3ecb8408",
+          "complete": true
+        },
+        {
+          "name": "playground-typecheck.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2866,
+      "identity": {
+        "pid": 2866,
+        "uid": 1001,
+        "pgid": 2866,
+        "sid": 2866,
+        "start": "28650"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:20.102Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "playground-build",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "@mcpcn/playground",
+        "build"
+      ],
+      "startedAt": "2026-11-10T01:32:20.103Z",
+      "streams": [
+        {
+          "name": "playground-build.stdout.txt",
+          "bytes": 811,
+          "sha256": "dcd38eb54533da91873b1104291ab54420186fae2f86f9ce6fe0360346dcd931",
+          "complete": true
+        },
+        {
+          "name": "playground-build.stderr.txt",
+          "bytes": 360,
+          "sha256": "351b524197fb492920789369e7f1a271420c757633fbb553b280a181ac4c31a4",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2893,
+      "identity": {
+        "pid": 2893,
+        "uid": 1001,
+        "pgid": 2893,
+        "sid": 2893,
+        "start": "29124"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:21.036Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "build-cli",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "mcpcn",
+        "build"
+      ],
+      "startedAt": "2026-11-10T01:32:21.036Z",
+      "streams": [
+        {
+          "name": "build-cli.stdout.txt",
+          "bytes": 169,
+          "sha256": "1f2267ea132b7dee6e1dadd73f451d43bb917bea7359143f9dd65bbc877e21e0",
+          "complete": true
+        },
+        {
+          "name": "build-cli.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2945,
+      "identity": {
+        "pid": 2945,
+        "uid": 1001,
+        "pgid": 2945,
+        "sid": 2945,
+        "start": "29218"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:22.909Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "docs-build",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "@mcpcn/docs",
+        "build"
+      ],
+      "startedAt": "2026-11-10T01:32:22.909Z",
+      "streams": [
+        {
+          "name": "docs-build.stdout.txt",
+          "bytes": 2022,
+          "sha256": "b85c6510b00d9a5d2a991f817c98ce8e2a17ab8638ecd438a67bc286503c14c9",
+          "complete": true
+        },
+        {
+          "name": "docs-build.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2983,
+      "identity": {
+        "pid": 2983,
+        "uid": 1001,
+        "pgid": 2983,
+        "sid": 2983,
+        "start": "29405"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:43.414Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "pack-core",
+      "command": "pnpm",
+      "args": [
+        "--dir",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/source/packages/core",
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/archives"
+      ],
+      "startedAt": "2026-11-10T01:32:44.056Z",
+      "streams": [
+        {
+          "name": "pack-core.stdout.txt",
+          "bytes": 224,
+          "sha256": "9068d98972900d1aecdfa655325cbc29d1fd32b26d00cb094a827c9e0bae1d25",
+          "complete": true
+        },
+        {
+          "name": "pack-core.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3120,
+      "identity": {
+        "pid": 3120,
+        "uid": 1001,
+        "pgid": 3120,
+        "sid": 3120,
+        "start": "31520"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:44.408Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "inspect-pack-core",
+      "command": "tar",
+      "args": [
+        "-xOzf",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/archives/mcpcn-core-0.1.0.tgz",
+        "package/package.json"
+      ],
+      "startedAt": "2026-11-10T01:32:44.408Z",
+      "streams": [
+        {
+          "name": "inspect-pack-core.stdout.txt",
+          "bytes": 444,
+          "sha256": "344756633f7287566bc3cdf806f966a5dc969f03b5c6b005ace54d84291510b8",
+          "complete": true
+        },
+        {
+          "name": "inspect-pack-core.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3132,
+      "identity": {
+        "pid": 3132,
+        "uid": 1001,
+        "pgid": 3132,
+        "sid": 3132,
+        "start": "31555"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:44.418Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "pack-schemas",
+      "command": "pnpm",
+      "args": [
+        "--dir",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/source/packages/schemas",
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/archives"
+      ],
+      "startedAt": "2026-11-10T01:32:44.419Z",
+      "streams": [
+        {
+          "name": "pack-schemas.stdout.txt",
+          "bytes": 1862,
+          "sha256": "3706516f91c39bf98fa9e2a8feec72e66ce74077f0ea9b7a13758567a902a11d",
+          "complete": true
+        },
+        {
+          "name": "pack-schemas.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3134,
+      "identity": {
+        "pid": 3134,
+        "uid": 1001,
+        "pgid": 3134,
+        "sid": 3134,
+        "start": "31556"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:44.800Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "inspect-pack-schemas",
+      "command": "tar",
+      "args": [
+        "-xOzf",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/archives/mcpcn-schemas-0.1.0.tgz",
+        "package/package.json"
+      ],
+      "startedAt": "2026-11-10T01:32:44.800Z",
+      "streams": [
+        {
+          "name": "inspect-pack-schemas.stdout.txt",
+          "bytes": 592,
+          "sha256": "bc36b9c48169d5bf5a1df29dc77465bc434a706de9707b3779d279b5d394de65",
+          "complete": true
+        },
+        {
+          "name": "inspect-pack-schemas.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3146,
+      "identity": {
+        "pid": 3146,
+        "uid": 1001,
+        "pgid": 3146,
+        "sid": 3146,
+        "start": "31594"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:44.812Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "pack-runtime",
+      "command": "pnpm",
+      "args": [
+        "--dir",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/source/packages/runtime",
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/archives"
+      ],
+      "startedAt": "2026-11-10T01:32:44.812Z",
+      "streams": [
+        {
+          "name": "pack-runtime.stdout.txt",
+          "bytes": 230,
+          "sha256": "4aa52cfead3ea61761410f15283c5932752a6001a3fa019cb753ce461dde5f79",
+          "complete": true
+        },
+        {
+          "name": "pack-runtime.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3148,
+      "identity": {
+        "pid": 3148,
+        "uid": 1001,
+        "pgid": 3148,
+        "sid": 3148,
+        "start": "31595"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:45.158Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "inspect-pack-runtime",
+      "command": "tar",
+      "args": [
+        "-xOzf",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/archives/mcpcn-runtime-0.1.0.tgz",
+        "package/package.json"
+      ],
+      "startedAt": "2026-11-10T01:32:45.159Z",
+      "streams": [
+        {
+          "name": "inspect-pack-runtime.stdout.txt",
+          "bytes": 608,
+          "sha256": "a9c0c50d4128982e2bba246e5e58994c7b09e39ab9a0c7a818696664805e9800",
+          "complete": true
+        },
+        {
+          "name": "inspect-pack-runtime.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3160,
+      "identity": {
+        "pid": 3160,
+        "uid": 1001,
+        "pgid": 3160,
+        "sid": 3160,
+        "start": "31630"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:45.168Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "pack-react",
+      "command": "pnpm",
+      "args": [
+        "--dir",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/source/packages/react",
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/archives"
+      ],
+      "startedAt": "2026-11-10T01:32:45.168Z",
+      "streams": [
+        {
+          "name": "pack-react.stdout.txt",
+          "bytes": 2302,
+          "sha256": "79e499cc170132810a3fd2c212819ed3ce9826f37dfd1b5c2971a4364ab83f68",
+          "complete": true
+        },
+        {
+          "name": "pack-react.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3162,
+      "identity": {
+        "pid": 3162,
+        "uid": 1001,
+        "pgid": 3162,
+        "sid": 3162,
+        "start": "31631"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:45.549Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "inspect-pack-react",
+      "command": "tar",
+      "args": [
+        "-xOzf",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/archives/mcpcn-react-0.1.0.tgz",
+        "package/package.json"
+      ],
+      "startedAt": "2026-11-10T01:32:45.549Z",
+      "streams": [
+        {
+          "name": "inspect-pack-react.stdout.txt",
+          "bytes": 934,
+          "sha256": "1d7eed34d4e6fd7e05477d30dcc6f5335f74f87c5d72ca86c4b1d8a0e8e5962a",
+          "complete": true
+        },
+        {
+          "name": "inspect-pack-react.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3175,
+      "identity": {
+        "pid": 3175,
+        "uid": 1001,
+        "pgid": 3175,
+        "sid": 3175,
+        "start": "31669"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:45.561Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "pack-themes",
+      "command": "pnpm",
+      "args": [
+        "--dir",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/source/packages/themes",
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/archives"
+      ],
+      "startedAt": "2026-11-10T01:32:45.561Z",
+      "streams": [
+        {
+          "name": "pack-themes.stdout.txt",
+          "bytes": 245,
+          "sha256": "b2ea183b7cc4e10339b9f94c053d6a879a0a82eaeb6b35b1d86ee40a6e10c8ba",
+          "complete": true
+        },
+        {
+          "name": "pack-themes.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3177,
+      "identity": {
+        "pid": 3177,
+        "uid": 1001,
+        "pgid": 3177,
+        "sid": 3177,
+        "start": "31670"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:45.902Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "inspect-pack-themes",
+      "command": "tar",
+      "args": [
+        "-xOzf",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/archives/mcpcn-themes-0.1.0.tgz",
+        "package/package.json"
+      ],
+      "startedAt": "2026-11-10T01:32:45.902Z",
+      "streams": [
+        {
+          "name": "inspect-pack-themes.stdout.txt",
+          "bytes": 540,
+          "sha256": "01d3f1acb6498d35847824fba6cdcec7ab702f9448c5f5bb66f32232bac63659",
+          "complete": true
+        },
+        {
+          "name": "inspect-pack-themes.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3204,
+      "identity": {
+        "pid": 3204,
+        "uid": 1001,
+        "pgid": 3204,
+        "sid": 3204,
+        "start": "31704"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:45.912Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "pack-registry",
+      "command": "pnpm",
+      "args": [
+        "--dir",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/source/packages/registry",
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/archives"
+      ],
+      "startedAt": "2026-11-10T01:32:45.912Z",
+      "streams": [
+        {
+          "name": "pack-registry.stdout.txt",
+          "bytes": 688,
+          "sha256": "831633f440d297247cb0d68b7575b6c98b5ed1f6d69ffca0ccb1e0ec247a5876",
+          "complete": true
+        },
+        {
+          "name": "pack-registry.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3206,
+      "identity": {
+        "pid": 3206,
+        "uid": 1001,
+        "pgid": 3206,
+        "sid": 3206,
+        "start": "31705"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:46.275Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "inspect-pack-registry",
+      "command": "tar",
+      "args": [
+        "-xOzf",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/archives/mcpcn-registry-0.1.0.tgz",
+        "package/package.json"
+      ],
+      "startedAt": "2026-11-10T01:32:46.275Z",
+      "streams": [
+        {
+          "name": "inspect-pack-registry.stdout.txt",
+          "bytes": 906,
+          "sha256": "58cc85ad767bd50b3d87cc6779ea0e8fca6e423fcec7979521a7b9c512b4c235",
+          "complete": true
+        },
+        {
+          "name": "inspect-pack-registry.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3218,
+      "identity": {
+        "pid": 3218,
+        "uid": 1001,
+        "pgid": 3218,
+        "sid": 3218,
+        "start": "31742"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:46.285Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "pack-cli",
+      "command": "pnpm",
+      "args": [
+        "--dir",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/source/packages/cli",
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/archives"
+      ],
+      "startedAt": "2026-11-10T01:32:46.286Z",
+      "streams": [
+        {
+          "name": "pack-cli.stdout.txt",
+          "bytes": 700,
+          "sha256": "02828c1c440e2fd5a7d56ed0d79829eeb91497b424282767e8014957f0adb81a",
+          "complete": true
+        },
+        {
+          "name": "pack-cli.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3220,
+      "identity": {
+        "pid": 3220,
+        "uid": 1001,
+        "pgid": 3220,
+        "sid": 3220,
+        "start": "31743"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:46.663Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "inspect-pack-cli",
+      "command": "tar",
+      "args": [
+        "-xOzf",
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/archives/mcpcn-0.1.0.tgz",
+        "package/package.json"
+      ],
+      "startedAt": "2026-11-10T01:32:46.664Z",
+      "streams": [
+        {
+          "name": "inspect-pack-cli.stdout.txt",
+          "bytes": 581,
+          "sha256": "338102eb1c127d7f9218b6b118de4d3c70d9d4516364df9fd4c831f4a16ee0b3",
+          "complete": true
+        },
+        {
+          "name": "inspect-pack-cli.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3232,
+      "identity": {
+        "pid": 3232,
+        "uid": 1001,
+        "pgid": 3232,
+        "sid": 3232,
+        "start": "31781"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:32:46.679Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "installed-consumers",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-host-state-8kCAVz/source/tooling/host-state-installed-consumer.mjs"
+      ],
+      "startedAt": "2026-11-10T01:32:46.680Z",
+      "streams": [
+        {
+          "name": "installed-consumers.stdout.txt",
+          "bytes": 226,
+          "sha256": "cae9b031e513984f38726e3d216c4e343f4cf4fa1b16232b9e94da2e8669674e",
+          "complete": true
+        },
+        {
+          "name": "installed-consumers.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3234,
+      "identity": {
+        "pid": 3234,
+        "uid": 1001,
+        "pgid": 3234,
+        "sid": 3234,
+        "start": "31782"
+      },
+      "exitCode": 1,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:33:00.831Z",
+      "originalGroupAbsent": true
+    }
+  ],
+  "guards": [
+    {
+      "label": "before-install",
+      "canonicalFiles": 5406,
+      "canonicalVectorSha256": "59a92f32049418907fbf1b8dd5cee240de476dee17906cbaa4ab7d2eba92569f",
+      "protectedFiles": 349,
+      "protectedVectorSha256": "dffd36fd42bcddf0589f55659dc81162f1ceda54d8b84ff69269393888d36e14"
+    },
+    {
+      "label": "after-install",
+      "canonicalFiles": 5406,
+      "canonicalVectorSha256": "59a92f32049418907fbf1b8dd5cee240de476dee17906cbaa4ab7d2eba92569f",
+      "protectedFiles": 349,
+      "protectedVectorSha256": "dffd36fd42bcddf0589f55659dc81162f1ceda54d8b84ff69269393888d36e14"
+    },
+    {
+      "label": "after-generation",
+      "canonicalFiles": 5406,
+      "canonicalVectorSha256": "59a92f32049418907fbf1b8dd5cee240de476dee17906cbaa4ab7d2eba92569f",
+      "protectedFiles": 349,
+      "protectedVectorSha256": "dffd36fd42bcddf0589f55659dc81162f1ceda54d8b84ff69269393888d36e14"
+    },
+    {
+      "label": "after-builds",
+      "canonicalFiles": 5406,
+      "canonicalVectorSha256": "59a92f32049418907fbf1b8dd5cee240de476dee17906cbaa4ab7d2eba92569f",
+      "protectedFiles": 349,
+      "protectedVectorSha256": "dffd36fd42bcddf0589f55659dc81162f1ceda54d8b84ff69269393888d36e14"
+    },
+    {
+      "label": "terminal-source-check",
+      "canonicalFiles": 5406,
+      "canonicalVectorSha256": "59a92f32049418907fbf1b8dd5cee240de476dee17906cbaa4ab7d2eba92569f",
+      "protectedFiles": 349,
+      "protectedVectorSha256": "dffd36fd42bcddf0589f55659dc81162f1ceda54d8b84ff69269393888d36e14"
+    }
+  ],
+  "errors": [
+    "installed-consumers_failed"
+  ],
+  "cleanup": {
+    "activeChildren": 0,
+    "remainingOriginalGroups": [],
+    "allStreamsComplete": true,
+    "rootRemoved": true
+  },
+  "proofLimits": [
+    "T2 authored reports and loopback browser/installed archive consumers only. No live billing, session, access, host, connectivity, provider or MCP acceptance.",
+    "Eight existing fixture checks are regressions, separate from 88 new checks. Previous component packets are not replayed."
+  ],
+  "export": {
+    "files": 516,
+    "bytes": 93145288
+  },
+  "generatedSnapshots": [
+    [
+      {
+        "path": "packages/cli/LICENSE",
+        "mode": 420,
+        "bytes": 1075,
+        "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4"
+      },
+      {
+        "path": "packages/core/LICENSE",
+        "mode": 420,
+        "bytes": 1075,
+        "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4"
+      },
+      {
+        "path": "packages/react/LICENSE",
+        "mode": 420,
+        "bytes": 1075,
+        "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4"
+      },
+      {
+        "path": "packages/registry/LICENSE",
+        "mode": 420,
+        "bytes": 1075,
+        "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4"
+      },
+      {
+        "path": "packages/runtime/LICENSE",
+        "mode": 420,
+        "bytes": 1075,
+        "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4"
+      },
+      {
+        "path": "packages/schemas/LICENSE",
+        "mode": 420,
+        "bytes": 1075,
+        "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4"
+      },
+      {
+        "path": "packages/themes/LICENSE",
+        "mode": 420,
+        "bytes": 1075,
+        "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4"
+      },
+      {
+        "path": "registry/admin-change-review.json",
+        "mode": 420,
+        "bytes": 405714,
+        "sha256": "38df5e69a8243462dc42f37e5e557fe8d0c8d741e5daaad8c49d5f1093c68cb5"
+      },
+      {
+        "path": "registry/agent-generated-report-review.json",
+        "mode": 420,
+        "bytes": 405725,
+        "sha256": "70ed6c4b0283e906af0bbb2f9a33f87b21e2a1fbe539de05dcaffc569166c348"
+      },
+      {
+        "path": "registry/alert.json",
+        "mode": 420,
+        "bytes": 383208,
+        "sha256": "9f7df441647ab3428961fa1e9817cdf5278f5b7e6999d1416f134828b0f8df12"
+      },
+      {
+        "path": "registry/approval-card.json",
+        "mode": 420,
+        "bytes": 385913,
+        "sha256": "3cf6188d0275aa7d15bf4a3d9d45645f271d64dafda0664aa25d7e756e809513"
+      },
+      {
+        "path": "registry/approval-checklist.json",
+        "mode": 420,
+        "bytes": 385772,
+        "sha256": "05a889357ef9d48efae5da5d0574be099f134651525014abaf745341bd9d36f3"
+      },
+      {
+        "path": "registry/approval-gated-tool-call.json",
+        "mode": 420,
+        "bytes": 405689,
+        "sha256": "eab7d322f16eb54d0407a3596c5f73e476de4c5e6855faa11bd300b23d30684d"
+      },
+      {
+        "path": "registry/audit-trail.json",
+        "mode": 420,
+        "bytes": 384531,
+        "sha256": "da2b1faab27a01c8ef29a97241c7371d12dba42dd6b8bafd48aa76d007e01b7a"
+      },
+      {
+        "path": "registry/auth-required-card.json",
+        "mode": 420,
+        "bytes": 384942,
+        "sha256": "03cd3a45c8537489e2fcb9b24320a6904ba2870304cb6fb4e6ef03b134f78df3"
+      },
+      {
+        "path": "registry/badge.json",
+        "mode": 420,
+        "bytes": 383208,
+        "sha256": "02e89e8240fd5e4802731b945d2df107da4f4fba81e08be5e8f0d4eac9f94b01"
+      },
+      {
+        "path": "registry/before-submit-confirmation.json",
+        "mode": 420,
+        "bytes": 385812,
+        "sha256": "a720b2ff6fb072a1c5b582a9adc145fe92c6ededce453705f8be7c9d46e6adb4"
+      },
+      {
+        "path": "registry/billing-gate.json",
+        "mode": 420,
+        "bytes": 386215,
+        "sha256": "f0f73fa47bc328d7ee806d691d04d3a90fde1a8e5fc8dde6f94431931d1b4c62"
+      },
+      {
+        "path": "registry/button.json",
+        "mode": 420,
+        "bytes": 383213,
+        "sha256": "ccf934a36ac28767f3ae0a97c32e709b254968b160d23bf0d6e6e85ad440a0c5"
+      },
+      {
+        "path": "registry/card.json",
+        "mode": 420,
+        "bytes": 383203,
+        "sha256": "4bf187166c8dee95756791049729162874e73742bf18945452140a71c74b810c"
+      },
+      {
+        "path": "registry/collect-missing-data.json",
+        "mode": 420,
+        "bytes": 405655,
+        "sha256": "22c920f64549910a05f10bbb716e51fd206c4271f9a6f0843821886b7b08e1d1"
+      },
+      {
+        "path": "registry/compare-options-approve.json",
+        "mode": 420,
+        "bytes": 405709,
+        "sha256": "3bcde186b82a52273c5bafd42c99b04b4e3d716ca883a521fbdbb81c0a8fff6c"
+      },
+      {
+        "path": "registry/comparison-matrix.json",
+        "mode": 420,
+        "bytes": 388035,
+        "sha256": "8b7d05fe8e91cb5c99915847da051e403bb0813bdee119f5facd87b0c8ef78cb"
+      },
+      {
+        "path": "registry/config.schema.json",
+        "mode": 420,
+        "bytes": 1407,
+        "sha256": "4f0cb01ca67a1ff673f0c7462821b75e00a3096a4f66825ef063276caf8b7ef8"
+      },
+      {
+        "path": "registry/confirmation-panel.json",
+        "mode": 420,
+        "bytes": 386288,
+        "sha256": "db604d6d8289c93c53614823bded9a18d5160bc4b00938402e4cdc0e4bafd8cd"
+      },
+      {
+        "path": "registry/conflict-resolver.json",
+        "mode": 420,
+        "bytes": 392466,
+        "sha256": "e2d040e7abd6b7d806278cd97ffb59f75c5c4db8f359629e3795ebba4f169af0"
+      },
+      {
+        "path": "registry/consent-panel.json",
+        "mode": 420,
+        "bytes": 384414,
+        "sha256": "87dbbb620615c02166c62475811f7aacda5d2fc4f34c695660d19fd14fd6e5be"
+      },
+      {
+        "path": "registry/data-access-notice.json",
+        "mode": 420,
+        "bytes": 384436,
+        "sha256": "13815b48e615028be0e15982b6ecbbbdeafb5bcb85abbb26e409126243a8a6eb"
+      },
+      {
+        "path": "registry/decision-memo.json",
+        "mode": 420,
+        "bytes": 384425,
+        "sha256": "c3fa1632025954fdae64241e46b756e1df514e45207e2b802a55f98d3f4167b4"
+      },
+      {
+        "path": "registry/destructive-action-guard.json",
+        "mode": 420,
+        "bytes": 385339,
+        "sha256": "2d7b0f118d3f65206cb91cfccd9a753a778815d6eda8b5e1b99a08e58e486706"
+      },
+      {
+        "path": "registry/dialog.json",
+        "mode": 420,
+        "bytes": 383213,
+        "sha256": "8360d6b23e447f44ca9a4f8b4457d199a87b7578c6540dee19f73869131cd7fd"
+      },
+      {
+        "path": "registry/diff-viewer.json",
+        "mode": 420,
+        "bytes": 385689,
+        "sha256": "bcb7269b3921582b852e76f4192e0c8eeba15a0ae0fc790b97275eb78274d101"
+      },
+      {
+        "path": "registry/document-preview.json",
+        "mode": 420,
+        "bytes": 399449,
+        "sha256": "2c31d46981442b7c94b7a204e6c19a29600ebd71b7fa5277a4ae767cd25d8eca"
+      },
+      {
+        "path": "registry/dynamic-question-flow.json",
+        "mode": 420,
+        "bytes": 387905,
+        "sha256": "8567b80122d0d49aa5f9c9252d394bbbaac5629e4c03c4a1d8792475df69fdb4"
+      },
+      {
+        "path": "registry/empty-state.json",
+        "mode": 420,
+        "bytes": 383235,
+        "sha256": "42d91353c592bc70f1ba05a06c27db7981ac9a46d5d4b83338a713ca84ddf0f4"
+      },
+      {
+        "path": "registry/entity-review-table.json",
+        "mode": 420,
+        "bytes": 384957,
+        "sha256": "512fe1ad943193ed033b53c9f18a29f4a9b11639c1449047eaf07d7beee48a76"
+      },
+      {
+        "path": "registry/evidence-drawer.json",
+        "mode": 420,
+        "bytes": 393992,
+        "sha256": "cdea21e6033e100b1ce5bbc1b762eb7b5d27399848075864b6d6240f6b7ad641"
+      },
+      {
+        "path": "registry/expired-session-state.json",
+        "mode": 420,
+        "bytes": 386481,
+        "sha256": "63adfa3ca8896a8b03daf2543c0bcaa001c6404ea91304d22ccaac74ff17b1ed"
+      },
+      {
+        "path": "registry/extract-review-save.json",
+        "mode": 420,
+        "bytes": 405711,
+        "sha256": "041f2219d2fce515cf63e593bbbe5fb176281aa7441ce689f6b57bd6f103b193"
+      },
+      {
+        "path": "registry/extracted-fields-review.json",
+        "mode": 420,
+        "bytes": 386557,
+        "sha256": "b4199de17662d5992970eeb6f5cd482fcf551c76891364a14e5ef5891a932103"
+      },
+      {
+        "path": "registry/field-confidence-list.json",
+        "mode": 420,
+        "bytes": 391160,
+        "sha256": "ec6e88abe9a2e0de7ba1c7b136ebf6aa0a551d975f5b6b90f664ffeb39f2bd90"
+      },
+      {
+        "path": "registry/file-review.json",
+        "mode": 420,
+        "bytes": 407417,
+        "sha256": "1f912398cf1af7f13f5364e20e8382f62a2fe0351a9b885521c341d16dec60f9"
+      },
+      {
+        "path": "registry/file-upload-and-extract.json",
+        "mode": 420,
+        "bytes": 405704,
+        "sha256": "186d7fbe552e07b36b325a663dc56df4ee7b3b9c9640c488c54bc6d47ba4879f"
+      },
+      {
+        "path": "registry/form-progress-card.json",
+        "mode": 420,
+        "bytes": 386831,
+        "sha256": "bab828a1a3d1a0db879cad052d168799a5e36c004af1d53c8743baf56f8cccc3"
+      },
+      {
+        "path": "registry/human-corrects-ai-output.json",
+        "mode": 420,
+        "bytes": 405673,
+        "sha256": "457a24ad85562dbc36871ee908cc1de533be95928d977c148b90363d1c0725f2"
+      },
+      {
+        "path": "registry/human-override-panel.json",
+        "mode": 420,
+        "bytes": 386244,
+        "sha256": "7ebd25ff41df59c2c335e4973ea793736269f3abd6538c63aee121520fde50dc"
+      },
+      {
+        "path": "registry/inline-edit-form.json",
+        "mode": 420,
+        "bytes": 397340,
+        "sha256": "c95f16f310bdc483d8e3b5b8e484c3a1068461bcff2036e4bfc81ad4c6ca9eca"
+      },
+      {
+        "path": "registry/input.json",
+        "mode": 420,
+        "bytes": 383208,
+        "sha256": "2d93ad0cb5fb5eae68b92f422a25be3aaa14d5d0a4dc742663cc97a1a83db845"
+      },
+      {
+        "path": "registry/items/admin-change-review.json",
+        "mode": 420,
+        "bytes": 405714,
+        "sha256": "38df5e69a8243462dc42f37e5e557fe8d0c8d741e5daaad8c49d5f1093c68cb5"
+      },
+      {
+        "path": "registry/items/agent-generated-report-review.json",
+        "mode": 420,
+        "bytes": 405725,
+        "sha256": "70ed6c4b0283e906af0bbb2f9a33f87b21e2a1fbe539de05dcaffc569166c348"
+      },
+      {
+        "path": "registry/items/alert.json",
+        "mode": 420,
+        "bytes": 383208,
+        "sha256": "9f7df441647ab3428961fa1e9817cdf5278f5b7e6999d1416f134828b0f8df12"
+      },
+      {
+        "path": "registry/items/approval-card.json",
+        "mode": 420,
+        "bytes": 385913,
+        "sha256": "3cf6188d0275aa7d15bf4a3d9d45645f271d64dafda0664aa25d7e756e809513"
+      },
+      {
+        "path": "registry/items/approval-checklist.json",
+        "mode": 420,
+        "bytes": 385772,
+        "sha256": "05a889357ef9d48efae5da5d0574be099f134651525014abaf745341bd9d36f3"
+      },
+      {
+        "path": "registry/items/approval-gated-tool-call.json",
+        "mode": 420,
+        "bytes": 405689,
+        "sha256": "eab7d322f16eb54d0407a3596c5f73e476de4c5e6855faa11bd300b23d30684d"
+      },
+      {
+        "path": "registry/items/audit-trail.json",
+        "mode": 420,
+        "bytes": 384531,
+        "sha256": "da2b1faab27a01c8ef29a97241c7371d12dba42dd6b8bafd48aa76d007e01b7a"
+      },
+      {
+        "path": "registry/items/auth-required-card.json",
+        "mode": 420,
+        "bytes": 384942,
+        "sha256": "03cd3a45c8537489e2fcb9b24320a6904ba2870304cb6fb4e6ef03b134f78df3"
+      },
+      {
+        "path": "registry/items/badge.json",
+        "mode": 420,
+        "bytes": 383208,
+        "sha256": "02e89e8240fd5e4802731b945d2df107da4f4fba81e08be5e8f0d4eac9f94b01"
+      },
+      {
+        "path": "registry/items/before-submit-confirmation.json",
+        "mode": 420,
+        "bytes": 385812,
+        "sha256": "a720b2ff6fb072a1c5b582a9adc145fe92c6ededce453705f8be7c9d46e6adb4"
+      },
+      {
+        "path": "registry/items/billing-gate.json",
+        "mode": 420,
+        "bytes": 386215,
+        "sha256": "f0f73fa47bc328d7ee806d691d04d3a90fde1a8e5fc8dde6f94431931d1b4c62"
+      },
+      {
+        "path": "registry/items/button.json",
+        "mode": 420,
+        "bytes": 383213,
+        "sha256": "ccf934a36ac28767f3ae0a97c32e709b254968b160d23bf0d6e6e85ad440a0c5"
+      },
+      {
+        "path": "registry/items/card.json",
+        "mode": 420,
+        "bytes": 383203,
+        "sha256": "4bf187166c8dee95756791049729162874e73742bf18945452140a71c74b810c"
+      },
+      {
+        "path": "registry/items/collect-missing-data.json",
+        "mode": 420,
+        "bytes": 405655,
+        "sha256": "22c920f64549910a05f10bbb716e51fd206c4271f9a6f0843821886b7b08e1d1"
+      },
+      {
+        "path": "registry/items/compare-options-approve.json",
+        "mode": 420,
+        "bytes": 405709,
+        "sha256": "3bcde186b82a52273c5bafd42c99b04b4e3d716ca883a521fbdbb81c0a8fff6c"
+      },
+      {
+        "path": "registry/items/comparison-matrix.json",
+        "mode": 420,
+        "bytes": 388035,
+        "sha256": "8b7d05fe8e91cb5c99915847da051e403bb0813bdee119f5facd87b0c8ef78cb"
+      },
+      {
+        "path": "registry/items/confirmation-panel.json",
+        "mode": 420,
+        "bytes": 386288,
+        "sha256": "db604d6d8289c93c53614823bded9a18d5160bc4b00938402e4cdc0e4bafd8cd"
+      },
+      {
+        "path": "registry/items/conflict-resolver.json",
+        "mode": 420,
+        "bytes": 392466,
+        "sha256": "e2d040e7abd6b7d806278cd97ffb59f75c5c4db8f359629e3795ebba4f169af0"
+      },
+      {
+        "path": "registry/items/consent-panel.json",
+        "mode": 420,
+        "bytes": 384414,
+        "sha256": "87dbbb620615c02166c62475811f7aacda5d2fc4f34c695660d19fd14fd6e5be"
+      },
+      {
+        "path": "registry/items/data-access-notice.json",
+        "mode": 420,
+        "bytes": 384436,
+        "sha256": "13815b48e615028be0e15982b6ecbbbdeafb5bcb85abbb26e409126243a8a6eb"
+      },
+      {
+        "path": "registry/items/decision-memo.json",
+        "mode": 420,
+        "bytes": 384425,
+        "sha256": "c3fa1632025954fdae64241e46b756e1df514e45207e2b802a55f98d3f4167b4"
+      },
+      {
+        "path": "registry/items/destructive-action-guard.json",
+        "mode": 420,
+        "bytes": 385339,
+        "sha256": "2d7b0f118d3f65206cb91cfccd9a753a778815d6eda8b5e1b99a08e58e486706"
+      },
+      {
+        "path": "registry/items/dialog.json",
+        "mode": 420,
+        "bytes": 383213,
+        "sha256": "8360d6b23e447f44ca9a4f8b4457d199a87b7578c6540dee19f73869131cd7fd"
+      },
+      {
+        "path": "registry/items/diff-viewer.json",
+        "mode": 420,
+        "bytes": 385689,
+        "sha256": "bcb7269b3921582b852e76f4192e0c8eeba15a0ae0fc790b97275eb78274d101"
+      },
+      {
+        "path": "registry/items/document-preview.json",
+        "mode": 420,
+        "bytes": 399449,
+        "sha256": "2c31d46981442b7c94b7a204e6c19a29600ebd71b7fa5277a4ae767cd25d8eca"
+      },
+      {
+        "path": "registry/items/dynamic-question-flow.json",
+        "mode": 420,
+        "bytes": 387905,
+        "sha256": "8567b80122d0d49aa5f9c9252d394bbbaac5629e4c03c4a1d8792475df69fdb4"
+      },
+      {
+        "path": "registry/items/empty-state.json",
+        "mode": 420,
+        "bytes": 383235,
+        "sha256": "42d91353c592bc70f1ba05a06c27db7981ac9a46d5d4b83338a713ca84ddf0f4"
+      },
+      {
+        "path": "registry/items/entity-review-table.json",
+        "mode": 420,
+        "bytes": 384957,
+        "sha256": "512fe1ad943193ed033b53c9f18a29f4a9b11639c1449047eaf07d7beee48a76"
+      },
+      {
+        "path": "registry/items/evidence-drawer.json",
+        "mode": 420,
+        "bytes": 393992,
+        "sha256": "cdea21e6033e100b1ce5bbc1b762eb7b5d27399848075864b6d6240f6b7ad641"
+      },
+      {
+        "path": "registry/items/expired-session-state.json",
+        "mode": 420,
+        "bytes": 386481,
+        "sha256": "63adfa3ca8896a8b03daf2543c0bcaa001c6404ea91304d22ccaac74ff17b1ed"
+      },
+      {
+        "path": "registry/items/extract-review-save.json",
+        "mode": 420,
+        "bytes": 405711,
+        "sha256": "041f2219d2fce515cf63e593bbbe5fb176281aa7441ce689f6b57bd6f103b193"
+      },
+      {
+        "path": "registry/items/extracted-fields-review.json",
+        "mode": 420,
+        "bytes": 386557,
+        "sha256": "b4199de17662d5992970eeb6f5cd482fcf551c76891364a14e5ef5891a932103"
+      },
+      {
+        "path": "registry/items/field-confidence-list.json",
+        "mode": 420,
+        "bytes": 391160,
+        "sha256": "ec6e88abe9a2e0de7ba1c7b136ebf6aa0a551d975f5b6b90f664ffeb39f2bd90"
+      },
+      {
+        "path": "registry/items/file-review.json",
+        "mode": 420,
+        "bytes": 407417,
+        "sha256": "1f912398cf1af7f13f5364e20e8382f62a2fe0351a9b885521c341d16dec60f9"
+      },
+      {
+        "path": "registry/items/file-upload-and-extract.json",
+        "mode": 420,
+        "bytes": 405704,
+        "sha256": "186d7fbe552e07b36b325a663dc56df4ee7b3b9c9640c488c54bc6d47ba4879f"
+      },
+      {
+        "path": "registry/items/form-progress-card.json",
+        "mode": 420,
+        "bytes": 386831,
+        "sha256": "bab828a1a3d1a0db879cad052d168799a5e36c004af1d53c8743baf56f8cccc3"
+      },
+      {
+        "path": "registry/items/human-corrects-ai-output.json",
+        "mode": 420,
+        "bytes": 405673,
+        "sha256": "457a24ad85562dbc36871ee908cc1de533be95928d977c148b90363d1c0725f2"
+      },
+      {
+        "path": "registry/items/human-override-panel.json",
+        "mode": 420,
+        "bytes": 386244,
+        "sha256": "7ebd25ff41df59c2c335e4973ea793736269f3abd6538c63aee121520fde50dc"
+      },
+      {
+        "path": "registry/items/inline-edit-form.json",
+        "mode": 420,
+        "bytes": 397340,
+        "sha256": "c95f16f310bdc483d8e3b5b8e484c3a1068461bcff2036e4bfc81ad4c6ca9eca"
+      },
+      {
+        "path": "registry/items/input.json",
+        "mode": 420,
+        "bytes": 383208,
+        "sha256": "2d93ad0cb5fb5eae68b92f422a25be3aaa14d5d0a4dc742663cc97a1a83db845"
+      },
+      {
+        "path": "registry/items/loading-bridge-state.json",
+        "mode": 420,
+        "bytes": 386841,
+        "sha256": "2a63ee686006c99875a3e005e4118638aad2c92274e84856e393db616f9bd6a6"
+      },
+      {
+        "path": "registry/items/missing-data-request.json",
+        "mode": 420,
+        "bytes": 398436,
+        "sha256": "cc0e68e62ca6753153faffaadf5f7caccceabb0289a52d75b3664a14ac9a92ac"
+      },
+      {
+        "path": "registry/items/model-context-preview.json",
+        "mode": 420,
+        "bytes": 384451,
+        "sha256": "1cade68e929244818a50002cd6e9a4d1358a14e5bd850fac3ae68a22e6ba1357"
+      },
+      {
+        "path": "registry/items/multi-step-form.json",
+        "mode": 420,
+        "bytes": 400801,
+        "sha256": "64e9498d304e6704190d6aa269258fd2f83a5dea40ea6533043c1f2809c4d7d1"
+      },
+      {
+        "path": "registry/items/multi-step-tool-run.json",
+        "mode": 420,
+        "bytes": 405665,
+        "sha256": "bf94c53b3dc88c070c1c14685f05620884e1367e9c3c923176b3fb2fef721f8f"
+      },
+      {
+        "path": "registry/items/no-data-state.json",
+        "mode": 420,
+        "bytes": 386308,
+        "sha256": "012733cff6efff3aff0e08a8ad779f8970eee29a8d8e44364e2fec9b7987cbe3"
+      },
+      {
+        "path": "registry/items/offline-state.json",
+        "mode": 420,
+        "bytes": 386128,
+        "sha256": "286692da95976ae61adc37a818c9ae7fcbde3b8fa55ae3138a62d5fc2e3976d0"
+      },
+      {
+        "path": "registry/items/option-selector.json",
+        "mode": 420,
+        "bytes": 392342,
+        "sha256": "5bc705389d6abf0390c52516ade2b6a276a8835944bfc9b67f7129347e17e11a"
+      },
+      {
+        "path": "registry/items/partial-result-viewer.json",
+        "mode": 420,
+        "bytes": 387885,
+        "sha256": "47e0936c78459b3cef48a4182eabe79d747eee07ed78745c18401131838053f6"
+      },
+      {
+        "path": "registry/items/permission-denied-state.json",
+        "mode": 420,
+        "bytes": 386880,
+        "sha256": "8b4622eec33a79c94f0da142b168757b16aa9fc50ecba81c680a5342fc44353b"
+      },
+      {
+        "path": "registry/items/permission-request-card.json",
+        "mode": 420,
+        "bytes": 386358,
+        "sha256": "44623c84a046759076ed3f8ec204b71a25ec2d59f455995c4db241a510bf1139"
+      },
+      {
+        "path": "registry/items/privacy-boundary-card.json",
+        "mode": 420,
+        "bytes": 384451,
+        "sha256": "2da23017917e870bac2535e451d8cc4abf66549ed807d11a68d574aae59627e4"
+      },
+      {
+        "path": "registry/items/queued-step-list.json",
+        "mode": 420,
+        "bytes": 386517,
+        "sha256": "b1ed07993bf01975b38afe4260c9bee90c7b5c56b324cb9f7752c02eeb1441ef"
+      },
+      {
+        "path": "registry/items/ranking-list.json",
+        "mode": 420,
+        "bytes": 392986,
+        "sha256": "e847b3c464e1538c972132bf730e548bbf19e861bd6fcfe0d19071225389490e"
+      },
+      {
+        "path": "registry/items/reasoning-summary.json",
+        "mode": 420,
+        "bytes": 384434,
+        "sha256": "72213b70616bf010df12ce7beee9b0969f1f3ffba64312ae79d08ed880f0e9a8"
+      },
+      {
+        "path": "registry/items/recommendation-card.json",
+        "mode": 420,
+        "bytes": 384455,
+        "sha256": "24eca659a8529ea89f6146805177fd9e667e275d98acaf8d2d0c8825f72e6311"
+      },
+      {
+        "path": "registry/items/record-inspector.json",
+        "mode": 420,
+        "bytes": 392277,
+        "sha256": "76c190769f8ded3899081e32108c523eb720be5199f21fd8a778ad75eab1c373"
+      },
+      {
+        "path": "registry/items/retryable-error-state.json",
+        "mode": 420,
+        "bytes": 385509,
+        "sha256": "ddcd331925c002e0c1163f72a5209418f8852f56e281d917430317657fceb1e3"
+      },
+      {
+        "path": "registry/items/review-before-action.json",
+        "mode": 420,
+        "bytes": 405687,
+        "sha256": "b35b3e9d578f0ec885193213a5e54a7d64d5aa4fc57591478d849054b307eacd"
+      },
+      {
+        "path": "registry/items/risk-review-panel.json",
+        "mode": 420,
+        "bytes": 385945,
+        "sha256": "41300babdddab965113ce0c1dc3b7c4836248fba7079d8f4362c3f57db7b0bda"
+      },
+      {
+        "path": "registry/items/running-task-card.json",
+        "mode": 420,
+        "bytes": 386026,
+        "sha256": "4565a2744840ec9076417611b6e95e36364b5c0bf2040df002a238e28efa5a35"
+      },
+      {
+        "path": "registry/items/schema-form.json",
+        "mode": 420,
+        "bytes": 385326,
+        "sha256": "ff3ba32ad6454f0692bbe7ffece6b3447b4589b0fbb957978f5d9d9d243e0b99"
+      },
+      {
+        "path": "registry/items/score-breakdown.json",
+        "mode": 420,
+        "bytes": 386850,
+        "sha256": "19163820d87d646a3218b6e81b1dda27218c44441161013cea63dc3a98f2d31e"
+      },
+      {
+        "path": "registry/items/select.json",
+        "mode": 420,
+        "bytes": 383213,
+        "sha256": "797d78c55db785db5f6e92996b615d5d9f8bccf3b72ff308da2d2b1a76850a76"
+      },
+      {
+        "path": "registry/items/skeleton.json",
+        "mode": 420,
+        "bytes": 383223,
+        "sha256": "b893faae770accd9d84285cd66b462a7715917c1fe61ffaa360466106c8f3cdc"
+      },
+      {
+        "path": "registry/items/source-evidence-panel.json",
+        "mode": 420,
+        "bytes": 385233,
+        "sha256": "60a646fe9b5e2be0d8ac82a683206b763b75249e7fe4508432e4c26d2b24a1cf"
+      },
+      {
+        "path": "registry/items/source-list.json",
+        "mode": 420,
+        "bytes": 389401,
+        "sha256": "438184d1190300f409c348b7a9cfaf763057d47085a5fc4f5634981adab2bf46"
+      },
+      {
+        "path": "registry/items/table-bulk-action-review.json",
+        "mode": 420,
+        "bytes": 405707,
+        "sha256": "b5760111e4907577a7f6bf1e64ca780655e94de0f97dc9d5253190e69dd683d8"
+      },
+      {
+        "path": "registry/items/tabs.json",
+        "mode": 420,
+        "bytes": 383203,
+        "sha256": "27c82456d78dd93c6df99a70995da4ddc6dc11523c7f2831e8e8cab4b50d3480"
+      },
+      {
+        "path": "registry/items/textarea.json",
+        "mode": 420,
+        "bytes": 383223,
+        "sha256": "71d9c173c86a0d352b30bb7f5986887365f5976d9e367af91ee959c7ce642771"
+      },
+      {
+        "path": "registry/items/tool-call-card.json",
+        "mode": 420,
+        "bytes": 385393,
+        "sha256": "16087adcc2ea0f9f9ee691fce0c4985f3d78e5d633b73e6e796cf6091334d218"
+      },
+      {
+        "path": "registry/items/tool-progress-timeline.json",
+        "mode": 420,
+        "bytes": 384800,
+        "sha256": "3a6e9ff9e2d99d9098378112e5904e5e53946313a692f0240b2d1d427536d5f6"
+      },
+      {
+        "path": "registry/items/tool-result-card.json",
+        "mode": 420,
+        "bytes": 386158,
+        "sha256": "bde56fbe42b82d74c109bd5086720fd06db08a39a0b311f77e064c713a2e4de6"
+      },
+      {
+        "path": "registry/items/tool-trace-viewer.json",
+        "mode": 420,
+        "bytes": 387660,
+        "sha256": "e1b405b775fe29b79725c72364286ff303dd5cba5b7b3dd5eecd0e6efa32b5e1"
+      },
+      {
+        "path": "registry/items/tooltip.json",
+        "mode": 420,
+        "bytes": 383218,
+        "sha256": "5266cb209035b0bc28848e53aaf58a4d5d7b364bc357d8b9e7ef89fb3490a000"
+      },
+      {
+        "path": "registry/items/tradeoff-panel.json",
+        "mode": 420,
+        "bytes": 384430,
+        "sha256": "2799798283e010461dc6ef3f492bb49e21ca5611f941850f0919c88914fa61c0"
+      },
+      {
+        "path": "registry/items/unsupported-host-notice.json",
+        "mode": 420,
+        "bytes": 387079,
+        "sha256": "b46f88ade293d74fc0db02d7611d38facfbe2191a2ffc43a3049b6d6787bef14"
+      },
+      {
+        "path": "registry/items/validated-field-list.json",
+        "mode": 420,
+        "bytes": 386832,
+        "sha256": "f6b7a7428f23aa8b1053109eecb785c5c6b92ced2dcaa999ede6ae3231aa20d5"
+      },
+      {
+        "path": "registry/items/validation-summary.json",
+        "mode": 420,
+        "bytes": 392993,
+        "sha256": "65fcdc746a2fd7d01a5807d46ee2e08d4967956a063f154c9b7be3a44ac4c11c"
+      },
+      {
+        "path": "registry/loading-bridge-state.json",
+        "mode": 420,
+        "bytes": 386841,
+        "sha256": "2a63ee686006c99875a3e005e4118638aad2c92274e84856e393db616f9bd6a6"
+      },
+      {
+        "path": "registry/missing-data-request.json",
+        "mode": 420,
+        "bytes": 398436,
+        "sha256": "cc0e68e62ca6753153faffaadf5f7caccceabb0289a52d75b3664a14ac9a92ac"
+      },
+      {
+        "path": "registry/model-context-preview.json",
+        "mode": 420,
+        "bytes": 384451,
+        "sha256": "1cade68e929244818a50002cd6e9a4d1358a14e5bd850fac3ae68a22e6ba1357"
+      },
+      {
+        "path": "registry/multi-step-form.json",
+        "mode": 420,
+        "bytes": 400801,
+        "sha256": "64e9498d304e6704190d6aa269258fd2f83a5dea40ea6533043c1f2809c4d7d1"
+      },
+      {
+        "path": "registry/multi-step-tool-run.json",
+        "mode": 420,
+        "bytes": 405665,
+        "sha256": "bf94c53b3dc88c070c1c14685f05620884e1367e9c3c923176b3fb2fef721f8f"
+      },
+      {
+        "path": "registry/no-data-state.json",
+        "mode": 420,
+        "bytes": 386308,
+        "sha256": "012733cff6efff3aff0e08a8ad779f8970eee29a8d8e44364e2fec9b7987cbe3"
+      },
+      {
+        "path": "registry/offline-state.json",
+        "mode": 420,
+        "bytes": 386128,
+        "sha256": "286692da95976ae61adc37a818c9ae7fcbde3b8fa55ae3138a62d5fc2e3976d0"
+      },
+      {
+        "path": "registry/option-selector.json",
+        "mode": 420,
+        "bytes": 392342,
+        "sha256": "5bc705389d6abf0390c52516ade2b6a276a8835944bfc9b67f7129347e17e11a"
+      },
+      {
+        "path": "registry/partial-result-viewer.json",
+        "mode": 420,
+        "bytes": 387885,
+        "sha256": "47e0936c78459b3cef48a4182eabe79d747eee07ed78745c18401131838053f6"
+      },
+      {
+        "path": "registry/permission-denied-state.json",
+        "mode": 420,
+        "bytes": 386880,
+        "sha256": "8b4622eec33a79c94f0da142b168757b16aa9fc50ecba81c680a5342fc44353b"
+      },
+      {
+        "path": "registry/permission-request-card.json",
+        "mode": 420,
+        "bytes": 386358,
+        "sha256": "44623c84a046759076ed3f8ec204b71a25ec2d59f455995c4db241a510bf1139"
+      },
+      {
+        "path": "registry/privacy-boundary-card.json",
+        "mode": 420,
+        "bytes": 384451,
+        "sha256": "2da23017917e870bac2535e451d8cc4abf66549ed807d11a68d574aae59627e4"
+      },
+      {
+        "path": "registry/queued-step-list.json",
+        "mode": 420,
+        "bytes": 386517,
+        "sha256": "b1ed07993bf01975b38afe4260c9bee90c7b5c56b324cb9f7752c02eeb1441ef"
+      },
+      {
+        "path": "registry/ranking-list.json",
+        "mode": 420,
+        "bytes": 392986,
+        "sha256": "e847b3c464e1538c972132bf730e548bbf19e861bd6fcfe0d19071225389490e"
+      },
+      {
+        "path": "registry/reasoning-summary.json",
+        "mode": 420,
+        "bytes": 384434,
+        "sha256": "72213b70616bf010df12ce7beee9b0969f1f3ffba64312ae79d08ed880f0e9a8"
+      },
+      {
+        "path": "registry/recommendation-card.json",
+        "mode": 420,
+        "bytes": 384455,
+        "sha256": "24eca659a8529ea89f6146805177fd9e667e275d98acaf8d2d0c8825f72e6311"
+      },
+      {
+        "path": "registry/record-inspector.json",
+        "mode": 420,
+        "bytes": 392277,
+        "sha256": "76c190769f8ded3899081e32108c523eb720be5199f21fd8a778ad75eab1c373"
+      },
+      {
+        "path": "registry/registry.json",
+        "mode": 420,
+        "bytes": 30913992,
+        "sha256": "fdbb5671751f11d1eeed3f43db922c1724a3e2f9e6734a7d2bf43cad30cb9d53"
+      },
+      {
+        "path": "registry/retryable-error-state.json",
+        "mode": 420,
+        "bytes": 385509,
+        "sha256": "ddcd331925c002e0c1163f72a5209418f8852f56e281d917430317657fceb1e3"
+      },
+      {
+        "path": "registry/review-before-action.json",
+        "mode": 420,
+        "bytes": 405687,
+        "sha256": "b35b3e9d578f0ec885193213a5e54a7d64d5aa4fc57591478d849054b307eacd"
+      },
+      {
+        "path": "registry/risk-review-panel.json",
+        "mode": 420,
+        "bytes": 385945,
+        "sha256": "41300babdddab965113ce0c1dc3b7c4836248fba7079d8f4362c3f57db7b0bda"
+      },
+      {
+        "path": "registry/running-task-card.json",
+        "mode": 420,
+        "bytes": 386026,
+        "sha256": "4565a2744840ec9076417611b6e95e36364b5c0bf2040df002a238e28efa5a35"
+      },
+      {
+        "path": "registry/schema-form.json",
+        "mode": 420,
+        "bytes": 385326,
+        "sha256": "ff3ba32ad6454f0692bbe7ffece6b3447b4589b0fbb957978f5d9d9d243e0b99"
+      },
+      {
+        "path": "registry/score-breakdown.json",
+        "mode": 420,
+        "bytes": 386850,
+        "sha256": "19163820d87d646a3218b6e81b1dda27218c44441161013cea63dc3a98f2d31e"
+      },
+      {
+        "path": "registry/select.json",
+        "mode": 420,
+        "bytes": 383213,
+        "sha256": "797d78c55db785db5f6e92996b615d5d9f8bccf3b72ff308da2d2b1a76850a76"
+      },
+      {
+        "path": "registry/skeleton.json",
+        "mode": 420,
+        "bytes": 383223,
+        "sha256": "b893faae770accd9d84285cd66b462a7715917c1fe61ffaa360466106c8f3cdc"
+      },
+      {
+        "path": "registry/source-evidence-panel.json",
+        "mode": 420,
+        "bytes": 385233,
+        "sha256": "60a646fe9b5e2be0d8ac82a683206b763b75249e7fe4508432e4c26d2b24a1cf"
+      },
+      {
+        "path": "registry/source-list.json",
+        "mode": 420,
+        "bytes": 389401,
+        "sha256": "438184d1190300f409c348b7a9cfaf763057d47085a5fc4f5634981adab2bf46"
+      },
+      {
+        "path": "registry/table-bulk-action-review.json",
+        "mode": 420,
+        "bytes": 405707,
+        "sha256": "b5760111e4907577a7f6bf1e64ca780655e94de0f97dc9d5253190e69dd683d8"
+      },
+      {
+        "path": "registry/tabs.json",
+        "mode": 420,
+        "bytes": 383203,
+        "sha256": "27c82456d78dd93c6df99a70995da4ddc6dc11523c7f2831e8e8cab4b50d3480"
+      },
+      {
+        "path": "registry/textarea.json",
+        "mode": 420,
+        "bytes": 383223,
+        "sha256": "71d9c173c86a0d352b30bb7f5986887365f5976d9e367af91ee959c7ce642771"
+      },
+      {
+        "path": "registry/tool-call-card.json",
+        "mode": 420,
+        "bytes": 385393,
+        "sha256": "16087adcc2ea0f9f9ee691fce0c4985f3d78e5d633b73e6e796cf6091334d218"
+      },
+      {
+        "path": "registry/tool-progress-timeline.json",
+        "mode": 420,
+        "bytes": 384800,
+        "sha256": "3a6e9ff9e2d99d9098378112e5904e5e53946313a692f0240b2d1d427536d5f6"
+      },
+      {
+        "path": "registry/tool-result-card.json",
+        "mode": 420,
+        "bytes": 386158,
+        "sha256": "bde56fbe42b82d74c109bd5086720fd06db08a39a0b311f77e064c713a2e4de6"
+      },
+      {
+        "path": "registry/tool-trace-viewer.json",
+        "mode": 420,
+        "bytes": 387660,
+        "sha256": "e1b405b775fe29b79725c72364286ff303dd5cba5b7b3dd5eecd0e6efa32b5e1"
+      },
+      {
+        "path": "registry/tooltip.json",
+        "mode": 420,
+        "bytes": 383218,
+        "sha256": "5266cb209035b0bc28848e53aaf58a4d5d7b364bc357d8b9e7ef89fb3490a000"
+      },
+      {
+        "path": "registry/tradeoff-panel.json",
+        "mode": 420,
+        "bytes": 384430,
+        "sha256": "2799798283e010461dc6ef3f492bb49e21ca5611f941850f0919c88914fa61c0"
+      },
+      {
+        "path": "registry/unsupported-host-notice.json",
+        "mode": 420,
+        "bytes": 387079,
+        "sha256": "b46f88ade293d74fc0db02d7611d38facfbe2191a2ffc43a3049b6d6787bef14"
+      },
+      {
+        "path": "registry/validated-field-list.json",
+        "mode": 420,
+        "bytes": 386832,
+        "sha256": "f6b7a7428f23aa8b1053109eecb785c5c6b92ced2dcaa999ede6ae3231aa20d5"
+      },
+      {
+        "path": "registry/validation-summary.json",
+        "mode": 420,
+        "bytes": 392993,
+        "sha256": "65fcdc746a2fd7d01a5807d46ee2e08d4967956a063f154c9b7be3a44ac4c11c"
+      }
+    ],
+    [
+      {
+        "path": "packages/cli/LICENSE",
+        "mode": 420,
+        "bytes": 1075,
+        "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4"
+      },
+      {
+        "path": "packages/core/LICENSE",
+        "mode": 420,
+        "bytes": 1075,
+        "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4"
+      },
+      {
+        "path": "packages/react/LICENSE",
+        "mode": 420,
+        "bytes": 1075,
+        "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4"
+      },
+      {
+        "path": "packages/registry/LICENSE",
+        "mode": 420,
+        "bytes": 1075,
+        "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4"
+      },
+      {
+        "path": "packages/runtime/LICENSE",
+        "mode": 420,
+        "bytes": 1075,
+        "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4"
+      },
+      {
+        "path": "packages/schemas/LICENSE",
+        "mode": 420,
+        "bytes": 1075,
+        "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4"
+      },
+      {
+        "path": "packages/themes/LICENSE",
+        "mode": 420,
+        "bytes": 1075,
+        "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4"
+      },
+      {
+        "path": "registry/admin-change-review.json",
+        "mode": 420,
+        "bytes": 405714,
+        "sha256": "38df5e69a8243462dc42f37e5e557fe8d0c8d741e5daaad8c49d5f1093c68cb5"
+      },
+      {
+        "path": "registry/agent-generated-report-review.json",
+        "mode": 420,
+        "bytes": 405725,
+        "sha256": "70ed6c4b0283e906af0bbb2f9a33f87b21e2a1fbe539de05dcaffc569166c348"
+      },
+      {
+        "path": "registry/alert.json",
+        "mode": 420,
+        "bytes": 383208,
+        "sha256": "9f7df441647ab3428961fa1e9817cdf5278f5b7e6999d1416f134828b0f8df12"
+      },
+      {
+        "path": "registry/approval-card.json",
+        "mode": 420,
+        "bytes": 385913,
+        "sha256": "3cf6188d0275aa7d15bf4a3d9d45645f271d64dafda0664aa25d7e756e809513"
+      },
+      {
+        "path": "registry/approval-checklist.json",
+        "mode": 420,
+        "bytes": 385772,
+        "sha256": "05a889357ef9d48efae5da5d0574be099f134651525014abaf745341bd9d36f3"
+      },
+      {
+        "path": "registry/approval-gated-tool-call.json",
+        "mode": 420,
+        "bytes": 405689,
+        "sha256": "eab7d322f16eb54d0407a3596c5f73e476de4c5e6855faa11bd300b23d30684d"
+      },
+      {
+        "path": "registry/audit-trail.json",
+        "mode": 420,
+        "bytes": 384531,
+        "sha256": "da2b1faab27a01c8ef29a97241c7371d12dba42dd6b8bafd48aa76d007e01b7a"
+      },
+      {
+        "path": "registry/auth-required-card.json",
+        "mode": 420,
+        "bytes": 384942,
+        "sha256": "03cd3a45c8537489e2fcb9b24320a6904ba2870304cb6fb4e6ef03b134f78df3"
+      },
+      {
+        "path": "registry/badge.json",
+        "mode": 420,
+        "bytes": 383208,
+        "sha256": "02e89e8240fd5e4802731b945d2df107da4f4fba81e08be5e8f0d4eac9f94b01"
+      },
+      {
+        "path": "registry/before-submit-confirmation.json",
+        "mode": 420,
+        "bytes": 385812,
+        "sha256": "a720b2ff6fb072a1c5b582a9adc145fe92c6ededce453705f8be7c9d46e6adb4"
+      },
+      {
+        "path": "registry/billing-gate.json",
+        "mode": 420,
+        "bytes": 386215,
+        "sha256": "f0f73fa47bc328d7ee806d691d04d3a90fde1a8e5fc8dde6f94431931d1b4c62"
+      },
+      {
+        "path": "registry/button.json",
+        "mode": 420,
+        "bytes": 383213,
+        "sha256": "ccf934a36ac28767f3ae0a97c32e709b254968b160d23bf0d6e6e85ad440a0c5"
+      },
+      {
+        "path": "registry/card.json",
+        "mode": 420,
+        "bytes": 383203,
+        "sha256": "4bf187166c8dee95756791049729162874e73742bf18945452140a71c74b810c"
+      },
+      {
+        "path": "registry/collect-missing-data.json",
+        "mode": 420,
+        "bytes": 405655,
+        "sha256": "22c920f64549910a05f10bbb716e51fd206c4271f9a6f0843821886b7b08e1d1"
+      },
+      {
+        "path": "registry/compare-options-approve.json",
+        "mode": 420,
+        "bytes": 405709,
+        "sha256": "3bcde186b82a52273c5bafd42c99b04b4e3d716ca883a521fbdbb81c0a8fff6c"
+      },
+      {
+        "path": "registry/comparison-matrix.json",
+        "mode": 420,
+        "bytes": 388035,
+        "sha256": "8b7d05fe8e91cb5c99915847da051e403bb0813bdee119f5facd87b0c8ef78cb"
+      },
+      {
+        "path": "registry/config.schema.json",
+        "mode": 420,
+        "bytes": 1407,
+        "sha256": "4f0cb01ca67a1ff673f0c7462821b75e00a3096a4f66825ef063276caf8b7ef8"
+      },
+      {
+        "path": "registry/confirmation-panel.json",
+        "mode": 420,
+        "bytes": 386288,
+        "sha256": "db604d6d8289c93c53614823bded9a18d5160bc4b00938402e4cdc0e4bafd8cd"
+      },
+      {
+        "path": "registry/conflict-resolver.json",
+        "mode": 420,
+        "bytes": 392466,
+        "sha256": "e2d040e7abd6b7d806278cd97ffb59f75c5c4db8f359629e3795ebba4f169af0"
+      },
+      {
+        "path": "registry/consent-panel.json",
+        "mode": 420,
+        "bytes": 384414,
+        "sha256": "87dbbb620615c02166c62475811f7aacda5d2fc4f34c695660d19fd14fd6e5be"
+      },
+      {
+        "path": "registry/data-access-notice.json",
+        "mode": 420,
+        "bytes": 384436,
+        "sha256": "13815b48e615028be0e15982b6ecbbbdeafb5bcb85abbb26e409126243a8a6eb"
+      },
+      {
+        "path": "registry/decision-memo.json",
+        "mode": 420,
+        "bytes": 384425,
+        "sha256": "c3fa1632025954fdae64241e46b756e1df514e45207e2b802a55f98d3f4167b4"
+      },
+      {
+        "path": "registry/destructive-action-guard.json",
+        "mode": 420,
+        "bytes": 385339,
+        "sha256": "2d7b0f118d3f65206cb91cfccd9a753a778815d6eda8b5e1b99a08e58e486706"
+      },
+      {
+        "path": "registry/dialog.json",
+        "mode": 420,
+        "bytes": 383213,
+        "sha256": "8360d6b23e447f44ca9a4f8b4457d199a87b7578c6540dee19f73869131cd7fd"
+      },
+      {
+        "path": "registry/diff-viewer.json",
+        "mode": 420,
+        "bytes": 385689,
+        "sha256": "bcb7269b3921582b852e76f4192e0c8eeba15a0ae0fc790b97275eb78274d101"
+      },
+      {
+        "path": "registry/document-preview.json",
+        "mode": 420,
+        "bytes": 399449,
+        "sha256": "2c31d46981442b7c94b7a204e6c19a29600ebd71b7fa5277a4ae767cd25d8eca"
+      },
+      {
+        "path": "registry/dynamic-question-flow.json",
+        "mode": 420,
+        "bytes": 387905,
+        "sha256": "8567b80122d0d49aa5f9c9252d394bbbaac5629e4c03c4a1d8792475df69fdb4"
+      },
+      {
+        "path": "registry/empty-state.json",
+        "mode": 420,
+        "bytes": 383235,
+        "sha256": "42d91353c592bc70f1ba05a06c27db7981ac9a46d5d4b83338a713ca84ddf0f4"
+      },
+      {
+        "path": "registry/entity-review-table.json",
+        "mode": 420,
+        "bytes": 384957,
+        "sha256": "512fe1ad943193ed033b53c9f18a29f4a9b11639c1449047eaf07d7beee48a76"
+      },
+      {
+        "path": "registry/evidence-drawer.json",
+        "mode": 420,
+        "bytes": 393992,
+        "sha256": "cdea21e6033e100b1ce5bbc1b762eb7b5d27399848075864b6d6240f6b7ad641"
+      },
+      {
+        "path": "registry/expired-session-state.json",
+        "mode": 420,
+        "bytes": 386481,
+        "sha256": "63adfa3ca8896a8b03daf2543c0bcaa001c6404ea91304d22ccaac74ff17b1ed"
+      },
+      {
+        "path": "registry/extract-review-save.json",
+        "mode": 420,
+        "bytes": 405711,
+        "sha256": "041f2219d2fce515cf63e593bbbe5fb176281aa7441ce689f6b57bd6f103b193"
+      },
+      {
+        "path": "registry/extracted-fields-review.json",
+        "mode": 420,
+        "bytes": 386557,
+        "sha256": "b4199de17662d5992970eeb6f5cd482fcf551c76891364a14e5ef5891a932103"
+      },
+      {
+        "path": "registry/field-confidence-list.json",
+        "mode": 420,
+        "bytes": 391160,
+        "sha256": "ec6e88abe9a2e0de7ba1c7b136ebf6aa0a551d975f5b6b90f664ffeb39f2bd90"
+      },
+      {
+        "path": "registry/file-review.json",
+        "mode": 420,
+        "bytes": 407417,
+        "sha256": "1f912398cf1af7f13f5364e20e8382f62a2fe0351a9b885521c341d16dec60f9"
+      },
+      {
+        "path": "registry/file-upload-and-extract.json",
+        "mode": 420,
+        "bytes": 405704,
+        "sha256": "186d7fbe552e07b36b325a663dc56df4ee7b3b9c9640c488c54bc6d47ba4879f"
+      },
+      {
+        "path": "registry/form-progress-card.json",
+        "mode": 420,
+        "bytes": 386831,
+        "sha256": "bab828a1a3d1a0db879cad052d168799a5e36c004af1d53c8743baf56f8cccc3"
+      },
+      {
+        "path": "registry/human-corrects-ai-output.json",
+        "mode": 420,
+        "bytes": 405673,
+        "sha256": "457a24ad85562dbc36871ee908cc1de533be95928d977c148b90363d1c0725f2"
+      },
+      {
+        "path": "registry/human-override-panel.json",
+        "mode": 420,
+        "bytes": 386244,
+        "sha256": "7ebd25ff41df59c2c335e4973ea793736269f3abd6538c63aee121520fde50dc"
+      },
+      {
+        "path": "registry/inline-edit-form.json",
+        "mode": 420,
+        "bytes": 397340,
+        "sha256": "c95f16f310bdc483d8e3b5b8e484c3a1068461bcff2036e4bfc81ad4c6ca9eca"
+      },
+      {
+        "path": "registry/input.json",
+        "mode": 420,
+        "bytes": 383208,
+        "sha256": "2d93ad0cb5fb5eae68b92f422a25be3aaa14d5d0a4dc742663cc97a1a83db845"
+      },
+      {
+        "path": "registry/items/admin-change-review.json",
+        "mode": 420,
+        "bytes": 405714,
+        "sha256": "38df5e69a8243462dc42f37e5e557fe8d0c8d741e5daaad8c49d5f1093c68cb5"
+      },
+      {
+        "path": "registry/items/agent-generated-report-review.json",
+        "mode": 420,
+        "bytes": 405725,
+        "sha256": "70ed6c4b0283e906af0bbb2f9a33f87b21e2a1fbe539de05dcaffc569166c348"
+      },
+      {
+        "path": "registry/items/alert.json",
+        "mode": 420,
+        "bytes": 383208,
+        "sha256": "9f7df441647ab3428961fa1e9817cdf5278f5b7e6999d1416f134828b0f8df12"
+      },
+      {
+        "path": "registry/items/approval-card.json",
+        "mode": 420,
+        "bytes": 385913,
+        "sha256": "3cf6188d0275aa7d15bf4a3d9d45645f271d64dafda0664aa25d7e756e809513"
+      },
+      {
+        "path": "registry/items/approval-checklist.json",
+        "mode": 420,
+        "bytes": 385772,
+        "sha256": "05a889357ef9d48efae5da5d0574be099f134651525014abaf745341bd9d36f3"
+      },
+      {
+        "path": "registry/items/approval-gated-tool-call.json",
+        "mode": 420,
+        "bytes": 405689,
+        "sha256": "eab7d322f16eb54d0407a3596c5f73e476de4c5e6855faa11bd300b23d30684d"
+      },
+      {
+        "path": "registry/items/audit-trail.json",
+        "mode": 420,
+        "bytes": 384531,
+        "sha256": "da2b1faab27a01c8ef29a97241c7371d12dba42dd6b8bafd48aa76d007e01b7a"
+      },
+      {
+        "path": "registry/items/auth-required-card.json",
+        "mode": 420,
+        "bytes": 384942,
+        "sha256": "03cd3a45c8537489e2fcb9b24320a6904ba2870304cb6fb4e6ef03b134f78df3"
+      },
+      {
+        "path": "registry/items/badge.json",
+        "mode": 420,
+        "bytes": 383208,
+        "sha256": "02e89e8240fd5e4802731b945d2df107da4f4fba81e08be5e8f0d4eac9f94b01"
+      },
+      {
+        "path": "registry/items/before-submit-confirmation.json",
+        "mode": 420,
+        "bytes": 385812,
+        "sha256": "a720b2ff6fb072a1c5b582a9adc145fe92c6ededce453705f8be7c9d46e6adb4"
+      },
+      {
+        "path": "registry/items/billing-gate.json",
+        "mode": 420,
+        "bytes": 386215,
+        "sha256": "f0f73fa47bc328d7ee806d691d04d3a90fde1a8e5fc8dde6f94431931d1b4c62"
+      },
+      {
+        "path": "registry/items/button.json",
+        "mode": 420,
+        "bytes": 383213,
+        "sha256": "ccf934a36ac28767f3ae0a97c32e709b254968b160d23bf0d6e6e85ad440a0c5"
+      },
+      {
+        "path": "registry/items/card.json",
+        "mode": 420,
+        "bytes": 383203,
+        "sha256": "4bf187166c8dee95756791049729162874e73742bf18945452140a71c74b810c"
+      },
+      {
+        "path": "registry/items/collect-missing-data.json",
+        "mode": 420,
+        "bytes": 405655,
+        "sha256": "22c920f64549910a05f10bbb716e51fd206c4271f9a6f0843821886b7b08e1d1"
+      },
+      {
+        "path": "registry/items/compare-options-approve.json",
+        "mode": 420,
+        "bytes": 405709,
+        "sha256": "3bcde186b82a52273c5bafd42c99b04b4e3d716ca883a521fbdbb81c0a8fff6c"
+      },
+      {
+        "path": "registry/items/comparison-matrix.json",
+        "mode": 420,
+        "bytes": 388035,
+        "sha256": "8b7d05fe8e91cb5c99915847da051e403bb0813bdee119f5facd87b0c8ef78cb"
+      },
+      {
+        "path": "registry/items/confirmation-panel.json",
+        "mode": 420,
+        "bytes": 386288,
+        "sha256": "db604d6d8289c93c53614823bded9a18d5160bc4b00938402e4cdc0e4bafd8cd"
+      },
+      {
+        "path": "registry/items/conflict-resolver.json",
+        "mode": 420,
+        "bytes": 392466,
+        "sha256": "e2d040e7abd6b7d806278cd97ffb59f75c5c4db8f359629e3795ebba4f169af0"
+      },
+      {
+        "path": "registry/items/consent-panel.json",
+        "mode": 420,
+        "bytes": 384414,
+        "sha256": "87dbbb620615c02166c62475811f7aacda5d2fc4f34c695660d19fd14fd6e5be"
+      },
+      {
+        "path": "registry/items/data-access-notice.json",
+        "mode": 420,
+        "bytes": 384436,
+        "sha256": "13815b48e615028be0e15982b6ecbbbdeafb5bcb85abbb26e409126243a8a6eb"
+      },
+      {
+        "path": "registry/items/decision-memo.json",
+        "mode": 420,
+        "bytes": 384425,
+        "sha256": "c3fa1632025954fdae64241e46b756e1df514e45207e2b802a55f98d3f4167b4"
+      },
+      {
+        "path": "registry/items/destructive-action-guard.json",
+        "mode": 420,
+        "bytes": 385339,
+        "sha256": "2d7b0f118d3f65206cb91cfccd9a753a778815d6eda8b5e1b99a08e58e486706"
+      },
+      {
+        "path": "registry/items/dialog.json",
+        "mode": 420,
+        "bytes": 383213,
+        "sha256": "8360d6b23e447f44ca9a4f8b4457d199a87b7578c6540dee19f73869131cd7fd"
+      },
+      {
+        "path": "registry/items/diff-viewer.json",
+        "mode": 420,
+        "bytes": 385689,
+        "sha256": "bcb7269b3921582b852e76f4192e0c8eeba15a0ae0fc790b97275eb78274d101"
+      },
+      {
+        "path": "registry/items/document-preview.json",
+        "mode": 420,
+        "bytes": 399449,
+        "sha256": "2c31d46981442b7c94b7a204e6c19a29600ebd71b7fa5277a4ae767cd25d8eca"
+      },
+      {
+        "path": "registry/items/dynamic-question-flow.json",
+        "mode": 420,
+        "bytes": 387905,
+        "sha256": "8567b80122d0d49aa5f9c9252d394bbbaac5629e4c03c4a1d8792475df69fdb4"
+      },
+      {
+        "path": "registry/items/empty-state.json",
+        "mode": 420,
+        "bytes": 383235,
+        "sha256": "42d91353c592bc70f1ba05a06c27db7981ac9a46d5d4b83338a713ca84ddf0f4"
+      },
+      {
+        "path": "registry/items/entity-review-table.json",
+        "mode": 420,
+        "bytes": 384957,
+        "sha256": "512fe1ad943193ed033b53c9f18a29f4a9b11639c1449047eaf07d7beee48a76"
+      },
+      {
+        "path": "registry/items/evidence-drawer.json",
+        "mode": 420,
+        "bytes": 393992,
+        "sha256": "cdea21e6033e100b1ce5bbc1b762eb7b5d27399848075864b6d6240f6b7ad641"
+      },
+      {
+        "path": "registry/items/expired-session-state.json",
+        "mode": 420,
+        "bytes": 386481,
+        "sha256": "63adfa3ca8896a8b03daf2543c0bcaa001c6404ea91304d22ccaac74ff17b1ed"
+      },
+      {
+        "path": "registry/items/extract-review-save.json",
+        "mode": 420,
+        "bytes": 405711,
+        "sha256": "041f2219d2fce515cf63e593bbbe5fb176281aa7441ce689f6b57bd6f103b193"
+      },
+      {
+        "path": "registry/items/extracted-fields-review.json",
+        "mode": 420,
+        "bytes": 386557,
+        "sha256": "b4199de17662d5992970eeb6f5cd482fcf551c76891364a14e5ef5891a932103"
+      },
+      {
+        "path": "registry/items/field-confidence-list.json",
+        "mode": 420,
+        "bytes": 391160,
+        "sha256": "ec6e88abe9a2e0de7ba1c7b136ebf6aa0a551d975f5b6b90f664ffeb39f2bd90"
+      },
+      {
+        "path": "registry/items/file-review.json",
+        "mode": 420,
+        "bytes": 407417,
+        "sha256": "1f912398cf1af7f13f5364e20e8382f62a2fe0351a9b885521c341d16dec60f9"
+      },
+      {
+        "path": "registry/items/file-upload-and-extract.json",
+        "mode": 420,
+        "bytes": 405704,
+        "sha256": "186d7fbe552e07b36b325a663dc56df4ee7b3b9c9640c488c54bc6d47ba4879f"
+      },
+      {
+        "path": "registry/items/form-progress-card.json",
+        "mode": 420,
+        "bytes": 386831,
+        "sha256": "bab828a1a3d1a0db879cad052d168799a5e36c004af1d53c8743baf56f8cccc3"
+      },
+      {
+        "path": "registry/items/human-corrects-ai-output.json",
+        "mode": 420,
+        "bytes": 405673,
+        "sha256": "457a24ad85562dbc36871ee908cc1de533be95928d977c148b90363d1c0725f2"
+      },
+      {
+        "path": "registry/items/human-override-panel.json",
+        "mode": 420,
+        "bytes": 386244,
+        "sha256": "7ebd25ff41df59c2c335e4973ea793736269f3abd6538c63aee121520fde50dc"
+      },
+      {
+        "path": "registry/items/inline-edit-form.json",
+        "mode": 420,
+        "bytes": 397340,
+        "sha256": "c95f16f310bdc483d8e3b5b8e484c3a1068461bcff2036e4bfc81ad4c6ca9eca"
+      },
+      {
+        "path": "registry/items/input.json",
+        "mode": 420,
+        "bytes": 383208,
+        "sha256": "2d93ad0cb5fb5eae68b92f422a25be3aaa14d5d0a4dc742663cc97a1a83db845"
+      },
+      {
+        "path": "registry/items/loading-bridge-state.json",
+        "mode": 420,
+        "bytes": 386841,
+        "sha256": "2a63ee686006c99875a3e005e4118638aad2c92274e84856e393db616f9bd6a6"
+      },
+      {
+        "path": "registry/items/missing-data-request.json",
+        "mode": 420,
+        "bytes": 398436,
+        "sha256": "cc0e68e62ca6753153faffaadf5f7caccceabb0289a52d75b3664a14ac9a92ac"
+      },
+      {
+        "path": "registry/items/model-context-preview.json",
+        "mode": 420,
+        "bytes": 384451,
+        "sha256": "1cade68e929244818a50002cd6e9a4d1358a14e5bd850fac3ae68a22e6ba1357"
+      },
+      {
+        "path": "registry/items/multi-step-form.json",
+        "mode": 420,
+        "bytes": 400801,
+        "sha256": "64e9498d304e6704190d6aa269258fd2f83a5dea40ea6533043c1f2809c4d7d1"
+      },
+      {
+        "path": "registry/items/multi-step-tool-run.json",
+        "mode": 420,
+        "bytes": 405665,
+        "sha256": "bf94c53b3dc88c070c1c14685f05620884e1367e9c3c923176b3fb2fef721f8f"
+      },
+      {
+        "path": "registry/items/no-data-state.json",
+        "mode": 420,
+        "bytes": 386308,
+        "sha256": "012733cff6efff3aff0e08a8ad779f8970eee29a8d8e44364e2fec9b7987cbe3"
+      },
+      {
+        "path": "registry/items/offline-state.json",
+        "mode": 420,
+        "bytes": 386128,
+        "sha256": "286692da95976ae61adc37a818c9ae7fcbde3b8fa55ae3138a62d5fc2e3976d0"
+      },
+      {
+        "path": "registry/items/option-selector.json",
+        "mode": 420,
+        "bytes": 392342,
+        "sha256": "5bc705389d6abf0390c52516ade2b6a276a8835944bfc9b67f7129347e17e11a"
+      },
+      {
+        "path": "registry/items/partial-result-viewer.json",
+        "mode": 420,
+        "bytes": 387885,
+        "sha256": "47e0936c78459b3cef48a4182eabe79d747eee07ed78745c18401131838053f6"
+      },
+      {
+        "path": "registry/items/permission-denied-state.json",
+        "mode": 420,
+        "bytes": 386880,
+        "sha256": "8b4622eec33a79c94f0da142b168757b16aa9fc50ecba81c680a5342fc44353b"
+      },
+      {
+        "path": "registry/items/permission-request-card.json",
+        "mode": 420,
+        "bytes": 386358,
+        "sha256": "44623c84a046759076ed3f8ec204b71a25ec2d59f455995c4db241a510bf1139"
+      },
+      {
+        "path": "registry/items/privacy-boundary-card.json",
+        "mode": 420,
+        "bytes": 384451,
+        "sha256": "2da23017917e870bac2535e451d8cc4abf66549ed807d11a68d574aae59627e4"
+      },
+      {
+        "path": "registry/items/queued-step-list.json",
+        "mode": 420,
+        "bytes": 386517,
+        "sha256": "b1ed07993bf01975b38afe4260c9bee90c7b5c56b324cb9f7752c02eeb1441ef"
+      },
+      {
+        "path": "registry/items/ranking-list.json",
+        "mode": 420,
+        "bytes": 392986,
+        "sha256": "e847b3c464e1538c972132bf730e548bbf19e861bd6fcfe0d19071225389490e"
+      },
+      {
+        "path": "registry/items/reasoning-summary.json",
+        "mode": 420,
+        "bytes": 384434,
+        "sha256": "72213b70616bf010df12ce7beee9b0969f1f3ffba64312ae79d08ed880f0e9a8"
+      },
+      {
+        "path": "registry/items/recommendation-card.json",
+        "mode": 420,
+        "bytes": 384455,
+        "sha256": "24eca659a8529ea89f6146805177fd9e667e275d98acaf8d2d0c8825f72e6311"
+      },
+      {
+        "path": "registry/items/record-inspector.json",
+        "mode": 420,
+        "bytes": 392277,
+        "sha256": "76c190769f8ded3899081e32108c523eb720be5199f21fd8a778ad75eab1c373"
+      },
+      {
+        "path": "registry/items/retryable-error-state.json",
+        "mode": 420,
+        "bytes": 385509,
+        "sha256": "ddcd331925c002e0c1163f72a5209418f8852f56e281d917430317657fceb1e3"
+      },
+      {
+        "path": "registry/items/review-before-action.json",
+        "mode": 420,
+        "bytes": 405687,
+        "sha256": "b35b3e9d578f0ec885193213a5e54a7d64d5aa4fc57591478d849054b307eacd"
+      },
+      {
+        "path": "registry/items/risk-review-panel.json",
+        "mode": 420,
+        "bytes": 385945,
+        "sha256": "41300babdddab965113ce0c1dc3b7c4836248fba7079d8f4362c3f57db7b0bda"
+      },
+      {
+        "path": "registry/items/running-task-card.json",
+        "mode": 420,
+        "bytes": 386026,
+        "sha256": "4565a2744840ec9076417611b6e95e36364b5c0bf2040df002a238e28efa5a35"
+      },
+      {
+        "path": "registry/items/schema-form.json",
+        "mode": 420,
+        "bytes": 385326,
+        "sha256": "ff3ba32ad6454f0692bbe7ffece6b3447b4589b0fbb957978f5d9d9d243e0b99"
+      },
+      {
+        "path": "registry/items/score-breakdown.json",
+        "mode": 420,
+        "bytes": 386850,
+        "sha256": "19163820d87d646a3218b6e81b1dda27218c44441161013cea63dc3a98f2d31e"
+      },
+      {
+        "path": "registry/items/select.json",
+        "mode": 420,
+        "bytes": 383213,
+        "sha256": "797d78c55db785db5f6e92996b615d5d9f8bccf3b72ff308da2d2b1a76850a76"
+      },
+      {
+        "path": "registry/items/skeleton.json",
+        "mode": 420,
+        "bytes": 383223,
+        "sha256": "b893faae770accd9d84285cd66b462a7715917c1fe61ffaa360466106c8f3cdc"
+      },
+      {
+        "path": "registry/items/source-evidence-panel.json",
+        "mode": 420,
+        "bytes": 385233,
+        "sha256": "60a646fe9b5e2be0d8ac82a683206b763b75249e7fe4508432e4c26d2b24a1cf"
+      },
+      {
+        "path": "registry/items/source-list.json",
+        "mode": 420,
+        "bytes": 389401,
+        "sha256": "438184d1190300f409c348b7a9cfaf763057d47085a5fc4f5634981adab2bf46"
+      },
+      {
+        "path": "registry/items/table-bulk-action-review.json",
+        "mode": 420,
+        "bytes": 405707,
+        "sha256": "b5760111e4907577a7f6bf1e64ca780655e94de0f97dc9d5253190e69dd683d8"
+      },
+      {
+        "path": "registry/items/tabs.json",
+        "mode": 420,
+        "bytes": 383203,
+        "sha256": "27c82456d78dd93c6df99a70995da4ddc6dc11523c7f2831e8e8cab4b50d3480"
+      },
+      {
+        "path": "registry/items/textarea.json",
+        "mode": 420,
+        "bytes": 383223,
+        "sha256": "71d9c173c86a0d352b30bb7f5986887365f5976d9e367af91ee959c7ce642771"
+      },
+      {
+        "path": "registry/items/tool-call-card.json",
+        "mode": 420,
+        "bytes": 385393,
+        "sha256": "16087adcc2ea0f9f9ee691fce0c4985f3d78e5d633b73e6e796cf6091334d218"
+      },
+      {
+        "path": "registry/items/tool-progress-timeline.json",
+        "mode": 420,
+        "bytes": 384800,
+        "sha256": "3a6e9ff9e2d99d9098378112e5904e5e53946313a692f0240b2d1d427536d5f6"
+      },
+      {
+        "path": "registry/items/tool-result-card.json",
+        "mode": 420,
+        "bytes": 386158,
+        "sha256": "bde56fbe42b82d74c109bd5086720fd06db08a39a0b311f77e064c713a2e4de6"
+      },
+      {
+        "path": "registry/items/tool-trace-viewer.json",
+        "mode": 420,
+        "bytes": 387660,
+        "sha256": "e1b405b775fe29b79725c72364286ff303dd5cba5b7b3dd5eecd0e6efa32b5e1"
+      },
+      {
+        "path": "registry/items/tooltip.json",
+        "mode": 420,
+        "bytes": 383218,
+        "sha256": "5266cb209035b0bc28848e53aaf58a4d5d7b364bc357d8b9e7ef89fb3490a000"
+      },
+      {
+        "path": "registry/items/tradeoff-panel.json",
+        "mode": 420,
+        "bytes": 384430,
+        "sha256": "2799798283e010461dc6ef3f492bb49e21ca5611f941850f0919c88914fa61c0"
+      },
+      {
+        "path": "registry/items/unsupported-host-notice.json",
+        "mode": 420,
+        "bytes": 387079,
+        "sha256": "b46f88ade293d74fc0db02d7611d38facfbe2191a2ffc43a3049b6d6787bef14"
+      },
+      {
+        "path": "registry/items/validated-field-list.json",
+        "mode": 420,
+        "bytes": 386832,
+        "sha256": "f6b7a7428f23aa8b1053109eecb785c5c6b92ced2dcaa999ede6ae3231aa20d5"
+      },
+      {
+        "path": "registry/items/validation-summary.json",
+        "mode": 420,
+        "bytes": 392993,
+        "sha256": "65fcdc746a2fd7d01a5807d46ee2e08d4967956a063f154c9b7be3a44ac4c11c"
+      },
+      {
+        "path": "registry/loading-bridge-state.json",
+        "mode": 420,
+        "bytes": 386841,
+        "sha256": "2a63ee686006c99875a3e005e4118638aad2c92274e84856e393db616f9bd6a6"
+      },
+      {
+        "path": "registry/missing-data-request.json",
+        "mode": 420,
+        "bytes": 398436,
+        "sha256": "cc0e68e62ca6753153faffaadf5f7caccceabb0289a52d75b3664a14ac9a92ac"
+      },
+      {
+        "path": "registry/model-context-preview.json",
+        "mode": 420,
+        "bytes": 384451,
+        "sha256": "1cade68e929244818a50002cd6e9a4d1358a14e5bd850fac3ae68a22e6ba1357"
+      },
+      {
+        "path": "registry/multi-step-form.json",
+        "mode": 420,
+        "bytes": 400801,
+        "sha256": "64e9498d304e6704190d6aa269258fd2f83a5dea40ea6533043c1f2809c4d7d1"
+      },
+      {
+        "path": "registry/multi-step-tool-run.json",
+        "mode": 420,
+        "bytes": 405665,
+        "sha256": "bf94c53b3dc88c070c1c14685f05620884e1367e9c3c923176b3fb2fef721f8f"
+      },
+      {
+        "path": "registry/no-data-state.json",
+        "mode": 420,
+        "bytes": 386308,
+        "sha256": "012733cff6efff3aff0e08a8ad779f8970eee29a8d8e44364e2fec9b7987cbe3"
+      },
+      {
+        "path": "registry/offline-state.json",
+        "mode": 420,
+        "bytes": 386128,
+        "sha256": "286692da95976ae61adc37a818c9ae7fcbde3b8fa55ae3138a62d5fc2e3976d0"
+      },
+      {
+        "path": "registry/option-selector.json",
+        "mode": 420,
+        "bytes": 392342,
+        "sha256": "5bc705389d6abf0390c52516ade2b6a276a8835944bfc9b67f7129347e17e11a"
+      },
+      {
+        "path": "registry/partial-result-viewer.json",
+        "mode": 420,
+        "bytes": 387885,
+        "sha256": "47e0936c78459b3cef48a4182eabe79d747eee07ed78745c18401131838053f6"
+      },
+      {
+        "path": "registry/permission-denied-state.json",
+        "mode": 420,
+        "bytes": 386880,
+        "sha256": "8b4622eec33a79c94f0da142b168757b16aa9fc50ecba81c680a5342fc44353b"
+      },
+      {
+        "path": "registry/permission-request-card.json",
+        "mode": 420,
+        "bytes": 386358,
+        "sha256": "44623c84a046759076ed3f8ec204b71a25ec2d59f455995c4db241a510bf1139"
+      },
+      {
+        "path": "registry/privacy-boundary-card.json",
+        "mode": 420,
+        "bytes": 384451,
+        "sha256": "2da23017917e870bac2535e451d8cc4abf66549ed807d11a68d574aae59627e4"
+      },
+      {
+        "path": "registry/queued-step-list.json",
+        "mode": 420,
+        "bytes": 386517,
+        "sha256": "b1ed07993bf01975b38afe4260c9bee90c7b5c56b324cb9f7752c02eeb1441ef"
+      },
+      {
+        "path": "registry/ranking-list.json",
+        "mode": 420,
+        "bytes": 392986,
+        "sha256": "e847b3c464e1538c972132bf730e548bbf19e861bd6fcfe0d19071225389490e"
+      },
+      {
+        "path": "registry/reasoning-summary.json",
+        "mode": 420,
+        "bytes": 384434,
+        "sha256": "72213b70616bf010df12ce7beee9b0969f1f3ffba64312ae79d08ed880f0e9a8"
+      },
+      {
+        "path": "registry/recommendation-card.json",
+        "mode": 420,
+        "bytes": 384455,
+        "sha256": "24eca659a8529ea89f6146805177fd9e667e275d98acaf8d2d0c8825f72e6311"
+      },
+      {
+        "path": "registry/record-inspector.json",
+        "mode": 420,
+        "bytes": 392277,
+        "sha256": "76c190769f8ded3899081e32108c523eb720be5199f21fd8a778ad75eab1c373"
+      },
+      {
+        "path": "registry/registry.json",
+        "mode": 420,
+        "bytes": 30913992,
+        "sha256": "fdbb5671751f11d1eeed3f43db922c1724a3e2f9e6734a7d2bf43cad30cb9d53"
+      },
+      {
+        "path": "registry/retryable-error-state.json",
+        "mode": 420,
+        "bytes": 385509,
+        "sha256": "ddcd331925c002e0c1163f72a5209418f8852f56e281d917430317657fceb1e3"
+      },
+      {
+        "path": "registry/review-before-action.json",
+        "mode": 420,
+        "bytes": 405687,
+        "sha256": "b35b3e9d578f0ec885193213a5e54a7d64d5aa4fc57591478d849054b307eacd"
+      },
+      {
+        "path": "registry/risk-review-panel.json",
+        "mode": 420,
+        "bytes": 385945,
+        "sha256": "41300babdddab965113ce0c1dc3b7c4836248fba7079d8f4362c3f57db7b0bda"
+      },
+      {
+        "path": "registry/running-task-card.json",
+        "mode": 420,
+        "bytes": 386026,
+        "sha256": "4565a2744840ec9076417611b6e95e36364b5c0bf2040df002a238e28efa5a35"
+      },
+      {
+        "path": "registry/schema-form.json",
+        "mode": 420,
+        "bytes": 385326,
+        "sha256": "ff3ba32ad6454f0692bbe7ffece6b3447b4589b0fbb957978f5d9d9d243e0b99"
+      },
+      {
+        "path": "registry/score-breakdown.json",
+        "mode": 420,
+        "bytes": 386850,
+        "sha256": "19163820d87d646a3218b6e81b1dda27218c44441161013cea63dc3a98f2d31e"
+      },
+      {
+        "path": "registry/select.json",
+        "mode": 420,
+        "bytes": 383213,
+        "sha256": "797d78c55db785db5f6e92996b615d5d9f8bccf3b72ff308da2d2b1a76850a76"
+      },
+      {
+        "path": "registry/skeleton.json",
+        "mode": 420,
+        "bytes": 383223,
+        "sha256": "b893faae770accd9d84285cd66b462a7715917c1fe61ffaa360466106c8f3cdc"
+      },
+      {
+        "path": "registry/source-evidence-panel.json",
+        "mode": 420,
+        "bytes": 385233,
+        "sha256": "60a646fe9b5e2be0d8ac82a683206b763b75249e7fe4508432e4c26d2b24a1cf"
+      },
+      {
+        "path": "registry/source-list.json",
+        "mode": 420,
+        "bytes": 389401,
+        "sha256": "438184d1190300f409c348b7a9cfaf763057d47085a5fc4f5634981adab2bf46"
+      },
+      {
+        "path": "registry/table-bulk-action-review.json",
+        "mode": 420,
+        "bytes": 405707,
+        "sha256": "b5760111e4907577a7f6bf1e64ca780655e94de0f97dc9d5253190e69dd683d8"
+      },
+      {
+        "path": "registry/tabs.json",
+        "mode": 420,
+        "bytes": 383203,
+        "sha256": "27c82456d78dd93c6df99a70995da4ddc6dc11523c7f2831e8e8cab4b50d3480"
+      },
+      {
+        "path": "registry/textarea.json",
+        "mode": 420,
+        "bytes": 383223,
+        "sha256": "71d9c173c86a0d352b30bb7f5986887365f5976d9e367af91ee959c7ce642771"
+      },
+      {
+        "path": "registry/tool-call-card.json",
+        "mode": 420,
+        "bytes": 385393,
+        "sha256": "16087adcc2ea0f9f9ee691fce0c4985f3d78e5d633b73e6e796cf6091334d218"
+      },
+      {
+        "path": "registry/tool-progress-timeline.json",
+        "mode": 420,
+        "bytes": 384800,
+        "sha256": "3a6e9ff9e2d99d9098378112e5904e5e53946313a692f0240b2d1d427536d5f6"
+      },
+      {
+        "path": "registry/tool-result-card.json",
+        "mode": 420,
+        "bytes": 386158,
+        "sha256": "bde56fbe42b82d74c109bd5086720fd06db08a39a0b311f77e064c713a2e4de6"
+      },
+      {
+        "path": "registry/tool-trace-viewer.json",
+        "mode": 420,
+        "bytes": 387660,
+        "sha256": "e1b405b775fe29b79725c72364286ff303dd5cba5b7b3dd5eecd0e6efa32b5e1"
+      },
+      {
+        "path": "registry/tooltip.json",
+        "mode": 420,
+        "bytes": 383218,
+        "sha256": "5266cb209035b0bc28848e53aaf58a4d5d7b364bc357d8b9e7ef89fb3490a000"
+      },
+      {
+        "path": "registry/tradeoff-panel.json",
+        "mode": 420,
+        "bytes": 384430,
+        "sha256": "2799798283e010461dc6ef3f492bb49e21ca5611f941850f0919c88914fa61c0"
+      },
+      {
+        "path": "registry/unsupported-host-notice.json",
+        "mode": 420,
+        "bytes": 387079,
+        "sha256": "b46f88ade293d74fc0db02d7611d38facfbe2191a2ffc43a3049b6d6787bef14"
+      },
+      {
+        "path": "registry/validated-field-list.json",
+        "mode": 420,
+        "bytes": 386832,
+        "sha256": "f6b7a7428f23aa8b1053109eecb785c5c6b92ced2dcaa999ede6ae3231aa20d5"
+      },
+      {
+        "path": "registry/validation-summary.json",
+        "mode": 420,
+        "bytes": 392993,
+        "sha256": "65fcdc746a2fd7d01a5807d46ee2e08d4967956a063f154c9b7be3a44ac4c11c"
+      }
+    ]
+  ],
+  "units": {
+    "total": 96,
+    "new": 88,
+    "fixtureRegressions": 8
+  },
+  "completedAt": "2026-11-10T01:33:03.617Z"
+}

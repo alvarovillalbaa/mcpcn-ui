@@ -21,11 +21,17 @@ import { ConflictResolverDemo, ValidationSummaryDemo } from "../../../components
 import { conflictValidationExampleCode } from "../../../components/conflict-validation-examples";
 import { OptionSelectorDemo, RankingListDemo } from "../../../components/option-ranking-demos";
 import { optionRankingExampleCode } from "../../../components/option-ranking-examples";
+import { HostStateDemo } from "../../../components/host-state-demos";
+import { hostStateExamples, hostStateExampleCode, type HostStateSlug } from "../../../components/host-state-examples";
 import { ComponentPreview } from "../../../components/component-preview";
 
 export function generateStaticParams() { return catalog.map(item => ({ slug: item.slug })); }
 
 const demos: Record<string, ReactNode> = {
+  "billing-gate": <HostStateDemo kind="billing-gate" />, "unsupported-host-notice": <HostStateDemo kind="unsupported-host-notice" />,
+  "no-data-state": <HostStateDemo kind="no-data-state" />, "loading-bridge-state": <HostStateDemo kind="loading-bridge-state" />,
+  "offline-state": <HostStateDemo kind="offline-state" />, "permission-denied-state": <HostStateDemo kind="permission-denied-state" />,
+  "expired-session-state": <HostStateDemo kind="expired-session-state" />,
   "approval-card": <ApprovalDemo />, "tool-progress-timeline": <ProgressDemo />,
   "approval-checklist": <ApprovalChecklistDemo />, "before-submit-confirmation": <BeforeSubmitConfirmationDemo />,
   "destructive-action-guard": <DestructiveActionGuardDemo />, "human-override-panel": <HumanOverridePanelDemo />,
@@ -48,6 +54,13 @@ const demos: Record<string, ReactNode> = {
   "auth-required-card": <AuthRequiredCardDemo />
 };
 const events: Record<string, Array<[string, string]>> = {
+  "billing-gate": [["request-billing-review", "{ componentId, componentRevision, actionId, actionRevision }"]],
+  "unsupported-host-notice": [["request-compatible-host", "{ componentId, componentRevision, actionId, actionRevision }"]],
+  "no-data-state": [["request-data-refresh", "{ componentId, componentRevision, actionId, actionRevision }"]],
+  "loading-bridge-state": [["request-bridge-recheck", "{ componentId, componentRevision, actionId, actionRevision }"]],
+  "offline-state": [["request-reconnect", "{ componentId, componentRevision, actionId, actionRevision }"]],
+  "permission-denied-state": [["request-access-review", "{ componentId, componentRevision, actionId, actionRevision }"]],
+  "expired-session-state": [["request-session-renewal", "{ componentId, componentRevision, actionId, actionRevision }"]],
   "approval-card": [["approve", "{ tool? }"], ["cancel", "No data"]],
   "approval-checklist": [["check-item", "{ reviewId, itemId, checked }"], ["approve-checklist", "{ reviewId, itemIds: current checked IDs }"], ["cancel", "{ reviewId }"]],
   "before-submit-confirmation": [["confirm-submit", "{ reviewId, fieldIds: all current IDs; no field values }"], ["cancel", "{ reviewId }"]],
@@ -118,7 +131,8 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
   const recordInspectionCode = recordInspectionExampleCode(slug);
   const conflictValidationCode = conflictValidationExampleCode(slug);
   const optionRankingCode = optionRankingExampleCode(slug);
-  const renderCode = optionRankingCode ?? conflictValidationCode ?? recordInspectionCode ?? sourceEvidenceCode ?? fileReviewCode ?? formWorkflowCode ?? toolWorkflowCode ?? approvalExampleCode(slug) ?? 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
+  const hostStateCode = Object.hasOwn(hostStateExamples, slug) ? hostStateExampleCode(slug as HostStateSlug) : undefined;
+  const renderCode = hostStateCode ?? optionRankingCode ?? conflictValidationCode ?? recordInspectionCode ?? sourceEvidenceCode ?? fileReviewCode ?? formWorkflowCode ?? toolWorkflowCode ?? approvalExampleCode(slug) ?? 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
   const serverCode = 'import { ' + item.name + 'Schema } from "@mcpcn/schemas";\nimport { createStructuredResult } from "@mcpcn/server";\n\nexport function reviewedResult(candidate: unknown) {\n  const data = ' + item.name + 'Schema.parse(candidate);\n  return createStructuredResult("' + item.slug + '", data);\n}';
   return <main>
     <span className="eyebrow">{item.category}</span><h1>{item.name}</h1><p className="lede">{item.description}</p>

@@ -1,0 +1,397 @@
+{
+  "schemaVersion": "mcpcn.host-state-checks.v1",
+  "sourceCommit": "487a82d76ca485f6582a47df90d78345ad17280a",
+  "workflowCommit": "cd8c75710a85073e41fd007cef2e366db9a22cf4",
+  "status": "failed",
+  "startedAt": "2026-11-10T01:08:11.010Z",
+  "commands": [
+    {
+      "label": "tools-install",
+      "command": "npm",
+      "args": [
+        "install",
+        "--prefix",
+        "/home/runner/work/_temp/mcpcn-host-state-iawx86/tools",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "pnpm@10.24.0",
+        "playwright@1.65.0"
+      ],
+      "startedAt": "2026-11-10T01:08:12.883Z",
+      "streams": [
+        {
+          "name": "tools-install.stdout.txt",
+          "bytes": 24,
+          "sha256": "c59541a7d8bfc9987c0aa47adf2cdd2858be8b66de5abc0331d5a6484ae63ab6",
+          "complete": true
+        },
+        {
+          "name": "tools-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2538,
+      "identity": {
+        "pid": 2538,
+        "uid": 1001,
+        "pgid": 2538,
+        "sid": 2538,
+        "start": "5841"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:08:15.135Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "workspace-install",
+      "command": "pnpm",
+      "args": [
+        "install",
+        "--frozen-lockfile",
+        "--ignore-scripts"
+      ],
+      "startedAt": "2026-11-10T01:08:15.136Z",
+      "streams": [
+        {
+          "name": "workspace-install.stdout.txt",
+          "bytes": 1422,
+          "sha256": "2bb7826871793b9d0aff81e6968ba5b9ab36855eef9f4b4d19a14eb0821b63d0",
+          "complete": true
+        },
+        {
+          "name": "workspace-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2550,
+      "identity": {
+        "pid": 2550,
+        "uid": 1001,
+        "pgid": 2550,
+        "sid": 2550,
+        "start": "6066"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:08:18.909Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "build-core",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "@mcpcn/core",
+        "build"
+      ],
+      "startedAt": "2026-11-10T01:08:19.454Z",
+      "streams": [
+        {
+          "name": "build-core.stdout.txt",
+          "bytes": 120,
+          "sha256": "3ce98b3913d6f3f3c9beee757ae2835b4af62ddf7fb356feea625535436c4c4f",
+          "complete": true
+        },
+        {
+          "name": "build-core.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2567,
+      "identity": {
+        "pid": 2567,
+        "uid": 1001,
+        "pgid": 2567,
+        "sid": 2567,
+        "start": "6498"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:08:20.490Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "build-schemas",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "@mcpcn/schemas",
+        "build"
+      ],
+      "startedAt": "2026-11-10T01:08:20.491Z",
+      "streams": [
+        {
+          "name": "build-schemas.stdout.txt",
+          "bytes": 126,
+          "sha256": "cbbf95e594cbd7e8e366a781abc0a7141e1eeb1553b297eb8fbd27ca77f8dd1e",
+          "complete": true
+        },
+        {
+          "name": "build-schemas.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2592,
+      "identity": {
+        "pid": 2592,
+        "uid": 1001,
+        "pgid": 2592,
+        "sid": 2592,
+        "start": "6602"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:08:22.752Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "build-runtime",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "@mcpcn/runtime",
+        "build"
+      ],
+      "startedAt": "2026-11-10T01:08:22.752Z",
+      "streams": [
+        {
+          "name": "build-runtime.stdout.txt",
+          "bytes": 126,
+          "sha256": "66d03917e062773c466f6c4f49bcd03361c27fbf44536d9ef87e1c90607e9dbf",
+          "complete": true
+        },
+        {
+          "name": "build-runtime.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2617,
+      "identity": {
+        "pid": 2617,
+        "uid": 1001,
+        "pgid": 2617,
+        "sid": 2617,
+        "start": "6828"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:08:24.313Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "build-react",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "@mcpcn/react",
+        "build"
+      ],
+      "startedAt": "2026-11-10T01:08:24.313Z",
+      "streams": [
+        {
+          "name": "build-react.stdout.txt",
+          "bytes": 159,
+          "sha256": "82d2125ca365f1ef0f2a76c9bd6a7094e6a2d91ebfe80a99987e9a002cd418ad",
+          "complete": true
+        },
+        {
+          "name": "build-react.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2642,
+      "identity": {
+        "pid": 2642,
+        "uid": 1001,
+        "pgid": 2642,
+        "sid": 2642,
+        "start": "6984"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:08:27.551Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "build-themes",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "@mcpcn/themes",
+        "build"
+      ],
+      "startedAt": "2026-11-10T01:08:27.552Z",
+      "streams": [
+        {
+          "name": "build-themes.stdout.txt",
+          "bytes": 163,
+          "sha256": "19124bd2502ff919e59173bd7292e21a76ea628ee7b6acce1d850da3c76937e4",
+          "complete": true
+        },
+        {
+          "name": "build-themes.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2668,
+      "identity": {
+        "pid": 2668,
+        "uid": 1001,
+        "pgid": 2668,
+        "sid": 2668,
+        "start": "7308"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:08:28.486Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "build-registry",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "@mcpcn/registry",
+        "build"
+      ],
+      "startedAt": "2026-11-10T01:08:28.486Z",
+      "streams": [
+        {
+          "name": "build-registry.stdout.txt",
+          "bytes": 185,
+          "sha256": "f7ad0cb79b4ef9b5e1de56ae1fb992f8173534975f423060d01606eced935e50",
+          "complete": true
+        },
+        {
+          "name": "build-registry.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2694,
+      "identity": {
+        "pid": 2694,
+        "uid": 1001,
+        "pgid": 2694,
+        "sid": 2694,
+        "start": "7401"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:08:31.491Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "build-cli",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "mcpcn",
+        "build"
+      ],
+      "startedAt": "2026-11-10T01:08:31.491Z",
+      "streams": [
+        {
+          "name": "build-cli.stdout.txt",
+          "bytes": 390,
+          "sha256": "23b788d45a71ac7d24d7760575be1949353f45ad39f58f0eece1206dd1503c72",
+          "complete": true
+        },
+        {
+          "name": "build-cli.stderr.txt",
+          "bytes": 33,
+          "sha256": "d44791d72c3ba7638cd782fb7687811a7751b7bf22b523b6d8d0046a86c89c41",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2731,
+      "identity": {
+        "pid": 2731,
+        "uid": 1001,
+        "pgid": 2731,
+        "sid": 2731,
+        "start": "7702"
+      },
+      "exitCode": 1,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T01:08:32.965Z",
+      "originalGroupAbsent": true
+    }
+  ],
+  "guards": [
+    {
+      "label": "before-install",
+      "canonicalFiles": 5304,
+      "canonicalVectorSha256": "ca3af246a84b0e754d5b9bb191a62c201ae5c0a08557b4e70d892fb7e21159a7",
+      "protectedFiles": 349,
+      "protectedVectorSha256": "e9faccfff06ebaede23a4182b3ec16744cbe4d665ba3c57b2dc9792706793878"
+    },
+    {
+      "label": "after-install",
+      "canonicalFiles": 5304,
+      "canonicalVectorSha256": "ca3af246a84b0e754d5b9bb191a62c201ae5c0a08557b4e70d892fb7e21159a7",
+      "protectedFiles": 349,
+      "protectedVectorSha256": "e9faccfff06ebaede23a4182b3ec16744cbe4d665ba3c57b2dc9792706793878"
+    },
+    {
+      "label": "terminal-source-check",
+      "canonicalFiles": 5304,
+      "canonicalVectorSha256": "ca3af246a84b0e754d5b9bb191a62c201ae5c0a08557b4e70d892fb7e21159a7",
+      "protectedFiles": 349,
+      "protectedVectorSha256": "e9faccfff06ebaede23a4182b3ec16744cbe4d665ba3c57b2dc9792706793878"
+    }
+  ],
+  "errors": [
+    "build-cli_failed"
+  ],
+  "cleanup": {
+    "activeChildren": 0,
+    "remainingOriginalGroups": [],
+    "allStreamsComplete": true,
+    "rootRemoved": true
+  },
+  "proofLimits": [
+    "T2 authored reports and loopback browser/installed archive consumers only. No live billing, session, access, host, connectivity, provider or MCP acceptance.",
+    "Eight existing fixture checks are regressions, separate from 88 new checks. Previous component packets are not replayed."
+  ],
+  "export": {
+    "files": 516,
+    "bytes": 93144038
+  },
+  "completedAt": "2026-11-10T01:08:35.926Z"
+}

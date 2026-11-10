@@ -1,0 +1,11 @@
+// T2 authored reports only; these records describe no live account or host.
+const root = { id: "state-1", revision: "one", title: "Authored report", message: "Reported <script>not executable</script> condition", reportedAt: "2026-11-10T00:00:00Z", action: { id: "request-1", revision: "one", label: "Request review", available: true } };
+export const hostStateCases = [
+  { slug: "billing-gate", name: "BillingGate", intent: "request-billing-review", text: "Reported current plan: Basic", data: { ...root, state: "billing-required", featureLabel: "Export", currentPlan: "Basic", requiredPlan: "Extended" } },
+  { slug: "unsupported-host-notice", name: "UnsupportedHostNotice", intent: "request-compatible-host", text: "Second capability", data: { ...root, state: "unsupported-host", hostLabel: "Authored host", requirements: [{ id: "first", revision: "one", label: "First capability", reportedSupport: "missing" }, { id: "second", revision: "two", label: "Second capability", reportedSupport: "unknown" }] } },
+  { slug: "no-data-state", name: "NoDataState", intent: "request-data-refresh", text: "Reported reason: No matches", data: { ...root, state: "empty", collectionLabel: "Records", reason: "no-matches", querySummary: "Authored query <not executable>" } },
+  { slug: "loading-bridge-state", name: "LoadingBridgeState", intent: "request-bridge-recheck", text: "Reported elapsed time: 0 ms", data: { ...root, state: "waiting", bridgeLabel: "Authored bridge", phase: "awaiting-host", elapsedMs: 0, progress: { completed: 0, total: 3 } } },
+  { slug: "offline-state", name: "OfflineState", intent: "request-reconnect", text: "Reported unsent changes: 0", data: { ...root, state: "offline", serviceLabel: "Authored service", unsentChanges: 0 } },
+  { slug: "permission-denied-state", name: "PermissionDeniedState", intent: "request-access-review", text: "Read records", data: { ...root, state: "denied", resourceLabel: "Authored collection", requesterLabel: "Authored assistant", scopes: [{ id: "records.read", revision: "one", label: "Read records" }] } },
+  { slug: "expired-session-state", name: "ExpiredSessionState", intent: "request-session-renewal", text: "2026-11-09T23:00:00Z", data: { ...root, state: "expired", serviceLabel: "Authored workspace", expiredAt: "2026-11-09T23:00:00Z" } },
+] as const;
