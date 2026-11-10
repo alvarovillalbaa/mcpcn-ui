@@ -53,6 +53,15 @@ adapter and reran no app. Adopted159of167verifiedgenerated paths, preserving
 other source/index bytes. Keep this packet closed after public delivery; the
 fourprivacy/consent aliases and shared docs typography remain separate work.
 
+The [public delivery](docs/results/2026/11-10/decision-narrative-public-delivery.md)
+closes this cohort at accepted11869149: READY/canonicalalias,18anonymousHTTPS,
+seven unchanged archives/release439907909 and verified owned cleanup. Workflow
+was disabled before definition deletion; three owned QA refs retired with allfour
+parents preserved. Later metadata must preserve accepted application bytes.
+Next coherent work is the four privacy/consent/context aliases plus the observed
+long-heading typography issue; measure new seed/index budgets before changing
+any finite limit. Keep all completed packets and priority exclusions intact.
+
 ## Reported host states — 10 November 2026
 
 Standing "approve everything / Keep going / Do all the work" authorization

@@ -19,8 +19,11 @@ Their [third focused invocation](docs/results/2026/11-10/decision-narrative-chec
 passed107unit cases,eight browser journeys and both strict installed consumers,
 retaining136DOM/eight native keyboard readings/16PNGs. All167generated paths,
 79index/item pairs and34owners were verified;159changes adopted. Both earlier
-failures remain separate. Public delivery is pending; shared documentation
-typography and the four privacy/consent components remain unfinished.
+failures remain separate. The [public delivery](docs/results/2026/11-10/decision-narrative-public-delivery.md)
+binds accepted11869149 to READY,the canonical site,18anonymous HTTPS checks and
+seven unchanged archives. The temporary workflow and three owned QA refs are
+retired with source ancestry preserved. Shared documentation typography and the
+four privacy/consent components remain unfinished.
 
 Seven [reported host-state views](docs/specs/host-state-components.md) replace
 the billing/unsupported-host/empty/bridge/offline/denied/expired placeholders.
