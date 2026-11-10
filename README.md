@@ -20,7 +20,12 @@ component-page heading fix keeps CamelCase words whole. Their
 consumers, retaining164DOM/four native keyboard readings/ten headings/18PNGs.
 All167generated paths/79index-item pairs/36owners were verified;159changes
 adopted. The earlier passing packet predates the final private-data documentation
-correction and remains separate. Public delivery is recorded after publication.
+correction and remains separate. The
+[public delivery](docs/results/2026/11-10/privacy-context-public-delivery.md)
+binds accepted8feab49e to READY, the canonical site,19anonymous HTTPS checks and
+seven unchanged prerelease archives. The temporary workflow and both QA refs
+are retired with source ancestry preserved. External host/live authorization
+and public npm acceptance remain distinct open gates.
 
 RecommendationCard,TradeoffPanel,DecisionMemo and ReasoningSummary now have
 [dedicated authored contracts](docs/specs/decision-narratives.md) and views for

@@ -40,6 +40,14 @@ and native index/refs. Workflow412868492 was disabled204/readbackdisabled_manual
 before definition removal. Keep both packets closed; actual publication, hosting,
 release and owned cleanup remain separate receipts.
 
+The [public delivery](docs/results/2026/11-10/privacy-context-public-delivery.md)
+closes this cohort at accepted8feab49e: READY/canonicalalias,19anonymous HTTPS,
+seven unchanged archives/release439939714, disabled-before-deleted workflow and
+two owned QA refs retired with allthree parents preserved. Both source packets
+remain immutable. Later metadata must preserve all accepted application bytes.
+No generic aliases remain; next work is a brief/evidence audit of remaining
+product/runtime/server/adoption gates, not replaying completed component packets.
+
 ## Decision narratives — 10 November 2026
 
 Standing owner “approve everything / Keep going / Do all the work” authority

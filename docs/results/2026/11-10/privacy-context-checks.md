@@ -55,8 +55,10 @@ cases to observe the separate private-data preparation contract. The first
 packet is not proof of that later correction and was never deployed.
 
 The temporary workflow was disabled with204 and read back disabled_manually
-before definition removal. Main source publication, release, deployment and
-owned remote-ref retirement are recorded separately after they occur.
+before definition removal. The subsequent [public delivery](privacy-context-public-delivery.md)
+records source publication, release, deployment and owned remote-ref retirement.
+Authored diff checks pass; full diff diagnostics preserve whitespace in18raw
+build/command captures, rather than rewriting those originals.
 
 StorageGuard prohibited local heavy app work. Local verification was static
 syntax/diff checks and bounded data validation. This is authored loopback
