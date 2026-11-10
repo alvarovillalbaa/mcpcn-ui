@@ -14,6 +14,13 @@ const names:Record<CatalogCategory,string[]>={
 };
 const specialized=new Set(["ApprovalCard","ApprovalChecklist","BeforeSubmitConfirmation","DestructiveActionGuard","HumanOverridePanel","PermissionRequestCard","ConfirmationPanel","RiskReviewPanel","ToolProgressTimeline","ToolCallCard","ToolResultCard","RunningTaskCard","RetryableErrorState","PartialResultViewer","QueuedStepList","ToolTraceViewer","SchemaForm","DynamicQuestionFlow","MissingDataRequest","MultiStepForm","InlineEditForm","FormProgressCard","ValidatedFieldList","EntityReviewTable","ExtractedFieldsReview","DiffViewer","ComparisonMatrix","ScoreBreakdown","AuditTrail","SourceEvidencePanel","AuthRequiredCard","DocumentPreview","FileReview","SourceList","EvidenceDrawer","RecordInspector","FieldConfidenceList","ConflictResolver","ValidationSummary","OptionSelector","RankingList"]);
 const componentDescriptions:Record<string,string> = {
+  BillingGate: "Review a reported billing restriction and request consumer-owned billing review without starting a purchase.",
+  UnsupportedHostNotice: "Review every reported unsupported host capability and request a compatible host.",
+  NoDataState: "Distinguish reported empty records, unmatched queries and data not yet provided without fetching data.",
+  LoadingBridgeState: "Inspect reported bridge phase, work and elapsed time without starting a connection or timer.",
+  OfflineState: "Review reported connectivity and unsent-change counts without sending or discarding data.",
+  PermissionDeniedState: "Review reported denied access and requested scopes without granting permission.",
+  ExpiredSessionState: "Review a reported session expiry and request renewal without reading credentials or renewing a session.",
   OptionSelector: "Select a supplied option and inspect its complete value and evidence without executing a decision.",
   RankingList: "Inspect supplied ranks, scores and complete option details in producer order without calculating a ranking.",
   ConflictResolver: "Inspect supplied typed candidates, select one and explicitly request confirmation without persisting a resolution.",
@@ -85,7 +92,14 @@ const optionRankingSecurity:Record<string,CatalogItem["security"]> = {
   OptionSelector: { modelVisible: ["id", "revision", "state", "group.id", "group.revision", "group.options.id", "group.options.revision", "selectedOptionId"], privateOnly: ["title", "description", "group.label", "group.options.label", "group.options.value", "group.options.confidence", "group.options.evidence", "message", "localSelection", "notificationFeedback"], callsTools: [], destructive: false },
   RankingList: { modelVisible: ["id", "revision", "state", "list.id", "list.revision", "list.entries.id", "list.entries.revision", "selectedEntryId"], privateOnly: ["title", "description", "list.label", "list.entries.label", "list.entries.value", "list.entries.rank", "list.entries.score", "list.entries.scoreLabel", "list.entries.confidence", "list.entries.evidence", "message", "localSelection", "notificationFeedback"], callsTools: [], destructive: false },
 };
-export const catalog:CatalogItem[]=Object.entries(names).flatMap(([category,items])=>items.map(name=>({name,slug:slug(name),category:category as CatalogCategory,description:componentDescriptions[name]??`${descriptions[category as CatalogCategory]}: ${name}.`,specialized:specialized.has(name),dependencies:["@mcpcn/core","@mcpcn/schemas","react"],registryDependencies:category==="primitive"?[]:["button","card","badge"],security:optionRankingSecurity[name]??conflictValidationSecurity[name]??recordInspectionSecurity[name]??sourceEvidenceSecurity[name]??fileReviewSecurity[name]??formWorkflowSecurity[name]??toolWorkflowSecurity[name]??{modelVisible:category==="host-state"?[]:["decision","userInput"],privateOnly:["internalId","rawPII"],callsTools:category==="approval"||category==="tool-execution"?["configuredTool"]:[],destructive:category==="approval"}})));
+const hostStateNames = new Set(["BillingGate", "UnsupportedHostNotice", "NoDataState", "LoadingBridgeState", "OfflineState", "PermissionDeniedState", "ExpiredSessionState"]);
+for (const name of hostStateNames) specialized.add(name);
+const hostStateSecurity: CatalogItem["security"] = {
+  modelVisible: ["id", "revision", "action.id", "action.revision"],
+  privateOnly: ["title", "message", "description", "reportedAt", "state", "action.label", "action.available", "featureLabel", "currentPlan", "requiredPlan", "hostLabel", "requirements", "collectionLabel", "reason", "querySummary", "bridgeLabel", "phase", "elapsedMs", "progress", "serviceLabel", "unsentChanges", "resourceLabel", "requesterLabel", "scopes", "expiredAt", "requestFeedback"],
+  callsTools: [], destructive: false,
+};
+export const catalog:CatalogItem[]=Object.entries(names).flatMap(([category,items])=>items.map(name=>({name,slug:slug(name),category:category as CatalogCategory,description:componentDescriptions[name]??`${descriptions[category as CatalogCategory]}: ${name}.`,specialized:specialized.has(name),dependencies:["@mcpcn/core","@mcpcn/schemas","react"],registryDependencies:category==="primitive"?[]:["button","card","badge"],security:(hostStateNames.has(name)?hostStateSecurity:undefined)??optionRankingSecurity[name]??conflictValidationSecurity[name]??recordInspectionSecurity[name]??sourceEvidenceSecurity[name]??fileReviewSecurity[name]??formWorkflowSecurity[name]??toolWorkflowSecurity[name]??{modelVisible:category==="host-state"?[]:["decision","userInput"],privateOnly:["internalId","rawPII"],callsTools:category==="approval"||category==="tool-execution"?["configuredTool"]:[],destructive:category==="approval"}})));
 
 export const blockCatalog = [
   ["review-before-action","Review a planned external-state change before executing it.",["approval-card","diff-viewer","audit-trail"]],

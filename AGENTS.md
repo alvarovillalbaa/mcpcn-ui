@@ -2,6 +2,22 @@
 
 Last updated: 2026-11-09
 
+## Reported host states — 10 November 2026
+
+Standing "approve everything / Keep going / Do all the work" authorization
+covers the [host-state contract](docs/specs/host-state-components.md) and
+[focused packet](docs/proposals/host-state-checks.md): seven typed reported-state
+components,88new authored checks,8separate fixture regressions,14desktop/narrow
+journeys,two strict installed consumers,seven builds and deterministic generation
+in one temporary read-only public job capped at20minutes. No live billing,
+connectivity, permission or session operation is authorized or implied by a
+component callback. Keep all79identities/11blocks, package/source installation
+and original broad workflows. Colocated tests retain the established repository
+layout. Existing aggregate-count assertions change only for48specialized/8generic
+components and32copied owners; historical controllers and result packets stay
+immutable. No local heavy runtime under failed Storage Guard. New source remains
+unverified until the new actual packet passes; never relabel old passes.
+
 - Product intent: the Notion `mcpcn-ui` React MCP Apps library brief. Preserve
   both package imports and editable source installation, a configurable docs
   site, runtime/server packages and the broader unfinished quality scope.
