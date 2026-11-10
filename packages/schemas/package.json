@@ -4,7 +4,7 @@
   "type": "module",
   "license": "MIT",
   "sideEffects": false,
-  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" }, "./*": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" }, "./blocks": { "types": "./dist/block-workflow-schemas.d.ts", "import": "./dist/block-workflow-schemas.js" }, "./*": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
   "files": ["dist"],
   "scripts": {
     "build": "tsc -p tsconfig.json",

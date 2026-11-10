@@ -39,7 +39,12 @@ fresh source-bundle install/build/five SDK workflows. The
 records the exact source archive,corrected production build graph,READY canonical
 site and eight anonymous HTTPS checks. These are single-operator local
 examples: no payment, email, production identity or model service is connected.
-Server code for each registry block remains subsequent work.
+The [block server recipe source](docs/specs/block-server-recipes.md) now adds
+all eleven bound apps, dedicated SQLite storage, exact four-tool registrations,
+transaction-local SQL executors and editable fixture/test/README entries. The
+[guide](apps/docs/app/docs/block-recipes/page.tsx) explains integration boundaries.
+This new source is being prepared for focused verification; prior reference or
+component receipts do not establish block-recipe acceptance.
 
 DataAccessNotice, PrivacyBoundaryCard, ConsentPanel and ModelContextPreview have
 [typed privacy/context contracts](docs/specs/privacy-context-components.md),
