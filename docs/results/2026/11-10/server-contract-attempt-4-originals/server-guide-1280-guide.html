@@ -1,0 +1,76 @@
+<main class="docs-layout"><aside class="sidebar" aria-label="Server guide sections"><a href="/docs">Documentation</a><a href="#first-tool">Register a review tool</a><a href="#validation">Validate complete results</a><a href="#private-data">Separate private app data</a><a href="#resources">Resources and CSP</a><a href="#authorization">Authorization and cancellation</a><a href="#compatibility">Compatibility and limits</a></aside><article class="prose" aria-label="Validated MCP server guide" style="min-width: 0px;"><span class="eyebrow">Server integration</span><h1>Return a validated review surface</h1><p>Register an MCP tool and its app resource with an explicit input schema, output data schema and consumer-owned handler. The library wraps the output schema around the same component envelope it returns.</p><h2 id="first-tool">Register a review tool</h2><p>This complete registration example returns public authored data. Supply a real bundled MCP App HTML document and connect the returned server to your chosen MCP transport. It opens no listener and performs no external action by itself.</p><pre class="code" aria-label="Public review server example">import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { z } from "zod";
+import { ApprovalCardSchema } from "@mcpcn/schemas";
+import { registerComponentApp, createStructuredResult } from "@mcpcn/server";
+
+// Supply your bundled MCP App HTML. This example returns public authored data.
+export function createReviewServer(appHtml: string) {
+  const server = new McpServer({ name: "authored-review", version: "1.0.0" });
+  registerComponentApp(server, {
+    name: "review_authored_action",
+    description: "Inspect a public authored action without executing it.",
+    component: "approval-card",
+    inputSchema: z.object({ reviewId: z.string().regex(/^[a-z0-9-]{1,80}$/) }).strict(),
+    outputSchema: ApprovalCardSchema,
+    visibility: ["model", "app"],
+    readOnly: true,
+    html: appHtml,
+    handler: ({ reviewId }) =&gt; {
+      const data = {
+        title: "Review an authored action",
+        description: "Public authored review " + reviewId,
+        riskLevel: "medium",
+        actionLabel: "Request approval",
+        requiresExplicitConsent: true,
+        changes: [{ label: "Authored setting", before: "Off", after: "On" }],
+      } satisfies z.input&lt;typeof ApprovalCardSchema&gt;;
+      return createStructuredResult("approval-card", data, { stateVersion: 0 });
+    },
+  });
+  return server;
+}
+</pre><p>The official SDK parses input once before calling your handler. Zod object input schemas may coerce or refine fields. Handler arguments are the parsed output, and the second argument is the original SDK request context. Raw JSON schemas and root transforms are not accepted as input schemas by this wrapper.</p><h2 id="validation">Validate complete results</h2><p><code>outputSchema</code> describes the data inside the MCPCN envelope. The advertised MCP schema describes <code>kind</code>, <code>version</code>, <code>data</code> and optional <code>stateVersion</code>. The registered handler validates its exact result before returning it. Kind, version, data, text content and metadata must all be coherent JSON.</p><pre class="code" aria-label="Result validation example">import { ApprovalCardSchema } from "@mcpcn/schemas";
+import { validateToolResult } from "@mcpcn/server";
+
+export async function inspectResult(candidate: unknown) {
+  const checked = await validateToolResult("approval-card", ApprovalCardSchema, candidate);
+  if (!checked.success) throw new Error("The supplied tool result is invalid.");
+  return checked.data;
+}
+</pre><p>The standalone validator supports async refinements, creates an owned snapshot and reports a generic validation code. A valid explicit <code>isError: true</code> response has text and optional metadata, with no stale structured content. Handler exceptions, malformed output and cancellation produce generic error responses without echoing arguments or private values.</p><p>Builders package bounded data; they do not prove that it matches a component schema. The registered tool performs that validation. Keep refinements pure: the SDK also validates the declared output schema. SDK-owned input diagnostics remain SDK-owned, so use safe schema messages.</p><h2 id="private-data">Separate private app data</h2><p><code>structuredContent</code> and <code>content</code> are model-visible. Keep only deliberate model-safe data there. Put separately authorized app data in explicit <code>_meta</code>, then validate it again in your app. A catalogue <code>privateOnly</code> declaration does not redact a result.</p><pre class="code" aria-label="Private review result example">import { z } from "zod";
+import { PrivacyBoundaryCardSchema } from "@mcpcn/schemas";
+import { createStructuredResult } from "@mcpcn/server";
+
+// Advertise this model-safe DATA schema when registering this particular tool.
+export const PublicReviewSchema = z.object({
+  reviewId: z.string(), revision: z.string(), state: z.enum(["ready", "loading", "empty", "error"]),
+}).strict();
+
+// Call only after your server has authorized access to the supplied review.
+export function createPrivateReviewResult(candidate: unknown) {
+  const review = PrivacyBoundaryCardSchema.parse(candidate);
+  const publicData = PublicReviewSchema.parse({ reviewId: review.id, revision: review.revision, state: review.state });
+  return createStructuredResult("privacy-boundary-card", publicData, {
+    text: "A privacy review is available in the app.",
+    meta: { "example/private-review": review },
+  });
+}
+// The app explicitly reads meta["example/private-review"] from useAgentApp(),
+// validates it with PrivacyBoundaryCardSchema and renders the private review.
+// That key is an example application convention, not automatic library routing.
+</pre><p>This example uses a model-safe data schema and an application-owned metadata key. It does not grant access, hide data from the host, store secrets safely or choose private data automatically. Server-only values must stay out of every client payload, including metadata.</p><h2 id="resources">Resources and CSP</h2><p>Resource helpers return the standard MCP Apps MIME type and the same CSP metadata in resource listings and resource reads. HTML providers may be asynchronous and are read on demand. Link tools and resources with the exact same <code>ui://</code> URI.</p><pre class="code" aria-label="Resource registration example">import { registerComponentResource } from "@mcpcn/server";
+
+export function registerReviewResource(server: Parameters&lt;typeof registerComponentResource&gt;[0], appHtml: string) {
+  return registerComponentResource(server, {
+    component: "approval-card",
+    resourceUri: "ui://reviews/approval.html",
+    html: async () =&gt; appHtml,
+    csp: {
+      connectDomains: [],
+      resourceDomains: ["https://cdn.example.com"],
+      frameDomains: [],
+      baseUriDomains: ["https://cdn.example.com"],
+    },
+  });
+}
+</pre><p>Standard CSP uses <code>connectDomains</code>, <code>resourceDomains</code>, <code>frameDomains</code> and <code>baseUriDomains</code>. The optional ChatGPT compatibility object uses explicit snake_case connect/resource/frame fields. Base-URI declarations stay in the standard channel. Origins are declarations for the host to review; the library does not grant network access. Empty lists request no external access.</p><h2 id="authorization">Authorization and cancellation</h2><p>Use the original request context to enforce your application identity, resource ownership and reviewed terms before reading private data or performing an action. Visibility and read-only/destructive annotations are host hints, not access checks. An app-visible tool still needs server authorization.</p><p>The wrapper checks the SDK abort signal before invoking a handler and before returning a result. Your handler must also respect that signal during its own work. Cancellation cannot roll back an external side effect. Review UI, server authorization, idempotency and persistence remain separate responsibilities.</p><p><code>registerComponentApp</code> validates both configurations before registration. If tool registration fails after creating a resource, it removes only that newly returned resource handle. Existing registrations remain owned by their caller.</p><h2 id="compatibility">Compatibility and limits</h2><p>This integration targets the locked MCP SDK 1.30.0, ext-apps 1.7.5 and Zod 4.4.3 profile. The server SDK peer remains on major 1. It does not claim SDK 2, external-host, OAuth or live-provider acceptance. Package archives and their verification records are linked from the repository README; public npm publication is separate.</p><p>Low-level convenience exports delegate to the official helpers and expose SDK 1 server types. Their declaration surface avoids unrelated browser declarations. Server-consumer checks use Bundler and NodeNext with library checks enabled; that does not establish NodeNext support for the separate browser runtime package.</p><p>Complete JSON results fit 4 MiB of UTF-8 data; HTML fits 2 MiB. The descriptor guard rejects accessors, symbols, cycles, sparse arrays, foreign prototypes and unsupported values before reading result fields. Depth, node, collection and string limits also apply. Invalid values are rejected without truncation.</p><p><a href="/examples">Review the current reference UIs</a>, then connect an authorized server. <a href="https://github.com/modelcontextprotocol/ext-apps/blob/v1.7.5/src/server/index.ts">Pinned official server helpers</a> and <a href="https://developers.openai.com/plugins/reference">OpenAI metadata reference</a> define the supported protocol fields.</p></article></main>
