@@ -2,6 +2,52 @@
 
 Last updated: 2026-11-09
 
+## Reported host states — 10 November 2026
+
+Standing "approve everything / Keep going / Do all the work" authorization
+covers the [host-state contract](docs/specs/host-state-components.md) and
+[focused packet](docs/proposals/host-state-checks.md): seven typed reported-state
+components,88new authored checks,8separate fixture regressions,14desktop/narrow
+journeys,two strict installed consumers,seven builds and deterministic generation
+in one temporary read-only public job capped at20minutes. No live billing,
+connectivity, permission or session operation is authorized or implied by a
+component callback. Keep all79identities/11blocks, package/source installation
+and original broad workflows. Colocated tests retain the established repository
+layout. Existing aggregate-count assertions change only for48specialized/8generic
+components and32copied owners; historical controllers and result packets stay
+immutable. The third run passed88new/7fixture cases and exposed a stale fixture
+observer: add the four already-owned four-state union schemas to its exact
+branch checks, without weakening them. Retain the95-pass/one-failure packet.
+No local heavy runtime under failed Storage Guard. New source remains
+unverified until the new actual packet passes; never relabel old passes.
+
+The fifth invocation passed fresh package mode but copy mode refused36/37-file
+payloads at the stale35-file installer ceiling. Standing authorization covers
+the exact37-file finite bound and six new current-payload installation
+regressions under protocolv3 (102total:88component/8fixture/6installation).
+Keep path sets, duplicate rejection, ownership and32MiB cumulative cap exact.
+Retain every failed packet and its source identity; do not publish generated
+output or archives until current copy/browser gates actually pass.
+
+The seventh invocation passed all102 cases, builds and both strict consumers,
+then exposed a documentation-demo event lifetime error. Capture the checkbox
+value synchronously before the state updater; keep all14 browser assertions and
+application contracts unchanged. Preserve its87originals and failed source.
+
+The eighth invocation passed102units, both consumers and all14browser journeys,
+but its generated evidence exceeded20MiB compressed. Data-only compression of
+the prior accepted seed measures30362310bytes. Permit40MiB gzip/160MiB expanded
+inside the existing64MiB packet budget and record sizes before rejection.
+This changes only evidence transport; retain every product assertion and output.
+
+The ninth packet passed at e441d73f704efdf90b98df8934e22180c7772aef:
+102units,14real loopback browser profiles/154DOM/14PNGs, two strict consumers,
+all builds/generation and observed command-group/scratch closure. The
+[canonical acceptance](docs/results/2026/11-10/host-state-checks.md) and248originals
+are retained. Generated adoption verified167paths/79pairs/32owners and adopted159
+changes while preserving other source/index bytes. Keep this packet closed;
+hosting, release and full-product proof remain distinct boundaries.
+
 - Product intent: the Notion `mcpcn-ui` React MCP Apps library brief. Preserve
   both package imports and editable source installation, a configurable docs
   site, runtime/server packages and the broader unfinished quality scope.

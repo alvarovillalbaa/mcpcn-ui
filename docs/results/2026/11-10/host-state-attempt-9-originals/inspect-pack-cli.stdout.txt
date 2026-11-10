@@ -1,0 +1,25 @@
+{
+  "name": "mcpcn",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "description": "Install and configure MCPCN agent workflow components",
+  "bin": {
+    "mcpcn": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@mcpcn/registry": "0.1.0"
+  },
+  "devDependencies": {
+    "@mcpcn/playground": "0.1.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node ../../tooling/stage-playground.mjs --target cli",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "lint": "tsc -p tsconfig.json --noEmit"
+  }
+}
