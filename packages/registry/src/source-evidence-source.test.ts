@@ -20,8 +20,8 @@ describe("source evidence canonical registry integration", () => {
     const { registry, items } = await build();
     expect(items.map(item => item.name)).toEqual([...catalog.map(item => item.slug), ...blockCatalog.map(item => item.name)]);
     expect(new Set(items.map(item => item.name)).size).toBe(79); expect(registry.items).toBe(items);
-    expect(items.filter(item => item.meta.implementation === "specialized")).toHaveLength(39);
-    expect(items.filter(item => item.meta.implementation === "generic-alias")).toHaveLength(17);
+    expect(items.filter(item => item.meta.implementation === "specialized")).toHaveLength(41);
+    expect(items.filter(item => item.meta.implementation === "generic-alias")).toHaveLength(15);
   });
   it("SE-R02 publishes strict actual four-state schemas instead of aliases", () => {
     for (const [slug] of cohort) {
@@ -33,7 +33,7 @@ describe("source evidence canonical registry integration", () => {
     }
   });
   it("SE-R03 appends the two real owners after the unchanged22-module closure", async () => {
-    const { items } = await build(); expect(sourceModulePaths).toHaveLength(28);
+    const { items } = await build(); expect(sourceModulePaths).toHaveLength(30);
     expect(sourceModulePaths.slice(20, 24)).toEqual(["_mcpcn/file-review-schemas.ts", "_mcpcn/file-review-components.tsx", "_mcpcn/source-evidence-schemas.ts", "_mcpcn/source-evidence-components.tsx"]);
     for (const item of items) for (const [path, target] of modules) {
       expect(item.files.find(file => file.path === `components/mcpcn/_mcpcn/${target}`)?.content).toBe(adapt(await readSource(path)));
@@ -55,7 +55,7 @@ describe("source evidence canonical registry integration", () => {
   it("SE-R05 resolves24 modules with28 component29 block and107 union files", async () => {
     const { items } = await build(), union = new Set<string>();
     for (const item of items) {
-      expect(item.files).toHaveLength(item.type === "registry:block" ? 33 : 32);
+      expect(item.files).toHaveLength(item.type === "registry:block" ? 35 : 34);
       const paths = new Set(item.files.map(file => file.path));
       for (const source of item.files) {
         union.add(source.path); expect(source.content).not.toContain("@mcpcn/");
@@ -66,7 +66,7 @@ describe("source evidence canonical registry integration", () => {
         }
       }
     }
-    expect(union.size).toBe(111);
+    expect(union.size).toBe(113);
   });
   it("SE-R06 keeps supplied claims URLs content messages and presentation private without tool calls", () => {
     for (const [slug] of cohort) {

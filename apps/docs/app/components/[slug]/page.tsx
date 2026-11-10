@@ -19,6 +19,8 @@ import { RecordInspectorDemo, FieldConfidenceListDemo } from "../../../component
 import { recordInspectionExampleCode } from "../../../components/record-inspection-examples";
 import { ConflictResolverDemo, ValidationSummaryDemo } from "../../../components/conflict-validation-demos";
 import { conflictValidationExampleCode } from "../../../components/conflict-validation-examples";
+import { OptionSelectorDemo, RankingListDemo } from "../../../components/option-ranking-demos";
+import { optionRankingExampleCode } from "../../../components/option-ranking-examples";
 import { ComponentPreview } from "../../../components/component-preview";
 
 export function generateStaticParams() { return catalog.map(item => ({ slug: item.slug })); }
@@ -36,6 +38,7 @@ const demos: Record<string, ReactNode> = {
   "source-list": <SourceListDemo />, "evidence-drawer": <EvidenceDrawerDemo />,
   "record-inspector": <RecordInspectorDemo />, "field-confidence-list": <FieldConfidenceListDemo />,
   "conflict-resolver": <ConflictResolverDemo />, "validation-summary": <ValidationSummaryDemo />,
+  "option-selector": <OptionSelectorDemo />, "ranking-list": <RankingListDemo />,
   "schema-form": <FormDemo />, "entity-review-table": <ReviewDemo />, "audit-trail": <AuditDemo />,
   "confirmation-panel": <ConfirmationPanelDemo />, "risk-review-panel": <RiskReviewPanelDemo />,
   "diff-viewer": <DiffViewerDemo />, "source-evidence-panel": <SourceEvidencePanelDemo />,
@@ -75,6 +78,8 @@ const events: Record<string, Array<[string, string]>> = {
   "evidence-drawer": [["open-evidence", "{ drawerId, drawerRevision, sourceId?, sourceRevision? }"], ["close-evidence", "{ drawerId, drawerRevision, sourceId?, sourceRevision? }"]],
   "record-inspector": [["inspect-record-field", "{ componentId, componentRevision, recordId, recordRevision, fieldId, fieldRevision; no values or evidence }"], ["clear-record-field", "{ componentId, componentRevision, recordId, recordRevision }"]],
   "field-confidence-list": [["inspect-confidence-field", "{ componentId, componentRevision, fieldId, fieldRevision; no values, confidence or evidence }"], ["clear-confidence-field", "{ componentId, componentRevision }"]],
+  "option-selector": [["select-option", "{ componentId, componentRevision, groupId, groupRevision, optionId, optionRevision; no values, confidence or evidence }"], ["clear-option", "{ componentId, componentRevision, groupId, groupRevision }"]],
+  "ranking-list": [["inspect-ranked-option", "{ componentId, componentRevision, listId, listRevision, entryId, entryRevision; no values, ranks, scores, confidence or evidence }"], ["clear-ranked-option", "{ componentId, componentRevision, listId, listRevision }"]],
   "dynamic-question-flow": [["answer-change", "{ flowId, questionId, value }"], ["question-change", "{ flowId, questionId }"], ["submit", "{ flowId, answers: visible question allowlist }"]],
   "extracted-fields-review": [["correction-change", "{ reviewId, fieldId, value }"], ["submit", "{ reviewId, values: current field allowlist }"]],
   "comparison-matrix": [["selection-change", "{ comparisonId, selectedId }"], ["confirm", "{ comparisonId, selectedId }"]],
@@ -112,7 +117,8 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
   const sourceEvidenceCode = sourceEvidenceExampleCode(slug);
   const recordInspectionCode = recordInspectionExampleCode(slug);
   const conflictValidationCode = conflictValidationExampleCode(slug);
-  const renderCode = conflictValidationCode ?? recordInspectionCode ?? sourceEvidenceCode ?? fileReviewCode ?? formWorkflowCode ?? toolWorkflowCode ?? approvalExampleCode(slug) ?? 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
+  const optionRankingCode = optionRankingExampleCode(slug);
+  const renderCode = optionRankingCode ?? conflictValidationCode ?? recordInspectionCode ?? sourceEvidenceCode ?? fileReviewCode ?? formWorkflowCode ?? toolWorkflowCode ?? approvalExampleCode(slug) ?? 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
   const serverCode = 'import { ' + item.name + 'Schema } from "@mcpcn/schemas";\nimport { createStructuredResult } from "@mcpcn/server";\n\nexport function reviewedResult(candidate: unknown) {\n  const data = ' + item.name + 'Schema.parse(candidate);\n  return createStructuredResult("' + item.slug + '", data);\n}';
   return <main>
     <span className="eyebrow">{item.category}</span><h1>{item.name}</h1><p className="lede">{item.description}</p>
@@ -133,6 +139,13 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
           {Object.entries(properties).map(([name, field]) => <tr key={name}><th scope="row"><code>{name}</code></th><td>{fieldType(field)}</td><td>{"default" in object(field) ? "Defaulted" : required.has(name) ? "Required" : "Optional"}</td></tr>)}
         </tbody></table></div>
         <h2>React integration</h2><pre className="code">{renderCode}</pre>
+        {optionRankingCode && <>
+          <h2>Supplied options and reported rankings</h2>
+          <p>Select an option or ranked entry to read its complete escaped JSON and supplied evidence. Omitted selection is local; null or a current ID is controlled and waits for an explicit producer acknowledgement. Callback-free local reading and clearing remain available while notifications or external busy feedback are pending.</p>
+          <p>Ranking rows retain their supplied order, noncontiguous or tied ranks and independent scores. A reported score or confidence of zero is distinct from Not supplied. Nothing sorts, computes a winner, verifies evidence, approves or saves a choice.</p>
+          <p>Only current identities and revisions appear in selection and clear events. Values, labels, scores, ranks, confidence, evidence and URLs remain private application data. Catalogue privacy metadata does not redact structured content already sent to a model; choose model-safe results separately.</p>
+          <p>Option groups contain 1–50 options and ranking lists contain 0–100 entries, with at most 20 evidence references per member and a collective 2 MiB parsed UTF-8 JSON budget. The shared playground retains its smaller 8192-unit string and 65536-byte result limits and refuses oversized input without truncation.</p>
+        </>}
         {conflictValidationCode && <>
           <h2>Supplied choices and validation reports</h2>
           <p>Select a candidate or issue to read its complete escaped value, message and supplied evidence. Omitted selection is local; null or a current ID is controlled and waits for a producer acknowledgement. Callback-free local reading and clearing remain available while notifications or external busy feedback are pending.</p>
