@@ -11,7 +11,12 @@ fourSDKfixtures/fourVitebuilds,fourdocsjourneys/32DOM/eightPNG/12clipboardreads,
 cold10/10tasks/zero-cache/84pages.184originals/4232567Bindependentlyverified;
 56commands/112streams/sixstablewhole-sourceguards/ownedcleanup. No generated
 adoption:all160registrypathsunchanged. PreserveW/C1/C2/C3 andbothfailedpackets.
-Publicdeployment/anonymousdelivery/workflowretirement remain pending.
+The [public delivery](docs/results/2026/11-10/public-release-install-public-delivery.md)
+is CLOSED at accepted0b111855:READYdpl_EofVtde3C4BdQ486ug5omL519EsN/canonicalalias,
+fiveanonymousHTTP200/TLS/noredirects/expectedHTMLinstructions,unchangedeight
+releasearchives. Workflowdisabled-before-deleted,threeownedrefsretired,350
+verifiedduplicates/10247247B/fourownedfoldersremoved. PermanentCI unchanged.
+Do not rerun this closed cohort. Fullnpm/Bun/host/human/full-product gates remain.
 Historical preparation and failure instructions follow.
 
 Following clean ec3e6384,implement the [public archive contract](docs/specs/public-release-installation.md)
