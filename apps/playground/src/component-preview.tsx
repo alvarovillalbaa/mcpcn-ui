@@ -13,6 +13,7 @@ import type { RecordInspectorData, FieldConfidenceListData } from "@mcpcn/schema
 import type { ConflictResolverData, ValidationSummaryData } from "@mcpcn/schemas";
 import type { OptionSelectorData, RankingListData } from "@mcpcn/schemas";
 import type { BillingGateData, UnsupportedHostNoticeData, NoDataStateData, LoadingBridgeStateData, OfflineStateData, PermissionDeniedStateData, ExpiredSessionStateData } from "@mcpcn/schemas";
+import type { RecommendationCardData, TradeoffPanelData, DecisionMemoData, ReasoningSummaryData } from "@mcpcn/schemas";
 
 type Props = { payload: MCPCNPayload<string, unknown>; onAction: (action: UI.ComponentAction) => void | Promise<void> };
 type Data = Record<string, unknown>;
@@ -202,6 +203,10 @@ function Preview({ payload, onAction }: Props) {
   if (item.kind === "specialized") {
     switch (slug) {
       case "approval-card": component = <UI.ApprovalCard {...data as ApprovalCardData} {...common} />; break;
+      case "recommendation-card": component = <UI.RecommendationCard {...data as RecommendationCardData} {...common} />; break;
+      case "tradeoff-panel": component = <UI.TradeoffPanel {...data as TradeoffPanelData} {...common} />; break;
+      case "decision-memo": component = <UI.DecisionMemo {...data as DecisionMemoData} {...common} />; break;
+      case "reasoning-summary": component = <UI.ReasoningSummary {...data as ReasoningSummaryData} {...common} />; break;
       case "billing-gate": component = <UI.BillingGate {...data as BillingGateData} {...common} />; break;
       case "unsupported-host-notice": component = <UI.UnsupportedHostNotice {...data as UnsupportedHostNoticeData} {...common} />; break;
       case "no-data-state": component = <UI.NoDataState {...data as NoDataStateData} {...common} />; break;

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "mcpcn.decision-narrative-browser.v1",
+  "sourceCommit": "9ef79c4d08884605e51d98040242e0858e18680a",
+  "passed": false,
+  "cases": [
+    {
+      "id": "recommendation-card-1280",
+      "slug": "recommendation-card",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "status": "failed",
+      "stages": [
+        {
+          "label": "initial",
+          "file": "recommendation-card-1280-initial.html",
+          "bytes": 7885,
+          "sha256": "ddd77bc36fd859fa0d809cea685f756cc28628c3e27d616cc491e601605b7d32"
+        }
+      ],
+      "screenshots": [
+        "recommendation-card-1280-initial.png"
+      ],
+      "externalRequestsBlocked": [],
+      "errors": [],
+      "error": "The expression evaluated to a falsy value:\n\n  assert.ok(reading.focused && reading.markerVisible && reading.scrollTop > before.scrollTop)\n",
+      "contextClosed": true
+    }
+  ],
+  "browserClosed": true,
+  "proofLimits": [
+    "Desktop and plain 390px Chromium viewport emulation, not a physical device, touch or accessibility certification.",
+    "Authored supplied reports only; no computed recommendation, executed decision, internal model trace or hosted interaction."
+  ]
+}

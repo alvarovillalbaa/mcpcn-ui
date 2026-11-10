@@ -82,23 +82,23 @@ async function withProject(body: (fixture: {
 }
 
 describe("reported host-state source installation", () => {
-  it("HS-CLI06 installs the exact37-file current block without loosening path ownership", async () => withProject(async ({ cwd, invoke }) => {
+  it("HS-CLI06 installs the exact39-file current block without loosening path ownership", async () => withProject(async ({ cwd, invoke }) => {
     const name = "admin-change-review", payload = (await authoredRegistry()).get(name)!;
-    expect(payload.files).toHaveLength(37);
+    expect(payload.files).toHaveLength(39);
     expect(await invoke(["add", name])).toEqual({ code: 0, errors: [] });
     const lock = JSON.parse(await readFile(join(cwd, "mcpcn.lock.json"), "utf8")) as FixtureLock;
-    expect(lock.items[name]?.files).toHaveLength(37);
+    expect(lock.items[name]?.files).toHaveLength(39);
     expect(lock.items[name]?.files).toContain("components/mcpcn/_mcpcn/host-state-components.tsx");
     expect(await readFile(join(cwd, "user-note.txt"), "utf8")).toBe("Authored existing owner file; preserve exactly.\n");
   }));
-  it("HS-CLI01 installs the current36-file component and reads its lock on an identical byte-stable add", async () => withProject(async ({ cwd, payload, invoke }) => {
-    expect(sourceModulePaths).toHaveLength(32);
-    expect(payload.files).toHaveLength(36);
+  it("HS-CLI01 installs the current38-file component and reads its lock on an identical byte-stable add", async () => withProject(async ({ cwd, payload, invoke }) => {
+    expect(sourceModulePaths).toHaveLength(34);
+    expect(payload.files).toHaveLength(38);
     expect(await invoke(["add", ITEM])).toEqual({ code: 0, errors: [] });
     const lock = JSON.parse(await readFile(join(cwd, "mcpcn.lock.json"), "utf8")) as FixtureLock;
     const item = lock.items[ITEM]; if (!item) throw new Error("authored_installed_block_required");
-    expect(item.files).toHaveLength(36);
-    expect(new Set(item.files).size).toBe(36);
+    expect(item.files).toHaveLength(38);
+    expect(new Set(item.files).size).toBe(38);
     const identities = new Map<string, { dev: number; ino: number }>();
     for (const file of payload.files) {
       const bytes = await readFile(join(cwd, file.path));
@@ -119,8 +119,8 @@ describe("reported host-state source installation", () => {
     }
   }));
 
-  it("HS-CLI02 refuses an oversized38-file payload before writing any source or manifest", async () => withProject(async ({ cwd, payload, requested, invoke }) => {
-    expect(payload.files).toHaveLength(36);
+  it("HS-CLI02 refuses an oversized40-file payload before writing any source or manifest", async () => withProject(async ({ cwd, payload, requested, invoke }) => {
+    expect(payload.files).toHaveLength(38);
     const extra: RegistryFile = { path: PREFIX + "skeleton.tsx", type: "registry:component", content: "export const AuthoredExtra = true;\n" };
     const before = await snapshot(cwd);
     const second: RegistryFile = { ...extra, path: PREFIX + "tooltip.tsx" };
@@ -130,7 +130,7 @@ describe("reported host-state source installation", () => {
     expect(await snapshot(cwd)).toEqual(before);
   }));
 
-  it("HS-CLI03 refuses a37-file lock with an unowned member before transport", async () => withProject(async ({ cwd, invoke, requested }) => {
+  it("HS-CLI03 refuses a39-file lock with an unowned member before transport", async () => withProject(async ({ cwd, invoke, requested }) => {
     expect(await invoke(["add", ITEM])).toEqual({ code: 0, errors: [] });
     const manifest = join(cwd, "mcpcn.lock.json"), lock = JSON.parse(await readFile(manifest, "utf8")) as FixtureLock;
     const item = lock.items[ITEM]; if (!item) throw new Error("authored_installed_block_required");
@@ -138,7 +138,7 @@ describe("reported host-state source installation", () => {
     await writeFile(join(cwd, path), content, { flag: "wx" });
     lock.files[path] = { hash: hash(content), source: REGISTRY + "/skeleton.json" };
     item.files.push(path);
-    expect(item.files).toHaveLength(37); expect(new Set(item.files).size).toBe(37);
+    expect(item.files).toHaveLength(39); expect(new Set(item.files).size).toBe(39);
     await writeFile(manifest, json(lock));
     const before = await snapshot(cwd); requested.length = 0;
     expect(await invoke(["add", ITEM])).toEqual({ code: 1, errors: ["mcpcn: lock_invalid"] });
@@ -146,8 +146,8 @@ describe("reported host-state source installation", () => {
     expect(await snapshot(cwd)).toEqual(before);
   }));
 
-  it("HS-CLI04 refuses duplicate members in a36-file payload without writing", async () => withProject(async ({ cwd, payload, requested, invoke }) => {
-    expect(payload.files).toHaveLength(36);
+  it("HS-CLI04 refuses duplicate members in a38-file payload without writing", async () => withProject(async ({ cwd, payload, requested, invoke }) => {
+    expect(payload.files).toHaveLength(38);
     const before = await snapshot(cwd);
     const result = await invoke(["add", ITEM], item => {
       const duplicate = item.files[0]; if (!duplicate) throw new Error("authored_entry_required");
@@ -158,8 +158,8 @@ describe("reported host-state source installation", () => {
     expect(await snapshot(cwd)).toEqual(before);
   }));
 
-  it("HS-CLI05 refuses an unknown member in a36-file payload without writing", async () => withProject(async ({ cwd, payload, requested, invoke }) => {
-    expect(payload.files).toHaveLength(36);
+  it("HS-CLI05 refuses an unknown member in a38-file payload without writing", async () => withProject(async ({ cwd, payload, requested, invoke }) => {
+    expect(payload.files).toHaveLength(38);
     const before = await snapshot(cwd);
     const unknown: RegistryFile = { path: PREFIX + "_mcpcn/unowned.ts", type: "registry:lib", content: "export const AuthoredUnowned = true;\n" };
     const result = await invoke(["add", ITEM], item => ({ ...item, files: [...item.files.slice(0, -1), unknown] }));
