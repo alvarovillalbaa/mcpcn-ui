@@ -75,6 +75,16 @@ readbackdisabled_manually before definition removal. Preserve W and C1–C8
 parents; publication/hosting/retirement remain separate receipts. Next dependent
 brief work is block server recipes. Do not replay closed component packets.
 
+Initial production deployment of acceptedb42b1ca6 failed: Next checks a docs
+test that imports the document example,but Turbo's docs graph did not build
+the private shared package. The [focused graph repair](docs/proposals/reference-docs-build-checks.md)
+adds only that existing workspace build dependency; derive exactly one lock
+importer edge,no external upgrade. Fresh frozen-install and run the exact
+Vercel Turbo command in its separate pinned temporary job. Preserve the closed
+80case/22browser/sourcebundle pass,all app/gallery/registry bytes and published
+release440195587. No excluded tests or provider-setting workaround. New build
+acceptance/redeployment/publicHTTP remain pending until actual receipts exist.
+
 ## Validated server integration — 10 November 2026
 
 Standing owner “approve everything / Keep going / Do all the work” covers the
