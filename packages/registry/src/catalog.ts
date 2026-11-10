@@ -92,6 +92,20 @@ const optionRankingSecurity:Record<string,CatalogItem["security"]> = {
   OptionSelector: { modelVisible: ["id", "revision", "state", "group.id", "group.revision", "group.options.id", "group.options.revision", "selectedOptionId"], privateOnly: ["title", "description", "group.label", "group.options.label", "group.options.value", "group.options.confidence", "group.options.evidence", "message", "localSelection", "notificationFeedback"], callsTools: [], destructive: false },
   RankingList: { modelVisible: ["id", "revision", "state", "list.id", "list.revision", "list.entries.id", "list.entries.revision", "selectedEntryId"], privateOnly: ["title", "description", "list.label", "list.entries.label", "list.entries.value", "list.entries.rank", "list.entries.score", "list.entries.scoreLabel", "list.entries.confidence", "list.entries.evidence", "message", "localSelection", "notificationFeedback"], callsTools: [], destructive: false },
 };
+const narrativeNames = new Set(["RecommendationCard", "TradeoffPanel", "DecisionMemo", "ReasoningSummary"]);
+for (const name of narrativeNames) specialized.add(name);
+Object.assign(componentDescriptions, {
+  RecommendationCard: "Review a supplied recommendation, complete option values, evidence, rationale and alternatives before explicit scoped intent.",
+  TradeoffPanel: "Read ordered supplied option tradeoffs, full values/evidence and independent benefits, costs and uncertainties without inferred ranking.",
+  DecisionMemo: "Inspect a reported decision, considered options, rationale, risks and follow-up states without changing or publishing the decision.",
+  ReasoningSummary: "Read a supplied user-facing rationale, complete findings, evidence and limitations without exposing an internal model trace.",
+});
+const narrativeSecurity = (name: string): CatalogItem["security"] | undefined => {
+  if (!narrativeNames.has(name)) return;
+  const report = ({ RecommendationCard: "recommendation", TradeoffPanel: "analysis", DecisionMemo: "memo", ReasoningSummary: "summary" } as Record<string, string>)[name]!;
+  return { modelVisible: ["id", "revision", `${report}.id`, `${report}.revision`, "action.id", "action.revision", ...(name === "RecommendationCard" ? ["recommendation.option.id", "recommendation.option.revision"] : [])],
+    privateOnly: ["title", "description", "message", `${report}.label`, ...(name === "RecommendationCard" ? ["recommendation.option.label", "recommendation.option.value", "recommendation.option.confidence", "recommendation.option.evidence", "recommendation.rationale", "recommendation.benefits", "recommendation.caveats", "recommendation.alternatives"] : name === "TradeoffPanel" ? ["analysis.options"] : name === "DecisionMemo" ? ["memo.status", "memo.context", "memo.rationale", "memo.options", "memo.decisionOptionId", "memo.risks", "memo.followUps"] : ["summary.overview", "summary.points", "summary.limitations"]), "action.label", "action.available", "requestFeedback"], callsTools: [], destructive: false };
+};
 const hostStateNames = new Set(["BillingGate", "UnsupportedHostNotice", "NoDataState", "LoadingBridgeState", "OfflineState", "PermissionDeniedState", "ExpiredSessionState"]);
 for (const name of hostStateNames) specialized.add(name);
 const hostStateSecurity: CatalogItem["security"] = {
@@ -99,7 +113,7 @@ const hostStateSecurity: CatalogItem["security"] = {
   privateOnly: ["title", "message", "description", "reportedAt", "state", "action.label", "action.available", "featureLabel", "currentPlan", "requiredPlan", "hostLabel", "requirements", "collectionLabel", "reason", "querySummary", "bridgeLabel", "phase", "elapsedMs", "progress", "serviceLabel", "unsentChanges", "resourceLabel", "requesterLabel", "scopes", "expiredAt", "requestFeedback"],
   callsTools: [], destructive: false,
 };
-export const catalog:CatalogItem[]=Object.entries(names).flatMap(([category,items])=>items.map(name=>({name,slug:slug(name),category:category as CatalogCategory,description:componentDescriptions[name]??`${descriptions[category as CatalogCategory]}: ${name}.`,specialized:specialized.has(name),dependencies:["@mcpcn/core","@mcpcn/schemas","react"],registryDependencies:category==="primitive"?[]:["button","card","badge"],security:(hostStateNames.has(name)?hostStateSecurity:undefined)??optionRankingSecurity[name]??conflictValidationSecurity[name]??recordInspectionSecurity[name]??sourceEvidenceSecurity[name]??fileReviewSecurity[name]??formWorkflowSecurity[name]??toolWorkflowSecurity[name]??{modelVisible:category==="host-state"?[]:["decision","userInput"],privateOnly:["internalId","rawPII"],callsTools:category==="approval"||category==="tool-execution"?["configuredTool"]:[],destructive:category==="approval"}})));
+export const catalog:CatalogItem[]=Object.entries(names).flatMap(([category,items])=>items.map(name=>({name,slug:slug(name),category:category as CatalogCategory,description:componentDescriptions[name]??`${descriptions[category as CatalogCategory]}: ${name}.`,specialized:specialized.has(name),dependencies:["@mcpcn/core","@mcpcn/schemas","react"],registryDependencies:category==="primitive"?[]:["button","card","badge"],security:narrativeSecurity(name)??(hostStateNames.has(name)?hostStateSecurity:undefined)??optionRankingSecurity[name]??conflictValidationSecurity[name]??recordInspectionSecurity[name]??sourceEvidenceSecurity[name]??fileReviewSecurity[name]??formWorkflowSecurity[name]??toolWorkflowSecurity[name]??{modelVisible:category==="host-state"?[]:["decision","userInput"],privateOnly:["internalId","rawPII"],callsTools:category==="approval"||category==="tool-execution"?["configuredTool"]:[],destructive:category==="approval"}})));
 
 export const blockCatalog = [
   ["review-before-action","Review a planned external-state change before executing it.",["approval-card","diff-viewer","audit-trail"]],

@@ -2,6 +2,34 @@
 
 Last updated: 2026-11-09
 
+## Decision narratives — 10 November 2026
+
+Standing owner “approve everything / Keep going / Do all the work” authority
+covers the [new decision/rationale contract](docs/specs/decision-narratives.md):
+RecommendationCard,TradeoffPanel,DecisionMemo,ReasoningSummary, real typed data,
+complete supplied values/evidence and identity-only review requests. Target52
+specialized/four generic,34owners,38/39payloads,80package/117copy files while
+preserving79identities/11blocks. The other four privacy/consent aliases remain
+separate; no auth/provider/model-context operation belongs to this cohort.
+
+Source uses the repository's existing colocated T1/T2 checks and authored fixtures.
+Current aggregate assertions change only for new catalogue/source shape; old
+controllers/results remain immutable. The finite CLI bound becomes39 to accept
+the actual39-file block; path/ownership/duplicate/32MiBtransaction checks remain
+exact. No new dependency, migration, credential, paid plan, account or npm publish.
+StorageGuard11.3GiB/34required prohibits local heavy app work. Freeze the new
+focused packet and one bounded manual public CI source before execution; original
+broad workflows stay unchanged and main publication uses[skip ci]. Generated
+adoption, archives, release and deployment await exact new acceptance.
+
+The [frozen scope](docs/proposals/decision-narrative-checks.md) owns107unit cases
+(93component/6installation/8fixture),8browser profiles/136DOM/8native keyboard
+readings/16PNGs, two strict installed consumers and all required builds. Separate
+prospective7500source files/1GiB fit measured6193files/773367484B; seed534files/
+97515761B remains below96MiB. Keep40MiBgzip/160MiBexpanded/64MiBpacket and the
+existing32MiBstatic index limit. Preserve normalized process/stream/root guards
+and actual failure originals. No old completed cohort is replayed.
+
 ## Reported host states — 10 November 2026
 
 Standing "approve everything / Keep going / Do all the work" authorization

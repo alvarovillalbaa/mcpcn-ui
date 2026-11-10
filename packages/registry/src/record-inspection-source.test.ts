@@ -21,8 +21,8 @@ describe("record inspection source installation", () => {
     expect(items.map(item => item.name)).toEqual([...catalog.map(item => item.slug), ...blockCatalog.map(item => item.name)]);
     expect(new Set(items.map(item => item.name)).size).toBe(79);
     expect(registry.items).toBe(items);
-    expect(items.filter(item => item.meta.implementation === "specialized")).toHaveLength(48);
-    expect(items.filter(item => item.meta.implementation === "generic-alias")).toHaveLength(8);
+    expect(items.filter(item => item.meta.implementation === "specialized")).toHaveLength(52);
+    expect(items.filter(item => item.meta.implementation === "generic-alias")).toHaveLength(4);
   });
   it("RI-R02 exports actual strict four-state JSON schemas rather than informational aliases", () => {
     for (const [slug] of cohort) {
@@ -36,7 +36,7 @@ describe("record inspection source installation", () => {
   });
   it("RI-R03 appends both exact owner bodies after all24 existing copied modules", async () => {
     const { items } = await build();
-    expect(sourceModulePaths).toHaveLength(32);
+    expect(sourceModulePaths).toHaveLength(34);
     expect(sourceModulePaths.slice(22, 26)).toEqual(["_mcpcn/source-evidence-schemas.ts", "_mcpcn/source-evidence-components.tsx", "_mcpcn/record-inspection-schemas.ts", "_mcpcn/record-inspection-components.tsx"]);
     for (const item of items) for (const [path, target] of modules) {
       expect(item.files.find(file => file.path === `components/mcpcn/_mcpcn/${target}`)?.content).toBe(adapt(await readSource(path)));
@@ -69,7 +69,7 @@ describe("record inspection source installation", () => {
         }
       }
     }
-    expect(union.size).toBe(115);
+    expect(union.size).toBe(117);
   });
   it("RI-R06 keeps supplied values confidence evidence labels and local selection private", () => {
     for (const [slug] of cohort) {
