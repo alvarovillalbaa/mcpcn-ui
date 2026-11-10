@@ -12,6 +12,8 @@ import { SourceListSchema, EvidenceDrawerSchema } from "./source-evidence-schema
 import { RecordInspectorSchema, FieldConfidenceListSchema } from "./record-inspection-schemas.js";
 import { ConflictResolverSchema, ValidationSummarySchema } from "./conflict-validation-schemas.js";
 import { OptionSelectorSchema, RankingListSchema } from "./option-ranking-schemas.js";
+import { BillingGateSchema, UnsupportedHostNoticeSchema, NoDataStateSchema, LoadingBridgeStateSchema, OfflineStateSchema, PermissionDeniedStateSchema, ExpiredSessionStateSchema } from "./host-state-schemas.js";
+export * from "./host-state-schemas.js";
 export { RiskLevelSchema, ChangeSchema, SchemaFieldSchema } from "./schema-common.js";
 export * from "./review-schemas.js";
 export * from "./decision-schemas.js";
@@ -107,11 +109,7 @@ export const RecommendationCardSchema=GenericComponentSchema,
   DecisionMemoSchema=GenericComponentSchema,
   ReasoningSummarySchema=GenericComponentSchema, DataAccessNoticeSchema=GenericComponentSchema,
   PrivacyBoundaryCardSchema=GenericComponentSchema, ConsentPanelSchema=GenericComponentSchema,
-  ModelContextPreviewSchema=GenericComponentSchema,
-  BillingGateSchema=GenericComponentSchema, UnsupportedHostNoticeSchema=GenericComponentSchema,
-  NoDataStateSchema=GenericComponentSchema, LoadingBridgeStateSchema=GenericComponentSchema,
-  OfflineStateSchema=GenericComponentSchema, PermissionDeniedStateSchema=GenericComponentSchema,
-  ExpiredSessionStateSchema=GenericComponentSchema;
+  ModelContextPreviewSchema=GenericComponentSchema;
 
 export const MCPCNPayloadSchema = z.object({
   kind: z.string().startsWith("mcpcn/"), version: z.literal(1), data: z.unknown(), stateVersion: z.number().int().optional()
@@ -172,5 +170,12 @@ export const schemaBySlug = {
   "conflict-resolver": ConflictResolverSchema,
   "validation-summary": ValidationSummarySchema,
   "option-selector": OptionSelectorSchema,
-  "ranking-list": RankingListSchema
+  "ranking-list": RankingListSchema,
+  "billing-gate": BillingGateSchema,
+  "unsupported-host-notice": UnsupportedHostNoticeSchema,
+  "no-data-state": NoDataStateSchema,
+  "loading-bridge-state": LoadingBridgeStateSchema,
+  "offline-state": OfflineStateSchema,
+  "permission-denied-state": PermissionDeniedStateSchema,
+  "expired-session-state": ExpiredSessionStateSchema
 } as const;

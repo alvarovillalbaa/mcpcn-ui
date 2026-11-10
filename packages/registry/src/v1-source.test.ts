@@ -43,7 +43,7 @@ const adapt = (text: string) => text.replace(/(["'])(@mcpcn\/(?:core|schemas|rea
 describe("v1 component schema and copied-source integration", () => {
   it("binds all named schemas to real component functions instead of the generic alias", async () => {
     const implementations = (await Promise.all(["index", "review-components", "decision-components", "execution-components", "approval-components", "tool-workflow-components", "form-workflow-components"].map(name => readSource(`packages/react/src/${name}.tsx`)))).join("\n");
-    expect(Object.keys(schemaBySlug)).toHaveLength(41);
+    expect(Object.keys(schemaBySlug)).toHaveLength(48);
     expect(Object.keys(schemaBySlug)).toEqual(expect.arrayContaining(requiredComponents.map(([slug]) => slug)));
     for (const [slug, name] of requiredComponents) {
       expect(schemaBySlug[slug]).not.toBe(GenericComponentSchema);
@@ -68,7 +68,7 @@ describe("v1 component schema and copied-source integration", () => {
   it("keeps generic contracts honest and omits schemas for twelve primitives and unknown names", () => {
     const generic = catalog.filter(item => item.category !== "primitive" && !item.specialized);
     const primitive = catalog.filter(item => item.category === "primitive");
-    expect(generic).toHaveLength(15); expect(primitive).toHaveLength(12);
+    expect(generic).toHaveLength(8); expect(primitive).toHaveLength(12);
     for (const item of generic) expect(componentDataSchema(item.slug)).toEqual(toJSONSchema(GenericComponentSchema));
     for (const item of primitive) expect(componentDataSchema(item.slug)).toBeUndefined();
     for (const name of ["missing-component", "ApprovalCard", "APPROVAL-CARD", "review-before-action"]) expect(componentDataSchema(name)).toBeUndefined();
@@ -84,8 +84,8 @@ describe("v1 component schema and copied-source integration", () => {
   it("places canonical data schemas in identical index and item metadata with the exact category counts", async () => {
     const { registry, items } = await build();
     expect(items).toHaveLength(79); expect(registry.items).toBe(items);
-    expect(items.filter(item => item.meta.implementation === "specialized")).toHaveLength(41);
-    expect(items.filter(item => item.meta.implementation === "generic-alias")).toHaveLength(15);
+    expect(items.filter(item => item.meta.implementation === "specialized")).toHaveLength(48);
+    expect(items.filter(item => item.meta.implementation === "generic-alias")).toHaveLength(8);
     expect(items.filter(item => item.meta.implementation === "primitive")).toHaveLength(12);
     expect(items.filter(item => item.meta.implementation === "workflow-block")).toHaveLength(11);
     for (const item of items) {

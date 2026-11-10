@@ -83,13 +83,13 @@ async function withProject(body: (fixture: {
 
 describe("conflict and validation current source installation", () => {
   it("CV-CLI01 installs the current33-file block and reads its lock on an identical byte-stable add", async () => withProject(async ({ cwd, payload, invoke }) => {
-    expect(sourceModulePaths).toHaveLength(30);
-    expect(payload.files).toHaveLength(35);
+    expect(sourceModulePaths).toHaveLength(32);
+    expect(payload.files).toHaveLength(37);
     expect(await invoke(["add", BLOCK])).toEqual({ code: 0, errors: [] });
     const lock = JSON.parse(await readFile(join(cwd, "mcpcn.lock.json"), "utf8")) as FixtureLock;
     const item = lock.items[BLOCK]; if (!item) throw new Error("authored_installed_block_required");
-    expect(item.files).toHaveLength(35);
-    expect(new Set(item.files).size).toBe(35);
+    expect(item.files).toHaveLength(37);
+    expect(new Set(item.files).size).toBe(37);
     const identities = new Map<string, { dev: number; ino: number }>();
     for (const file of payload.files) {
       const bytes = await readFile(join(cwd, file.path));
@@ -111,7 +111,7 @@ describe("conflict and validation current source installation", () => {
   }));
 
   it("CV-CLI02 refuses a34-file payload before writing any source or manifest", async () => withProject(async ({ cwd, payload, requested, invoke }) => {
-    expect(payload.files).toHaveLength(35);
+    expect(payload.files).toHaveLength(37);
     const extra: RegistryFile = { path: PREFIX + "skeleton.tsx", type: "registry:component", content: "export const AuthoredExtra = true;\n" };
     const before = await snapshot(cwd);
     const result = await invoke(["add", BLOCK], item => ({ ...item, files: [...item.files, extra] }));
@@ -137,7 +137,7 @@ describe("conflict and validation current source installation", () => {
   }));
 
   it("CV-CLI04 refuses duplicate members in a33-file payload without writing", async () => withProject(async ({ cwd, payload, requested, invoke }) => {
-    expect(payload.files).toHaveLength(35);
+    expect(payload.files).toHaveLength(37);
     const before = await snapshot(cwd);
     const result = await invoke(["add", BLOCK], item => {
       const duplicate = item.files[0]; if (!duplicate) throw new Error("authored_entry_required");
@@ -149,7 +149,7 @@ describe("conflict and validation current source installation", () => {
   }));
 
   it("CV-CLI05 refuses an unknown member in a33-file payload without writing", async () => withProject(async ({ cwd, payload, requested, invoke }) => {
-    expect(payload.files).toHaveLength(35);
+    expect(payload.files).toHaveLength(37);
     const before = await snapshot(cwd);
     const unknown: RegistryFile = { path: PREFIX + "_mcpcn/unowned.ts", type: "registry:lib", content: "export const AuthoredUnowned = true;\n" };
     const result = await invoke(["add", BLOCK], item => ({ ...item, files: [...item.files.slice(0, -1), unknown] }));

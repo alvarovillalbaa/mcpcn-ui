@@ -6,9 +6,18 @@ Last updated: 2026-11-09
 
 The source includes components, controlled workflow blocks, MCP Apps runtime
 adapters, server helpers, a source registry, a CLI and a documentation app.
-The current source has 12 primitives, 41 specialized components and 15 named aliases
+The current source has 12 primitives, 48 specialized components and 8 named aliases
 of the generic informational component. Eleven workflow blocks now contain
 actual editing, selection, file-review, progress and approval compositions.
+
+Seven [reported host-state views](docs/specs/host-state-components.md) replace
+the billing/unsupported-host/empty/bridge/offline/denied/expired placeholders.
+They preserve supplied state, zero/absent counts and explicit current action
+identities without making live status or authorization claims. Their new
+[focused checks](docs/proposals/host-state-checks.md) passed all96new/regression
+cases and all required builds on the fourth source. A fresh consumer exposed a
+packaging-harness error; browser/consumer acceptance, generated adoption and
+hosted delivery remain pending its correction.
 
 OptionSelector and RankingList now have authored typed source for supplied
 options, reported order/ranks/scores and complete private values/evidence.

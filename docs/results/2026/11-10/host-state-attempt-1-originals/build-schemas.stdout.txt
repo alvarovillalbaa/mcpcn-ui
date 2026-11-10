@@ -1,0 +1,12 @@
+
+> @mcpcn/schemas@0.1.0 build /home/runner/work/_temp/mcpcn-host-state-Wy6wcE/source/packages/schemas
+> tsc -p tsconfig.json
+
+src/host-state-schemas.ts(45,21): error TS2345: Argument of type 'T' is not assignable to parameter of type '$ZodType<any, input<T>, $ZodTypeInternals<any, input<T>>>'.
+  Type 'ZodType<unknown, unknown, $ZodTypeInternals<unknown, unknown>>' is not assignable to type '$ZodType<any, input<T>, $ZodTypeInternals<any, input<T>>>'.
+    Types of property '_zod' are incompatible.
+      Type '$ZodTypeInternals<unknown, unknown>' is not assignable to type '$ZodTypeInternals<any, input<T>>'.
+        Type 'unknown' is not assignable to type 'input<T>'.
+/home/runner/work/_temp/mcpcn-host-state-Wy6wcE/source/packages/schemas:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @mcpcn/schemas@0.1.0 build: `tsc -p tsconfig.json`
+Exit status 2
