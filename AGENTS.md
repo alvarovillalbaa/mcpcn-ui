@@ -1,6 +1,57 @@
 # MCPCN source ownership
 
-Last updated: 2026-11-09
+Last updated: 2026-11-10
+
+## Decision narratives — 10 November 2026
+
+Standing owner “approve everything / Keep going / Do all the work” authority
+covers the [new decision/rationale contract](docs/specs/decision-narratives.md):
+RecommendationCard,TradeoffPanel,DecisionMemo,ReasoningSummary, real typed data,
+complete supplied values/evidence and identity-only review requests. Target52
+specialized/four generic,34owners,38/39payloads,80package/117copy files while
+preserving79identities/11blocks. The other four privacy/consent aliases remain
+separate; no auth/provider/model-context operation belongs to this cohort.
+
+Source uses the repository's existing colocated T1/T2 checks and authored fixtures.
+Current aggregate assertions change only for new catalogue/source shape; old
+controllers/results remain immutable. The finite CLI bound becomes39 to accept
+the actual39-file block; path/ownership/duplicate/32MiBtransaction checks remain
+exact. No new dependency, migration, credential, paid plan, account or npm publish.
+StorageGuard11.3GiB/34required prohibits local heavy app work. Freeze the new
+focused packet and one bounded manual public CI source before execution; original
+broad workflows stay unchanged and main publication uses[skip ci]. Generated
+adoption, archives, release and deployment await exact new acceptance.
+
+The [frozen scope](docs/proposals/decision-narrative-checks.md) owns107unit cases
+(93component/6installation/8fixture),8browser profiles/136DOM/8native keyboard
+readings/16PNGs, two strict installed consumers and all required builds. Separate
+prospective7500source files/1GiB fit measured6193files/773367484B; seed534files/
+97515761B remains below96MiB. Keep40MiBgzip/160MiBexpanded/64MiBpacket and the
+existing32MiBstatic index limit. Preserve normalized process/stream/root guards
+and actual failure originals. No old completed cohort is replayed.
+
+The first invocation passed107units/builds/generation, then the package consumer
+exposed an incorrectly duplicated expected module pair in its new harness.
+Restore host-state owners at positions30/31, keep new decision-narrative owners
+at32/33 and retain exact34-entry deep equality. Product code/cases/limits remain
+unchanged. Preserve source02ba5631 and its72actual failed originals; no consumer/
+browser acceptance or public delivery is claimed yet.
+
+The second invocation passed107units/builds/generation and both strict installed
+consumers, then failed native-End final-marker visibility in the first browser
+case. Its observer retained no failed scroll metrics. Preserve81originals and
+C2source9ef79c4d; a bounded observation now retains actual readings before the
+same focused/scrolled/marker-visible assertion, with at most100bounded20ms polls after
+one native End press. No scripted scrolling, relaxed visibility or app/CSS change.
+
+The third packet passed at2877396681b8f71a9ba8dc7a782ac4981b6ac70c:107units,
+eightbrowser journeys/136DOM/eightnativeEndreadings/16PNGs, both strict consumers,
+allbuilds/generation and observedgroups/scratchclosure. Its
+[canonical acceptance](docs/results/2026/11-10/decision-narrative-checks.md) retains
+232originals. Data-only PNG signature correction preserved the original failed
+adapter and reran no app. Adopted159of167verifiedgenerated paths, preserving
+other source/index bytes. Keep this packet closed after public delivery; the
+fourprivacy/consent aliases and shared docs typography remain separate work.
 
 ## Reported host states — 10 November 2026
 

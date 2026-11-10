@@ -1,14 +1,26 @@
 # MCPCN
 
-Last updated: 2026-11-09
+Last updated: 2026-11-10
 
 **MCP Component Network** is a React UI library for human-controlled agent workflows inside MCP Apps.
 
 The source includes components, controlled workflow blocks, MCP Apps runtime
 adapters, server helpers, a source registry, a CLI and a documentation app.
-The current source has 12 primitives, 48 specialized components and 8 named aliases
+The current source has 12 primitives, 52 specialized components and 4 named aliases
 of the generic informational component. Eleven workflow blocks now contain
 actual editing, selection, file-review, progress and approval compositions.
+
+RecommendationCard,TradeoffPanel,DecisionMemo and ReasoningSummary now have
+[dedicated authored contracts](docs/specs/decision-narratives.md) and views for
+complete supplied option values, evidence, tradeoffs, reported decisions and
+user-facing rationale. They replace four generic aliases without computing
+recommendations, publishing decisions or exposing an internal model trace.
+Their [third focused invocation](docs/results/2026/11-10/decision-narrative-checks.md)
+passed107unit cases,eight browser journeys and both strict installed consumers,
+retaining136DOM/eight native keyboard readings/16PNGs. All167generated paths,
+79index/item pairs and34owners were verified;159changes adopted. Both earlier
+failures remain separate. Public delivery is pending; shared documentation
+typography and the four privacy/consent components remain unfinished.
 
 Seven [reported host-state views](docs/specs/host-state-components.md) replace
 the billing/unsupported-host/empty/bridge/offline/denied/expired placeholders.

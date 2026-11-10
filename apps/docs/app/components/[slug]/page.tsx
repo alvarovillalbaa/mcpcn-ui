@@ -23,12 +23,16 @@ import { OptionSelectorDemo, RankingListDemo } from "../../../components/option-
 import { optionRankingExampleCode } from "../../../components/option-ranking-examples";
 import { HostStateDemo } from "../../../components/host-state-demos";
 import { hostStateExamples, hostStateExampleCode, type HostStateSlug } from "../../../components/host-state-examples";
+import { DecisionNarrativeDemo } from "../../../components/decision-narrative-demos";
+import { decisionNarrativeExamples, decisionNarrativeExampleCode, type DecisionNarrativeSlug } from "../../../components/decision-narrative-examples";
 import { ComponentPreview } from "../../../components/component-preview";
 
 export function generateStaticParams() { return catalog.map(item => ({ slug: item.slug })); }
 
 const demos: Record<string, ReactNode> = {
   "billing-gate": <HostStateDemo kind="billing-gate" />, "unsupported-host-notice": <HostStateDemo kind="unsupported-host-notice" />,
+  "recommendation-card": <DecisionNarrativeDemo kind="recommendation-card" />, "tradeoff-panel": <DecisionNarrativeDemo kind="tradeoff-panel" />,
+  "decision-memo": <DecisionNarrativeDemo kind="decision-memo" />, "reasoning-summary": <DecisionNarrativeDemo kind="reasoning-summary" />,
   "no-data-state": <HostStateDemo kind="no-data-state" />, "loading-bridge-state": <HostStateDemo kind="loading-bridge-state" />,
   "offline-state": <HostStateDemo kind="offline-state" />, "permission-denied-state": <HostStateDemo kind="permission-denied-state" />,
   "expired-session-state": <HostStateDemo kind="expired-session-state" />,
@@ -132,7 +136,8 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
   const conflictValidationCode = conflictValidationExampleCode(slug);
   const optionRankingCode = optionRankingExampleCode(slug);
   const hostStateCode = Object.hasOwn(hostStateExamples, slug) ? hostStateExampleCode(slug as HostStateSlug) : undefined;
-  const renderCode = hostStateCode ?? optionRankingCode ?? conflictValidationCode ?? recordInspectionCode ?? sourceEvidenceCode ?? fileReviewCode ?? formWorkflowCode ?? toolWorkflowCode ?? approvalExampleCode(slug) ?? 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
+  const narrativeCode = Object.hasOwn(decisionNarrativeExamples, slug) ? decisionNarrativeExampleCode(slug as DecisionNarrativeSlug) : undefined;
+  const renderCode = narrativeCode ?? hostStateCode ?? optionRankingCode ?? conflictValidationCode ?? recordInspectionCode ?? sourceEvidenceCode ?? fileReviewCode ?? formWorkflowCode ?? toolWorkflowCode ?? approvalExampleCode(slug) ?? 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
   const serverCode = 'import { ' + item.name + 'Schema } from "@mcpcn/schemas";\nimport { createStructuredResult } from "@mcpcn/server";\n\nexport function reviewedResult(candidate: unknown) {\n  const data = ' + item.name + 'Schema.parse(candidate);\n  return createStructuredResult("' + item.slug + '", data);\n}';
   return <main>
     <span className="eyebrow">{item.category}</span><h1>{item.name}</h1><p className="lede">{item.description}</p>

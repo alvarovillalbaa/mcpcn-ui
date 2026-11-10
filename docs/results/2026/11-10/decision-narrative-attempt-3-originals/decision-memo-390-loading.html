@@ -1,0 +1,11 @@
+<section aria-label="DecisionMemo demonstration" class="mcpcn-stack"><p>Read the supplied report and request review. Requests only update this authored demonstration.</p><label>Report state <select aria-label="Decision report state"><option value="ready" selected="">Ready</option><option value="loading">Loading</option><option value="empty">Empty</option><option value="error">Error</option></select></label><label>Request response <select aria-label="Decision request response"><option value="immediate" selected="">Immediate</option><option value="hold">Hold until settled</option><option value="throw">Throw current request</option></select></label><div class="mcpcn-row"><label><input type="checkbox" checked="" style="">Callback enabled</label><label><input type="checkbox" style="">External busy</label><label><input type="checkbox" checked="" style="">Mount component</label><label><input type="checkbox" style="">Malformed data</label><label><input type="checkbox" checked="" style="" disabled="">Action available</label></div><div class="mcpcn-row"><button type="button">Replace report revision</button><button type="button">Replace callback</button><button type="button">Remove supplied confidence</button><button type="button">Remove supplied action</button><button type="button" disabled="">Resolve oldest request</button><button type="button" disabled="">Reject oldest request</button></div><section class="mcpcn mcpcn-card mcpcn-dn" role="region" aria-label="Authored decision memo" aria-busy="false"><div class="mcpcn-header"><div class="mcpcn-row mcpcn-between"><h3 class="mcpcn-title">Authored decision memo</h3><span class="mcpcn mcpcn-badge">loading</span></div></div><div class="mcpcn-body mcpcn-stack"><p role="status">Authored loading report state.</p></div></section><div class="mcpcn-row"><output aria-label="Decision intent count">6</output><output aria-label="Settled decision requests">4</output><output aria-label="Pending decision requests">0</output></div><pre class="mcpcn-code" aria-label="Last decision intent">{
+  "type": "request-decision-review",
+  "data": {
+    "componentId": "memo-1",
+    "componentRevision": "1",
+    "reportId": "memo-report",
+    "reportRevision": "1",
+    "actionId": "review",
+    "actionRevision": "1"
+  }
+}</pre></section>
