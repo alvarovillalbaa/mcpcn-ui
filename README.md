@@ -14,12 +14,16 @@ The separate [server integration repair](docs/specs/server-contract.md) adds
 validated result envelopes, real SDK context/cancellation, complete resource CSP,
 an explicit private metadata example and schema-required simulator snippets.
 The [guide source](apps/docs/app/docs/server/page.tsx) has
-[focused acceptance](docs/results/2026/11-10/server-contract-checks.md):78cases,
-fourbrowser profiles and two strict installed server consumers,with12actual
-SDK sessions per unit/combined-consumer boundary and eightpackage archives.
+[focused acceptance](docs/results/2026/11-10/server-contract-checks.md): 78 cases,
+four browser profiles and two strict installed server consumers. Twelve real
+SDK sessions run in the unit checks and six per consumer, with eight archives.
 Only the verified lock metadata and missing server MIT notice were adopted;
-all160registry files remain unchanged. Release and hosting receipts follow
-separately. The four earlier failures remain preserved.
+all160registry files remain unchanged. The
+[public delivery](docs/results/2026/11-10/server-contract-public-delivery.md)
+binds accepted668ee23c to READY,the canonical guide,12anonymous HTTPS checks and
+[eight unchanged archives](https://github.com/alvarovillalbaa/mcpcn-ui/releases/tag/v0.1.0-server.1).
+The temporary workflow and five owned refs are retired with all source parents
+preserved. The four earlier failures remain preserved.
 The [brief audit](docs/research/2026/11-10/brief-acceptance-audit.md) records the
 remaining real reference workflows,block server recipes,external-host,quality,
 public npm and adoption requirements. Existing five examples are reference UIs.

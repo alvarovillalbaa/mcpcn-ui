@@ -64,6 +64,15 @@ readbackdisabled_manually before definition removal. Keep all five source
 parents and failure originals. Actual release/hosting/cleanup remain separate
 receipts; broader brief gates stay open. Never replay closed component packets.
 
+The [server public delivery](docs/results/2026/11-10/server-contract-public-delivery.md)
+closes this cohort at accepted668ee23c:READY/canonicalalias,12anonymousHTTPS,
+eight unchanged archives/release439988948 and verified owned cleanup. The
+workflow was disabled before deletion; five exact QA refs retired with allsix
+parents preserved. Later metadata must preserve accepted application bytes.
+Next scope is real reference-server workflows and block recipes,not component
+replays. Re-measure prospective source guards; this new proof adds files beyond
+the7474-file checked source. External-host/fullquality/npm/adoption gates stay open.
+
 ## Privacy and context — 10 November 2026
 
 Standing owner “approve everything / Keep going / Do all the work” covers the
