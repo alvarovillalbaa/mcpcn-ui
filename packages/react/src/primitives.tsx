@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ButtonHTMLAttributes, type HTMLAttributes, type ReactNode } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState, type ButtonHTMLAttributes, type HTMLAttributes, type ReactNode } from "react";
 import type * as React from "react";
 import { cn } from "@mcpcn/core";
 
@@ -13,7 +13,68 @@ export function Select(props: React.SelectHTMLAttributes<HTMLSelectElement>) { r
 export function Alert({ title, children }: { title: string; children?: ReactNode }) { return <div className="mcpcn mcpcn-error" role="alert"><strong>{title}</strong>{children && <div>{children}</div>}</div>; }
 export function Skeleton({ className }: { className?: string }) { return <span className={cn("mcpcn", className)} aria-label="Loading" style={{ display: "block", height: 16, borderRadius: 8, background: "var(--mcpcn-line)" }} />; }
 export function EmptyState({ title = "Nothing here yet", description }: { title?: string; description?: string }) { return <Card><div className="mcpcn-body" style={{ textAlign: "center" }}><h3 className="mcpcn-title">{title}</h3>{description && <p className="mcpcn-description">{description}</p>}</div></Card>; }
-export function Tabs({ items, value, onValueChange }: { items: Array<{ value: string; label: string; content: ReactNode }>; value?: string; onValueChange?: (value: string) => void }) { const [local, setLocal] = useState(value ?? items[0]?.value); const active = value ?? local; return <div className="mcpcn"><div className="mcpcn-row" role="tablist">{items.map(i => <Button key={i.value} role="tab" aria-selected={active === i.value} data-variant={active === i.value ? undefined : "secondary"} onClick={() => { setLocal(i.value); onValueChange?.(i.value); }}>{i.label}</Button>)}</div><div role="tabpanel" style={{ marginTop: 12 }}>{items.find(i => i.value === active)?.content}</div></div>; }
-export function Dialog({ open, title, children, onClose }: { open: boolean; title: string; children: ReactNode; onClose: () => void }) { if (!open) return null; return <div className="mcpcn" role="dialog" aria-modal="true" aria-label={title} style={{ position: "fixed", inset: 0, zIndex: 50, display: "grid", placeItems: "center", background: "rgba(0,0,0,.45)", padding: 20 }}><Card style={{ maxWidth: 560, width: "100%" }}><div className="mcpcn-header mcpcn-row mcpcn-between"><h2 className="mcpcn-title">{title}</h2><Button data-variant="secondary" onClick={onClose} aria-label="Close">×</Button></div><div className="mcpcn-body">{children}</div></Card></div>; }
+export function Tabs({ items, value, onValueChange, label = "Sections" }: { items: Array<{ value: string; label: string; content: ReactNode }>; value?: string; onValueChange?: (value: string) => void; label?: string }) {
+  const id = useId();
+  const [local, setLocal] = useState(value ?? items[0]?.value);
+  const selected = items.findIndex(item => item.value === (value ?? local));
+  const active = selected < 0 ? 0 : selected;
+  useEffect(() => {
+    if (value === undefined && selected < 0) setLocal(items[0]?.value);
+  }, [items, selected, value]);
+  const select = (next: string) => { setLocal(next); onValueChange?.(next); };
+  return <div className="mcpcn">
+    <div className="mcpcn-row" role="tablist" aria-label={label} aria-orientation="horizontal">
+      {items.map((item, index) => <Button key={item.value}
+        type="button" role="tab" id={`${id}-tab-${index}`} aria-controls={`${id}-panel-${index}`}
+        aria-selected={active === index} tabIndex={active === index ? 0 : -1}
+        data-variant={active === index ? undefined : "secondary"}
+        onClick={() => select(item.value)} onKeyDown={event => {
+          let next: number;
+          switch (event.key) {
+            case "ArrowLeft": next = (index - 1 + items.length) % items.length; break;
+            case "ArrowRight": next = (index + 1) % items.length; break;
+            case "Home": next = 0; break;
+            case "End": next = items.length - 1; break;
+            default: return;
+          }
+          event.preventDefault();
+          event.currentTarget.parentElement?.querySelectorAll<HTMLButtonElement>('[role="tab"]')[next]?.focus();
+          select(items[next]!.value);
+        }}>{item.label}</Button>)}
+    </div>
+    {items.map((item, index) => <div key={item.value} role="tabpanel" id={`${id}-panel-${index}`}
+      aria-labelledby={`${id}-tab-${index}`} hidden={active !== index} tabIndex={0} style={{ marginTop: 12 }}>
+      {active === index ? item.content : null}
+    </div>)}
+  </div>;
+}
+
+type DialogProps = { open: boolean; title: string; children: ReactNode; onClose: () => void };
+export function Dialog(props: DialogProps) {
+  return props.open ? <OpenDialog {...props} /> : null;
+}
+
+function OpenDialog({ title, children, onClose }: DialogProps) {
+  const id = useId();
+  const dialog = useRef<HTMLDialogElement>(null);
+  const heading = useRef<HTMLHeadingElement>(null);
+  // Close before unmount removes the dialog, so native focus restoration still applies.
+  useLayoutEffect(() => {
+    const element = dialog.current!;
+    element.showModal();
+    heading.current?.focus();
+    return () => { element.close(); };
+  }, []);
+  return <dialog ref={dialog} className="mcpcn mcpcn-dialog" aria-labelledby={id} aria-modal="true"
+    onCancel={event => { event.preventDefault(); onClose(); }}>
+    <Card>
+      <div className="mcpcn-header mcpcn-row mcpcn-between">
+        <h2 ref={heading} id={id} className="mcpcn-title" tabIndex={-1}>{title}</h2>
+        <Button type="button" data-variant="secondary" onClick={onClose} aria-label="Close">×</Button>
+      </div>
+      <div className="mcpcn-body">{children}</div>
+    </Card>
+  </dialog>;
+}
 export function Tooltip({ label, children }: { label: string; children: ReactNode }) { return <span className="mcpcn" title={label} aria-label={label}>{children}</span>; }
 export function InvalidPayload({ title, issues, value }: { title?: string; issues?: string[]; value?: unknown }) { return <div className="mcpcn mcpcn-error" role="alert"><strong>{title ?? "This tool result could not be rendered"}</strong><p className="mcpcn-description">Check the component schema and structuredContent payload.</p>{issues?.length ? <ul>{issues.map((i, n) => <li key={n}>{i}</li>)}</ul> : null}{value !== undefined && <details><summary>Developer details</summary><pre className="mcpcn-code">{JSON.stringify(value, null, 2)}</pre></details>}</div>; }

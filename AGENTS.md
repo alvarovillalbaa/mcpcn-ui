@@ -2,6 +2,25 @@
 
 Last updated: 2026-11-10
 
+## Tabs and Dialog keyboard repair — active
+
+Following clean d2ebd103, implement the [bounded primitive contract](docs/specs/primitive-keyboard-dialog.md)
+and [frozen focused checks](docs/proposals/primitive-keyboard-checks.md). Standing
+owner approval covers the free source/check/temporaryCI/publication scope. Keep
+all previous cohorts closed. Only Tabs/Dialog and four scoped style rules change:
+roving linked tabs/native keyboard, native modal focus/inertness/cancel/restore,
+preserved controlled props and closed-child unmounting. No dependency/Auth change.
+Four actual fresh package/copy iframe profiles/32DOM/eightPNG, strict Bundler
+skipLibCheck:false, actual CLI provenance and two Vite builds are required.
+All159registry JSON outputs may change only the embedded primitives/style
+contents; preserve every other field/file/config/preview. Adopt no output before
+whole acceptance and independent original-byte verification. Source9700files/
+1152MiB/file40MiB/export128MiB/derived192raw+48compressed/packet80/archive4MiB
+are prospectively frozen for retained evidence. StorageGuard10.9/34GiB blocks
+local heavy runtime; source/data/static only,one public20minute job. No current
+browser/compile/CI acceptance is established. Native HEAD stays d2ebd103 until
+verified adoption and accepted ancestry publication. No subagents.
+
 ## Complete block server recipes — 10 November 2026
 
 The [complete focused acceptance](docs/results/2026/11-10/block-recipe-checks.md)
