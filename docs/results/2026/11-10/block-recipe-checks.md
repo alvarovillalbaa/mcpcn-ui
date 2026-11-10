@@ -59,4 +59,5 @@ This proves authored local Linux/Node24.22.2/Chromium1280/390 execution,not exte
 host certification,public npm,production identity/providers,native devices or full
 accessibility/quality/adoption. Complete copied-source NodeNext remains a declared
 open quality gate. Exact release publication,production READY/canonical alias,
-anonymous HTTP,owned-ref retirement and duplicate cleanup are subsequent receipts.
+anonymous HTTP,owned-ref retirement and duplicate cleanup are recorded in the
+subsequent [public delivery](block-recipes-public-delivery.md).

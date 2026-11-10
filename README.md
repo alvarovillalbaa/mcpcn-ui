@@ -47,8 +47,11 @@ Its [focused acceptance](docs/results/2026/11-10/block-recipe-checks.md) passed:
 62cases,46browserprofiles/115DOM/24PNG,two nativeEnd readings,44fresh installed
 SDK/SQL workflows,strict package/copy/source consumers and the real production
 build. Exactly35verified registry/preview paths were adopted;68component
-payloads and the five reference apps are preserved. Publication/hosting follow
-as separate receipts; public npm,external hosts and full quality remain open.
+payloads and the five reference apps are preserved. The
+[public delivery](docs/results/2026/11-10/block-recipes-public-delivery.md) binds
+acceptedc265eeb3 to READY/canonicalalias,26anonymousHTTPS checks and the
+[nine exact checked archives](https://github.com/alvarovillalbaa/mcpcn-ui/releases/tag/v0.1.0-block-recipes.1).
+Public npm,external hosts and full quality remain open.
 
 DataAccessNotice, PrivacyBoundaryCard, ConsentPanel and ModelContextPreview have
 [typed privacy/context contracts](docs/specs/privacy-context-components.md),

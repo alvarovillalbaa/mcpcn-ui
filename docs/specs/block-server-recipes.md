@@ -3,8 +3,10 @@
 Last updated: 2026-11-10
 
 The [focused acceptance](../results/2026/11-10/block-recipe-checks.md) passed at
-a0d3f97f. Exact checked archives and public hosting remain separate delivery
-receipts; the full brief's external-host/npm/quality gates are not closed here.
+a0d3f97f. The [public delivery](../results/2026/11-10/block-recipes-public-delivery.md)
+now records nine exact checked archives,READY canonical hosting and26anonymous
+HTTPS checks at acceptedc265eeb3. The full brief's external-host/npm/quality
+gates are not closed here.
 
 The [owning brief](https://app.notion.com/p/3b6a1ee8bd0680539d4ecb4b8a8ab4c7)
 explicitly requires every block to include server code. At baselinee151f8ac,
