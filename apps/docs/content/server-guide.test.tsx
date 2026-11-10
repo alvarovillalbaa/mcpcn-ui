@@ -28,10 +28,11 @@ describe("T2 server integration documentation", () => {
     const html = renderToStaticMarkup(<ServerGuide />);
     for (const text of ["4 MiB", "2 MiB", "SDK 1.30.0", "ext-apps 1.7.5", "Cancellation cannot roll back", "SDK-owned input diagnostics remain SDK-owned"]) expect(html).toContain(text);
   });
-  it("SV-D05 accurately labels five existing UIs and links their actual source", () => {
+  it("SV-D05 labels five real local reference workflows and their provider boundaries", () => {
     const html = renderToStaticMarkup(<Examples />);
     for (const slug of ["hr-candidate-review", "document-extraction", "ecommerce-checkout-review", "admin-settings-change", "research-workflow"]) expect(html).toContain(`/examples/${slug}`);
-    expect(html).toContain("Connect your own authorized server and audit service"); expect(html).toContain("do not persist or execute external actions");
+    expect(html).toContain("private local SQLite workspace"); expect(html).toContain("Run the reference workbench");
+    expect(html).toContain("No payment,candidate messaging,SSO,OCR or AI provider is connected"); expect(html).toContain("external-host compatibility require separate integration and acceptance");
     expect(html).not.toContain("Five end-to-end reference integrations"); expect(html).not.toContain("Includes structured fixtures, component composition, runtime actions, server registration, and audit state");
   });
   it("SV-D06 exposes the real guide from getting-started and provides all section anchors", () => {
