@@ -1,14 +1,16 @@
 import Link from "next/link";
 import { blockCatalog, catalog } from "@mcpcn/registry/catalog";
-import { buildInstallationPlan, defaultConfig } from "@mcpcn/registry/installation";
+import { buildInstallationPlan } from "@mcpcn/registry/installation";
+import { archiveDefaultConfig } from "../../lib/release-installation";
+import { ArchiveSetup } from "../../components/archive-setup";
 
 export const metadata = { title: "Documentation" };
 const sections = [["contract", "The contract"], ["install", "Install"], ["provider", "Mount your provider"], ["first-component", "Your first component"], ["host-compatibility", "Host compatibility"], ["security-boundaries", "Security boundaries"], ["registry", "Registry"], ["server-helpers", "Server helpers"]] as const;
 
 export default function Docs() {
-  const copy = buildInstallationPlan(defaultConfig, ["review-before-action"], catalog, blockCatalog);
-  const component = buildInstallationPlan(defaultConfig, ["approval-card"], catalog, blockCatalog);
-  const packaged = buildInstallationPlan({ ...defaultConfig, mode: "package" }, ["approval-card"], catalog, blockCatalog);
+  const copy = buildInstallationPlan(archiveDefaultConfig, ["review-before-action"], catalog, blockCatalog);
+  const component = buildInstallationPlan(archiveDefaultConfig, ["approval-card"], catalog, blockCatalog);
+  const packaged = buildInstallationPlan({ ...archiveDefaultConfig, mode: "package" }, ["approval-card"], catalog, blockCatalog);
   const example = component.imports.join("\n") + `
 
 export function ReviewAction({ onApprove }: { onApprove: () => void }) {
@@ -31,14 +33,14 @@ export function ReviewAction({ onApprove }: { onApprove: () => void }) {
       <h2 id="contract">The contract</h2>
       <pre className="code">{"Tool structuredContent\n  → validate the payload and component schema\n  → render a typed component or a safe error\n  → user reviews and acts\n  → your application calls a permitted tool\n  → render the updated result"}</pre>
       <h2 id="install">Install into an existing React app</h2>
-      <p role="status"><strong>Package release pending.</strong> The npm packages and executable are not published yet. The commands below describe the prepared source interface for a forthcoming release.</p>
+      <p>Install the matching GitHub release archives, then use the local executable. The registry URL below is pinned to that release's source.</p>
       <p>The installer prepares TypeScript files and configuration. It does not create a framework app, install dependencies automatically or establish a host connection.</p>
       <h3>Own the source</h3>
-      <p>Copy components, schemas, runtime and shared styles into your app. Workflow blocks include their component dependencies. Review the files and install the reported consumer dependencies yourself.</p>
-      <pre className="code">{[copy.initCommand, copy.addCommand, copy.dependencyCommand].join("\n")}</pre>
+      <p>Copy components, schemas, runtime and shared styles into your app. Workflow blocks include their component dependencies. The release setup below also installs the required SDK/schema dependencies.</p>
+      <section aria-label="Source installation"><ArchiveSetup plan={copy} /></section>
       <h3>Use package imports</h3>
-      <p>Keep component imports in the MCPCN packages and generate your local provider. The component selection determines the import instructions; the dependency command installs the shared packages.</p>
-      <pre className="code">{[packaged.initCommand, packaged.addCommand, packaged.dependencyCommand].join("\n")}</pre>
+      <p>Keep component imports in the MCPCN packages and generate your local provider. The first command installs all matching release packages; your selection determines the local wrappers and import instructions.</p>
+      <section aria-label="Package installation"><ArchiveSetup plan={packaged} /></section>
       <p><Link href="/create">Configure a different manager, theme, host or selection.</Link> Both modes require an existing React application. JavaScript output is not supported by this source installer.</p>
       <h2 id="provider">Mount your provider</h2>
       <p>The generated <code>{copy.config.componentsDir}/provider.tsx</code> applies your chosen theme and creates the selected adapter on the client. Mount <code>MCPCNProvider</code> around your MCP App UI. Import paths in these examples are relative to your project root; adjust them to the location of your integration file.</p>

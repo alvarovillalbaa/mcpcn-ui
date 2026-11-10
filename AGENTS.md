@@ -2,6 +2,27 @@
 
 Last updated: 2026-11-10
 
+## Public release installation — active
+
+Following clean ec3e6384,implement the [public archive contract](docs/specs/public-release-installation.md)
+and [frozen checks](docs/proposals/public-release-install-checks.md). Standing
+owner approval covers this free implementation/check/temporaryCI/publication;
+no new confirmation is needed. All earlier cohorts remain closed. Use the
+eight actual v0.1.0-keyboard.1 archives and source-pinned registry; no rebuilt
+package or file-registry substitute. npm/pnpm copy/package profiles must execute
+actual UI-copied commands in four fresh authored apps. Bun remains a labeled
+preview. npm pkg set pins only project-local pnpm release/SDK/type overrides;
+preserve unrelated fields. Shared runtime identities/installed archive bytes,
+strict clients,four real installed SQL/SDK fixtures,four Vite builds and four
+production-docs browser/clipboard journeys/32DOM/eightPNG are required.
+Cold production10/10tasks/zero cached/84pages. No generated adoption; whole
+export/all160registry paths must stay byte-exact. Preserve any failed packet.
+Source10500files/1152MiB/file40MiB/export128MiB/packet32MiB/archive&stream4MiB
+are prospective finite budgets. StorageGuard11.2/34GiB blocks local heavy
+runtime:source/data/static only,one public20minute job. NativeHEADstays ec3e6384
+until checks/acceptance. No current new compile/browser/install proof exists.
+No account,paid plan,model/provider/Auth change,real data or subagents.
+
 ## Tabs and Dialog keyboard repair — focused acceptance passed
 
 The [complete focused acceptance](docs/results/2026/11-10/primitive-keyboard-checks.md)

@@ -2,8 +2,10 @@
 
 import { useId, useMemo, useState } from "react";
 import { blockCatalog, catalog, findCatalogItem } from "@mcpcn/registry/catalog";
-import { buildInstallationPlan, defaultConfig, type InstallConfig } from "@mcpcn/registry/installation";
+import { buildInstallationPlan, type InstallConfig } from "@mcpcn/registry/installation";
 import { ApprovalDemo, AuditDemo, FormDemo, ProgressDemo, ReviewDemo } from "./demos";
+import { ArchiveSetup } from "./archive-setup";
+import { archiveDefaultConfig } from "../lib/release-installation";
 
 const initialSelection = ["approval-card", "tool-progress-timeline", "schema-form", "entity-review-table", "audit-trail"];
 const categoryLabels: Record<string, string> = {
@@ -22,7 +24,7 @@ export type ConfiguratorProps = { initialConfig?: Partial<InstallConfig>; initia
 
 export function Configurator({ initialConfig, initialItems = initialSelection }: ConfiguratorProps = {}) {
   const id = useId();
-  const [config, setConfig] = useState<InstallConfig>(() => ({ ...defaultConfig, ...initialConfig }));
+  const [config, setConfig] = useState<InstallConfig>(() => ({ ...archiveDefaultConfig, ...initialConfig }));
   const [items, setItems] = useState(() => initialItems.map(name => findCatalogItem(name)?.slug ?? name));
   const [query, setQuery] = useState("");
   const [preview, setPreview] = useState("approval-card");
@@ -52,7 +54,7 @@ export function Configurator({ initialConfig, initialItems = initialSelection }:
       <span className="eyebrow">Existing React app</span>
       <label htmlFor={`${id}-manager`}>Package manager</label>
       <select id={`${id}-manager`} value={config.packageManager} onChange={event => update("packageManager", event.target.value as InstallConfig["packageManager"])}>
-        <option value="pnpm">pnpm</option><option value="npm">npm / npx</option><option value="bun">Bun</option>
+        <option value="pnpm">pnpm</option><option value="npm">npm</option><option value="bun">Bun (source interface preview)</option>
       </select>
       <label htmlFor={`${id}-mode`}>Installation mode</label>
       <select id={`${id}-mode`} value={config.mode} onChange={event => update("mode", event.target.value as InstallConfig["mode"])}>
@@ -111,13 +113,8 @@ export function Configurator({ initialConfig, initialItems = initialSelection }:
       {result.error && <p role="alert">{result.error}</p>}
       {plan && <section aria-label="Prepared installation">
         <h2 style={{ fontSize: 28, marginTop: 32 }}>Your installation</h2>
-        <p role="status"><strong>Package release pending.</strong> The npm packages and executable are not published yet. Review these prepared commands for the forthcoming release.</p>
         <p>{plan.selected.length} selected items; {plan.itemNames.length} items including shared dependencies.</p>
-        <ol style={{ paddingLeft: 24 }}>
-          <li><h3>Initialize your configuration</h3><pre className="code">{plan.initCommand}</pre></li>
-          <li><h3>Install selected items</h3><pre className="code">{plan.addCommand}</pre></li>
-          <li><h3>Install consumer dependencies</h3><pre className="code">{plan.dependencyCommand}</pre><p className="mcpcn-hint">The CLI writes files and reports this command. Dependency installation is your explicit next step.</p></li>
-        </ol>
+        <ArchiveSetup plan={plan} />
         <h3>Mount your provider</h3>
         <p><code>{plan.config.componentsDir}/provider.tsx</code> uses your selected host and theme. Mount its <code>MCPCNProvider</code> around the parts of your app that use MCPCN.</p>
         <pre className="code">{plan.imports.join("\n")}</pre>

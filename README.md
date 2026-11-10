@@ -10,6 +10,35 @@ The source has 12 primitives and 56 specialized components; every named
 component now has a dedicated contract. Eleven workflow blocks contain
 actual editing, selection, file-review, progress and approval compositions.
 
+## Install the checked GitHub release
+
+Use Node24 and an existing React19.2 TypeScript app. The public npm names
+returned404 on10November2026; the checked archives are available without an
+account. The [installation guide](https://mcpcn-ui.vercel.app/docs#install) and
+[configurator](https://mcpcn-ui.vercel.app/create) provide matching npm/pnpm
+commands,pinned source and archive hashes. Bun remains a source-interface preview.
+
+For npm,install all matching internal packages together:
+
+```sh
+npm install --ignore-scripts --save-exact --no-audit --no-fund \
+  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-core-0.1.0.tgz \
+  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-schemas-0.1.0.tgz \
+  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-runtime-0.1.0.tgz \
+  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-react-0.1.0.tgz \
+  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-themes-0.1.0.tgz \
+  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-registry-0.1.0.tgz \
+  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-0.1.0.tgz \
+  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-server-0.1.0.tgz \
+  zod@4.4.3 @modelcontextprotocol/ext-apps@1.7.5 @modelcontextprotocol/sdk@1.30.0
+node node_modules/mcpcn/dist/index.js init --mode=copy --host=standard-mcp --manager=npm --registry=https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/d91fe403eb6b3ec07ef9791e47a8655f5ed519f3/registry/items
+node node_modules/mcpcn/dist/index.js add approval-card tabs
+```
+
+Review these project-local dependency/file changes before running them. Adding
+a block also needs the Node24 types shown by the configurator and your own
+authorized server integration. Public npm and real-host acceptance remain open.
+
 Tabs and Dialog now have [focused keyboard/modality acceptance](docs/results/2026/11-10/primitive-keyboard-checks.md):
 linked roving tabs,actual arrow/Home/End/Enter/Space journeys,native modal
 inertness,iframe Tab containment,controlled cancellation and restored focus.
