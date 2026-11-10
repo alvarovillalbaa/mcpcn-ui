@@ -1,0 +1,1778 @@
+{
+  "schemaVersion": "mcpcn.primitive-keyboard-checks.v1",
+  "sourceCommit": "47bcb4fee2caccb3d2f42b831eb5fd1c84a070be",
+  "workflowCommit": "afa3fffce86d3470a0ece4aa06bb9c6e5522695a",
+  "status": "failed",
+  "startedAt": "2026-11-10T14:34:26.610Z",
+  "commands": [
+    {
+      "label": "primitive-tools-install",
+      "command": "npm",
+      "args": [
+        "install",
+        "--prefix",
+        "/home/runner/work/_temp/mcpcn-primitives-2HUUKw/tools",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "pnpm@10.24.0",
+        "playwright@1.65.0"
+      ],
+      "startedAt": "2026-11-10T14:34:29.505Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-tools-install.stdout.txt",
+          "bytes": 24,
+          "sha256": "4aa58ccb0519e77c156ff4277fda981d4476eafad8c6bc594bd8fff0abd053ee",
+          "complete": true
+        },
+        {
+          "name": "primitive-tools-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2281,
+      "identity": {
+        "pid": 2281,
+        "uid": 1001,
+        "pgid": 2281,
+        "sid": 2281,
+        "start": "7349"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:34:34.264Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-frozen-install",
+      "command": "pnpm",
+      "args": [
+        "install",
+        "--frozen-lockfile",
+        "--ignore-scripts"
+      ],
+      "startedAt": "2026-11-10T14:34:34.265Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-frozen-install.stdout.txt",
+          "bytes": 1482,
+          "sha256": "0a18544ef13e533756b548dfdd6bb01d337e3981ed73d80577ff6f69a4755fbc",
+          "complete": true
+        },
+        {
+          "name": "primitive-frozen-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2295,
+      "identity": {
+        "pid": 2295,
+        "uid": 1001,
+        "pgid": 2295,
+        "sid": 2295,
+        "start": "7824"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:34:38.211Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-build-core",
+      "command": "pnpm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-10T14:34:39.099Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-build-core.stdout.txt",
+          "bytes": 120,
+          "sha256": "dab0f03eb7f35c77a5597fd7888f8350d5718fc5f4641465a9d5cf9f3cb500e1",
+          "complete": true
+        },
+        {
+          "name": "primitive-build-core.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2310,
+      "identity": {
+        "pid": 2310,
+        "uid": 1001,
+        "pgid": 2310,
+        "sid": 2310,
+        "start": "8308"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:34:40.124Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-build-schemas",
+      "command": "pnpm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-10T14:34:40.125Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-build-schemas.stdout.txt",
+          "bytes": 126,
+          "sha256": "b8bb306962e9cecb9d0f93089442fc35afcc476ea156061241d6203174f3c51e",
+          "complete": true
+        },
+        {
+          "name": "primitive-build-schemas.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2335,
+      "identity": {
+        "pid": 2335,
+        "uid": 1001,
+        "pgid": 2335,
+        "sid": 2335,
+        "start": "8410"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:34:42.709Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-build-runtime",
+      "command": "pnpm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-10T14:34:42.709Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-build-runtime.stdout.txt",
+          "bytes": 126,
+          "sha256": "8285d0b372f239081e5f0ba40ebba1b7fa38200b37949c7125b211eb4d1ba3ae",
+          "complete": true
+        },
+        {
+          "name": "primitive-build-runtime.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2360,
+      "identity": {
+        "pid": 2360,
+        "uid": 1001,
+        "pgid": 2360,
+        "sid": 2360,
+        "start": "8669"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:34:44.270Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-build-react",
+      "command": "pnpm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-10T14:34:44.270Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-build-react.stdout.txt",
+          "bytes": 159,
+          "sha256": "9ff90401ff044613052fb51e9d414626db383f44b9d98bb5bd8fdd683c978338",
+          "complete": true
+        },
+        {
+          "name": "primitive-build-react.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2386,
+      "identity": {
+        "pid": 2386,
+        "uid": 1001,
+        "pgid": 2386,
+        "sid": 2386,
+        "start": "8825"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:34:47.844Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-build-server",
+      "command": "pnpm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-10T14:34:47.844Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-build-server.stdout.txt",
+          "bytes": 124,
+          "sha256": "b063d5b31383cf779db3b169ae4116ae94da9c29b2921fd5268676686281068f",
+          "complete": true
+        },
+        {
+          "name": "primitive-build-server.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2414,
+      "identity": {
+        "pid": 2414,
+        "uid": 1001,
+        "pgid": 2414,
+        "sid": 2414,
+        "start": "9182"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:34:50.003Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-build-themes",
+      "command": "pnpm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-10T14:34:50.004Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-build-themes.stdout.txt",
+          "bytes": 163,
+          "sha256": "791579c80912bb9d40d1ae6eff5c1aafa68da86deef57e52dc7c024a7031a6c9",
+          "complete": true
+        },
+        {
+          "name": "primitive-build-themes.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2440,
+      "identity": {
+        "pid": 2440,
+        "uid": 1001,
+        "pgid": 2440,
+        "sid": 2440,
+        "start": "9398"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:34:50.892Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-build-registry",
+      "command": "pnpm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-10T14:34:50.893Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-build-registry.stdout.txt",
+          "bytes": 185,
+          "sha256": "fc98afe8641baf56c3c8c44cc16db280d84995cc00447385ec4977df64e6b940",
+          "complete": true
+        },
+        {
+          "name": "primitive-build-registry.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2466,
+      "identity": {
+        "pid": 2466,
+        "uid": 1001,
+        "pgid": 2466,
+        "sid": 2466,
+        "start": "9487"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:34:53.917Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-build-playground",
+      "command": "pnpm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-10T14:34:53.917Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-build-playground.stdout.txt",
+          "bytes": 811,
+          "sha256": "7a3f53026792eadc17427ea425769ce4f26ddb25e8a9c99a98ab7ad8e7febd8b",
+          "complete": true
+        },
+        {
+          "name": "primitive-build-playground.stderr.txt",
+          "bytes": 360,
+          "sha256": "351b524197fb492920789369e7f1a271420c757633fbb553b280a181ac4c31a4",
+          "complete": true
+        }
+      ],
+      "pid": 2503,
+      "identity": {
+        "pid": 2503,
+        "uid": 1001,
+        "pgid": 2503,
+        "sid": 2503,
+        "start": "9789"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:34:54.546Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-build-cli",
+      "command": "pnpm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-10T14:34:54.546Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-build-cli.stdout.txt",
+          "bytes": 169,
+          "sha256": "33a59a154ab5a11a9bf4aa703844b3cbaa5032a704d50ea75330070b29d928c2",
+          "complete": true
+        },
+        {
+          "name": "primitive-build-cli.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2556,
+      "identity": {
+        "pid": 2556,
+        "uid": 1001,
+        "pgid": 2556,
+        "sid": 2556,
+        "start": "9852"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:34:55.854Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-pack-core",
+      "command": "pnpm",
+      "args": [
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-primitives-2HUUKw/archives"
+      ],
+      "startedAt": "2026-11-10T14:34:57.327Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-pack-core.stdout.txt",
+          "bytes": 224,
+          "sha256": "b142349cd2e9168d74726ccf1552d4c1fd954f4227a6c50a5999503b85145541",
+          "complete": true
+        },
+        {
+          "name": "primitive-pack-core.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2592,
+      "identity": {
+        "pid": 2592,
+        "uid": 1001,
+        "pgid": 2592,
+        "sid": 2592,
+        "start": "10131"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:34:57.567Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-pack-schemas",
+      "command": "pnpm",
+      "args": [
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-primitives-2HUUKw/archives"
+      ],
+      "startedAt": "2026-11-10T14:34:57.567Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-pack-schemas.stdout.txt",
+          "bytes": 2290,
+          "sha256": "3503985234d5eeaa99914230f65403183b38dea4e148b699ea8ab26906ce640a",
+          "complete": true
+        },
+        {
+          "name": "primitive-pack-schemas.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2604,
+      "identity": {
+        "pid": 2604,
+        "uid": 1001,
+        "pgid": 2604,
+        "sid": 2604,
+        "start": "10155"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:34:57.836Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-pack-runtime",
+      "command": "pnpm",
+      "args": [
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-primitives-2HUUKw/archives"
+      ],
+      "startedAt": "2026-11-10T14:34:57.836Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-pack-runtime.stdout.txt",
+          "bytes": 230,
+          "sha256": "af54cefb3cdb1e9abf97860e7a5be395b5a0beb4e987981ef0f0681fe00df387",
+          "complete": true
+        },
+        {
+          "name": "primitive-pack-runtime.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2616,
+      "identity": {
+        "pid": 2616,
+        "uid": 1001,
+        "pgid": 2616,
+        "sid": 2616,
+        "start": "10181"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:34:58.078Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-pack-react",
+      "command": "pnpm",
+      "args": [
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-primitives-2HUUKw/archives"
+      ],
+      "startedAt": "2026-11-10T14:34:58.078Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-pack-react.stdout.txt",
+          "bytes": 2706,
+          "sha256": "3cb512fed4055234ff244c1cea13f6fc6ba05ee1f9cec04e044be0c8d377fea6",
+          "complete": true
+        },
+        {
+          "name": "primitive-pack-react.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2628,
+      "identity": {
+        "pid": 2628,
+        "uid": 1001,
+        "pgid": 2628,
+        "sid": 2628,
+        "start": "10206"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:34:58.357Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-pack-themes",
+      "command": "pnpm",
+      "args": [
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-primitives-2HUUKw/archives"
+      ],
+      "startedAt": "2026-11-10T14:34:58.358Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-pack-themes.stdout.txt",
+          "bytes": 245,
+          "sha256": "c978bf7f10eab063db5e6c93b3eb3a71570e21295f2ae250e8cec69eb4e0c648",
+          "complete": true
+        },
+        {
+          "name": "primitive-pack-themes.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2640,
+      "identity": {
+        "pid": 2640,
+        "uid": 1001,
+        "pgid": 2640,
+        "sid": 2640,
+        "start": "10234"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:34:58.595Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-pack-registry",
+      "command": "pnpm",
+      "args": [
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-primitives-2HUUKw/archives"
+      ],
+      "startedAt": "2026-11-10T14:34:58.595Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-pack-registry.stdout.txt",
+          "bytes": 816,
+          "sha256": "fa6f04a8df4650a555727eca5e949b82e532cc2588e73650f36fd587ed619e4a",
+          "complete": true
+        },
+        {
+          "name": "primitive-pack-registry.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2652,
+      "identity": {
+        "pid": 2652,
+        "uid": 1001,
+        "pgid": 2652,
+        "sid": 2652,
+        "start": "10257"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:34:58.841Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-pack-cli",
+      "command": "pnpm",
+      "args": [
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-primitives-2HUUKw/archives"
+      ],
+      "startedAt": "2026-11-10T14:34:58.842Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-pack-cli.stdout.txt",
+          "bytes": 700,
+          "sha256": "f0d87f449a361c82eaca24e642b5765c0b68ae8335d3e82f690e20de38caa3cf",
+          "complete": true
+        },
+        {
+          "name": "primitive-pack-cli.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2664,
+      "identity": {
+        "pid": 2664,
+        "uid": 1001,
+        "pgid": 2664,
+        "sid": 2664,
+        "start": "10282"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:34:59.105Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-pack-server",
+      "command": "pnpm",
+      "args": [
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-primitives-2HUUKw/archives"
+      ],
+      "startedAt": "2026-11-10T14:34:59.106Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-pack-server.stdout.txt",
+          "bytes": 700,
+          "sha256": "070a4e20aa828d88dc784bf36155e0be5d52742b179a6b1318e66dfe2fb16a92",
+          "complete": true
+        },
+        {
+          "name": "primitive-pack-server.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2676,
+      "identity": {
+        "pid": 2676,
+        "uid": 1001,
+        "pgid": 2676,
+        "sid": 2676,
+        "start": "10308"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:34:59.352Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-package-install",
+      "command": "npm",
+      "args": [
+        "install",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "startedAt": "2026-11-10T14:34:59.353Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-package-install.stdout.txt",
+          "bytes": 27,
+          "sha256": "f2e6c19377ffcc739c65523a2c8d1c2fafcfbc4648d49e8a8356164da78d1554",
+          "complete": true
+        },
+        {
+          "name": "primitive-package-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2688,
+      "identity": {
+        "pid": 2688,
+        "uid": 1001,
+        "pgid": 2688,
+        "sid": 2688,
+        "start": "10333"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:35:09.004Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-package-cli-init",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-primitives-2HUUKw/consumers/package/node_modules/mcpcn/dist/index.js",
+        "init",
+        "--mode=package",
+        "--host=standard-mcp",
+        "--registry=file:///home/runner/work/_temp/mcpcn-primitives-2HUUKw/source/registry/items"
+      ],
+      "startedAt": "2026-11-10T14:35:09.005Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-package-cli-init.stdout.txt",
+          "bytes": 53,
+          "sha256": "96af2325c4ba21c7ed182a0238171f3de0b05d511d08f640f91f1a919c79feed",
+          "complete": true
+        },
+        {
+          "name": "primitive-package-cli-init.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2705,
+      "identity": {
+        "pid": 2705,
+        "uid": 1001,
+        "pgid": 2705,
+        "sid": 2705,
+        "start": "11298"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:35:09.185Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-package-cli-add",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-primitives-2HUUKw/consumers/package/node_modules/mcpcn/dist/index.js",
+        "add",
+        "tabs",
+        "dialog"
+      ],
+      "startedAt": "2026-11-10T14:35:09.186Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-package-cli-add.stdout.txt",
+          "bytes": 318,
+          "sha256": "b2c15b3d065eb2394d15fdd5bd3a5c3ee28789b972d8ff872cf807abc580c04b",
+          "complete": true
+        },
+        {
+          "name": "primitive-package-cli-add.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2717,
+      "identity": {
+        "pid": 2717,
+        "uid": 1001,
+        "pgid": 2717,
+        "sid": 2717,
+        "start": "11316"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:35:09.359Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-package-strict",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-primitives-2HUUKw/consumers/package/node_modules/typescript/bin/tsc",
+        "-p",
+        "strict.json",
+        "--pretty",
+        "false"
+      ],
+      "startedAt": "2026-11-10T14:35:09.360Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-package-strict.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "primitive-package-strict.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2729,
+      "identity": {
+        "pid": 2729,
+        "uid": 1001,
+        "pgid": 2729,
+        "sid": 2729,
+        "start": "11334"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:35:12.605Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-package-client-build",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-primitives-2HUUKw/consumers/package/node_modules/vite/bin/vite.js",
+        "build"
+      ],
+      "startedAt": "2026-11-10T14:35:12.605Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-package-client-build.stdout.txt",
+          "bytes": 446,
+          "sha256": "aaf8a9ffa881792d238154d26abd5b769417e5ec02cdd12bfdb2b0948c31efaa",
+          "complete": true
+        },
+        {
+          "name": "primitive-package-client-build.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2736,
+      "identity": {
+        "pid": 2736,
+        "uid": 1001,
+        "pgid": 2736,
+        "sid": 2736,
+        "start": "11658"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:35:12.909Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-copy-install",
+      "command": "npm",
+      "args": [
+        "install",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "startedAt": "2026-11-10T14:35:12.909Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-copy-install.stdout.txt",
+          "bytes": 26,
+          "sha256": "2cd26ccd3ceec60e7d04d242f6ac0f539fa01db787b989d22330fb9ff71efd72",
+          "complete": true
+        },
+        {
+          "name": "primitive-copy-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2760,
+      "identity": {
+        "pid": 2760,
+        "uid": 1001,
+        "pgid": 2760,
+        "sid": 2760,
+        "start": "11689"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:35:16.329Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-copy-cli-init",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-primitives-2HUUKw/consumers/copy/node_modules/mcpcn/dist/index.js",
+        "init",
+        "--mode=copy",
+        "--host=standard-mcp",
+        "--registry=file:///home/runner/work/_temp/mcpcn-primitives-2HUUKw/source/registry/items"
+      ],
+      "startedAt": "2026-11-10T14:35:16.329Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-copy-cli-init.stdout.txt",
+          "bytes": 53,
+          "sha256": "96af2325c4ba21c7ed182a0238171f3de0b05d511d08f640f91f1a919c79feed",
+          "complete": true
+        },
+        {
+          "name": "primitive-copy-cli-init.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2772,
+      "identity": {
+        "pid": 2772,
+        "uid": 1001,
+        "pgid": 2772,
+        "sid": 2772,
+        "start": "12031"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:35:16.532Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-copy-cli-add",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-primitives-2HUUKw/consumers/copy/node_modules/mcpcn/dist/index.js",
+        "add",
+        "tabs",
+        "dialog"
+      ],
+      "startedAt": "2026-11-10T14:35:16.532Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-copy-cli-add.stdout.txt",
+          "bytes": 368,
+          "sha256": "b33c25c336f046ef61d65d646d9a7aaa65d032efd9f0b6edd098c0584dbfaa69",
+          "complete": true
+        },
+        {
+          "name": "primitive-copy-cli-add.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2784,
+      "identity": {
+        "pid": 2784,
+        "uid": 1001,
+        "pgid": 2784,
+        "sid": 2784,
+        "start": "12051"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:35:16.775Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-copy-strict",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-primitives-2HUUKw/consumers/copy/node_modules/typescript/bin/tsc",
+        "-p",
+        "strict.json",
+        "--pretty",
+        "false"
+      ],
+      "startedAt": "2026-11-10T14:35:16.777Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-copy-strict.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "primitive-copy-strict.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2797,
+      "identity": {
+        "pid": 2797,
+        "uid": 1001,
+        "pgid": 2797,
+        "sid": 2797,
+        "start": "12076"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:35:23.225Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-copy-client-build",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-primitives-2HUUKw/consumers/copy/node_modules/vite/bin/vite.js",
+        "build"
+      ],
+      "startedAt": "2026-11-10T14:35:23.225Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-copy-client-build.stdout.txt",
+          "bytes": 446,
+          "sha256": "0078d3660dc03f162a8df79b91f8ba46e6453373c99d4fe04a11fed74dcc89bd",
+          "complete": true
+        },
+        {
+          "name": "primitive-copy-client-build.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2805,
+      "identity": {
+        "pid": 2805,
+        "uid": 1001,
+        "pgid": 2805,
+        "sid": 2805,
+        "start": "12720"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:35:23.564Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-chromium-install",
+      "command": "/home/runner/work/_temp/mcpcn-primitives-2HUUKw/tools/node_modules/.bin/playwright",
+      "args": [
+        "install",
+        "chromium"
+      ],
+      "startedAt": "2026-11-10T14:35:24.461Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-chromium-install.stdout.txt",
+          "bytes": 6913,
+          "sha256": "eb02359f60467dac04475120af4d6b544c3617a560c382c4977818e48cd64b3f",
+          "complete": true
+        },
+        {
+          "name": "primitive-chromium-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2828,
+      "identity": {
+        "pid": 2828,
+        "uid": 1001,
+        "pgid": 2828,
+        "sid": 2828,
+        "start": "12844"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:35:31.214Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-package-server",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-primitives-2HUUKw/consumers/package/node_modules/vite/bin/vite.js",
+        "preview",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "4319",
+        "--strictPort"
+      ],
+      "startedAt": "2026-11-10T14:35:31.214Z",
+      "signals": [
+        "SIGTERM"
+      ],
+      "streams": [
+        {
+          "name": "primitive-package-server.stdout.txt",
+          "bytes": 39,
+          "sha256": "38ddb720526296119a347befaf8001857142434563182e773ab41e67365f6306",
+          "complete": true
+        },
+        {
+          "name": "primitive-package-server.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2877,
+      "identity": {
+        "pid": 2877,
+        "uid": 1001,
+        "pgid": 2877,
+        "sid": 2877,
+        "start": "13519"
+      },
+      "exitCode": 143,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:35:35.968Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-package-browser",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "tests/e2e/primitive-keyboard.mjs"
+      ],
+      "startedAt": "2026-11-10T14:35:31.463Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-package-browser.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "primitive-package-browser.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2898,
+      "identity": {
+        "pid": 2898,
+        "uid": 1001,
+        "pgid": 2898,
+        "sid": 2898,
+        "start": "13544"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:35:35.961Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-copy-server",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-primitives-2HUUKw/consumers/copy/node_modules/vite/bin/vite.js",
+        "preview",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "4320",
+        "--strictPort"
+      ],
+      "startedAt": "2026-11-10T14:35:36.881Z",
+      "signals": [
+        "SIGTERM"
+      ],
+      "streams": [
+        {
+          "name": "primitive-copy-server.stdout.txt",
+          "bytes": 39,
+          "sha256": "e9c33d4e6bc13c3013c4f4696bd4517da98a24e6ba82fedb984bdd1dab7c080b",
+          "complete": true
+        },
+        {
+          "name": "primitive-copy-server.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3000,
+      "identity": {
+        "pid": 3000,
+        "uid": 1001,
+        "pgid": 3000,
+        "sid": 3000,
+        "start": "14086"
+      },
+      "exitCode": 143,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:35:38.097Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "primitive-copy-browser",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "tests/e2e/primitive-keyboard.mjs"
+      ],
+      "startedAt": "2026-11-10T14:35:37.113Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "primitive-copy-browser.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "primitive-copy-browser.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3024,
+      "identity": {
+        "pid": 3024,
+        "uid": 1001,
+        "pgid": 3024,
+        "sid": 3024,
+        "start": "14109"
+      },
+      "exitCode": 1,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T14:35:38.089Z",
+      "originalGroupAbsent": true
+    }
+  ],
+  "guards": [
+    {
+      "label": "before-install",
+      "canonicalFiles": 9449,
+      "canonicalVectorSha256": "069fc5ea62bb6990095749657d35401133e2d558c9b4ef8c5b175f8dc043e95a",
+      "protectedFiles": 514,
+      "protectedVectorSha256": "b32c058aed7f00aeefc46b7a490ea6e231fd78880b15f8dcff4da129cd89ca8b"
+    },
+    {
+      "label": "after-install",
+      "canonicalFiles": 9449,
+      "canonicalVectorSha256": "069fc5ea62bb6990095749657d35401133e2d558c9b4ef8c5b175f8dc043e95a",
+      "protectedFiles": 514,
+      "protectedVectorSha256": "b32c058aed7f00aeefc46b7a490ea6e231fd78880b15f8dcff4da129cd89ca8b"
+    },
+    {
+      "label": "after-builds",
+      "canonicalFiles": 9449,
+      "canonicalVectorSha256": "069fc5ea62bb6990095749657d35401133e2d558c9b4ef8c5b175f8dc043e95a",
+      "protectedFiles": 514,
+      "protectedVectorSha256": "b32c058aed7f00aeefc46b7a490ea6e231fd78880b15f8dcff4da129cd89ca8b"
+    },
+    {
+      "label": "after-consumers",
+      "canonicalFiles": 9449,
+      "canonicalVectorSha256": "069fc5ea62bb6990095749657d35401133e2d558c9b4ef8c5b175f8dc043e95a",
+      "protectedFiles": 514,
+      "protectedVectorSha256": "b32c058aed7f00aeefc46b7a490ea6e231fd78880b15f8dcff4da129cd89ca8b"
+    },
+    {
+      "label": "after-browser-package",
+      "canonicalFiles": 9449,
+      "canonicalVectorSha256": "069fc5ea62bb6990095749657d35401133e2d558c9b4ef8c5b175f8dc043e95a",
+      "protectedFiles": 514,
+      "protectedVectorSha256": "b32c058aed7f00aeefc46b7a490ea6e231fd78880b15f8dcff4da129cd89ca8b"
+    },
+    {
+      "label": "terminal-source-check",
+      "canonicalFiles": 9449,
+      "canonicalVectorSha256": "069fc5ea62bb6990095749657d35401133e2d558c9b4ef8c5b175f8dc043e95a",
+      "protectedFiles": 514,
+      "protectedVectorSha256": "b32c058aed7f00aeefc46b7a490ea6e231fd78880b15f8dcff4da129cd89ca8b"
+    }
+  ],
+  "errors": [
+    "primitive-copy-browser_failed"
+  ],
+  "cleanup": {
+    "activeChildren": 0,
+    "remainingOriginalGroups": [],
+    "allStreamsComplete": true,
+    "rootRemoved": true
+  },
+  "proofLimits": [
+    "T2 authored frontend primitives in four selected Chromium iframe/media profiles; no SDK, external host, account, database, production service, provider or model.",
+    "No physical touch, human screenreader, complete WCAG/media/device matrix, public npm or full copied-source NodeNext acceptance."
+  ],
+  "export": {
+    "files": 673,
+    "bytes": 114673246
+  },
+  "registry": {
+    "identities": 79,
+    "derivedPaths": 159,
+    "changedEmbeddedFiles": 158,
+    "unionPaths": 171,
+    "unchangedAllOtherFields": true
+  },
+  "consumers": {
+    "sourceCommit": "47bcb4fee2caccb3d2f42b831eb5fd1c84a070be",
+    "passed": true,
+    "versions": {
+      "react": "19.2.8",
+      "react-dom": "19.2.8",
+      "zod": "4.4.3",
+      "typescript": "5.9.3",
+      "@types/node": "24.13.3",
+      "@types/react": "19.2.18",
+      "@types/react-dom": "19.2.4",
+      "vite": "8.2.1",
+      "@vitejs/plugin-react": "5.2.0"
+    },
+    "artifacts": [
+      {
+        "name": "mcpcn-core-0.1.0.tgz",
+        "bytes": 2487,
+        "sha256": "734b822d1a4b74da184a07155f1273e809ce67af701b22cd672c238acb98e54d"
+      },
+      {
+        "name": "mcpcn-schemas-0.1.0.tgz",
+        "bytes": 78406,
+        "sha256": "84702229c679d6eb45b298378196ddb0b75dde7b642fc222fefc4db3a9ca805b"
+      },
+      {
+        "name": "mcpcn-runtime-0.1.0.tgz",
+        "bytes": 9715,
+        "sha256": "b142f96cff445d66bfde00b2d18dfbfc9ab8952c475c8d973bc87d917acd3ce8"
+      },
+      {
+        "name": "mcpcn-react-0.1.0.tgz",
+        "bytes": 117328,
+        "sha256": "b8ee89176c920d102e0f6c17f74d044f0efd3aea63ce2e4e17328ecdeca386c1"
+      },
+      {
+        "name": "mcpcn-themes-0.1.0.tgz",
+        "bytes": 1486,
+        "sha256": "55b4fdcbfd5d9af07904e27e973b08fdad870aa3b74f252554f9ff031565a1c4"
+      },
+      {
+        "name": "mcpcn-registry-0.1.0.tgz",
+        "bytes": 28028,
+        "sha256": "b2d087bcf5e74854102dba7c5fd9778f82dad32a86b3e96e92b2938293773bbf"
+      },
+      {
+        "name": "mcpcn-0.1.0.tgz",
+        "bytes": 253894,
+        "sha256": "5845a6a4fd9477885fe49526a27dee4b86bf9fedb0124e46acd9db424c3e439a"
+      },
+      {
+        "name": "mcpcn-server-0.1.0.tgz",
+        "bytes": 34838,
+        "sha256": "e30bdc80c9e0ad4c3abf4a1ab4ba482b0a9e73b634df434a531830babb415b6b"
+      }
+    ],
+    "consumers": [
+      {
+        "mode": "package",
+        "paths": 3,
+        "filesPerItem": 2,
+        "strictBundler": true,
+        "skipLibCheck": false,
+        "actualViteBuild": true,
+        "provenance": [
+          {
+            "path": "components/mcpcn/dialog.tsx",
+            "bytes": 53,
+            "sha256": "1aa367e3f4a7fc4043351f568e4607b82dd4a186cc62824b201b7dea1e457c52"
+          },
+          {
+            "path": "components/mcpcn/provider.tsx",
+            "bytes": 677,
+            "sha256": "9549ea6833dc7e5e85f0474a258776afcb07c269dc4489389149cecdaf232087"
+          },
+          {
+            "path": "components/mcpcn/tabs.tsx",
+            "bytes": 51,
+            "sha256": "5cf1ba565ee1792c99070191cce496f2c62d2354a9dac55c38811dcc39ba8d54"
+          }
+        ]
+      },
+      {
+        "mode": "copy",
+        "paths": 41,
+        "filesPerItem": 40,
+        "strictBundler": true,
+        "skipLibCheck": false,
+        "actualViteBuild": true,
+        "provenance": [
+          {
+            "path": "components/mcpcn/LICENSE",
+            "bytes": 1075,
+            "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/approval-components.tsx",
+            "bytes": 16392,
+            "sha256": "416425b0addf9647adac8ed81e527b9153d8f8652673d63c6c29099b88ff44a1"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/approval-schemas.ts",
+            "bytes": 7081,
+            "sha256": "e6a994f66d67399f8475e6644ea6411d502645f7d86f7958725ef1461f9cc719"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/component-helpers.tsx",
+            "bytes": 2090,
+            "sha256": "e5a7a601400d95950325f238948b6dc326f7188956c9b6abe7e6dc091e5b748a"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/component-types.ts",
+            "bytes": 212,
+            "sha256": "3e13816c061c33fb6c3f95ed166d10807933e5039bf39abc6e30337e121b9925"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/components.tsx",
+            "bytes": 13761,
+            "sha256": "075ffa3c4d45bc6877f5a4ccccb80195251d8a2a5dee3813f952fab1c0e8a3ac"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/conflict-validation-components.tsx",
+            "bytes": 17269,
+            "sha256": "fcf216e8d28b632e735173a08155e69c186c00c00aaea2ca912a061f42e33a5b"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/conflict-validation-schemas.ts",
+            "bytes": 7880,
+            "sha256": "92bb1a2e7218b1bd9a6bd10798e6f35685329ec954c9c80e080635893994bd12"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/core.ts",
+            "bytes": 1571,
+            "sha256": "fe39634d0818984586d3ca01bd86337b1c41853646e81e4a4fe1523fc9b7de0e"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/decision-components.tsx",
+            "bytes": 16943,
+            "sha256": "fe0e5e64318c23e8fda2923ff83539c0469d9d903259f7fccd97d758182cc227"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/decision-narrative-components.tsx",
+            "bytes": 10339,
+            "sha256": "fc4c32f26db279e7bfaee1680c14b2c9e7e664c85d1fefb3316e5bb4d8211d66"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/decision-narrative-schemas.ts",
+            "bytes": 7905,
+            "sha256": "75699f770d59f8f78f9698438a5f7c6bdec9e36f70c65f59d3a4c35eabdb8d69"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/decision-schemas.ts",
+            "bytes": 8178,
+            "sha256": "d65c56cb5ecbf0a642061a9d4abdb46404e480a788d28caa9e9acf48d4f95b43"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/execution-components.tsx",
+            "bytes": 7526,
+            "sha256": "78f5f32f3c98cb8f37b69b3a71465f677f4ac4d8a060e933538d4a81a11c575c"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/execution-schemas.ts",
+            "bytes": 4998,
+            "sha256": "f7fcb2e26e595893d48a3adaff2890937eae9b593b67b292f485c8a8bd69dab0"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/file-review-components.tsx",
+            "bytes": 21215,
+            "sha256": "7bd4e66bbda25fad522a4a9b40b13b99806d38428af488f20bd9ddece901eb68"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/file-review-schemas.ts",
+            "bytes": 17290,
+            "sha256": "c8eaa16f1b2fb21bb128950b6430076fe4002e21642e1fd3d5579f8e062cccce"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/form-workflow-components.tsx",
+            "bytes": 30013,
+            "sha256": "a0a8d311a4a1c2be1b6cd020fd6507b39924c8859ce3648520dddbf2a695e4c5"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/form-workflow-schemas.ts",
+            "bytes": 17855,
+            "sha256": "cbfabd7204f2ef2c7c4da6b83eb4ff4cabe4b0e034d4e0206a9df8fa4d771c38"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/host-state-components.tsx",
+            "bytes": 9784,
+            "sha256": "a1aa1e272f356190ba54f089a921dc740025c79c9cea6418f11a30ff8a4b9696"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/host-state-schemas.ts",
+            "bytes": 6794,
+            "sha256": "f30ae94b260d05204e35fb8f37f29638ca2bed0c7f59dc9855582ef47fb2f270"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/option-ranking-components.tsx",
+            "bytes": 14252,
+            "sha256": "2a4893da8451299f70f3493671c4a1a387fcd99a3f425c4cc16a3fd6c95c747e"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/option-ranking-schemas.ts",
+            "bytes": 7626,
+            "sha256": "8f3b50dbdea6121635a8d71a3352f23974eacfb87c2e58c3a41e82a953ac3065"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/primitives.tsx",
+            "bytes": 7649,
+            "sha256": "02b69d4b0aaa9b80ef80da1ca0e22cfb660fe2152c3bd8734bdd751d6f8ed819"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/privacy-context-components.tsx",
+            "bytes": 13209,
+            "sha256": "fb4185848f83720d44d7fcdc3b32bbe4e9e76e67954a06c23f3c7434801a7a80"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/privacy-context-schemas.ts",
+            "bytes": 8402,
+            "sha256": "8e48173a6622f408cc17c7866939d0d750d20d76254472c6727de2e12e4ed820"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/record-inspection-components.tsx",
+            "bytes": 13027,
+            "sha256": "02ca55037406ec3931dcf1de7d8427f5c9b9094b2bcfa8134054b2ca11e31be0"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/record-inspection-schemas.ts",
+            "bytes": 6904,
+            "sha256": "500545d563c9f1d1ca6fd0e2efef9f8adfa21a9f191ef680c7873e666ae866d1"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/review-components.tsx",
+            "bytes": 10634,
+            "sha256": "58eb07f18111e01e1b1be0bb15d2e1909c5f65b74d7747991ae44e9035aa9a2b"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/review-schemas.ts",
+            "bytes": 3895,
+            "sha256": "ed8d69502716ba1154959aeb6e111dfe3fe39944bfb26e01e309be2c5b23cedd"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/runtime.tsx",
+            "bytes": 18501,
+            "sha256": "6b611e90ad6dada572b6c1b5db138894f7d16c31c956374ade0814a5f9919634"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/schema-common.ts",
+            "bytes": 787,
+            "sha256": "e4efa86eeaccde925f696761c5c80034e7ae8d28682b4f74a412a0de25ae4798"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/schemas.ts",
+            "bytes": 10370,
+            "sha256": "a9eeb4ab14e7179316dcf059a38d4564ab4910689d180f75868c09416f9a80d3"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/source-evidence-components.tsx",
+            "bytes": 19591,
+            "sha256": "d960875117b1aa2af9f6fd9aae31292f264776a08fc379bea0386ea703fa4468"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/source-evidence-schemas.ts",
+            "bytes": 4926,
+            "sha256": "79c148019868e9b2d27ec09b37c5da6027b44474ae62feacba838a7adaf52c2f"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/tool-workflow-components.tsx",
+            "bytes": 18944,
+            "sha256": "bd0bbee069513562973d03e93c423b2c80237fa99e3305fc3cfd2f0f270017cf"
+          },
+          {
+            "path": "components/mcpcn/_mcpcn/tool-workflow-schemas.ts",
+            "bytes": 11620,
+            "sha256": "aaf6a2477e579966f4dc715a0aa7e16447404090ea9ed8914da9429ba14a4a4b"
+          },
+          {
+            "path": "components/mcpcn/dialog.tsx",
+            "bytes": 60,
+            "sha256": "341f7eb823ea53aeeef99983f2fa44988b6378a8e6e7a2dd4cf4c6da48daa4ca"
+          },
+          {
+            "path": "components/mcpcn/provider.tsx",
+            "bytes": 632,
+            "sha256": "dcce93eaaf58f85f700867a545dd6ec9b821b51533492f6495047c937be98073"
+          },
+          {
+            "path": "components/mcpcn/styles.css",
+            "bytes": 14342,
+            "sha256": "3884047fd971893492db1de889529bc0fe117ffe9864229f697b69e3f8097d07"
+          },
+          {
+            "path": "components/mcpcn/tabs.tsx",
+            "bytes": 58,
+            "sha256": "ad7f16442a28223a6391bc26b63b183bce3353964dbcfb7e0351ce9edeb4b804"
+          }
+        ]
+      }
+    ]
+  },
+  "browser": [
+    {
+      "id": "package-1280",
+      "stages": [
+        {
+          "name": "01-initial-tabs",
+          "dom": "primitive-package-1280-01-initial-tabs.dom.json",
+          "png": "primitive-package-1280-01-initial-tabs.png"
+        },
+        {
+          "name": "02-keyboard",
+          "dom": "primitive-package-1280-02-keyboard.dom.json",
+          "png": null
+        },
+        {
+          "name": "03-changing-items",
+          "dom": "primitive-package-1280-03-changing-items.dom.json",
+          "png": null
+        },
+        {
+          "name": "04-native-modal",
+          "dom": "primitive-package-1280-04-native-modal.dom.json",
+          "png": "primitive-package-1280-04-native-modal.png"
+        },
+        {
+          "name": "05-focus-containment",
+          "dom": "primitive-package-1280-05-focus-containment.dom.json",
+          "png": null
+        },
+        {
+          "name": "06-escape-restoration",
+          "dom": "primitive-package-1280-06-escape-restoration.dom.json",
+          "png": null
+        },
+        {
+          "name": "07-controlled-lifecycle",
+          "dom": "primitive-package-1280-07-controlled-lifecycle.dom.json",
+          "png": null
+        },
+        {
+          "name": "08-final",
+          "dom": "primitive-package-1280-08-final.dom.json",
+          "png": null
+        }
+      ],
+      "contextClosed": true,
+      "passed": true
+    },
+    {
+      "id": "package-390",
+      "stages": [
+        {
+          "name": "01-initial-tabs",
+          "dom": "primitive-package-390-01-initial-tabs.dom.json",
+          "png": "primitive-package-390-01-initial-tabs.png"
+        },
+        {
+          "name": "02-keyboard",
+          "dom": "primitive-package-390-02-keyboard.dom.json",
+          "png": null
+        },
+        {
+          "name": "03-changing-items",
+          "dom": "primitive-package-390-03-changing-items.dom.json",
+          "png": null
+        },
+        {
+          "name": "04-native-modal",
+          "dom": "primitive-package-390-04-native-modal.dom.json",
+          "png": "primitive-package-390-04-native-modal.png"
+        },
+        {
+          "name": "05-focus-containment",
+          "dom": "primitive-package-390-05-focus-containment.dom.json",
+          "png": null
+        },
+        {
+          "name": "06-escape-restoration",
+          "dom": "primitive-package-390-06-escape-restoration.dom.json",
+          "png": null
+        },
+        {
+          "name": "07-controlled-lifecycle",
+          "dom": "primitive-package-390-07-controlled-lifecycle.dom.json",
+          "png": null
+        },
+        {
+          "name": "08-final",
+          "dom": "primitive-package-390-08-final.dom.json",
+          "png": null
+        }
+      ],
+      "contextClosed": true,
+      "passed": true
+    }
+  ],
+  "completedAt": "2026-11-10T14:35:43.045Z"
+}

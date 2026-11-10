@@ -10,6 +10,14 @@ The source has 12 primitives and 56 specialized components; every named
 component now has a dedicated contract. Eleven workflow blocks contain
 actual editing, selection, file-review, progress and approval compositions.
 
+Tabs and Dialog now have [focused keyboard/modality acceptance](docs/results/2026/11-10/primitive-keyboard-checks.md):
+linked roving tabs,actual arrow/Home/End/Enter/Space journeys,native modal
+inertness,iframe Tab containment,controlled cancellation and restored focus.
+Four fresh package/CLI-copy profiles retain32DOM/eightPNG,including selected
+dark/reduced-motion/forced-color states. Strict clients and159verified registry
+paths passed; exact archive publication/hosting follow as separate receipts.
+Human screenreader,physical touch and full accessibility coverage remain open.
+
 The separate [server integration repair](docs/specs/server-contract.md) adds
 validated result envelopes, real SDK context/cancellation, complete resource CSP,
 an explicit private metadata example and schema-required simulator snippets.

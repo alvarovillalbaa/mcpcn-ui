@@ -2,6 +2,54 @@
 
 Last updated: 2026-11-10
 
+## Tabs and Dialog keyboard repair — focused acceptance passed
+
+The [complete focused acceptance](docs/results/2026/11-10/primitive-keyboard-checks.md)
+PASSED at425ae5b6:four actual fresh package/copy iframe profiles/32DOM/eightPNG,
+strict complete-copy/package clients,two Vite builds,eight actual archives,
+35commands/70streams/eight stable guards and owned process/root cleanup.
+Independent verification and guarded159path adoption completed,preserving9394
+other tracked files. Native HEAD/index stayed unchanged; staging removed.
+Workflow413382498 active→HTTP204→disabled_manually before definition removal.
+Next exact release/production/81anonymousHTTP/ref and duplicate retirement.
+Preserve W/C1/C2/C3 and both failed packets; no closed-scope rerun or app/generated
+byte change for metadata closure. Full a11y/device/host/npm/NodeNext/product gates
+remain separate and open. Historical preparation/failure instructions follow.
+
+Following clean d2ebd103, implement the [bounded primitive contract](docs/specs/primitive-keyboard-dialog.md)
+and [frozen focused checks](docs/proposals/primitive-keyboard-checks.md). Standing
+owner approval covers the free source/check/temporaryCI/publication scope. Keep
+all previous cohorts closed. Only Tabs/Dialog and four scoped style rules change:
+roving linked tabs/native keyboard, native modal focus/inertness/cancel/restore,
+preserved controlled props and closed-child unmounting. No dependency/Auth change.
+Four actual fresh package/copy iframe profiles/32DOM/eightPNG, strict Bundler
+skipLibCheck:false, actual CLI provenance and two Vite builds are required.
+All159registry JSON outputs may change only the embedded primitives/style
+contents; preserve every other field/file/config/preview. Adopt no output before
+whole acceptance and independent original-byte verification. Source10000files/
+1152MiB/file40MiB/export128MiB/derived192raw+48compressed/packet80/archive4MiB
+are prospectively frozen for retained evidence. StorageGuard10.9/34GiB blocks
+local heavy runtime; source/data/static only,one public20minute job. No current
+browser/compile/CI acceptance is established. Native HEAD stays d2ebd103 until
+verified adoption and accepted ancestry publication. No subagents.
+
+C1 `1dffdf95` failed native iframe Tab containment after both actual consumers,
+all strict/build/CLI checks and initial tab/native modal journeys passed.
+The fifth Tab reached BODY. [Original failure](docs/results/2026/11-10/primitive-keyboard-attempt-1.md)
+retains83originals/64streams/five stable guards/owned cleanup. Add explicit
+first/last Tab containment as the existing evidence drawer does; keep all four
+profiles/32DOM/eightPNG and every assertion. Preserve C1 ancestry and originals.
+No whole browser acceptance or generated adoption is established.
+
+C2 `47bcb4fe` passed both actual package iframe profiles/16DOM/fourPNG,
+including Tab wrap/Escape/controlled close/unmount/restore. Forced-copy media
+correctly reported light dark as the standard requires; the driver's incorrect
+single-scheme equality stopped it. [Original failure](docs/results/2026/11-10/primitive-keyboard-attempt-2.md)
+retains102originals/68streams/six stable guards/owned cleanup. Correct only that
+exact forced-mode expectation; keep all four profiles and every lifecycle check.
+Preserve C1/C2 sources. Prospective file cap10000 preserves planned pass/public
+originals after measured9449+103newfiles; all byte budgets remain fixed.
+
 ## Complete block server recipes — 10 November 2026
 
 The [complete focused acceptance](docs/results/2026/11-10/block-recipe-checks.md)
