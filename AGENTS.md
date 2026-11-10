@@ -2,6 +2,103 @@
 
 Last updated: 2026-11-10
 
+## Complete block server recipes — 10 November 2026
+
+Standing owner approval covers the [block contract](docs/specs/block-server-recipes.md)
+after clean e151f8ac. All eleven installed blocks need real server recipes,
+schema/input/result fixtures,bound runtime apps,runnable tests and docs. Add
+opt-in schema/server/React package entries and exact block-only registry/CLI
+paths; preserve68component-only entries and the five accepted reference apps.
+No new dependency version,Auth/provider setting,account,paid plan or model call.
+
+The [frozen check scope](docs/proposals/block-recipe-checks.md) is62cases,
+46browser profiles/115DOM/24PNG/two nativeEnd and fresh package/copy/source
+consumers with real SDK/SQLite. Full copied source uses strictBundler/plainNode;
+package server also uses strictNodeNext. Do not patch upstream declarations or
+skip library checks. New browser fixtures live under the playground's declared
+dependencies; the CI server fixture lives under packages/server/checks. Root
+tooling must not assume undeclared React/Zod/SDK hoisting. Copy53/block/171union/
+158TS,package6/block/124union,cumulative36MiB,35exactgeneratedpaths. Preserve
+137component/config registry paths. Source9500/1GiB/file40MiB/export128MiB/
+packet64MiB/derived16MiB/archive4MiB are prospective finite budgets. No local
+application execution; four node --check results establish syntax only.
+
+First sourcebce39466 stopped at the React build: server step errors are nullable
+but the existing timeline accepts an optional string. Normalize null to omitted
+in the bound UI view only; keep transport/domain state and every frozen check
+unchanged. Preserve C1 and its failed originals as ancestry. Frozen install,
+core/schema/runtime builds passed; no new unit/browser/consumer acceptance yet.
+
+Second source41de5889 passed all62cases, strict source and eight builds, then
+stopped before packing with generic controller_error. The locked React plugin's
+public exports omit package.json. Read version metadata from each declared
+dependency's installed directory and retain the complete bounded controller
+diagnostic next time. Keep C1/C2/raw originals and the unchanged frozen scope;
+consumer/browser/derivation/public delivery remain pending.
+
+Third source34a80faf passed62cases/strictsource and packed six libraries, then
+found the nonexistent mcpcn-cli archive. The CLI's real package name is mcpcn:
+earlier @mcpcn/cli filters exited0 without matching, so C2/C3 prove only seven
+actual library builds, not eight. Build the existing playground before the real
+CLI, run build/pack from exact owner directories and derive package/bin/archive
+identities from their manifests. Correct the guide's CLI path. Keep all frozen
+assertions/bounds and C1–C3 originals/parents. Consumer/browser proof is pending.
+
+Fourth sourcee3fda07a passed62cases,all actual packages/playground and fresh
+package+CommonJS copy+portable source consumers:44realSDKflows,strict package
+Bundler/NodeNext/full copiedBundler/plainNode and three real client builds.
+The browser fixture then referenced an undeclared playground themes package.
+Use the existing owned theme source CSS directly; no new dependency/lock edge,
+external alias or suppressed bundler diagnostic. Preserve C1–C4 and originals.
+Actual browser/docs/derived/public delivery remains pending; same frozen scope.
+
+Fifth source56387e7d passed62cases/all consumers and all eleven desktop flows
+(44DOM/11PNG), then restart verified two saved records before rejecting an
+aborted default-iframe asset during immediate block selection. Wait for the
+initial host connection Ready before switching. Keep rejection of unexpected
+failed requests, all44workflow profiles and every assertion unchanged. Preserve
+C1–C5/raw originals; narrow/nativeEnd/docs/derived/public proof remains pending.
+
+Sixth source6a68fa1c passed all desktop flows and eight saved restart reads,
+then failed the immediate End geometry assertion. That driver only attached its
+reading after success, so no failed geometry was retained. Record before/all
+bounded after readings first, issue one nativeEnd and observe its settling as
+the accepted reference helper does. Keep/strengthen focus,real overflow,positive
+scroll and exact-tail requirements; no synthetic scroll or repeated key. Same
+scope/counts/budgets; preserve C1–C6 and originals. Narrow/docs proof is pending.
+
+Seventh sourcecba42d84 passed all desktop/restart profiles,including physical
+End0→3371/430of3801. Narrow reached the intentional lost response but removing
+its active route caused unhandled 'Route is already handled'; no complete390px
+browser receipt exists. Use documented one-use routing,retain callback errors
+and reject them in the normal closure path. Keep every browser assertion and
+all cases. Preserve C1–C7/raw originals. Prospective source file cap becomes9500:
+C7already8679files and preserved originals+planned pass/public proof cross9000.
+The1GiB/40MiB/export128MiB/packet64MiB/derived16MiB/archive4MiB bounds stay fixed.
+
+Eighth source44661eae passed62cases/all44consumer SDKflows/all44browser workflows
+(111DOM/22PNG/two physicalEnd),includingactual390px lostresponse/reload, and
+cold10/10production tasks/84pages. Docs download then found newguide's wrong
+/registry/items URL returnedHTML. Use existing /r/NAME.json, canonicalize only
+block responses to exact ownerJSON/newline and preserve component serialization.
+Check one existing component response per docs width; keep all prior assertions.
+Preserve unexpected HTTP bodies/status before parsing. Keep C1–C8/originals;
+docs/derivation/adoption/release/hosting still pending.9500file/bytebudgetsfixed.
+
+Use a caller-opened dedicated Node24 SQLite database,per-request trusted
+principal resolution,exact revision/policy-bound opaque reviews,cancellation,
+atomic audit/replay and synchronous transaction-local registered SQL actions.
+Failed bulk members roll back the whole reviewed batch. Do not claim SQLite
+atomically changes an external service. Server code stays outside browser
+imports; metadata and consent UI are not authentication/human attestation.
+
+Source implementation is in progress; no new compile/test/browser/CI execution
+or generated adoption is established. Freeze actual checks,source/export/path/
+registry/archive bounds before execution. Prior source8189files/997770076B
+nearly fills8500/1GiB; measure prospectively. StorageGuard9.4/34GiB blocks local
+heavy app runtime. Static/source/data only,then bounded approved public CI.
+Retain all original failures and source parents. Prior packets remain closed.
+
 ## Persistent reference workflows — 10 November 2026
 
 Standing owner approval covers the [contract](docs/specs/reference-workflows.md)

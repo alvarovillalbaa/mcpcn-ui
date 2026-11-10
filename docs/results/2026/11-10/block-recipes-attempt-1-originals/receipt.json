@@ -1,0 +1,284 @@
+{
+  "schemaVersion": "mcpcn.block-recipe-checks.v1",
+  "sourceCommit": "bce39466707c6e01851973bcd3f636976d75f94e",
+  "workflowCommit": "5552fe428974e1fbf5a9fbf235610ab91d02acbe",
+  "status": "failed",
+  "startedAt": "2026-11-10T12:18:38.120Z",
+  "commands": [
+    {
+      "label": "block-tools-install",
+      "command": "npm",
+      "args": [
+        "install",
+        "--prefix",
+        "/home/runner/work/_temp/mcpcn-block-recipes-2tEtIA/tools",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "pnpm@10.24.0",
+        "playwright@1.65.0"
+      ],
+      "startedAt": "2026-11-10T12:18:40.613Z",
+      "streams": [
+        {
+          "name": "block-tools-install.stdout.txt",
+          "bytes": 24,
+          "sha256": "88b9141cb58f11737b41844c74cbe5d9637404f57b3afb015ee2f41ab63691cd",
+          "complete": true
+        },
+        {
+          "name": "block-tools-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2315,
+      "identity": {
+        "pid": 2315,
+        "uid": 1001,
+        "pgid": 2315,
+        "sid": 2315,
+        "start": "7901"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:18:43.576Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-frozen-workspace-install",
+      "command": "pnpm",
+      "args": [
+        "install",
+        "--frozen-lockfile",
+        "--ignore-scripts"
+      ],
+      "startedAt": "2026-11-10T12:18:43.576Z",
+      "streams": [
+        {
+          "name": "block-frozen-workspace-install.stdout.txt",
+          "bytes": 1440,
+          "sha256": "eba441dd3139a3301b4b58a6c6ac9a6610584630f50a8e3b62e787ace3637b81",
+          "complete": true
+        },
+        {
+          "name": "block-frozen-workspace-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2328,
+      "identity": {
+        "pid": 2328,
+        "uid": 1001,
+        "pgid": 2328,
+        "sid": 2328,
+        "start": "8197"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:18:47.387Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-build-core",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "@mcpcn/core",
+        "build"
+      ],
+      "startedAt": "2026-11-10T12:18:48.286Z",
+      "streams": [
+        {
+          "name": "block-build-core.stdout.txt",
+          "bytes": 123,
+          "sha256": "3879b40baa5ab4ca617c3ed62ff9cfd36ecdb357a739c3d2d2c28739177ffc55",
+          "complete": true
+        },
+        {
+          "name": "block-build-core.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2344,
+      "identity": {
+        "pid": 2344,
+        "uid": 1001,
+        "pgid": 2344,
+        "sid": 2344,
+        "start": "8668"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:18:49.345Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-build-schemas",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "@mcpcn/schemas",
+        "build"
+      ],
+      "startedAt": "2026-11-10T12:18:49.345Z",
+      "streams": [
+        {
+          "name": "block-build-schemas.stdout.txt",
+          "bytes": 129,
+          "sha256": "76ea94dc6fb5fdad9115786971782addc80716aae6b5c6b01df43b393a6e56b8",
+          "complete": true
+        },
+        {
+          "name": "block-build-schemas.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2369,
+      "identity": {
+        "pid": 2369,
+        "uid": 1001,
+        "pgid": 2369,
+        "sid": 2369,
+        "start": "8774"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:18:52.045Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-build-runtime",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "@mcpcn/runtime",
+        "build"
+      ],
+      "startedAt": "2026-11-10T12:18:52.046Z",
+      "streams": [
+        {
+          "name": "block-build-runtime.stdout.txt",
+          "bytes": 129,
+          "sha256": "96dc1d52021c6626c358d055800e418c37e526ec99e0916255ed2c8609bfd497",
+          "complete": true
+        },
+        {
+          "name": "block-build-runtime.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2394,
+      "identity": {
+        "pid": 2394,
+        "uid": 1001,
+        "pgid": 2394,
+        "sid": 2394,
+        "start": "9044"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:18:53.653Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-build-react",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "@mcpcn/react",
+        "build"
+      ],
+      "startedAt": "2026-11-10T12:18:53.653Z",
+      "streams": [
+        {
+          "name": "block-build-react.stdout.txt",
+          "bytes": 1629,
+          "sha256": "1f9bc4315b66fc8b14bf1aeb393f9d5314d3ca82c7ee3da5caf4c4c50ee5dcfe",
+          "complete": true
+        },
+        {
+          "name": "block-build-react.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2419,
+      "identity": {
+        "pid": 2419,
+        "uid": 1001,
+        "pgid": 2419,
+        "sid": 2419,
+        "start": "9205"
+      },
+      "exitCode": 2,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:18:57.390Z",
+      "originalGroupAbsent": true
+    }
+  ],
+  "guards": [
+    {
+      "label": "before-install",
+      "canonicalFiles": 8213,
+      "canonicalVectorSha256": "4b45fa3d14028a2ceed9418410037c4e821a68262a2e04e46eddc3e59e1c0a56",
+      "protectedFiles": 631,
+      "protectedVectorSha256": "e00e9665f867e12f6e5cc59807a6f8d0b2ba1f1db0134cd5b78e7666c6d0a583"
+    },
+    {
+      "label": "after-install",
+      "canonicalFiles": 8213,
+      "canonicalVectorSha256": "4b45fa3d14028a2ceed9418410037c4e821a68262a2e04e46eddc3e59e1c0a56",
+      "protectedFiles": 631,
+      "protectedVectorSha256": "e00e9665f867e12f6e5cc59807a6f8d0b2ba1f1db0134cd5b78e7666c6d0a583"
+    },
+    {
+      "label": "terminal-source-check",
+      "canonicalFiles": 8213,
+      "canonicalVectorSha256": "4b45fa3d14028a2ceed9418410037c4e821a68262a2e04e46eddc3e59e1c0a56",
+      "protectedFiles": 631,
+      "protectedVectorSha256": "e00e9665f867e12f6e5cc59807a6f8d0b2ba1f1db0134cd5b78e7666c6d0a583"
+    }
+  ],
+  "errors": [
+    "block-build-react_failed"
+  ],
+  "cleanup": {
+    "activeChildren": 0,
+    "remainingOriginalGroups": [],
+    "allStreamsComplete": true,
+    "rootRemoved": true
+  },
+  "proofLimits": [
+    "Authored disposable local SQL and actual SDK/AppBridge only. No external host, production identity/provider/model/payment or production data.",
+    "Strict package server Bundler/NodeNext; full copied source Bundler/plain Node/Vite. Full copied NodeNext remains an explicit open quality gate.",
+    "Node24.22.2 Linux/public CI and 1280/390px Chromium; no native device, public npm, production Auth or broad accessibility acceptance."
+  ],
+  "export": {
+    "files": 654,
+    "bytes": 109408818
+  },
+  "completedAt": "2026-11-10T12:18:59.716Z"
+}
