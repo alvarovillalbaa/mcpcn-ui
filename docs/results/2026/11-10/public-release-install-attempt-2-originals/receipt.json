@@ -1,0 +1,1496 @@
+{
+  "schemaVersion": "mcpcn.public-release-install-checks.v1",
+  "sourceCommit": "41806fd12168dbb7fc19d74bd2acc6044623a216",
+  "workflowCommit": "4ec0a7e37ca54bd9dcca03665bb8b331e8ced82c",
+  "status": "failed",
+  "startedAt": "2026-11-10T16:19:01.189Z",
+  "commands": [
+    {
+      "label": "public-tools-install",
+      "command": "npm",
+      "args": [
+        "install",
+        "--prefix",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/tools",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "pnpm@10.24.0",
+        "playwright@1.65.0"
+      ],
+      "startedAt": "2026-11-10T16:19:03.676Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-tools-install.stdout.txt",
+          "bytes": 24,
+          "sha256": "c59541a7d8bfc9987c0aa47adf2cdd2858be8b66de5abc0331d5a6484ae63ab6",
+          "complete": true
+        },
+        {
+          "name": "public-tools-install.stderr.txt",
+          "bytes": 149,
+          "sha256": "5e2e0b6a214ed172e7bd7cb36f806ac6ea59a12c635510dbfc143abbddb6782d",
+          "complete": true
+        }
+      ],
+      "pid": 2286,
+      "identity": {
+        "pid": 2286,
+        "uid": 1001,
+        "pgid": 2286,
+        "sid": 2286,
+        "start": "4474"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:19:05.576Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-frozen-install",
+      "command": "pnpm",
+      "args": [
+        "install",
+        "--frozen-lockfile",
+        "--ignore-scripts"
+      ],
+      "startedAt": "2026-11-10T16:19:05.577Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-frozen-install.stdout.txt",
+          "bytes": 1444,
+          "sha256": "bf2e9372ca601635143242e5f8bff95b0a79a613936419a2458075d550c0ea13",
+          "complete": true
+        },
+        {
+          "name": "public-frozen-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2298,
+      "identity": {
+        "pid": 2298,
+        "uid": 1001,
+        "pgid": 2298,
+        "sid": 2298,
+        "start": "4664"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:19:08.743Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-production-docs-build",
+      "command": "pnpm",
+      "args": [
+        "exec",
+        "turbo",
+        "run",
+        "build",
+        "--filter=@mcpcn/docs...",
+        "--force"
+      ],
+      "startedAt": "2026-11-10T16:19:09.604Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-production-docs-build.stdout.txt",
+          "bytes": 7793,
+          "sha256": "4cc97d7a863eb4d40101bd99b05d759a195311cb7f1d11623665cc1b6baa84a6",
+          "complete": true
+        },
+        {
+          "name": "public-production-docs-build.stderr.txt",
+          "bytes": 338,
+          "sha256": "31e3c944dd9667987a9397b2165255e0e2be6756aeef9e642b9c9578f6e40e2d",
+          "complete": true
+        }
+      ],
+      "pid": 2314,
+      "identity": {
+        "pid": 2314,
+        "uid": 1001,
+        "pgid": 2314,
+        "sid": 2314,
+        "start": "5067"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:19:35.699Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-chromium-install",
+      "command": "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/tools/node_modules/.bin/playwright",
+      "args": [
+        "install",
+        "chromium"
+      ],
+      "startedAt": "2026-11-10T16:19:36.601Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-chromium-install.stdout.txt",
+          "bytes": 6925,
+          "sha256": "a2233322bda86cc8fd59ffb4377ca4a2577f4d441ac747ed5d57c4a3c23b2a9e",
+          "complete": true
+        },
+        {
+          "name": "public-chromium-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2750,
+      "identity": {
+        "pid": 2750,
+        "uid": 1001,
+        "pgid": 2750,
+        "sid": 2750,
+        "start": "7767"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:19:43.574Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-docs-server",
+      "command": "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/source/apps/docs/node_modules/.bin/next",
+      "args": [
+        "start",
+        "--hostname",
+        "127.0.0.1",
+        "--port",
+        "4322"
+      ],
+      "startedAt": "2026-11-10T16:19:43.575Z",
+      "signals": [
+        "SIGTERM"
+      ],
+      "streams": [
+        {
+          "name": "public-docs-server.stdout.txt",
+          "bytes": 152,
+          "sha256": "5183f28cd4198b54de6c7d9bf616cb3bab2a42731b6fba16d1565c205fb139d8",
+          "complete": true
+        },
+        {
+          "name": "public-docs-server.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2798,
+      "identity": {
+        "pid": 2798,
+        "uid": 1001,
+        "pgid": 2798,
+        "sid": 2798,
+        "start": "8464"
+      },
+      "exitCode": 143,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:04.771Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-docs-browser",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "tests/e2e/public-release-install.mjs"
+      ],
+      "startedAt": "2026-11-10T16:19:45.175Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-docs-browser.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-docs-browser.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2824,
+      "identity": {
+        "pid": 2824,
+        "uid": 1001,
+        "pgid": 2824,
+        "sid": 2824,
+        "start": "8624"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:04.753Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-download-mcpcn-core",
+      "command": "curl",
+      "args": [
+        "-q",
+        "-L",
+        "-sS",
+        "--proto",
+        "=https",
+        "--proto-redir",
+        "=https",
+        "--connect-timeout",
+        "10",
+        "--max-time",
+        "45",
+        "--max-redirs",
+        "3",
+        "--max-filesize",
+        "4194304",
+        "--output",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-core-0.1.0.tgz",
+        "--write-out",
+        "{\"httpCode\":%{http_code},\"redirects\":%{num_redirects},\"tlsVerifyResult\":%{ssl_verify_result},\"bytes\":%{size_download}}",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-core-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:20:05.698Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-download-mcpcn-core.stdout.txt",
+          "bytes": 63,
+          "sha256": "266e42872ab1a75d41876ff0264699891b8d045c4ea06ac7994e1018f6f0e211",
+          "complete": true
+        },
+        {
+          "name": "public-download-mcpcn-core.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2956,
+      "identity": {
+        "pid": 2956,
+        "uid": 1001,
+        "pgid": 2956,
+        "sid": 2956,
+        "start": "10677"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:05.967Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-list-mcpcn-core",
+      "command": "tar",
+      "args": [
+        "-tvzf",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-core-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:20:05.967Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-list-mcpcn-core.stdout.txt",
+          "bytes": 425,
+          "sha256": "891ff30ebc3565f6a610d06b30c121030000fe431b31869c659405c86991f9a1",
+          "complete": true
+        },
+        {
+          "name": "public-list-mcpcn-core.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2959,
+      "identity": {
+        "pid": 2959,
+        "uid": 1001,
+        "pgid": 2959,
+        "sid": 2959,
+        "start": "10704"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:05.975Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-extract-mcpcn-core",
+      "command": "tar",
+      "args": [
+        "-xzf",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-core-0.1.0.tgz",
+        "-C",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/extracted-mcpcn-core"
+      ],
+      "startedAt": "2026-11-10T16:20:05.976Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-extract-mcpcn-core.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-extract-mcpcn-core.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2961,
+      "identity": {
+        "pid": 2961,
+        "uid": 1001,
+        "pgid": 2961,
+        "sid": 2961,
+        "start": "10704"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:05.982Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-download-mcpcn-schemas",
+      "command": "curl",
+      "args": [
+        "-q",
+        "-L",
+        "-sS",
+        "--proto",
+        "=https",
+        "--proto-redir",
+        "=https",
+        "--connect-timeout",
+        "10",
+        "--max-time",
+        "45",
+        "--max-redirs",
+        "3",
+        "--max-filesize",
+        "4194304",
+        "--output",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-schemas-0.1.0.tgz",
+        "--write-out",
+        "{\"httpCode\":%{http_code},\"redirects\":%{num_redirects},\"tlsVerifyResult\":%{ssl_verify_result},\"bytes\":%{size_download}}",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-schemas-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:20:05.988Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-download-mcpcn-schemas.stdout.txt",
+          "bytes": 64,
+          "sha256": "7a5592609995f8d57eed59dbb00acbe8fa266b068181785e4a28012f1f218739",
+          "complete": true
+        },
+        {
+          "name": "public-download-mcpcn-schemas.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2963,
+      "identity": {
+        "pid": 2963,
+        "uid": 1001,
+        "pgid": 2963,
+        "sid": 2963,
+        "start": "10706"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:06.224Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-list-mcpcn-schemas",
+      "command": "tar",
+      "args": [
+        "-tvzf",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-schemas-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:20:06.224Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-list-mcpcn-schemas.stdout.txt",
+          "bytes": 6069,
+          "sha256": "475442eded6453b1ed44975024a45e25cca1aab5cb58fed68cf7499b85ef594e",
+          "complete": true
+        },
+        {
+          "name": "public-list-mcpcn-schemas.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2966,
+      "identity": {
+        "pid": 2966,
+        "uid": 1001,
+        "pgid": 2966,
+        "sid": 2966,
+        "start": "10729"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:06.234Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-extract-mcpcn-schemas",
+      "command": "tar",
+      "args": [
+        "-xzf",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-schemas-0.1.0.tgz",
+        "-C",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/extracted-mcpcn-schemas"
+      ],
+      "startedAt": "2026-11-10T16:20:06.235Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-extract-mcpcn-schemas.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-extract-mcpcn-schemas.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2968,
+      "identity": {
+        "pid": 2968,
+        "uid": 1001,
+        "pgid": 2968,
+        "sid": 2968,
+        "start": "10730"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:06.244Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-download-mcpcn-runtime",
+      "command": "curl",
+      "args": [
+        "-q",
+        "-L",
+        "-sS",
+        "--proto",
+        "=https",
+        "--proto-redir",
+        "=https",
+        "--connect-timeout",
+        "10",
+        "--max-time",
+        "45",
+        "--max-redirs",
+        "3",
+        "--max-filesize",
+        "4194304",
+        "--output",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-runtime-0.1.0.tgz",
+        "--write-out",
+        "{\"httpCode\":%{http_code},\"redirects\":%{num_redirects},\"tlsVerifyResult\":%{ssl_verify_result},\"bytes\":%{size_download}}",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-runtime-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:20:06.245Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-download-mcpcn-runtime.stdout.txt",
+          "bytes": 63,
+          "sha256": "1accfb507a3f0cb72d2dd7f541a97d9611233e7e8489464f5aabc4b22f9e4266",
+          "complete": true
+        },
+        {
+          "name": "public-download-mcpcn-runtime.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2970,
+      "identity": {
+        "pid": 2970,
+        "uid": 1001,
+        "pgid": 2970,
+        "sid": 2970,
+        "start": "10731"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:06.500Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-list-mcpcn-runtime",
+      "command": "tar",
+      "args": [
+        "-tvzf",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-runtime-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:20:06.500Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-list-mcpcn-runtime.stdout.txt",
+          "bytes": 425,
+          "sha256": "77ca77b97b214ebc5eed41cc130f388a86daa2d19b7795677734ce215f73c1a2",
+          "complete": true
+        },
+        {
+          "name": "public-list-mcpcn-runtime.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2973,
+      "identity": {
+        "pid": 2973,
+        "uid": 1001,
+        "pgid": 2973,
+        "sid": 2973,
+        "start": "10757"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:06.507Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-extract-mcpcn-runtime",
+      "command": "tar",
+      "args": [
+        "-xzf",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-runtime-0.1.0.tgz",
+        "-C",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/extracted-mcpcn-runtime"
+      ],
+      "startedAt": "2026-11-10T16:20:06.507Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-extract-mcpcn-runtime.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-extract-mcpcn-runtime.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2975,
+      "identity": {
+        "pid": 2975,
+        "uid": 1001,
+        "pgid": 2975,
+        "sid": 2975,
+        "start": "10758"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:06.514Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-download-mcpcn-react",
+      "command": "curl",
+      "args": [
+        "-q",
+        "-L",
+        "-sS",
+        "--proto",
+        "=https",
+        "--proto-redir",
+        "=https",
+        "--connect-timeout",
+        "10",
+        "--max-time",
+        "45",
+        "--max-redirs",
+        "3",
+        "--max-filesize",
+        "4194304",
+        "--output",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-react-0.1.0.tgz",
+        "--write-out",
+        "{\"httpCode\":%{http_code},\"redirects\":%{num_redirects},\"tlsVerifyResult\":%{ssl_verify_result},\"bytes\":%{size_download}}",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-react-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:20:06.514Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-download-mcpcn-react.stdout.txt",
+          "bytes": 65,
+          "sha256": "f3a2ebf46d6cabbb0dd1e481932a3253bc1f4e87e0d8d0719676a331f580cd6d",
+          "complete": true
+        },
+        {
+          "name": "public-download-mcpcn-react.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2977,
+      "identity": {
+        "pid": 2977,
+        "uid": 1001,
+        "pgid": 2977,
+        "sid": 2977,
+        "start": "10758"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:07.182Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-list-mcpcn-react",
+      "command": "tar",
+      "args": [
+        "-tvzf",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-react-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:20:07.183Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-list-mcpcn-react.stdout.txt",
+          "bytes": 7217,
+          "sha256": "7a03d9f8f216f0fa2cd72edf109164445ba9ebeb4072c6bfbc690ea77b18d1ca",
+          "complete": true
+        },
+        {
+          "name": "public-list-mcpcn-react.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2980,
+      "identity": {
+        "pid": 2980,
+        "uid": 1001,
+        "pgid": 2980,
+        "sid": 2980,
+        "start": "10825"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:07.192Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-extract-mcpcn-react",
+      "command": "tar",
+      "args": [
+        "-xzf",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-react-0.1.0.tgz",
+        "-C",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/extracted-mcpcn-react"
+      ],
+      "startedAt": "2026-11-10T16:20:07.193Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-extract-mcpcn-react.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-extract-mcpcn-react.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2982,
+      "identity": {
+        "pid": 2982,
+        "uid": 1001,
+        "pgid": 2982,
+        "sid": 2982,
+        "start": "10826"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:07.202Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-download-mcpcn-themes",
+      "command": "curl",
+      "args": [
+        "-q",
+        "-L",
+        "-sS",
+        "--proto",
+        "=https",
+        "--proto-redir",
+        "=https",
+        "--connect-timeout",
+        "10",
+        "--max-time",
+        "45",
+        "--max-redirs",
+        "3",
+        "--max-filesize",
+        "4194304",
+        "--output",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-themes-0.1.0.tgz",
+        "--write-out",
+        "{\"httpCode\":%{http_code},\"redirects\":%{num_redirects},\"tlsVerifyResult\":%{ssl_verify_result},\"bytes\":%{size_download}}",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-themes-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:20:07.203Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-download-mcpcn-themes.stdout.txt",
+          "bytes": 63,
+          "sha256": "bbcacf261c9be1467ffb28af5b9b1f2723d89aad8a15378ad96c5d2c0693ed63",
+          "complete": true
+        },
+        {
+          "name": "public-download-mcpcn-themes.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2984,
+      "identity": {
+        "pid": 2984,
+        "uid": 1001,
+        "pgid": 2984,
+        "sid": 2984,
+        "start": "10827"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:07.478Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-list-mcpcn-themes",
+      "command": "tar",
+      "args": [
+        "-tvzf",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-themes-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:20:07.479Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-list-mcpcn-themes.stdout.txt",
+          "bytes": 498,
+          "sha256": "d448033b7f6224d913b9305bb5fd706259634e9dc27839459257d9d91941b8ae",
+          "complete": true
+        },
+        {
+          "name": "public-list-mcpcn-themes.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2987,
+      "identity": {
+        "pid": 2987,
+        "uid": 1001,
+        "pgid": 2987,
+        "sid": 2987,
+        "start": "10855"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:07.486Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-extract-mcpcn-themes",
+      "command": "tar",
+      "args": [
+        "-xzf",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-themes-0.1.0.tgz",
+        "-C",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/extracted-mcpcn-themes"
+      ],
+      "startedAt": "2026-11-10T16:20:07.486Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-extract-mcpcn-themes.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-extract-mcpcn-themes.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2989,
+      "identity": {
+        "pid": 2989,
+        "uid": 1001,
+        "pgid": 2989,
+        "sid": 2989,
+        "start": "10855"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:07.493Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-download-mcpcn-registry",
+      "command": "curl",
+      "args": [
+        "-q",
+        "-L",
+        "-sS",
+        "--proto",
+        "=https",
+        "--proto-redir",
+        "=https",
+        "--connect-timeout",
+        "10",
+        "--max-time",
+        "45",
+        "--max-redirs",
+        "3",
+        "--max-filesize",
+        "4194304",
+        "--output",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-registry-0.1.0.tgz",
+        "--write-out",
+        "{\"httpCode\":%{http_code},\"redirects\":%{num_redirects},\"tlsVerifyResult\":%{ssl_verify_result},\"bytes\":%{size_download}}",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-registry-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:20:07.493Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-download-mcpcn-registry.stdout.txt",
+          "bytes": 64,
+          "sha256": "89e8114784050a2c66cd4d98c79a7265805b02fb8202e3447e11aefca50d6c89",
+          "complete": true
+        },
+        {
+          "name": "public-download-mcpcn-registry.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2991,
+      "identity": {
+        "pid": 2991,
+        "uid": 1001,
+        "pgid": 2991,
+        "sid": 2991,
+        "start": "10856"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:07.735Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-list-mcpcn-registry",
+      "command": "tar",
+      "args": [
+        "-tvzf",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-registry-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:20:07.735Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-list-mcpcn-registry.stdout.txt",
+          "bytes": 2353,
+          "sha256": "741b47b063b51be0a6fb244737ebbf0253d5114450dc0d84cad486dfa3b3679c",
+          "complete": true
+        },
+        {
+          "name": "public-list-mcpcn-registry.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2994,
+      "identity": {
+        "pid": 2994,
+        "uid": 1001,
+        "pgid": 2994,
+        "sid": 2994,
+        "start": "10880"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:07.743Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-extract-mcpcn-registry",
+      "command": "tar",
+      "args": [
+        "-xzf",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-registry-0.1.0.tgz",
+        "-C",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/extracted-mcpcn-registry"
+      ],
+      "startedAt": "2026-11-10T16:20:07.743Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-extract-mcpcn-registry.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-extract-mcpcn-registry.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2996,
+      "identity": {
+        "pid": 2996,
+        "uid": 1001,
+        "pgid": 2996,
+        "sid": 2996,
+        "start": "10881"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:07.750Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-download-mcpcn",
+      "command": "curl",
+      "args": [
+        "-q",
+        "-L",
+        "-sS",
+        "--proto",
+        "=https",
+        "--proto-redir",
+        "=https",
+        "--connect-timeout",
+        "10",
+        "--max-time",
+        "45",
+        "--max-redirs",
+        "3",
+        "--max-filesize",
+        "4194304",
+        "--output",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-0.1.0.tgz",
+        "--write-out",
+        "{\"httpCode\":%{http_code},\"redirects\":%{num_redirects},\"tlsVerifyResult\":%{ssl_verify_result},\"bytes\":%{size_download}}",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:20:07.750Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-download-mcpcn.stdout.txt",
+          "bytes": 65,
+          "sha256": "2d605a9e52e3139c77a97958e010e41cadb3684bd82386c075657dd5476fe7ef",
+          "complete": true
+        },
+        {
+          "name": "public-download-mcpcn.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2998,
+      "identity": {
+        "pid": 2998,
+        "uid": 1001,
+        "pgid": 2998,
+        "sid": 2998,
+        "start": "10882"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:07.994Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-list-mcpcn",
+      "command": "tar",
+      "args": [
+        "-tvzf",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:20:07.995Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-list-mcpcn.stdout.txt",
+          "bytes": 1808,
+          "sha256": "b36a6a83f088ca00c686ee7211cdf5285a5e86ad4d6ebd7ce537f6779f84093f",
+          "complete": true
+        },
+        {
+          "name": "public-list-mcpcn.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3001,
+      "identity": {
+        "pid": 3001,
+        "uid": 1001,
+        "pgid": 3001,
+        "sid": 3001,
+        "start": "10906"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:08.006Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-extract-mcpcn",
+      "command": "tar",
+      "args": [
+        "-xzf",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-0.1.0.tgz",
+        "-C",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/extracted-mcpcn"
+      ],
+      "startedAt": "2026-11-10T16:20:08.006Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-extract-mcpcn.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-extract-mcpcn.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3003,
+      "identity": {
+        "pid": 3003,
+        "uid": 1001,
+        "pgid": 3003,
+        "sid": 3003,
+        "start": "10907"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:08.017Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-download-mcpcn-server",
+      "command": "curl",
+      "args": [
+        "-q",
+        "-L",
+        "-sS",
+        "--proto",
+        "=https",
+        "--proto-redir",
+        "=https",
+        "--connect-timeout",
+        "10",
+        "--max-time",
+        "45",
+        "--max-redirs",
+        "3",
+        "--max-filesize",
+        "4194304",
+        "--output",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-server-0.1.0.tgz",
+        "--write-out",
+        "{\"httpCode\":%{http_code},\"redirects\":%{num_redirects},\"tlsVerifyResult\":%{ssl_verify_result},\"bytes\":%{size_download}}",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-server-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:20:08.018Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-download-mcpcn-server.stdout.txt",
+          "bytes": 64,
+          "sha256": "53cfa3f0ea0f1da69937bca46a2522742ce13b0fe39d74d84fda396d70f16736",
+          "complete": true
+        },
+        {
+          "name": "public-download-mcpcn-server.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3005,
+      "identity": {
+        "pid": 3005,
+        "uid": 1001,
+        "pgid": 3005,
+        "sid": 3005,
+        "start": "10909"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:08.263Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-list-mcpcn-server",
+      "command": "tar",
+      "args": [
+        "-tvzf",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-server-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:20:08.264Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-list-mcpcn-server.stdout.txt",
+          "bytes": 2017,
+          "sha256": "51091dcb884ca8af140f0dae5b43cad3a0daee2b4e7cd79eedd47d81864aa9eb",
+          "complete": true
+        },
+        {
+          "name": "public-list-mcpcn-server.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3008,
+      "identity": {
+        "pid": 3008,
+        "uid": 1001,
+        "pgid": 3008,
+        "sid": 3008,
+        "start": "10933"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:08.272Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-extract-mcpcn-server",
+      "command": "tar",
+      "args": [
+        "-xzf",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/mcpcn-server-0.1.0.tgz",
+        "-C",
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/archives/extracted-mcpcn-server"
+      ],
+      "startedAt": "2026-11-10T16:20:08.272Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-extract-mcpcn-server.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-extract-mcpcn-server.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3010,
+      "identity": {
+        "pid": 3010,
+        "uid": 1001,
+        "pgid": 3010,
+        "sid": 3010,
+        "start": "10934"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:08.279Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-npm-copy-install-urls",
+      "command": "npm",
+      "args": [
+        "install",
+        "--ignore-scripts",
+        "--save-exact",
+        "--no-audit",
+        "--no-fund",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-core-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-schemas-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-runtime-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-react-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-themes-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-registry-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-server-0.1.0.tgz",
+        "zod@4.4.3",
+        "@modelcontextprotocol/ext-apps@1.7.5",
+        "@modelcontextprotocol/sdk@1.30.0",
+        "@types/node@24.13.3"
+      ],
+      "startedAt": "2026-11-10T16:20:08.281Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-npm-copy-install-urls.stdout.txt",
+          "bytes": 26,
+          "sha256": "bb9221ceb0e9baf4e5787667c8a65ec46bcce228ee89d7c10235a79737fee5c1",
+          "complete": true
+        },
+        {
+          "name": "public-npm-copy-install-urls.stderr.txt",
+          "bytes": 149,
+          "sha256": "5e2e0b6a214ed172e7bd7cb36f806ac6ea59a12c635510dbfc143abbddb6782d",
+          "complete": true
+        }
+      ],
+      "pid": 3012,
+      "identity": {
+        "pid": 3012,
+        "uid": 1001,
+        "pgid": 3012,
+        "sid": 3012,
+        "start": "10935"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:16.745Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-npm-copy-cli-init",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/consumers/npm-copy/node_modules/mcpcn/dist/index.js",
+        "init",
+        "--mode=copy",
+        "--style=violet",
+        "--host=standard-mcp",
+        "--manager=npm",
+        "--components-dir=src/mcpcn",
+        "--registry=https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/d91fe403eb6b3ec07ef9791e47a8655f5ed519f3/registry/items"
+      ],
+      "startedAt": "2026-11-10T16:20:16.752Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-npm-copy-cli-init.stdout.txt",
+          "bytes": 53,
+          "sha256": "96af2325c4ba21c7ed182a0238171f3de0b05d511d08f640f91f1a919c79feed",
+          "complete": true
+        },
+        {
+          "name": "public-npm-copy-cli-init.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3025,
+      "identity": {
+        "pid": 3025,
+        "uid": 1001,
+        "pgid": 3025,
+        "sid": 3025,
+        "start": "11782"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:16.898Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-npm-copy-cli-add",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-public-install-zI51EQ/consumers/npm-copy/node_modules/mcpcn/dist/index.js",
+        "add",
+        "approval-card",
+        "tabs",
+        "review-before-action"
+      ],
+      "startedAt": "2026-11-10T16:20:16.898Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-npm-copy-cli-add.stdout.txt",
+          "bytes": 463,
+          "sha256": "983f127acee2f2d72dcbd7a70cf0054b76604c96a7faa95424a8542178ab857f",
+          "complete": true
+        },
+        {
+          "name": "public-npm-copy-cli-add.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3037,
+      "identity": {
+        "pid": 3037,
+        "uid": 1001,
+        "pgid": 3037,
+        "sid": 3037,
+        "start": "11797"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:20:19.101Z",
+      "originalGroupAbsent": true
+    }
+  ],
+  "guards": [
+    {
+      "label": "before-install",
+      "canonicalFiles": 9816,
+      "canonicalVectorSha256": "0fa32bd128d5a5e72c299462a65c2b93a570bbcd15ffa88bd38681b8c90d3132",
+      "protectedFiles": 683,
+      "protectedVectorSha256": "c517a066dd52c8bf62a30397d501dff5bcb2730fe0f54ab22ef821a99aacd6cb"
+    },
+    {
+      "label": "after-install",
+      "canonicalFiles": 9816,
+      "canonicalVectorSha256": "0fa32bd128d5a5e72c299462a65c2b93a570bbcd15ffa88bd38681b8c90d3132",
+      "protectedFiles": 683,
+      "protectedVectorSha256": "c517a066dd52c8bf62a30397d501dff5bcb2730fe0f54ab22ef821a99aacd6cb"
+    },
+    {
+      "label": "after-production-build",
+      "canonicalFiles": 9816,
+      "canonicalVectorSha256": "0fa32bd128d5a5e72c299462a65c2b93a570bbcd15ffa88bd38681b8c90d3132",
+      "protectedFiles": 683,
+      "protectedVectorSha256": "c517a066dd52c8bf62a30397d501dff5bcb2730fe0f54ab22ef821a99aacd6cb"
+    },
+    {
+      "label": "after-docs-browser",
+      "canonicalFiles": 9816,
+      "canonicalVectorSha256": "0fa32bd128d5a5e72c299462a65c2b93a570bbcd15ffa88bd38681b8c90d3132",
+      "protectedFiles": 683,
+      "protectedVectorSha256": "c517a066dd52c8bf62a30397d501dff5bcb2730fe0f54ab22ef821a99aacd6cb"
+    },
+    {
+      "label": "terminal-source-check",
+      "canonicalFiles": 9816,
+      "canonicalVectorSha256": "0fa32bd128d5a5e72c299462a65c2b93a570bbcd15ffa88bd38681b8c90d3132",
+      "protectedFiles": 683,
+      "protectedVectorSha256": "c517a066dd52c8bf62a30397d501dff5bcb2730fe0f54ab22ef821a99aacd6cb"
+    }
+  ],
+  "errors": [
+    "actual_dependency_selection"
+  ],
+  "cleanup": {
+    "activeChildren": 0,
+    "remainingOriginalGroups": [],
+    "allStreamsComplete": true,
+    "rootRemoved": true
+  },
+  "proofLimits": [
+    "T2 authored consumer apps and in-memory SQLite fixtures; no production data/account/provider/model/payment or external host.",
+    "Four selected Chromium docs/clipboard journeys and npm/pnpm URL installs only; Bun, physical input, human accessibility, public npm publication and full-product acceptance remain open."
+  ],
+  "export": {
+    "files": 683,
+    "bytes": 115754422
+  },
+  "production": {
+    "coldSuccessfulTasks": 10,
+    "totalTasks": 10,
+    "expectedPages": 84
+  },
+  "browser": {
+    "profiles": 4,
+    "domStages": 32,
+    "pngs": 8,
+    "version": "158.0.8127.18",
+    "nativeClipboardReadbacks": 12
+  },
+  "completedAt": "2026-11-10T16:20:23.127Z"
+}

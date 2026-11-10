@@ -1,0 +1,126 @@
+
+   • Packages in scope: @mcpcn/core, @mcpcn/docs, @mcpcn/playground, @mcpcn/react, @mcpcn/reference-workflows, @mcpcn/registry, @mcpcn/runtime, @mcpcn/schemas, @mcpcn/server, @mcpcn/themes
+   • Running build in 10 packages
+   • Remote caching disabled
+
+@mcpcn/themes:build: cache bypass, force executing 5c37eb601e3a5a03
+@mcpcn/core:build: cache bypass, force executing e7dbe0effb6c1162
+@mcpcn/themes:build: 
+@mcpcn/themes:build: > @mcpcn/themes@0.1.0 build /home/runner/work/_temp/mcpcn-public-install-xMI9me/source/packages/themes
+@mcpcn/themes:build: > tsc -p tsconfig.json && cp src/default.css dist/default.css
+@mcpcn/themes:build: 
+@mcpcn/core:build: 
+@mcpcn/core:build: > @mcpcn/core@0.1.0 build /home/runner/work/_temp/mcpcn-public-install-xMI9me/source/packages/core
+@mcpcn/core:build: > tsc -p tsconfig.json
+@mcpcn/core:build: 
+@mcpcn/schemas:build: cache bypass, force executing e0bb1adf0c546acd
+@mcpcn/runtime:build: cache bypass, force executing fa7e6645db50e5df
+@mcpcn/runtime:build: 
+@mcpcn/runtime:build: > @mcpcn/runtime@0.1.0 build /home/runner/work/_temp/mcpcn-public-install-xMI9me/source/packages/runtime
+@mcpcn/runtime:build: > tsc -p tsconfig.json
+@mcpcn/runtime:build: 
+@mcpcn/schemas:build: 
+@mcpcn/schemas:build: > @mcpcn/schemas@0.1.0 build /home/runner/work/_temp/mcpcn-public-install-xMI9me/source/packages/schemas
+@mcpcn/schemas:build: > tsc -p tsconfig.json
+@mcpcn/schemas:build: 
+@mcpcn/react:build: cache bypass, force executing 60a07e19d9d308df
+@mcpcn/registry:build: cache bypass, force executing ef95f5467f93e2df
+@mcpcn/server:build: cache bypass, force executing d2dc0a6cbb9cdfa6
+@mcpcn/react:build: 
+@mcpcn/react:build: > @mcpcn/react@0.1.0 build /home/runner/work/_temp/mcpcn-public-install-xMI9me/source/packages/react
+@mcpcn/react:build: > tsc -p tsconfig.json && cp src/styles.css dist/styles.css
+@mcpcn/react:build: 
+@mcpcn/server:build: 
+@mcpcn/server:build: > @mcpcn/server@0.1.0 build /home/runner/work/_temp/mcpcn-public-install-xMI9me/source/packages/server
+@mcpcn/server:build: > tsc -p tsconfig.json
+@mcpcn/server:build: 
+@mcpcn/registry:build: 
+@mcpcn/registry:build: > @mcpcn/registry@0.1.0 build /home/runner/work/_temp/mcpcn-public-install-xMI9me/source/packages/registry
+@mcpcn/registry:build: > tsc -p tsconfig.json && node dist/bin.js build
+@mcpcn/registry:build: 
+@mcpcn/registry:build: Built 79 source registry items
+@mcpcn/reference-workflows:build: cache bypass, force executing 39b55519ae04e1dd
+@mcpcn/playground:build: cache bypass, force executing 7a869afe6240e740
+@mcpcn/reference-workflows:build: 
+@mcpcn/reference-workflows:build: > @mcpcn/reference-workflows@0.1.0 build /home/runner/work/_temp/mcpcn-public-install-xMI9me/source/examples/shared
+@mcpcn/reference-workflows:build: > tsc -p tsconfig.json
+@mcpcn/reference-workflows:build: 
+@mcpcn/playground:build: 
+@mcpcn/playground:build: > @mcpcn/playground@0.1.0 build /home/runner/work/_temp/mcpcn-public-install-xMI9me/source/apps/playground
+@mcpcn/playground:build: > vite build && node ../../tooling/stage-playground.mjs --manifest
+@mcpcn/playground:build: 
+@mcpcn/playground:build: vite v8.2.1 building client environment for production...
+@mcpcn/playground:build: [2K@mcpcn/playground:build: transforming...✓ 215 modules transformed.
+@mcpcn/playground:build: rendering chunks...
+@mcpcn/playground:build: computing gzip size...
+@mcpcn/playground:build: dist/frame.html                        0.51 kB │ gzip:   0.33 kB
+@mcpcn/playground:build: dist/index.html                        0.68 kB │ gzip:   0.44 kB
+@mcpcn/playground:build: dist/assets/index-ylmVxKY0.css         3.32 kB │ gzip:   1.16 kB
+@mcpcn/playground:build: dist/assets/frame-DDC9bYW-.css        15.02 kB │ gzip:   3.10 kB
+@mcpcn/playground:build: dist/assets/index-CfkrXsfv.js         44.63 kB │ gzip:  12.98 kB
+@mcpcn/playground:build: dist/assets/frame-3adbKsBM.js        238.71 kB │ gzip:  50.44 kB
+@mcpcn/playground:build: dist/assets/jsx-runtime-DDbC28k4.js  621.42 kB │ gzip: 163.44 kB
+@mcpcn/playground:build: 
+@mcpcn/playground:build: ✓ built in 261ms
+@mcpcn/playground:build: [plugin builtin:vite-reporter] 
+@mcpcn/playground:build: (!) Some chunks are larger than 500 kB after minification. Consider:
+@mcpcn/playground:build: - Using dynamic import() to code-split the application
+@mcpcn/playground:build: - Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+@mcpcn/playground:build: - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+@mcpcn/docs:build: cache bypass, force executing 68b44dafd67ef45e
+@mcpcn/docs:build: 
+@mcpcn/docs:build: > @mcpcn/docs@0.1.0 build /home/runner/work/_temp/mcpcn-public-install-xMI9me/source/apps/docs
+@mcpcn/docs:build: > node ../../tooling/stage-playground.mjs --target docs && node ../../tooling/stage-docs-registry.mjs && next build
+@mcpcn/docs:build: 
+@mcpcn/docs:build: {"schemaVersion":1,"kind":"mcpcn.docs.registry-static.stage.v1","status":"staged","source":{"path":"registry/registry.json","bytes":36150053,"sha256":"8e96a5d1b4dbba35697a0bbf94be6f49307aff3506189cccad77576a6b46565d"},"destination":"apps/docs/public/r","files":[{"path":"registry.json","bytes":36150053,"sha256":"8e96a5d1b4dbba35697a0bbf94be6f49307aff3506189cccad77576a6b46565d"},{"path":"registry-static-manifest.json","bytes":237,"sha256":"76c117828f7d0b41b06047368c09f3013ad0f9b21c5a666b3b921a7dad6f0f28"}]}
+@mcpcn/docs:build: ▲ Next.js 16.3.0 (Turbopack)
+@mcpcn/docs:build: ✓ Running next.config.ts took 20ms
+@mcpcn/docs:build: ⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+@mcpcn/docs:build: - Experiments (use with caution):
+@mcpcn/docs:build:   · optimizePackageImports
+@mcpcn/docs:build: 
+@mcpcn/docs:build:   Creating an optimized production build ...
+@mcpcn/docs:build: ✓ Compiled successfully in 6.4s
+@mcpcn/docs:build:   Running TypeScript ...
+@mcpcn/docs:build:   Finished TypeScript in 6.0s ...
+@mcpcn/docs:build:   Collecting page data using 3 workers ...
+@mcpcn/docs:build:   Generating static pages using 3 workers (0/84) ...
+@mcpcn/docs:build:   Generating static pages using 3 workers (21/84) 
+@mcpcn/docs:build:   Generating static pages using 3 workers (42/84) 
+@mcpcn/docs:build:   Generating static pages using 3 workers (63/84) 
+@mcpcn/docs:build: ✓ Generating static pages using 3 workers (84/84) in 1097ms
+@mcpcn/docs:build:   Finalizing page optimization ...
+@mcpcn/docs:build: 
+@mcpcn/docs:build: Route (app)
+@mcpcn/docs:build: ┌ ○ /
+@mcpcn/docs:build: ├ ○ /_not-found
+@mcpcn/docs:build: ├ ○ /blocks
+@mcpcn/docs:build: ├ ○ /components
+@mcpcn/docs:build: ├   /components/[slug]
+@mcpcn/docs:build: │ ├ ● /components/button
+@mcpcn/docs:build: │ ├ ● /components/card
+@mcpcn/docs:build: │ ├ ● /components/badge
+@mcpcn/docs:build: │ └ ● [+65 more paths]
+@mcpcn/docs:build: ├ ○ /create
+@mcpcn/docs:build: ├ ○ /docs
+@mcpcn/docs:build: ├ ○ /docs/block-recipes
+@mcpcn/docs:build: ├ ○ /docs/reference-workflows
+@mcpcn/docs:build: ├ ○ /docs/server
+@mcpcn/docs:build: ├ ○ /examples
+@mcpcn/docs:build: ├ ○ /icon.svg
+@mcpcn/docs:build: ├ ƒ /llms-full.txt
+@mcpcn/docs:build: ├ ƒ /llms.txt
+@mcpcn/docs:build: ├ ○ /playground
+@mcpcn/docs:build: ├ ƒ /r/[name]
+@mcpcn/docs:build: └ ƒ /schema/config.json
+@mcpcn/docs:build: 
+@mcpcn/docs:build: 
+@mcpcn/docs:build: ○  (Static)   prerendered as static content
+@mcpcn/docs:build: ●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+@mcpcn/docs:build: ƒ  (Dynamic)  server-rendered on demand
+@mcpcn/docs:build: 
+
+ Tasks:    10 successful, 10 total
+Cached:    0 cached, 10 total
+  Time:    31.521s 
+
