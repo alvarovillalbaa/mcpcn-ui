@@ -2,6 +2,54 @@
 
 Last updated: 2026-11-10
 
+## Public release installation — focused acceptance passed
+
+The [complete focused acceptance](docs/results/2026/11-10/public-release-install-checks.md)
+PASSED atbba23fec:fouractualnpm/pnpmcopy/packageappsexecutednativeUI-copied
+commands,all8publicarchives/250membersperapp,strictBundlerfalseSkipLibCheck,
+fourSDKfixtures/fourVitebuilds,fourdocsjourneys/32DOM/eightPNG/12clipboardreads,
+cold10/10tasks/zero-cache/84pages.184originals/4232567Bindependentlyverified;
+56commands/112streams/sixstablewhole-sourceguards/ownedcleanup. No generated
+adoption:all160registrypathsunchanged. PreserveW/C1/C2/C3 andbothfailedpackets.
+Publicdeployment/anonymousdelivery/workflowretirement remain pending.
+Historical preparation and failure instructions follow.
+
+Following clean ec3e6384,implement the [public archive contract](docs/specs/public-release-installation.md)
+and [frozen checks](docs/proposals/public-release-install-checks.md). Standing
+owner approval covers this free implementation/check/temporaryCI/publication;
+no new confirmation is needed. All earlier cohorts remain closed. Use the
+eight actual v0.1.0-keyboard.1 archives and source-pinned registry; no rebuilt
+package or file-registry substitute. npm/pnpm copy/package profiles must execute
+actual UI-copied commands in four fresh authored apps. Bun remains a labeled
+preview. npm pkg set pins only project-local pnpm release/SDK/type overrides;
+preserve unrelated fields. Shared runtime identities/installed archive bytes,
+strict clients,four real installed SQL/SDK fixtures,four Vite builds and four
+production-docs browser/clipboard journeys/32DOM/eightPNG are required.
+Cold production10/10tasks/zero cached/84pages. No generated adoption; whole
+export/all160registry paths must stay byte-exact. Preserve any failed packet.
+Source10500files/1152MiB/file40MiB/export128MiB/packet32MiB/archive&stream4MiB
+are prospective finite budgets. StorageGuard11.2/34GiB blocks local heavy
+runtime:source/data/static only,one public20minute job. NativeHEADstays ec3e6384
+until checks/acceptance. No current new compile/browser/install proof exists.
+No account,paid plan,model/provider/Auth change,real data or subagents.
+
+Public-install C1 `5388607b` failed only the ambiguous global alert locator:
+Next's route announcer and actual configurator error both have role=alert.
+[Original failure](docs/results/2026/11-10/public-release-install-attempt-1.md)
+preserves23originals/592460B/sixcommands/twelvestreams/fourstableguards/cleanup.
+Cold10/10/84pages and first desktop native clipboard passed. Scope the locator
+to the configurator; retain all assertions/fourjourneys/fourconsumers. Preserve
+C1 ancestry. No whole browser/consumer acceptance or generated adoption yet.
+
+Public-install C2 `41806fd1` passed coldproduction/fourdocsbrowserjourneys/
+32DOM/eightPNG/12clipboardreads/all8publicdownloads and firstnpmbootstrap/CLI.
+[Original failure](docs/results/2026/11-10/public-release-install-attempt-2.md)
+preserves122originals/3701132B/33commands66streams/fivestableguards/cleanup.
+Preparation missed sharedButton/Card/Badge in catalog dependency closure.
+Correct to eightitems/60copy57TS/13package12TS; expand assertions,keep all
+fourconsumers/strictSDKVite/browserchecks and sourcesC1/C2 unchanged. Preserve
+consumer metadata immediatelyafterCLI. No library/archive/generatedchange.
+
 ## Tabs and Dialog keyboard repair — focused acceptance passed
 
 The [complete focused acceptance](docs/results/2026/11-10/primitive-keyboard-checks.md)

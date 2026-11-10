@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import type { ReactNode } from "react";
 import { catalog, componentDataSchema, findCatalogItem } from "@mcpcn/registry";
 import { ApprovalDemo, AuditDemo, FormDemo, GenericDemo, ProgressDemo, ReviewDemo } from "../../../components/demos";
@@ -28,6 +29,8 @@ import { PrivacyContextDemo } from "../../../components/privacy-context-demos";
 import { privacyContextExamples, privacyContextExampleCode, type PrivacyContextSlug } from "../../../components/privacy-context-examples";
 import { decisionNarrativeExamples, decisionNarrativeExampleCode, type DecisionNarrativeSlug } from "../../../components/decision-narrative-examples";
 import { ComponentPreview } from "../../../components/component-preview";
+import { InstallCommand } from "../../../components/install-command";
+import { localCli } from "../../../lib/release-installation";
 
 export function generateStaticParams() { return catalog.map(item => ({ slug: item.slug })); }
 
@@ -155,8 +158,9 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
     </section>
     {slug === "evidence-drawer" && <section className="preview-shell" aria-label="Native modal stacking example"><h2>Two native evidence views</h2><ComponentPreview><EvidenceDrawerStackDemo /></ComponentPreview></section>}
     <section className="section prose">
-      <h2>Install</h2><pre className="code">pnpm dlx mcpcn add {item.slug}</pre>
-      <p>Public npm availability is a separate release gate. The repository documentation records the currently verified source, archives and hosting profile.</p>
+      <h2>Install</h2><p><Link href="/docs#install">Install the checked release packages and initialize your app</Link>, then add this component with the local CLI.</p>
+      <InstallCommand label={`${item.name} installation`} command={`${localCli} add ${item.slug}`} />
+      <p>Public npm availability remains a separate release gate.</p>
       {schema && <>
         <h2>Data props</h2><p>These fields come from the actual exported schema. Defaults may be omitted on input; the schema below describes validated output. Runtime checks also validate identities, conditional values and safe evidence links.</p>
         <div className="mcpcn-table-wrap"><table className="mcpcn-table"><caption>{item.name} data fields</caption><thead><tr><th>Field</th><th>Type</th><th>Input</th></tr></thead><tbody>

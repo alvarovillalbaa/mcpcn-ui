@@ -1,0 +1,32 @@
+{
+  "sourceCommit": "41806fd12168dbb7fc19d74bd2acc6044623a216",
+  "profile": {
+    "id": "npm-package",
+    "width": 390,
+    "manager": "npm",
+    "mode": "package",
+    "style": "graphite",
+    "host": "openai",
+    "componentsDir": "ui/mcpcn",
+    "selected": [
+      "approval-card",
+      "tabs",
+      "review-before-action"
+    ]
+  },
+  "config": {
+    "$schema": "https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/main/registry/config.schema.json",
+    "mode": "package",
+    "style": "graphite",
+    "host": "openai",
+    "typescript": true,
+    "componentsDir": "ui/mcpcn",
+    "registry": "https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/d91fe403eb6b3ec07ef9791e47a8655f5ed519f3/registry/items",
+    "packageManager": "npm"
+  },
+  "commands": {
+    "bootstrap": "npm install --ignore-scripts --save-exact --no-audit --no-fund \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-core-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-schemas-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-runtime-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-react-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-themes-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-registry-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-server-0.1.0.tgz \\\n  zod@4.4.3 \\\n  @modelcontextprotocol/ext-apps@1.7.5 \\\n  @modelcontextprotocol/sdk@1.30.0 \\\n  @types/node@24.13.3",
+    "initialize": "node node_modules/mcpcn/dist/index.js init --mode=package --style=graphite --host=openai --manager=npm --components-dir=ui/mcpcn --registry=https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/d91fe403eb6b3ec07ef9791e47a8655f5ed519f3/registry/items",
+    "add": "node node_modules/mcpcn/dist/index.js add approval-card tabs review-before-action"
+  }
+}

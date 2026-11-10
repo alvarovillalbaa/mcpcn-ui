@@ -1,0 +1,3526 @@
+{
+  "schemaVersion": "mcpcn.public-release-install-checks.v1",
+  "sourceCommit": "bba23fec921884aebce77933a71acf3b71390e5e",
+  "workflowCommit": "4ec0a7e37ca54bd9dcca03665bb8b331e8ced82c",
+  "status": "passed",
+  "startedAt": "2026-11-10T16:23:42.140Z",
+  "commands": [
+    {
+      "label": "public-tools-install",
+      "command": "npm",
+      "args": [
+        "install",
+        "--prefix",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/tools",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "pnpm@10.24.0",
+        "playwright@1.65.0"
+      ],
+      "startedAt": "2026-11-10T16:23:45.089Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-tools-install.stdout.txt",
+          "bytes": 24,
+          "sha256": "c4307d64b5a147f052e2e513ea1e8a6eee29a843d64c201e638d0a6b934f3ed8",
+          "complete": true
+        },
+        {
+          "name": "public-tools-install.stderr.txt",
+          "bytes": 149,
+          "sha256": "5e2e0b6a214ed172e7bd7cb36f806ac6ea59a12c635510dbfc143abbddb6782d",
+          "complete": true
+        }
+      ],
+      "pid": 2310,
+      "identity": {
+        "pid": 2310,
+        "uid": 1001,
+        "pgid": 2310,
+        "sid": 2310,
+        "start": "8339"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:23:49.272Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-frozen-install",
+      "command": "pnpm",
+      "args": [
+        "install",
+        "--frozen-lockfile",
+        "--ignore-scripts"
+      ],
+      "startedAt": "2026-11-10T16:23:49.273Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-frozen-install.stdout.txt",
+          "bytes": 1505,
+          "sha256": "1988c8af2407834d39ddc5ae0089a7056bf912c2f89e3231d374496b3dc21963",
+          "complete": true
+        },
+        {
+          "name": "public-frozen-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2322,
+      "identity": {
+        "pid": 2322,
+        "uid": 1001,
+        "pgid": 2322,
+        "sid": 2322,
+        "start": "8756"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:23:53.302Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-production-docs-build",
+      "command": "pnpm",
+      "args": [
+        "exec",
+        "turbo",
+        "run",
+        "build",
+        "--filter=@mcpcn/docs...",
+        "--force"
+      ],
+      "startedAt": "2026-11-10T16:23:54.300Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-production-docs-build.stdout.txt",
+          "bytes": 7794,
+          "sha256": "daab23be1168fe659086a478b649e5e3044fcad48e2571132d964e9d0add8983",
+          "complete": true
+        },
+        {
+          "name": "public-production-docs-build.stderr.txt",
+          "bytes": 338,
+          "sha256": "31e3c944dd9667987a9397b2165255e0e2be6756aeef9e642b9c9578f6e40e2d",
+          "complete": true
+        }
+      ],
+      "pid": 2337,
+      "identity": {
+        "pid": 2337,
+        "uid": 1001,
+        "pgid": 2337,
+        "sid": 2337,
+        "start": "9259"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:24:28.346Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-chromium-install",
+      "command": "/home/runner/work/_temp/mcpcn-public-install-u9knaT/tools/node_modules/.bin/playwright",
+      "args": [
+        "install",
+        "chromium"
+      ],
+      "startedAt": "2026-11-10T16:24:29.407Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-chromium-install.stdout.txt",
+          "bytes": 6925,
+          "sha256": "763463160c3744a420448f68be0e2bf8fd197913d3052c5641e17e08a1c9e65c",
+          "complete": true
+        },
+        {
+          "name": "public-chromium-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2776,
+      "identity": {
+        "pid": 2776,
+        "uid": 1001,
+        "pgid": 2776,
+        "sid": 2776,
+        "start": "12770"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:24:37.554Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-docs-server",
+      "command": "/home/runner/work/_temp/mcpcn-public-install-u9knaT/source/apps/docs/node_modules/.bin/next",
+      "args": [
+        "start",
+        "--hostname",
+        "127.0.0.1",
+        "--port",
+        "4322"
+      ],
+      "startedAt": "2026-11-10T16:24:37.554Z",
+      "signals": [
+        "SIGTERM"
+      ],
+      "streams": [
+        {
+          "name": "public-docs-server.stdout.txt",
+          "bytes": 153,
+          "sha256": "2da1867b07c124d8d76d9b1c008157b0ce0f80a2c020729214770f94e1c392c7",
+          "complete": true
+        },
+        {
+          "name": "public-docs-server.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2826,
+      "identity": {
+        "pid": 2826,
+        "uid": 1001,
+        "pgid": 2826,
+        "sid": 2826,
+        "start": "13585"
+      },
+      "exitCode": 143,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:01.712Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-docs-browser",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "tests/e2e/public-release-install.mjs"
+      ],
+      "startedAt": "2026-11-10T16:24:39.570Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-docs-browser.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-docs-browser.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2852,
+      "identity": {
+        "pid": 2852,
+        "uid": 1001,
+        "pgid": 2852,
+        "sid": 2852,
+        "start": "13786"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:01.691Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-download-mcpcn-core",
+      "command": "curl",
+      "args": [
+        "-q",
+        "-L",
+        "-sS",
+        "--proto",
+        "=https",
+        "--proto-redir",
+        "=https",
+        "--connect-timeout",
+        "10",
+        "--max-time",
+        "45",
+        "--max-redirs",
+        "3",
+        "--max-filesize",
+        "4194304",
+        "--output",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-core-0.1.0.tgz",
+        "--write-out",
+        "{\"httpCode\":%{http_code},\"redirects\":%{num_redirects},\"tlsVerifyResult\":%{ssl_verify_result},\"bytes\":%{size_download}}",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-core-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:25:02.711Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-download-mcpcn-core.stdout.txt",
+          "bytes": 63,
+          "sha256": "266e42872ab1a75d41876ff0264699891b8d045c4ea06ac7994e1018f6f0e211",
+          "complete": true
+        },
+        {
+          "name": "public-download-mcpcn-core.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2982,
+      "identity": {
+        "pid": 2982,
+        "uid": 1001,
+        "pgid": 2982,
+        "sid": 2982,
+        "start": "16101"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:03.017Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-list-mcpcn-core",
+      "command": "tar",
+      "args": [
+        "-tvzf",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-core-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:25:03.018Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-list-mcpcn-core.stdout.txt",
+          "bytes": 425,
+          "sha256": "891ff30ebc3565f6a610d06b30c121030000fe431b31869c659405c86991f9a1",
+          "complete": true
+        },
+        {
+          "name": "public-list-mcpcn-core.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2985,
+      "identity": {
+        "pid": 2985,
+        "uid": 1001,
+        "pgid": 2985,
+        "sid": 2985,
+        "start": "16131"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:03.028Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-extract-mcpcn-core",
+      "command": "tar",
+      "args": [
+        "-xzf",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-core-0.1.0.tgz",
+        "-C",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/extracted-mcpcn-core"
+      ],
+      "startedAt": "2026-11-10T16:25:03.029Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-extract-mcpcn-core.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-extract-mcpcn-core.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2987,
+      "identity": {
+        "pid": 2987,
+        "uid": 1001,
+        "pgid": 2987,
+        "sid": 2987,
+        "start": "16132"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:03.039Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-download-mcpcn-schemas",
+      "command": "curl",
+      "args": [
+        "-q",
+        "-L",
+        "-sS",
+        "--proto",
+        "=https",
+        "--proto-redir",
+        "=https",
+        "--connect-timeout",
+        "10",
+        "--max-time",
+        "45",
+        "--max-redirs",
+        "3",
+        "--max-filesize",
+        "4194304",
+        "--output",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-schemas-0.1.0.tgz",
+        "--write-out",
+        "{\"httpCode\":%{http_code},\"redirects\":%{num_redirects},\"tlsVerifyResult\":%{ssl_verify_result},\"bytes\":%{size_download}}",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-schemas-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:25:03.045Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-download-mcpcn-schemas.stdout.txt",
+          "bytes": 64,
+          "sha256": "7a5592609995f8d57eed59dbb00acbe8fa266b068181785e4a28012f1f218739",
+          "complete": true
+        },
+        {
+          "name": "public-download-mcpcn-schemas.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2989,
+      "identity": {
+        "pid": 2989,
+        "uid": 1001,
+        "pgid": 2989,
+        "sid": 2989,
+        "start": "16134"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:03.358Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-list-mcpcn-schemas",
+      "command": "tar",
+      "args": [
+        "-tvzf",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-schemas-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:25:03.358Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-list-mcpcn-schemas.stdout.txt",
+          "bytes": 6069,
+          "sha256": "475442eded6453b1ed44975024a45e25cca1aab5cb58fed68cf7499b85ef594e",
+          "complete": true
+        },
+        {
+          "name": "public-list-mcpcn-schemas.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2992,
+      "identity": {
+        "pid": 2992,
+        "uid": 1001,
+        "pgid": 2992,
+        "sid": 2992,
+        "start": "16165"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:03.375Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-extract-mcpcn-schemas",
+      "command": "tar",
+      "args": [
+        "-xzf",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-schemas-0.1.0.tgz",
+        "-C",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/extracted-mcpcn-schemas"
+      ],
+      "startedAt": "2026-11-10T16:25:03.375Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-extract-mcpcn-schemas.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-extract-mcpcn-schemas.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2994,
+      "identity": {
+        "pid": 2994,
+        "uid": 1001,
+        "pgid": 2994,
+        "sid": 2994,
+        "start": "16167"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:03.393Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-download-mcpcn-runtime",
+      "command": "curl",
+      "args": [
+        "-q",
+        "-L",
+        "-sS",
+        "--proto",
+        "=https",
+        "--proto-redir",
+        "=https",
+        "--connect-timeout",
+        "10",
+        "--max-time",
+        "45",
+        "--max-redirs",
+        "3",
+        "--max-filesize",
+        "4194304",
+        "--output",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-runtime-0.1.0.tgz",
+        "--write-out",
+        "{\"httpCode\":%{http_code},\"redirects\":%{num_redirects},\"tlsVerifyResult\":%{ssl_verify_result},\"bytes\":%{size_download}}",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-runtime-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:25:03.395Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-download-mcpcn-runtime.stdout.txt",
+          "bytes": 63,
+          "sha256": "1accfb507a3f0cb72d2dd7f541a97d9611233e7e8489464f5aabc4b22f9e4266",
+          "complete": true
+        },
+        {
+          "name": "public-download-mcpcn-runtime.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2996,
+      "identity": {
+        "pid": 2996,
+        "uid": 1001,
+        "pgid": 2996,
+        "sid": 2996,
+        "start": "16169"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:03.708Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-list-mcpcn-runtime",
+      "command": "tar",
+      "args": [
+        "-tvzf",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-runtime-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:25:03.709Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-list-mcpcn-runtime.stdout.txt",
+          "bytes": 425,
+          "sha256": "77ca77b97b214ebc5eed41cc130f388a86daa2d19b7795677734ce215f73c1a2",
+          "complete": true
+        },
+        {
+          "name": "public-list-mcpcn-runtime.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2999,
+      "identity": {
+        "pid": 2999,
+        "uid": 1001,
+        "pgid": 2999,
+        "sid": 2999,
+        "start": "16200"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:03.723Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-extract-mcpcn-runtime",
+      "command": "tar",
+      "args": [
+        "-xzf",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-runtime-0.1.0.tgz",
+        "-C",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/extracted-mcpcn-runtime"
+      ],
+      "startedAt": "2026-11-10T16:25:03.724Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-extract-mcpcn-runtime.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-extract-mcpcn-runtime.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3001,
+      "identity": {
+        "pid": 3001,
+        "uid": 1001,
+        "pgid": 3001,
+        "sid": 3001,
+        "start": "16202"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:03.737Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-download-mcpcn-react",
+      "command": "curl",
+      "args": [
+        "-q",
+        "-L",
+        "-sS",
+        "--proto",
+        "=https",
+        "--proto-redir",
+        "=https",
+        "--connect-timeout",
+        "10",
+        "--max-time",
+        "45",
+        "--max-redirs",
+        "3",
+        "--max-filesize",
+        "4194304",
+        "--output",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-react-0.1.0.tgz",
+        "--write-out",
+        "{\"httpCode\":%{http_code},\"redirects\":%{num_redirects},\"tlsVerifyResult\":%{ssl_verify_result},\"bytes\":%{size_download}}",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-react-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:25:03.738Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-download-mcpcn-react.stdout.txt",
+          "bytes": 65,
+          "sha256": "f3a2ebf46d6cabbb0dd1e481932a3253bc1f4e87e0d8d0719676a331f580cd6d",
+          "complete": true
+        },
+        {
+          "name": "public-download-mcpcn-react.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3003,
+      "identity": {
+        "pid": 3003,
+        "uid": 1001,
+        "pgid": 3003,
+        "sid": 3003,
+        "start": "16203"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:04.250Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-list-mcpcn-react",
+      "command": "tar",
+      "args": [
+        "-tvzf",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-react-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:25:04.251Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-list-mcpcn-react.stdout.txt",
+          "bytes": 7217,
+          "sha256": "7a03d9f8f216f0fa2cd72edf109164445ba9ebeb4072c6bfbc690ea77b18d1ca",
+          "complete": true
+        },
+        {
+          "name": "public-list-mcpcn-react.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3006,
+      "identity": {
+        "pid": 3006,
+        "uid": 1001,
+        "pgid": 3006,
+        "sid": 3006,
+        "start": "16254"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:04.265Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-extract-mcpcn-react",
+      "command": "tar",
+      "args": [
+        "-xzf",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-react-0.1.0.tgz",
+        "-C",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/extracted-mcpcn-react"
+      ],
+      "startedAt": "2026-11-10T16:25:04.266Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-extract-mcpcn-react.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-extract-mcpcn-react.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3008,
+      "identity": {
+        "pid": 3008,
+        "uid": 1001,
+        "pgid": 3008,
+        "sid": 3008,
+        "start": "16256"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:04.282Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-download-mcpcn-themes",
+      "command": "curl",
+      "args": [
+        "-q",
+        "-L",
+        "-sS",
+        "--proto",
+        "=https",
+        "--proto-redir",
+        "=https",
+        "--connect-timeout",
+        "10",
+        "--max-time",
+        "45",
+        "--max-redirs",
+        "3",
+        "--max-filesize",
+        "4194304",
+        "--output",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-themes-0.1.0.tgz",
+        "--write-out",
+        "{\"httpCode\":%{http_code},\"redirects\":%{num_redirects},\"tlsVerifyResult\":%{ssl_verify_result},\"bytes\":%{size_download}}",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-themes-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:25:04.284Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-download-mcpcn-themes.stdout.txt",
+          "bytes": 63,
+          "sha256": "bbcacf261c9be1467ffb28af5b9b1f2723d89aad8a15378ad96c5d2c0693ed63",
+          "complete": true
+        },
+        {
+          "name": "public-download-mcpcn-themes.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3010,
+      "identity": {
+        "pid": 3010,
+        "uid": 1001,
+        "pgid": 3010,
+        "sid": 3010,
+        "start": "16258"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:04.556Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-list-mcpcn-themes",
+      "command": "tar",
+      "args": [
+        "-tvzf",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-themes-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:25:04.556Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-list-mcpcn-themes.stdout.txt",
+          "bytes": 498,
+          "sha256": "d448033b7f6224d913b9305bb5fd706259634e9dc27839459257d9d91941b8ae",
+          "complete": true
+        },
+        {
+          "name": "public-list-mcpcn-themes.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3013,
+      "identity": {
+        "pid": 3013,
+        "uid": 1001,
+        "pgid": 3013,
+        "sid": 3013,
+        "start": "16285"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:04.569Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-extract-mcpcn-themes",
+      "command": "tar",
+      "args": [
+        "-xzf",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-themes-0.1.0.tgz",
+        "-C",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/extracted-mcpcn-themes"
+      ],
+      "startedAt": "2026-11-10T16:25:04.570Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-extract-mcpcn-themes.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-extract-mcpcn-themes.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3015,
+      "identity": {
+        "pid": 3015,
+        "uid": 1001,
+        "pgid": 3015,
+        "sid": 3015,
+        "start": "16286"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:04.581Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-download-mcpcn-registry",
+      "command": "curl",
+      "args": [
+        "-q",
+        "-L",
+        "-sS",
+        "--proto",
+        "=https",
+        "--proto-redir",
+        "=https",
+        "--connect-timeout",
+        "10",
+        "--max-time",
+        "45",
+        "--max-redirs",
+        "3",
+        "--max-filesize",
+        "4194304",
+        "--output",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-registry-0.1.0.tgz",
+        "--write-out",
+        "{\"httpCode\":%{http_code},\"redirects\":%{num_redirects},\"tlsVerifyResult\":%{ssl_verify_result},\"bytes\":%{size_download}}",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-registry-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:25:04.582Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-download-mcpcn-registry.stdout.txt",
+          "bytes": 64,
+          "sha256": "89e8114784050a2c66cd4d98c79a7265805b02fb8202e3447e11aefca50d6c89",
+          "complete": true
+        },
+        {
+          "name": "public-download-mcpcn-registry.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3017,
+      "identity": {
+        "pid": 3017,
+        "uid": 1001,
+        "pgid": 3017,
+        "sid": 3017,
+        "start": "16288"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:04.880Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-list-mcpcn-registry",
+      "command": "tar",
+      "args": [
+        "-tvzf",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-registry-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:25:04.881Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-list-mcpcn-registry.stdout.txt",
+          "bytes": 2353,
+          "sha256": "741b47b063b51be0a6fb244737ebbf0253d5114450dc0d84cad486dfa3b3679c",
+          "complete": true
+        },
+        {
+          "name": "public-list-mcpcn-registry.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3020,
+      "identity": {
+        "pid": 3020,
+        "uid": 1001,
+        "pgid": 3020,
+        "sid": 3020,
+        "start": "16317"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:04.893Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-extract-mcpcn-registry",
+      "command": "tar",
+      "args": [
+        "-xzf",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-registry-0.1.0.tgz",
+        "-C",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/extracted-mcpcn-registry"
+      ],
+      "startedAt": "2026-11-10T16:25:04.893Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-extract-mcpcn-registry.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-extract-mcpcn-registry.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3022,
+      "identity": {
+        "pid": 3022,
+        "uid": 1001,
+        "pgid": 3022,
+        "sid": 3022,
+        "start": "16319"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:04.906Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-download-mcpcn",
+      "command": "curl",
+      "args": [
+        "-q",
+        "-L",
+        "-sS",
+        "--proto",
+        "=https",
+        "--proto-redir",
+        "=https",
+        "--connect-timeout",
+        "10",
+        "--max-time",
+        "45",
+        "--max-redirs",
+        "3",
+        "--max-filesize",
+        "4194304",
+        "--output",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-0.1.0.tgz",
+        "--write-out",
+        "{\"httpCode\":%{http_code},\"redirects\":%{num_redirects},\"tlsVerifyResult\":%{ssl_verify_result},\"bytes\":%{size_download}}",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:25:04.907Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-download-mcpcn.stdout.txt",
+          "bytes": 65,
+          "sha256": "2d605a9e52e3139c77a97958e010e41cadb3684bd82386c075657dd5476fe7ef",
+          "complete": true
+        },
+        {
+          "name": "public-download-mcpcn.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3024,
+      "identity": {
+        "pid": 3024,
+        "uid": 1001,
+        "pgid": 3024,
+        "sid": 3024,
+        "start": "16320"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:05.220Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-list-mcpcn",
+      "command": "tar",
+      "args": [
+        "-tvzf",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:25:05.221Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-list-mcpcn.stdout.txt",
+          "bytes": 1808,
+          "sha256": "b36a6a83f088ca00c686ee7211cdf5285a5e86ad4d6ebd7ce537f6779f84093f",
+          "complete": true
+        },
+        {
+          "name": "public-list-mcpcn.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3027,
+      "identity": {
+        "pid": 3027,
+        "uid": 1001,
+        "pgid": 3027,
+        "sid": 3027,
+        "start": "16352"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:05.240Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-extract-mcpcn",
+      "command": "tar",
+      "args": [
+        "-xzf",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-0.1.0.tgz",
+        "-C",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/extracted-mcpcn"
+      ],
+      "startedAt": "2026-11-10T16:25:05.241Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-extract-mcpcn.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-extract-mcpcn.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3029,
+      "identity": {
+        "pid": 3029,
+        "uid": 1001,
+        "pgid": 3029,
+        "sid": 3029,
+        "start": "16353"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:05.259Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-download-mcpcn-server",
+      "command": "curl",
+      "args": [
+        "-q",
+        "-L",
+        "-sS",
+        "--proto",
+        "=https",
+        "--proto-redir",
+        "=https",
+        "--connect-timeout",
+        "10",
+        "--max-time",
+        "45",
+        "--max-redirs",
+        "3",
+        "--max-filesize",
+        "4194304",
+        "--output",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-server-0.1.0.tgz",
+        "--write-out",
+        "{\"httpCode\":%{http_code},\"redirects\":%{num_redirects},\"tlsVerifyResult\":%{ssl_verify_result},\"bytes\":%{size_download}}",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-server-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:25:05.261Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-download-mcpcn-server.stdout.txt",
+          "bytes": 64,
+          "sha256": "53cfa3f0ea0f1da69937bca46a2522742ce13b0fe39d74d84fda396d70f16736",
+          "complete": true
+        },
+        {
+          "name": "public-download-mcpcn-server.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3031,
+      "identity": {
+        "pid": 3031,
+        "uid": 1001,
+        "pgid": 3031,
+        "sid": 3031,
+        "start": "16355"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:05.577Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-list-mcpcn-server",
+      "command": "tar",
+      "args": [
+        "-tvzf",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-server-0.1.0.tgz"
+      ],
+      "startedAt": "2026-11-10T16:25:05.578Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-list-mcpcn-server.stdout.txt",
+          "bytes": 2017,
+          "sha256": "51091dcb884ca8af140f0dae5b43cad3a0daee2b4e7cd79eedd47d81864aa9eb",
+          "complete": true
+        },
+        {
+          "name": "public-list-mcpcn-server.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3034,
+      "identity": {
+        "pid": 3034,
+        "uid": 1001,
+        "pgid": 3034,
+        "sid": 3034,
+        "start": "16387"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:05.595Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-extract-mcpcn-server",
+      "command": "tar",
+      "args": [
+        "-xzf",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/mcpcn-server-0.1.0.tgz",
+        "-C",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/archives/extracted-mcpcn-server"
+      ],
+      "startedAt": "2026-11-10T16:25:05.596Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-extract-mcpcn-server.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-extract-mcpcn-server.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3036,
+      "identity": {
+        "pid": 3036,
+        "uid": 1001,
+        "pgid": 3036,
+        "sid": 3036,
+        "start": "16389"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:05.609Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-npm-copy-install-urls",
+      "command": "npm",
+      "args": [
+        "install",
+        "--ignore-scripts",
+        "--save-exact",
+        "--no-audit",
+        "--no-fund",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-core-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-schemas-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-runtime-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-react-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-themes-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-registry-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-server-0.1.0.tgz",
+        "zod@4.4.3",
+        "@modelcontextprotocol/ext-apps@1.7.5",
+        "@modelcontextprotocol/sdk@1.30.0",
+        "@types/node@24.13.3"
+      ],
+      "startedAt": "2026-11-10T16:25:05.614Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-npm-copy-install-urls.stdout.txt",
+          "bytes": 27,
+          "sha256": "c321dd62ed9c0fd9e2335c5fda278d9937c8809ee448cc314603d794e9f465ed",
+          "complete": true
+        },
+        {
+          "name": "public-npm-copy-install-urls.stderr.txt",
+          "bytes": 149,
+          "sha256": "5e2e0b6a214ed172e7bd7cb36f806ac6ea59a12c635510dbfc143abbddb6782d",
+          "complete": true
+        }
+      ],
+      "pid": 3038,
+      "identity": {
+        "pid": 3038,
+        "uid": 1001,
+        "pgid": 3038,
+        "sid": 3038,
+        "start": "16391"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:16.514Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-npm-copy-cli-init",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/consumers/npm-copy/node_modules/mcpcn/dist/index.js",
+        "init",
+        "--mode=copy",
+        "--style=violet",
+        "--host=standard-mcp",
+        "--manager=npm",
+        "--components-dir=src/mcpcn",
+        "--registry=https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/d91fe403eb6b3ec07ef9791e47a8655f5ed519f3/registry/items"
+      ],
+      "startedAt": "2026-11-10T16:25:16.523Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-npm-copy-cli-init.stdout.txt",
+          "bytes": 53,
+          "sha256": "96af2325c4ba21c7ed182a0238171f3de0b05d511d08f640f91f1a919c79feed",
+          "complete": true
+        },
+        {
+          "name": "public-npm-copy-cli-init.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3053,
+      "identity": {
+        "pid": 3053,
+        "uid": 1001,
+        "pgid": 3053,
+        "sid": 3053,
+        "start": "17482"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:16.779Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-npm-copy-cli-add",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/consumers/npm-copy/node_modules/mcpcn/dist/index.js",
+        "add",
+        "approval-card",
+        "tabs",
+        "review-before-action"
+      ],
+      "startedAt": "2026-11-10T16:25:16.779Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-npm-copy-cli-add.stdout.txt",
+          "bytes": 463,
+          "sha256": "983f127acee2f2d72dcbd7a70cf0054b76604c96a7faa95424a8542178ab857f",
+          "complete": true
+        },
+        {
+          "name": "public-npm-copy-cli-add.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3065,
+      "identity": {
+        "pid": 3065,
+        "uid": 1001,
+        "pgid": 3065,
+        "sid": 3065,
+        "start": "17507"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:18.551Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-npm-copy-strict",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/consumers/npm-copy/node_modules/typescript/bin/tsc",
+        "--strict",
+        "--noUncheckedIndexedAccess",
+        "--noUncheckedSideEffectImports",
+        "--skipLibCheck",
+        "false",
+        "--target",
+        "ES2022",
+        "--lib",
+        "ES2022,DOM,DOM.Iterable",
+        "--jsx",
+        "react-jsx",
+        "--esModuleInterop",
+        "--types",
+        "node,react,vite/client",
+        "--module",
+        "ESNext",
+        "--moduleResolution",
+        "Bundler",
+        "--rootDir",
+        ".",
+        "--outDir",
+        "compiled",
+        "main.tsx",
+        "vite-env.d.ts",
+        "src/mcpcn/_mcpcn/approval-components.tsx",
+        "src/mcpcn/_mcpcn/approval-schemas.ts",
+        "src/mcpcn/_mcpcn/block-apps.tsx",
+        "src/mcpcn/_mcpcn/block-fixtures.mts",
+        "src/mcpcn/_mcpcn/block-operations.mts",
+        "src/mcpcn/_mcpcn/block-recipes.mts",
+        "src/mcpcn/_mcpcn/block-schemas.mts",
+        "src/mcpcn/_mcpcn/block-store.mts",
+        "src/mcpcn/_mcpcn/blocks.tsx",
+        "src/mcpcn/_mcpcn/component-helpers.tsx",
+        "src/mcpcn/_mcpcn/component-types.ts",
+        "src/mcpcn/_mcpcn/components.tsx",
+        "src/mcpcn/_mcpcn/conflict-validation-components.tsx",
+        "src/mcpcn/_mcpcn/conflict-validation-schemas.ts",
+        "src/mcpcn/_mcpcn/core.ts",
+        "src/mcpcn/_mcpcn/decision-components.tsx",
+        "src/mcpcn/_mcpcn/decision-narrative-components.tsx",
+        "src/mcpcn/_mcpcn/decision-narrative-schemas.ts",
+        "src/mcpcn/_mcpcn/decision-schemas.ts",
+        "src/mcpcn/_mcpcn/execution-components.tsx",
+        "src/mcpcn/_mcpcn/execution-schemas.ts",
+        "src/mcpcn/_mcpcn/file-review-components.tsx",
+        "src/mcpcn/_mcpcn/file-review-schemas.ts",
+        "src/mcpcn/_mcpcn/form-workflow-components.tsx",
+        "src/mcpcn/_mcpcn/form-workflow-schemas.ts",
+        "src/mcpcn/_mcpcn/host-state-components.tsx",
+        "src/mcpcn/_mcpcn/host-state-schemas.ts",
+        "src/mcpcn/_mcpcn/option-ranking-components.tsx",
+        "src/mcpcn/_mcpcn/option-ranking-schemas.ts",
+        "src/mcpcn/_mcpcn/primitives.tsx",
+        "src/mcpcn/_mcpcn/privacy-context-components.tsx",
+        "src/mcpcn/_mcpcn/privacy-context-schemas.ts",
+        "src/mcpcn/_mcpcn/record-inspection-components.tsx",
+        "src/mcpcn/_mcpcn/record-inspection-schemas.ts",
+        "src/mcpcn/_mcpcn/review-components.tsx",
+        "src/mcpcn/_mcpcn/review-schemas.ts",
+        "src/mcpcn/_mcpcn/runtime.tsx",
+        "src/mcpcn/_mcpcn/schema-common.ts",
+        "src/mcpcn/_mcpcn/schemas.ts",
+        "src/mcpcn/_mcpcn/server-wire.mts",
+        "src/mcpcn/_mcpcn/server.mts",
+        "src/mcpcn/_mcpcn/source-evidence-components.tsx",
+        "src/mcpcn/_mcpcn/source-evidence-schemas.ts",
+        "src/mcpcn/_mcpcn/tool-workflow-components.tsx",
+        "src/mcpcn/_mcpcn/tool-workflow-schemas.ts",
+        "src/mcpcn/approval-card.tsx",
+        "src/mcpcn/audit-trail.tsx",
+        "src/mcpcn/badge.tsx",
+        "src/mcpcn/blocks/review-before-action.fixture.mts",
+        "src/mcpcn/blocks/review-before-action.server.mts",
+        "src/mcpcn/blocks/review-before-action.server.test.mts",
+        "src/mcpcn/blocks/review-before-action.tsx",
+        "src/mcpcn/button.tsx",
+        "src/mcpcn/card.tsx",
+        "src/mcpcn/diff-viewer.tsx",
+        "src/mcpcn/provider.tsx",
+        "src/mcpcn/tabs.tsx"
+      ],
+      "startedAt": "2026-11-10T16:25:18.558Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-npm-copy-strict.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-npm-copy-strict.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3077,
+      "identity": {
+        "pid": 3077,
+        "uid": 1001,
+        "pgid": 3077,
+        "sid": 3077,
+        "start": "17685"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:27.254Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-npm-copy-installed-sdk",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/consumers/npm-copy/compiled/src/mcpcn/blocks/review-before-action.server.test.mjs"
+      ],
+      "startedAt": "2026-11-10T16:25:27.255Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-npm-copy-installed-sdk.stdout.txt",
+          "bytes": 348,
+          "sha256": "ddb987824ea8bb1cb6411ccb2c737ee0d93c636c149eb267d0c066aaa0229d94",
+          "complete": true
+        },
+        {
+          "name": "public-npm-copy-installed-sdk.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3086,
+      "identity": {
+        "pid": 3086,
+        "uid": 1001,
+        "pgid": 3086,
+        "sid": 3086,
+        "start": "18555"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:27.596Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-npm-copy-client-build",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/consumers/npm-copy/node_modules/vite/bin/vite.js",
+        "build"
+      ],
+      "startedAt": "2026-11-10T16:25:27.597Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-npm-copy-client-build.stdout.txt",
+          "bytes": 379,
+          "sha256": "60729df53cd1a01bcc686bd82b0f4061d72579b9d64625e7b7aa10dc062d54e3",
+          "complete": true
+        },
+        {
+          "name": "public-npm-copy-client-build.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3099,
+      "identity": {
+        "pid": 3099,
+        "uid": 1001,
+        "pgid": 3099,
+        "sid": 3099,
+        "start": "18589"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:27.981Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-npm-package-install-urls",
+      "command": "npm",
+      "args": [
+        "install",
+        "--ignore-scripts",
+        "--save-exact",
+        "--no-audit",
+        "--no-fund",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-core-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-schemas-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-runtime-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-react-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-themes-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-registry-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-server-0.1.0.tgz",
+        "zod@4.4.3",
+        "@modelcontextprotocol/ext-apps@1.7.5",
+        "@modelcontextprotocol/sdk@1.30.0",
+        "@types/node@24.13.3"
+      ],
+      "startedAt": "2026-11-10T16:25:27.983Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-npm-package-install-urls.stdout.txt",
+          "bytes": 26,
+          "sha256": "290a80bb655690cf7c1e74eabb261a6787636b72b162e7f8b365fef904e2c38f",
+          "complete": true
+        },
+        {
+          "name": "public-npm-package-install-urls.stderr.txt",
+          "bytes": 149,
+          "sha256": "5e2e0b6a214ed172e7bd7cb36f806ac6ea59a12c635510dbfc143abbddb6782d",
+          "complete": true
+        }
+      ],
+      "pid": 3122,
+      "identity": {
+        "pid": 3122,
+        "uid": 1001,
+        "pgid": 3122,
+        "sid": 3122,
+        "start": "18628"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:31.731Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-npm-package-cli-init",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/consumers/npm-package/node_modules/mcpcn/dist/index.js",
+        "init",
+        "--mode=package",
+        "--style=graphite",
+        "--host=openai",
+        "--manager=npm",
+        "--components-dir=ui/mcpcn",
+        "--registry=https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/d91fe403eb6b3ec07ef9791e47a8655f5ed519f3/registry/items"
+      ],
+      "startedAt": "2026-11-10T16:25:31.739Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-npm-package-cli-init.stdout.txt",
+          "bytes": 53,
+          "sha256": "96af2325c4ba21c7ed182a0238171f3de0b05d511d08f640f91f1a919c79feed",
+          "complete": true
+        },
+        {
+          "name": "public-npm-package-cli-init.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3134,
+      "identity": {
+        "pid": 3134,
+        "uid": 1001,
+        "pgid": 3134,
+        "sid": 3134,
+        "start": "19003"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:31.943Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-npm-package-cli-add",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/consumers/npm-package/node_modules/mcpcn/dist/index.js",
+        "add",
+        "approval-card",
+        "tabs",
+        "review-before-action"
+      ],
+      "startedAt": "2026-11-10T16:25:31.943Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-npm-package-cli-add.stdout.txt",
+          "bytes": 391,
+          "sha256": "7d1a9a30d16187c926b3c5d9b2968e20ba76ddc4f0603ddeb3f258f0c4f6a31e",
+          "complete": true
+        },
+        {
+          "name": "public-npm-package-cli-add.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3146,
+      "identity": {
+        "pid": 3146,
+        "uid": 1001,
+        "pgid": 3146,
+        "sid": 3146,
+        "start": "19024"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:32.276Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-npm-package-strict",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/consumers/npm-package/node_modules/typescript/bin/tsc",
+        "--strict",
+        "--noUncheckedIndexedAccess",
+        "--noUncheckedSideEffectImports",
+        "--skipLibCheck",
+        "false",
+        "--target",
+        "ES2022",
+        "--lib",
+        "ES2022,DOM,DOM.Iterable",
+        "--jsx",
+        "react-jsx",
+        "--esModuleInterop",
+        "--types",
+        "node,react,vite/client",
+        "--module",
+        "ESNext",
+        "--moduleResolution",
+        "Bundler",
+        "--rootDir",
+        ".",
+        "--outDir",
+        "compiled",
+        "main.tsx",
+        "vite-env.d.ts",
+        "ui/mcpcn/approval-card.tsx",
+        "ui/mcpcn/audit-trail.tsx",
+        "ui/mcpcn/badge.tsx",
+        "ui/mcpcn/blocks/review-before-action.fixture.mts",
+        "ui/mcpcn/blocks/review-before-action.server.mts",
+        "ui/mcpcn/blocks/review-before-action.server.test.mts",
+        "ui/mcpcn/blocks/review-before-action.tsx",
+        "ui/mcpcn/button.tsx",
+        "ui/mcpcn/card.tsx",
+        "ui/mcpcn/diff-viewer.tsx",
+        "ui/mcpcn/provider.tsx",
+        "ui/mcpcn/tabs.tsx"
+      ],
+      "startedAt": "2026-11-10T16:25:32.277Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-npm-package-strict.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-npm-package-strict.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3158,
+      "identity": {
+        "pid": 3158,
+        "uid": 1001,
+        "pgid": 3158,
+        "sid": 3158,
+        "start": "19057"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:37.518Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-npm-package-installed-sdk",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/consumers/npm-package/compiled/ui/mcpcn/blocks/review-before-action.server.test.mjs"
+      ],
+      "startedAt": "2026-11-10T16:25:37.519Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-npm-package-installed-sdk.stdout.txt",
+          "bytes": 347,
+          "sha256": "3e84b4a2d8838316a1f140251841116c33efaf00410774c5641426c5f0fd2ba6",
+          "complete": true
+        },
+        {
+          "name": "public-npm-package-installed-sdk.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3166,
+      "identity": {
+        "pid": 3166,
+        "uid": 1001,
+        "pgid": 3166,
+        "sid": 3166,
+        "start": "19581"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:37.869Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-npm-package-client-build",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/consumers/npm-package/node_modules/vite/bin/vite.js",
+        "build"
+      ],
+      "startedAt": "2026-11-10T16:25:37.870Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-npm-package-client-build.stdout.txt",
+          "bytes": 376,
+          "sha256": "e1b0a6627060571cc76b9c5e314a3fb5cfa775ad7fb90959a0eacce73a616b33",
+          "complete": true
+        },
+        {
+          "name": "public-npm-package-client-build.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3179,
+      "identity": {
+        "pid": 3179,
+        "uid": 1001,
+        "pgid": 3179,
+        "sid": 3179,
+        "start": "19616"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:38.200Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-pnpm-package-pin-project",
+      "command": "npm",
+      "args": [
+        "pkg",
+        "set",
+        "pnpm.overrides.@mcpcn/core=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-core-0.1.0.tgz",
+        "pnpm.overrides.@mcpcn/schemas=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-schemas-0.1.0.tgz",
+        "pnpm.overrides.@mcpcn/runtime=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-runtime-0.1.0.tgz",
+        "pnpm.overrides.@mcpcn/react=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-react-0.1.0.tgz",
+        "pnpm.overrides.@mcpcn/themes=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-themes-0.1.0.tgz",
+        "pnpm.overrides.@mcpcn/registry=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-registry-0.1.0.tgz",
+        "pnpm.overrides.mcpcn=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-0.1.0.tgz",
+        "pnpm.overrides.@mcpcn/server=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-server-0.1.0.tgz",
+        "pnpm.overrides.zod=4.4.3",
+        "pnpm.overrides.@modelcontextprotocol/ext-apps=1.7.5",
+        "pnpm.overrides.@modelcontextprotocol/sdk=1.30.0",
+        "pnpm.overrides.@types/node=24.13.3"
+      ],
+      "startedAt": "2026-11-10T16:25:38.202Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-pnpm-package-pin-project.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-pnpm-package-pin-project.stderr.txt",
+          "bytes": 149,
+          "sha256": "5e2e0b6a214ed172e7bd7cb36f806ac6ea59a12c635510dbfc143abbddb6782d",
+          "complete": true
+        }
+      ],
+      "pid": 3202,
+      "identity": {
+        "pid": 3202,
+        "uid": 1001,
+        "pgid": 3202,
+        "sid": 3202,
+        "start": "19650"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:38.312Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-pnpm-package-install-urls",
+      "command": "pnpm",
+      "args": [
+        "add",
+        "--ignore-scripts",
+        "--save-exact",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-core-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-schemas-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-runtime-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-react-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-themes-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-registry-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-server-0.1.0.tgz",
+        "zod@4.4.3",
+        "@modelcontextprotocol/ext-apps@1.7.5",
+        "@modelcontextprotocol/sdk@1.30.0",
+        "@types/node@24.13.3"
+      ],
+      "startedAt": "2026-11-10T16:25:38.313Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-pnpm-package-install-urls.stdout.txt",
+          "bytes": 1353,
+          "sha256": "08ee3815b5bd1698c085259431cc1a7fde7f374d348fa22f0bf0afcab0ed62fb",
+          "complete": true
+        },
+        {
+          "name": "public-pnpm-package-install-urls.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3213,
+      "identity": {
+        "pid": 3213,
+        "uid": 1001,
+        "pgid": 3213,
+        "sid": 3213,
+        "start": "19661"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:40.696Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-pnpm-package-cli-init",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/consumers/pnpm-package/node_modules/mcpcn/dist/index.js",
+        "init",
+        "--mode=package",
+        "--style=default",
+        "--host=standard-mcp",
+        "--manager=pnpm",
+        "--components-dir=components/mcpcn",
+        "--registry=https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/d91fe403eb6b3ec07ef9791e47a8655f5ed519f3/registry/items"
+      ],
+      "startedAt": "2026-11-10T16:25:40.705Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-pnpm-package-cli-init.stdout.txt",
+          "bytes": 53,
+          "sha256": "96af2325c4ba21c7ed182a0238171f3de0b05d511d08f640f91f1a919c79feed",
+          "complete": true
+        },
+        {
+          "name": "public-pnpm-package-cli-init.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3228,
+      "identity": {
+        "pid": 3228,
+        "uid": 1001,
+        "pgid": 3228,
+        "sid": 3228,
+        "start": "19900"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:41.087Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-pnpm-package-cli-add",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/consumers/pnpm-package/node_modules/mcpcn/dist/index.js",
+        "add",
+        "approval-card",
+        "tabs",
+        "review-before-action"
+      ],
+      "startedAt": "2026-11-10T16:25:41.087Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-pnpm-package-cli-add.stdout.txt",
+          "bytes": 396,
+          "sha256": "779c4e13377b3ef74eed3a71f5e93b71b2fda9f419e8723e593a8f150a888e92",
+          "complete": true
+        },
+        {
+          "name": "public-pnpm-package-cli-add.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3240,
+      "identity": {
+        "pid": 3240,
+        "uid": 1001,
+        "pgid": 3240,
+        "sid": 3240,
+        "start": "19938"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:41.353Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-pnpm-package-strict",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/consumers/pnpm-package/node_modules/typescript/bin/tsc",
+        "--strict",
+        "--noUncheckedIndexedAccess",
+        "--noUncheckedSideEffectImports",
+        "--skipLibCheck",
+        "false",
+        "--target",
+        "ES2022",
+        "--lib",
+        "ES2022,DOM,DOM.Iterable",
+        "--jsx",
+        "react-jsx",
+        "--esModuleInterop",
+        "--types",
+        "node,react,vite/client",
+        "--module",
+        "ESNext",
+        "--moduleResolution",
+        "Bundler",
+        "--rootDir",
+        ".",
+        "--outDir",
+        "compiled",
+        "main.tsx",
+        "vite-env.d.ts",
+        "components/mcpcn/approval-card.tsx",
+        "components/mcpcn/audit-trail.tsx",
+        "components/mcpcn/badge.tsx",
+        "components/mcpcn/blocks/review-before-action.fixture.mts",
+        "components/mcpcn/blocks/review-before-action.server.mts",
+        "components/mcpcn/blocks/review-before-action.server.test.mts",
+        "components/mcpcn/blocks/review-before-action.tsx",
+        "components/mcpcn/button.tsx",
+        "components/mcpcn/card.tsx",
+        "components/mcpcn/diff-viewer.tsx",
+        "components/mcpcn/provider.tsx",
+        "components/mcpcn/tabs.tsx"
+      ],
+      "startedAt": "2026-11-10T16:25:41.355Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-pnpm-package-strict.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-pnpm-package-strict.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3252,
+      "identity": {
+        "pid": 3252,
+        "uid": 1001,
+        "pgid": 3252,
+        "sid": 3252,
+        "start": "19965"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:46.663Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-pnpm-package-installed-sdk",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/consumers/pnpm-package/compiled/components/mcpcn/blocks/review-before-action.server.test.mjs"
+      ],
+      "startedAt": "2026-11-10T16:25:46.663Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-pnpm-package-installed-sdk.stdout.txt",
+          "bytes": 347,
+          "sha256": "b0e5981d1707b289602cf1c953ffa59de71294f4ee09a7812d8dfe1bd54a17c3",
+          "complete": true
+        },
+        {
+          "name": "public-pnpm-package-installed-sdk.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3261,
+      "identity": {
+        "pid": 3261,
+        "uid": 1001,
+        "pgid": 3261,
+        "sid": 3261,
+        "start": "20496"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:46.983Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-pnpm-package-client-build",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/consumers/pnpm-package/node_modules/vite/bin/vite.js",
+        "build"
+      ],
+      "startedAt": "2026-11-10T16:25:46.984Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-pnpm-package-client-build.stdout.txt",
+          "bytes": 376,
+          "sha256": "132dbbbaee8d1f5ba937be4a1a96152e1ae9206e81133f27c7779be3e2f58f78",
+          "complete": true
+        },
+        {
+          "name": "public-pnpm-package-client-build.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3274,
+      "identity": {
+        "pid": 3274,
+        "uid": 1001,
+        "pgid": 3274,
+        "sid": 3274,
+        "start": "20528"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:47.307Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-pnpm-copy-pin-project",
+      "command": "npm",
+      "args": [
+        "pkg",
+        "set",
+        "pnpm.overrides.@mcpcn/core=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-core-0.1.0.tgz",
+        "pnpm.overrides.@mcpcn/schemas=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-schemas-0.1.0.tgz",
+        "pnpm.overrides.@mcpcn/runtime=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-runtime-0.1.0.tgz",
+        "pnpm.overrides.@mcpcn/react=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-react-0.1.0.tgz",
+        "pnpm.overrides.@mcpcn/themes=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-themes-0.1.0.tgz",
+        "pnpm.overrides.@mcpcn/registry=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-registry-0.1.0.tgz",
+        "pnpm.overrides.mcpcn=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-0.1.0.tgz",
+        "pnpm.overrides.@mcpcn/server=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-server-0.1.0.tgz",
+        "pnpm.overrides.zod=4.4.3",
+        "pnpm.overrides.@modelcontextprotocol/ext-apps=1.7.5",
+        "pnpm.overrides.@modelcontextprotocol/sdk=1.30.0",
+        "pnpm.overrides.@types/node=24.13.3"
+      ],
+      "startedAt": "2026-11-10T16:25:47.308Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-pnpm-copy-pin-project.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-pnpm-copy-pin-project.stderr.txt",
+          "bytes": 149,
+          "sha256": "5e2e0b6a214ed172e7bd7cb36f806ac6ea59a12c635510dbfc143abbddb6782d",
+          "complete": true
+        }
+      ],
+      "pid": 3297,
+      "identity": {
+        "pid": 3297,
+        "uid": 1001,
+        "pgid": 3297,
+        "sid": 3297,
+        "start": "20560"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:47.400Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-pnpm-copy-install-urls",
+      "command": "pnpm",
+      "args": [
+        "add",
+        "--ignore-scripts",
+        "--save-exact",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-core-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-schemas-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-runtime-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-react-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-themes-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-registry-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-0.1.0.tgz",
+        "https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-server-0.1.0.tgz",
+        "zod@4.4.3",
+        "@modelcontextprotocol/ext-apps@1.7.5",
+        "@modelcontextprotocol/sdk@1.30.0",
+        "@types/node@24.13.3"
+      ],
+      "startedAt": "2026-11-10T16:25:47.401Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-pnpm-copy-install-urls.stdout.txt",
+          "bytes": 1351,
+          "sha256": "14ba33c93833d71e7f153cf4cec2935ecbbbd1ddabb95567aade95e23fe58181",
+          "complete": true
+        },
+        {
+          "name": "public-pnpm-copy-install-urls.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3308,
+      "identity": {
+        "pid": 3308,
+        "uid": 1001,
+        "pgid": 3308,
+        "sid": 3308,
+        "start": "20570"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:49.580Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-pnpm-copy-cli-init",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/consumers/pnpm-copy/node_modules/mcpcn/dist/index.js",
+        "init",
+        "--mode=copy",
+        "--style=violet",
+        "--host=auto",
+        "--manager=pnpm",
+        "--components-dir=src/ui/mcpcn",
+        "--registry=https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/d91fe403eb6b3ec07ef9791e47a8655f5ed519f3/registry/items"
+      ],
+      "startedAt": "2026-11-10T16:25:49.589Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-pnpm-copy-cli-init.stdout.txt",
+          "bytes": 53,
+          "sha256": "96af2325c4ba21c7ed182a0238171f3de0b05d511d08f640f91f1a919c79feed",
+          "complete": true
+        },
+        {
+          "name": "public-pnpm-copy-cli-init.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3323,
+      "identity": {
+        "pid": 3323,
+        "uid": 1001,
+        "pgid": 3323,
+        "sid": 3323,
+        "start": "20788"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:49.768Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-pnpm-copy-cli-add",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/consumers/pnpm-copy/node_modules/mcpcn/dist/index.js",
+        "add",
+        "approval-card",
+        "tabs",
+        "review-before-action"
+      ],
+      "startedAt": "2026-11-10T16:25:49.768Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-pnpm-copy-cli-add.stdout.txt",
+          "bytes": 472,
+          "sha256": "7dc392adebbd3f2287ca978080969cbb27974a386d4e526fc9fcd80d4d9ac5bf",
+          "complete": true
+        },
+        {
+          "name": "public-pnpm-copy-cli-add.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3335,
+      "identity": {
+        "pid": 3335,
+        "uid": 1001,
+        "pgid": 3335,
+        "sid": 3335,
+        "start": "20806"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:50.265Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-pnpm-copy-strict",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/consumers/pnpm-copy/node_modules/typescript/bin/tsc",
+        "--strict",
+        "--noUncheckedIndexedAccess",
+        "--noUncheckedSideEffectImports",
+        "--skipLibCheck",
+        "false",
+        "--target",
+        "ES2022",
+        "--lib",
+        "ES2022,DOM,DOM.Iterable",
+        "--jsx",
+        "react-jsx",
+        "--esModuleInterop",
+        "--types",
+        "node,react,vite/client",
+        "--module",
+        "ESNext",
+        "--moduleResolution",
+        "Bundler",
+        "--rootDir",
+        ".",
+        "--outDir",
+        "compiled",
+        "main.tsx",
+        "vite-env.d.ts",
+        "src/ui/mcpcn/_mcpcn/approval-components.tsx",
+        "src/ui/mcpcn/_mcpcn/approval-schemas.ts",
+        "src/ui/mcpcn/_mcpcn/block-apps.tsx",
+        "src/ui/mcpcn/_mcpcn/block-fixtures.mts",
+        "src/ui/mcpcn/_mcpcn/block-operations.mts",
+        "src/ui/mcpcn/_mcpcn/block-recipes.mts",
+        "src/ui/mcpcn/_mcpcn/block-schemas.mts",
+        "src/ui/mcpcn/_mcpcn/block-store.mts",
+        "src/ui/mcpcn/_mcpcn/blocks.tsx",
+        "src/ui/mcpcn/_mcpcn/component-helpers.tsx",
+        "src/ui/mcpcn/_mcpcn/component-types.ts",
+        "src/ui/mcpcn/_mcpcn/components.tsx",
+        "src/ui/mcpcn/_mcpcn/conflict-validation-components.tsx",
+        "src/ui/mcpcn/_mcpcn/conflict-validation-schemas.ts",
+        "src/ui/mcpcn/_mcpcn/core.ts",
+        "src/ui/mcpcn/_mcpcn/decision-components.tsx",
+        "src/ui/mcpcn/_mcpcn/decision-narrative-components.tsx",
+        "src/ui/mcpcn/_mcpcn/decision-narrative-schemas.ts",
+        "src/ui/mcpcn/_mcpcn/decision-schemas.ts",
+        "src/ui/mcpcn/_mcpcn/execution-components.tsx",
+        "src/ui/mcpcn/_mcpcn/execution-schemas.ts",
+        "src/ui/mcpcn/_mcpcn/file-review-components.tsx",
+        "src/ui/mcpcn/_mcpcn/file-review-schemas.ts",
+        "src/ui/mcpcn/_mcpcn/form-workflow-components.tsx",
+        "src/ui/mcpcn/_mcpcn/form-workflow-schemas.ts",
+        "src/ui/mcpcn/_mcpcn/host-state-components.tsx",
+        "src/ui/mcpcn/_mcpcn/host-state-schemas.ts",
+        "src/ui/mcpcn/_mcpcn/option-ranking-components.tsx",
+        "src/ui/mcpcn/_mcpcn/option-ranking-schemas.ts",
+        "src/ui/mcpcn/_mcpcn/primitives.tsx",
+        "src/ui/mcpcn/_mcpcn/privacy-context-components.tsx",
+        "src/ui/mcpcn/_mcpcn/privacy-context-schemas.ts",
+        "src/ui/mcpcn/_mcpcn/record-inspection-components.tsx",
+        "src/ui/mcpcn/_mcpcn/record-inspection-schemas.ts",
+        "src/ui/mcpcn/_mcpcn/review-components.tsx",
+        "src/ui/mcpcn/_mcpcn/review-schemas.ts",
+        "src/ui/mcpcn/_mcpcn/runtime.tsx",
+        "src/ui/mcpcn/_mcpcn/schema-common.ts",
+        "src/ui/mcpcn/_mcpcn/schemas.ts",
+        "src/ui/mcpcn/_mcpcn/server-wire.mts",
+        "src/ui/mcpcn/_mcpcn/server.mts",
+        "src/ui/mcpcn/_mcpcn/source-evidence-components.tsx",
+        "src/ui/mcpcn/_mcpcn/source-evidence-schemas.ts",
+        "src/ui/mcpcn/_mcpcn/tool-workflow-components.tsx",
+        "src/ui/mcpcn/_mcpcn/tool-workflow-schemas.ts",
+        "src/ui/mcpcn/approval-card.tsx",
+        "src/ui/mcpcn/audit-trail.tsx",
+        "src/ui/mcpcn/badge.tsx",
+        "src/ui/mcpcn/blocks/review-before-action.fixture.mts",
+        "src/ui/mcpcn/blocks/review-before-action.server.mts",
+        "src/ui/mcpcn/blocks/review-before-action.server.test.mts",
+        "src/ui/mcpcn/blocks/review-before-action.tsx",
+        "src/ui/mcpcn/button.tsx",
+        "src/ui/mcpcn/card.tsx",
+        "src/ui/mcpcn/diff-viewer.tsx",
+        "src/ui/mcpcn/provider.tsx",
+        "src/ui/mcpcn/tabs.tsx"
+      ],
+      "startedAt": "2026-11-10T16:25:50.267Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-pnpm-copy-strict.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-pnpm-copy-strict.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3347,
+      "identity": {
+        "pid": 3347,
+        "uid": 1001,
+        "pgid": 3347,
+        "sid": 3347,
+        "start": "20856"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:58.643Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-pnpm-copy-installed-sdk",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/consumers/pnpm-copy/compiled/src/ui/mcpcn/blocks/review-before-action.server.test.mjs"
+      ],
+      "startedAt": "2026-11-10T16:25:58.643Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-pnpm-copy-installed-sdk.stdout.txt",
+          "bytes": 348,
+          "sha256": "e8c050b5acac141aa66afaa0313cc2042c931f41ad243cda4d33f46567da3823",
+          "complete": true
+        },
+        {
+          "name": "public-pnpm-copy-installed-sdk.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3356,
+      "identity": {
+        "pid": 3356,
+        "uid": 1001,
+        "pgid": 3356,
+        "sid": 3356,
+        "start": "21694"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:58.973Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-pnpm-copy-client-build",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-public-install-u9knaT/consumers/pnpm-copy/node_modules/vite/bin/vite.js",
+        "build"
+      ],
+      "startedAt": "2026-11-10T16:25:58.974Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-pnpm-copy-client-build.stdout.txt",
+          "bytes": 379,
+          "sha256": "60f8a9dea3750a02c609a61354054ba5e2bfa0973558281844359b288ba24609",
+          "complete": true
+        },
+        {
+          "name": "public-pnpm-copy-client-build.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 3369,
+      "identity": {
+        "pid": 3369,
+        "uid": 1001,
+        "pgid": 3369,
+        "sid": 3369,
+        "start": "21727"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:25:59.321Z",
+      "originalGroupAbsent": true
+    }
+  ],
+  "guards": [
+    {
+      "label": "before-install",
+      "canonicalFiles": 9940,
+      "canonicalVectorSha256": "7bf586c88d49e64c453c9799062e65d67a9920ad098eddd21885ee6bff743f28",
+      "protectedFiles": 683,
+      "protectedVectorSha256": "cd4cbf615780446aa4a509a0816bb6ca0bd1016d1767fe6126bd7f8f36837e66"
+    },
+    {
+      "label": "after-install",
+      "canonicalFiles": 9940,
+      "canonicalVectorSha256": "7bf586c88d49e64c453c9799062e65d67a9920ad098eddd21885ee6bff743f28",
+      "protectedFiles": 683,
+      "protectedVectorSha256": "cd4cbf615780446aa4a509a0816bb6ca0bd1016d1767fe6126bd7f8f36837e66"
+    },
+    {
+      "label": "after-production-build",
+      "canonicalFiles": 9940,
+      "canonicalVectorSha256": "7bf586c88d49e64c453c9799062e65d67a9920ad098eddd21885ee6bff743f28",
+      "protectedFiles": 683,
+      "protectedVectorSha256": "cd4cbf615780446aa4a509a0816bb6ca0bd1016d1767fe6126bd7f8f36837e66"
+    },
+    {
+      "label": "after-docs-browser",
+      "canonicalFiles": 9940,
+      "canonicalVectorSha256": "7bf586c88d49e64c453c9799062e65d67a9920ad098eddd21885ee6bff743f28",
+      "protectedFiles": 683,
+      "protectedVectorSha256": "cd4cbf615780446aa4a509a0816bb6ca0bd1016d1767fe6126bd7f8f36837e66"
+    },
+    {
+      "label": "after-public-consumers",
+      "canonicalFiles": 9940,
+      "canonicalVectorSha256": "7bf586c88d49e64c453c9799062e65d67a9920ad098eddd21885ee6bff743f28",
+      "protectedFiles": 683,
+      "protectedVectorSha256": "cd4cbf615780446aa4a509a0816bb6ca0bd1016d1767fe6126bd7f8f36837e66"
+    },
+    {
+      "label": "terminal-source-check",
+      "canonicalFiles": 9940,
+      "canonicalVectorSha256": "7bf586c88d49e64c453c9799062e65d67a9920ad098eddd21885ee6bff743f28",
+      "protectedFiles": 683,
+      "protectedVectorSha256": "cd4cbf615780446aa4a509a0816bb6ca0bd1016d1767fe6126bd7f8f36837e66"
+    }
+  ],
+  "errors": [],
+  "cleanup": {
+    "activeChildren": 0,
+    "remainingOriginalGroups": [],
+    "allStreamsComplete": true,
+    "rootRemoved": true
+  },
+  "proofLimits": [
+    "T2 authored consumer apps and in-memory SQLite fixtures; no production data/account/provider/model/payment or external host.",
+    "Four selected Chromium docs/clipboard journeys and npm/pnpm URL installs only; Bun, physical input, human accessibility, public npm publication and full-product acceptance remain open."
+  ],
+  "export": {
+    "files": 683,
+    "bytes": 115755457
+  },
+  "production": {
+    "coldSuccessfulTasks": 10,
+    "totalTasks": 10,
+    "expectedPages": 84
+  },
+  "browser": {
+    "profiles": 4,
+    "domStages": 32,
+    "pngs": 8,
+    "version": "158.0.8127.18",
+    "nativeClipboardReadbacks": 12
+  },
+  "consumers": {
+    "sourceCommit": "bba23fec921884aebce77933a71acf3b71390e5e",
+    "passed": true,
+    "release": "v0.1.0-keyboard.1",
+    "versions": {
+      "react": "19.2.8",
+      "react-dom": "19.2.8",
+      "typescript": "5.9.3",
+      "@types/node": "24.13.3",
+      "@types/react": "19.2.18",
+      "@types/react-dom": "19.2.4",
+      "vite": "8.2.1",
+      "@vitejs/plugin-react": "5.2.0"
+    },
+    "actualDownloadedArchives": 8,
+    "consumers": [
+      {
+        "id": "npm-copy",
+        "manager": "npm",
+        "mode": "copy",
+        "config": {
+          "$schema": "https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/main/registry/config.schema.json",
+          "mode": "copy",
+          "style": "violet",
+          "host": "standard-mcp",
+          "typescript": true,
+          "componentsDir": "src/mcpcn",
+          "registry": "https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/d91fe403eb6b3ec07ef9791e47a8655f5ed519f3/registry/items",
+          "packageManager": "npm"
+        },
+        "installedPaths": 60,
+        "strictTsFiles": 57,
+        "skipLibCheck": false,
+        "installedSdkCases": 1,
+        "actualViteBuild": true,
+        "verifiedArchiveMembers": 250,
+        "preservedAuthoredApp": true,
+        "preservedUnrelatedMetadata": true,
+        "provenance": [
+          {
+            "path": "src/mcpcn/LICENSE",
+            "bytes": 1075,
+            "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/approval-components.tsx",
+            "bytes": 16392,
+            "sha256": "416425b0addf9647adac8ed81e527b9153d8f8652673d63c6c29099b88ff44a1"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/approval-schemas.ts",
+            "bytes": 7081,
+            "sha256": "e6a994f66d67399f8475e6644ea6411d502645f7d86f7958725ef1461f9cc719"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/block-apps.tsx",
+            "bytes": 27484,
+            "sha256": "b99a9c3f0f6699a11e1d1291180e8c5e90aca19d86a921f8872b8c573e10f6ac"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/block-fixtures.mts",
+            "bytes": 15313,
+            "sha256": "0d8f5ae937ec7cd37d035643c0b19c424f9dbf24e7c25318ed7f6f8212730385"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/block-operations.mts",
+            "bytes": 3805,
+            "sha256": "bd564d9823e74b66cf0c73b2625f2f21daa4a697377fa6ca23393fc64218049e"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/block-recipes.mts",
+            "bytes": 22799,
+            "sha256": "8a89a97974d090f8e7aef73bd02905921269f9fdc2522c16b2f63a8c7884ea08"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/block-schemas.mts",
+            "bytes": 13914,
+            "sha256": "f01151f56ee4d1231863219e8197561f450bf9e7e999f6ab8f84c97f7530b142"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/block-store.mts",
+            "bytes": 13005,
+            "sha256": "690e58839f75f46c18d44a79a652f308a48de444a32747938f44cc9c3a9a56d9"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/blocks.tsx",
+            "bytes": 21777,
+            "sha256": "cdad513e3476cb9b512d85d103cd9a8df62974ad7fbcea6b43f389f87394289c"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/component-helpers.tsx",
+            "bytes": 2090,
+            "sha256": "e5a7a601400d95950325f238948b6dc326f7188956c9b6abe7e6dc091e5b748a"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/component-types.ts",
+            "bytes": 212,
+            "sha256": "3e13816c061c33fb6c3f95ed166d10807933e5039bf39abc6e30337e121b9925"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/components.tsx",
+            "bytes": 13761,
+            "sha256": "075ffa3c4d45bc6877f5a4ccccb80195251d8a2a5dee3813f952fab1c0e8a3ac"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/conflict-validation-components.tsx",
+            "bytes": 17269,
+            "sha256": "fcf216e8d28b632e735173a08155e69c186c00c00aaea2ca912a061f42e33a5b"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/conflict-validation-schemas.ts",
+            "bytes": 7880,
+            "sha256": "92bb1a2e7218b1bd9a6bd10798e6f35685329ec954c9c80e080635893994bd12"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/core.ts",
+            "bytes": 1571,
+            "sha256": "fe39634d0818984586d3ca01bd86337b1c41853646e81e4a4fe1523fc9b7de0e"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/decision-components.tsx",
+            "bytes": 16943,
+            "sha256": "fe0e5e64318c23e8fda2923ff83539c0469d9d903259f7fccd97d758182cc227"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/decision-narrative-components.tsx",
+            "bytes": 10339,
+            "sha256": "fc4c32f26db279e7bfaee1680c14b2c9e7e664c85d1fefb3316e5bb4d8211d66"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/decision-narrative-schemas.ts",
+            "bytes": 7905,
+            "sha256": "75699f770d59f8f78f9698438a5f7c6bdec9e36f70c65f59d3a4c35eabdb8d69"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/decision-schemas.ts",
+            "bytes": 8178,
+            "sha256": "d65c56cb5ecbf0a642061a9d4abdb46404e480a788d28caa9e9acf48d4f95b43"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/execution-components.tsx",
+            "bytes": 7526,
+            "sha256": "78f5f32f3c98cb8f37b69b3a71465f677f4ac4d8a060e933538d4a81a11c575c"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/execution-schemas.ts",
+            "bytes": 4998,
+            "sha256": "f7fcb2e26e595893d48a3adaff2890937eae9b593b67b292f485c8a8bd69dab0"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/file-review-components.tsx",
+            "bytes": 21215,
+            "sha256": "7bd4e66bbda25fad522a4a9b40b13b99806d38428af488f20bd9ddece901eb68"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/file-review-schemas.ts",
+            "bytes": 17290,
+            "sha256": "c8eaa16f1b2fb21bb128950b6430076fe4002e21642e1fd3d5579f8e062cccce"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/form-workflow-components.tsx",
+            "bytes": 30013,
+            "sha256": "a0a8d311a4a1c2be1b6cd020fd6507b39924c8859ce3648520dddbf2a695e4c5"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/form-workflow-schemas.ts",
+            "bytes": 17855,
+            "sha256": "cbfabd7204f2ef2c7c4da6b83eb4ff4cabe4b0e034d4e0206a9df8fa4d771c38"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/host-state-components.tsx",
+            "bytes": 9784,
+            "sha256": "a1aa1e272f356190ba54f089a921dc740025c79c9cea6418f11a30ff8a4b9696"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/host-state-schemas.ts",
+            "bytes": 6794,
+            "sha256": "f30ae94b260d05204e35fb8f37f29638ca2bed0c7f59dc9855582ef47fb2f270"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/option-ranking-components.tsx",
+            "bytes": 14252,
+            "sha256": "2a4893da8451299f70f3493671c4a1a387fcd99a3f425c4cc16a3fd6c95c747e"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/option-ranking-schemas.ts",
+            "bytes": 7626,
+            "sha256": "8f3b50dbdea6121635a8d71a3352f23974eacfb87c2e58c3a41e82a953ac3065"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/primitives.tsx",
+            "bytes": 7649,
+            "sha256": "02b69d4b0aaa9b80ef80da1ca0e22cfb660fe2152c3bd8734bdd751d6f8ed819"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/privacy-context-components.tsx",
+            "bytes": 13209,
+            "sha256": "fb4185848f83720d44d7fcdc3b32bbe4e9e76e67954a06c23f3c7434801a7a80"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/privacy-context-schemas.ts",
+            "bytes": 8402,
+            "sha256": "8e48173a6622f408cc17c7866939d0d750d20d76254472c6727de2e12e4ed820"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/record-inspection-components.tsx",
+            "bytes": 13027,
+            "sha256": "02ca55037406ec3931dcf1de7d8427f5c9b9094b2bcfa8134054b2ca11e31be0"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/record-inspection-schemas.ts",
+            "bytes": 6904,
+            "sha256": "500545d563c9f1d1ca6fd0e2efef9f8adfa21a9f191ef680c7873e666ae866d1"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/review-components.tsx",
+            "bytes": 10634,
+            "sha256": "58eb07f18111e01e1b1be0bb15d2e1909c5f65b74d7747991ae44e9035aa9a2b"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/review-schemas.ts",
+            "bytes": 3895,
+            "sha256": "ed8d69502716ba1154959aeb6e111dfe3fe39944bfb26e01e309be2c5b23cedd"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/runtime.tsx",
+            "bytes": 18501,
+            "sha256": "6b611e90ad6dada572b6c1b5db138894f7d16c31c956374ade0814a5f9919634"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/schema-common.ts",
+            "bytes": 787,
+            "sha256": "e4efa86eeaccde925f696761c5c80034e7ae8d28682b4f74a412a0de25ae4798"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/schemas.ts",
+            "bytes": 10370,
+            "sha256": "a9eeb4ab14e7179316dcf059a38d4564ab4910689d180f75868c09416f9a80d3"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/server-wire.mts",
+            "bytes": 2303,
+            "sha256": "8ebc12664cad3d1f9c8a43e521509eea3e5767bf91dc6f7401f757e4aa3a8227"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/server.mts",
+            "bytes": 15327,
+            "sha256": "842e80d0836a84925df727d4bde0f6aad76b4e088ba204fab8923646a19ac55d"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/source-evidence-components.tsx",
+            "bytes": 19591,
+            "sha256": "d960875117b1aa2af9f6fd9aae31292f264776a08fc379bea0386ea703fa4468"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/source-evidence-schemas.ts",
+            "bytes": 4926,
+            "sha256": "79c148019868e9b2d27ec09b37c5da6027b44474ae62feacba838a7adaf52c2f"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/tool-workflow-components.tsx",
+            "bytes": 18944,
+            "sha256": "bd0bbee069513562973d03e93c423b2c80237fa99e3305fc3cfd2f0f270017cf"
+          },
+          {
+            "path": "src/mcpcn/_mcpcn/tool-workflow-schemas.ts",
+            "bytes": 11620,
+            "sha256": "aaf6a2477e579966f4dc715a0aa7e16447404090ea9ed8914da9429ba14a4a4b"
+          },
+          {
+            "path": "src/mcpcn/approval-card.tsx",
+            "bytes": 66,
+            "sha256": "eeb34c2c52107567b4771295a33e41b4856c927f870539c9707ce7eabc704f44"
+          },
+          {
+            "path": "src/mcpcn/audit-trail.tsx",
+            "bytes": 64,
+            "sha256": "1caeb1ddf0676652b35d50051e1717b3c86e09a8cafe717a20f47c080083c29e"
+          },
+          {
+            "path": "src/mcpcn/badge.tsx",
+            "bytes": 59,
+            "sha256": "6b046a9ec5a72285287c085ead4d78d138098e1247faa95e716c967dca282930"
+          },
+          {
+            "path": "src/mcpcn/blocks/review-before-action.README.md",
+            "bytes": 4205,
+            "sha256": "bfad8533ebf43e88013a7e8b06f827f5420ae50029cc85e47cc86382e01ec5af"
+          },
+          {
+            "path": "src/mcpcn/blocks/review-before-action.fixture.mts",
+            "bytes": 473,
+            "sha256": "cb6119d83fc04371dd17822699550f4a18608996312b554224a9106de0faa08b"
+          },
+          {
+            "path": "src/mcpcn/blocks/review-before-action.server.mts",
+            "bytes": 348,
+            "sha256": "efed645ceb95fe74f093406d032a24026602ac174d2d509a4b58de0f817daac5"
+          },
+          {
+            "path": "src/mcpcn/blocks/review-before-action.server.test.mts",
+            "bytes": 262,
+            "sha256": "6ecee7d2987567ece3aa07aea4364de118eff6d1fa8334aea80c87dad2e639a8"
+          },
+          {
+            "path": "src/mcpcn/blocks/review-before-action.tsx",
+            "bytes": 131,
+            "sha256": "b14ba3e5bd0188951670ed7a1a66d031f26c2d26fbb1ac9aceb29b325473c99d"
+          },
+          {
+            "path": "src/mcpcn/button.tsx",
+            "bytes": 60,
+            "sha256": "0537f6a0324c80fe216df589e84be83d36f0f78ed1a002b37d2719d67def78c2"
+          },
+          {
+            "path": "src/mcpcn/card.tsx",
+            "bytes": 58,
+            "sha256": "9e2272630cf300a9262551da48e42dd72d69a1773cf07ec4f667472455e6eff3"
+          },
+          {
+            "path": "src/mcpcn/diff-viewer.tsx",
+            "bytes": 64,
+            "sha256": "f2083e0023790f650ec2cb72bcd4a59acc5f70586e4f5916c63069ad694a1664"
+          },
+          {
+            "path": "src/mcpcn/provider.tsx",
+            "bytes": 631,
+            "sha256": "4874a03dfd411fe9f6b6af88907b1000c628cd7afbd08177d9d09e61d99a58c5"
+          },
+          {
+            "path": "src/mcpcn/styles.css",
+            "bytes": 14342,
+            "sha256": "3884047fd971893492db1de889529bc0fe117ffe9864229f697b69e3f8097d07"
+          },
+          {
+            "path": "src/mcpcn/tabs.tsx",
+            "bytes": 58,
+            "sha256": "ad7f16442a28223a6391bc26b63b183bce3353964dbcfb7e0351ce9edeb4b804"
+          }
+        ]
+      },
+      {
+        "id": "npm-package",
+        "manager": "npm",
+        "mode": "package",
+        "config": {
+          "$schema": "https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/main/registry/config.schema.json",
+          "mode": "package",
+          "style": "graphite",
+          "host": "openai",
+          "typescript": true,
+          "componentsDir": "ui/mcpcn",
+          "registry": "https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/d91fe403eb6b3ec07ef9791e47a8655f5ed519f3/registry/items",
+          "packageManager": "npm"
+        },
+        "installedPaths": 13,
+        "strictTsFiles": 12,
+        "skipLibCheck": false,
+        "installedSdkCases": 1,
+        "actualViteBuild": true,
+        "verifiedArchiveMembers": 250,
+        "preservedAuthoredApp": true,
+        "preservedUnrelatedMetadata": true,
+        "provenance": [
+          {
+            "path": "ui/mcpcn/approval-card.tsx",
+            "bytes": 59,
+            "sha256": "8f91b3902a535a817cc41b523bc16cc36be5e4d6a17ba10dac111df15c1e12a4"
+          },
+          {
+            "path": "ui/mcpcn/audit-trail.tsx",
+            "bytes": 57,
+            "sha256": "759ad37a580feb6d84513295752460415e2b149347e3b41e14054dec9cbe8591"
+          },
+          {
+            "path": "ui/mcpcn/badge.tsx",
+            "bytes": 52,
+            "sha256": "8e9c018ba8f665a213cc7b2527ddbcf087df1b8c18af43750986aa33093f5559"
+          },
+          {
+            "path": "ui/mcpcn/blocks/review-before-action.README.md",
+            "bytes": 4182,
+            "sha256": "2c6d2ded39561b61908d041f866d746f8aaa77970f49a808e6cd6b23928d629b"
+          },
+          {
+            "path": "ui/mcpcn/blocks/review-before-action.fixture.mts",
+            "bytes": 473,
+            "sha256": "1f8709ebc9f5ea5d7affd898add77bafbcf37ddd5fe5fd5376bfeecdc0d89fc8"
+          },
+          {
+            "path": "ui/mcpcn/blocks/review-before-action.server.mts",
+            "bytes": 328,
+            "sha256": "4273556b89ae94afc35896a9dad184d5d2f7c9e299358d00ec43095465f3ed6d"
+          },
+          {
+            "path": "ui/mcpcn/blocks/review-before-action.server.test.mts",
+            "bytes": 262,
+            "sha256": "6ecee7d2987567ece3aa07aea4364de118eff6d1fa8334aea80c87dad2e639a8"
+          },
+          {
+            "path": "ui/mcpcn/blocks/review-before-action.tsx",
+            "bytes": 137,
+            "sha256": "1088f25c173d1f77cad450bab4e3e156799829f1edfbddf8ae665c254bfe804b"
+          },
+          {
+            "path": "ui/mcpcn/button.tsx",
+            "bytes": 53,
+            "sha256": "b048f047c17d5ee4f530db0d072aa649506502d18b89bd5c5859b804f805df39"
+          },
+          {
+            "path": "ui/mcpcn/card.tsx",
+            "bytes": 51,
+            "sha256": "ebdc664a6a16e718bd183a048213e34b33ed505551c6b325afbff6c8caf79103"
+          },
+          {
+            "path": "ui/mcpcn/diff-viewer.tsx",
+            "bytes": 57,
+            "sha256": "b97fce87f62805b95d8352f44519a23f834e65e23ad2c71422e529855a098443"
+          },
+          {
+            "path": "ui/mcpcn/provider.tsx",
+            "bytes": 668,
+            "sha256": "99549061a1b734dd0396307608ccc554de2d7d72aa2d54da3ae4495c1931995d"
+          },
+          {
+            "path": "ui/mcpcn/tabs.tsx",
+            "bytes": 51,
+            "sha256": "5cf1ba565ee1792c99070191cce496f2c62d2354a9dac55c38811dcc39ba8d54"
+          }
+        ]
+      },
+      {
+        "id": "pnpm-package",
+        "manager": "pnpm",
+        "mode": "package",
+        "config": {
+          "$schema": "https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/main/registry/config.schema.json",
+          "mode": "package",
+          "style": "default",
+          "host": "standard-mcp",
+          "typescript": true,
+          "componentsDir": "components/mcpcn",
+          "registry": "https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/d91fe403eb6b3ec07ef9791e47a8655f5ed519f3/registry/items",
+          "packageManager": "pnpm"
+        },
+        "installedPaths": 13,
+        "strictTsFiles": 12,
+        "skipLibCheck": false,
+        "installedSdkCases": 1,
+        "actualViteBuild": true,
+        "verifiedArchiveMembers": 250,
+        "preservedAuthoredApp": true,
+        "preservedUnrelatedMetadata": true,
+        "provenance": [
+          {
+            "path": "components/mcpcn/approval-card.tsx",
+            "bytes": 59,
+            "sha256": "8f91b3902a535a817cc41b523bc16cc36be5e4d6a17ba10dac111df15c1e12a4"
+          },
+          {
+            "path": "components/mcpcn/audit-trail.tsx",
+            "bytes": 57,
+            "sha256": "759ad37a580feb6d84513295752460415e2b149347e3b41e14054dec9cbe8591"
+          },
+          {
+            "path": "components/mcpcn/badge.tsx",
+            "bytes": 52,
+            "sha256": "8e9c018ba8f665a213cc7b2527ddbcf087df1b8c18af43750986aa33093f5559"
+          },
+          {
+            "path": "components/mcpcn/blocks/review-before-action.README.md",
+            "bytes": 4182,
+            "sha256": "2c6d2ded39561b61908d041f866d746f8aaa77970f49a808e6cd6b23928d629b"
+          },
+          {
+            "path": "components/mcpcn/blocks/review-before-action.fixture.mts",
+            "bytes": 473,
+            "sha256": "1f8709ebc9f5ea5d7affd898add77bafbcf37ddd5fe5fd5376bfeecdc0d89fc8"
+          },
+          {
+            "path": "components/mcpcn/blocks/review-before-action.server.mts",
+            "bytes": 328,
+            "sha256": "4273556b89ae94afc35896a9dad184d5d2f7c9e299358d00ec43095465f3ed6d"
+          },
+          {
+            "path": "components/mcpcn/blocks/review-before-action.server.test.mts",
+            "bytes": 262,
+            "sha256": "6ecee7d2987567ece3aa07aea4364de118eff6d1fa8334aea80c87dad2e639a8"
+          },
+          {
+            "path": "components/mcpcn/blocks/review-before-action.tsx",
+            "bytes": 137,
+            "sha256": "1088f25c173d1f77cad450bab4e3e156799829f1edfbddf8ae665c254bfe804b"
+          },
+          {
+            "path": "components/mcpcn/button.tsx",
+            "bytes": 53,
+            "sha256": "b048f047c17d5ee4f530db0d072aa649506502d18b89bd5c5859b804f805df39"
+          },
+          {
+            "path": "components/mcpcn/card.tsx",
+            "bytes": 51,
+            "sha256": "ebdc664a6a16e718bd183a048213e34b33ed505551c6b325afbff6c8caf79103"
+          },
+          {
+            "path": "components/mcpcn/diff-viewer.tsx",
+            "bytes": 57,
+            "sha256": "b97fce87f62805b95d8352f44519a23f834e65e23ad2c71422e529855a098443"
+          },
+          {
+            "path": "components/mcpcn/provider.tsx",
+            "bytes": 677,
+            "sha256": "9549ea6833dc7e5e85f0474a258776afcb07c269dc4489389149cecdaf232087"
+          },
+          {
+            "path": "components/mcpcn/tabs.tsx",
+            "bytes": 51,
+            "sha256": "5cf1ba565ee1792c99070191cce496f2c62d2354a9dac55c38811dcc39ba8d54"
+          }
+        ]
+      },
+      {
+        "id": "pnpm-copy",
+        "manager": "pnpm",
+        "mode": "copy",
+        "config": {
+          "$schema": "https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/main/registry/config.schema.json",
+          "mode": "copy",
+          "style": "violet",
+          "host": "auto",
+          "typescript": true,
+          "componentsDir": "src/ui/mcpcn",
+          "registry": "https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/d91fe403eb6b3ec07ef9791e47a8655f5ed519f3/registry/items",
+          "packageManager": "pnpm"
+        },
+        "installedPaths": 60,
+        "strictTsFiles": 57,
+        "skipLibCheck": false,
+        "installedSdkCases": 1,
+        "actualViteBuild": true,
+        "verifiedArchiveMembers": 250,
+        "preservedAuthoredApp": true,
+        "preservedUnrelatedMetadata": true,
+        "provenance": [
+          {
+            "path": "src/ui/mcpcn/LICENSE",
+            "bytes": 1075,
+            "sha256": "616e4e1572b39974fb402d974b1d11de1d81497851a2880095866e867bff6dc4"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/approval-components.tsx",
+            "bytes": 16392,
+            "sha256": "416425b0addf9647adac8ed81e527b9153d8f8652673d63c6c29099b88ff44a1"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/approval-schemas.ts",
+            "bytes": 7081,
+            "sha256": "e6a994f66d67399f8475e6644ea6411d502645f7d86f7958725ef1461f9cc719"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/block-apps.tsx",
+            "bytes": 27484,
+            "sha256": "b99a9c3f0f6699a11e1d1291180e8c5e90aca19d86a921f8872b8c573e10f6ac"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/block-fixtures.mts",
+            "bytes": 15313,
+            "sha256": "0d8f5ae937ec7cd37d035643c0b19c424f9dbf24e7c25318ed7f6f8212730385"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/block-operations.mts",
+            "bytes": 3805,
+            "sha256": "bd564d9823e74b66cf0c73b2625f2f21daa4a697377fa6ca23393fc64218049e"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/block-recipes.mts",
+            "bytes": 22799,
+            "sha256": "8a89a97974d090f8e7aef73bd02905921269f9fdc2522c16b2f63a8c7884ea08"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/block-schemas.mts",
+            "bytes": 13914,
+            "sha256": "f01151f56ee4d1231863219e8197561f450bf9e7e999f6ab8f84c97f7530b142"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/block-store.mts",
+            "bytes": 13005,
+            "sha256": "690e58839f75f46c18d44a79a652f308a48de444a32747938f44cc9c3a9a56d9"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/blocks.tsx",
+            "bytes": 21777,
+            "sha256": "cdad513e3476cb9b512d85d103cd9a8df62974ad7fbcea6b43f389f87394289c"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/component-helpers.tsx",
+            "bytes": 2090,
+            "sha256": "e5a7a601400d95950325f238948b6dc326f7188956c9b6abe7e6dc091e5b748a"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/component-types.ts",
+            "bytes": 212,
+            "sha256": "3e13816c061c33fb6c3f95ed166d10807933e5039bf39abc6e30337e121b9925"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/components.tsx",
+            "bytes": 13761,
+            "sha256": "075ffa3c4d45bc6877f5a4ccccb80195251d8a2a5dee3813f952fab1c0e8a3ac"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/conflict-validation-components.tsx",
+            "bytes": 17269,
+            "sha256": "fcf216e8d28b632e735173a08155e69c186c00c00aaea2ca912a061f42e33a5b"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/conflict-validation-schemas.ts",
+            "bytes": 7880,
+            "sha256": "92bb1a2e7218b1bd9a6bd10798e6f35685329ec954c9c80e080635893994bd12"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/core.ts",
+            "bytes": 1571,
+            "sha256": "fe39634d0818984586d3ca01bd86337b1c41853646e81e4a4fe1523fc9b7de0e"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/decision-components.tsx",
+            "bytes": 16943,
+            "sha256": "fe0e5e64318c23e8fda2923ff83539c0469d9d903259f7fccd97d758182cc227"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/decision-narrative-components.tsx",
+            "bytes": 10339,
+            "sha256": "fc4c32f26db279e7bfaee1680c14b2c9e7e664c85d1fefb3316e5bb4d8211d66"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/decision-narrative-schemas.ts",
+            "bytes": 7905,
+            "sha256": "75699f770d59f8f78f9698438a5f7c6bdec9e36f70c65f59d3a4c35eabdb8d69"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/decision-schemas.ts",
+            "bytes": 8178,
+            "sha256": "d65c56cb5ecbf0a642061a9d4abdb46404e480a788d28caa9e9acf48d4f95b43"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/execution-components.tsx",
+            "bytes": 7526,
+            "sha256": "78f5f32f3c98cb8f37b69b3a71465f677f4ac4d8a060e933538d4a81a11c575c"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/execution-schemas.ts",
+            "bytes": 4998,
+            "sha256": "f7fcb2e26e595893d48a3adaff2890937eae9b593b67b292f485c8a8bd69dab0"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/file-review-components.tsx",
+            "bytes": 21215,
+            "sha256": "7bd4e66bbda25fad522a4a9b40b13b99806d38428af488f20bd9ddece901eb68"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/file-review-schemas.ts",
+            "bytes": 17290,
+            "sha256": "c8eaa16f1b2fb21bb128950b6430076fe4002e21642e1fd3d5579f8e062cccce"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/form-workflow-components.tsx",
+            "bytes": 30013,
+            "sha256": "a0a8d311a4a1c2be1b6cd020fd6507b39924c8859ce3648520dddbf2a695e4c5"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/form-workflow-schemas.ts",
+            "bytes": 17855,
+            "sha256": "cbfabd7204f2ef2c7c4da6b83eb4ff4cabe4b0e034d4e0206a9df8fa4d771c38"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/host-state-components.tsx",
+            "bytes": 9784,
+            "sha256": "a1aa1e272f356190ba54f089a921dc740025c79c9cea6418f11a30ff8a4b9696"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/host-state-schemas.ts",
+            "bytes": 6794,
+            "sha256": "f30ae94b260d05204e35fb8f37f29638ca2bed0c7f59dc9855582ef47fb2f270"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/option-ranking-components.tsx",
+            "bytes": 14252,
+            "sha256": "2a4893da8451299f70f3493671c4a1a387fcd99a3f425c4cc16a3fd6c95c747e"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/option-ranking-schemas.ts",
+            "bytes": 7626,
+            "sha256": "8f3b50dbdea6121635a8d71a3352f23974eacfb87c2e58c3a41e82a953ac3065"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/primitives.tsx",
+            "bytes": 7649,
+            "sha256": "02b69d4b0aaa9b80ef80da1ca0e22cfb660fe2152c3bd8734bdd751d6f8ed819"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/privacy-context-components.tsx",
+            "bytes": 13209,
+            "sha256": "fb4185848f83720d44d7fcdc3b32bbe4e9e76e67954a06c23f3c7434801a7a80"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/privacy-context-schemas.ts",
+            "bytes": 8402,
+            "sha256": "8e48173a6622f408cc17c7866939d0d750d20d76254472c6727de2e12e4ed820"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/record-inspection-components.tsx",
+            "bytes": 13027,
+            "sha256": "02ca55037406ec3931dcf1de7d8427f5c9b9094b2bcfa8134054b2ca11e31be0"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/record-inspection-schemas.ts",
+            "bytes": 6904,
+            "sha256": "500545d563c9f1d1ca6fd0e2efef9f8adfa21a9f191ef680c7873e666ae866d1"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/review-components.tsx",
+            "bytes": 10634,
+            "sha256": "58eb07f18111e01e1b1be0bb15d2e1909c5f65b74d7747991ae44e9035aa9a2b"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/review-schemas.ts",
+            "bytes": 3895,
+            "sha256": "ed8d69502716ba1154959aeb6e111dfe3fe39944bfb26e01e309be2c5b23cedd"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/runtime.tsx",
+            "bytes": 18501,
+            "sha256": "6b611e90ad6dada572b6c1b5db138894f7d16c31c956374ade0814a5f9919634"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/schema-common.ts",
+            "bytes": 787,
+            "sha256": "e4efa86eeaccde925f696761c5c80034e7ae8d28682b4f74a412a0de25ae4798"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/schemas.ts",
+            "bytes": 10370,
+            "sha256": "a9eeb4ab14e7179316dcf059a38d4564ab4910689d180f75868c09416f9a80d3"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/server-wire.mts",
+            "bytes": 2303,
+            "sha256": "8ebc12664cad3d1f9c8a43e521509eea3e5767bf91dc6f7401f757e4aa3a8227"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/server.mts",
+            "bytes": 15327,
+            "sha256": "842e80d0836a84925df727d4bde0f6aad76b4e088ba204fab8923646a19ac55d"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/source-evidence-components.tsx",
+            "bytes": 19591,
+            "sha256": "d960875117b1aa2af9f6fd9aae31292f264776a08fc379bea0386ea703fa4468"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/source-evidence-schemas.ts",
+            "bytes": 4926,
+            "sha256": "79c148019868e9b2d27ec09b37c5da6027b44474ae62feacba838a7adaf52c2f"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/tool-workflow-components.tsx",
+            "bytes": 18944,
+            "sha256": "bd0bbee069513562973d03e93c423b2c80237fa99e3305fc3cfd2f0f270017cf"
+          },
+          {
+            "path": "src/ui/mcpcn/_mcpcn/tool-workflow-schemas.ts",
+            "bytes": 11620,
+            "sha256": "aaf6a2477e579966f4dc715a0aa7e16447404090ea9ed8914da9429ba14a4a4b"
+          },
+          {
+            "path": "src/ui/mcpcn/approval-card.tsx",
+            "bytes": 66,
+            "sha256": "eeb34c2c52107567b4771295a33e41b4856c927f870539c9707ce7eabc704f44"
+          },
+          {
+            "path": "src/ui/mcpcn/audit-trail.tsx",
+            "bytes": 64,
+            "sha256": "1caeb1ddf0676652b35d50051e1717b3c86e09a8cafe717a20f47c080083c29e"
+          },
+          {
+            "path": "src/ui/mcpcn/badge.tsx",
+            "bytes": 59,
+            "sha256": "6b046a9ec5a72285287c085ead4d78d138098e1247faa95e716c967dca282930"
+          },
+          {
+            "path": "src/ui/mcpcn/blocks/review-before-action.README.md",
+            "bytes": 4205,
+            "sha256": "bfad8533ebf43e88013a7e8b06f827f5420ae50029cc85e47cc86382e01ec5af"
+          },
+          {
+            "path": "src/ui/mcpcn/blocks/review-before-action.fixture.mts",
+            "bytes": 473,
+            "sha256": "cb6119d83fc04371dd17822699550f4a18608996312b554224a9106de0faa08b"
+          },
+          {
+            "path": "src/ui/mcpcn/blocks/review-before-action.server.mts",
+            "bytes": 348,
+            "sha256": "efed645ceb95fe74f093406d032a24026602ac174d2d509a4b58de0f817daac5"
+          },
+          {
+            "path": "src/ui/mcpcn/blocks/review-before-action.server.test.mts",
+            "bytes": 262,
+            "sha256": "6ecee7d2987567ece3aa07aea4364de118eff6d1fa8334aea80c87dad2e639a8"
+          },
+          {
+            "path": "src/ui/mcpcn/blocks/review-before-action.tsx",
+            "bytes": 131,
+            "sha256": "b14ba3e5bd0188951670ed7a1a66d031f26c2d26fbb1ac9aceb29b325473c99d"
+          },
+          {
+            "path": "src/ui/mcpcn/button.tsx",
+            "bytes": 60,
+            "sha256": "0537f6a0324c80fe216df589e84be83d36f0f78ed1a002b37d2719d67def78c2"
+          },
+          {
+            "path": "src/ui/mcpcn/card.tsx",
+            "bytes": 58,
+            "sha256": "9e2272630cf300a9262551da48e42dd72d69a1773cf07ec4f667472455e6eff3"
+          },
+          {
+            "path": "src/ui/mcpcn/diff-viewer.tsx",
+            "bytes": 64,
+            "sha256": "f2083e0023790f650ec2cb72bcd4a59acc5f70586e4f5916c63069ad694a1664"
+          },
+          {
+            "path": "src/ui/mcpcn/provider.tsx",
+            "bytes": 617,
+            "sha256": "5d5bc040f096c2f1ca8b05739dded67c9baf562eef4941db45d921e64982c775"
+          },
+          {
+            "path": "src/ui/mcpcn/styles.css",
+            "bytes": 14342,
+            "sha256": "3884047fd971893492db1de889529bc0fe117ffe9864229f697b69e3f8097d07"
+          },
+          {
+            "path": "src/ui/mcpcn/tabs.tsx",
+            "bytes": 58,
+            "sha256": "ad7f16442a28223a6391bc26b63b183bce3353964dbcfb7e0351ce9edeb4b804"
+          }
+        ]
+      }
+    ]
+  },
+  "completedAt": "2026-11-10T16:26:06.118Z"
+}

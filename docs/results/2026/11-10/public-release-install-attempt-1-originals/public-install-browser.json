@@ -1,0 +1,310 @@
+{
+  "sourceCommit": "5388607b1224886b8a1a17b68e43a49b208bcf65",
+  "passed": false,
+  "cases": [
+    {
+      "id": "npm-copy",
+      "width": 1280,
+      "manager": "npm",
+      "mode": "copy",
+      "style": "violet",
+      "host": "standard-mcp",
+      "componentsDir": "src/mcpcn",
+      "selected": [
+        "approval-card",
+        "tabs",
+        "review-before-action"
+      ],
+      "stages": [
+        {
+          "name": "01-getting-started",
+          "dom": "public-install-npm-copy-01-getting-started.dom.json",
+          "png": "public-install-npm-copy-01-getting-started.png",
+          "geometry": {
+            "width": 1280,
+            "scroll": 1280,
+            "body": 1280
+          }
+        },
+        {
+          "name": "02-initial-configurator",
+          "dom": "public-install-npm-copy-02-initial-configurator.dom.json",
+          "png": null,
+          "geometry": {
+            "width": 1280,
+            "scroll": 1280,
+            "body": 1280
+          }
+        },
+        {
+          "name": "03-configured-commands",
+          "dom": "public-install-npm-copy-03-configured-commands.dom.json",
+          "png": "public-install-npm-copy-03-configured-commands.png",
+          "geometry": {
+            "width": 1280,
+            "scroll": 1280,
+            "body": 1280
+          }
+        },
+        {
+          "name": "04-native-clipboard",
+          "dom": "public-install-npm-copy-04-native-clipboard.dom.json",
+          "png": null,
+          "geometry": {
+            "width": 1280,
+            "scroll": 1280,
+            "body": 1280
+          }
+        },
+        {
+          "name": "failed-state",
+          "dom": "public-install-npm-copy-failed-state.dom.json",
+          "png": null,
+          "geometry": {
+            "width": 1280,
+            "scroll": 1280,
+            "body": 1280
+          }
+        }
+      ],
+      "errors": [
+        "locator.waitFor: Error: strict mode violation: getByRole('alert') resolved to 2 elements:\n    1) <p role=\"alert\">Check the component directory, registry URL and s…</p> aka getByText('Check the component directory')\n    2) <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div> aka locator('[id=\"__next-route-announcer__\"]')\n\nCall log:\n  - waiting for getByRole('alert') to be visible\n\n    at /home/runner/work/_temp/mcpcn-public-install-xMI9me/source/tests/e2e/public-release-install.mjs:95:37"
+      ],
+      "copies": [
+        {
+          "key": "bootstrap",
+          "requested": "npm install --ignore-scripts --save-exact --no-audit --no-fund \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-core-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-schemas-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-runtime-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-react-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-themes-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-registry-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-server-0.1.0.tgz \\\n  zod@4.4.3 \\\n  @modelcontextprotocol/ext-apps@1.7.5 \\\n  @modelcontextprotocol/sdk@1.30.0 \\\n  @types/node@24.13.3",
+          "actual": "npm install --ignore-scripts --save-exact --no-audit --no-fund \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-core-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-schemas-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-runtime-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-react-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-themes-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-registry-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-server-0.1.0.tgz \\\n  zod@4.4.3 \\\n  @modelcontextprotocol/ext-apps@1.7.5 \\\n  @modelcontextprotocol/sdk@1.30.0 \\\n  @types/node@24.13.3"
+        },
+        {
+          "key": "initialize",
+          "requested": "node node_modules/mcpcn/dist/index.js init --mode=copy --style=violet --host=standard-mcp --manager=npm --components-dir=src/mcpcn --registry=https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/d91fe403eb6b3ec07ef9791e47a8655f5ed519f3/registry/items",
+          "actual": "node node_modules/mcpcn/dist/index.js init --mode=copy --style=violet --host=standard-mcp --manager=npm --components-dir=src/mcpcn --registry=https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/d91fe403eb6b3ec07ef9791e47a8655f5ed519f3/registry/items"
+        },
+        {
+          "key": "add",
+          "requested": "node node_modules/mcpcn/dist/index.js add approval-card tabs review-before-action",
+          "actual": "node node_modules/mcpcn/dist/index.js add approval-card tabs review-before-action"
+        }
+      ],
+      "requests": [
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/docs"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/_next/static/chunks/04a6n5uf0pun-.css"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/_next/static/chunks/3yh5jaalv1u8v.js"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/_next/static/chunks/22lgiphrawvbj.js"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/_next/static/chunks/1fx8wyr62n54x.js"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/_next/static/chunks/1cu4dap_usbwa.js"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/_next/static/chunks/turbopack-20368txdglzwk.js"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/_next/static/chunks/332uslzbhf388.js"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/_next/static/chunks/25x3iyy6ps2c3.js"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/?_rsc=c-Hr4oP2d3Bq2q0W"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/docs?_rsc=c-Hr4oP2d3Bq2q0W"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/components?_rsc=c-Hr4oP2d3Bq2q0W"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/blocks?_rsc=c-Hr4oP2d3Bq2q0W"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/examples?_rsc=c-Hr4oP2d3Bq2q0W"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/playground?_rsc=c-Hr4oP2d3Bq2q0W"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/create?_rsc=c-Hr4oP2d3Bq2q0W"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/?_rsc=4i32bH93TBOXfleL"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/docs?_rsc=TI_w-rirMad-iB_F"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/_next/static/chunks/2pe4h4i6yfup1.js"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/components?_rsc=wwkuxo0Tp7mJzGlA"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/blocks?_rsc=EElv5oGcjLERFexM"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/examples?_rsc=zeT9GepC9La461Bo"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/playground?_rsc=2vFxw6ToOdoAEGNi"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/create?_rsc=v__96dFjnpKKZtOA"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/_next/static/chunks/3_vs95q54zv5a.js"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/create"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/_next/static/chunks/04a6n5uf0pun-.css"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/_next/static/chunks/3yh5jaalv1u8v.js"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/_next/static/chunks/22lgiphrawvbj.js"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/_next/static/chunks/1fx8wyr62n54x.js"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/_next/static/chunks/1cu4dap_usbwa.js"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/_next/static/chunks/turbopack-20368txdglzwk.js"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/_next/static/chunks/332uslzbhf388.js"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/_next/static/chunks/3_vs95q54zv5a.js"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/_next/static/chunks/2pe4h4i6yfup1.js"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/?_rsc=tVJyimtvQYAiffBj"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/docs?_rsc=tVJyimtvQYAiffBj"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/components?_rsc=tVJyimtvQYAiffBj"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/blocks?_rsc=tVJyimtvQYAiffBj"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/examples?_rsc=tVJyimtvQYAiffBj"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/playground?_rsc=tVJyimtvQYAiffBj"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/create?_rsc=tVJyimtvQYAiffBj"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/?_rsc=xe9XLbwhvSS2xfCM"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/docs?_rsc=G7r4I7ts8Op-FgHq"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/components?_rsc=ncT1Lqh1_6NUBhM1"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/blocks?_rsc=uOSfWpucXx3yz-RA"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/examples?_rsc=FGSQEJ99819UB9b0"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/playground?_rsc=DOmKR0wMIRSbHt_z"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/_next/static/chunks/25x3iyy6ps2c3.js"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4322/create?_rsc=JVpg7wYJWWkXA0Yj"
+        }
+      ],
+      "contextClosed": true,
+      "config": {
+        "$schema": "https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/main/registry/config.schema.json",
+        "mode": "copy",
+        "style": "violet",
+        "host": "standard-mcp",
+        "typescript": true,
+        "componentsDir": "src/mcpcn",
+        "registry": "https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/d91fe403eb6b3ec07ef9791e47a8655f5ed519f3/registry/items",
+        "packageManager": "npm"
+      }
+    }
+  ],
+  "errors": [
+    "locator.waitFor: Error: strict mode violation: getByRole('alert') resolved to 2 elements:\n    1) <p role=\"alert\">Check the component directory, registry URL and s…</p> aka getByText('Check the component directory')\n    2) <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div> aka locator('[id=\"__next-route-announcer__\"]')\n\nCall log:\n  - waiting for getByRole('alert') to be visible\n\n    at /home/runner/work/_temp/mcpcn-public-install-xMI9me/source/tests/e2e/public-release-install.mjs:95:37"
+  ],
+  "browserClosed": true,
+  "browserVersion": "158.0.8127.18"
+}

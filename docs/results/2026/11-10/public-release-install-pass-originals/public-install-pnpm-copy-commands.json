@@ -1,0 +1,32 @@
+{
+  "sourceCommit": "bba23fec921884aebce77933a71acf3b71390e5e",
+  "profile": {
+    "id": "pnpm-copy",
+    "width": 390,
+    "manager": "pnpm",
+    "mode": "copy",
+    "style": "violet",
+    "host": "auto",
+    "componentsDir": "src/ui/mcpcn",
+    "selected": [
+      "approval-card",
+      "tabs",
+      "review-before-action"
+    ]
+  },
+  "config": {
+    "$schema": "https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/main/registry/config.schema.json",
+    "mode": "copy",
+    "style": "violet",
+    "host": "auto",
+    "typescript": true,
+    "componentsDir": "src/ui/mcpcn",
+    "registry": "https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/d91fe403eb6b3ec07ef9791e47a8655f5ed519f3/registry/items",
+    "packageManager": "pnpm"
+  },
+  "commands": {
+    "bootstrap": "npm pkg set \\\n  pnpm.overrides.@mcpcn/core=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-core-0.1.0.tgz \\\n  pnpm.overrides.@mcpcn/schemas=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-schemas-0.1.0.tgz \\\n  pnpm.overrides.@mcpcn/runtime=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-runtime-0.1.0.tgz \\\n  pnpm.overrides.@mcpcn/react=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-react-0.1.0.tgz \\\n  pnpm.overrides.@mcpcn/themes=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-themes-0.1.0.tgz \\\n  pnpm.overrides.@mcpcn/registry=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-registry-0.1.0.tgz \\\n  pnpm.overrides.mcpcn=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-0.1.0.tgz \\\n  pnpm.overrides.@mcpcn/server=https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-server-0.1.0.tgz \\\n  pnpm.overrides.zod=4.4.3 \\\n  pnpm.overrides.@modelcontextprotocol/ext-apps=1.7.5 \\\n  pnpm.overrides.@modelcontextprotocol/sdk=1.30.0 \\\n  pnpm.overrides.@types/node=24.13.3\npnpm add --ignore-scripts --save-exact \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-core-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-schemas-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-runtime-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-react-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-themes-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-registry-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-0.1.0.tgz \\\n  https://github.com/alvarovillalbaa/mcpcn-ui/releases/download/v0.1.0-keyboard.1/mcpcn-server-0.1.0.tgz \\\n  zod@4.4.3 \\\n  @modelcontextprotocol/ext-apps@1.7.5 \\\n  @modelcontextprotocol/sdk@1.30.0 \\\n  @types/node@24.13.3",
+    "initialize": "node node_modules/mcpcn/dist/index.js init --mode=copy --style=violet --host=auto --manager=pnpm --components-dir=src/ui/mcpcn --registry=https://raw.githubusercontent.com/alvarovillalbaa/mcpcn-ui/d91fe403eb6b3ec07ef9791e47a8655f5ed519f3/registry/items",
+    "add": "node node_modules/mcpcn/dist/index.js add approval-card tabs review-before-action"
+  }
+}
