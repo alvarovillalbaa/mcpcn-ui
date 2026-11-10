@@ -2,6 +2,33 @@
 
 Last updated: 2026-11-10
 
+## Persistent reference workflows — 10 November 2026
+
+Standing owner approval covers the [contract](docs/specs/reference-workflows.md)
+and [frozen checks](docs/proposals/reference-workflow-checks.md), following clean
+1ac3672f. Build five actual SQLite/SDK/AppBridge workflows in their owning
+examples, with a private shared package, loopback capability access, exact
+review tokens, cancellation, atomic audit and restart persistence. Keep accepted
+library/runtime and all160registry files unchanged. Block recipes remain next.
+
+New acceptance is80executed cases(78new/two selected regressions;ten unchanged
+cases outside filter),28actual unit SDK sessions,22browserprofiles/80DOM/24PNG/
+four nativeEndreadings,fourrealHTTP/SDK/SQLiteprocesses,strictTypeScript and a
+fresh focused source-bundle install/build/five actual persisted SDK workflows.
+Derive only six declared workspace importers; upgrade no external resolution.
+Only seven verified lock/gallery paths may be adopted. No native generated edit.
+8500sourcefiles/1GiB/40MiBfile/128MiBexport/64MiBpacket limits apply prospectively.
+StorageGuard9.5/34GiB blocks local heavy runtime. Use the pinned temporary public
+read-only manual20minute CI job. Preserve all source attempts and originals.
+Checks,adoption,release,deployment remain pending until actual receipts exist.
+No new account,paidplan,model,production data,externalAuth/provider configuration
+or publicnpm. Prior packets stay closed; no subagents or unrelated portfolio work.
+
+First sourcef4cc388e stopped at a missing shared schema function closing brace.
+Keep its failed packet/source as ancestry; correct that syntax only and rerun
+the same assertions, strict compiler and browser/bundle profile. No new check
+has passed yet and no derivation/release/deployment is accepted.
+
 ## Validated server integration — 10 November 2026
 
 Standing owner “approve everything / Keep going / Do all the work” covers the

@@ -37,12 +37,12 @@ describe("file review documentation consumers", () => {
   it("does not claim examples for unrelated components", () => {
     expect(fileReviewExampleCode("approval-card")).toBeUndefined(); expect(fileReviewExampleCode("document-preview-unknown")).toBeUndefined();
   });
-  it("renders the native selection example without reading or extracting on mount", () => {
+  it("waits for a server record without reading or extracting on mount", () => {
     expect(extractAuthoredInvoiceFields("Supplier:\nTotal: EUR 48.20")).toEqual({ supplier: "", total: "EUR 48.20" });
     expect(extractAuthoredInvoiceFields("Supplier:\tAcme Labs\r\nTotal:  EUR 48.20")).toEqual({ supplier: "Acme Labs", total: "EUR 48.20" });
     const html = renderToStaticMarkup(<App />);
-    expect(html).toContain('type="file"'); expect(html).toContain("Choose authored invoice text");
-    expect(html).toContain("Supplier: and Total: lines"); expect(html).toContain("No OCR, upload, model or saving service");
-    expect(html).toContain('aria-label="Last document extraction intent"'); expect(html).not.toContain("GenericAgentComponent");
+    expect(html).toContain("Document extraction review");
+    expect(html).toContain("Connect this app through the reference workbench or an authorized MCP host.");
+    expect(html).not.toContain('type="file"'); expect(html).not.toContain("Last document extraction intent"); expect(html).not.toContain("GenericAgentComponent");
   });
 });
