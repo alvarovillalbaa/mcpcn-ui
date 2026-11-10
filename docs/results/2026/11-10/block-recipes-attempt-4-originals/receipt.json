@@ -1,0 +1,2328 @@
+{
+  "schemaVersion": "mcpcn.block-recipe-checks.v1",
+  "sourceCommit": "e3fda07a2f8daa298c79a514ab30090b18982394",
+  "workflowCommit": "5552fe428974e1fbf5a9fbf235610ab91d02acbe",
+  "status": "failed",
+  "startedAt": "2026-11-10T12:36:49.429Z",
+  "commands": [
+    {
+      "label": "block-tools-install",
+      "command": "npm",
+      "args": [
+        "install",
+        "--prefix",
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/tools",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "pnpm@10.24.0",
+        "playwright@1.65.0"
+      ],
+      "startedAt": "2026-11-10T12:36:51.811Z",
+      "streams": [
+        {
+          "name": "block-tools-install.stdout.txt",
+          "bytes": 24,
+          "sha256": "c59541a7d8bfc9987c0aa47adf2cdd2858be8b66de5abc0331d5a6484ae63ab6",
+          "complete": true
+        },
+        {
+          "name": "block-tools-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2289,
+      "identity": {
+        "pid": 2289,
+        "uid": 1001,
+        "pgid": 2289,
+        "sid": 2289,
+        "start": "10807"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:36:54.246Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-frozen-workspace-install",
+      "command": "pnpm",
+      "args": [
+        "install",
+        "--frozen-lockfile",
+        "--ignore-scripts"
+      ],
+      "startedAt": "2026-11-10T12:36:54.247Z",
+      "streams": [
+        {
+          "name": "block-frozen-workspace-install.stdout.txt",
+          "bytes": 1440,
+          "sha256": "6976558bc2b02d455567c4ce9de0a5be1214b1f19f23cd6683a7c3e2e3430684",
+          "complete": true
+        },
+        {
+          "name": "block-frozen-workspace-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2301,
+      "identity": {
+        "pid": 2301,
+        "uid": 1001,
+        "pgid": 2301,
+        "sid": 2301,
+        "start": "11051"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:36:57.469Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-build-core",
+      "command": "pnpm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-10T12:36:58.243Z",
+      "streams": [
+        {
+          "name": "block-build-core.stdout.txt",
+          "bytes": 123,
+          "sha256": "c95de126adf3d2ebf94554d8ac3d20231fc32b2df9bab1e37e86967c7e556566",
+          "complete": true
+        },
+        {
+          "name": "block-build-core.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2317,
+      "identity": {
+        "pid": 2317,
+        "uid": 1001,
+        "pgid": 2317,
+        "sid": 2317,
+        "start": "11451"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:36:59.234Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-build-schemas",
+      "command": "pnpm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-10T12:36:59.235Z",
+      "streams": [
+        {
+          "name": "block-build-schemas.stdout.txt",
+          "bytes": 129,
+          "sha256": "4346fea515b0fb8a8b5dd81f7e44ffb5a70e9c7c9a73d44629bdc58764fbb323",
+          "complete": true
+        },
+        {
+          "name": "block-build-schemas.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2342,
+      "identity": {
+        "pid": 2342,
+        "uid": 1001,
+        "pgid": 2342,
+        "sid": 2342,
+        "start": "11550"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:01.501Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-build-runtime",
+      "command": "pnpm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-10T12:37:01.501Z",
+      "streams": [
+        {
+          "name": "block-build-runtime.stdout.txt",
+          "bytes": 129,
+          "sha256": "357b1cb396c3a08512eff5af73c120bbb4b685c2cc95c2e9d067882b67bf9c55",
+          "complete": true
+        },
+        {
+          "name": "block-build-runtime.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2368,
+      "identity": {
+        "pid": 2368,
+        "uid": 1001,
+        "pgid": 2368,
+        "sid": 2368,
+        "start": "11776"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:02.890Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-build-react",
+      "command": "pnpm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-10T12:37:02.890Z",
+      "streams": [
+        {
+          "name": "block-build-react.stdout.txt",
+          "bytes": 162,
+          "sha256": "261ad976431e0a78e695479d788675e433884a9294a830b6325653bc2dfa6316",
+          "complete": true
+        },
+        {
+          "name": "block-build-react.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2394,
+      "identity": {
+        "pid": 2394,
+        "uid": 1001,
+        "pgid": 2394,
+        "sid": 2394,
+        "start": "11915"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:06.028Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-build-server",
+      "command": "pnpm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-10T12:37:06.029Z",
+      "streams": [
+        {
+          "name": "block-build-server.stdout.txt",
+          "bytes": 127,
+          "sha256": "bacc8fa9aa94b6efd6dd53006f8653793181e1db39c9a87791fe006c0d4573fd",
+          "complete": true
+        },
+        {
+          "name": "block-build-server.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2420,
+      "identity": {
+        "pid": 2420,
+        "uid": 1001,
+        "pgid": 2420,
+        "sid": 2420,
+        "start": "12229"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:07.910Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-build-themes",
+      "command": "pnpm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-10T12:37:07.910Z",
+      "streams": [
+        {
+          "name": "block-build-themes.stdout.txt",
+          "bytes": 166,
+          "sha256": "14548d5d6d2d0d75f34256d765e779b785e4012fe35622fc5cb5e23fc0d44f70",
+          "complete": true
+        },
+        {
+          "name": "block-build-themes.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2446,
+      "identity": {
+        "pid": 2446,
+        "uid": 1001,
+        "pgid": 2446,
+        "sid": 2446,
+        "start": "12417"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:08.662Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-build-registry",
+      "command": "pnpm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-10T12:37:08.662Z",
+      "streams": [
+        {
+          "name": "block-build-registry.stdout.txt",
+          "bytes": 188,
+          "sha256": "55c0e45a4c6043d6953b6fd82eafef5598f7ca8fab6cf07ba311448cb7c349c0",
+          "complete": true
+        },
+        {
+          "name": "block-build-registry.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2472,
+      "identity": {
+        "pid": 2472,
+        "uid": 1001,
+        "pgid": 2472,
+        "sid": 2472,
+        "start": "12492"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:11.341Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-build-playground",
+      "command": "pnpm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-10T12:37:11.341Z",
+      "streams": [
+        {
+          "name": "block-build-playground.stdout.txt",
+          "bytes": 814,
+          "sha256": "21562ee6e681514a6c1d9e30cdbcd782ef85a22745ab3dd6181ef5845ccb0400",
+          "complete": true
+        },
+        {
+          "name": "block-build-playground.stderr.txt",
+          "bytes": 360,
+          "sha256": "351b524197fb492920789369e7f1a271420c757633fbb553b280a181ac4c31a4",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2508,
+      "identity": {
+        "pid": 2508,
+        "uid": 1001,
+        "pgid": 2508,
+        "sid": 2508,
+        "start": "12760"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:11.883Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-build-cli",
+      "command": "pnpm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-10T12:37:11.883Z",
+      "streams": [
+        {
+          "name": "block-build-cli.stdout.txt",
+          "bytes": 172,
+          "sha256": "98970f3873221b88f70760b919b5de657bcda851dbf6967638b76d08f7c5189e",
+          "complete": true
+        },
+        {
+          "name": "block-build-cli.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2560,
+      "identity": {
+        "pid": 2560,
+        "uid": 1001,
+        "pgid": 2560,
+        "sid": 2560,
+        "start": "12814"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:13.004Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-strict-authored-source",
+      "command": "pnpm",
+      "args": [
+        "exec",
+        "tsc",
+        "-p",
+        "tooling/block-checks.tsconfig.json",
+        "--pretty",
+        "false"
+      ],
+      "startedAt": "2026-11-10T12:37:13.911Z",
+      "streams": [
+        {
+          "name": "block-strict-authored-source.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "block-strict-authored-source.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2596,
+      "identity": {
+        "pid": 2596,
+        "uid": 1001,
+        "pgid": 2596,
+        "sid": 2596,
+        "start": "13017"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:19.250Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-focused-units",
+      "command": "pnpm",
+      "args": [
+        "exec",
+        "vitest",
+        "run",
+        "packages/server/src/block-recipes.test.ts",
+        "packages/registry/src/block-source.test.ts",
+        "packages/cli/src/block-installation.test.ts",
+        "--reporter=json",
+        "--outputFile=/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/output/block-units.json"
+      ],
+      "startedAt": "2026-11-10T12:37:19.251Z",
+      "streams": [
+        {
+          "name": "block-focused-units.stdout.txt",
+          "bytes": 98,
+          "sha256": "4c323ab033cb581a43922288dc089ee7607939f4e89e9008983e292217bbe239",
+          "complete": true
+        },
+        {
+          "name": "block-focused-units.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2623,
+      "identity": {
+        "pid": 2623,
+        "uid": 1001,
+        "pgid": 2623,
+        "sid": 2623,
+        "start": "13551"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:21.985Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-selected-regressions",
+      "command": "pnpm",
+      "args": [
+        "exec",
+        "vitest",
+        "run",
+        "packages/registry/src/privacy-context-source.test.ts",
+        "packages/cli/src/privacy-context-installation.test.ts",
+        "--testNamePattern",
+        "PC-R02|PC-CLI06",
+        "--reporter=json",
+        "--outputFile=/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/output/block-regressions.json"
+      ],
+      "startedAt": "2026-11-10T12:37:21.986Z",
+      "streams": [
+        {
+          "name": "block-selected-regressions.stdout.txt",
+          "bytes": 104,
+          "sha256": "99f00f633688d8fac49864ebe0b2a6e5c2533c1e61c3363423224db57c5823ce",
+          "complete": true
+        },
+        {
+          "name": "block-selected-regressions.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2690,
+      "identity": {
+        "pid": 2690,
+        "uid": 1001,
+        "pgid": 2690,
+        "sid": 2690,
+        "start": "13825"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:23.020Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-pack-core",
+      "command": "pnpm",
+      "args": [
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/archives"
+      ],
+      "startedAt": "2026-11-10T12:37:23.794Z",
+      "streams": [
+        {
+          "name": "block-pack-core.stdout.txt",
+          "bytes": 227,
+          "sha256": "578071c8ff6d1aef7a1ab981d9f0e67b1ceda61cbc0a1f38e89a150fc99648a7",
+          "complete": true
+        },
+        {
+          "name": "block-pack-core.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2750,
+      "identity": {
+        "pid": 2750,
+        "uid": 1001,
+        "pgid": 2750,
+        "sid": 2750,
+        "start": "14006"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:23.990Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-pack-schemas",
+      "command": "pnpm",
+      "args": [
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/archives"
+      ],
+      "startedAt": "2026-11-10T12:37:23.990Z",
+      "streams": [
+        {
+          "name": "block-pack-schemas.stdout.txt",
+          "bytes": 2293,
+          "sha256": "dddfd5881d5b145f7eca6eeb83c84f68e6ef90da338864718e96ec29587b3142",
+          "complete": true
+        },
+        {
+          "name": "block-pack-schemas.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2762,
+      "identity": {
+        "pid": 2762,
+        "uid": 1001,
+        "pgid": 2762,
+        "sid": 2762,
+        "start": "14025"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:24.210Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-pack-runtime",
+      "command": "pnpm",
+      "args": [
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/archives"
+      ],
+      "startedAt": "2026-11-10T12:37:24.210Z",
+      "streams": [
+        {
+          "name": "block-pack-runtime.stdout.txt",
+          "bytes": 233,
+          "sha256": "09b257e7f4095de200a27d87ce5e692d47b4776917a3a510438a88814fbddbda",
+          "complete": true
+        },
+        {
+          "name": "block-pack-runtime.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2774,
+      "identity": {
+        "pid": 2774,
+        "uid": 1001,
+        "pgid": 2774,
+        "sid": 2774,
+        "start": "14047"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:24.412Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-pack-react",
+      "command": "pnpm",
+      "args": [
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/archives"
+      ],
+      "startedAt": "2026-11-10T12:37:24.413Z",
+      "streams": [
+        {
+          "name": "block-pack-react.stdout.txt",
+          "bytes": 2709,
+          "sha256": "f537b61b1c2a32d5434472e45dda9beef27c1cc697292c89d63168b2bf30f3dc",
+          "complete": true
+        },
+        {
+          "name": "block-pack-react.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2786,
+      "identity": {
+        "pid": 2786,
+        "uid": 1001,
+        "pgid": 2786,
+        "sid": 2786,
+        "start": "14068"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:24.649Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-pack-themes",
+      "command": "pnpm",
+      "args": [
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/archives"
+      ],
+      "startedAt": "2026-11-10T12:37:24.650Z",
+      "streams": [
+        {
+          "name": "block-pack-themes.stdout.txt",
+          "bytes": 248,
+          "sha256": "e87e7b143eda999d33ea76daaacfcf3bbd31fb35cf6fd92f8571dc8ce064afe4",
+          "complete": true
+        },
+        {
+          "name": "block-pack-themes.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2798,
+      "identity": {
+        "pid": 2798,
+        "uid": 1001,
+        "pgid": 2798,
+        "sid": 2798,
+        "start": "14091"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:24.853Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-pack-registry",
+      "command": "pnpm",
+      "args": [
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/archives"
+      ],
+      "startedAt": "2026-11-10T12:37:24.853Z",
+      "streams": [
+        {
+          "name": "block-pack-registry.stdout.txt",
+          "bytes": 819,
+          "sha256": "875f62dd73c405b8d28a28299562c8c448f393916467600544f9fb11e38db80e",
+          "complete": true
+        },
+        {
+          "name": "block-pack-registry.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2810,
+      "identity": {
+        "pid": 2810,
+        "uid": 1001,
+        "pgid": 2810,
+        "sid": 2810,
+        "start": "14112"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:25.059Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-pack-cli",
+      "command": "pnpm",
+      "args": [
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/archives"
+      ],
+      "startedAt": "2026-11-10T12:37:25.060Z",
+      "streams": [
+        {
+          "name": "block-pack-cli.stdout.txt",
+          "bytes": 703,
+          "sha256": "1a0bbf479ae88600bfc389634b103e4f19e3f27cbc9fcbd786a5faa6bcd7d1b5",
+          "complete": true
+        },
+        {
+          "name": "block-pack-cli.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2822,
+      "identity": {
+        "pid": 2822,
+        "uid": 1001,
+        "pgid": 2822,
+        "sid": 2822,
+        "start": "14132"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:25.275Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-pack-server",
+      "command": "pnpm",
+      "args": [
+        "pack",
+        "--pack-destination",
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/archives"
+      ],
+      "startedAt": "2026-11-10T12:37:25.276Z",
+      "streams": [
+        {
+          "name": "block-pack-server.stdout.txt",
+          "bytes": 703,
+          "sha256": "818cf5f307915d25f64ec4a594712eaf0db95db7da9d40d4624317a73885ed5a",
+          "complete": true
+        },
+        {
+          "name": "block-pack-server.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2834,
+      "identity": {
+        "pid": 2834,
+        "uid": 1001,
+        "pgid": 2834,
+        "sid": 2834,
+        "start": "14154"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:25.477Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-package-install",
+      "command": "npm",
+      "args": [
+        "install",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "startedAt": "2026-11-10T12:37:25.478Z",
+      "streams": [
+        {
+          "name": "block-package-install.stdout.txt",
+          "bytes": 27,
+          "sha256": "c321dd62ed9c0fd9e2335c5fda278d9937c8809ee448cc314603d794e9f465ed",
+          "complete": true
+        },
+        {
+          "name": "block-package-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2846,
+      "identity": {
+        "pid": 2846,
+        "uid": 1001,
+        "pgid": 2846,
+        "sid": 2846,
+        "start": "14174"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:36.210Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-package-cli-init",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/consumers/installed-package/node_modules/mcpcn/dist/index.js",
+        "init",
+        "--mode=package",
+        "--host=standard-mcp",
+        "--registry=file:///home/runner/work/_temp/mcpcn-block-recipes-okPvOR/source/registry/items"
+      ],
+      "startedAt": "2026-11-10T12:37:36.210Z",
+      "streams": [
+        {
+          "name": "block-package-cli-init.stdout.txt",
+          "bytes": 53,
+          "sha256": "96af2325c4ba21c7ed182a0238171f3de0b05d511d08f640f91f1a919c79feed",
+          "complete": true
+        },
+        {
+          "name": "block-package-cli-init.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2864,
+      "identity": {
+        "pid": 2864,
+        "uid": 1001,
+        "pgid": 2864,
+        "sid": 2864,
+        "start": "15247"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:36.392Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-package-cli-add",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/consumers/installed-package/node_modules/mcpcn/dist/index.js",
+        "add",
+        "button",
+        "card",
+        "badge",
+        "tabs",
+        "dialog",
+        "input",
+        "textarea",
+        "select",
+        "alert",
+        "tooltip",
+        "skeleton",
+        "empty-state",
+        "approval-card",
+        "approval-checklist",
+        "confirmation-panel",
+        "risk-review-panel",
+        "before-submit-confirmation",
+        "destructive-action-guard",
+        "human-override-panel",
+        "permission-request-card",
+        "tool-progress-timeline",
+        "tool-call-card",
+        "tool-result-card",
+        "running-task-card",
+        "retryable-error-state",
+        "partial-result-viewer",
+        "queued-step-list",
+        "tool-trace-viewer",
+        "entity-review-table",
+        "diff-viewer",
+        "record-inspector",
+        "field-confidence-list",
+        "extracted-fields-review",
+        "conflict-resolver",
+        "validation-summary",
+        "source-evidence-panel",
+        "document-preview",
+        "file-review",
+        "schema-form",
+        "dynamic-question-flow",
+        "missing-data-request",
+        "multi-step-form",
+        "inline-edit-form",
+        "form-progress-card",
+        "validated-field-list",
+        "comparison-matrix",
+        "option-selector",
+        "recommendation-card",
+        "tradeoff-panel",
+        "score-breakdown",
+        "ranking-list",
+        "decision-memo",
+        "audit-trail",
+        "reasoning-summary",
+        "source-list",
+        "evidence-drawer",
+        "data-access-notice",
+        "privacy-boundary-card",
+        "consent-panel",
+        "model-context-preview",
+        "auth-required-card",
+        "billing-gate",
+        "unsupported-host-notice",
+        "no-data-state",
+        "loading-bridge-state",
+        "offline-state",
+        "permission-denied-state",
+        "expired-session-state",
+        "review-before-action",
+        "collect-missing-data",
+        "extract-review-save",
+        "compare-options-approve",
+        "multi-step-tool-run",
+        "approval-gated-tool-call",
+        "human-corrects-ai-output",
+        "agent-generated-report-review",
+        "file-upload-and-extract",
+        "table-bulk-action-review",
+        "admin-change-review"
+      ],
+      "startedAt": "2026-11-10T12:37:36.487Z",
+      "streams": [
+        {
+          "name": "block-package-cli-add.stdout.txt",
+          "bytes": 4115,
+          "sha256": "2c5a14d50065acbc5ff682210b3cf0c5cb677726acebe0f8c7617c82877d489a",
+          "complete": true
+        },
+        {
+          "name": "block-package-cli-add.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2876,
+      "identity": {
+        "pid": 2876,
+        "uid": 1001,
+        "pgid": 2876,
+        "sid": 2876,
+        "start": "15275"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:36.761Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-package-package-server-Bundler",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/consumers/installed-package/node_modules/typescript/bin/tsc",
+        "--strict",
+        "--noUncheckedIndexedAccess",
+        "--skipLibCheck",
+        "false",
+        "--target",
+        "ES2022",
+        "--lib",
+        "ES2022,DOM,DOM.Iterable",
+        "--jsx",
+        "react-jsx",
+        "--esModuleInterop",
+        "--types",
+        "node,react",
+        "--module",
+        "ESNext",
+        "--moduleResolution",
+        "Bundler",
+        "--outDir",
+        "package-Bundler",
+        "package-server.mts"
+      ],
+      "startedAt": "2026-11-10T12:37:36.763Z",
+      "streams": [
+        {
+          "name": "block-package-package-server-Bundler.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "block-package-package-server-Bundler.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2888,
+      "identity": {
+        "pid": 2888,
+        "uid": 1001,
+        "pgid": 2888,
+        "sid": 2888,
+        "start": "15303"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:40.164Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-package-package-server-NodeNext",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/consumers/installed-package/node_modules/typescript/bin/tsc",
+        "--strict",
+        "--noUncheckedIndexedAccess",
+        "--skipLibCheck",
+        "false",
+        "--target",
+        "ES2022",
+        "--lib",
+        "ES2022,DOM,DOM.Iterable",
+        "--jsx",
+        "react-jsx",
+        "--esModuleInterop",
+        "--types",
+        "node,react",
+        "--module",
+        "NodeNext",
+        "--moduleResolution",
+        "NodeNext",
+        "--outDir",
+        "package-NodeNext",
+        "package-server.mts"
+      ],
+      "startedAt": "2026-11-10T12:37:40.164Z",
+      "streams": [
+        {
+          "name": "block-package-package-server-NodeNext.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "block-package-package-server-NodeNext.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2896,
+      "identity": {
+        "pid": 2896,
+        "uid": 1001,
+        "pgid": 2896,
+        "sid": 2896,
+        "start": "15643"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:43.538Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-package-package-real-sdk",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "package-NodeNext/package-server.mjs"
+      ],
+      "startedAt": "2026-11-10T12:37:43.539Z",
+      "streams": [
+        {
+          "name": "block-package-package-real-sdk.stdout.txt",
+          "bytes": 1173,
+          "sha256": "7b8292fc912fdf6d943b5e71cf3e913ab0e29eeaebb7c6bb42a626b500029f9d",
+          "complete": true
+        },
+        {
+          "name": "block-package-package-real-sdk.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2903,
+      "identity": {
+        "pid": 2903,
+        "uid": 1001,
+        "pgid": 2903,
+        "sid": 2903,
+        "start": "15980"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:43.955Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-package-client-build",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/consumers/installed-package/node_modules/vite/bin/vite.js",
+        "build"
+      ],
+      "startedAt": "2026-11-10T12:37:43.955Z",
+      "streams": [
+        {
+          "name": "block-package-client-build.stdout.txt",
+          "bytes": 379,
+          "sha256": "661322df53f087c39c01493ab554cd444eacf5c883f3db68c3a48f73c2ab084e",
+          "complete": true
+        },
+        {
+          "name": "block-package-client-build.stderr.txt",
+          "bytes": 360,
+          "sha256": "351b524197fb492920789369e7f1a271420c757633fbb553b280a181ac4c31a4",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2910,
+      "identity": {
+        "pid": 2910,
+        "uid": 1001,
+        "pgid": 2910,
+        "sid": 2910,
+        "start": "16022"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:44.245Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-copy-install",
+      "command": "npm",
+      "args": [
+        "install",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "startedAt": "2026-11-10T12:37:44.246Z",
+      "streams": [
+        {
+          "name": "block-copy-install.stdout.txt",
+          "bytes": 26,
+          "sha256": "2cd26ccd3ceec60e7d04d242f6ac0f539fa01db787b989d22330fb9ff71efd72",
+          "complete": true
+        },
+        {
+          "name": "block-copy-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2933,
+      "identity": {
+        "pid": 2933,
+        "uid": 1001,
+        "pgid": 2933,
+        "sid": 2933,
+        "start": "16051"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:46.826Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-copy-cli-init",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/consumers/installed-copy/node_modules/mcpcn/dist/index.js",
+        "init",
+        "--mode=copy",
+        "--host=standard-mcp",
+        "--registry=file:///home/runner/work/_temp/mcpcn-block-recipes-okPvOR/source/registry/items"
+      ],
+      "startedAt": "2026-11-10T12:37:46.826Z",
+      "streams": [
+        {
+          "name": "block-copy-cli-init.stdout.txt",
+          "bytes": 53,
+          "sha256": "96af2325c4ba21c7ed182a0238171f3de0b05d511d08f640f91f1a919c79feed",
+          "complete": true
+        },
+        {
+          "name": "block-copy-cli-init.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2946,
+      "identity": {
+        "pid": 2946,
+        "uid": 1001,
+        "pgid": 2946,
+        "sid": 2946,
+        "start": "16309"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:46.983Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-copy-cli-add",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/consumers/installed-copy/node_modules/mcpcn/dist/index.js",
+        "add",
+        "button",
+        "card",
+        "badge",
+        "tabs",
+        "dialog",
+        "input",
+        "textarea",
+        "select",
+        "alert",
+        "tooltip",
+        "skeleton",
+        "empty-state",
+        "approval-card",
+        "approval-checklist",
+        "confirmation-panel",
+        "risk-review-panel",
+        "before-submit-confirmation",
+        "destructive-action-guard",
+        "human-override-panel",
+        "permission-request-card",
+        "tool-progress-timeline",
+        "tool-call-card",
+        "tool-result-card",
+        "running-task-card",
+        "retryable-error-state",
+        "partial-result-viewer",
+        "queued-step-list",
+        "tool-trace-viewer",
+        "entity-review-table",
+        "diff-viewer",
+        "record-inspector",
+        "field-confidence-list",
+        "extracted-fields-review",
+        "conflict-resolver",
+        "validation-summary",
+        "source-evidence-panel",
+        "document-preview",
+        "file-review",
+        "schema-form",
+        "dynamic-question-flow",
+        "missing-data-request",
+        "multi-step-form",
+        "inline-edit-form",
+        "form-progress-card",
+        "validated-field-list",
+        "comparison-matrix",
+        "option-selector",
+        "recommendation-card",
+        "tradeoff-panel",
+        "score-breakdown",
+        "ranking-list",
+        "decision-memo",
+        "audit-trail",
+        "reasoning-summary",
+        "source-list",
+        "evidence-drawer",
+        "data-access-notice",
+        "privacy-boundary-card",
+        "consent-panel",
+        "model-context-preview",
+        "auth-required-card",
+        "billing-gate",
+        "unsupported-host-notice",
+        "no-data-state",
+        "loading-bridge-state",
+        "offline-state",
+        "permission-denied-state",
+        "expired-session-state",
+        "review-before-action",
+        "collect-missing-data",
+        "extract-review-save",
+        "compare-options-approve",
+        "multi-step-tool-run",
+        "approval-gated-tool-call",
+        "human-corrects-ai-output",
+        "agent-generated-report-review",
+        "file-upload-and-extract",
+        "table-bulk-action-review",
+        "admin-change-review"
+      ],
+      "startedAt": "2026-11-10T12:37:47.072Z",
+      "streams": [
+        {
+          "name": "block-copy-cli-add.stdout.txt",
+          "bytes": 5993,
+          "sha256": "ebf84838d442e511c72f8c1d2c4eca746d349720a0e639e6f976aa66f8e0a434",
+          "complete": true
+        },
+        {
+          "name": "block-copy-cli-add.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2959,
+      "identity": {
+        "pid": 2959,
+        "uid": 1001,
+        "pgid": 2959,
+        "sid": 2959,
+        "start": "16334"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:47.780Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-copy-package-server-Bundler",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/consumers/installed-copy/node_modules/typescript/bin/tsc",
+        "--strict",
+        "--noUncheckedIndexedAccess",
+        "--skipLibCheck",
+        "false",
+        "--target",
+        "ES2022",
+        "--lib",
+        "ES2022,DOM,DOM.Iterable",
+        "--jsx",
+        "react-jsx",
+        "--esModuleInterop",
+        "--types",
+        "node,react",
+        "--module",
+        "ESNext",
+        "--moduleResolution",
+        "Bundler",
+        "--outDir",
+        "package-Bundler",
+        "package-server.mts"
+      ],
+      "startedAt": "2026-11-10T12:37:47.782Z",
+      "streams": [
+        {
+          "name": "block-copy-package-server-Bundler.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "block-copy-package-server-Bundler.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2971,
+      "identity": {
+        "pid": 2971,
+        "uid": 1001,
+        "pgid": 2971,
+        "sid": 2971,
+        "start": "16405"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:51.324Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-copy-package-server-NodeNext",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/consumers/installed-copy/node_modules/typescript/bin/tsc",
+        "--strict",
+        "--noUncheckedIndexedAccess",
+        "--skipLibCheck",
+        "false",
+        "--target",
+        "ES2022",
+        "--lib",
+        "ES2022,DOM,DOM.Iterable",
+        "--jsx",
+        "react-jsx",
+        "--esModuleInterop",
+        "--types",
+        "node,react",
+        "--module",
+        "NodeNext",
+        "--moduleResolution",
+        "NodeNext",
+        "--outDir",
+        "package-NodeNext",
+        "package-server.mts"
+      ],
+      "startedAt": "2026-11-10T12:37:51.325Z",
+      "streams": [
+        {
+          "name": "block-copy-package-server-NodeNext.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "block-copy-package-server-NodeNext.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2979,
+      "identity": {
+        "pid": 2979,
+        "uid": 1001,
+        "pgid": 2979,
+        "sid": 2979,
+        "start": "16759"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:54.781Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-copy-package-real-sdk",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "package-NodeNext/package-server.mjs"
+      ],
+      "startedAt": "2026-11-10T12:37:54.782Z",
+      "streams": [
+        {
+          "name": "block-copy-package-real-sdk.stdout.txt",
+          "bytes": 1173,
+          "sha256": "7b8292fc912fdf6d943b5e71cf3e913ab0e29eeaebb7c6bb42a626b500029f9d",
+          "complete": true
+        },
+        {
+          "name": "block-copy-package-real-sdk.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2987,
+      "identity": {
+        "pid": 2987,
+        "uid": 1001,
+        "pgid": 2987,
+        "sid": 2987,
+        "start": "17105"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:37:55.218Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-copy-strict-source",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/consumers/installed-copy/node_modules/typescript/bin/tsc",
+        "--strict",
+        "--noUncheckedIndexedAccess",
+        "--skipLibCheck",
+        "false",
+        "--target",
+        "ES2022",
+        "--lib",
+        "ES2022,DOM,DOM.Iterable",
+        "--jsx",
+        "react-jsx",
+        "--esModuleInterop",
+        "--types",
+        "node,react",
+        "--module",
+        "ESNext",
+        "--moduleResolution",
+        "Bundler",
+        "--rootDir",
+        "components/mcpcn",
+        "--outDir",
+        "copied-output",
+        "components/mcpcn/button.tsx",
+        "components/mcpcn/_mcpcn/core.ts",
+        "components/mcpcn/_mcpcn/schemas.ts",
+        "components/mcpcn/_mcpcn/components.tsx",
+        "components/mcpcn/_mcpcn/runtime.tsx",
+        "components/mcpcn/_mcpcn/schema-common.ts",
+        "components/mcpcn/_mcpcn/review-schemas.ts",
+        "components/mcpcn/_mcpcn/decision-schemas.ts",
+        "components/mcpcn/_mcpcn/execution-schemas.ts",
+        "components/mcpcn/_mcpcn/primitives.tsx",
+        "components/mcpcn/_mcpcn/component-helpers.tsx",
+        "components/mcpcn/_mcpcn/review-components.tsx",
+        "components/mcpcn/_mcpcn/decision-components.tsx",
+        "components/mcpcn/_mcpcn/execution-components.tsx",
+        "components/mcpcn/_mcpcn/component-types.ts",
+        "components/mcpcn/_mcpcn/approval-schemas.ts",
+        "components/mcpcn/_mcpcn/approval-components.tsx",
+        "components/mcpcn/_mcpcn/tool-workflow-schemas.ts",
+        "components/mcpcn/_mcpcn/tool-workflow-components.tsx",
+        "components/mcpcn/_mcpcn/form-workflow-schemas.ts",
+        "components/mcpcn/_mcpcn/form-workflow-components.tsx",
+        "components/mcpcn/_mcpcn/file-review-schemas.ts",
+        "components/mcpcn/_mcpcn/file-review-components.tsx",
+        "components/mcpcn/_mcpcn/source-evidence-schemas.ts",
+        "components/mcpcn/_mcpcn/source-evidence-components.tsx",
+        "components/mcpcn/_mcpcn/record-inspection-schemas.ts",
+        "components/mcpcn/_mcpcn/record-inspection-components.tsx",
+        "components/mcpcn/_mcpcn/conflict-validation-schemas.ts",
+        "components/mcpcn/_mcpcn/conflict-validation-components.tsx",
+        "components/mcpcn/_mcpcn/option-ranking-schemas.ts",
+        "components/mcpcn/_mcpcn/option-ranking-components.tsx",
+        "components/mcpcn/_mcpcn/host-state-schemas.ts",
+        "components/mcpcn/_mcpcn/host-state-components.tsx",
+        "components/mcpcn/_mcpcn/decision-narrative-schemas.ts",
+        "components/mcpcn/_mcpcn/decision-narrative-components.tsx",
+        "components/mcpcn/_mcpcn/privacy-context-schemas.ts",
+        "components/mcpcn/_mcpcn/privacy-context-components.tsx",
+        "components/mcpcn/provider.tsx",
+        "components/mcpcn/card.tsx",
+        "components/mcpcn/badge.tsx",
+        "components/mcpcn/tabs.tsx",
+        "components/mcpcn/dialog.tsx",
+        "components/mcpcn/input.tsx",
+        "components/mcpcn/textarea.tsx",
+        "components/mcpcn/select.tsx",
+        "components/mcpcn/alert.tsx",
+        "components/mcpcn/tooltip.tsx",
+        "components/mcpcn/skeleton.tsx",
+        "components/mcpcn/empty-state.tsx",
+        "components/mcpcn/approval-card.tsx",
+        "components/mcpcn/approval-checklist.tsx",
+        "components/mcpcn/confirmation-panel.tsx",
+        "components/mcpcn/risk-review-panel.tsx",
+        "components/mcpcn/before-submit-confirmation.tsx",
+        "components/mcpcn/destructive-action-guard.tsx",
+        "components/mcpcn/human-override-panel.tsx",
+        "components/mcpcn/permission-request-card.tsx",
+        "components/mcpcn/tool-progress-timeline.tsx",
+        "components/mcpcn/tool-call-card.tsx",
+        "components/mcpcn/tool-result-card.tsx",
+        "components/mcpcn/running-task-card.tsx",
+        "components/mcpcn/retryable-error-state.tsx",
+        "components/mcpcn/partial-result-viewer.tsx",
+        "components/mcpcn/queued-step-list.tsx",
+        "components/mcpcn/tool-trace-viewer.tsx",
+        "components/mcpcn/entity-review-table.tsx",
+        "components/mcpcn/diff-viewer.tsx",
+        "components/mcpcn/record-inspector.tsx",
+        "components/mcpcn/field-confidence-list.tsx",
+        "components/mcpcn/extracted-fields-review.tsx",
+        "components/mcpcn/conflict-resolver.tsx",
+        "components/mcpcn/validation-summary.tsx",
+        "components/mcpcn/source-evidence-panel.tsx",
+        "components/mcpcn/document-preview.tsx",
+        "components/mcpcn/file-review.tsx",
+        "components/mcpcn/schema-form.tsx",
+        "components/mcpcn/dynamic-question-flow.tsx",
+        "components/mcpcn/missing-data-request.tsx",
+        "components/mcpcn/multi-step-form.tsx",
+        "components/mcpcn/inline-edit-form.tsx",
+        "components/mcpcn/form-progress-card.tsx",
+        "components/mcpcn/validated-field-list.tsx",
+        "components/mcpcn/comparison-matrix.tsx",
+        "components/mcpcn/option-selector.tsx",
+        "components/mcpcn/recommendation-card.tsx",
+        "components/mcpcn/tradeoff-panel.tsx",
+        "components/mcpcn/score-breakdown.tsx",
+        "components/mcpcn/ranking-list.tsx",
+        "components/mcpcn/decision-memo.tsx",
+        "components/mcpcn/audit-trail.tsx",
+        "components/mcpcn/reasoning-summary.tsx",
+        "components/mcpcn/source-list.tsx",
+        "components/mcpcn/evidence-drawer.tsx",
+        "components/mcpcn/data-access-notice.tsx",
+        "components/mcpcn/privacy-boundary-card.tsx",
+        "components/mcpcn/consent-panel.tsx",
+        "components/mcpcn/model-context-preview.tsx",
+        "components/mcpcn/auth-required-card.tsx",
+        "components/mcpcn/billing-gate.tsx",
+        "components/mcpcn/unsupported-host-notice.tsx",
+        "components/mcpcn/no-data-state.tsx",
+        "components/mcpcn/loading-bridge-state.tsx",
+        "components/mcpcn/offline-state.tsx",
+        "components/mcpcn/permission-denied-state.tsx",
+        "components/mcpcn/expired-session-state.tsx",
+        "components/mcpcn/blocks/review-before-action.tsx",
+        "components/mcpcn/_mcpcn/blocks.tsx",
+        "components/mcpcn/_mcpcn/block-schemas.mts",
+        "components/mcpcn/_mcpcn/server.mts",
+        "components/mcpcn/_mcpcn/server-wire.mts",
+        "components/mcpcn/_mcpcn/block-store.mts",
+        "components/mcpcn/_mcpcn/block-operations.mts",
+        "components/mcpcn/_mcpcn/block-recipes.mts",
+        "components/mcpcn/_mcpcn/block-fixtures.mts",
+        "components/mcpcn/_mcpcn/block-apps.tsx",
+        "components/mcpcn/blocks/review-before-action.server.mts",
+        "components/mcpcn/blocks/review-before-action.fixture.mts",
+        "components/mcpcn/blocks/review-before-action.server.test.mts",
+        "components/mcpcn/blocks/collect-missing-data.tsx",
+        "components/mcpcn/blocks/collect-missing-data.server.mts",
+        "components/mcpcn/blocks/collect-missing-data.fixture.mts",
+        "components/mcpcn/blocks/collect-missing-data.server.test.mts",
+        "components/mcpcn/blocks/extract-review-save.tsx",
+        "components/mcpcn/blocks/extract-review-save.server.mts",
+        "components/mcpcn/blocks/extract-review-save.fixture.mts",
+        "components/mcpcn/blocks/extract-review-save.server.test.mts",
+        "components/mcpcn/blocks/compare-options-approve.tsx",
+        "components/mcpcn/blocks/compare-options-approve.server.mts",
+        "components/mcpcn/blocks/compare-options-approve.fixture.mts",
+        "components/mcpcn/blocks/compare-options-approve.server.test.mts",
+        "components/mcpcn/blocks/multi-step-tool-run.tsx",
+        "components/mcpcn/blocks/multi-step-tool-run.server.mts",
+        "components/mcpcn/blocks/multi-step-tool-run.fixture.mts",
+        "components/mcpcn/blocks/multi-step-tool-run.server.test.mts",
+        "components/mcpcn/blocks/approval-gated-tool-call.tsx",
+        "components/mcpcn/blocks/approval-gated-tool-call.server.mts",
+        "components/mcpcn/blocks/approval-gated-tool-call.fixture.mts",
+        "components/mcpcn/blocks/approval-gated-tool-call.server.test.mts",
+        "components/mcpcn/blocks/human-corrects-ai-output.tsx",
+        "components/mcpcn/blocks/human-corrects-ai-output.server.mts",
+        "components/mcpcn/blocks/human-corrects-ai-output.fixture.mts",
+        "components/mcpcn/blocks/human-corrects-ai-output.server.test.mts",
+        "components/mcpcn/blocks/agent-generated-report-review.tsx",
+        "components/mcpcn/blocks/agent-generated-report-review.server.mts",
+        "components/mcpcn/blocks/agent-generated-report-review.fixture.mts",
+        "components/mcpcn/blocks/agent-generated-report-review.server.test.mts",
+        "components/mcpcn/blocks/file-upload-and-extract.tsx",
+        "components/mcpcn/blocks/file-upload-and-extract.server.mts",
+        "components/mcpcn/blocks/file-upload-and-extract.fixture.mts",
+        "components/mcpcn/blocks/file-upload-and-extract.server.test.mts",
+        "components/mcpcn/blocks/table-bulk-action-review.tsx",
+        "components/mcpcn/blocks/table-bulk-action-review.server.mts",
+        "components/mcpcn/blocks/table-bulk-action-review.fixture.mts",
+        "components/mcpcn/blocks/table-bulk-action-review.server.test.mts",
+        "components/mcpcn/blocks/admin-change-review.tsx",
+        "components/mcpcn/blocks/admin-change-review.server.mts",
+        "components/mcpcn/blocks/admin-change-review.fixture.mts",
+        "components/mcpcn/blocks/admin-change-review.server.test.mts"
+      ],
+      "startedAt": "2026-11-10T12:37:55.218Z",
+      "streams": [
+        {
+          "name": "block-copy-strict-source.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "block-copy-strict-source.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 2994,
+      "identity": {
+        "pid": 2994,
+        "uid": 1001,
+        "pgid": 2994,
+        "sid": 2994,
+        "start": "17148"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:38:01.085Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-copy-real-sdk-tests",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "--test",
+        "copied-output/blocks/review-before-action.server.test.mjs",
+        "copied-output/blocks/collect-missing-data.server.test.mjs",
+        "copied-output/blocks/extract-review-save.server.test.mjs",
+        "copied-output/blocks/compare-options-approve.server.test.mjs",
+        "copied-output/blocks/multi-step-tool-run.server.test.mjs",
+        "copied-output/blocks/approval-gated-tool-call.server.test.mjs",
+        "copied-output/blocks/human-corrects-ai-output.server.test.mjs",
+        "copied-output/blocks/agent-generated-report-review.server.test.mjs",
+        "copied-output/blocks/file-upload-and-extract.server.test.mjs",
+        "copied-output/blocks/table-bulk-action-review.server.test.mjs",
+        "copied-output/blocks/admin-change-review.server.test.mjs"
+      ],
+      "startedAt": "2026-11-10T12:38:01.086Z",
+      "streams": [
+        {
+          "name": "block-copy-real-sdk-tests.stdout.txt",
+          "bytes": 1217,
+          "sha256": "fc9a0e8969e6112e47a94fab9416242cf10d3fce1f53023ab980cf30f0ef9af9",
+          "complete": true
+        },
+        {
+          "name": "block-copy-real-sdk-tests.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3003,
+      "identity": {
+        "pid": 3003,
+        "uid": 1001,
+        "pgid": 3003,
+        "sid": 3003,
+        "start": "17735"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:38:02.336Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-copy-client-build",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/consumers/installed-copy/node_modules/vite/bin/vite.js",
+        "build"
+      ],
+      "startedAt": "2026-11-10T12:38:02.338Z",
+      "streams": [
+        {
+          "name": "block-copy-client-build.stdout.txt",
+          "bytes": 379,
+          "sha256": "2cd3dabea04cd85c0350fe54191cd4d67dc7e87f855e87e9526d20538c88274f",
+          "complete": true
+        },
+        {
+          "name": "block-copy-client-build.stderr.txt",
+          "bytes": 360,
+          "sha256": "351b524197fb492920789369e7f1a271420c757633fbb553b280a181ac4c31a4",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3087,
+      "identity": {
+        "pid": 3087,
+        "uid": 1001,
+        "pgid": 3087,
+        "sid": 3087,
+        "start": "17860"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:38:02.651Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-source-archive",
+      "command": "tar",
+      "args": [
+        "--sort=name",
+        "--mtime=2026-11-10T00:00:00Z",
+        "--owner=0",
+        "--group=0",
+        "--numeric-owner",
+        "-czf",
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/output/mcpcn-block-recipes-source-0.1.0.tgz",
+        "-C",
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/consumers/source-bundle",
+        "."
+      ],
+      "startedAt": "2026-11-10T12:38:02.660Z",
+      "streams": [
+        {
+          "name": "block-source-archive.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "block-source-archive.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3110,
+      "identity": {
+        "pid": 3110,
+        "uid": 1001,
+        "pgid": 3110,
+        "sid": 3110,
+        "start": "17892"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:38:02.688Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-source-extract",
+      "command": "tar",
+      "args": [
+        "-xzf",
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/output/mcpcn-block-recipes-source-0.1.0.tgz",
+        "-C",
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/consumers/fresh-source"
+      ],
+      "startedAt": "2026-11-10T12:38:02.689Z",
+      "streams": [
+        {
+          "name": "block-source-extract.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "block-source-extract.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3113,
+      "identity": {
+        "pid": 3113,
+        "uid": 1001,
+        "pgid": 3113,
+        "sid": 3113,
+        "start": "17895"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:38:02.707Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-source-fresh-install",
+      "command": "npm",
+      "args": [
+        "install",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "startedAt": "2026-11-10T12:38:02.709Z",
+      "streams": [
+        {
+          "name": "block-source-fresh-install.stdout.txt",
+          "bytes": 26,
+          "sha256": "ad1a23317dc28ffd134c535f27b0adca3bd330c18cc72c0509e94ef3bf680584",
+          "complete": true
+        },
+        {
+          "name": "block-source-fresh-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3115,
+      "identity": {
+        "pid": 3115,
+        "uid": 1001,
+        "pgid": 3115,
+        "sid": 3115,
+        "start": "17897"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:38:05.633Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-source-fresh-strict",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/consumers/fresh-source/node_modules/typescript/bin/tsc",
+        "-p",
+        "tsconfig.json"
+      ],
+      "startedAt": "2026-11-10T12:38:05.633Z",
+      "streams": [
+        {
+          "name": "block-source-fresh-strict.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "block-source-fresh-strict.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3127,
+      "identity": {
+        "pid": 3127,
+        "uid": 1001,
+        "pgid": 3127,
+        "sid": 3127,
+        "start": "18190"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:38:11.683Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-source-fresh-sdk",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "--test",
+        "checks/blocks/review-before-action.server.test.mjs",
+        "checks/blocks/collect-missing-data.server.test.mjs",
+        "checks/blocks/extract-review-save.server.test.mjs",
+        "checks/blocks/compare-options-approve.server.test.mjs",
+        "checks/blocks/multi-step-tool-run.server.test.mjs",
+        "checks/blocks/approval-gated-tool-call.server.test.mjs",
+        "checks/blocks/human-corrects-ai-output.server.test.mjs",
+        "checks/blocks/agent-generated-report-review.server.test.mjs",
+        "checks/blocks/file-upload-and-extract.server.test.mjs",
+        "checks/blocks/table-bulk-action-review.server.test.mjs",
+        "checks/blocks/admin-change-review.server.test.mjs"
+      ],
+      "startedAt": "2026-11-10T12:38:11.683Z",
+      "streams": [
+        {
+          "name": "block-source-fresh-sdk.stdout.txt",
+          "bytes": 1220,
+          "sha256": "a8ce974c5b6e0be07b3a71d7fe7daaccb94b712d25011307ce63816fb26dd888",
+          "complete": true
+        },
+        {
+          "name": "block-source-fresh-sdk.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3134,
+      "identity": {
+        "pid": 3134,
+        "uid": 1001,
+        "pgid": 3134,
+        "sid": 3134,
+        "start": "18795"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:38:12.909Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-source-fresh-client",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "/home/runner/work/_temp/mcpcn-block-recipes-okPvOR/consumers/fresh-source/node_modules/vite/bin/vite.js",
+        "build"
+      ],
+      "startedAt": "2026-11-10T12:38:12.909Z",
+      "streams": [
+        {
+          "name": "block-source-fresh-client.stdout.txt",
+          "bytes": 379,
+          "sha256": "793b9f03daaffab9cc59b7f9fe409c8367e1634c1ee82a0a1a8ca02fb770ff4b",
+          "complete": true
+        },
+        {
+          "name": "block-source-fresh-client.stderr.txt",
+          "bytes": 360,
+          "sha256": "351b524197fb492920789369e7f1a271420c757633fbb553b280a181ac4c31a4",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3217,
+      "identity": {
+        "pid": 3217,
+        "uid": 1001,
+        "pgid": 3217,
+        "sid": 3217,
+        "start": "18917"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:38:13.245Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "block-browser-app-build",
+      "command": "pnpm",
+      "args": [
+        "--filter",
+        "@mcpcn/playground",
+        "exec",
+        "vite",
+        "build",
+        "--config",
+        "../../tooling/block-browser.vite.config.ts"
+      ],
+      "startedAt": "2026-11-10T12:38:13.989Z",
+      "streams": [
+        {
+          "name": "block-browser-app-build.stdout.txt",
+          "bytes": 943,
+          "sha256": "fe4188e5e0d93014a501301d5a499d788e40bd3c7b3b48464593b19003ef5661",
+          "complete": true
+        },
+        {
+          "name": "block-browser-app-build.stderr.txt",
+          "bytes": 3921,
+          "sha256": "a572f474fcf1e52759f1d956be70451355fcc12c9c7c7a3d282760f09e31d460",
+          "complete": true
+        }
+      ],
+      "signals": [],
+      "pid": 3240,
+      "identity": {
+        "pid": 3240,
+        "uid": 1001,
+        "pgid": 3240,
+        "sid": 3240,
+        "start": "19025"
+      },
+      "exitCode": 1,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T12:38:14.465Z",
+      "originalGroupAbsent": true
+    }
+  ],
+  "guards": [
+    {
+      "label": "before-install",
+      "canonicalFiles": 8311,
+      "canonicalVectorSha256": "c0366a7385d90131038c9b1477c35e56b500554d340530782f84d0b57d084a4a",
+      "protectedFiles": 631,
+      "protectedVectorSha256": "7f691c6c0a6c8d6823c68fd45c10dc89dbe9e6c1b29d9612af2eaad723d920ba"
+    },
+    {
+      "label": "after-install",
+      "canonicalFiles": 8311,
+      "canonicalVectorSha256": "c0366a7385d90131038c9b1477c35e56b500554d340530782f84d0b57d084a4a",
+      "protectedFiles": 631,
+      "protectedVectorSha256": "7f691c6c0a6c8d6823c68fd45c10dc89dbe9e6c1b29d9612af2eaad723d920ba"
+    },
+    {
+      "label": "after-builds",
+      "canonicalFiles": 8311,
+      "canonicalVectorSha256": "c0366a7385d90131038c9b1477c35e56b500554d340530782f84d0b57d084a4a",
+      "protectedFiles": 631,
+      "protectedVectorSha256": "7f691c6c0a6c8d6823c68fd45c10dc89dbe9e6c1b29d9612af2eaad723d920ba"
+    },
+    {
+      "label": "after-units",
+      "canonicalFiles": 8311,
+      "canonicalVectorSha256": "c0366a7385d90131038c9b1477c35e56b500554d340530782f84d0b57d084a4a",
+      "protectedFiles": 631,
+      "protectedVectorSha256": "7f691c6c0a6c8d6823c68fd45c10dc89dbe9e6c1b29d9612af2eaad723d920ba"
+    },
+    {
+      "label": "after-consumers",
+      "canonicalFiles": 8311,
+      "canonicalVectorSha256": "c0366a7385d90131038c9b1477c35e56b500554d340530782f84d0b57d084a4a",
+      "protectedFiles": 631,
+      "protectedVectorSha256": "7f691c6c0a6c8d6823c68fd45c10dc89dbe9e6c1b29d9612af2eaad723d920ba"
+    },
+    {
+      "label": "terminal-source-check",
+      "canonicalFiles": 8311,
+      "canonicalVectorSha256": "c0366a7385d90131038c9b1477c35e56b500554d340530782f84d0b57d084a4a",
+      "protectedFiles": 631,
+      "protectedVectorSha256": "7f691c6c0a6c8d6823c68fd45c10dc89dbe9e6c1b29d9612af2eaad723d920ba"
+    }
+  ],
+  "errors": [
+    "block-browser-app-build_failed"
+  ],
+  "cleanup": {
+    "activeChildren": 0,
+    "remainingOriginalGroups": [],
+    "allStreamsComplete": true,
+    "rootRemoved": true
+  },
+  "proofLimits": [
+    "Authored disposable local SQL and actual SDK/AppBridge only. No external host, production identity/provider/model/payment or production data.",
+    "Strict package server Bundler/NodeNext; full copied source Bundler/plain Node/Vite. Full copied NodeNext remains an explicit open quality gate.",
+    "Node24.22.2 Linux/public CI and 1280/390px Chromium; no native device, public npm, production Auth or broad accessibility acceptance."
+  ],
+  "export": {
+    "files": 654,
+    "bytes": 109411315
+  },
+  "registry": {
+    "identities": 79,
+    "componentsPreserved": 68,
+    "preservedPaths": 137,
+    "changedPaths": 23,
+    "blockFiles": 53,
+    "sharedBlockModules": 8,
+    "unionPaths": 171,
+    "declaredBytes": 33736368
+  },
+  "units": {
+    "new": 60,
+    "selectedRegressions": 2,
+    "executed": 62,
+    "unchangedOutsideFilter": 9
+  },
+  "consumers": {
+    "sourceCommit": "e3fda07a2f8daa298c79a514ab30090b18982394",
+    "passed": true,
+    "consumers": [
+      {
+        "mode": "package",
+        "packageType": "module",
+        "installedPaths": 124,
+        "sourceTsFiles": 0,
+        "strictPackageServer": [
+          "Bundler",
+          "NodeNext"
+        ],
+        "realPackageSdkCases": 11,
+        "realCopiedSdkCases": 0,
+        "actualViteClientBuild": true
+      },
+      {
+        "mode": "copy",
+        "packageType": "commonjs",
+        "installedPaths": 171,
+        "sourceTsFiles": 158,
+        "strictPackageServer": [
+          "Bundler",
+          "NodeNext"
+        ],
+        "realPackageSdkCases": 11,
+        "realCopiedSdkCases": 11,
+        "actualViteClientBuild": true
+      }
+    ],
+    "freshSource": {
+      "cliInstalledSourceFiles": 171,
+      "strictTsFiles": 158,
+      "realSdkCases": 11,
+      "actualViteBuild": true
+    },
+    "artifacts": [
+      {
+        "name": "mcpcn-core-0.1.0.tgz",
+        "bytes": 2487,
+        "sha256": "734b822d1a4b74da184a07155f1273e809ce67af701b22cd672c238acb98e54d"
+      },
+      {
+        "name": "mcpcn-schemas-0.1.0.tgz",
+        "bytes": 78406,
+        "sha256": "84702229c679d6eb45b298378196ddb0b75dde7b642fc222fefc4db3a9ca805b"
+      },
+      {
+        "name": "mcpcn-runtime-0.1.0.tgz",
+        "bytes": 9715,
+        "sha256": "b142f96cff445d66bfde00b2d18dfbfc9ab8952c475c8d973bc87d917acd3ce8"
+      },
+      {
+        "name": "mcpcn-react-0.1.0.tgz",
+        "bytes": 115197,
+        "sha256": "2289276c931e10af78d300dd7b741aa0d2493af856f333328b41b98a2ae39e9b"
+      },
+      {
+        "name": "mcpcn-themes-0.1.0.tgz",
+        "bytes": 1486,
+        "sha256": "55b4fdcbfd5d9af07904e27e973b08fdad870aa3b74f252554f9ff031565a1c4"
+      },
+      {
+        "name": "mcpcn-registry-0.1.0.tgz",
+        "bytes": 28028,
+        "sha256": "b2d087bcf5e74854102dba7c5fd9778f82dad32a86b3e96e92b2938293773bbf"
+      },
+      {
+        "name": "mcpcn-0.1.0.tgz",
+        "bytes": 253043,
+        "sha256": "396ed3d78b548909ebcbe04d6826e116c7d9d2bb6eb947e7f2f57bc82ab2e942"
+      },
+      {
+        "name": "mcpcn-server-0.1.0.tgz",
+        "bytes": 34838,
+        "sha256": "e30bdc80c9e0ad4c3abf4a1ab4ba482b0a9e73b634df434a531830babb415b6b"
+      },
+      {
+        "name": "mcpcn-block-recipes-source-0.1.0.tgz",
+        "bytes": 140716,
+        "sha256": "8e83b227649a0860dbcf9cf726c86a663ca44b710846c681f0f1a2c64d40d085"
+      }
+    ]
+  },
+  "completedAt": "2026-11-10T12:38:19.360Z"
+}

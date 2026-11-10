@@ -4,7 +4,7 @@
   "type": "module",
   "license": "MIT",
   "sideEffects": false,
-  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" }, "./blocks": { "types": "./dist/block-recipes.d.ts", "import": "./dist/block-recipes.js" }, "./block-fixtures": { "types": "./dist/block-fixtures.d.ts", "import": "./dist/block-fixtures.js" } },
   "files": ["dist"],
   "scripts": { "build": "tsc -p tsconfig.json", "typecheck": "tsc -p tsconfig.json --noEmit", "test": "vitest run --passWithNoTests", "lint": "tsc -p tsconfig.json --noEmit" },
   "dependencies": { "@mcpcn/core": "workspace:*", "@mcpcn/schemas": "workspace:*", "@modelcontextprotocol/ext-apps": "^1.7.5", "zod": "catalog:" },
