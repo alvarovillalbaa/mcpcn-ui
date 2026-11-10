@@ -20,8 +20,8 @@ describe("supplied option and ranking installation", () => {
     const { registry, items } = await build();
     expect(items.map(item => item.name)).toEqual([...catalog.map(item => item.slug), ...blockCatalog.map(item => item.name)]);
     expect(new Set(items.map(item => item.name)).size).toBe(79); expect(registry.items).toBe(items);
-    expect(items.filter(item => item.meta.implementation === "specialized")).toHaveLength(41);
-    expect(items.filter(item => item.meta.implementation === "generic-alias")).toHaveLength(15);
+    expect(items.filter(item => item.meta.implementation === "specialized")).toHaveLength(48);
+    expect(items.filter(item => item.meta.implementation === "generic-alias")).toHaveLength(8);
   });
   it("OR-R02 exports strict supplied option and reported ranking four-state schemas", () => {
     for (const [slug] of cohort) {
@@ -34,7 +34,7 @@ describe("supplied option and ranking installation", () => {
     }
   });
   it("OR-R03 appends exact owner bodies after the existing28 copied modules", async () => {
-    const { items } = await build(); expect(sourceModulePaths).toHaveLength(30);
+    const { items } = await build(); expect(sourceModulePaths).toHaveLength(32);
     expect(sourceModulePaths.slice(26, 30)).toEqual(["_mcpcn/conflict-validation-schemas.ts", "_mcpcn/conflict-validation-components.tsx", "_mcpcn/option-ranking-schemas.ts", "_mcpcn/option-ranking-components.tsx"]);
     for (const item of items) for (const [path, target] of modules) {
       expect(item.files.find(file => file.path === `components/mcpcn/_mcpcn/${target}`)?.content).toBe(adapt(await readSource(path)));
@@ -55,7 +55,7 @@ describe("supplied option and ranking installation", () => {
   it("OR-R05 resolves all30 owners in34 or35 payloads and113 installed paths", async () => {
     const { items } = await build(), union = new Set<string>();
     for (const item of items) {
-      expect(item.files).toHaveLength(item.type === "registry:block" ? 35 : 34);
+      expect(item.files).toHaveLength(item.type === "registry:block" ? 37 : 36);
       const paths = new Set(item.files.map(file => file.path));
       for (const source of item.files) {
         union.add(source.path); expect(source.content).not.toContain("@mcpcn/");
@@ -66,7 +66,7 @@ describe("supplied option and ranking installation", () => {
         }
       }
     }
-    expect(union.size).toBe(113);
+    expect(union.size).toBe(115);
   });
   it("OR-R06 keeps option values and supplied ranks and scores private without tool authority", () => {
     for (const [slug] of cohort) {
