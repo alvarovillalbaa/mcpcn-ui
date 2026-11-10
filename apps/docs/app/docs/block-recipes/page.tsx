@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { blockCatalog } from "@mcpcn/registry/catalog";
 import styles from "./recipes.module.css";
+import { InstallCommand } from "../../../components/install-command";
+import { localCli } from "../../../lib/release-installation";
 
 export const metadata = { title: "Persistent block server recipes" };
 const setup = `// Server entry only. Supply a dedicated caller-opened Node24 SQLite DB.
@@ -31,8 +33,8 @@ export default function BlockRecipes() {
   return <main className={"docs-layout server-guide " + styles.guide}><aside className="sidebar" aria-label="Block recipe guide"><Link href="/blocks">All eleven blocks</Link><a href="#install">Install</a><a href="#server">Wire the server</a><a href="#review">Review lifecycle</a><a href="#boundaries">Data and execution boundaries</a><a href="#recipes">Recipes and previews</a></aside>
     <article className="prose" style={{ minWidth: 0 }} aria-label="Persistent block recipe guide"><span className="eyebrow">UI and server together</span><h1>Make a reviewed change. Keep the result.</h1>
       <p>Each workflow block has a controlled React UI, a bound app, typed Zod schemas, a real MCP server registration, an authored input/result fixture, a runnable SDK/SQLite check and a README. The app reads the server record, prepares exact terms, confirms the reviewed change and displays its saved state and audit.</p>
-      <h2 id="install">Install one block</h2><p>Install the matching CLI package archive from the repository release first. Public npm publication remains pending; these commands use the installed archive directly.</p><pre className="code" aria-label="Block installation commands">{`node node_modules/mcpcn/dist/index.js init --mode=copy --host=standard-mcp
-node node_modules/mcpcn/dist/index.js add review-before-action`}</pre>
+      <h2 id="install">Install one block</h2><p><Link href="/docs#install">Install the matching release packages and initialize your app</Link> first, including the Node24 types for a block. Then add this block using your saved manager, theme, host and component directory.</p>
+      <InstallCommand label="block installation" command={`${localCli} add review-before-action`} />
       <p>Copy mode adds editable client code and explicit .server.mts, .fixture.mts, .server.test.mts and .README.md entries under your block directory. Package mode adds equivalent thin entries using matching package archives. The CLI prints dependency commands and never installs dependencies or executes a fixture. Keep server and fixture modules out of browser imports.</p>
       <p>Use Node 24.22.2 for the SQLite server. Copied sources use strict Bundler TypeScript and explicit emitted server .mjs modules; the caller package can use CommonJS. Package server declarations support Bundler and NodeNext. Full copied-source NodeNext compatibility remains a separate quality gate because existing client imports and pinned upstream implementation declarations contain extensionless paths.</p>
       <pre className="code" aria-label="Bound block app entry">{`"use client";

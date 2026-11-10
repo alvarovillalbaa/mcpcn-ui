@@ -1,0 +1,299 @@
+{
+  "schemaVersion": "mcpcn.public-release-install-checks.v1",
+  "sourceCommit": "5388607b1224886b8a1a17b68e43a49b208bcf65",
+  "workflowCommit": "4ec0a7e37ca54bd9dcca03665bb8b331e8ced82c",
+  "status": "failed",
+  "startedAt": "2026-11-10T16:15:47.621Z",
+  "commands": [
+    {
+      "label": "public-tools-install",
+      "command": "npm",
+      "args": [
+        "install",
+        "--prefix",
+        "/home/runner/work/_temp/mcpcn-public-install-xMI9me/tools",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "pnpm@10.24.0",
+        "playwright@1.65.0"
+      ],
+      "startedAt": "2026-11-10T16:15:50.711Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-tools-install.stdout.txt",
+          "bytes": 24,
+          "sha256": "c59541a7d8bfc9987c0aa47adf2cdd2858be8b66de5abc0331d5a6484ae63ab6",
+          "complete": true
+        },
+        {
+          "name": "public-tools-install.stderr.txt",
+          "bytes": 149,
+          "sha256": "5e2e0b6a214ed172e7bd7cb36f806ac6ea59a12c635510dbfc143abbddb6782d",
+          "complete": true
+        }
+      ],
+      "pid": 2289,
+      "identity": {
+        "pid": 2289,
+        "uid": 1001,
+        "pgid": 2289,
+        "sid": 2289,
+        "start": "3562"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:15:53.254Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-frozen-install",
+      "command": "pnpm",
+      "args": [
+        "install",
+        "--frozen-lockfile",
+        "--ignore-scripts"
+      ],
+      "startedAt": "2026-11-10T16:15:53.255Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-frozen-install.stdout.txt",
+          "bytes": 1446,
+          "sha256": "cbfc6f6d8b711b633dfc739a0be6baaf1406528eef48d276ab221de20d209d25",
+          "complete": true
+        },
+        {
+          "name": "public-frozen-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2302,
+      "identity": {
+        "pid": 2302,
+        "uid": 1001,
+        "pgid": 2302,
+        "sid": 2302,
+        "start": "3816"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:15:56.953Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-production-docs-build",
+      "command": "pnpm",
+      "args": [
+        "exec",
+        "turbo",
+        "run",
+        "build",
+        "--filter=@mcpcn/docs...",
+        "--force"
+      ],
+      "startedAt": "2026-11-10T16:15:57.947Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-production-docs-build.stdout.txt",
+          "bytes": 7794,
+          "sha256": "ad40fc6de5905f120c3f906bf4d46ae09cb11d9da5967eaf08c557922dd5edd1",
+          "complete": true
+        },
+        {
+          "name": "public-production-docs-build.stderr.txt",
+          "bytes": 338,
+          "sha256": "31e3c944dd9667987a9397b2165255e0e2be6756aeef9e642b9c9578f6e40e2d",
+          "complete": true
+        }
+      ],
+      "pid": 2320,
+      "identity": {
+        "pid": 2320,
+        "uid": 1001,
+        "pgid": 2320,
+        "sid": 2320,
+        "start": "4286"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:16:29.927Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-chromium-install",
+      "command": "/home/runner/work/_temp/mcpcn-public-install-xMI9me/tools/node_modules/.bin/playwright",
+      "args": [
+        "install",
+        "chromium"
+      ],
+      "startedAt": "2026-11-10T16:16:30.920Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-chromium-install.stdout.txt",
+          "bytes": 6925,
+          "sha256": "5b56ce512d1d985cf279ad10dc75d7b3ec111030418d1d4fc29b49bf163dd034",
+          "complete": true
+        },
+        {
+          "name": "public-chromium-install.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2763,
+      "identity": {
+        "pid": 2763,
+        "uid": 1001,
+        "pgid": 2763,
+        "sid": 2763,
+        "start": "7583"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:16:37.716Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-docs-server",
+      "command": "/home/runner/work/_temp/mcpcn-public-install-xMI9me/source/apps/docs/node_modules/.bin/next",
+      "args": [
+        "start",
+        "--hostname",
+        "127.0.0.1",
+        "--port",
+        "4322"
+      ],
+      "startedAt": "2026-11-10T16:16:37.717Z",
+      "signals": [
+        "SIGTERM"
+      ],
+      "streams": [
+        {
+          "name": "public-docs-server.stdout.txt",
+          "bytes": 152,
+          "sha256": "aca9fe5701115f72380048c017fd73edc054a7a964a5951ef05b3c1289e7fce6",
+          "complete": true
+        },
+        {
+          "name": "public-docs-server.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2813,
+      "identity": {
+        "pid": 2813,
+        "uid": 1001,
+        "pgid": 2813,
+        "sid": 2813,
+        "start": "8263"
+      },
+      "exitCode": 143,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:16:42.446Z",
+      "originalGroupAbsent": true
+    },
+    {
+      "label": "public-docs-browser",
+      "command": "/opt/hostedtoolcache/node/24.22.2/x64/bin/node",
+      "args": [
+        "tests/e2e/public-release-install.mjs"
+      ],
+      "startedAt": "2026-11-10T16:16:39.667Z",
+      "signals": [],
+      "streams": [
+        {
+          "name": "public-docs-browser.stdout.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        },
+        {
+          "name": "public-docs-browser.stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "complete": true
+        }
+      ],
+      "pid": 2839,
+      "identity": {
+        "pid": 2839,
+        "uid": 1001,
+        "pgid": 2839,
+        "sid": 2839,
+        "start": "8458"
+      },
+      "exitCode": 1,
+      "signal": null,
+      "closeObserved": true,
+      "completedAt": "2026-11-10T16:16:42.428Z",
+      "originalGroupAbsent": true
+    }
+  ],
+  "guards": [
+    {
+      "label": "before-install",
+      "canonicalFiles": 9791,
+      "canonicalVectorSha256": "947dfe2a05874f264422babe67bdcb05358019f5e2f4cdd3f53c348f3e454b63",
+      "protectedFiles": 683,
+      "protectedVectorSha256": "fd7ace0394f88b9d76ad03ca8cca6f0da161a58ae9ab48fdc52db2e1a8a82b7f"
+    },
+    {
+      "label": "after-install",
+      "canonicalFiles": 9791,
+      "canonicalVectorSha256": "947dfe2a05874f264422babe67bdcb05358019f5e2f4cdd3f53c348f3e454b63",
+      "protectedFiles": 683,
+      "protectedVectorSha256": "fd7ace0394f88b9d76ad03ca8cca6f0da161a58ae9ab48fdc52db2e1a8a82b7f"
+    },
+    {
+      "label": "after-production-build",
+      "canonicalFiles": 9791,
+      "canonicalVectorSha256": "947dfe2a05874f264422babe67bdcb05358019f5e2f4cdd3f53c348f3e454b63",
+      "protectedFiles": 683,
+      "protectedVectorSha256": "fd7ace0394f88b9d76ad03ca8cca6f0da161a58ae9ab48fdc52db2e1a8a82b7f"
+    },
+    {
+      "label": "terminal-source-check",
+      "canonicalFiles": 9791,
+      "canonicalVectorSha256": "947dfe2a05874f264422babe67bdcb05358019f5e2f4cdd3f53c348f3e454b63",
+      "protectedFiles": 683,
+      "protectedVectorSha256": "fd7ace0394f88b9d76ad03ca8cca6f0da161a58ae9ab48fdc52db2e1a8a82b7f"
+    }
+  ],
+  "errors": [
+    "public-docs-browser_failed"
+  ],
+  "cleanup": {
+    "activeChildren": 0,
+    "remainingOriginalGroups": [],
+    "allStreamsComplete": true,
+    "rootRemoved": true
+  },
+  "proofLimits": [
+    "T2 authored consumer apps and in-memory SQLite fixtures; no production data/account/provider/model/payment or external host.",
+    "Four selected Chromium docs/clipboard journeys and npm/pnpm URL installs only; Bun, physical input, human accessibility, public npm publication and full-product acceptance remain open."
+  ],
+  "export": {
+    "files": 683,
+    "bytes": 115753847
+  },
+  "production": {
+    "coldSuccessfulTasks": 10,
+    "totalTasks": 10,
+    "expectedPages": 84
+  },
+  "completedAt": "2026-11-10T16:16:46.578Z"
+}
