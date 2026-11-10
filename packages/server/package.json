@@ -8,5 +8,5 @@
   "files": ["dist"],
   "scripts": { "build": "tsc -p tsconfig.json", "typecheck": "tsc -p tsconfig.json --noEmit", "test": "vitest run --passWithNoTests", "lint": "tsc -p tsconfig.json --noEmit" },
   "dependencies": { "@mcpcn/core": "workspace:*", "@mcpcn/schemas": "workspace:*", "@modelcontextprotocol/ext-apps": "^1.7.5", "zod": "catalog:" },
-  "peerDependencies": { "@modelcontextprotocol/sdk": ">=1.29.0" }
+  "peerDependencies": { "@modelcontextprotocol/sdk": ">=1.29.0 <2" }
 }

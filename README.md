@@ -10,6 +10,16 @@ The source has 12 primitives and 56 specialized components; every named
 component now has a dedicated contract. Eleven workflow blocks contain
 actual editing, selection, file-review, progress and approval compositions.
 
+The separate [server integration repair](docs/specs/server-contract.md) adds
+validated result envelopes, real SDK context/cancellation, complete resource CSP,
+an explicit private metadata example and schema-required simulator snippets.
+The [guide source](apps/docs/app/docs/server/page.tsx) and
+[focused check scope](docs/proposals/server-contract-checks.md) are prepared;
+their new runtime, installed-package and browser acceptance is still pending.
+The [brief audit](docs/research/2026/11-10/brief-acceptance-audit.md) records the
+remaining real reference workflows,block server recipes,external-host,quality,
+public npm and adoption requirements. Existing five examples are reference UIs.
+
 DataAccessNotice, PrivacyBoundaryCard, ConsentPanel and ModelContextPreview have
 [typed privacy/context contracts](docs/specs/privacy-context-components.md),
 complete supplied values/metadata and explicit identity-only review requests.

@@ -20,7 +20,7 @@ for(const item of items) {
   await write(`registry/items/${item.name}.json`,item);
 }
 const license=await readFile(resolve(root,"LICENSE"),"utf8");
-for(const name of ["core","schemas","runtime","react","themes","registry","cli"]) {
+for(const name of ["core","schemas","runtime","react","themes","registry","cli","server"]) {
   await writeText(`packages/${name}/LICENSE`,license);
 }
 console.log(`Generated ${items.length} source registry items; examples and templates were preserved.`);
