@@ -24,6 +24,8 @@ import { optionRankingExampleCode } from "../../../components/option-ranking-exa
 import { HostStateDemo } from "../../../components/host-state-demos";
 import { hostStateExamples, hostStateExampleCode, type HostStateSlug } from "../../../components/host-state-examples";
 import { DecisionNarrativeDemo } from "../../../components/decision-narrative-demos";
+import { PrivacyContextDemo } from "../../../components/privacy-context-demos";
+import { privacyContextExamples, privacyContextExampleCode, type PrivacyContextSlug } from "../../../components/privacy-context-examples";
 import { decisionNarrativeExamples, decisionNarrativeExampleCode, type DecisionNarrativeSlug } from "../../../components/decision-narrative-examples";
 import { ComponentPreview } from "../../../components/component-preview";
 
@@ -32,6 +34,8 @@ export function generateStaticParams() { return catalog.map(item => ({ slug: ite
 const demos: Record<string, ReactNode> = {
   "billing-gate": <HostStateDemo kind="billing-gate" />, "unsupported-host-notice": <HostStateDemo kind="unsupported-host-notice" />,
   "recommendation-card": <DecisionNarrativeDemo kind="recommendation-card" />, "tradeoff-panel": <DecisionNarrativeDemo kind="tradeoff-panel" />,
+  "data-access-notice": <PrivacyContextDemo kind="data-access-notice" />, "privacy-boundary-card": <PrivacyContextDemo kind="privacy-boundary-card" />,
+  "consent-panel": <PrivacyContextDemo kind="consent-panel" />, "model-context-preview": <PrivacyContextDemo kind="model-context-preview" />,
   "decision-memo": <DecisionNarrativeDemo kind="decision-memo" />, "reasoning-summary": <DecisionNarrativeDemo kind="reasoning-summary" />,
   "no-data-state": <HostStateDemo kind="no-data-state" />, "loading-bridge-state": <HostStateDemo kind="loading-bridge-state" />,
   "offline-state": <HostStateDemo kind="offline-state" />, "permission-denied-state": <HostStateDemo kind="permission-denied-state" />,
@@ -137,10 +141,11 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
   const optionRankingCode = optionRankingExampleCode(slug);
   const hostStateCode = Object.hasOwn(hostStateExamples, slug) ? hostStateExampleCode(slug as HostStateSlug) : undefined;
   const narrativeCode = Object.hasOwn(decisionNarrativeExamples, slug) ? decisionNarrativeExampleCode(slug as DecisionNarrativeSlug) : undefined;
-  const renderCode = narrativeCode ?? hostStateCode ?? optionRankingCode ?? conflictValidationCode ?? recordInspectionCode ?? sourceEvidenceCode ?? fileReviewCode ?? formWorkflowCode ?? toolWorkflowCode ?? approvalExampleCode(slug) ?? 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
-  const serverCode = 'import { ' + item.name + 'Schema } from "@mcpcn/schemas";\nimport { createStructuredResult } from "@mcpcn/server";\n\nexport function reviewedResult(candidate: unknown) {\n  const data = ' + item.name + 'Schema.parse(candidate);\n  return createStructuredResult("' + item.slug + '", data);\n}';
+  const privacyCode = Object.hasOwn(privacyContextExamples, slug) ? privacyContextExampleCode(slug as PrivacyContextSlug) : undefined;
+  const renderCode = privacyCode ?? narrativeCode ?? hostStateCode ?? optionRankingCode ?? conflictValidationCode ?? recordInspectionCode ?? sourceEvidenceCode ?? fileReviewCode ?? formWorkflowCode ?? toolWorkflowCode ?? approvalExampleCode(slug) ?? 'import { ' + item.name + ' } from "@mcpcn/react";\nimport { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nconst data = ' + item.name + 'Schema.parse(candidateData);\n<' + item.name + ' {...data} onAction={handleAction} />;';
+  const serverCode = privacyCode ? 'import { ' + item.name + 'Schema } from "@mcpcn/schemas";\n\nexport function preparePrivateReview(candidate: unknown) {\n  const data = ' + item.name + 'Schema.parse(candidate);\n  return {\n    modelSafeMetadata: { component: "' + item.slug + '", id: data.id, revision: data.revision, state: data.state },\n    privateAppPayload: { kind: "mcpcn/' + item.slug + '", version: 1 as const, data }\n  };\n}' : 'import { ' + item.name + 'Schema } from "@mcpcn/schemas";\nimport { createStructuredResult } from "@mcpcn/server";\n\nexport function reviewedResult(candidate: unknown) {\n  const data = ' + item.name + 'Schema.parse(candidate);\n  return createStructuredResult("' + item.slug + '", data);\n}';
   return <main>
-    <span className="eyebrow">{item.category}</span><h1>{item.name}</h1><p className="lede">{item.description}</p>
+    <span className="eyebrow">{item.category}</span><h1 className="component-heading">{item.name.split(/(?<=[a-z0-9])(?=[A-Z])/).map((part, index) => <span key={index}>{index > 0 && <wbr />}{part}</span>)}</h1><p className="lede">{item.description}</p>
     <div className="filter-row"><span className="pill">{implementation}</span><span className="pill">React</span>{schema && <span className="pill">Validated data</span>}</div>
     {!item.specialized && item.category !== "primitive" && <p>This name currently shares the generic informational-card implementation. Dedicated component behavior remains unfinished.</p>}
     <section className="preview-shell" aria-label={item.name + " preview"}>
@@ -158,6 +163,13 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
           {Object.entries(properties).map(([name, field]) => <tr key={name}><th scope="row"><code>{name}</code></th><td>{fieldType(field)}</td><td>{"default" in object(field) ? "Defaulted" : required.has(name) ? "Required" : "Optional"}</td></tr>)}
         </tbody></table></div>
         <h2>React integration</h2><pre className="code">{renderCode}</pre>
+        {privacyCode && <section aria-label="Privacy and context integration contract">
+          <h2>Current review and private data</h2>
+          <p>Reported access, visibility and consent are supplied claims. A resolved callback does not grant or revoke access, send a context payload or change that report. Approval needs fresh current scopes and acknowledgement; context handoff needs a fresh complete-preview acknowledgement. Replacing the report or callback clears the draft and fences obsolete responses.</p>
+          <p>Callbacks contain current component, report and action IDs/revisions, plus approved scope or planned section IDs/revisions. Values, labels, purposes, recipients, counts and exclusion reasons stay outside those intents. JSON regions expose every supplied value for keyboard reading; zero, false, null and absent counts stay distinct.</p>
+          <p>Server-only and excluded entries accept metadata only. Keep actual server-only values out of the client payload. Visibility labels and catalogue security declarations do not enforce isolation. The structured-result helper includes its supplied data without automatic redaction; never place private review values in model-visible structuredContent or content.</p>
+          <p>The server example prepares separate model-safe metadata and a private app payload. Route the private payload through your host's approved private app channel and enforce authorization before any operation. This preparation does not send data, register a tool or configure a host policy.</p>
+        </section>}
         {optionRankingCode && <>
           <h2>Supplied options and reported rankings</h2>
           <p>Select an option or ranked entry to read its complete escaped JSON and supplied evidence. Omitted selection is local; null or a current ID is controlled and waits for an explicit producer acknowledgement. Callback-free local reading and clearing remain available while notifications or external busy feedback are pending.</p>

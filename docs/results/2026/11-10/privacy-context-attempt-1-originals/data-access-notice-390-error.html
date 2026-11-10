@@ -1,0 +1,11 @@
+<section aria-label="DataAccessNotice demonstration" class="mcpcn-stack"><p>Review supplied metadata and values. Requests only update this authored demonstration.</p><label>Report state <select aria-label="Privacy report state"><option value="ready" selected="">Ready</option><option value="loading">Loading</option><option value="empty">Empty</option><option value="error">Error</option></select></label><label>Request response <select aria-label="Privacy request response"><option value="immediate" selected="">Immediate</option><option value="hold">Hold until settled</option><option value="throw">Throw current request</option></select></label><div class="mcpcn-row"><label><input type="checkbox" checked="" style="">Callback enabled</label><label><input type="checkbox" style="">External busy</label><label><input type="checkbox" checked="" style="">Mount component</label><label><input type="checkbox" style="">Malformed data</label><label><input type="checkbox" checked="" style="" disabled="">Action available</label></div><div class="mcpcn-row"><button type="button">Replace report revision</button><button type="button">Replace supplied content</button><button type="button">Replace callback</button><button type="button">Remove reported count</button><button type="button">Remove supplied actions</button><button type="button" disabled="">Resolve oldest request</button><button type="button" disabled="">Reject oldest request</button></div><section class="mcpcn mcpcn-card mcpcn-pc" role="region" aria-label="Review reported data access" aria-busy="false"><div class="mcpcn-header"><div class="mcpcn-row mcpcn-between"><h3 class="mcpcn-title">Review reported data access</h3><span class="mcpcn mcpcn-badge">error</span></div></div><div class="mcpcn-body mcpcn-stack"><p role="alert">Authored error privacy state.</p></div></section><div class="mcpcn-row"><output aria-label="Privacy intent count">11</output><output aria-label="Settled privacy requests">9</output><output aria-label="Pending privacy requests">0</output></div><pre class="mcpcn-code" aria-label="Last privacy intent">{
+  "type": "request-data-access-review",
+  "data": {
+    "componentId": "access-1",
+    "componentRevision": "1",
+    "reportId": "access-report",
+    "reportRevision": "1",
+    "actionId": "review",
+    "actionRevision": "1"
+  }
+}</pre></section>

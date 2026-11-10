@@ -6,9 +6,21 @@ Last updated: 2026-11-10
 
 The source includes components, controlled workflow blocks, MCP Apps runtime
 adapters, server helpers, a source registry, a CLI and a documentation app.
-The current source has 12 primitives, 52 specialized components and 4 named aliases
-of the generic informational component. Eleven workflow blocks now contain
+The source has 12 primitives and 56 specialized components; every named
+component now has a dedicated contract. Eleven workflow blocks contain
 actual editing, selection, file-review, progress and approval compositions.
+
+DataAccessNotice, PrivacyBoundaryCard, ConsentPanel and ModelContextPreview have
+[typed privacy/context contracts](docs/specs/privacy-context-components.md),
+complete supplied values/metadata and explicit identity-only review requests.
+Consent and context handoff require fresh unchecked acknowledgement. The scoped
+component-page heading fix keeps CamelCase words whole. Their
+[focused acceptance](docs/results/2026/11-10/privacy-context-checks.md) passed
+116unit cases,3stager boundaries,eight browser journeys and both strict installed
+consumers, retaining164DOM/four native keyboard readings/ten headings/18PNGs.
+All167generated paths/79index-item pairs/36owners were verified;159changes
+adopted. The earlier passing packet predates the final private-data documentation
+correction and remains separate. Public delivery is recorded after publication.
 
 RecommendationCard,TradeoffPanel,DecisionMemo and ReasoningSummary now have
 [dedicated authored contracts](docs/specs/decision-narratives.md) and views for
@@ -22,8 +34,8 @@ retaining136DOM/eight native keyboard readings/16PNGs. All167generated paths,
 failures remain separate. The [public delivery](docs/results/2026/11-10/decision-narrative-public-delivery.md)
 binds accepted11869149 to READY,the canonical site,18anonymous HTTPS checks and
 seven unchanged archives. The temporary workflow and three owned QA refs are
-retired with source ancestry preserved. Shared documentation typography and the
-four privacy/consent components remain unfinished.
+retired with source ancestry preserved. The separate privacy/context cohort owns
+the remaining four components and shared component-heading typography.
 
 Seven [reported host-state views](docs/specs/host-state-components.md) replace
 the billing/unsupported-host/empty/bridge/offline/denied/expired placeholders.

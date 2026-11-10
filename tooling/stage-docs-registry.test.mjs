@@ -9,7 +9,7 @@ import test from 'node:test';
 const execute = promisify(execFile);
 const SCRIPT = new URL('./stage-docs-registry.mjs', import.meta.url);
 const INDEX = 'registry.json', MANIFEST = 'registry-static-manifest.json';
-const KIND = 'mcpcn.docs.registry-static.v1', MAX_INDEX = 32 * 1024 * 1024;
+const KIND = 'mcpcn.docs.registry-static.v1', MAX_INDEX = 40 * 1024 * 1024;
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 const encoded = value => Buffer.from(JSON.stringify(value, null, 2) + '\n');
 const small = () => encoded({ name: 'authored-registry', items: [{ name: 'authored-item', content: 'Authored original source.' }] });
