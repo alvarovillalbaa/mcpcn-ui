@@ -1,75 +1,43 @@
 "use client";
-
 import { useEffect, useRef, useState } from "react";
-import { FileReview, type ComponentAction } from "@mcpcn/react";
-import { FileUploadAndExtract } from "@mcpcn/react/blocks";
-type FileReviewData = Omit<Parameters<typeof FileReview>[0], "onAction" | "className" | "busy" | "error">;
-type ReviewFile = NonNullable<FileReviewData["file"]>;
-
-export const fixture: FileReviewData = { id: "invoice-review", title: "Review extracted invoice", file: null };
-
-export function extractAuthoredInvoiceFields(text: string) {
-  return { supplier: /^Supplier:[ \t]*(.*)$/mi.exec(text)?.[1] ?? "", total: /^Total:[ \t]*(.*)$/mi.exec(text)?.[1] ?? "" };
-}
-
-/** Consumer-owned local text adapter; no OCR, upload, model or database. */
-export function App() {
-  const [file, setFile] = useState<File | null>(null), currentFile = useRef<File | null>(null);
-  const identities = useRef(new WeakMap<File, ReviewFile>());
-  const generation = useRef(0);
-  const [review, setReview] = useState<FileReviewData>(fixture), [busy, setBusy] = useState(false), [error, setError] = useState<string>();
-  const [last, setLast] = useState<ComponentAction | null>(null);
-  useEffect(() => () => { generation.current++; currentFile.current = null; }, []);
-  const select = (next: File | null) => {
-    generation.current++; currentFile.current = next; setFile(next); setBusy(false); setError(undefined); setLast(null);
-    if (!next) { setReview(fixture); return; }
-    let descriptor = identities.current.get(next);
-    if (!descriptor) {
-      descriptor = { id: crypto.randomUUID(), revision: "1", name: next.name, bytes: next.size, ...(next.type ? { mimeType: next.type } : {}) };
-      identities.current.set(next, descriptor);
-    }
-    setReview({ ...fixture, file: descriptor });
-  };
-  const extract = async (chosen: File) => {
-    const descriptor = identities.current.get(chosen);
-    if (!descriptor || chosen !== currentFile.current) return;
-    const request = ++generation.current;
-    const current = () => chosen === currentFile.current && request === generation.current;
-    setBusy(true); setError(undefined);
+import { AgentAppProvider, OfficialMCPAdapter } from "@mcpcn/runtime";
+import { Button, Card } from "@mcpcn/react";
+import { WorkflowFrame, useReferenceWorkflow } from "@mcpcn/reference-workflows/client";
+import { DocumentStateSchema, documentSeed, type DocumentKindSchema } from "./contracts.js";
+import type { z } from "zod";
+export { extractAuthoredInvoiceFields } from "./contracts.js";
+export const fixture = documentSeed;
+function DocumentReview() {
+  const controller = useReferenceWorkflow("document-extraction", DocumentStateSchema), [file, setFile] = useState<File | null>(null), [kind, setKind] = useState<z.infer<typeof DocumentKindSchema>>("invoice"), [error, setError] = useState<string>(), [reading, setReading] = useState(false);
+  const epoch = useRef(0), live = useRef(false), selected = useRef<File | null>(null);
+  const [values, setValues] = useState<Record<string, string>>({}), state = controller.view?.state, revision = controller.view?.revision;
+  useEffect(() => { live.current = true; return () => { live.current = false; epoch.current++; }; }, []);
+  useEffect(() => { if (state) setValues(Object.fromEntries(state.fields.map(field => [field.id, field.value]))); }, [revision]);
+  const extract = async () => {
+    const chosen = selected.current; if (!chosen || reading || controller.busy || !controller.view) return;
+    const generation = ++epoch.current; setReading(true); setError(undefined);
     try {
-      // This explicit user action reads text in this example consumer only.
-      const text = await chosen.text();
-      if (!current()) return;
-      if (text.length > 65536) throw new Error("The text representation exceeds 65536 characters.");
-      const { supplier, total } = extractAuthoredInvoiceFields(text);
-      if (supplier.length > 4000 || total.length > 4000) throw new Error("Each extracted line must fit 4000 characters.");
-      // FileReview validates this typed DTO before rendering or emitting intent.
-      const next: FileReviewData = { ...fixture, file: descriptor,
-        preview: { id: `preview-${descriptor.id}`, title: "Selected text representation", file: descriptor, state: "ready", content: { type: "text", text } },
-        extraction: { id: `extraction-${descriptor.id}`, revision: "1", fileId: descriptor.id, fileRevision: descriptor.revision, fields: [
-          { id: "supplier", label: "Supplier", original: supplier, value: supplier, required: true },
-          { id: "total", label: "Total", original: total, value: total, required: true },
-        ] },
-      };
-      setReview(next);
-    } catch (value) { if (current()) setError(value instanceof Error ? value.message : "The local text could not be read."); }
-    finally { if (current()) setBusy(false); }
+      if (chosen.size > 65536 || !/\.(txt|md)$/i.test(chosen.name)) throw new Error("invalid_file");
+      const text = new TextDecoder("utf-8", { fatal: true }).decode(await chosen.arrayBuffer());
+      if (!live.current || generation !== epoch.current || selected.current !== chosen) return;
+      await controller.prepare({ action: "extract", kind, fileName: chosen.name, text });
+    } catch { if (live.current && generation === epoch.current) setError("Choose a UTF-8 .txt or .md document no larger than 64 KiB."); }
+    finally { if (live.current && generation === epoch.current) setReading(false); }
   };
-  const receive = (action: ComponentAction) => {
-    setLast(action);
-    const scope = action.data as { reviewId?: string; fileId?: string; fileRevision?: string; extractionId?: string; extractionRevision?: string; fieldId?: string; value?: string } | undefined;
-    if (action.type !== "file-correction-change" || !scope) return;
-    setReview(current => {
-      if (scope.reviewId !== current.id || !current.file || !current.extraction || scope.fileId !== current.file.id || scope.fileRevision !== current.file.revision || scope.extractionId !== current.extraction.id || scope.extractionRevision !== current.extraction.revision || typeof scope.value !== "string") return current;
-      return { ...current, extraction: { ...current.extraction, fields: current.extraction.fields.map(field => field.id === scope.fieldId && !field.disabled ? { ...field, value: scope.value! } : field) } };
-    });
-    // A save-file-review event is visible intent only. Integrate and validate
-    // persistence separately before displaying any saved result.
-  };
-  return <div className="mcpcn mcpcn-stack">
-    <p>Choose a small authored .txt file with Supplier: and Total: lines. Extract explicitly reads it locally and uses those two line patterns. No OCR, upload, model or saving service is connected.</p>
-    <FileUploadAndExtract title="Choose authored invoice text" file={file} maxFileBytes={65536} accept=".txt,.md,text/plain,text/markdown" busy={busy} error={error} onFileChange={select} onExtract={chosen => { void extract(chosen); }} onFileError={setError} />
-    <FileReview {...review} busy={busy} error={error} onAction={receive} />
-    <pre aria-label="Last document extraction intent">{JSON.stringify(last, null, 2)}</pre>
-  </div>;
+  const visible = controller.view?.prepared?.action === "extract" ? controller.view.prepared.proposed : state;
+  return <WorkflowFrame controller={controller} title="Document extraction review">
+    <form className="reference-form" aria-label="Document source" onSubmit={event => { event.preventDefault(); void extract(); }}><fieldset disabled={controller.busy || reading || !controller.ready || !state}><legend>Choose an authored UTF-8 document</legend>
+      <p>Invoice: Supplier:, Total:, Currency: lines. Contract: Party:, Effective date:, Term:. Resume: Name:, Email:, Experience:. Extract only on request; no OCR or model is connected. Saving requires a separate reviewed confirmation.</p>
+      <label>Document kind<select aria-label="Document kind" value={kind} onChange={event => { epoch.current++; setReading(false); setKind(event.currentTarget.value as z.infer<typeof DocumentKindSchema>); controller.clearReview(); }}><option value="invoice">Invoice</option><option value="contract">Contract</option><option value="resume">Resume</option></select></label>
+      <label>UTF-8 document<input type="file" aria-label="UTF-8 document" accept=".txt,.md,text/plain,text/markdown" onChange={event => { epoch.current++; const next = event.currentTarget.files?.[0] ?? null; selected.current = next; setFile(next); setError(undefined); setReading(false); controller.clearReview(); }} /></label>
+      {error && <p role="alert">{error}</p>}<Button type="submit" disabled={!file}>Prepare text extraction</Button></fieldset></form>
+    {visible && visible.status !== "empty" && <>
+      <Card><section className="reference-section"><h2>Complete source text: {visible.fileName}</h2><pre className="reference-text" tabIndex={0} aria-label="Complete document text">{visible.text}</pre></section></Card>
+      <Card><section className="reference-section"><h2>Extracted fields and source matches</h2>{visible.fields.map(field => <article key={field.id}><h3>{field.label}</h3><p>{field.original || "Missing"} · literal-line match confidence: {field.confidence}</p><blockquote>{field.source}</blockquote></article>)}</section></Card>
+    </>}
+    {state?.status === "extracted" && <form className="reference-form" aria-label="Correct extracted fields" onSubmit={event => { event.preventDefault(); void controller.prepare({ action: "save", fields: state.fields.map(field => ({ id: field.id, value: values[field.id] ?? "" })) }); }}>
+      <fieldset disabled={controller.busy || !controller.ready}><legend>Review and correct before saving</legend>{state.fields.map(field => <label key={field.id}>{field.label}<input aria-label={"Correct " + field.label} required={field.required} maxLength={4000} value={values[field.id] ?? ""} onChange={event => { const value = event.currentTarget.value; setValues(current => ({ ...current, [field.id]: value })); controller.clearReview(); }} /></label>)}<Button type="submit">Review corrected fields</Button></fieldset></form>}
+    {state?.status === "saved" && <p role="status">The corrected document fields are saved in the private local workspace.</p>}
+  </WorkflowFrame>;
 }
+export function App() { const [adapter] = useState(() => new OfficialMCPAdapter()); return <AgentAppProvider adapter={adapter}><DocumentReview /></AgentAppProvider>; }
