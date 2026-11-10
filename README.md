@@ -19,7 +19,10 @@ cases,14desktop/narrow browser journeys and both strict installed consumers at
 `e441d73f704efdf90b98df8934e22180c7772aef`. The154DOM stages/14PNGs, seven
 archives, deterministic generation and owned cleanup are retained. All167generated
 paths were verified and159changes adopted. Eight earlier failures remain intact.
-Public delivery is recorded separately; npm, live services and external MCP
+The [public delivery](docs/results/2026/11-10/host-state-public-delivery.md) binds
+accepted source`b5c47296` to READY, the canonical site,24anonymous HTTPS checks
+and seven unchanged archives. Its temporary workflow and nine owned QA refs are
+retired with source ancestry preserved. Npm, live services and external MCP
 host acceptance remain open.
 
 OptionSelector and RankingList now have authored typed source for supplied

@@ -48,6 +48,13 @@ are retained. Generated adoption verified167paths/79pairs/32owners and adopted15
 changes while preserving other source/index bytes. Keep this packet closed;
 hosting, release and full-product proof remain distinct boundaries.
 
+The [public delivery](docs/results/2026/11-10/host-state-public-delivery.md)
+closes this cohort at acceptedb5c47296 with READY/canonicalalias,24anonymousHTTPS
+observations and seven unchanged prerelease archives. Workflow was disabled
+before definition deletion; only nine exact owned QA refs were retired, with all
+ten parents preserved. Later metadata must preserve accepted application bytes.
+Eight generic aliases and broader product/host acceptance remain unfinished.
+
 - Product intent: the Notion `mcpcn-ui` React MCP Apps library brief. Preserve
   both package imports and editable source installation, a configurable docs
   site, runtime/server packages and the broader unfinished quality scope.
