@@ -14,6 +14,8 @@
     "generate": "tsx tooling/generate.ts",
     "check": "pnpm generate && pnpm typecheck && pnpm test && pnpm build",
     "registry:build": "pnpm --filter @mcpcn/registry build",
+    "examples:build": "pnpm --filter '@mcpcn/reference-workflows...' --recursive run build && pnpm --filter '@mcpcn/example-*' --recursive run typecheck && pnpm --filter @mcpcn/playground exec vite build --config ../../examples/vite.config.ts",
+    "examples:dev": "tsx examples/workbench.ts",
     "registry:validate": "pnpm --filter @mcpcn/registry test"
   },
   "devDependencies": {
