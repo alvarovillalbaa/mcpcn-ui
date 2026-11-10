@@ -21,8 +21,10 @@ strict installed consumers. Its 92 stages, 212 DOM originals, two real keyboard
 reading proofs and 24 PNGs retain their exact checked source. All 167 generated
 files were verified and 159 changes
 [adopted](docs/results/2026/11-09/option-ranking-generated-publication.json),
-preserving other files and the prepared index. Package release and current
-hosted delivery need their separate observations; previous cohorts stay closed.
+preserving other files and the prepared index. The
+[public delivery](docs/results/2026/11-09/option-ranking-public-delivery.md)
+records fourteen anonymous HTTPS checks against the accepted production source
+and seven unchanged passing-CI archives. Previous cohorts stay closed.
 
 ConflictResolver and ValidationSummary now have dedicated authored source for
 current candidate selection, separate explicit confirmation and complete supplied

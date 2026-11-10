@@ -41,11 +41,13 @@ The resulting catalogue has 41 specialized components and 15 remaining generic
 aliases, retaining all 79 identities and eleven blocks. Historical cases are
 not new coverage and were not rerun.
 
-This closes the focused CI and adoption boundary. Package release, production
-deployment and anonymous current-source HTTP observations remain separate.
+This closes the focused CI and adoption boundary. Separate
+[public delivery observations](option-ranking-public-delivery.md) now cover
+package release, production deployment and current-source anonymous HTTP.
 The [owned workflow was disabled successfully](option-ranking-workflow-disabled.json)
 and independently read back as inactive. Its definition and checked-source ref
-remain separate publication/retirement steps.
+are now [retired](option-ranking-retirement.json), with both sources retained
+in accepted ancestry.
 Public npm, external MCP hosts/tools, hosted interaction, arbitrary untrusted
 HTML isolation, physical devices and full assistive-technology acceptance are
 unverified. No account, paid plan, model call, dependency or authorization change

@@ -665,9 +665,17 @@ strict consumers, with92stages/212DOM/two keyboard readings/24PNGs. All55command
 owned cleanup passed. The separate12 unchanged ownership prerequisites retain
 their own scope. All167 generated bodies were verified;159 changes adopted,
 preserving4894other tracked files,176untracked originals and the prepared index.
-CI and generated adoption are closed; publish exact accepted bytes, preserve
-source/workflow ancestry and retire only this cohort's controls. Prerelease,
-Vercel and14anonymous nativeHTTPS observations still need actual delivery proof.
+CI and generated adoption are closed. The
+[public delivery](docs/results/2026/11-09/option-ranking-public-delivery.md)
+records accepted8a2c3493, exact seven archives/release439799802 and READY
+deploymentdpl_BU8T1Np1hp5ksWAtB9XsCpQkzDxF. Fourteen anonymous nativeHTTPS
+observations passed, including byte-exact29508140-byte index and all seven
+simulator assets871133bytes. The one QA ref is retired; the workflow was
+disabled successfully before its definition was deleted. Both source parents
+remain accepted ancestors. Preserve the original data-audit failure: provider
+logs omit the exact runtime version, while project configuration reports24.x.
+The v2 provider projection records that limit without rerunning checks.
+Do not replay this closed cohort or label initial SSR as hosted interaction.
 
 ## Conflict choice and validation reports — 9 November 2026
 

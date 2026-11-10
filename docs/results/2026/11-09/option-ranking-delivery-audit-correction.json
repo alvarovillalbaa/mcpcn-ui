@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "mcpcn.option-ranking-delivery-audit-correction.v1",
+  "status": "corrected-data-audit",
+  "originalFailure": "actual provider build must report the approved Node24major range",
+  "originalExitCode": 1,
+  "originalValidatorUnchanged": true,
+  "hashes": {
+    "retain-delivery.py": {
+      "bytes": 25649,
+      "sha256": "8f212f65463e22d66737da0ef247363bf569a83ffd87d1f4eb32413e34cbfc34"
+    },
+    "retain-delivery-v2.py": {
+      "bytes": 26238,
+      "sha256": "67af247dbc33bcd5a94f878239c288e1e3ef281964fdd7aa53f4271178640bea"
+    },
+    "delivery-audit-v1-tool-result.json": {
+      "bytes": 109,
+      "sha256": "7ac0660352755c6bc91313bcfe06869afa7a8d2467ed1e58d122ab684aabfbcf"
+    },
+    "delivery-audit-v1-completion.json": {
+      "bytes": 881,
+      "sha256": "77328de0dc7feb6cb8c7ff21810e78e33e887b4010dcabfe62956ef30499fb07"
+    }
+  },
+  "changedObservation": "Require observed project configuration 24.x, separately report exact logged versions as an empty list and runtime version unverified.",
+  "applicationOrHttpRerun": false,
+  "unchangedChecks": [
+    "CI receipt and adoption",
+    "source and ancestry",
+    "release archive bytes and server digests",
+    "all fourteen native transfers and TLS",
+    "HTML, registry and all simulator bodies",
+    "owned outputs and source/index closure"
+  ]
+}
