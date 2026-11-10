@@ -2,6 +2,47 @@
 
 Last updated: 2026-11-10
 
+## Complete block server recipes — 10 November 2026
+
+Standing owner approval covers the [block contract](docs/specs/block-server-recipes.md)
+after clean e151f8ac. All eleven installed blocks need real server recipes,
+schema/input/result fixtures,bound runtime apps,runnable tests and docs. Add
+opt-in schema/server/React package entries and exact block-only registry/CLI
+paths; preserve68component-only entries and the five accepted reference apps.
+No new dependency version,Auth/provider setting,account,paid plan or model call.
+
+The [frozen check scope](docs/proposals/block-recipe-checks.md) is62cases,
+46browser profiles/115DOM/24PNG/two nativeEnd and fresh package/copy/source
+consumers with real SDK/SQLite. Full copied source uses strictBundler/plainNode;
+package server also uses strictNodeNext. Do not patch upstream declarations or
+skip library checks. New browser fixtures live under the playground's declared
+dependencies; the CI server fixture lives under packages/server/checks. Root
+tooling must not assume undeclared React/Zod/SDK hoisting. Copy53/block/171union/
+158TS,package6/block/124union,cumulative36MiB,35exactgeneratedpaths. Preserve
+137component/config registry paths. Source9000/1GiB/file40MiB/export128MiB/
+packet64MiB/derived16MiB/archive4MiB are prospective finite budgets. No local
+application execution; four node --check results establish syntax only.
+
+First sourcebce39466 stopped at the React build: server step errors are nullable
+but the existing timeline accepts an optional string. Normalize null to omitted
+in the bound UI view only; keep transport/domain state and every frozen check
+unchanged. Preserve C1 and its failed originals as ancestry. Frozen install,
+core/schema/runtime builds passed; no new unit/browser/consumer acceptance yet.
+
+Use a caller-opened dedicated Node24 SQLite database,per-request trusted
+principal resolution,exact revision/policy-bound opaque reviews,cancellation,
+atomic audit/replay and synchronous transaction-local registered SQL actions.
+Failed bulk members roll back the whole reviewed batch. Do not claim SQLite
+atomically changes an external service. Server code stays outside browser
+imports; metadata and consent UI are not authentication/human attestation.
+
+Source implementation is in progress; no new compile/test/browser/CI execution
+or generated adoption is established. Freeze actual checks,source/export/path/
+registry/archive bounds before execution. Prior source8189files/997770076B
+nearly fills8500/1GiB; measure prospectively. StorageGuard9.4/34GiB blocks local
+heavy app runtime. Static/source/data only,then bounded approved public CI.
+Retain all original failures and source parents. Prior packets remain closed.
+
 ## Persistent reference workflows — 10 November 2026
 
 Standing owner approval covers the [contract](docs/specs/reference-workflows.md)

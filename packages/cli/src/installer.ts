@@ -5,7 +5,8 @@ import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { blockCatalog, catalog, findCatalogItem } from "@mcpcn/registry/catalog";
 import { blockExportName, buildInstallationPlan, defaultConfig, renderProvider, resolveInstallConfig, type InstallConfig } from "@mcpcn/registry/installation";
-import { sourceModulePaths } from "@mcpcn/registry/source-registry";
+import { sourceModulePaths, blockSourceModulePaths } from "@mcpcn/registry/source-registry";
+import { blockClientEntry, blockExtraFiles, blockExtraPaths } from "@mcpcn/registry/block-source-entries";
 import { LocalServiceError, runLocalService } from "./local-service.js";
 
 export type CLIContext = {
@@ -26,15 +27,16 @@ type InstallLock = {
   items: Record<string, { files: string[] }>;
 };
 const JSON_LIMIT = 2 * 1024 * 1024;
-const ITEM_FILE_LIMIT = 41;
+const ITEM_FILE_LIMIT = 53;
 // Bound cumulative declared source before shared files are deduplicated.
-const TOTAL_LIMIT = 32 * 1024 * 1024;
+const TOTAL_LIMIT = 36 * 1024 * 1024;
 const REQUEST_TIMEOUT_MS = 10_000;
 const INSTALL_LOCK = ".mcpcn-install.lock";
 const MANIFEST = "mcpcn.lock.json";
 const CONFIG = "mcpcn.json";
 const priorSourceModulePaths = ["_mcpcn/core.ts", "_mcpcn/schemas.ts", "_mcpcn/components.tsx", "_mcpcn/runtime.tsx"] as const;
 const shared = new Set([...sourceModulePaths, "_mcpcn/blocks.tsx", "provider.tsx", "styles.css", "LICENSE"]);
+const blockShared = new Set(blockSourceModulePaths);
 class CLIError extends Error {
   constructor(readonly code: string) { super(code); }
 }
@@ -116,12 +118,13 @@ function allowedRelative(config: InstallConfig, path: string): boolean {
   if (!safePath(path) || !path.startsWith(config.componentsDir + "/")) return false;
   const suffix = path.slice(config.componentsDir.length + 1);
   return shared.has(suffix) || catalog.some(item => suffix === item.slug + ".tsx") ||
-    blockCatalog.some(item => suffix === "blocks/" + item.name + ".tsx");
+    blockShared.has(suffix) || blockCatalog.some(item => suffix === "blocks/" + item.name + ".tsx" || blockExtraPaths(item.name).includes(suffix));
 }
-function itemPaths(config: InstallConfig, slug: string, modules: readonly string[] = sourceModulePaths): string[] {
+function itemPaths(config: InstallConfig, slug: string, modules: readonly string[] = sourceModulePaths, includeBlockServer = true): string[] {
   const block = blockCatalog.some(item => item.name === slug);
   return [(block ? "blocks/" : "") + slug + ".tsx", "provider.tsx",
-    ...(config.mode === "copy" ? ["styles.css", "LICENSE", ...modules, ...(block ? ["_mcpcn/blocks.tsx"] : [])] : [])]
+    ...(config.mode === "copy" ? ["styles.css", "LICENSE", ...modules, ...(block ? ["_mcpcn/blocks.tsx", ...(includeBlockServer ? blockSourceModulePaths : [])] : [])] : []),
+    ...(block && includeBlockServer ? blockExtraPaths(slug) : [])]
     .map(path => config.componentsDir + "/" + path);
 }
 function readLock(value: unknown, config: InstallConfig): InstallLock {
@@ -139,7 +142,7 @@ function readLock(value: unknown, config: InstallConfig): InstallLock {
     files[path] = { hash: entry.hash, source: entry.source };
   }
   const referenced = new Set<string>();
-  let currentProfile = true, priorProfile = config.mode === "copy";
+  let currentProfile = true, priorProfile = config.mode === "copy", priorBlockProfile = true;
   for (const [slug, entry] of Object.entries(value.items)) {
     if ((!catalog.some(item => item.slug === slug) && !blockCatalog.some(item => item.name === slug)) ||
         !record(entry) || !exact(entry, ["files"]) || !Array.isArray(entry.files) ||
@@ -147,17 +150,19 @@ function readLock(value: unknown, config: InstallConfig): InstallLock {
         entry.files.some(path => typeof path !== "string" || !Object.hasOwn(files, path))) fail("lock_invalid");
     const listed = entry.files as string[];
     const expected = itemPaths(config, slug);
-    const prior = itemPaths(config, slug, priorSourceModulePaths);
+    const prior = itemPaths(config, slug, priorSourceModulePaths, false);
+    const priorBlock = itemPaths(config, slug, sourceModulePaths, false);
     const matchesCurrent = listed.length === expected.length && expected.every(path => listed.includes(path));
     const matchesPrior = config.mode === "copy" && listed.length === prior.length && prior.every(path => listed.includes(path));
-    if (!matchesCurrent && !matchesPrior) fail("lock_invalid");
-    currentProfile &&= matchesCurrent; priorProfile &&= matchesPrior;
+    const matchesPriorBlock = listed.length === priorBlock.length && priorBlock.every(path => listed.includes(path));
+    if (!matchesCurrent && !matchesPrior && !matchesPriorBlock) fail("lock_invalid");
+    currentProfile &&= matchesCurrent; priorProfile &&= matchesPrior; priorBlockProfile &&= matchesPriorBlock;
     items[slug] = { files: [...listed] };
     for (const path of items[slug]!.files) referenced.add(path);
   }
   if (Object.keys(files).some(path => !referenced.has(path))) fail("lock_invalid");
   if (!currentProfile) {
-    if (priorProfile && Object.keys(items).length > 0) fail("source_profile_upgrade_required");
+    if ((priorProfile || priorBlockProfile) && Object.keys(items).length > 0) fail("source_profile_upgrade_required");
     fail("lock_invalid");
   }
   return { version: 2, configHash: value.configHash, files, items };
@@ -224,7 +229,8 @@ function payloadFiles(value: unknown, slug: string, config: InstallConfig): Map<
         typeof file.content !== "string" || !file.content.trim() || file.content.includes("\0") ||
         !["registry:component", "registry:lib", "registry:style"].includes(String(file.type))) fail("registry_invalid");
     const suffix = file.path.slice("components/mcpcn/".length);
-    if ((!shared.has(suffix) && suffix !== entry) || (!block && suffix === "_mcpcn/blocks.tsx")) fail("path_not_allowed");
+    if ((!shared.has(suffix) && suffix !== entry && !(block && (blockShared.has(suffix) || blockExtraPaths(slug).includes(suffix))))
+      || (!block && suffix === "_mcpcn/blocks.tsx")) fail("path_not_allowed");
     const path = config.componentsDir + "/" + suffix;
     if (!allowedRelative(config, path) || result.has(path)) fail("registry_invalid");
     const bytes = Buffer.from(suffix === "provider.tsx" ? renderProvider(config) : file.content);
@@ -416,6 +422,12 @@ async function install(root: string, names: string[], fetcher: typeof globalThis
         const name = block ? blockExportName(slug) : item!.name;
         files = new Map([[path, { bytes: Buffer.from('"use client";\nexport { ' + name + ' } from "' + (block ? "@mcpcn/react/blocks" : "@mcpcn/react") + '";\n'), source: "package:" + (block ? "@mcpcn/react/blocks" : "@mcpcn/react") }],
           [config.componentsDir + "/provider.tsx", { bytes: Buffer.from(renderProvider(config)), source: "configuration:provider" }]]);
+      }
+      if (config.mode === "package" && blockCatalog.some(block => block.name === slug)) {
+        for (const file of [blockClientEntry(slug, "package"), ...blockExtraFiles(slug, "package")]) {
+          const suffix = file.path.slice("components/mcpcn/".length);
+          files.set(config.componentsDir + "/" + suffix, { bytes: Buffer.from(file.content), source: "package:block-recipe:" + slug });
+        }
       }
       lock.items[slug] = { files: [...files.keys()] };
       for (const [path, file] of files) {

@@ -1,0 +1,12 @@
+
+> @mcpcn/react@0.1.0 build /home/runner/work/_temp/mcpcn-block-recipes-2tEtIA/source/packages/react
+> tsc -p tsconfig.json && cp src/styles.css dist/styles.css
+
+src/block-apps.tsx(196,86): error TS2322: Type '{ id: string; label: string; description: string; status: "succeeded" | "failed" | "queued" | "running" | "skipped"; attempts: number; operation: { name: string; arguments: Record<string, BlockJson>; }; result: BlockJson; error: string | null; }[]' is not assignable to type '{ id: string; label: string; status: "succeeded" | "failed" | "queued" | "running" | "skipped"; description?: string | undefined; startedAt?: string | undefined; finishedAt?: string | undefined; error?: string | undefined; }[]'.
+  Type '{ id: string; label: string; description: string; status: "succeeded" | "failed" | "queued" | "running" | "skipped"; attempts: number; operation: { name: string; arguments: Record<string, BlockJson>; }; result: BlockJson; error: string | null; }' is not assignable to type '{ id: string; label: string; status: "succeeded" | "failed" | "queued" | "running" | "skipped"; description?: string | undefined; startedAt?: string | undefined; finishedAt?: string | undefined; error?: string | undefined; }'.
+    Types of property 'error' are incompatible.
+      Type 'string | null' is not assignable to type 'string | undefined'.
+        Type 'null' is not assignable to type 'string | undefined'.
+/home/runner/work/_temp/mcpcn-block-recipes-2tEtIA/source/packages/react:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @mcpcn/react@0.1.0 build: `tsc -p tsconfig.json && cp src/styles.css dist/styles.css`
+Exit status 2

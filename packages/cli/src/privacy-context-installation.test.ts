@@ -82,12 +82,12 @@ async function withProject(body: (fixture: {
 }
 
 describe("privacy/context source installation", () => {
-  it("PC-CLI06 installs the exact41-file current block without loosening path ownership", async () => withProject(async ({ cwd, invoke }) => {
+  it("PC-CLI06 installs the exact53-file current block without loosening path ownership", async () => withProject(async ({ cwd, invoke }) => {
     const name = "agent-generated-report-review", payload = (await authoredRegistry()).get(name)!;
-    expect(payload.files).toHaveLength(41);
+    expect(payload.files).toHaveLength(53);
     expect(await invoke(["add", name])).toEqual({ code: 0, errors: [] });
     const lock = JSON.parse(await readFile(join(cwd, "mcpcn.lock.json"), "utf8")) as FixtureLock;
-    expect(lock.items[name]?.files).toHaveLength(41);
+    expect(lock.items[name]?.files).toHaveLength(53);
     expect(lock.items[name]?.files).toContain("components/mcpcn/_mcpcn/privacy-context-components.tsx");
     expect(await readFile(join(cwd, "user-note.txt"), "utf8")).toBe("Authored existing owner file; preserve exactly.\n");
   }));
