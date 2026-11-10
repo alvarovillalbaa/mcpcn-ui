@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": { "noEmit": true, "composite": false, "skipLibCheck": false },
+  "include": [
+    "../packages/server/src/block-recipes.test.ts",
+    "../packages/registry/src/block-source.test.ts",
+    "../packages/cli/src/block-installation.test.ts",
+    "../apps/playground/block-checks/**/*.tsx", "../packages/server/checks/block-workbench-fixture.ts"
+  ]
+}
