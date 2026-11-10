@@ -51,7 +51,8 @@ The [delivery metadata](primitive-keyboard-checks.json) records exact source,
 artifact and disable-before-removal workflow state. Preserve W/C1/C2/C3 as
 accepted ancestry and both original failed packets. Exact archive release,
 production/canonical alias,anonymous HTTP and owned-ref/duplicate retirement
-are subsequent delivery receipts. Do not rerun this closed acceptance scope.
+are recorded in the subsequent [public delivery](primitive-keyboard-public-delivery.md).
+Do not rerun this closed acceptance scope.
 
 This proves T2 authored Linux/Node24.22.2/Chromium iframe execution in four
 selected profiles. Human screenreader,physical touch,complete WCAG/media/device

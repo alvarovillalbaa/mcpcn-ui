@@ -1,7 +1,9 @@
 # Tabs and modal dialog keyboard behavior
 
 The [focused acceptance](../results/2026/11-10/primitive-keyboard-checks.md) passed
-at425ae5b6; exact public release/hosting are separate subsequent receipts.
+at425ae5b6. The [public delivery](../results/2026/11-10/primitive-keyboard-public-delivery.md)
+records eight exact archives,READY canonical hosting and81anonymousHTTPS checks
+at acceptedd91fe403. Human/full-product quality gates remain separate.
 
 10 November2026, following clean `d2ebd103`. Standing approval covers this
 bounded implementation, focused browser checks, temporary free public CI and

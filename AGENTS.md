@@ -11,7 +11,11 @@ strict complete-copy/package clients,two Vite builds,eight actual archives,
 Independent verification and guarded159path adoption completed,preserving9394
 other tracked files. Native HEAD/index stayed unchanged; staging removed.
 Workflow413382498 active→HTTP204→disabled_manually before definition removal.
-Next exact release/production/81anonymousHTTP/ref and duplicate retirement.
+The [public delivery](docs/results/2026/11-10/primitive-keyboard-public-delivery.md)
+is CLOSED at acceptedd91fe403:release440493168/eight exact archives,
+READYdpl_BMWjHE4i9irAyDRZ6k7GFbwDdAxm/canonicalalias,81anonymousHTTP200/TLS/
+79canonicalpayloadcomparisons,workflowdeletedafterdisable,threeownedrefsretired
+and479verifiedduplicates/60714432Bremoved. PermanentCI unchanged.
 Preserve W/C1/C2/C3 and both failed packets; no closed-scope rerun or app/generated
 byte change for metadata closure. Full a11y/device/host/npm/NodeNext/product gates
 remain separate and open. Historical preparation/failure instructions follow.

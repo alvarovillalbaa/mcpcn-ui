@@ -15,7 +15,9 @@ linked roving tabs,actual arrow/Home/End/Enter/Space journeys,native modal
 inertness,iframe Tab containment,controlled cancellation and restored focus.
 Four fresh package/CLI-copy profiles retain32DOM/eightPNG,including selected
 dark/reduced-motion/forced-color states. Strict clients and159verified registry
-paths passed; exact archive publication/hosting follow as separate receipts.
+paths passed. The [public delivery](docs/results/2026/11-10/primitive-keyboard-public-delivery.md)
+binds acceptedd91fe403 to READY/canonicalalias,81anonymousHTTPS checks/all79
+registry payloads and [eight exact archives](https://github.com/alvarovillalbaa/mcpcn-ui/releases/tag/v0.1.0-keyboard.1).
 Human screenreader,physical touch and full accessibility coverage remain open.
 
 The separate [server integration repair](docs/specs/server-contract.md) adds
