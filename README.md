@@ -1,5 +1,9 @@
 # MCPCN
 
+<!-- project-family:start -->
+> **Project family:** [UI Libraries](https://github.com/alvarovillalbaa#ui-libraries) · **Area:** MCP Apps
+<!-- project-family:end -->
+
 Last updated: 2026-11-10
 
 **MCP Component Network** is a React UI library for human-controlled agent workflows inside MCP Apps.
